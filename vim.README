@@ -1,0 +1,143 @@
+VUNDLE (PACKAGE MANAGER):
+
+Vundle will make installing and updating all the other tools much easier. It’s basically pathogen with a lot of nice extras, like installing the bundles itself from their Github repos (and other sources). For more info see the README in the Github repo.
+
+To install:
+    $ mkdir ~/.vim/bundle
+    $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+To install plugins which are at ".vimrc":
+
+    :PluginInstall
+
+    After the installation is completed, close the buffer:
+
+        :bdelete
+
+Update the plugins:
+
+    :PluginUpdate
+        OR
+    :PluginInstall!
+
+
+See all installed plugins:
+
+    :PluginList
+
+Search for plugins:
+
+    :PluginSearch! [plugin_query]
+
+    Example:
+        :PluginSearch! markdown
+
+MORE AT: https://www.digitalocean.com/community/tutorials/how-to-use-vundle-to-manage-vim-plugins-on-a-linux-vps
+
+---
+
+Open a new buffer (using NERDTree):
+    <CTRL> + n
+
+    This will open a new buffer with the selected file.
+
+    If you wish to toggle between all open buffers:
+        :b <SPACE> <TAB until you reach your open buffer>
+
+        You can also use MiniBufExplorer to alternate between open buffers. Just do:
+            (VISUAL MODE) <CTRL>+w w
+
+            Once inside the MiniBufExplorer, you can use the left and right arrows to alternate between open buffers.
+
+    Para fechar um buffer:
+        :bdelete
+
+    Para ir para um buffer numerado (MiniBufExplorer):
+        :b[buffer_number]
+
+
+---
+
+WINDOW OPERATIONS:
+
+    Vertical Split : Ctrl+w + v
+    Horizontal Split: Ctrl+w + s
+    Close current windows: Ctrl+w + q
+
+MOVE BETWEEN (customized on my .vimrc):
+Ctrl+<movement>
+
+, where movement is:
+j / k / l / n
+
+---
+
+PYTHON SPECIFIC:
+
+    - Ver a documentação de um módulo:
+        No VISUAL MODE, Colocar o cursor no nome do módulo e usar a combinação:
+            \,pw
+
+    - FLAKE8:
+        Para verificar a compatibilidade:
+            <F8>
+            Isso irá abrir a janela Quick Fix, no VISUAL MODE, com a verificação atualizada.
+            Depois, use "<CTRL>+w w" para alcançar a janela do QuickFix. E para fechá-la:
+                :bdelete
+
+            Para mais detalhes do que significam cada um dos gutters na margem esquerda ver o .vimrc.
+---
+
+rope / rope.vim:
+https://github.com/python-rope/ropevim
+
+
+- by default rope auto assist is mapped to Control+Space
+
+- Auto import:
+    <VISUAL MODE> :RopevimAutoImport
+
+- find occurrences:
+    - <C-c> f
+
+- go to definition:
+    - <C-c> g
+
+
+Key     Command
+C-x p o     RopeOpenProject
+C-x p k     RopeCloseProject
+C-x p f     RopeFindFile
+C-x p 4 f   RopeFindFileOtherWindow
+C-x p u     RopeUndo
+C-x p r     RopeRedo
+C-x p c     RopeProjectConfig
+C-x p n [mpfd]  RopeCreate(Module|Package|File|Directory)
+    RopeWriteProject
+
+C-c r r     RopeRename
+C-c r l     RopeExtractVariable
+C-c r m     RopeExtractMethod
+C-c r i     RopeInline
+C-c r v     RopeMove
+C-c r x     RopeRestructure
+C-c r u     RopeUseFunction
+C-c r f     RopeIntroduceFactory
+C-c r s     RopeChangeSignature
+C-c r 1 r   RopeRenameCurrentModule
+C-c r 1 v   RopeMoveCurrentModule
+C-c r 1 p   RopeModuleToPackage
+C-c r o     RopeOrganizeImports
+C-c r n [vfcmp]     RopeGenerate(Variable|Function|Class|Module|Package)
+C-c r a /   RopeCodeAssist
+C-c r a g   RopeGotoDefinition
+C-c r a d   RopeShowDoc
+C-c r a f   RopeFindOccurrences
+C-c r a ?   RopeLuckyAssist
+C-c r a j   RopeJumpToGlobal
+C-c r a c   RopeShowCalltip
+
+
+---
+
+
