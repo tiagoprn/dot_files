@@ -2,4 +2,5 @@
 # rope
 ropevim
 powerline-status
+flake8
 
