@@ -63,7 +63,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
-" CTRLSPace
+" CTRLSpace
 Plugin 'szw/vim-ctrlspace'
 
 
@@ -195,6 +195,20 @@ map <C-c>f :RopeFindFile<CR>
 " CTRL+b to load snippets
 imap <C-b> <Plug>snipMateNextOrTrigger
 smap <C-b> <Plug>snipMateNextOrTrigger
+
+" CTRLSpace
+" Sets the minimal height of the plugin window.
+let g:ctrlspace_height = 7
+
+let g:ctrlspace_save_workspace_on_exit = 1
+let g:ctrlspace_load_last_workspace_on_start = 1
+
+let g:ctrlspace_show_unnamed = 1
+
+let g:ctrlspace_show_tab_info =1
+let g:ctrlspace_show_key_info = 1
+let g:ctrlspace_project_root_markers = [".git", ".hg", ".bzr"]
+
 
 "--------------------------------------------------
 " PYTHON SPECIFIC CONFIGURATION
