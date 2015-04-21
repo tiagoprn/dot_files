@@ -100,6 +100,8 @@ au FileType py set autoindent
 au FileType py set smartindent
 au FileType py set textwidth=79 " PEP-8 Friendly
 
+set title
+
 " Height of the command bar
 set cmdheight=2
 
