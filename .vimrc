@@ -66,6 +66,8 @@ Plugin 'garbas/vim-snipmate'
 " CTRLSpace
 Plugin 'szw/vim-ctrlspace'
 
+" A light and configurable statusline/tabline for Vim
+Plugin 'itchyny/lightline.vim'
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
@@ -86,10 +88,10 @@ set nowritebackup
 set noswapfile
 
 " Rebind <Leader> key
-" I like to have it here because it is easier to reach than the default and
-" it is next to ``m`` and ``n`` which I use for navigating between tabs.
-let mapleader = ","  " the <Leader> combination will so be: '\,'
-" easier moving between tabs
+" With a map leader it's possible to do extra key combinations
+" like <Leader>w saves the current file
+let mapleader = ","  " the <Leader> combination (in visual mode) will so be: ','
+" Example (easier moving between tabs):
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
@@ -97,6 +99,9 @@ filetype plugin indent on
 au FileType py set autoindent
 au FileType py set smartindent
 au FileType py set textwidth=79 " PEP-8 Friendly
+
+" Height of the command bar
+set cmdheight=2
 
 " Showing line numbers and length
 set number  " show line numbers
@@ -129,18 +134,36 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :call VisualSelection('f')<CR>
+vnoremap <silent> # :call VisualSelection('b')<CR>
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " Color scheme (must be in ~/.vim/colors)
 set t_Co=256
 color wombat256mod
 
-" Moving windows
-" Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w +
-" <movement>:
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+" Always show the status line
+set laststatus=2
+" Format the status line
+" set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 
 "--------------------------------------------------
@@ -213,6 +236,67 @@ let g:ctrlspace_show_unnamed = 1
 let g:ctrlspace_show_tab_info =1
 let g:ctrlspace_show_key_info = 1
 let g:ctrlspace_project_root_markers = [".git", ".hg", ".bzr"]
+
+" lightline specific configuration
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'readonly': 'MyReadonly',
+      \   'modified': 'MyModified',
+      \   'filename': 'MyFilename'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+function! MyModified()
+    if &filetype == "help"
+        return ""
+    elseif &modified
+        return "+"
+    elseif &modifiable
+        return ""
+    else
+        return ""
+    endif
+endfunction
+
+function! MyReadonly()
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return ""
+    else
+        return ""
+    endif
+endfunction
+
+function! MyFugitive()
+    return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+
+function! MyFugitive()
+    if exists("*fugitive#head")
+        let _ = fugitive#head()
+        return strlen(_) ? ''._ : ''
+    endif
+    return ''
+endfunction
+
+
+function! MyFilename()
+    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+         \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+         \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
 
 
 "--------------------------------------------------

@@ -19,6 +19,11 @@
         Go to next word: <w>
         Go to previous word: <b> 
 
+    ## SEARCH   
+        Search for current word on the cursor (visual mode): 
+            Forwards: (VISUAL) * 
+            Backwards: (VISUAL) #
+
 
 # vim-ctrlspace:
 
@@ -42,8 +47,9 @@
 
 # Python:
     Expand code snippet: <CTRL+b> (snippets can be found and managed at .vim/snippets/python.snippets) 
-    Show a module documentation: (VISUAL) :\,pw
+    Show a module documentation [*]: (VISUAL) ,pw 
     PEP8 and other python style checking: (VISUAL) <F8>
+    [*] "," here is the <Leader> key, defined on .vimrc
 
 # Fugitive (git plugin):
     Git status: (VISUAL) :Gstatus
