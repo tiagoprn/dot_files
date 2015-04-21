@@ -1,0 +1,10 @@
+snippet exc
+	try:
+		'${1:code}'
+	except Exception, e:
+		print 'MESSAGE: {}, TRACEBACK: {}'.format(e.message, e.print_exc())
+
+snippet ipdb
+	import ipdb; ipdb.set_trace()
+
+

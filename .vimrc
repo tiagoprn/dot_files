@@ -58,6 +58,11 @@ Plugin 'fholgado/minibufexpl.vim'
 " pip install rope ropevim 
 Plugin 'python-rope/ropevim'
 
+" Support for code snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
@@ -182,6 +187,11 @@ let g:ropevim_autoimport_modules = ["os", "shutil"]
 map <C-c>g :RopeGotoDefinition<CR>
 map <C-c>w :RopeFindFileOtherWindow<CR>
 map <C-c>f :RopeFindFile<CR>
+
+"" snipmate
+" CTRL+b to load snippets
+imap <C-b> <Plug>snipMateNextOrTrigger
+smap <C-b> <Plug>snipMateNextOrTrigger
 
 "--------------------------------------------------
 " PYTHON SPECIFIC CONFIGURATION
