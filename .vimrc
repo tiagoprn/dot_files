@@ -129,6 +129,7 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
+
 " Color scheme (must be in ~/.vim/colors)
 set t_Co=256
 color wombat256mod
@@ -159,12 +160,16 @@ au FileType python set omnifunc=pythoncomplete#Complete
 set completeopt=menuone,longest,preview
 
 "" Flake8
-" remaps the checking to F8
+" remaps the manual file checking to F8
 autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
+" run the Flake8 check every time you write a Python file
+autocmd BufWritePost *.py call Flake8()
 " customize the location of your flake8 binary
 " let g:flake8_cmd="/opt/strangebin/flake8000"
+" Show vim's quickfix
+let g:flake8_show_quickfix=1
 " customize the height of quick fix window
-let g:flake8_quickfix_height=7
+let g:flake8_quickfix_height=3
 " customize whether the show signs in the gutter
 let g:flake8_show_in_gutter=1
 " customize whether the show marks in the file
@@ -172,10 +177,10 @@ let g:flake8_show_in_file=1
 " customize the number of marks to show
 let g:flake8_max_markers=100
 " customize gutter markers
-let flake8_error_marker='EE'     " set error marker to 'EE'
-let flake8_warning_marker='WW'   " set warning marker to 'WW'
-let flake8_pyflake_marker='PF'   " set PyFlakes warnings
-let flake8_complexity_marker='MC' " set McCabe complexity warnings
+let flake8_error_marker='ER'     " set error marker
+let flake8_warning_marker='WA'   " set warning marker
+let flake8_pyflake_marker='FL'   " set PyFlakes warnings
+let flake8_complexity_marker='CO' " set McCabe complexity warnings
 let flake8_naming_marker='NA'     " set naming warnings
 " to use colors defined in the colorscheme
 highlight link Flake8_Error      Error

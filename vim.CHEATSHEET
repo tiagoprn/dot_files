@@ -1,8 +1,31 @@
+# General
+    ## QUICKFIX WINDOW
+    ### It is useful, for example, for the Fugitive git plugin "Ggrep"
+        Open: (VISUAL) :copen
+        Close: (VISUAL) :cclose 
+        Go to next occurence/error [*]:  (VISUAL) :cn
+        Go to previous occurence/error [*]: (VISUAL) :cp
+            [*] On both of them, if you specify a number after the command, it will Go to next/previous X occurences you passed to it.
+        Clean: (VISUAL) :call setqflist([])
+
+    ## MARKS
+    ### They are useful to mark points of a file:
+        Mark a line as "a" [*]: (VISUAL) :ma a
+        Go to marked line "a": (VISUAL) :'a
+        List all marks: (VISUAL) :marks
+        [*] It is better to use only lowercase letters
+
+    ## NAVIGATION (VISUAL MODE)
+        Go to next word: <w>
+        Go to previous word: <b> 
+
+
 # vim-ctrlspace:
 
     ## BUFFERS: 
         Show buffers list: <CTRL+Space> (navigate with <j>,<k>)
         Close buffer: (VISUAL) :bdelete
+        Toggle buffers: <CTRL+w><w>
 
     ## WORKSPACES:
         Show all workspaces: <CTRL+Space> "w"
@@ -18,9 +41,19 @@
 
 
 # Python:
-    Expand code snippet: <CTRL+b> (snippets can be found at .vim/snippets/python.snippets) 
+    Expand code snippet: <CTRL+b> (snippets can be found and managed at .vim/snippets/python.snippets) 
     Show a module documentation: (VISUAL) :\,pw
     PEP8 and other python style checking: (VISUAL) <F8>
+
+# Fugitive (git plugin):
+    Git status: (VISUAL) :Gstatus
+    Git blame: (VISUAL) :Gblame
+    Git diff: (VISUAL) :Gdiff
+    Search on all the project [*]: (VISUAL) :Ggrep 'REGEX'
+    Git logi [*]: (VISUAL) :Glog 
+    [*] Both work better if the quickfix window is open
+
+
 
 
 # rope / rope.vim:
