@@ -4,7 +4,20 @@ snippet exc
 	except Exception, e:
 		print 'MESSAGE: {}, TRACEBACK: {}'.format(e.message, e.print_exc())
 
+
 snippet ipdb
 	import ipdb; ipdb.set_trace()
 
+
+snippet ifmain
+	if __name__ == '__main__':
+			${1:main()}
+
+snippet class
+	class ${1:ClassName}(${2:object}):
+		"""${3:docstring for $1}"""
+		def __init__(self, ${4:arg}):
+			${5:super($1, self).__init__()}
+			self.$4 = $4
+			${6}
 
