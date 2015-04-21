@@ -1,0 +1,39 @@
+VUNDLE (PACKAGE MANAGER):
+
+Vundle will make installing and updating all the other tools much easier. It’s basically pathogen with a lot of nice extras, like installing the bundles itself from their Github repos (and other sources). For more info see the README in the Github repo.
+
+To install:
+    Remove my current ".vim/" and .vimrc, then:
+    $ ln -s git/github/dot_files/.vimrc ~/.vimrc
+    $ ln -s git/github/dot_files/.vim ~/.vim
+    $ mkdir ~/.vim/bundle
+    $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+To install plugins which are at ".vimrc":
+
+    :PluginInstall
+
+    After the installation is completed, close the buffer:
+
+        :bdelete
+
+Update the plugins:
+
+    :PluginUpdate
+        OR
+    :PluginInstall!
+
+
+See all installed plugins:
+
+    :PluginList
+
+Search for plugins:
+
+    :PluginSearch! [plugin_query]
+
+    Example:
+        :PluginSearch! markdown
+
+MORE AT: https://www.digitalocean.com/community/tutorials/how-to-use-vundle-to-manage-vim-plugins-on-a-linux-vps
+

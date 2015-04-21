@@ -1,0 +1,74 @@
+# vim-ctrlspace:
+
+    ## BUFFERS: 
+        Show buffers list: <CTRL+Space> (navigate with <j>,<k>)
+        Close buffer: (VISUAL) :bdelete
+
+    ## WORKSPACES:
+        Show all workspaces: <CTRL+Space> "w"
+        Save/Update current open buffers on workspace: <CTRL+Space> "w", "s"
+        Delete workpace: [Show all workpaces], navigate, then "d"
+        Rename current workspace: [Show all workpaces], navigate, then "="
+        Create a new workpace: <CTRL+Space> "w", "n"
+
+
+# NERDTree:
+    Open: <CTRL+n> 
+    Refresh: put the cursor on the folder, then: <r> or <R>
+
+
+# Python:
+    Expand code snippet: <CTRL+b> (snippets can be found at .vim/snippets/python.snippets) 
+    Show a module documentation: (VISUAL) :\,pw
+    PEP8 and other python style checking: (VISUAL) <F8>
+
+
+# rope / rope.vim:
+
+    https://github.com/python-rope/ropevim
+
+
+    - by default rope auto assist is mapped to Control+Space
+
+    - Auto import:
+        <VISUAL MODE> :RopevimAutoImport
+
+    - find occurrences:
+        - <C-c> f
+
+    - go to definition:
+        - <C-c> g
+
+    Key     Command
+    C-x p o     RopeOpenProject
+    C-x p k     RopeCloseProject
+    C-x p f     RopeFindFile
+    C-x p 4 f   RopeFindFileOtherWindow
+    C-x p u     RopeUndo
+    C-x p r     RopeRedo
+    C-x p c     RopeProjectConfig
+    C-x p n [mpfd]  RopeCreate(Module|Package|File|Directory)
+        RopeWriteProject
+
+    C-c r r     RopeRename
+    C-c r l     RopeExtractVariable
+    C-c r m     RopeExtractMethod
+    C-c r i     RopeInline
+    C-c r v     RopeMove
+    C-c r x     RopeRestructure
+    C-c r u     RopeUseFunction
+    C-c r f     RopeIntroduceFactory
+    C-c r s     RopeChangeSignature
+    C-c r 1 r   RopeRenameCurrentModule
+    C-c r 1 v   RopeMoveCurrentModule
+    C-c r 1 p   RopeModuleToPackage
+    C-c r o     RopeOrganizeImports
+    C-c r n [vfcmp]     RopeGenerate(Variable|Function|Class|Module|Package)
+    C-c r a /   RopeCodeAssist
+    C-c r a g   RopeGotoDefinition
+    C-c r a d   RopeShowDoc
+    C-c r a f   RopeFindOccurrences
+    C-c r a ?   RopeLuckyAssist
+    C-c r a j   RopeJumpToGlobal
+    C-c r a c   RopeShowCalltip
+

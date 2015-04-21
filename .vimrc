@@ -63,6 +63,9 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
+" CTRLSPace
+Plugin 'szw/vim-ctrlspace'
+
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
