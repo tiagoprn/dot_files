@@ -69,6 +69,13 @@ Plugin 'szw/vim-ctrlspace'
 " A light and configurable statusline/tabline for Vim
 Plugin 'itchyny/lightline.vim'
 
+" EasyTags + TagBar (for a nice class browser)
+" You must have your linux distro 'ctags' package installed for it to work
+Plugin 'vim-misc'
+Plugin 'xolox/vim-easytags'
+Plugin 'majutsushi/tagbar'
+
+
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 
@@ -219,7 +226,7 @@ let g:flake8_show_in_gutter=1
 " customize whether the show marks in the file
 let g:flake8_show_in_file=1
 " customize the number of marks to show
-let g:flake8_max_markers=100
+let g:flake8_max_markers=10
 " customize gutter markers
 let flake8_error_marker='ER'     " set error marker
 let flake8_warning_marker='WA'   " set warning marker
@@ -318,7 +325,8 @@ function! MyFilename()
          \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
-
+" tagbar
+map <F7> :TagbarToggle<CR>
 
 "--------------------------------------------------
 " PYTHON SPECIFIC CONFIGURATION

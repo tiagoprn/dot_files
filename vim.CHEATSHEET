@@ -59,6 +59,11 @@
     Show a module documentation [*]: (VISUAL) ,pw 
     PEP8 and other python style checking: (VISUAL) <F8>
     [*] "," here is the <Leader> key, defined on .vimrc
+    ## TagBar:
+        Open: <F7>
+        Navigate between methods / classes: <up> or <down>
+        Show method / class contents: <p>
+        Go to method / class: <ENTER>
 
 
 # Fugitive (git plugin):
