@@ -24,6 +24,15 @@
             Forwards: (VISUAL) * 
             Backwards: (VISUAL) #
 
+    ## HISTORY:
+        List of past commands (hitting <Enter> you can execute them):
+            (VISUAL) q:
+            To exit the list without executing any command: <CTRL+C>
+
+    ## COPY
+        To copy text from other apps (browser, text editor, disabling the auto-indent:
+            (INSERT) mode, press <F2>. Then paste the desired text and press <F2> again.
+
 
 # vim-ctrlspace:
 
@@ -51,15 +60,14 @@
     PEP8 and other python style checking: (VISUAL) <F8>
     [*] "," here is the <Leader> key, defined on .vimrc
 
+
 # Fugitive (git plugin):
     Git status: (VISUAL) :Gstatus
     Git blame: (VISUAL) :Gblame
     Git diff: (VISUAL) :Gdiff
     Search on all the project [*]: (VISUAL) :Ggrep 'REGEX'
-    Git logi [*]: (VISUAL) :Glog 
+    Git log [*]: (VISUAL) :Glog 
     [*] Both work better if the quickfix window is open
-
-
 
 
 # rope / rope.vim:

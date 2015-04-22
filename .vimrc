@@ -87,6 +87,18 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" General settings
+set title
+set history=1000         " remember more commands and search history
+set undolevels=1000      " use many muchos levels of undo
+set wildignore=*.swp,*.bak,*.pyc,*~
+
+" Then, when in insert mode, ready to paste, if you press <F2>, Vim will switch
+" to paste mode, which will not try to ident code when you paste it from
+" another app, like the browser or a text editor.
+set pastetoggle=<F2>
+
+
 " Rebind <Leader> key
 " With a map leader it's possible to do extra key combinations
 " like <Leader>w saves the current file
@@ -99,8 +111,6 @@ filetype plugin indent on
 au FileType py set autoindent
 au FileType py set smartindent
 au FileType py set textwidth=79 " PEP-8 Friendly
-
-set title
 
 " Height of the command bar
 set cmdheight=2
@@ -168,8 +178,14 @@ set laststatus=2
 " set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 " Key remappings 
-nnoremap <Leader>w <C-w>w " easy toggle between windows
-
+" easy toggle between windows
+nnoremap <Leader>w <C-w>w 
+" If you like long lines with line wrapping enabled, this solves the problem 
+" that pressing down jumpes your cursor “over” the current line to the next 
+" line. It changes behaviour so that it jumps to the next row in the editor 
+" (much more natural):
+nnoremap j gj
+nnoremap k gk
 
 "--------------------------------------------------
 " PLUGIN CONFIGURATIONS
