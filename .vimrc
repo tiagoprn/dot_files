@@ -220,13 +220,13 @@ autocmd BufWritePost *.py call Flake8()
 " Show vim's quickfix
 let g:flake8_show_quickfix=1
 " customize the height of quick fix window
-let g:flake8_quickfix_height=3
+let g:flake8_quickfix_height=5
 " customize whether the show signs in the gutter
 let g:flake8_show_in_gutter=1
 " customize whether the show marks in the file
 let g:flake8_show_in_file=1
 " customize the number of marks to show
-let g:flake8_max_markers=10
+let g:flake8_max_markers=100
 " customize gutter markers
 let flake8_error_marker='ER'     " set error marker
 let flake8_warning_marker='WA'   " set warning marker
@@ -261,7 +261,7 @@ let g:ctrlspace_load_last_workspace_on_start = 1
 
 let g:ctrlspace_show_unnamed = 1
 
-let g:ctrlspace_show_tab_info =1
+let g:ctrlspace_show_tab_info = 1
 let g:ctrlspace_show_key_info = 1
 let g:ctrlspace_project_root_markers = [".git", ".hg", ".bzr"]
 
@@ -327,6 +327,8 @@ endfunction
 
 " tagbar
 map <F7> :TagbarToggle<CR>
+" let g:tagbar_autoclose = 1
+
 
 "--------------------------------------------------
 " PYTHON SPECIFIC CONFIGURATION

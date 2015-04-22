@@ -61,6 +61,7 @@
     [*] "," here is the <Leader> key, defined on .vimrc
     ## TagBar:
         Open: <F7>
+        Order (same as file or alphabetical): <s>
         Navigate between methods / classes: <up> or <down>
         Show method / class contents: <p>
         Go to method / class: <ENTER>
