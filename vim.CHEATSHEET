@@ -19,10 +19,17 @@
         Go to next word: <w>
         Go to previous word: <b> 
 
-    ## SEARCH   
-        Search for current word on the cursor (visual mode): 
+    ## SEARCH / REPLACE
+        - Search for current word on the cursor (visual mode): 
             Forwards: (VISUAL) * 
             Backwards: (VISUAL) #
+        - Search / Replace
+            (VISUAL) :%s/search/replace/g[ic]
+                %s = on the whole file
+                g = all ocurrences in the line
+                i = case insensitive
+                c = confirm each match
+                
 
     ## HISTORY:
         List of past commands (hitting <Enter> you can execute them):
