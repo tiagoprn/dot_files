@@ -30,7 +30,7 @@
     ## BUFFERS: 
         Show buffers list: <CTRL+Space> (navigate with <j>,<k>)
         Close buffer: (VISUAL) :bdelete
-        Toggle buffers: <CTRL+w><w>
+        Toggle buffers: (VISUAL) ,<w> ("," is the Leader key)
 
     ## WORKSPACES:
         Show all workspaces: <CTRL+Space> "w"

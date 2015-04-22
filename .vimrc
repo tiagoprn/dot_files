@@ -167,6 +167,9 @@ set laststatus=2
 " Format the status line
 " set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
+" Key remappings 
+nnoremap <Leader>w <C-w>w " easy toggle between windows
+
 
 "--------------------------------------------------
 " PLUGIN CONFIGURATIONS
