@@ -75,7 +75,8 @@
         Show the signature of a method: <SPACE>
         DEBUG: (VISUAL) :TagbarDebug (This should leave a file called tagbardebug.log in the current directory)
             NOTE: If your tagbar is empty:
-                - Put the cursor on your buffer (make sure it is not on MiniBufExplorer or Quickfix Window)
+                - Put the cursor on your python code buffer (make sure it is not on MiniBufExplorer or Quickfix Window)
+                - Press <F7> (activates the Tagbar buffer)
                 - Go to the Tagbar buffer 
                 - Hit the <F1> key. 
 
