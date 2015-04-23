@@ -72,7 +72,8 @@
         Navigate between methods / classes: <up> or <down>
         Show method / class contents: <p>
         Go to method / class: <ENTER>
-
+        DEBUG: (VISUAL) :TagbarDebug (This should leave a file called tagbardebug.log in the current directory)
+        
 
 # Fugitive (git plugin):
     Git status: (VISUAL) :Gstatus
