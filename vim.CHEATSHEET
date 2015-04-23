@@ -72,8 +72,12 @@
         Navigate between methods / classes: <up> or <down>
         Show method / class contents: <p>
         Go to method / class: <ENTER>
+        Show the signature of a method: <SPACE>
         DEBUG: (VISUAL) :TagbarDebug (This should leave a file called tagbardebug.log in the current directory)
-        
+            NOTE: If your tagbar is empty:
+                - Put the cursor on your buffer (make sure it is not on MiniBufExplorer or Quickfix Window)
+                - Go to the Tagbar buffer 
+                - Hit the <F1> key. 
 
 # Fugitive (git plugin):
     Git status: (VISUAL) :Gstatus
