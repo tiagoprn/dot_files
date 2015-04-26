@@ -47,6 +47,9 @@
         Show buffers list: <CTRL+Space> (navigate with <j>,<k>)
         Close buffer: (VISUAL) :bdelete
         Toggle buffers: (VISUAL) ,<w> ("," is the Leader key)
+        Open selected buffer in a vertical (side-by-side) split: v
+        Open selected buffer in a horizontal (below) split: s
+        Close selected buffer split opened: x
 
     ## WORKSPACES:
         Show all workspaces: <CTRL+Space> "w"
