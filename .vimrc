@@ -179,6 +179,10 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 set t_Co=256
 color wombat256mod
 
+
+" font
+set anti gfn=Ubuntu\ Mono\ derivative\ Powerline\ 12
+
 " Always show the status line
 set laststatus=2
 " Format the status line
@@ -205,6 +209,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let NERDTreeQuitOnOpen=1
 
 " SuperTab - Autocomplete behavior
 au FileType python set omnifunc=pythoncomplete#Complete
