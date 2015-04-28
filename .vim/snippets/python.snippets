@@ -4,10 +4,8 @@ snippet exc
 	except Exception, e:
 		print 'MESSAGE: {}, TRACEBACK: {}'.format(e.message, e.print_exc())
 
-
 snippet ipdb
 	import ipdb; ipdb.set_trace()
-
 
 snippet ifmain
 	if __name__ == '__main__':
@@ -20,4 +18,8 @@ snippet class
 			${5:super($1, self).__init__()}
 			self.$4 = $4
 			${6}
+
+snippet path
+	import os
+	os.path.dirname(os.path.abspath(__file__))
 
