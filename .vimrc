@@ -212,6 +212,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeShowBookmarks=1
 
 " SuperTab - Autocomplete behavior
 au FileType python set omnifunc=pythoncomplete#Complete

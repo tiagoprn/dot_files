@@ -60,9 +60,12 @@
 
 
 # NERDTree:
+## (https://github.com/scrooloose/nerdtree/blob/master/doc/NERD_tree.txt)
     Open: <CTRL+n> 
     Refresh: put the cursor on the folder, then: <r> or <R>
-
+    Bookmark a file/folder: put the cursor on the file/folder, then: 
+        (VISUAL) :Bookmark [<name>]
+    By default, bookmarks are at: $HOME/.NERDTreeBookmarks
 
 # Python:
     Expand code snippet: <CTRL+b> (snippets can be found and managed at .vim/snippets/python.snippets) 
