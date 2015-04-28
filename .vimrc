@@ -210,6 +210,7 @@ map <C-n> :NERDTreeToggle<CR>
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
 
 " SuperTab - Autocomplete behavior
 au FileType python set omnifunc=pythoncomplete#Complete
