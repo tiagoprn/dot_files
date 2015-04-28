@@ -66,6 +66,7 @@
     Bookmark a file/folder: put the cursor on the file/folder, then: 
         (VISUAL) :Bookmark [<name>]
     By default, bookmarks are at: $HOME/.NERDTreeBookmarks
+    To create / delete / copy / move files or folders: put the cursor on the desired file/directory to operate on, then: <m>
 
 # Python:
     Expand code snippet: <CTRL+b> (snippets can be found and managed at .vim/snippets/python.snippets) 
