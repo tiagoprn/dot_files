@@ -1,4 +1,8 @@
 # General
+    ## BUFFERS: 
+        Close all current buffers: (VISUAL) :bufdo bdelete
+          (bufdo do whatever is typed after it on all current buffers, so it can be useful on other contexts as well.)
+
     ## QUICKFIX WINDOW
     ### It is useful, for example, for the Fugitive git plugin "Ggrep"
         Open: (VISUAL) :copen
