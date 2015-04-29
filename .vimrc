@@ -254,6 +254,7 @@ let g:ropevim_autoimport_modules = ["os", "shutil"]
 map <C-c>g :RopeGotoDefinition<CR>
 map <C-c>w :RopeFindFileOtherWindow<CR>
 map <C-c>f :RopeFindFile<CR>
+map <C-a> :RopeCodeAssist<CR>
 
 "" snipmate
 " CTRL+b to load snippets

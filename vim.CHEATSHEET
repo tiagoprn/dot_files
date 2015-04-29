@@ -1,4 +1,9 @@
 # General
+
+    ## OTHER
+    ### View all key mappings in vim
+        (VISUAL) :map
+
     ## QUICKFIX WINDOW
     ### It is useful, for example, for the Fugitive git plugin "Ggrep"
         Open: (VISUAL) :copen
@@ -45,7 +50,8 @@
 
     ## BUFFERS: 
         Show buffers list: <CTRL+Space> (navigate with <j>,<k>)
-        Close buffer: (VISUAL) :bdelete
+        Close buffer: Select the buffer, then: <c>
+        Delete buffer (almost the same as closing it): Select the buffer, then: <d>
         Toggle buffers: (VISUAL) ,<w> ("," is the Leader key)
         Open selected buffer in a vertical (side-by-side) split: v
         Open selected buffer in a horizontal (below) split: s
