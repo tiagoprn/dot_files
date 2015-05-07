@@ -78,6 +78,11 @@ Plugin 'vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 
+" vim-bookmarks
+Plugin 'MattesGroeger/vim-bookmarks'
+
+" TaskList - for putting TODO and FIXME under a list
+Plugin 'TaskList.vim'
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
@@ -103,6 +108,10 @@ set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*~
 set incsearch            " show search matches while you type
+
+" move vertically by visual line (when "setwrap" is settled)
+nnoremap j gj
+nnoremap k gk
 
 " Then, when in insert mode, ready to paste, if you press <F2>, Vim will switch
 " to paste mode, which will not try to ident code when you paste it from
@@ -224,7 +233,7 @@ set completeopt=menuone,longest,preview
 
 "" Flake8
 " remaps the manual file checking to F8
-autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
+" autocmd FileType python map <buffer> <F8> :call Flake8()<CR>
 " run the Flake8 check every time you write a Python file
 autocmd BufWritePost *.py call Flake8()
 " customize the location of your flake8 binary
@@ -260,13 +269,25 @@ highlight link Flake8_PyFlake    WarningMsg
 " map <C-c>f :RopeFindFile<CR>
 " map <C-a> :RopeCodeAssist<CR>
 
-" jedi-vim
+"" jedi-vim
 let g:jedi#goto_assignments_command = "<C-c>g"
 let g:jedi#goto_definitions_command = "<C-c>e"
 let g:jedi#documentation_command = "<C-c>d"
 let g:jedi#usages_command = "<C-c>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<C-c>r"
+
+"" vim-bookmarks
+nmap <Leader><Leader> <Plug>BookmarkToggle
+nmap <Leader>i <Plug>BookmarkAnnotate
+nmap <Leader>a <Plug>BookmarkShowAll
+nmap <Leader>n <Plug>BookmarkNext
+nmap <Leader>p <Plug>BookmarkPrev
+nmap <Leader>c <Plug>BookmarkClear
+nmap <Leader>x <Plug>BookmarkClearAll
+
+"" tasklist
+map <C-t> <Plug>TaskList
 
 "" snipmate
 " CTRL+b to load snippets
@@ -349,6 +370,16 @@ endfunction
 " tagbar
 map <F7> :TagbarToggle<CR>
 " let g:tagbar_autoclose = 1
+
+" a quickfix window opens with a 10-line height, even when the number of errors
+" is 1 or 2. I think it's a waste of window space. So I wrote the following
+" code in my vimrc. With it, a quickfix window height is automatically adjusted
+" to fit its contents (maximum 5 lines).
+" http://vim.wikia.com/wiki/Automatically_fitting_a_quickfix_window_height 
+au FileType qf call AdjustWindowHeight(3, 5)
+function! AdjustWindowHeight(minheight, maxheight)
+    exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
 
 
 "--------------------------------------------------

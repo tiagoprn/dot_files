@@ -13,7 +13,8 @@
         Redo: (VISUAL) <CTRL+r>
 
     ## QUICKFIX WINDOW
-    ### It is useful, for example, for the Fugitive git plugin "Ggrep"
+    ### It is useful, for example, for the Fugitive git plugin "Ggrep" and for
+    ### Flake 8.
         Open: (VISUAL) :copen
         Close: (VISUAL) :cclose 
         Go to next occurence/error [*]:  (VISUAL) :cn
@@ -43,7 +44,6 @@
                 g = all ocurrences in the line
                 i = case insensitive
                 c = confirm each match
-                
 
     ## HISTORY:
         List of past commands (hitting <Enter> you can execute them):
@@ -54,6 +54,15 @@
         To copy text from other apps (browser, text editor, disabling the auto-indent:
             (INSERT) mode, press <F2>. Then paste the desired text and press <F2> again.
 
+# vim-bookmarks:
+    Set/Unset  Bookmark: (VISUAL) <,,>
+    Show all Bookmarks: <,a>
+    Next Bookmark: <,n>
+    Previous Bookmark: <,p>
+    Clear All Bookmarks: <,x>
+
+# TaskList:
+    Toggle TODO/FIXME list: <CTRL+t> 
 
 # vim-ctrlspace:
 
@@ -103,10 +112,12 @@
         Show the signature of a method: <SPACE>
         DEBUG: (VISUAL) :TagbarDebug (This should leave a file called tagbardebug.log in the current directory)
             NOTE: If your tagbar is empty:
-                - Put the cursor on your python code buffer (make sure it is not on MiniBufExplorer or Quickfix Window)
-                - Press <F7> (activates the Tagbar buffer)
-                - Go to the Tagbar buffer 
-                - Hit the <F1> key. 
+                    1) 
+                    - Put the cursor on your python code buffer (make sure it is not on MiniBufExplorer or Quickfix Window)
+                    - Press <F7> (activates the Tagbar buffer)
+                    - Go to the Tagbar buffer 
+                    - Hit the <F1> key. 
+                    2) Just hist the <F7> key many times, until the Tagbar appears. 
 
 # Fugitive (git plugin):
     Git status: (VISUAL) :Gstatus
