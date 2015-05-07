@@ -36,12 +36,20 @@ See all installed plugins:
 
     :PluginList
 
+
 Search for plugins:
 
     :PluginSearch! [plugin_query]
 
     Example:
         :PluginSearch! markdown
+
+Delete a plugin:
+
+    Remove it from .vimrc, then:
+        (VISUAL) :PluginClean
+
+
 
 MORE AT: https://www.digitalocean.com/community/tutorials/how-to-use-vundle-to-manage-vim-plugins-on-a-linux-vps
 

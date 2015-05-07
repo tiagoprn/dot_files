@@ -42,6 +42,9 @@ Plugin 'fugitive.vim'
 " pydoc
 Plugin 'pydoc.vim'
 
+" jedi
+Plugin 'davidhalter/jedi-vim.git'
+
 " superseeds pep8 and pyflakes. Covers both
 " and also provides a complexity checker.
 " You MUST install flake8 to your virtualenv 
@@ -56,7 +59,7 @@ Plugin 'fholgado/minibufexpl.vim'
 " Must be installed to your virtualenv
 " or to your distribution's python
 " pip install rope ropevim 
-Plugin 'python-rope/ropevim'
+" Plugin 'python-rope/ropevim'
 
 " Support for code snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -99,6 +102,7 @@ set title
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*~
+set incsearch            " show search matches while you type
 
 " Then, when in insert mode, ready to paste, if you press <F2>, Vim will switch
 " to paste mode, which will not try to ident code when you paste it from
@@ -250,11 +254,19 @@ highlight link Flake8_PyFlake    WarningMsg
 
 "" ropevim
 "  add the name of modules you want to autoimport
-let g:ropevim_autoimport_modules = ["os", "shutil"]
-map <C-c>g :RopeGotoDefinition<CR>
-map <C-c>w :RopeFindFileOtherWindow<CR>
-map <C-c>f :RopeFindFile<CR>
-map <C-a> :RopeCodeAssist<CR>
+" let g:ropevim_autoimport_modules = ["os", "shutil"]
+" map <C-c>g :RopeGotoDefinition<CR>
+" map <C-c>w :RopeFindFileOtherWindow<CR>
+" map <C-c>f :RopeFindFile<CR>
+" map <C-a> :RopeCodeAssist<CR>
+
+" jedi-vim
+let g:jedi#goto_assignments_command = "<C-c>g"
+let g:jedi#goto_definitions_command = "<C-c>e"
+let g:jedi#documentation_command = "<C-c>d"
+let g:jedi#usages_command = "<C-c>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<C-c>r"
 
 "" snipmate
 " CTRL+b to load snippets

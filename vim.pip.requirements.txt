@@ -1,6 +1,6 @@
 # below are for the vim plugins to work
-# rope
-ropevim
+# ropevim
+jedi
 powerline-status
 flake8
 
