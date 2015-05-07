@@ -268,8 +268,8 @@ highlight link Flake8_PyFlake    WarningMsg
 " map <C-a> :RopeCodeAssist<CR>
 
 "" jedi-vim
-let g:jedi#goto_assignments_command = "<C-c>g"
-let g:jedi#goto_definitions_command = "<C-c>e"
+let g:jedi#goto_assignments_command = "<C-c>a"
+let g:jedi#goto_definitions_command = "<C-c>g"
 let g:jedi#documentation_command = "<C-c>d"
 let g:jedi#usages_command = "<C-c>n"
 let g:jedi#completions_command = "<C-Space>"
