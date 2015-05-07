@@ -26,10 +26,6 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " by name as it appears on the site
 Plugin 'Buffergator'
 
-" Markdown plugins
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-
 " tab completion and documentation
 Plugin 'SuperTab'
 
@@ -118,7 +114,6 @@ nnoremap k gk
 " another app, like the browser or a text editor.
 set pastetoggle=<F2>
 
-
 " Rebind <Leader> key
 " With a map leader it's possible to do extra key combinations
 " like <Leader>w saves the current file
@@ -165,6 +160,9 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
+
+" Enable vim's native syntax highlight
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
