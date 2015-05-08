@@ -55,7 +55,9 @@
             (INSERT) mode, press <F2>. Then paste the desired text and press <F2> again.
 
 # vim-bookmarks:
-    Set/Unset  Bookmark: (VISUAL) <,,>
+    (all commands below run in VISUAL mode):
+    Set  Bookmark: <,,>
+    Unset  Bookmark: <,c>
     Show all Bookmarks: <,a>
     Next Bookmark: <,n>
     Previous Bookmark: <,p>
