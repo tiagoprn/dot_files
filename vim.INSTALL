@@ -4,6 +4,9 @@ BEFORE STARTING:
         $ yum install ctags
         $ pacman -S ctags
 
+Create a symbolic link from THIS_REPO/flake8 to ~/.config/flake8. That is where I tell it to ignore some warnings.
+
+
 ---
 
 VUNDLE (PACKAGE MANAGER):
