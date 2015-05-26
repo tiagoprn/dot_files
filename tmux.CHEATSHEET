@@ -1,0 +1,59 @@
+(reference: https://danielmiessler.com/study/tmux/)
+
+Invoke:
+    $ tmux
+
+Configuration file: ~/.tmux.conf
+
+Reload configuration:
+    $ tmux source-file ~/.tmux.conf
+
+UNIVERSAL SHORTCUT:
+    $ C-a
+
+---
+
+## SESSIONS
+    NOTES:
+        - the "-2" is to keep the colors
+        - detach is the same as to "disconnect" from the session, but keep it running.
+        - attach is the same as to "connect" to one of the existing sessions.
+
+    Create:                             tmux -2 new -s <session-name>
+    List:                               C-a s (OR: $ tmux ls)
+    Attach to an existing session:      tmux -2 a -t <session-name>
+    Rename:                             C-a $
+    Detach from the current session:    C-a d
+    Kill:                               tmux kill-session -t <session-name>
+
+## WINDOWS
+    Create:                 C-a c
+    Rename:                 C-a ,
+    List:                   C-a w
+    Horizontal Split:       C-a %
+    Vertical Split:         C-a "
+    Go to next window:      C-a n
+    Go to previous window:  C-a p
+    Kill current window:    C-a &
+
+## PANES
+    New horizontal pane:        C-a %
+    New vertical pane:          C-a "
+    Show pane numbers:          C-a q
+    Toggle panes:               C-a o
+    Swap with next pane:        C-a }
+    Swap with previous pane:    C-a }
+    Kill current pane:          C-a x
+    Show time on current pane:  C-a t
+
+    NAVIGATION:
+        C-a left       go to the next pane on the left
+        C-a right      (or one of these other directions)
+        C-a up
+        C-a down
+        C-a o          go to the next pane (cycle through all of them)
+        C-a ;          go to the ‘last’ (previously used) pane
+
+    RESIZING:
+        C-a M-up, C-a M-down, C-a M-left, C-a M-right: resize by 5 rows/columns
+        C-a C-up, C-a C-down, C-a C-left, C-a C-right: resize by 1 row/column

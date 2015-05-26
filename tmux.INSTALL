@@ -1,0 +1,15 @@
+INSTALL TMUX PLUGIN MANAGER:
+
+    - git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+INSTALLING PLUGINS:
+    - add a new plugin to the @tpm_plugins list
+    - C-a I
+
+UPDATING PLUGINS:
+    - C-a U
+
+UNINSTALLING PLUGINS:
+    - Remove the plugin from the @tpm_plugins list
+    - Find the plugin directory at '~/.tmux/plugins/' and remove it from there.
+
