@@ -57,3 +57,7 @@ UNIVERSAL SHORTCUT:
     RESIZING:
         C-a M-up, C-a M-down, C-a M-left, C-a M-right: resize by 5 rows/columns
         C-a C-up, C-a C-down, C-a C-left, C-a C-right: resize by 1 row/column
+
+    COPYING/PASTING WITH MOUSE:
+	- Hold the <shift> key while doing those operations.
+
