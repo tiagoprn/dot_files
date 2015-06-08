@@ -12,6 +12,9 @@
         Undo: (VISUAL) u
         Redo: (VISUAL) <CTRL+r>
 
+    ## BATCH DELETE OF LINES:
+	From the current line on, delete the next 100k lines: (VISUAL) :.,+100000d
+
     ## QUICKFIX WINDOW
     ### It is useful, for example, for the Fugitive git plugin "Ggrep" and for
     ### Flake 8.
