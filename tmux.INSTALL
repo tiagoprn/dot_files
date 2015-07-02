@@ -1,4 +1,6 @@
 INSTALLING:
+    - ln -s ~/git/github/dot_files/.tmux ~/.tmux
+    - ln -s ~/git/github/dot_files/.tmux.conf ~/.tmux.conf
     - git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     - tmux source-file ~/.tmux.conf
     - tmux (or attach to an existing session)
