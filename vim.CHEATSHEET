@@ -12,6 +12,11 @@
         Undo: (VISUAL) u
         Redo: (VISUAL) <CTRL+r>
 
+    # SHOW / HIDE SPECIAL CHARS:
+        :set list (to show all)
+        :set nolist (to hide all)
+
+
     ## BATCH DELETE OF LINES:
 	From the current line on, delete the next 100k lines: (VISUAL) :.,+100000d
 
