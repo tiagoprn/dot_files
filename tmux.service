@@ -1,0 +1,17 @@
+# Put this unit file at "~/.config/systemd/user/tmux.service" for it to start
+# when you log in. 
+# Alternatively, you can put it at with your other systemd service files as
+# tmux@USERNAME.service
+
+[Unit]
+Description=Start tmux in detached session
+
+[Service]
+Type=forking
+User=%I
+ExecStart=/usr/bin/tmux new-session -s %u -d
+ExecStop=/usr/bin/tmux kill-session -t %u
+
+[Install]
+WantedBy=multi-user.target
+
