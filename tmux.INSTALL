@@ -1,5 +1,5 @@
 INSTALLING:
-    - ln -s ~/git/github/dot_files/.tmux ~/.tmux
+    - mkdir ~/.tmux
     - ln -s ~/git/github/dot_files/.tmux.conf ~/.tmux.conf
     - git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     - tmux source-file ~/.tmux.conf
