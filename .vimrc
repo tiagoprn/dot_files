@@ -5,6 +5,9 @@
 " vi, its predecessor. This is a vundle requirement.
 set nocompatible
 
+" below for the ctrl-space plugin:
+set hidden
+
 " We also want to turn off the default "filetype" controls for now because the
 " way that vim caches filetype rules at runtime interferes with the way that
 " vundle alters the runtime environment.
