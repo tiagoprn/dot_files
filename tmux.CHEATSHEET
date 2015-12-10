@@ -70,3 +70,27 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
     COPYING/PASTING WITH MOUSE:
 	- Hold the <shift> key while doing those operations.
 
+
+## TMUXINATOR: 
+
+    Before beginning, set your "EDITOR" environment variable: 
+        $ export EDITOR=vim
+
+    CREATE A NEW PROJECT: 
+        $ mux new [project_name]
+
+    LIST ALL PROJECTS: 
+        $ mux list
+
+    START A PROJECT:
+        $ mux start [project_name]
+
+    CREATE A NEW PROJECT, BASED ON AN EXISTING ONE: 
+        $ mux copy [existing_project] [new_project]
+
+    DELETE A PROJECT: 
+        $ mux delete [project_name]
+
+    WHERE TMUXINATOR EXPECTS YOUR PROJECTS (OR WHERE YOU CAN EDIT A PROJECT):
+        ~/.tmuxinator
+
