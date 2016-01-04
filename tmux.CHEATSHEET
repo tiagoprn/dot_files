@@ -94,3 +94,5 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
     WHERE TMUXINATOR EXPECTS YOUR PROJECTS (OR WHERE YOU CAN EDIT A PROJECT):
         ~/.tmuxinator
 
+    MAKE SURE ALL TMUXINATOR DEPENDENCIES ARE INSTALLED: 
+        $ mux doctor
