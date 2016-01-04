@@ -74,7 +74,8 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
 ## TMUXINATOR: 
 
     Before beginning, set your "EDITOR" environment variable: 
-        $ export EDITOR=vim
+        $ vim ~/.bashrc
+            export EDITOR=vim
 
     CREATE A NEW PROJECT: 
         $ mux new [project_name]
