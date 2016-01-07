@@ -70,6 +70,13 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
     COPYING/PASTING WITH MOUSE:
 	- Hold the <shift> key while doing those operations.
 
+    AUTOMATE INITIALIZATION (ALTERNATIVE TO TMUXINATOR):
+    - E.g.:
+        $ tmux new-session 'ping  127.0.0.1' \; \
+            split-window 'ping  127.0.0.1' \; \
+            split-window 'ping  127.0.0.1' \; \
+            select-layout even-vertical
+
 
 ## TMUXINATOR: 
 
