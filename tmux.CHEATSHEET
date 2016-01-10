@@ -122,10 +122,10 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
         $ vim project.yaml
 
             session_name: TMC
-            start_directory: ~/git/bitbucket/tmc_financeiro
             windows:
                 - window_name: TMC_V1
                 layout: even-vertical
+                start_directory: ~/git/bitbucket/tmc_financeiro
                 panes:
                     - compose ps
                     - docker ps
@@ -133,10 +133,11 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
                     - focus: true  
                 - window_name: TMC_V2
                 layout: even-vertical
+                start_directory: ~/git/bitbucket/tmc_financeiro_v2_flask
                 panes:
                     - docker ps
                     - git status
-                    - vim README 
+                    - vim README.md 
 
     How to load a project: 
         $ tmuxp load project.yaml
