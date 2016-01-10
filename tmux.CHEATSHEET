@@ -104,3 +104,40 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
 
     MAKE SURE ALL TMUXINATOR DEPENDENCIES ARE INSTALLED: 
         $ mux doctor
+
+## TMUXP:
+
+    Before beginning, set your "EDITOR" environment variable: 
+        $ vim ~/.bashrc
+            export EDITOR=vim
+
+    Installation: 
+        $ pip install tmuxp
+
+    Where to put your yaml projects: 
+        $ cd ~/.tmuxp
+
+    YAML project file example: 
+
+        $ vim project.yaml
+
+            session_name: TMC
+            start_directory: ~/git/bitbucket/tmc_financeiro
+            windows:
+                - window_name: TMC_V1
+                layout: even-vertical
+                panes:
+                    - compose ps
+                    - docker ps
+                    - git status 
+                    - focus: true  
+                - window_name: TMC_V2
+                layout: even-vertical
+                panes:
+                    - docker ps
+                    - git status
+                    - vim README 
+
+    How to load a project: 
+        $ tmuxp load project.yaml
+
