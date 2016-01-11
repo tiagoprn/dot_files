@@ -107,19 +107,19 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
 
 ## TMUXP:
 
-    Before beginning, set your "EDITOR" environment variable: 
+    ### Before beginning, set your "EDITOR" environment variable: 
         $ vim ~/.bashrc
             export EDITOR=vim
 
-    Installation: 
+    ### Installation: 
         $ pip install tmuxp
 
-    Where to put your yaml projects: 
+    ### Where to put your yaml projects: 
         $ cd ~/.tmuxp
 
-    YAML project file example: 
+    ### Project file examples: 
 
-        $ vim project.yaml
+        $ vim project.yml
 
             session_name: TMC
             windows:
@@ -139,6 +139,44 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
                     - git status
                     - vim README.md 
 
-    How to load a project: 
-        $ tmuxp load project.yaml
+		$ vim project.json
+
+			{
+				"windows": [
+					{ 
+						"panes": [
+							{
+								"shell_command": [
+									"sudo htop"
+								]    
+							},
+							{
+								"shell_command": [
+									"sudo journalctl -f"
+								]    
+							},
+
+							{
+								"shell_command": [
+									"sudo dstat"
+								]    
+							},
+							{
+								"shell_command": [
+									null
+								],
+								"focus": true    
+							}
+						],    
+						"window_name": "main",
+						"layout": "even-vertical",
+						"start_directory": "~"    
+					}
+				],  
+				"session_name": "tiago"
+			}
+
+
+	### How to load a project: 
+        $ tmuxp load project.json  # or project.yaml
 
