@@ -181,3 +181,7 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
 	### How to load a project: 
         $ tmuxp load project.json  # or project.yaml
 
+    ### How to save a session as a tmuxp project (json/yaml file):
+        $ tmuxp freeze [tmux session name here]
+
+
