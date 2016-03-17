@@ -212,6 +212,11 @@ nnoremap <Leader>w <C-w>w
 nnoremap j gj
 nnoremap k gk
 
+" CLIPBOARD BEHAVIOR 
+vnoremap <C-C> :w !xsel -b<CR><CR>  " Copy vim clipboard to system (visual mode) 
+
+
+
 "--------------------------------------------------
 " PLUGIN CONFIGURATIONS
 

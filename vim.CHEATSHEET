@@ -63,6 +63,16 @@
         To copy text from other apps (browser, text editor, disabling the auto-indent:
             (INSERT) mode, press <F2>. Then paste the desired text and press <F2> again.
 
+    ## CLIPBOARD: 
+        Copy vim clipboard to system: 
+            (VISUAL) Select text (with <v>), then <C-c>
+
+        Paste system clipboard to vim:
+            (INSERT) <C-r>+ 
+
+
+
+
 # vim-bookmarks:
     (all commands below run in VISUAL mode):
     Set  Bookmark: <,,>
