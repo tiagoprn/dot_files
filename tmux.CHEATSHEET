@@ -68,6 +68,9 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
         C-a M-up, C-a M-down, C-a M-left, C-a M-right: resize by 5 rows/columns
         C-a C-up, C-a C-down, C-a C-left, C-a C-right: resize by 1 row/column
 
+    ZOOMING (maximize/demaximize - toggle):
+        C-a z
+
     COPYING/PASTING WITH MOUSE:
 	- Hold the <shift> key while doing those operations.
 
