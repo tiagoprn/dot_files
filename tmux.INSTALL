@@ -1,3 +1,6 @@
+( Here is how to install it on a home folder:
+    https://github.com/tiagoprn/bin_public/blob/master/install_tmux_on_home_folder.sh )
+
 INSTALLING:
     - mkdir ~/.tmux
     - ln -s ~/git/github/dot_files/.tmux.conf ~/.tmux.conf
