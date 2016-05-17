@@ -23,6 +23,8 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUPSTREAM=auto
 
+export EDITOR=vim
+
 printf "BASH GIT PROMPT:\n"
 printf "+ for staged, * if unstaged.\n"
 printf "\$ if something is stashed.\n"
