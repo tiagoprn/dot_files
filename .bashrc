@@ -9,7 +9,12 @@ GITPROMPT=/usr/share/git-core/contrib/completion/git-prompt.sh
 if [ -f $GITPROMPT ];
 then
    source $GITPROMPT
-   echo "Git prompt was set.\n"
+fi
+
+HOMEBIN=/home/$USER/local/bin
+if [ -d $HOMEBIN ];
+then
+   export PATH=$PATH:$HOMEBIN
 fi
 
 # If not running interactively, don't do anything
