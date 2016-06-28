@@ -2,6 +2,16 @@
 # ~/.bashrc
 #
 
+# file "git-prompt.sh" must be somewhere else, you can use 
+# updatedb && locate git-prompt.sh to get where it is 
+# (install package "mlocate" to provide "updatedb/locate").
+GITPROMPT=/usr/share/git-core/contrib/completion/git-prompt.sh
+if [ -f $GITPROMPT ];
+then
+   source $GITPROMPT
+   echo "Git prompt was set.\n"
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
