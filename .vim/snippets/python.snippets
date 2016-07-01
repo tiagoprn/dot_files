@@ -6,8 +6,10 @@ snippet OrderedDict
 snippet exc
 	try:
 		'${1:code}'
-	except Exception, e:
-		print 'MESSAGE: {}, TRACEBACK: {}'.format(e.message, e.print_exc())
+	except:
+		import traceback
+		trace = traceback.format_exc(limit=1)
+		print 'EXCEPTION: {}'.format(trace)
 
 snippet ipdb
 	import ipdb; ipdb.set_trace()
