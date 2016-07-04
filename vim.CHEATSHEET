@@ -16,6 +16,9 @@
         :set list (to show all)
         :set nolist (to hide all)
 
+    ## RELOAD CURRENT FILE (E.g., it was changes outside vim): 
+    (VISUAL) e!
+
     ## VERTICAL SELECTION (BLOCK):
 	<CTRL+v>
 
