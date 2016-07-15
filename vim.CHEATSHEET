@@ -15,6 +15,9 @@
     ## SHOW / HIDE SPECIAL CHARS:
         :set list (to show all)
         :set nolist (to hide all)
+    
+    ## ZOOM / UNZOOM THE CURRENT BUFFER: 
+    (VISUAL) <CTRL+z>
 
     ## RELOAD CURRENT FILE (E.g., it was changes outside vim): 
     (VISUAL) e!
