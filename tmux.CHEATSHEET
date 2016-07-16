@@ -81,6 +81,13 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
             split-window 'ping  127.0.0.1' \; \
             select-layout even-vertical
 
+## Fixing the dimensions of a window filled with dots (because you opened it on a smaller screen):
+
+    $ tmux attach-session -d -t my-session-with-dotted-window
+
+    (With the "-d" flag you will reclaim the entire window for your session is to attach to the session while forcing all other sessions to detach. 
+     By detaching all other sessions, you are ensuring that your machine's dimensions are the ones that tmux uses when drawing the window.)
+
 
 ## TMUXINATOR: 
 
