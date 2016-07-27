@@ -3,6 +3,7 @@ snippet OrderedDict
 		('${2:key}', '${3:value}'),
 		]
 
+
 snippet exc
 	try:
 		'${1:code}'
@@ -14,12 +15,16 @@ snippet exc
 snippet ipdb
 	import ipdb; ipdb.set_trace()
 
+
 snippet pudb
 	import pudb; pudb.set_trace()
+
 
 snippet ifmain
 	if __name__ == '__main__':
 			${1:main()}
+
+
 
 snippet class
 	class ${1:ClassName}(${2:object}):
@@ -29,15 +34,25 @@ snippet class
 			self.$4 = $4
 			${6}
 
+
 snippet path
 	import os
 	os.path.dirname(os.path.abspath(__file__))
+
 
 snippet date_str
 	from datetime import datetime
 	date_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 
+
 snippet date_obj
 	from datetime import strptime
 	date_obj = strptime('2011-12-31 11:59:59', '%Y-%m-%d %H:%M:%S')
 
+snippet pydoc
+	"""
+	${1:description}
+
+    :param ${2:param_name}: ${3: description}
+	:return: ${4: return_values}
+	"""
