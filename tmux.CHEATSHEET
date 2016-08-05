@@ -39,7 +39,7 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
     Create:                 C-a c
     Rename:                 C-a ,
     List:                   C-a w
-    Horizontal Split:       C-a -
+    Horizontal Split:       C-a /
     Vertical Split:         C-a \
     Go to next window:      C-a n
     Go to previous window:  C-a p
