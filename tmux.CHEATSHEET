@@ -52,6 +52,7 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
     Toggle panes:               C-a o
     Swap with next pane:        C-a }
     Swap with previous pane:    C-a }
+    Swap panes orientation between vertical/horizontal: C-a [space]
     Kill current pane:          C-a x
     Show time on current pane:  C-a t
     Synchronize panes (broadcast commands to all): C-a y

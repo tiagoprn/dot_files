@@ -5,11 +5,11 @@
 # file "git-prompt.sh" must be somewhere else, you can use 
 # updatedb && locate git-prompt.sh to get where it is 
 # (install package "mlocate" to provide "updatedb/locate").
-GITPROMPT=/usr/share/git-core/contrib/completion/git-prompt.sh
-if [ -f $GITPROMPT ];
-then
-   source $GITPROMPT
-fi
+# GITPROMPT=/usr/share/git-core/contrib/completion/git-prompt.sh
+# if [ -f $GITPROMPT ];
+# then
+#   source $GITPROMPT
+# fi
 
 HOMEBIN=/home/$USER/local/bin
 if [ -d $HOMEBIN ];
@@ -31,10 +31,10 @@ if [ -f /etc/bash_completion ]; then
 fi
 source /usr/share/git/completion/git-prompt.sh
 export PS1
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWUNTRACKEDFILES=1
-export GIT_PS1_SHOWSTASHSTATE=1
-export GIT_PS1_SHOWUPSTREAM=auto
+# export GIT_PS1_SHOWDIRTYSTATE=1
+# export GIT_PS1_SHOWUNTRACKEDFILES=1
+# export GIT_PS1_SHOWSTASHSTATE=1
+# export GIT_PS1_SHOWUPSTREAM=auto
 
 ## Default programs
 export EDITOR=vim
