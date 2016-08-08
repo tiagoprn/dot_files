@@ -73,7 +73,8 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
         C-a z
 
     COPYING/PASTING WITH MOUSE:
-	- Linux: Hold the <shift> key while doing those operations.
+	- Linux: For a normal selection, hold the <shift> key while doing those operations.
+        - Linux: For a rectangular selection (for copy/paste to work with panes), --- check how to do ---
         - MacOS (iterm2): For a normal selection, hold the <option> key while doing these operations. 
         - MacOS (iterm2): For a rectangular selection (for copy/paste to work with panes), hold <option>+<cmd> keys while doing these operations.
 
