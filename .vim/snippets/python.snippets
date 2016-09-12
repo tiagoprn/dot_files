@@ -46,8 +46,9 @@ snippet date_str
 
 
 snippet date_obj
-	from datetime import strptime
-	date_obj = strptime('2011-12-31 11:59:59', '%Y-%m-%d %H:%M:%S')
+	from datetime import datetime
+	date_obj = datetime.strptime('2011-12-31 11:59:59', '%Y-%m-%d %H:%M:%S')
+
 
 snippet pydoc
 	"""
