@@ -12,9 +12,10 @@
 # fi
 
 HOMEBIN=/home/$USER/local/bin
+PYENVBIN=/home/$USER/.pyenv/bin
 if [ -d $HOMEBIN ];
 then
-   export PATH=$PATH:$HOMEBIN
+   export PATH=$PYENVBIN:$PATH:$HOMEBIN
 fi
 
 # If not running interactively, don't do anything
@@ -39,6 +40,10 @@ export PS1
 ## Default programs
 export EDITOR=vim
 export BROWSER=/usr/bin/chromium
+
+## For pyenv to work
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 ## Bash aliases
 alias ls='ls --color -lha'
