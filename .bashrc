@@ -13,9 +13,14 @@
 
 HOMEBIN=/home/$USER/local/bin
 PYENVBIN=/home/$USER/.pyenv/bin
+LOGGIOPSBIN=/opt/loggi/ops/ansible/bin
 if [ -d $HOMEBIN ];
 then
    export PATH=$PYENVBIN:$PATH:$HOMEBIN
+fi
+if [ -d $LOGGIOPSBIN ];
+then
+   export PATH=$PATH:$LOGGIOPSBIN
 fi
 
 # If not running interactively, don't do anything
