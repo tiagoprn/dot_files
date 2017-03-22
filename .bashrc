@@ -53,6 +53,11 @@ eval "$(pyenv virtualenv-init -)"
 ## Bash aliases
 alias ls='ls --color -lha'
 
+## Unified bash history
+shopt -s histappend
+PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
+
+
 ## The message below will print each time a terminal is started:
 printf "BASH GIT PROMPT:\n"
 printf "+ for staged, * if unstaged.\n"
