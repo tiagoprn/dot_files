@@ -40,4 +40,4 @@
 [difftool]
   prompt = false
 [difftool "icdiff"]
-cmd = icdiff --line-numbers $LOCAL $REMOTE    
+cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE    
