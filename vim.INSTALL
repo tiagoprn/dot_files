@@ -1,14 +1,3 @@
-BEFORE STARTING:
-    - Install you distro's "ctags" package:
-        $ apt-get install ctags
-        $ yum install ctags
-        $ pacman -S ctags
-
-Create a symbolic link from THIS_REPO/flake8 to ~/.config/flake8. That is where I tell it to ignore some warnings.
-
-
----
-
 VUNDLE (PACKAGE MANAGER):
 
 Vundle will make installing and updating all the other tools much easier. It’s basically pathogen with a lot of nice extras, like installing the bundles itself from their Github repos (and other sources). For more info see the README in the Github repo.

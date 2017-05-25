@@ -34,16 +34,6 @@
     ## DELETE UNTIL BEGINNING OF LINE: 
         (VISUAL) d^
 
-    ## QUICKFIX WINDOW
-    ### It is useful, for example, for the Fugitive git plugin "Ggrep" and for
-    ### Flake 8.
-        Open: (VISUAL) :copen
-        Close: (VISUAL) :cclose
-        Go to next occurence/error [*]:  (VISUAL) :cn
-        Go to previous occurence/error [*]: (VISUAL) :cp
-            [*] On both of them, if you specify a number after the command, it will Go to next/previous X occurences you passed to it.
-        Clean: (VISUAL) :call setqflist([])
-
     ## NAVIGATION (VISUAL MODE)
         Go to next word: <w>
         Go to previous word: <b>
@@ -75,9 +65,6 @@
 
         Paste system clipboard to vim:
             (INSERT) <C-r>+ 
-
-
-
 
 # vim-bookmarks:
     (all commands below run in VISUAL mode):
@@ -118,11 +105,3 @@
         (VISUAL) :Bookmark [<name>]
     By default, bookmarks are at: $HOME/.NERDTreeBookmarks
     To create / delete / copy / move files or folders: put the cursor on the desired file/directory to operate on, then: <m>
-
-# Fugitive (git plugin):
-    Git status: (VISUAL) :Gstatus
-    Git blame: (VISUAL) :Gblame
-    Git diff: (VISUAL) :Gdiff
-    Search on all the project [*]: (VISUAL) :Ggrep 'REGEX'
-    Git log [*]: (VISUAL) :Glog
-    [*] Both work better if the quickfix window is open

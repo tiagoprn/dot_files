@@ -27,10 +27,6 @@ Plugin 'jistr/vim-nerdtree-tabs'
 
 " To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
-Plugin 'Buffergator'
-
-" git plugins
-Plugin 'fugitive.vim'
 
 " Support for code snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -38,7 +34,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
 " CTRLSpace
-Plugin 'szw/vim-ctrlspace'
+Plugin 'vim-ctrlspace/vim-ctrlspace'
 
 " A light and configurable statusline/tabline for Vim
 Plugin 'itchyny/lightline.vim'
