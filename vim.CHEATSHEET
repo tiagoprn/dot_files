@@ -119,33 +119,6 @@
     By default, bookmarks are at: $HOME/.NERDTreeBookmarks
     To create / delete / copy / move files or folders: put the cursor on the desired file/directory to operate on, then: <m>
 
-# Python:
-#
-    Expand code snippet: <CTRL+b> (snippets can be found and managed at .vim/snippets/python.snippets)
-    PEP8 and other python style checking: (VISUAL) <F8>
-    [*] "," here is the <Leader> key, defined on .vimrc
-
-    # Jedi (python autocompletion and go to definition):
-        Go to definition: (VISUAL) <CTRL+c>,g
-        Show documentation: (VISUAL) <CTRL+c>,d
-        Auto-completion: (INSERT MODE) <CTRL+Space>
-
-    ## TagBar:
-        Open: <F7>
-        Order (same as file or alphabetical): <s>
-        Navigate between methods / classes: <up> or <down>
-        Show method / class contents: <p>
-        Go to method / class: <ENTER>
-        Show the signature of a method: <SPACE>
-        DEBUG: (VISUAL) :TagbarDebug (This should leave a file called tagbardebug.log in the current directory)
-            NOTE: If your tagbar is empty:
-                    1)
-                    - Put the cursor on your python code buffer (make sure it is not on MiniBufExplorer or Quickfix Window)
-                    - Press <F7> (activates the Tagbar buffer)
-                    - Go to the Tagbar buffer
-                    - Hit the <F1> key.
-                    2) Just hist the <F7> key many times, until the Tagbar appears.
-
 # Fugitive (git plugin):
     Git status: (VISUAL) :Gstatus
     Git blame: (VISUAL) :Gblame
@@ -153,5 +126,3 @@
     Search on all the project [*]: (VISUAL) :Ggrep 'REGEX'
     Git log [*]: (VISUAL) :Glog
     [*] Both work better if the quickfix window is open
-
-
