@@ -70,7 +70,7 @@ PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
 # (reference: https://stackoverflow.com/questions/11068965/how-can-i-make-tmux-be-active-whenever-i-start-a-new-shell-session)
 PNAME="$(ps -o comm= $PPID)";
 if [ $PNAME == "login" ] || [ $PNAME == "sshd" ] || [ $PNAME == "gnome-terminal-" ] ; then
-  tmux attach || exec tmux new-session
+  tmux -2 a -t work01 || exec tmux -2 new -s work01
 fi
 
 ## The message below will print each time a terminal is started:
