@@ -46,17 +46,32 @@ export PS1
 export EDITOR=vim
 export BROWSER=/usr/bin/chromium
 
+## For tmux to work nicely
+export TERM=xterm-256color 
+
 ## For pyenv to work
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 ## Bash aliases
 alias ls='ls --color -lha'
+alias upgrade='yaourt -Syyua --noconfirm'
+alias full-upgrade='sudo pacman-key --refresh-keys && sudo reflector --age 8 --fastest 128 --latest 64 --number 32 --sort rate --save /etc/pacman.d/mirrorlist && yaourt -Syyua --noconfirm'
 
 ## Unified bash history
 shopt -s histappend
 PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
 
+## Auto start tmux:
+# This script looks for the parent process of the bash shell.
+# If bash was started from logging in or from ssh, it will execute tmux.
+# If you want this to work with a GUI terminal, you can add that in there as well.
+# For example, if you want to start tmux automatically when you start Ubuntu's standard gnome-terminal, you would use this:
+# (reference: https://stackoverflow.com/questions/11068965/how-can-i-make-tmux-be-active-whenever-i-start-a-new-shell-session)
+PNAME="$(ps -o comm= $PPID)";
+if [ $PNAME == "login" ] || [ $PNAME == "sshd" ] || [ $PNAME == "gnome-terminal-" ] ; then
+  tmux attach || exec tmux new-session
+fi
 
 ## The message below will print each time a terminal is started:
 printf "BASH GIT PROMPT:\n"
@@ -64,5 +79,8 @@ printf "+ for staged, * if unstaged.\n"
 printf "\$ if something is stashed.\n"
 echo "% if there are untracked files."
 printf "<,>,<>,= behind, ahead, diverged or equal upstream.\n"
-printf "(installed 'mononoki' font for terminal/code)\n"
-printf "\n"
+printf "\n-----\n"
+printf "\nUse bash aliases upgrade or full-upgrade to update your arch linux.\n" 
+printf "\nTmux will autostart from existing or new session - on login, ssh or gnome-terminal.\n"
+printf "\n-----\n"
+
