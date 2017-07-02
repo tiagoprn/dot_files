@@ -61,7 +61,7 @@ alias full-upgrade='sudo pacman-key --refresh-keys && sudo reflector --age 8 --f
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
 # You can call it like: permissions file1 file2 file3 etc...
 permissions() {
-    for var in "$@"
+    for var in "$@"  # $@ allows iterating to all arguments passed, independent of how many
     do    
         stat -c '%A %a %n' $var;
     done    
