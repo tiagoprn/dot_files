@@ -58,6 +58,16 @@ alias ls='ls --color -lha'
 alias upgrade='yaourt -Syyua --noconfirm'
 alias full-upgrade='sudo pacman-key --refresh-keys && sudo reflector --age 8 --fastest 128 --latest 64 --number 32 --sort rate --save /etc/pacman.d/mirrorlist && yaourt -Syyua --noconfirm'
 
+## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
+# You can call it like: permissions file1 file2 file3 etc...
+permissions() {
+    for var in "$@"
+    do    
+        stat -c '%A %a %n' $var;
+    done    
+}
+
+
 ## Unified bash history
 shopt -s histappend
 PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
