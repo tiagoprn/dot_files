@@ -78,7 +78,7 @@ PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
 # If you want this to work with a GUI terminal, you can add that in there as well.
 # For example, if you want to start tmux automatically when you start Ubuntu's standard gnome-terminal, you would use this:
 # (reference: https://stackoverflow.com/questions/11068965/how-can-i-make-tmux-be-active-whenever-i-start-a-new-shell-session)
-PNAME="$(ps -o comm= $PPID)";
+PNAME="$(ps -o comm= $PPID | awk '{print $1}')";
 if [ $PNAME == "login" ] || [ $PNAME == "sshd" ] || [ $PNAME == "gnome-terminal-" ] ; then
   tmux -2 a -t work01 || exec tmux -2 new -s work01
 fi
