@@ -137,6 +137,6 @@ printf "\n-----\n"
 printf "\nUse bash aliases upgrade or full-upgrade to update your arch linux.\n" 
 printf "\nTmux will autostart from existing or new session - on login, ssh or gnome-terminal.\n"
 printf "\nAlias to journald logs: jlogs"
-printf "\nAliases/functions to copy from the terminal to the X Clipboard (can also be used on pipes): cb[tab] "
+printf "\nAliases/functions to xclip (pacman package has the same name) to copy from the terminal to the X Clipboard (can also be used on pipes): cb[tab] "
 printf "\n-----\n"
 
