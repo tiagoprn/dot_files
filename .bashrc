@@ -27,14 +27,22 @@ fi
 [[ $- != *i* ]] && return
 
 ## Prompt configuration, customized to show git info on it:
+
 # PS1='[\u@\h \W]\$'
 PS1='\n(\t) \[\033[01;97m\]\u@\h\[\033[01;91m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;97m\] \[\033[00m\]\n\$ '
+
 # Show git info (branch, repo status, etc on the prompt. 
 # For it to work, install the package "bash-completion":
 #     sudo pacman -S bash-completion
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+if [ ! -f /usr/share/git/completion/git-prompt.sh ]; then
+    sudo mkdir -p /usr/share/git/completion/ 
+    sudo curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o /usr/share/git/completion/git-prompt.sh
+fi    
+
 source /usr/share/git/completion/git-prompt.sh
 export PS1
 # export GIT_PS1_SHOWDIRTYSTATE=1
@@ -50,8 +58,11 @@ export BROWSER=/usr/bin/chromium
 export TERM=xterm-256color 
 
 ## For pyenv to work
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -d $PYENVBIN ];
+then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 ## Bash aliases
 alias ls='ls --color -lha'
