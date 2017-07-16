@@ -60,6 +60,8 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
     Kill current pane:          C-a x
     Show time on current pane:  C-a t
     Synchronize panes (broadcast commands to all): C-a y
+    Lock (hangs) pane:          C-s
+    Unlock (unhangs) pane:      C-q
 
     NAVIGATION:
         C-a left       go to the next pane on the left
