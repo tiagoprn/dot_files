@@ -14,6 +14,10 @@ Install plugins:
 UNIVERSAL SHORTCUT:
     $ C-a
 
+Keys: 
+    C: <Ctrl> 
+    M: <Alt>
+
 Where are the sessions kept at the filesystem: ~/.tmux/resurrect
 
 ---
