@@ -72,12 +72,6 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
     ZOOMING (maximize/demaximize - toggle):
         C-a z
 
-    COPYING/PASTING WITH MOUSE:
-	- Linux: For a normal selection, hold the <shift> key while doing those operations.
-        - Linux: For a rectangular selection (for copy/paste to work with panes), --- check how to do ---
-        - MacOS (iterm2): For a normal selection, hold the <option> key while doing these operations. 
-        - MacOS (iterm2): For a rectangular selection (for copy/paste to work with panes), hold <option>+<cmd> keys while doing these operations.
-
     COPYING/PASTING WITH KEYBOARD (configured vi mode for the shortcuts below): 
 	- C-a Esc: enter selection/copy mode
         - C-a v: start selection (you can select with the arrow keys)
@@ -86,7 +80,9 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
         - C-a p: paste selected text
         - C-a /: search text (down), type [enter] to search and [n] for the next occurrence 
         - C-a ?: search text (up), type [enter] to search and [n] for the previous occurrence 
-
+        - C-a M-c: copy selection (previously done with `C-a y`) to X Clipboard
+        - C-a M-v: copy X Clipboard selection to cursor
+        - C-a M-s: save current pane history (all of it) to filename
 
     AUTOMATE INITIALIZATION (ALTERNATIVE TO TMUXINATOR):
     - E.g.:
