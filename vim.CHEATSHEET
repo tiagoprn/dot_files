@@ -61,10 +61,10 @@
 
     ## CLIPBOARD: 
         Copy vim clipboard to system: 
-            (VISUAL) Select text (with <v>), then <C-c>
+            (VISUAL) Select text (with <v>), then <C-y>
 
         Paste system clipboard to vim:
-            (INSERT) <C-r>+ 
+            (VISUAL) <C-p> 
 
 # vim-bookmarks:
     (all commands below run in VISUAL mode):

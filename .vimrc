@@ -175,9 +175,8 @@ nnoremap j gj
 nnoremap k gk
 
 " CLIPBOARD BEHAVIOR 
-vnoremap <C-C> :w !xsel -b<CR><CR>  " Copy vim clipboard to system (visual mode) 
-
-
+vmap <C-y> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))
 
 "--------------------------------------------------
 " PLUGIN CONFIGURATIONS
