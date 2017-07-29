@@ -3,10 +3,9 @@
 #
 
 HOMEBIN=/home/$USER/local/bin
-PYENVBIN=/home/$USER/.pyenv/bin
 if [ -d $HOMEBIN ];
 then
-   export PATH=$PYENVBIN:$PATH:$HOMEBIN
+   export PATH=$PATH:$HOMEBIN
 fi
 
 # If not running interactively, don't do anything
@@ -43,12 +42,6 @@ export BROWSER=/usr/bin/chromium
 ## For tmux to work nicely
 export TERM=xterm-256color 
 
-## For pyenv to work
-if [ -d $PYENVBIN ];
-then
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
 
 ## Bash aliases
 alias ls='ls --color -lha'
@@ -131,4 +124,14 @@ printf "\nTmux will autostart from existing or new session - on login, ssh or gn
 printf "\nAlias to journald logs: jlogs"
 printf "\nAliases/functions to xclip (pacman package has the same name) to copy from the terminal to the X Clipboard (can also be used on pipes): cb[tab] "
 printf "\n--- Have fun! ---\n"
+
+## For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
+export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"  # not useful, since I install it from the package manager
+
+if [ -d $PYENV_ROOT ];
+then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
