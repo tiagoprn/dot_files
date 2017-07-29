@@ -101,7 +101,7 @@ function set_virtualenv () {
   if [[ `pyenv version-name` == "system" ]] ; then
       PYTHON_VIRTUALENV=""
   else
-      PYTHON_VIRTUALENV="${BLUE}[`pyenv version-name`]${COLOR_NONE} "
+      PYTHON_VIRTUALENV="${BLUE}[PYENV:`pyenv version-name`]${COLOR_NONE} "
   fi
 }
 
