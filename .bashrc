@@ -203,6 +203,10 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 shopt -s histappend
 PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
 
+## Fixes giant screen for e.g. seafile-applet on arch linux (may happen to VLC also, so it is QT related):
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_SCALE_FACTOR=0.6
+
 ## Auto start tmux:
 # This script looks for the parent process of the bash shell.
 # If bash was started from logging in or from ssh, it will execute tmux.
