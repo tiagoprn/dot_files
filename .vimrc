@@ -157,7 +157,8 @@ color wombat256mod
 
 
 " font
-set anti gfn=Ubuntu\ Mono\ derivative\ Powerline\ 12
+set anti gfn=Hack\ Regular\ 11
+set guifont=Hack\ Regular\ 11
 
 " Always show the status line
 set laststatus=2
