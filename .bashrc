@@ -139,6 +139,8 @@ export BROWSER=/usr/bin/chromium
 ## For tmux to work nicely
 export TERM=xterm-256color 
 
+## To stop showing warnings on activating a pyenv.
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 ## Bash aliases
 alias ls='ls --color -lha'
