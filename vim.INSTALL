@@ -4,8 +4,8 @@ Vundle will make installing and updating all the other tools much easier. It’s
 
 To install:
     Remove my current ".vim/" and .vimrc, then:
-    $ ln -s git/github/dot_files/.vimrc ~/.vimrc
-    $ ln -s git/github/dot_files/.vim ~/.vim
+    $ ln -s /storage/src/dot_files/.vimrc ~/.vimrc
+    $ ln -s /storage/src/dot_files/.vim ~/.vim
     $ mkdir ~/.vim/bundle
     $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
