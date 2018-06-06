@@ -230,6 +230,11 @@ printf "\nIf you're having pyenv shim errors after installing new binaries from 
 printf "\n--- Have fun! ---\n"
 
 ## For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
+if ! [ -x "$(command -v pyenv)" ]; then
+  echo 'Error: pyenv is not installed.' >&2
+  exit 1
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"  # not useful, since I install it from the package manager
 
@@ -243,3 +248,9 @@ fi
 # exists " when installing binaries (commands) for pip and them not working.
 alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && pyenv rehash"
 
+UTILS_VIRTUALENV=$(pyenv virtualenvs | grep 'utils' | grep -v 'envs' | awk '{print $2}')
+if [ -n "$UTILS_VIRTUALENV" ]; then
+    pyenv activate utils
+else
+    echo 'The "utils" pyenv virtualenv is not installed. Install it for this message to vanish.'
+fi
