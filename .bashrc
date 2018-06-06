@@ -238,4 +238,7 @@ then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+# Below solves the error "pyenv: cannot rehash: ~/.pyenv/shims/.pyenv-shim
+# exists " when installing binaries (commands) for pip and them not working.
 alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && pyenv rehash"
+
