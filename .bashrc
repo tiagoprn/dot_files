@@ -238,3 +238,4 @@ then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && pyenv rehash"
