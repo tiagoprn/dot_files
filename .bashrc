@@ -229,6 +229,8 @@ printf "\nAliases/functions to xclip (pacman package has the same name) to copy 
 printf "\nIf you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n--- Have fun! ---\n"
 
+cowsay -f tux $(fortune -s)
+
 ## For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if ! [ -x "$(command -v pyenv)" ]; then
   echo 'pyenv is not installed, I recommend you to install it.' >&2
