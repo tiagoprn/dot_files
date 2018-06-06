@@ -231,7 +231,7 @@ printf "\n--- Have fun! ---\n"
 
 ## For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if ! [ -x "$(command -v pyenv)" ]; then
-  echo 'Error: pyenv is not installed.' >&2
+  echo 'pyenv is not installed, I recommend you to install it.' >&2
   exit 1
 fi
 
