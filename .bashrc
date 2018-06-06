@@ -226,6 +226,7 @@ printf "\nUse bash aliases upgrade or full-upgrade to update your arch linux."
 printf "\nTmux will autostart from existing or new session - on login, ssh or gnome-terminal."
 printf "\nAlias to journald logs: jlogs"
 printf "\nAliases/functions to xclip (pacman package has the same name) to copy from the terminal to the X Clipboard (can also be used on pipes): cb[tab] "
+printf "\nIf you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n--- Have fun! ---\n"
 
 ## For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
