@@ -238,10 +238,6 @@ if ! [ -x "$(command -v pyenv)" ]; then
     exit 1
 fi
 
-if [ -d /storage/src/devops ];
-then
-    cd /storage/src/devops
-fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"  # not useful, since I install it from the package manager
