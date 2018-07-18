@@ -144,8 +144,8 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 ## Bash aliases
 alias ls='ls --color -lha'
-alias upgrade='yaourt -Syyua --noconfirm'
-alias full-upgrade='sudo pacman-key --refresh-keys && sudo reflector --age 8 --fastest 128 --latest 64 --number 32 --sort rate --save /etc/pacman.d/mirrorlist && yaourt -Syyua --noconfirm'
+alias upgrade='pyenv deactivate && yaourt -Syyua --noconfirm'
+alias full-upgrade='pyenv deactivate && sudo pacman-key --refresh-keys && sudo reflector --age 8 --fastest 128 --latest 64 --number 32 --sort rate --save /etc/pacman.d/mirrorlist && yaourt -Syyua --noconfirm'
 alias jlogs='sudo journalctl -o short-iso -f --all'
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
