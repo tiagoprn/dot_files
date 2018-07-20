@@ -142,11 +142,14 @@ export TERM=xterm-256color
 ## To stop showing warnings on activating a pyenv.
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
+export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
+
 ## Bash aliases
 alias ls='ls --color -lha'
 alias upgrade='pyenv deactivate && yaourt -Syyua --noconfirm'
 alias full-upgrade='pyenv deactivate && sudo pacman-key --refresh-keys && sudo reflector --age 8 --fastest 128 --latest 64 --number 32 --sort rate --save /etc/pacman.d/mirrorlist && yaourt -Syyua --noconfirm'
 alias jlogs='sudo journalctl -o short-iso -f --all'
+alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
 # You can call it like: permissions file1 file2 file3 etc...
@@ -225,6 +228,7 @@ if [ -x "$(command -v cowsay)" ]; then
     cowsay -f tux $(fortune -s)
 fi
 printf "\n--- WELCOME TO $HOSTNAME ---"
+printf "\njournal: To update my timestamped journal on $JOURNAL_FILE"
 printf "\nUse bash aliases upgrade or full-upgrade to update your arch linux." 
 printf "\nTmux will autostart from existing or new session - on login, ssh or gnome-terminal."
 printf "\nAlias to journald logs: jlogs"
