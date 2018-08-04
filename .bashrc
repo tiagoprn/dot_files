@@ -232,6 +232,7 @@ if [ -x "$(command -v cowsay)" ]; then
 fi
 printf "\n--- WELCOME TO $HOSTNAME ---"
 printf "\ntmux-autostart: to autostart my default tmux sessions (useful on my personal machines)"
+printf "\ncontainers: to view the running docker containers with less verbosity."
 printf "\njournal: To update my timestamped journal on $JOURNAL_FILE"
 printf "\nUse bash aliases upgrade or full-upgrade to update your arch linux." 
 printf "\nTmux will autostart from existing or new session - on login, ssh or gnome-terminal."
