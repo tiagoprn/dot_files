@@ -143,6 +143,7 @@ export TERM=xterm-256color
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
+export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Size}}"
 
 ## Bash aliases
 alias ls='ls --color -lha'
@@ -151,6 +152,7 @@ alias full-upgrade='pyenv deactivate && sudo pacman-key --refresh-keys && sudo r
 alias jlogs='sudo journalctl -o short-iso -f --all'
 alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
 alias tmux-autostart='/storage/src/devops/tmuxp/start_everything.sh'
+alias containers="sudo docker ps --format '$DOCKER_PS_FORMAT'"
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
 # You can call it like: permissions file1 file2 file3 etc...
