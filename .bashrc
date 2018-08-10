@@ -153,6 +153,7 @@ alias jlogs='sudo journalctl -o short-iso -f --all'
 alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
 alias tmux-autostart='/storage/src/devops/tmuxp/start_everything.sh'
 alias containers="sudo docker ps --format '$DOCKER_PS_FORMAT'"
+alias lock="dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock && notify-send 'YOUR SCREEN WAS LOCKED FROM TERMINAL.'"
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
 # You can call it like: permissions file1 file2 file3 etc...
