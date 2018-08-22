@@ -4,6 +4,9 @@ urxvt*depth: 32
 URxvt.background: [50]#302351
 URxvt.foreground:   #ffffff
 URxvt.cursorColor:  #ffffff
+URxvt.saveLines: 50000
+URxvt.secondaryScroll: true
+URxvt.geometry: 130x40
 
 ! black
 URxvt.color0:       #282a2e
