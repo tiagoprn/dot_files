@@ -46,7 +46,7 @@ font pango:Sans Regular 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -256,4 +256,6 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 exec --no-startup-id xautolock -time 10 -locker lock 
 exec --no-startup-id pavucontrol
+# below will set the wallpaper to the most recent file on ~/Wallpapers
+exec_always --no-startup-id feh --bg-scale ~/Wallpapers/$(find $DIR -type f -printf "%T@ %p\n" | sort -n | cut -d' ' -f 2- | tail -n 1)
 exec_always --no-startup-id compton -f
