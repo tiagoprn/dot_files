@@ -114,16 +114,16 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1: Terminal"
-set $workspace2 "2: Browsers"
-set $workspace3 "3: Dev"
-set $workspace4 "4: etc1"
-set $workspace5 "5: etc2"
-set $workspace6 "6: etc3"
-set $workspace7 "7: etc4"
-set $workspace8 "8: etc5"
-set $workspace9 "9: Chats"
-set $workspace10 "10: Music"
+set $workspace1 "[1]Terminal"
+set $workspace2 "[2]Browsers"
+set $workspace3 "[3]Dev"
+set $workspace4 "[4]etc1"
+set $workspace5 "[5]etc2"
+set $workspace6 "[6]etc3"
+set $workspace7 "[7]etc4"
+set $workspace8 "[8]etc5"
+set $workspace9 "[9]Chats"
+set $workspace10 "[0]Music"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
