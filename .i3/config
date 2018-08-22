@@ -255,15 +255,13 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
-# Set wallpaper (need to install feh)
-#exec_always --no-startup-id feh --bg-scale /path_to_image_file
-
-# Set display mode (use the command arandr to set the configuration, export it
-# there to a file and copy the command here)
-#exec_always xrandr --output Virtual1 --mode 1360x768
-
+# --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
 exec --no-startup-id xautolock -time 10 -locker lock 
 exec --no-startup-id pavucontrol
 # below will set the wallpaper to the most recent file on ~/Wallpapers
-exec_always --no-startup-id feh --bg-scale ~/Wallpapers/$(find $DIR -type f -printf "%T@ %p\n" | sort -n | cut -d' ' -f 2- | tail -n 1)
+exec_always --no-startup-id feh --bg-scale $(find ~/Wallpapers -type f -printf "%T@ %p\n" | sort -n | cut -d' ' -f 2- | tail -n 1)
+# Set display mode (use the command arandr to set the configuration, export it
+# there to a file and copy the command here)
+#exec_always xrandr --output Virtual1 --mode 1360x768
 exec_always --no-startup-id compton -f
+
