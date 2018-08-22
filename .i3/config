@@ -9,6 +9,11 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# For this to work on arch linux, you must install the following packages: 
+# packer -S i3-wm compton rofi i3lock i3blocks i3-scrot i3status \
+#   acpi arandr playerctl feh imagemagick jpegexiforient xautolock \
+#   dunst rxvt-unicodeURxvt-vtwheelURxvt-resize-font-git --noconfirm;
+
 set $mod Mod4
 set $base00 #101218
 set $base01 #1f222d
