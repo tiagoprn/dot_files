@@ -66,7 +66,7 @@
     geometry = "270x20-10+33"
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
-    transparency = 0
+    transparency = 25
  
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -124,7 +124,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
  
     # browser for opening urls in context menu
-    browser = /usr/bin/firefox -new-tab
+    browser = /usr/bin/firefox-beta -new-tab
  
 [frame]
     width = 0
@@ -154,12 +154,12 @@
     # Otherwise the '#' and following  would be interpreted as a comment.
     background = "#D3D3A4"
     foreground = "#404040"
-    timeout = 5
+    timeout = 3
  
 [urgency_normal]
     background = "#D3D3A4"
     foreground = "#404040"
-    timeout = 5
+    timeout = 3
  
 [urgency_critical]
     background = "#D8E0E3"
@@ -186,8 +186,8 @@
 # fitting options for rules.
  
 #[espeak]
-    summary = "*"
-    script = dunst_espeak.sh
+#    summary = "*"
+#    script = dunst_espeak.sh
  
 #[script-test]
 #    summary = "*script*"
