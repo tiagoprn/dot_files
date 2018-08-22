@@ -248,14 +248,12 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 # Set wallpaper (need to install feh)
-#exec_always feh --bg-scale /path_to_image_file
+#exec_always --no-startup-id feh --bg-scale /path_to_image_file
 
 # Set display mode (use the command arandr to set the configuration, export it
 # there to a file and copy the command here)
 #exec_always xrandr --output Virtual1 --mode 1360x768
 
-# Fix Nautilius issue on Ubuntu
-# exec_always gsettings set org.gnome.desktop.background show-desktop-icons false
-# exec_always gsettings set org.nemo.desktop show-desktop-icons false
-exec pavucontrol
-exec_always compton -f
+exec --no-startup-id xautolock -time 10 -locker lock 
+exec --no-startup-id pavucontrol
+exec_always --no-startup-id compton -f
