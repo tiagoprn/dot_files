@@ -1,7 +1,11 @@
+! to apply this configuration: 
+! $ xrdb ~/.xresources
+
 URxvt.font: xft:fira code retina:size=12
 URxvt.scrollBar: false
 urxvt*depth: 32
-URxvt.background: [50]#302351
+! URxvt.background: [50]#302351  ! 50 here means 50% transparency
+URxvt.background: #000000
 URxvt.foreground:   #ffffff
 URxvt.cursorColor:  #ffffff
 URxvt.saveLines: 50000
