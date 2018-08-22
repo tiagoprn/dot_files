@@ -117,7 +117,7 @@ bindsym $mod+a focus parent
 
 set $workspace1 "1: Terminal "
 set $workspace2 "2: Browsers "
-set $workspace3 "3: "
+set $workspace3 "3: Programming "
 set $workspace4 "4: "
 set $workspace5 "5: "
 set $workspace6 "6: "
@@ -150,8 +150,13 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-
+# makes some windows open on specific workspaces
+# (the class can be get running `xprop` on the window. Then, you get the second
+#  value of the attribute WM_CLASS(STRING).)
 assign [class="Firefox"] $workspace2
+assign [class="Spotify"] $workspace10
+assign [class="Pavucontrol"] $workspace10
+assign [class="jetbrains-pycharm"] $workspace3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -249,5 +254,5 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 # Fix Nautilius issue on Ubuntu
 # exec_always gsettings set org.gnome.desktop.background show-desktop-icons false
 # exec_always gsettings set org.nemo.desktop show-desktop-icons false
-
+exec pavucontrol
 exec_always compton -f
