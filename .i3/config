@@ -114,20 +114,14 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-
-
-# Startup Programs
-  exec --no-startup-id nm-applet
-  #exec_always --no-startup-id feh --bg-scale ~/.wallpaper.png
-
-set $workspace1 "1: Terminal "
-set $workspace2 "2: Browsers "
-set $workspace3 "3: Programming "
-set $workspace4 "4: "
-set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: "
-set $workspace8 "8: "
+set $workspace1 "1: Terminal"
+set $workspace2 "2: Browsers"
+set $workspace3 "3: Dev"
+set $workspace4 "4: etc1"
+set $workspace5 "5: etc2"
+set $workspace6 "6: etc3"
+set $workspace7 "7: etc4"
+set $workspace8 "8: etc5"
 set $workspace9 "9: Chats"
 set $workspace10 "10: Music"
 
@@ -200,9 +194,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# launch some apps with keyboard shortcuts
-bindsym $mod+n exec nautilus
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
@@ -235,7 +226,6 @@ bar {
     }
 }
 
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -252,17 +242,15 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-
-# bindsym XF86AudioPause exec --no-startup-id echo "cycle pause" > ~/.config/mpv/control
-# bindsym XF86AudioNext exec --no-startup-id echo "playlist-next" > ~/.config/mpv/control
-# bindsym XF86AudioPrev exec --no-startup-id echo "playlist-prev" > ~/.config/mpv/control
-
-
 # CAPS and NUM_LOCK activation
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
+# --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
+bindsym $mod+n exec nautilus
+
 # --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
+exec --no-startup-id nm-applet
 exec --no-startup-id xautolock -time 10 -locker lock 
 exec --no-startup-id pavucontrol
 # below will set the wallpaper to the most recent file on ~/Wallpapers
