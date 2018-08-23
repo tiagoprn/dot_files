@@ -149,7 +149,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 #  value of the attribute WM_CLASS(STRING).)
 assign [class="Firefox"] $workspace2
 assign [class="Google-chrome"] $workspace2
-assign [class="Spotify"] $workspace10
+for_window [class="Spotify"] move to workspace $workspace10  # because it does not work like the other windows, it does not move to where I order it to
+# assign [class="Spotify"] $workspace10
 assign [class="Pavucontrol"] $workspace10
 assign [class="jetbrains-pycharm"] $workspace3
 assign [class="TelegramDesktop"] $workspace9
