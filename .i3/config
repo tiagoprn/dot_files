@@ -263,4 +263,6 @@ exec_always --no-startup-id feh --bg-scale $(find ~/Wallpapers -type f -printf "
 exec_always --no-startup-id compton -f
 exec --no-startup-id gvim
 exec --no-startup-id gedit
-exec --not-startup-id firefox-beta
+exec --no-startup-id firefox-beta
+exec --no-startup-id telegram-desktop
+exec --no-startup-id spotify
