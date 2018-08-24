@@ -248,7 +248,7 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 bindsym $mod+n exec nautilus
 bindsym $mod+p exec mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' 
-bindsym $mod+c exec /storage/src/devops/bin/clipster -sp  # https://github.com/mrichar1/clipster
+bindsym $mod+c exec /storage/src/devops/bin/clipster -sp  # https://github.com/mrichar1/clipster/blob/master/README.md
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
 exec --no-startup-id nm-applet
