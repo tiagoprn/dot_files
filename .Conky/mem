@@ -38,7 +38,7 @@ draw_graph_borders no
  
 # -- Text settings -- #
 use_xft yes
-xftfont Santana:size=10
+xftfont Cantarell:size=10
 xftalpha 0.8
  
 uppercase no
@@ -46,8 +46,8 @@ uppercase no
 default_color FFFFFF
  
 TEXT
-${font Santana:size=14}RAM ${alignr}$memperc%${font}
-${font Santana:size=12}${stippled_hr}${font}
+${font Cantarell:size=14}RAM ${alignr}$memperc%${font}
+${font Cantarell:size=12}${stippled_hr}${font}
 
 ${top_mem name 1} ${alignr}${top_mem mem 1}
 ${top_mem name 2} ${alignr}${top_mem mem 2}

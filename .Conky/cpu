@@ -39,7 +39,7 @@ draw_graph_borders no
  
 # -- Text settings -- #
 use_xft yes
-xftfont Santana:size=10
+xftfont Cantarell:size=10
 xftalpha 0.8
  
 uppercase no
@@ -47,8 +47,8 @@ uppercase no
 default_color FFFFFF
  
 TEXT
-${font Santana:size=14}CPU ${alignr}$cpu%${font}
-${font Santana:size=12}${stippled_hr}${font}
+${font Cantarell:size=14}CPU ${alignr}$cpu%${font}
+${font Cantarell:size=12}${stippled_hr}${font}
 
 Load: ${alignr}${loadavg 1}
 Processes: ${alignr}${running_processes}/${processes}
