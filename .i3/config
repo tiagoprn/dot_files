@@ -263,6 +263,7 @@ exec_always --no-startup-id feh --bg-scale $(find ~/Wallpapers -type f -printf "
 # there to a file and copy the command here)
 #exec_always xrandr --output Virtual1 --mode 1360x768
 exec_always --no-startup-id compton -f
+exec --no-startup-id ~/.Conky/startconky.sh
 exec --no-startup-id gvim
 exec --no-startup-id gedit
 exec --no-startup-id firefox-beta
