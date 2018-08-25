@@ -250,6 +250,7 @@ bindsym $mod+n exec nautilus
 bindsym $mod+p exec mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' 
 bindsym $mod+c exec /storage/src/devops/bin/clipster -sp  # https://github.com/mrichar1/clipster/blob/master/README.md
 bindsym $mod+e exec arandr
+bindsym $mod+Tab exec i3-msg move workspace to output up  # moves the current workspace to the second monitor up/down
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
 exec --no-startup-id nm-applet
