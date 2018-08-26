@@ -273,7 +273,7 @@ exec_always --no-startup-id feh --bg-scale $(find ~/Wallpapers -type f -printf "
 # Set display mode (use the command arandr to set the configuration, export it
 # there to a file and copy the command here)
 #exec_always xrandr --output Virtual1 --mode 1360x768
-exec_always --no-startup-id "compton -f -d --config ~/compton.conf && transset-df -a 0.80"
+exec_always --no-startup-id "compton --config ~/compton.conf"
 exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
 exec --no-startup-id "notify-send 'Launching gvim...' --urgency low; gvim"
 exec --no-startup-id "notify-send 'Launching gedit...' --urgency low; gedit"
