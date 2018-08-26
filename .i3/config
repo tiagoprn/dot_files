@@ -256,6 +256,7 @@ bindsym $mod+n exec "notify-send 'Launching nautilus...' --urgency low; nautilus
 bindsym $mod+p exec "notify-send 'Taking screenshot...' --urgency low; mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' "
 bindsym $mod+c exec /storage/src/devops/bin/clipster -sp  # https://github.com/mrichar1/clipster/blob/master/README.md
 bindsym $mod+e exec arandr
+bindsym $mod+o exec "notify-send '(de)activating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 bindsym $mod+Tab exec i3-msg move workspace to output up  # moves the current workspace to the second monitor up/down
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
