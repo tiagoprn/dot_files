@@ -207,7 +207,7 @@ bindsym $mod+r mode "resize"
 
 
 bar {
-        #status_command i3status
+        # status_command i3status
         status_command i3blocks -c ~/.i3/i3blocks.conf
         font pango: Sans Regular, FontAwesome 12
         position top
