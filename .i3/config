@@ -247,13 +247,9 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 # -- MY CUSTOMIZATIONS BELOW -- 
 
-smart_borders no_gaps
-
 # --- WINDOW BORDERS ---
 for_window [class=".*"] border pixel 7
 focus_follows_mouse no
-gaps inner 7
-gaps outer 7
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 bindsym $mod+n exec "notify-send 'Launching nautilus...' --urgency low; nautilus"
