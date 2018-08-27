@@ -265,7 +265,7 @@ exec --no-startup-id xautolock -time 10 -locker lock
 exec --no-startup-id pavucontrol
 exec --no-startup-id /storage/src/devops/bin/clipster -d
 # below will set the wallpaper to the most recent file on ~/Wallpapers
-exec_always --no-startup-id feh --bg-scale $(find ~/Wallpapers -type f -printf "%T@ %p\n" | sort -n | cut -d' ' -f 2- | tail -n 1)
+exec_always --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh 
 # Set display mode (use the command arandr to set the configuration, export it
 # there to a file and copy the command here)
 #exec_always xrandr --output Virtual1 --mode 1360x768
