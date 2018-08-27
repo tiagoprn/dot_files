@@ -24,8 +24,8 @@ own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
 border_inner_margin 0
 border_outer_margin 0
  
-minimum_size 160 160
-maximum_width 160
+minimum_size 240 160
+maximum_width 240
  
 alignment tl
 gap_x 1260
@@ -39,7 +39,7 @@ draw_graph_borders no
  
 # -- Text settings -- #
 use_xft yes
-xftfont Cantarell:size=10
+xftfont Cantarell:size=14
 xftalpha 0.8
  
 uppercase no
@@ -49,8 +49,7 @@ default_color FFFFFF
 TEXT
 ${font Cantarell:size=14}CPU ${alignr}$cpu%${font}
 ${font Cantarell:size=12}${stippled_hr}${font}
-
-Load: ${alignr}${loadavg 1}
+Load Average: ${alignr}${loadavg 1}
 Processes: ${alignr}${running_processes}/${processes}
 
 ${top name 1} ${alignr}${top cpu 1}
