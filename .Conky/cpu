@@ -28,8 +28,8 @@ minimum_size 160 160
 maximum_width 160
  
 alignment tl
-gap_x 260
-gap_y 422
+gap_x 1260
+gap_y 375
  
 # -- Graphics settings -- #
 draw_shades no
