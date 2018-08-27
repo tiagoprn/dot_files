@@ -49,7 +49,7 @@ default_color FFFFFF
 TEXT
 ${font Cantarell:size=14}CPU ${alignr}$cpu%${font}
 ${font Cantarell:size=12}${stippled_hr}${font}
-Load Average: ${alignr}${loadavg 1}
+LOAD AVERAGE: ${alignr}${loadavg 1}
 Processes: ${alignr}${running_processes}/${processes}
 
 ${top name 1} ${alignr}${top cpu 1}
