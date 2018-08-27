@@ -23,8 +23,7 @@ own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
 border_inner_margin 0
 border_outer_margin 0
  
-minimum_size 920 300
-maximum_width 1024
+minimum_size 1840 300
  
 alignment tl
 gap_x 0
@@ -55,4 +54,4 @@ ${voffset 105}${goto 123}${font Cantarell:size=24}${time %H:%M}${voffset -10}${f
 ${voffset -28}${goto 268}${hr 2}
 ${voffset -70}${goto 278}${cpugraph 50,285 d5dcde ffffff}
 ${font Cantarell:size=18}${voffset 16}${goto 285}${exec bash -c "echo $(uptime -p), since $(uptime -s)"}						
-${font Cantarell:size=18}${voffset -120}${goto 300}BATTERY     ${exec /storage/src/devops/bin/get_battery_info.sh}
+${font Cantarell:size=18}${voffset -120}${goto 300}BATTERY     ${exec bash -c "/storage/src/devops/bin/get_battery_info.sh"}
