@@ -165,7 +165,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # the wallpaper can be downloaded like this: $ curl https://vgy.me/BKRwAW.png -o ~/Wallpapers/arch_wallpaper.png
-bindsym $mod+Shift+x exec i3lock -i ~/Wallpapers/arch_wallpaper.png
+# bindsym $mod+Shift+x exec i3lock -i ~/Wallpapers/arch_wallpaper.png
+bindsym $mod+Shift+x exec /storage/src/devops/bin/lock_and_blur.sh 
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -262,7 +263,9 @@ bindsym $mod+m exec "notify-send 'Configuring monitors with xrandr...' --urgency
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
 exec --no-startup-id nm-applet
-exec --no-startup-id xautolock -time 10 -locker lock 
+exec --no-startup-id  xautolock -detectsleep -time 5 -locker "/storage/src/devops/bin/lock_and_blur.sh" \
+  -notify 30 \
+  -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'";
 exec --no-startup-id pavucontrol
 exec --no-startup-id /storage/src/devops/bin/clipster -d
 # below will set the wallpaper to the most recent file on ~/Wallpapers
