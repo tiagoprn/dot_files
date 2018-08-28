@@ -258,6 +258,7 @@ bindsym $mod+c exec /storage/src/devops/bin/clipster -sp  # https://github.com/m
 bindsym $mod+e exec arandr
 bindsym $mod+o exec "notify-send '(de)activating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 bindsym $mod+Tab exec i3-msg move workspace to output up  # moves the current workspace to the second monitor up/down
+bindsym $mod+m exec "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
 exec --no-startup-id nm-applet
@@ -276,3 +277,5 @@ exec --no-startup-id "notify-send 'Launching gedit...' --urgency low; gedit"
 exec --no-startup-id "notify-send 'Launching firefox...' --urgency low; firefox-beta"
 exec --no-startup-id "notify-send 'Launching telegram...' --urgency low; telegram-desktop"
 exec --no-startup-id "notify-send 'Launching spotify...' --urgency low; spotify"
+exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
+
