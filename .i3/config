@@ -99,10 +99,10 @@ set $workspace1 "[1]Terminal"
 set $workspace2 "[2]Browsers"
 set $workspace3 "[3]Dev"
 set $workspace4 "[4]Notes"
-set $workspace5 "[5]etc1"
-set $workspace6 "[6]etc2"
-set $workspace7 "[7]etc3"
-set $workspace8 "[8]etc4"
+set $workspace5 "[5]Schedule"
+set $workspace6 "[6]etc1"
+set $workspace7 "[7]etc2"
+set $workspace8 "[8]etc3"
 set $workspace9 "[9]Chats"
 set $workspace10 "[0]Music"
 
@@ -143,6 +143,8 @@ assign [class="TelegramDesktop"] $workspace9
 assign [class="Slack"] $workspace9
 assign [class="Gvim"] $workspace4
 assign [class="Gedit"] $workspace4
+assign [class="Gnome-calendar"] $workspace5
+assign [class="Org.gnome.Weather.Application"] $workspace5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -267,4 +269,6 @@ exec --no-startup-id "notify-send 'Launching firefox...' --urgency low; firefox-
 exec --no-startup-id "notify-send 'Launching telegram...' --urgency low; telegram-desktop"
 exec --no-startup-id "notify-send 'Launching spotify...' --urgency low; spotify"
 exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
+exec --no-startup-id "notify-send 'Launching Gnome Calendar...' --urgency low; gnome-calendar"
+exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gnome-weather"
 
