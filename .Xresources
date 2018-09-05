@@ -1,5 +1,7 @@
 ! to apply this configuration: 
-! $ xrdb ~/.xresources
+! $ xrdb ~/.Xresources
+
+! --- uRxvt
 
 URxvt.font: xft:fira code retina:size=12
 URxvt.scrollBar: false
@@ -44,3 +46,16 @@ URxvt.color14:      #8abeb7
 URxvt.color7:       #707880
 URxvt.color15:      #c5c8c6
 
+! --- rofi
+rofi.lines: 5
+rofi.eh: 2
+rofi.padding: 200
+rofi.fullscreen: true
+rofi.bw: 0
+rofi.separator-style: none
+rofi.hide-scrollbar: true
+!                  'background', 'border', 'separator'
+rofi.color-window: argb:c82d303b, #7c8389, #1d1f21
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: argb:31d1f21, #f3f4f5, argb:31d1f21, argb:31d1f21, #9575cd 
+rofi.font: System San Francisco Display 18
