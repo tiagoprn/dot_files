@@ -57,7 +57,7 @@ bindsym $mod+d exec "rofi -show run"
 # below lists just apps with .desktop files
 bindsym $mod+space exec "rofi -show drun"
 # below, alt-tab to quickly switch between windows
-bindsym Mod1+Tab exec "rofi -show window"
+bindsym $mod+Tab exec "rofi -show window"
 
 # change focus
 bindsym $mod+Left focus left
@@ -248,7 +248,7 @@ bindsym $mod+p exec "notify-send 'Taking screenshot...' --urgency low; mkdir -p 
 bindsym $mod+c exec /storage/src/devops/bin/clipster -sp  # https://github.com/mrichar1/clipster/blob/master/README.md
 bindsym $mod+x exec "notify-send 'Launching arandr...' --urgency low; arandr"
 bindsym $mod+o exec "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
-bindsym $mod+Tab exec i3-msg move workspace to output up  # moves the current workspace to the second monitor up/down
+bindsym Mod1+Tab exec i3-msg move workspace to output up  # alt+tab, moves the current workspace to the second monitor up/down
 bindsym $mod+m exec "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
