@@ -53,9 +53,9 @@ bindsym $mod+k kill
 
 # program launcher
 # below lists all binary executable files
-bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 100 -padding 500 -opacity "80" -bw 0 -bc "$base01" -bg "$base02" -fg "$base07" -hlbg "$base05" -columns 2 -font "System San Francisco Display 18" -hlfg "#9575cd"
+bindsym $mod+d exec "rofi -show run" 
 # below lists just apps with .desktop files
-bindsym $mod+space exec rofi -show drun
+bindsym $mod+space exec "rofi -show drun"
 # below, alt-tab to quickly switch between windows
 bindsym Mod1+Tab exec "rofi -show window"
 
