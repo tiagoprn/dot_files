@@ -147,8 +147,8 @@ export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.
 
 ## Bash aliases
 alias ls='ls --color -lha'
-alias upgrade='pyenv deactivate && yaourt -Syyua --noconfirm'
-alias full-upgrade='pyenv deactivate && sudo pacman-key --refresh-keys && sudo reflector --age 8 --fastest 128 --latest 64 --number 32 --sort rate --save /etc/pacman.d/mirrorlist && yaourt -Syyua --noconfirm'
+alias upgrade='pyenv deactivate && yaourt -Syyua --color --noconfirm'
+alias full-upgrade='pyenv deactivate && sudo pacman-key --refresh-keys && sudo reflector --age 8 --fastest 128 --latest 64 --number 32 --sort rate --save /etc/pacman.d/mirrorlist && yaourt --color -Syyua --noconfirm'
 alias jlogs='sudo journalctl -o short-iso -f --all'
 alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
 alias tmux-autostart='/storage/src/devops/tmuxp/start_everything.sh'
