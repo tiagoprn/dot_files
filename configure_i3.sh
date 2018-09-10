@@ -1,4 +1,8 @@
 #!/bin/bash
+
+echo 'Installing monospaced fonts...'
+yaourt -S --color ttf-hack-ibx ttf-monofur ttf-fira-code ttf-mononoki --noconfirm
+
 echo 'Linking main i3 config...' 
 rm -fr ~/.i3
 ln -s /storage/src/dot_files/.i3 ~/.i3
@@ -23,8 +27,9 @@ rm -fr ~/.local/share/rofi
 ln -s /storage/src/dot_files/rofi ~/.local/share/rofi
 
 echo 'Linking dunst config...'
-rm -fr ~/dunstrc
-ln -s /storage/src/dot_files/dunstrc ~/dunstrc
+rm -fr ~/.config/dunst/dunstrc
+mkdir -p ~/.config/dunst
+ln -s /storage/src/dot_files/dunstrc ~/.config/dunst/dunstrc
 
 echo 'Linking conky, compton and clipster config...'
 rm -fr ~/.Conky ~/compton.conf ~/clipster.ini
