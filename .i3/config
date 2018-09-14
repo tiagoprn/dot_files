@@ -228,7 +228,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 # Media player controls
 # bindsym XF86AudioPlay exec playerctl play
 # bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioPlay exec playerctl play-pause
+# bindsym XF86AudioPlay exec playerctl play-pause
+bindsym Control+space exec playerctl play-pause
+
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
