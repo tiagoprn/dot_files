@@ -28,11 +28,6 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
 
-" Support for code snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-
 " CTRLSpace
 Plugin 'vim-ctrlspace/vim-ctrlspace'
 
@@ -42,8 +37,6 @@ Plugin 'itchyny/lightline.vim'
 " vim-bookmarks
 Plugin 'MattesGroeger/vim-bookmarks'
 
-" TaskList - for putting TODO and FIXME under a list
-Plugin 'TaskList.vim'
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
