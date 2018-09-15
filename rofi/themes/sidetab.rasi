@@ -11,7 +11,7 @@ configuration {
 	sidebar-mode:    true;
 }
 
-{
+* {
 	background-color:            #080808;
 	text-color:                  #d3d7cf;
 	selbg:                       #215d9c;
