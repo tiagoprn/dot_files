@@ -1,13 +1,12 @@
+TO INSTALL:
+
+    rm -fr .vim; rm -fr .vimrc; ln -s /storage/src/dot_files/.vimrc ~/.vimrc && ln -s /storage/src/dot_files/.vim ~/.vim && mkdir ~/.vim/bundle && git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+---
+
 VUNDLE (PACKAGE MANAGER):
 
 Vundle will make installing and updating all the other tools much easier. It’s basically pathogen with a lot of nice extras, like installing the bundles itself from their Github repos (and other sources). For more info see the README in the Github repo.
-
-To install:
-    Remove my current ".vim/" and .vimrc, then:
-    $ ln -s /storage/src/dot_files/.vimrc ~/.vimrc
-    $ ln -s /storage/src/dot_files/.vim ~/.vim
-    $ mkdir ~/.vim/bundle
-    $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 To install plugins which are at ".vimrc":
 
