@@ -10,22 +10,22 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $base00 #101218
-set $base01 #383838
-set $base02 #252936
-set $base03 #7780a1
-set $base04 #C0C5CE
-set $base05 #d1d4e0
-set $base06 #C9CCDB
-set $base07 #ffffff
+set $black #101218
+set $darkgrey #383838
+set $darkviolet #252936
+set $palidblue #7780a1
+set $lightgrey #C0C5CE
+set $lightergrey #d1d4e0
+set $mediumgrey #C9CCDB
+set $white #ffffff
 set $darkred #c72e35
-set $base09 #f99170
-set $base0A #ffefcc
-set $base0B #a5ffe1
-set $base0C #97e0ff
-set $base0D #97bbf7
-set $base0E #c0b7f9
-set $base0F #000000
+set $lightsalmon #f99170
+set $palidyellow #ffefcc
+set $poolblue #a5ffe1
+set $lightblue #97e0ff
+set $paleblue #97bbf7
+set $lightviolet #c0b7f9
+set $pitchblack #000000
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
@@ -95,7 +95,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+h focus child
 
 set $workspace1 "[1]Terminal"
 set $workspace2 "[2]Browsers"
@@ -189,12 +189,10 @@ bindsym $mod+r mode "resize"
 
 # Widow Colours
 #                         border  background text    indicator
-  client.focused          $base01 $base01    $base07 $base0F
-  client.focused_inactive $base02 $base02    $base03 $base0F
-  client.unfocused        $base02 $base02    $base03 $base0F
-  client.urgent           $base02 $darkred    $base00 $base0F
-
-
+  client.focused          $darkgrey $darkgrey    $white $pitchblack
+  client.focused_inactive $darkviolet $darkviolet    $palidblue $pitchblack
+  client.unfocused        $darkviolet $darkviolet    $palidblue $pitchblack
+  client.urgent           $darkviolet $darkred    $black $pitchblack
 
 bar {
         # status_command i3status
@@ -205,14 +203,14 @@ bar {
         #bindsym button4 nop
         #bindsym button5 nop
         colors {
-              separator $base03
-              background $base01
-              statusline $base05
+              separator $palidblue
+              background $darkgrey
+              statusline $lightergrey
               #border  background text
-              focused_workspace  $base01 $base01    $base07
-              active_workspace   $base01 $base02    $base03
-              inactive_workspace $base01 $base01    $base03
-              urgent_workspace   $base01 $base01    $darkred
+              focused_workspace  $darkgrey $darkgrey    $white
+              active_workspace   $darkgrey $darkviolet    $palidblue
+              inactive_workspace $darkgrey $darkgrey    $palidblue
+              urgent_workspace   $darkgrey $darkgrey    $darkred
     }
 }
 
