@@ -37,4 +37,8 @@ ln -s /storage/src/dot_files/.Conky ~/.Conky
 ln -s /storage/src/dot_files/compton.conf ~/compton.conf
 ln -s /storage/src/dot_files/clipster.ini ~/clipster.ini
 
+echo 'Linking ranger configuration...'
+rm -fr ~/.config/ranger
+ln -s /storage/src/dot_files/ranger ~/.config/ranger
+
 echo 'Finished.' 
