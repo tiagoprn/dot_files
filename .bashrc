@@ -147,6 +147,7 @@ export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.
 
 ## Bash aliases
 alias ls='ls --color -lha'
+alias youtube-player='mpsyt'
 alias upgrade='pyenv deactivate && yaourt -Syyua --color --noconfirm'
 alias full-upgrade='pyenv deactivate && sudo pacman-key --refresh-keys && sudo reflector --age 8 --fastest 128 --latest 64 --number 32 --sort rate --save /etc/pacman.d/mirrorlist && yaourt --color -Syyua --noconfirm'
 alias jlogs='sudo journalctl -o short-iso -f --all'
@@ -249,6 +250,7 @@ if [ -x "$(command -v cowsay)" ]; then
 fi
 printf "\n--- WELCOME TO $HOSTNAME ---"
 printf "\ncdr: to navigate through directories using ranger."
+printf "\nyoutube-player: To start mps-youtube."
 printf "\ntmux-autostart: to autostart my default tmux sessions (useful on my personal machines)"
 printf "\ncontainers: to view the running docker containers with less verbosity."
 printf "\njournal: To update my timestamped journal on $JOURNAL_FILE"
