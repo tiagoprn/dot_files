@@ -55,9 +55,9 @@ bindsym $mod+k kill
 # below lists all binary executable files
 bindsym $mod+d exec "rofi -show run" 
 # below lists just apps with .desktop files
-bindsym $mod+space exec "rofi -show drun"
+bindsym $mod+space exec "rofi -show drun -drun-icon-theme"
 # below, alt-tab to quickly switch between windows
-bindsym $mod+Tab exec "rofi -show window"
+bindsym $mod+Tab exec "rofi -show window -drun-icon-theme"
 
 # change focus
 bindsym $mod+Left focus left
