@@ -246,7 +246,7 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 # -- MY CUSTOMIZATIONS BELOW -- 
 
 # --- WINDOW BORDERS ---
-for_window [class=".*"] border pixel 7
+for_window [class=".*"] border pixel 2
 focus_follows_mouse no
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
