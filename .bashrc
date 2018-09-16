@@ -153,7 +153,6 @@ alias jlogs='sudo journalctl -o short-iso -f --all'
 alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
 alias tmux-autostart='/storage/src/devops/tmuxp/start_everything.sh'
 alias containers="sudo docker ps --format '$DOCKER_PS_FORMAT'"
-alias lock="dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock && notify-send 'YOUR SCREEN WAS LOCKED FROM TERMINAL.'"
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
 # You can call it like: permissions file1 file2 file3 etc...
@@ -171,7 +170,7 @@ permissions() {
 # To undo the effect of this function, you can type "cd -" to return to the
 # original directory.
 
-function ranger-cd {
+function cdr() {
     tempfile="$(mktemp -t tmp.XXXXXX)"
     ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
@@ -249,6 +248,7 @@ if [ -x "$(command -v cowsay)" ]; then
     cowsay -f tux $(fortune -s)
 fi
 printf "\n--- WELCOME TO $HOSTNAME ---"
+printf "\ncdr: to navigate through directories using ranger."
 printf "\ntmux-autostart: to autostart my default tmux sessions (useful on my personal machines)"
 printf "\ncontainers: to view the running docker containers with less verbosity."
 printf "\njournal: To update my timestamped journal on $JOURNAL_FILE"
