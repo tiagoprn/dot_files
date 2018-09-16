@@ -193,29 +193,26 @@ bindsym $mod+r mode "resize"
 
 # Widow Colours
 #                         border  background text    indicator
-  client.focused          $darkgrey $bluesky    $white $pitchblack
+  client.focused          $bluesky $bluesky $white $pitchblack
   client.focused_inactive $darkviolet $darkviolet    $palidblue $pitchblack
   client.unfocused        $darkviolet $darkviolet    $palidblue $pitchblack
   client.urgent           $darkviolet $darkred    $black $pitchblack
 
 bar {
-        # status_command i3status
         status_command i3blocks -c ~/.i3/i3blocks.conf
-        font pango: Sans Regular, FontAwesome 12
+        font pango: Fira Code, FontAwesome 12
         position top
         strip_workspace_numbers yes
-        #bindsym button4 nop
-        #bindsym button5 nop
         colors {
               separator $palidblue
               background $darkgrey
-              statusline $lightergrey
-              #border  background text
-              focused_workspace  $darkgrey $blue  $white
-              active_workspace   $darkgrey $bluesky  $white
+              statusline $white
+                                 #border  background text
+              focused_workspace  $bluesky $bluesky  $white
+              active_workspace   $white $white  $bluesky
               inactive_workspace $darkgrey $darkgrey $white
-              urgent_workspace   $darkgrey $red $white
-    }
+              urgent_workspace   $red $red $white
+        }
 }
 
 # Pulse Audio controls
