@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo 'Installing monospaced fonts...'
-yaourt -S --color ttf-hack-ibx ttf-monofur ttf-fira-code ttf-mononoki --noconfirm
+yaourt -S --color ttf-hack-ibx ttf-monofur ttf-fira-code ttf-mononoki mps-youtube mplayer ffmpeg --noconfirm
 
 echo 'Linking main i3 config...' 
 rm -fr ~/.i3
@@ -40,5 +40,9 @@ ln -s /storage/src/dot_files/clipster.ini ~/clipster.ini
 echo 'Linking ranger configuration...'
 rm -fr ~/.config/ranger
 ln -s /storage/src/dot_files/ranger ~/.config/ranger
+
+echo 'Linking mps-youtube configuration...'
+mkdir -p ~/.config/mps-youtube
+ln -s /storage/src/dot_files/mps-youtube/config ~/.config/mps-youtube/config
 
 echo 'Finished.' 
