@@ -254,6 +254,7 @@ bindsym $mod+x exec "notify-send 'Launching arandr...' --urgency low; arandr"
 bindsym $mod+o exec "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 bindsym Mod1+Tab exec i3-msg move workspace to output up  # alt+tab, moves the current workspace to the second monitor up/down
 bindsym $mod+m exec "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
+bindsym Mod1+k exec "notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
 exec --no-startup-id nm-applet
