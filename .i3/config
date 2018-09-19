@@ -200,7 +200,7 @@ bindsym $mod+r mode "resize"
 
 bar {
         status_command i3blocks -c ~/.i3/i3blocks.conf
-        font pango: Cousine Nerd Font, FontAwesome 13
+        font pango: Cantarell Bold, FontAwesome 13
         position top
         strip_workspace_numbers yes
         colors {
