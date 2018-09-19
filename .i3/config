@@ -101,8 +101,8 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+h focus child
 
-set $workspace1 "[1]Terminal"
-set $workspace2 "[2]Browsers"
+set $workspace1 "[1]TMUX"
+set $workspace2 "[2]Web"
 set $workspace3 "[3]Dev"
 set $workspace4 "[4]Notes"
 set $workspace5 "[5]Schedule"
@@ -200,7 +200,7 @@ bindsym $mod+r mode "resize"
 
 bar {
         status_command i3blocks -c ~/.i3/i3blocks.conf
-        font pango: Fira Code, FontAwesome 12
+        font pango: Cousine Nerd Font, FontAwesome 13
         position top
         strip_workspace_numbers yes
         colors {
