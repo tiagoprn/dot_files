@@ -2,7 +2,7 @@
 # ~/.bashrc
 #
 
-HOMEBIN=/home/$USER/local/bin
+HOMEBIN=/home/$USER/bin
 if [ -d $HOMEBIN ];
 then
    export PATH=$PATH:$HOMEBIN
@@ -146,7 +146,7 @@ export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
 export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Size}}"
 
 ## Bash aliases
-alias list-all-alias='cat ~/.bashrc | grep alias'
+alias list-aliases='cat ~/.bashrc | grep alias'
 alias ls='ls --color -lha'
 alias youtube-player='mpsyt'
 alias upgrade='pyenv deactivate && yaourt -Syyua --color --noconfirm'
@@ -161,7 +161,7 @@ alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
 # You can call it like: permissions file1 file2 file3 etc...
-permissions() {
+function permissions() {
     for var in "$@"  # $@ allows iterating to all arguments passed, independent of how many
     do    
         stat -c '%A %a %n' $var;
@@ -188,7 +188,7 @@ function cdr() {
 # A shortcut function that simplifies usage of xclip.
 # - Accepts input from either stdin (pipe), or params.
 # ------------------------------------------------
-cb() {
+function cb() {
   local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
   # Check that xclip is installed.
   if ! type xclip > /dev/null 2>&1; then
@@ -253,15 +253,8 @@ if [ -x "$(command -v cowsay)" ]; then
     cowsay -f tux $(fortune -s)
 fi
 printf "\n--- WELCOME TO $HOSTNAME ---"
-printf "\ncdr: to navigate through directories using ranger."
-printf "\nyoutube-player: To start mps-youtube."
-printf "\ntmux-autostart: to autostart my default tmux sessions (useful on my personal machines)"
-printf "\ncontainers: to view the running docker containers with less verbosity."
-printf "\njournal: To update my timestamped journal on $JOURNAL_FILE"
-printf "\nUse bash aliases upgrade or full-upgrade to update your arch linux." 
 printf "\nTmux will autostart from existing or new session - on login, ssh or gnome-terminal."
-printf "\nAlias to journald logs: jlogs"
-printf "\nAliases/functions to xclip (pacman package has the same name) to copy from the terminal to the X Clipboard (can also be used on pipes): cb[tab] "
+printf "\nlist-aliases: list all available aliases."
 printf "\nIf you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n--- Have fun! ---\n"
 
