@@ -146,7 +146,8 @@ export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
 export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Size}}"
 
 ## Bash aliases
-alias list-aliases='cat ~/.bashrc | grep alias'
+alias list-aliases="cat ~/.bashrc | grep -i '^alias' | sort"
+alias list-functions="cat .bashrc | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
 alias ls='ls --color -lha'
 alias youtube-player='mpsyt'
 alias upgrade='pyenv deactivate && yaourt -Syyua --color --noconfirm'
@@ -161,7 +162,7 @@ alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
 # You can call it like: permissions file1 file2 file3 etc...
-function permissions() {
+function permissions() {  # get files numeric permissions
     for var in "$@"  # $@ allows iterating to all arguments passed, independent of how many
     do    
         stat -c '%A %a %n' $var;
@@ -175,7 +176,7 @@ function permissions() {
 # To undo the effect of this function, you can type "cd -" to return to the
 # original directory.
 
-function cdr() {
+function cdr() {  # cd into a directory with ranger
     tempfile="$(mktemp -t tmp.XXXXXX)"
     ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
@@ -188,7 +189,7 @@ function cdr() {
 # A shortcut function that simplifies usage of xclip.
 # - Accepts input from either stdin (pipe), or params.
 # ------------------------------------------------
-function cb() {
+function cb() {  # Copies to clipboard. You can pipe anything on the terminal to it.
   local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
   # Check that xclip is installed.
   if ! type xclip > /dev/null 2>&1; then
@@ -220,14 +221,10 @@ function cb() {
 }
 # Aliases / functions leveraging the cb() function
 # ------------------------------------------------
-# Copy contents of a file
-function cbf() { cat "$1" | cb; }
-# Copy SSH public key
-alias cbssh="cbf ~/.ssh/id_rsa.pub"
-# Copy current working directory
-alias cbwd="pwd | cb"
-# Copy most recent command in bash history
-alias cbhs="cat $HISTFILE | tail -n 1 | cb"
+function cbf() { cat "$1" | cb; }  # copy file contents to the clipboard
+alias cbssh="cbf ~/.ssh/id_rsa.pub" # Copy SSH public key
+alias cbpwd="pwd | cb" # Copy current working directory
+alias cbhs="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
 
 ## Unified bash history
 shopt -s histappend
@@ -254,7 +251,7 @@ if [ -x "$(command -v cowsay)" ]; then
 fi
 printf "\n--- WELCOME TO $HOSTNAME ---"
 printf "\nTmux will autostart from existing or new session - on login, ssh or gnome-terminal."
-printf "\nlist-aliases: list all available aliases."
+printf "\nlist-aliases / list-functions: list all available aliases/functions."
 printf "\nIf you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n--- Have fun! ---\n"
 
