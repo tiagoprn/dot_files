@@ -146,6 +146,7 @@ export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
 export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Size}}"
 
 ## Bash aliases
+alias list-all-alias='cat ~/.bashrc | grep alias'
 alias ls='ls --color -lha'
 alias youtube-player='mpsyt'
 alias upgrade='pyenv deactivate && yaourt -Syyua --color --noconfirm'
@@ -154,6 +155,9 @@ alias jlogs='sudo journalctl -o short-iso -f --all'
 alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
 alias tmux-autostart='/storage/src/devops/tmuxp/start_everything.sh'
 alias containers="sudo docker ps --format '$DOCKER_PS_FORMAT'"
+alias local-ports-open="netstat -netlp"
+alias remote-ports-open="printf 'HINT: pass the host ip as the parameter\n\n' && sudo nmap -sS"
+alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e.g. 10.0.0.1/24\n\n' && sudo nmap -sP"
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
 # You can call it like: permissions file1 file2 file3 etc...
