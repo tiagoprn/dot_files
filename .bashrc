@@ -186,6 +186,14 @@ function cdr() {  # cd into a directory with ranger
     rm -f -- "$tempfile"
 }
 
+
+# color source code according to the language used and, if it can't, it will launch less on its input directly. 
+
+function cless() {  # syntax highlight the output - useful for source code, etc... 
+    LESSOPEN='| source-highlight --failsafe --out-format=esc256 -o STDOUT -i %s 2>/dev/null ' less -R "$@"
+}
+
+
 # A shortcut function that simplifies usage of xclip.
 # - Accepts input from either stdin (pipe), or params.
 # ------------------------------------------------
