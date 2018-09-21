@@ -168,9 +168,21 @@ nnoremap <Leader>w <C-w>w
 nnoremap j gj
 nnoremap k gk
 
-" CLIPBOARD BEHAVIOR 
+"--------------------------------------------------
+" CLIPBOARD BEHAVIOR (both work in visual mode) 
 vmap <C-y> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
 nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))
+
+" replace the current selection with clipboard contents. Explanation:
+" vmap - mapping for visual mode
+"_d - delete current selection into black hole register
+" P - paste
+vmap r "_dP
+
+" d and dd command no more send text to the clipboard (instead, send it to
+" the blackhole register)
+nnoremap d "_d
+nnoremap dd "_dd
 
 "--------------------------------------------------
 " PLUGIN CONFIGURATIONS
