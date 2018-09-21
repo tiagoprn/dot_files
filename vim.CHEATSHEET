@@ -12,6 +12,12 @@
         Undo: (VISUAL) u
         Redo: (VISUAL) <CTRL+r>
 
+    ## MOVE TO THE END OF THE FILE: 
+        (VISUAL) GA
+
+    ## MOVE TO THE BEGINNING OF THE FILE: 
+        (VISUAL) gg
+
     ## SHOW / HIDE SPECIAL CHARS:
         :set list (to show all)
         :set nolist (to hide all)
