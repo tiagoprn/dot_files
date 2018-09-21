@@ -26,10 +26,18 @@
 	<CTRL+v>
 
     ## BATCH DELETE OF LINES:
-	From the current line on, delete the next 100k lines: (VISUAL) :.,+100000d
+        From an interval of lines: (VISUAL) :5,50d
+	    From the current line on, delete the next 100k lines: (VISUAL) :.,+100000d
+
+    ## BATCH COPY OF LINES:
+        From an interval of lines: (VISUAL) :5,50y
+	    From the current line on, copy the next 100k lines: (VISUAL) :.,+100000y
+
+    ## REPLACE SELECTED TEXT WITH CLIPBOARD CONTENTS:
+        (VISUAL) r
 
     ## DELETE UNTIL END OF LINE: 
-	(VISUAL) d$
+	    (VISUAL) d$
 
     ## DELETE UNTIL BEGINNING OF LINE: 
         (VISUAL) d^
@@ -53,7 +61,6 @@
     ## HISTORY:
         List of past commands (hitting <Enter> you can execute them):
             (VISUAL) q:
-            To exit the list without executing any command: <CTRL+C>
 
     ## COPY
         To copy text from other apps (browser, text editor, disabling the auto-indent:
