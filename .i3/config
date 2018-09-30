@@ -247,21 +247,24 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 for_window [class=".*"] border pixel 2
 focus_follows_mouse no
 
+# --- WINDOWS THAT ALWAYS START IN FLOATING MODE ---
+for_window [class="URxvt"] floating enable border pixel 4
+
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
-bindsym $mod+n exec "notify-send 'Launching nautilus...' --urgency low; nautilus"
-bindsym $mod+p exec "notify-send 'Taking screenshot...' --urgency low; mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' "
+bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
+bindsym $mod+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low; mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' "
+bindsym Mod1+r exec --no-startup-id "urxvt"
 
 # https://github.com/mrichar1/clipster/blob/master/README.md
-bindsym $mod+c exec /storage/src/devops/bin/clipster -sp  
+bindsym $mod+c exec --no-startup-id /storage/src/devops/bin/clipster -sp  
 
-bindsym $mod+x exec "notify-send 'Launching arandr...' --urgency low; arandr"
-bindsym $mod+o exec "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
+bindsym $mod+x exec --no-startup-id "notify-send 'Launching arandr...' --urgency low; arandr"
+bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 
 # moves the current workspace to the second monitor up/down
-bindsym Mod1+Tab exec i3-msg move workspace to output up  
-
-bindsym $mod+m exec "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
-bindsym Mod1+k exec "notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
+bindsym Mod1+Tab exec --no-startup-id i3-msg move workspace to output up  
+bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
+bindsym Mod1+k exec --no-startup-id "notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
 exec --no-startup-id nm-applet
@@ -272,9 +275,6 @@ exec --no-startup-id pavucontrol
 exec --no-startup-id /storage/src/devops/bin/clipster -d
 # below will set the wallpaper to the most recent file on ~/Wallpapers
 exec_always --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh 
-# Set display mode (use the command arandr to set the configuration, export it
-# there to a file and copy the command here)
-#exec_always xrandr --output Virtual1 --mode 1360x768
 exec_always --no-startup-id "compton --config ~/compton.conf"
 exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
 exec --no-startup-id "notify-send 'Launching gvim...' --urgency low; gvim"
