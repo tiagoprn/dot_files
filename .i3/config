@@ -256,9 +256,9 @@ for_window [class="URxvt"] floating enable border pixel 4
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
 bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low; mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' "
-bindsym Mod1+t exec --no-startup-id "urxvt"
 bindsym Mod1+r exec --no-startup-id "urxvt -e bash -c 'ranger'"
 bindsym Mod1+h exec --no-startup-id "urxvt -e bash -c 'htop'"
+bindsym Mod1+v exec --no-startup-id "urxvt --hold -e bash -c 'vim /storage/temp/notes.txt'"
 
 # https://github.com/mrichar1/clipster/blob/master/README.md
 bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -sp  
