@@ -141,7 +141,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 #  value of the attribute WM_CLASS(STRING).)
 assign [class="Firefox"] $workspace2
 assign [class="Google-chrome"] $workspace2
-for_window [class="Spotify"] move to workspace $workspace10  # because it does not work like the other windows, it does not move to where I order it to
+# because spotify it does not work like the other windows, it does not move to where I order it to
+for_window [class="Spotify"] move to workspace $workspace10  
 # assign [class="Spotify"] $workspace10
 assign [class="Pavucontrol"] $workspace10
 assign [class="jetbrains-pycharm"] $workspace3
@@ -252,11 +253,13 @@ bindsym $mod+p exec "notify-send 'Taking screenshot...' --urgency low; mkdir -p 
 
 # https://github.com/mrichar1/clipster/blob/master/README.md
 bindsym $mod+c exec /storage/src/devops/bin/clipster -sp  
+
 bindsym $mod+x exec "notify-send 'Launching arandr...' --urgency low; arandr"
 bindsym $mod+o exec "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 
-# alt+tab, moves the current workspace to the second monitor up/down
+# moves the current workspace to the second monitor up/down
 bindsym Mod1+Tab exec i3-msg move workspace to output up  
+
 bindsym $mod+m exec "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
 bindsym Mod1+k exec "notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
 
