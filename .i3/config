@@ -141,19 +141,19 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # makes some windows open on specific workspaces
 # (the class can be get running `xprop` on the window. Then, you get the second
 #  value of the attribute WM_CLASS(STRING).)
-assign [class="Firefox"] $workspace2
-assign [class="Google-chrome"] $workspace2
+assign [class="Firefox" window_type="normal"] $workspace2
+assign [class="Google-chrome" window_type="normal"] $workspace2
 # because spotify it does not work like the other windows, it does not move to where I order it to
-for_window [class="Spotify"] move to workspace $workspace10  
+for_window [class="Spotify" window_type="normal"] move to workspace $workspace10  
 # assign [class="Spotify"] $workspace10
-assign [class="Pavucontrol"] $workspace10
-assign [class="jetbrains-pycharm"] $workspace3
-assign [class="TelegramDesktop"] $workspace9
-assign [class="Slack"] $workspace9
-assign [class="Gvim"] $workspace4
-assign [class="Gedit"] $workspace4
-assign [class="Gnome-calendar"] $workspace5
-assign [class="Org.gnome.Weather.Application"] $workspace5
+assign [class="Pavucontrol" window_type="normal"] $workspace10
+assign [class="jetbrains-pycharm" window_type="normal"] $workspace3
+assign [class="TelegramDesktop" window_type="normal"] $workspace9
+assign [class="Slack" window_type="normal"] $workspace9
+assign [class="Gvim" window_type="normal"] $workspace4
+assign [class="Gedit" window_type="normal"] $workspace4
+assign [class="Gnome-calendar" window_type="normal"] $workspace5
+assign [class="Org.gnome.Weather.Application" window_type="normal"] $workspace5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
