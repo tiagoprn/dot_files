@@ -1,4 +1,5 @@
-VteTerminal {
-    -VteTerminal-inner-border: 40px;
+VteTerminal, vte-terminal {
+    padding: 40px;
+    background-color: #000000;
 }
 
