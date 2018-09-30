@@ -154,7 +154,7 @@ alias upgrade='pyenv deactivate && yaourt -Syyua --color --noconfirm'
 alias full-upgrade='pyenv deactivate && sudo pacman-key --refresh-keys && sudo reflector --age 8 --fastest 128 --latest 64 --number 32 --sort rate --save /etc/pacman.d/mirrorlist && yaourt --color -Syyua --noconfirm'
 alias jlogs='sudo journalctl -o short-iso -f --all'
 alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
-alias tmux-autostart='/storage/src/devops/tmuxp/start_everything.sh'
+alias tmux-autostart='/storage/src/devops/tmuxp/start_everything.sh && tmux -2 a -t HOME'
 alias containers="sudo docker ps --format '$DOCKER_PS_FORMAT'"
 alias local-ports-open="netstat -netlp"
 alias remote-ports-open="printf 'HINT: pass the host ip as the parameter\n\n' && sudo nmap -sS"
@@ -242,16 +242,16 @@ PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_SCALE_FACTOR=0.6
 
-## Auto start tmux:
+## Auto start tmux (DISABLED IN FAVOR OF MY ALIAS tmux-autostart)
 # This script looks for the parent process of the bash shell.
 # If bash was started from logging in or from ssh, it will execute tmux.
 # If you want this to work with a GUI terminal, you can add that in there as well.
 # For example, if you want to start tmux automatically when you start Ubuntu's standard gnome-terminal, you would use this:
 # (reference: https://stackoverflow.com/questions/11068965/how-can-i-make-tmux-be-active-whenever-i-start-a-new-shell-session)
-PNAME="$(ps -o comm= $PPID | awk '{print $1}')";
-if [ $PNAME == "login" ] || [ $PNAME == "sshd" ] || [ $PNAME == "gnome-terminal-" ] || [ $PNAME == "termite" ] ; then
-  tmux -2 a -t work01 || exec tmux -2 new -s work01
-fi
+# PNAME="$(ps -o comm= $PPID | awk '{print $1}')";
+# if [ $PNAME == "login" ] || [ $PNAME == "sshd" ] || [ $PNAME == "gnome-terminal-" ] || [ $PNAME == "termite" ] ; then
+#   tmux -2 a -t work01 || exec tmux -2 new -s work01
+# fi
 
 ## The message below will print each time a terminal is started:
 if [ -x "$(command -v cowsay)" ]; then
