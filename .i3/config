@@ -271,6 +271,9 @@ bindsym Mod1+Tab exec --no-startup-id i3-msg move workspace to output up
 bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
 bindsym Mod1+k exec --no-startup-id "notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
 
+# --- CUSTOM COMMANDS ON CURRENT WINDOW
+bindsym Mod1+s sticky toggle
+
 # --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
 exec --no-startup-id nm-applet
 exec --no-startup-id  xautolock -detectsleep -time 5 -locker "/storage/src/devops/bin/lock_and_blur.sh" \
