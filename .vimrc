@@ -146,7 +146,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " Color scheme (must be in ~/.vim/colors)
 set t_Co=256
-color wombat256mod
+color distinguished
 
 
 " font
