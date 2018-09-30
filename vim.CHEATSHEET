@@ -12,12 +12,6 @@
         Undo: (VISUAL) u
         Redo: (VISUAL) <CTRL+r>
 
-    ## MOVE TO THE END OF THE FILE: 
-        (VISUAL) GA
-
-    ## MOVE TO THE BEGINNING OF THE FILE: 
-        (VISUAL) gg
-
     ## SHOW / HIDE SPECIAL CHARS:
         :set list (to show all)
         :set nolist (to hide all)
@@ -52,6 +46,10 @@
         Go to next word: <w>
         Go to previous word: <b>
         Jump to a matching opening or closing parenthesis, square bracket or a curly brace: <%>
+        ### MOVE TO THE END OF THE FILE: 
+            (VISUAL) GA
+        ### MOVE TO THE BEGINNING OF THE FILE: 
+            (VISUAL) gg
 
     ## SEARCH / REPLACE
         - Search for current word on the cursor (visual mode):
