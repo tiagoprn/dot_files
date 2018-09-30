@@ -76,7 +76,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+i split h
+bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -96,10 +96,10 @@ bindsym $mod+Shift+space floating toggle
 # bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # focus the child container
-bindsym $mod+h focus child
+bindsym $mod+c focus child
 
 set $workspace1 "[1]TMUX"
 set $workspace2 "[2]Web"
@@ -248,17 +248,17 @@ for_window [class=".*"] border pixel 2
 focus_follows_mouse no
 
 # --- WINDOWS THAT ALWAYS START IN FLOATING MODE ---
-for_window [class="URxvt"] floating enable border pixel 4
+for_window [class="URxvt"] floating enable border pixel 4  
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
-bindsym $mod+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low; mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' "
+bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low; mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' "
 bindsym Mod1+t exec --no-startup-id "urxvt"
 bindsym Mod1+r exec --no-startup-id "urxvt -e bash -c 'ranger'"
 bindsym Mod1+h exec --no-startup-id "urxvt -e bash -c 'htop'"
 
 # https://github.com/mrichar1/clipster/blob/master/README.md
-bindsym $mod+c exec --no-startup-id /storage/src/devops/bin/clipster -sp  
+bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -sp  
 
 bindsym $mod+x exec --no-startup-id "notify-send 'Launching arandr...' --urgency low; arandr"
 bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
