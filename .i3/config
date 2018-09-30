@@ -112,7 +112,7 @@ set $workspace6 "[6]etc1"
 set $workspace7 "[7]etc2"
 set $workspace8 "[8]etc3"
 set $workspace9 "[9]Chats"
-set $workspace10 "[0]Music"
+set $workspace10 "[0]Media"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
