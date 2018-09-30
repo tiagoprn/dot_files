@@ -258,7 +258,7 @@ if [ -x "$(command -v cowsay)" ]; then
     cowsay -f tux $(fortune -s)
 fi
 printf "\n--- WELCOME TO $HOSTNAME ---"
-printf "\nTmux will autostart from existing or new session - on login, ssh or gnome-terminal."
+printf "\n*tmux-autostart* to start tmux sessions and attach to them."
 printf "\nlist-aliases / list-functions: list all available aliases/functions."
 printf "\nIf you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n--- Have fun! ---\n"
