@@ -146,7 +146,7 @@ assign [class="Google-chrome" window_type="normal"] $workspace2
 # because spotify it does not work like the other windows, it does not move to where I order it to
 for_window [class="Spotify"] move to workspace $workspace10  
 # assign [class="Spotify"] $workspace10
-assign [class="Pavucontrol" window_type="normal"] $workspace10
+assign [class="Termite" window_type="normal"] $workspace10
 assign [class="jetbrains-pycharm" window_type="normal"] $workspace3
 assign [class="TelegramDesktop" window_type="normal"] $workspace9
 assign [class="Slack" window_type="normal"] $workspace9
@@ -252,6 +252,8 @@ focus_follows_mouse no
 
 # --- WINDOWS THAT ALWAYS START IN FLOATING MODE ---
 for_window [class="URxvt"] floating enable border pixel 4  
+for_window [class="MPlayer"] floating enable border pixel 4  
+for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 480 move position center
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
@@ -259,6 +261,7 @@ bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgenc
 bindsym Mod1+r exec --no-startup-id "urxvt -e bash -c 'ranger'"
 bindsym Mod1+h exec --no-startup-id "urxvt -e bash -c 'htop'"
 bindsym Mod1+v exec --no-startup-id "urxvt --hold -e bash -c 'vim /storage/temp/notes.txt'"
+bindsym Mod1+o exec --no-startup-id "pavucontrol"
 
 # https://github.com/mrichar1/clipster/blob/master/README.md
 bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -sp  
@@ -279,7 +282,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id  xautolock -detectsleep -time 5 -locker "/storage/src/devops/bin/lock_and_blur.sh" \
   -notify 30 \
   -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'";
-exec --no-startup-id pavucontrol
+# below starts youtube-player
+exec --no-startup-id "termite --hold -e 'mpsyt'"
 exec --no-startup-id /storage/src/devops/bin/clipster -d
 # below will set the wallpaper to the most recent file on ~/Wallpapers
 exec_always --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh 
