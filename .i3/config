@@ -144,7 +144,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 assign [class="Firefox" window_type="normal"] $workspace2
 assign [class="Google-chrome" window_type="normal"] $workspace2
 # because spotify it does not work like the other windows, it does not move to where I order it to
-for_window [class="Spotify" window_type="normal"] move to workspace $workspace10  
+for_window [class="Spotify"] move to workspace $workspace10  
 # assign [class="Spotify"] $workspace10
 assign [class="Pavucontrol" window_type="normal"] $workspace10
 assign [class="jetbrains-pycharm" window_type="normal"] $workspace3
