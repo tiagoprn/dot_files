@@ -12,6 +12,9 @@
         Undo: (VISUAL) u
         Redo: (VISUAL) <CTRL+r>
 
+    ## REPEAT THE LAST COMMAND
+        (VISUAL) .
+
     ## SHOW / HIDE SPECIAL CHARS:
         :set list (to show all)
         :set nolist (to hide all)
