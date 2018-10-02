@@ -77,6 +77,23 @@
         Paste system clipboard to vim:
             (VISUAL) <C-p> 
 
+    ## Script actions in normal mode
+
+        Read the output from a command on the current buffer: 
+            (VISUAL) read ![command]
+
+        Run a normal mode command: 
+            (VISUAL) norm Iline     # goes to the beginning of a line and enter INSERT mode, type line
+            (VISUAL) norm Aend   # goes to the end of a line and enter INSERT mode, type end          
+            NOTES: 
+                 This can be done with many lines selected (with V), then :norm A... to edit multiple lines. 
+
+        In VISUAL mode, you can create a temporary map: 
+            map <leader>p 0yi":!mupdf <C-R>"<CR><CR>   # 0 goes to the beginning of a line - $ goes to the end o a line, yi" means [y]ank what's [i]n (between) ", ! means run mupdf on what was yanked, <C-R> means paste what was yanked, <CR> means a press of the ENTER key.   
+
+        Select what is in quotes:
+            (VISUAL) norm 0yi" 
+            
 # vim-bookmarks:
     (all commands below run in VISUAL mode):
     Set  Bookmark: <,,>
