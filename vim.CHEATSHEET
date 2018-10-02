@@ -35,6 +35,10 @@
 
     ## REPLACE SELECTED TEXT WITH CLIPBOARD CONTENTS:
         (VISUAL) r
+    
+    ## REPLACE SELECTED TEXT WITH NEW CONTENTS: 
+
+        (VISUAL) Select the text, then c. 
 
     ## DELETE UNTIL END OF LINE: 
 	    (VISUAL) d$
