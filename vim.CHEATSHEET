@@ -1,5 +1,14 @@
 # General
 
+    ## VIM MOVEMENT KEYS:
+    
+        h: back
+        j: down
+        k: up 
+        l: forward
+    
+        NOTE: Prefix the movement keys with a number and you will move to that direction x times. E.g. 10k moves 10 lines up
+
     ## KEY MAPPINGS
     ### View all key mappings in vim
         (VISUAL) :map
@@ -117,6 +126,12 @@
         NOTES: 
             - This can be done with many lines selected (with V), then :norm A... to edit multiple lines.
             - You can run any normal mode command you wish, but if you use I and A you will enter INSERT mode. 
+
+    ## Record a macro: 
+
+    If you wanna script moving the cursor, use vim movement keys (hjkl): 
+    
+    (VISUAL) q[another key to where the macro will be saved as] put the cursor where to start and do your key presses here (VISUAL)q to finish, replay the macro with @
 
             
 # vim-bookmarks:
