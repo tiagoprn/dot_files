@@ -25,6 +25,14 @@
     ## VERTICAL SELECTION (BLOCK):
 	<CTRL+v>
 
+    ## SELECT A WHOLE LINE: 
+    (VISUAL) V
+    OBS.: keep selecting with the arrow keys you can select multiple lines as a whole
+
+    ## SELECT WHAT IS IN QUOTES ON THE CURRENT LINE 
+    (works with "[}(" also)
+    (VISUAL) norm 0yi" 
+
     ## BATCH DELETE OF LINES:
         From an interval of lines: (VISUAL) :5,50d
 	    From the current line on, delete the next 100k lines: (VISUAL) :.,+100000d
@@ -37,7 +45,6 @@
         (VISUAL) r
     
     ## REPLACE SELECTED TEXT WITH NEW CONTENTS: 
-
         (VISUAL) Select the text, then c. 
 
     ## DELETE UNTIL END OF LINE: 
@@ -50,10 +57,27 @@
         Go to next word: <w>
         Go to previous word: <b>
         Jump to a matching opening or closing parenthesis, square bracket or a curly brace: <%>
-        ### MOVE TO THE END OF THE FILE: 
-            (VISUAL) GA
+
+        ### MOVE TO THE START OF THE LINE:
+            (VISUAL) 0
+
+        ### MOVE TO THE END OF THE LINE:
+            (VISUAL) $
+
+        ### MOVE TO THE START OF THE LINE AND ENTER INSERT MODE:
+            (VISUAL) I
+
+        ### MOVE TO THE END OF THE LINE AND ENTER INSERT MODE:
+            (VISUAL) A
+
         ### MOVE TO THE BEGINNING OF THE FILE: 
             (VISUAL) gg
+
+        ### MOVE TO THE END OF THE FILE: 
+            (VISUAL) G
+
+        ### MOVE TO THE END OF THE FILE AND ENTER INSERT MODE: 
+            (VISUAL) GA
 
     ## SEARCH / REPLACE
         - Search for current word on the cursor (visual mode):
@@ -81,22 +105,16 @@
         Paste system clipboard to vim:
             (VISUAL) <C-p> 
 
-    ## Script actions in normal mode
+    ## READ THE OUTPUT FROM A COMMAND ON THE CURRENT BUFFER: 
+        (VISUAL) read ![command]
 
-        Read the output from a command on the current buffer: 
-            (VISUAL) read ![command]
+    ## RUN A NORMAL MODE COMMAND ON MULTIPLE LINES: 
+        (VISUAL) norm Iline  # goes to the beginning of a line and enter INSERT mode, type line
+        (VISUAL) norm Aend   # goes to the end of a line and enter INSERT mode, type end          
+        NOTES: 
+            - This can be done with many lines selected (with V), then :norm A... to edit multiple lines.
+            - You can run any normal mode command you wish, but if you use I and A you will enter INSERT mode. 
 
-        Run a normal mode command: 
-            (VISUAL) norm Iline     # goes to the beginning of a line and enter INSERT mode, type line
-            (VISUAL) norm Aend   # goes to the end of a line and enter INSERT mode, type end          
-            NOTES: 
-                 This can be done with many lines selected (with V), then :norm A... to edit multiple lines. 
-
-        In VISUAL mode, you can create a temporary map: 
-            map <leader>p 0yi":!mupdf <C-R>"<CR><CR>   # 0 goes to the beginning of a line - $ goes to the end o a line, yi" means [y]ank what's [i]n (between) ", ! means run mupdf on what was yanked, <C-R> means paste what was yanked, <CR> means a press of the ENTER key.   
-
-        Select what is in quotes:
-            (VISUAL) norm 0yi" 
             
 # vim-bookmarks:
     (all commands below run in VISUAL mode):
