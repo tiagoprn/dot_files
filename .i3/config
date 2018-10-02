@@ -151,8 +151,6 @@ assign [class="Termite" window_type="normal"] $workspace10
 assign [class="jetbrains-pycharm" window_type="normal"] $workspace3
 assign [class="TelegramDesktop" window_type="normal"] $workspace9
 assign [class="Slack" window_type="normal"] $workspace9
-assign [class="Gvim" window_type="normal"] $workspace4
-assign [class="Gedit" window_type="normal"] $workspace4
 assign [class="Gnome-calendar" window_type="normal"] $workspace5
 assign [class="Org.gnome.Weather.Application" window_type="normal"] $workspace5
 
@@ -266,6 +264,8 @@ bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgenc
 bindsym Mod1+r exec --no-startup-id "urxvt -e bash -c 'ranger'"
 bindsym Mod1+v exec --no-startup-id "urxvt --hold -e bash -c 'vim /storage/temp/notes.txt'"
 bindsym Mod1+o exec --no-startup-id "pavucontrol"
+# below starts youtube-player
+bindsym Mod1+y exec --no-startup-id "termite --hold -e 'mpsyt'"
 
 # https://github.com/mrichar1/clipster/blob/master/README.md
 bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -sp  
@@ -286,15 +286,11 @@ exec --no-startup-id nm-applet
 exec --no-startup-id  xautolock -detectsleep -time 5 -locker "/storage/src/devops/bin/lock_and_blur.sh" \
   -notify 30 \
   -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'";
-# below starts youtube-player
-exec --no-startup-id "termite --hold -e 'mpsyt'"
 exec --no-startup-id /storage/src/devops/bin/clipster -d
 # below will set the wallpaper to the most recent file on ~/Wallpapers
 exec_always --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh 
 exec_always --no-startup-id "compton --config ~/compton.conf"
 exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
-exec --no-startup-id "notify-send 'Launching gvim...' --urgency low; gvim"
-exec --no-startup-id "notify-send 'Launching gedit...' --urgency low; gedit"
 exec --no-startup-id "notify-send 'Launching firefox...' --urgency low; firefox-beta"
 exec --no-startup-id "notify-send 'Launching telegram...' --urgency low; telegram-desktop"
 exec --no-startup-id "notify-send 'Launching spotify...' --urgency low; spotify"
