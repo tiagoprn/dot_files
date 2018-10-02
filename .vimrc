@@ -80,6 +80,9 @@ let mapleader = ","  " the <Leader> combination (in visual mode) will so be: ','
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
+" Map <,all> to select all text in the file: 
+map <Leader>all <esc>gg0vG$<CR>
+
 filetype plugin indent on
 au FileType py set autoindent
 au FileType py set smartindent

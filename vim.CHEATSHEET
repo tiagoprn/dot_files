@@ -43,7 +43,12 @@
 
     ## SELECT WHAT IS IN QUOTES ON THE CURRENT LINE 
     (works with "[}(" also)
-    (VISUAL) norm 0yi" 
+    
+        (VISUAL) norm 0yi"  # go to beginning of line (0), (y)ank what is (i)n double quotes 
+
+    ## SELECT ALL TEXT: 
+   
+    (VISUAL) <,all>
 
     ## BATCH DELETE OF LINES:
         From an interval of lines: (VISUAL) :5,50d
@@ -128,6 +133,7 @@
             - You can run any normal mode command you wish, but if you use I and A you will enter INSERT mode. 
 
     ## Record a macro: 
+    (TODO, this is not complete yet)
 
     If you wanna script moving the cursor, use vim movement keys (hjkl): 
     
