@@ -105,9 +105,9 @@ bindsym $mod+p focus parent
 bindsym $mod+c focus child
 
 set $workspace1 "[1]TMUX"
-set $workspace2 "[2]Web"
+set $workspace2 "[2]Firefox"
 set $workspace3 "[3]Dev"
-set $workspace4 "[4]Notes"
+set $workspace4 "[4]Chrome"
 set $workspace5 "[5]Schedule"
 set $workspace6 "[6]etc1"
 set $workspace7 "[7]etc2"
@@ -143,7 +143,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # (the class can be get running `xprop` on the window. Then, you get the second
 #  value of the attribute WM_CLASS(STRING).)
 assign [class="Firefox" window_type="normal"] $workspace2
-assign [class="Google-chrome" window_type="normal"] $workspace2
+assign [class="Google-chrome" window_type="normal"] $workspace4
 # because spotify it does not work like the other windows, it does not move to where I order it to
 for_window [class="Spotify"] move to workspace $workspace10  
 # assign [class="Spotify"] $workspace10
