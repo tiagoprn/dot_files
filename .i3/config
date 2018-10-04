@@ -196,7 +196,7 @@ bindsym $mod+r mode "resize"
 # Window Colours
 # IMPORTANT: "indicator" is the split indicator - the border that shows where the next window will be at
 #                         | border | background | text | indicator
-  client.focused          $bluesky $bluesky $white $blue
+  client.focused          $white $white $white $bluesky
   client.focused_inactive $darkviolet $darkviolet    $palidblue $blue
   client.unfocused        $darkviolet $darkviolet    $palidblue $blue
   client.urgent           $darkviolet $darkred    $black $blue
