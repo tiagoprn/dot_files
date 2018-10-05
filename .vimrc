@@ -173,7 +173,10 @@ nnoremap k gk
 
 "--------------------------------------------------
 " CLIPBOARD BEHAVIOR (both work in visual mode) 
-vmap <C-y> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+" vmap <C-y> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+" nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))
+vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+vnoremap p :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))
 nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))
 
 " replace the current selection with clipboard contents. Explanation:
