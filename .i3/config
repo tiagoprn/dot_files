@@ -297,5 +297,5 @@ exec --no-startup-id "notify-send 'Launching spotify...' --urgency low; spotify"
 exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
 exec --no-startup-id "notify-send 'Launching Gnome Calendar...' --urgency low; gnome-calendar"
 exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gnome-weather"
-exec --no-startup-id "urxvt -e bash -c 'htop'"
+exec --no-startup-id "urxvt -e bash -c 'sudo htop'"
 
