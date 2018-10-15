@@ -13,7 +13,7 @@ URxvt.foreground:   #ffffff
 URxvt.cursorColor:  #ffffff
 URxvt.saveLines: 50000
 URxvt.secondaryScroll: true
-URxvt.geometry: 130x40
+URxvt.geometry: 180x45
 
 ! black
 URxvt.color0:       #282a2e
