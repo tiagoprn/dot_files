@@ -161,6 +161,10 @@ alias remote-ports-open="printf 'HINT: pass the host ip as the parameter\n\n' &&
 alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e.g. 10.0.0.1/24\n\n' && sudo nmap -sP"
 alias tmux-attach-session="tmux -2 a -t "
 alias tmux-kill-session="tmux kill-session -t "
+alias ansible-edit-hosts="vim ~/ansible/conf/hosts"
+alias ansible-ping-hosts="ansible -i ~/ansible/conf/hosts all -m ping"
+alias ansible-play="ansible-playbook -i ~/ansible/conf/hosts -vv "
+alias ansible-play-debug="ansible-playbook -i ~/ansible/conf/hosts -vvv "
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
 # You can call it like: permissions file1 file2 file3 etc...
 function permissions() {  # get files numeric permissions
@@ -238,6 +242,9 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash h
 ## Unified bash history
 shopt -s histappend
 PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
+
+## To run ansible locally without it being so annoying :) 
+export ANSIBLE_HOST_KEY_CHECKING=False
 
 ## Fixes giant screen for e.g. seafile-applet on arch linux (may happen to VLC also, so it is QT related):
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
