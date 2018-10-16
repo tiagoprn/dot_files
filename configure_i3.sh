@@ -45,4 +45,8 @@ echo 'Linking mps-youtube configuration...'
 mkdir -p ~/.config/mps-youtube
 ln -s /storage/src/dot_files/mps-youtube/config ~/.config/mps-youtube/config
 
+echo 'Linking ansible configuration...'
+rm -fr ~/ansible
+ln -s /storage/src/dot_files/ansible ~/ansible
+
 echo 'Finished.' 
