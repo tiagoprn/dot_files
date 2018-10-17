@@ -165,6 +165,8 @@ alias ansible-edit-hosts="vim ~/ansible/conf/hosts"
 alias ansible-ping-hosts="ansible -i ~/ansible/conf/hosts all -m ping"
 alias ansible-play="ansible-playbook -i ~/ansible/conf/hosts -vv "
 alias ansible-play-debug="ansible-playbook -i ~/ansible/conf/hosts -vvv "
+alias ssh-host-aliases="more ~/.ssh/config"
+
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
 # You can call it like: permissions file1 file2 file3 etc...
 function permissions() {  # get files numeric permissions
@@ -269,6 +271,7 @@ printf "\n--- WELCOME TO $HOSTNAME ---"
 printf "\n>>> tmux-autostart <<< to start tmux sessions and attach to them."
 printf "\nlist-aliases / list-functions: list all available aliases/functions."
 printf "\nIf you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
+printf "\nOn ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
 printf "\n--- Have fun! ---\n"
 
 ## For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
