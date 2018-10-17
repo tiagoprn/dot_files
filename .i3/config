@@ -201,11 +201,13 @@ bindsym $mod+r mode "resize"
   client.unfocused        $darkviolet $darkviolet    $palidblue $blue
   client.urgent           $darkviolet $darkred    $black $blue
 
+
+
 bar {
-        status_command i3blocks -c ~/.i3/i3blocks.conf
+        status_command i3blocks -c ~/.i3/i3blocks.top.conf
         font pango: Cantarell Bold, FontAwesome 13
         position top
-        strip_workspace_numbers yes
+        workspace_buttons no
         colors {
               separator $palidblue
               background $darkgrey
@@ -218,6 +220,22 @@ bar {
         }
 }
 
+bar {
+        status_command i3blocks -c ~/.i3/i3blocks.bottom.conf
+        font pango: Cantarell Bold, FontAwesome 13
+        position bottom
+        strip_workspace_numbers yes
+        colors {
+              separator $palidblue
+              background $darkgrey
+              statusline $white
+                                 #border  background text
+              focused_workspace  $bluesky $bluesky  $white
+              active_workspace   $white $white  $bluesky
+              inactive_workspace $darkgrey $darkgrey $white
+              urgent_workspace   $red $red $white
+        }
+}
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
