@@ -80,7 +80,7 @@ let mapleader = ","  " the <Leader> combination (in visual mode) will so be: ','
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
-" Map <,all> to select all text in the file: 
+" Map <,all> to select all text in the file:
 map <Leader>all <esc>gg0vG$<CR>
 
 filetype plugin indent on
@@ -161,18 +161,18 @@ set laststatus=2
 " Format the status line
 " set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
-" Key remappings 
+" Key remappings
 " easy toggle between windows
-nnoremap <Leader>w <C-w>w 
-" If you like long lines with line wrapping enabled, this solves the problem 
-" that pressing down jumpes your cursor “over” the current line to the next 
-" line. It changes behaviour so that it jumps to the next row in the editor 
+nnoremap <Leader>w <C-w>w
+" If you like long lines with line wrapping enabled, this solves the problem
+" that pressing down jumpes your cursor “over” the current line to the next
+" line. It changes behaviour so that it jumps to the next row in the editor
 " (much more natural):
 nnoremap j gj
 nnoremap k gk
 
 "--------------------------------------------------
-" CLIPBOARD BEHAVIOR (both work in visual mode) 
+" CLIPBOARD BEHAVIOR (both work in visual mode)
 " vmap <C-y> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
 " nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))
 vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
@@ -189,6 +189,18 @@ vmap r "_dP
 " the blackhole register)
 nnoremap d "_d
 nnoremap dd "_dd
+
+"----------------------------------"
+" VIM EVENT HOOKS "
+
+" Before saving a file, deletes any trailing whitespace at the end of each line.
+" If no trailing whitespace is found no change occurs, and the e flag means no error is displayed.
+autocmd BufWritePre * :%s/\s\+$//e
+
+" After saving a file, display a notification:
+autocmd BufWritePost * !notify-send "File %:p saved."
+
+"
 
 "--------------------------------------------------
 " PLUGIN CONFIGURATIONS
@@ -304,7 +316,7 @@ map <F7> :TagbarToggle<CR>
 " is 1 or 2. I think it's a waste of window space. So I wrote the following
 " code in my vimrc. With it, a quickfix window height is automatically adjusted
 " to fit its contents (maximum 5 lines).
-" http://vim.wikia.com/wiki/Automatically_fitting_a_quickfix_window_height 
+" http://vim.wikia.com/wiki/Automatically_fitting_a_quickfix_window_height
 au FileType qf call AdjustWindowHeight(3, 5)
 function! AdjustWindowHeight(minheight, maxheight)
     exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
