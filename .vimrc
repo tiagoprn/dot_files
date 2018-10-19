@@ -201,7 +201,7 @@ nnoremap dd "_dd
 autocmd BufWritePre * :%s/\s\+$//e
 
 " After saving a file, display a notification:
-autocmd BufWritePost * !notify-send "File %:p saved."
+autocmd BufWritePost * !notify-send -a vim "File %:p saved."
 
 "
 
