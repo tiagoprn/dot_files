@@ -13,6 +13,9 @@ set hidden
 " vundle alters the runtime environment.
 filetype off
 
+" the File, Open dialog defaults to the current file's directory.
+set browsedir=buffer
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
