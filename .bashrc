@@ -11,7 +11,7 @@ fi
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# provides bash and git completion 
+# provides bash and git completion
 # For it to work, install the package "bash-completion":
 #     sudo pacman -S bash-completion
 if [ -f /etc/bash_completion ]; then
@@ -19,9 +19,9 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 if [ ! -f /usr/share/git/completion/git-prompt.sh ]; then
-    sudo mkdir -p /usr/share/git/completion/ 
+    sudo mkdir -p /usr/share/git/completion/
     sudo curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o /usr/share/git/completion/git-prompt.sh
-fi    
+fi
 source /usr/share/git/completion/git-prompt.sh
 
 # ---------------- BASH PROMPT (begin) ----------------- #
@@ -137,7 +137,7 @@ export EDITOR=vim
 export BROWSER=/usr/bin/chromium
 
 ## For tmux to work nicely
-export TERM=xterm-256color 
+export TERM=xterm-256color
 
 ## To stop showing warnings on activating a pyenv.
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
@@ -165,15 +165,16 @@ alias ansible-edit-hosts="vim ~/ansible/conf/hosts"
 alias ansible-ping-hosts="ansible -i ~/ansible/conf/hosts all -m ping"
 alias ansible-play="ansible-playbook -i ~/ansible/conf/hosts -vv "
 alias ansible-play-debug="ansible-playbook -i ~/ansible/conf/hosts -vvv "
+alias ansible-facts="ansible -i ~/ansible/conf/hosts all -m setup | less"
 alias ssh-host-aliases="more ~/.ssh/config"
 
-## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions: 
+## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions:
 # You can call it like: permissions file1 file2 file3 etc...
 function permissions() {  # get files numeric permissions
     for var in "$@"  # $@ allows iterating to all arguments passed, independent of how many
-    do    
+    do
         stat -c '%A %a %n' $var;
-    done    
+    done
 }
 
 # Automatically change the directory in bash after closing ranger
@@ -194,9 +195,9 @@ function cdr() {  # cd into a directory with ranger
 }
 
 
-# color source code according to the language used and, if it can't, it will launch less on its input directly. 
+# color source code according to the language used and, if it can't, it will launch less on its input directly.
 
-function cless() {  # syntax highlight the output - useful for source code, etc... 
+function cless() {  # syntax highlight the output - useful for source code, etc...
     LESSOPEN='| source-highlight --failsafe --out-format=esc256 -o STDOUT -i %s 2>/dev/null ' less -R "$@"
 }
 
@@ -245,7 +246,7 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash h
 shopt -s histappend
 PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
 
-## To run ansible locally without it being so annoying :) 
+## To run ansible locally without it being so annoying :)
 export ANSIBLE_HOST_KEY_CHECKING=False
 
 ## Fixes giant screen for e.g. seafile-applet on arch linux (may happen to VLC also, so it is QT related):
