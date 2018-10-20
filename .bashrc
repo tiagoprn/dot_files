@@ -165,7 +165,7 @@ alias ansible-edit-hosts="vim ~/ansible/conf/hosts"
 alias ansible-ping-hosts="ansible -i ~/ansible/conf/hosts all -m ping"
 alias ansible-play="ansible-playbook -i ~/ansible/conf/hosts -vv "
 alias ansible-play-debug="ansible-playbook -i ~/ansible/conf/hosts -vvv "
-alias ansible-facts="ansible -i ~/ansible/conf/hosts all -m setup | less"
+alias ansible-facts="ansible -i ~/ansible/conf/hosts all -m setup"
 alias ssh-host-aliases="more ~/.ssh/config"
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions:
