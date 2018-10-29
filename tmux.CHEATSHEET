@@ -14,8 +14,8 @@ Install plugins:
 UNIVERSAL SHORTCUT:
     $ C-a
 
-Keys: 
-    C: <Ctrl> 
+Keys:
+    C: <Ctrl>
     M: <Alt>
 
 Where are the sessions kept at the filesystem: ~/.tmux/resurrect
@@ -78,17 +78,17 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
     ZOOMING (maximize/demaximize - toggle):
         C-a z
 
-    COPYING/PASTING WITH KEYBOARD (configured vi mode for the shortcuts below): 
+    COPYING/PASTING WITH KEYBOARD (configured vi mode for the shortcuts below):
 	- C-a Esc: enter selection/copy mode
         - C-a v: start selection (you can select with the arrow keys)
         - C-a r: start vertical selection (you can select with the arrow keys)
-        - C-a y: end selection and exit selection/copy mode 
+        - C-a y: end selection and exit selection/copy mode
         - C-a p: paste selected text
-        - C-a /: search text (down), type [enter] to search and [n] for the next occurrence 
-        - C-a ?: search text (up), type [enter] to search and [n] for the previous occurrence 
-        - C-a M-c: copy selection (previously done with `C-a y`) to X Clipboard
+        - C-a /: search text (down), type [enter] to search and [n] for the next occurrence
+        - C-a ?: search text (up), type [enter] to search and [n] for the previous occurrence
+    - C-a M-y: copy selection (previously done with `C-a y`) to X Clipboard
         - C-a M-v: copy X Clipboard selection to cursor
-        - C-a M-s: save current pane history (all of it) to filename
+    - C-a M-f: save current pane history (all of it) to ~/tmux.history
 
     AUTOMATE INITIALIZATION (ALTERNATIVE TO TMUXINATOR):
     - E.g.:
@@ -101,22 +101,22 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
 
     $ tmux attach-session -d -t my-session-with-dotted-window
 
-(With the "-d" flag you will reclaim the entire window for your session is to attach to the session while forcing all other sessions to detach. 
+(With the "-d" flag you will reclaim the entire window for your session is to attach to the session while forcing all other sessions to detach.
     By detaching all other sessions, you are ensuring that your machine's dimensions are the ones that tmux uses when drawing the window.)
 
 ## TMUXP:
 
-### Before beginning, set your "EDITOR" environment variable: 
+### Before beginning, set your "EDITOR" environment variable:
     $ vim ~/.bashrc
         export EDITOR=vim
 
-### Installation: 
+### Installation:
     $ pip install tmuxp
 
-### Where to put your yaml projects: 
+### Where to put your yaml projects:
     $ cd ~/.tmuxp
 
-### Project file examples: 
+### Project file examples:
 
 $ vim project.yml
 
@@ -129,56 +129,56 @@ windows:
       panes:
         - compose ps
         - docker ps
-        - git status 
-        - focus: true  
+        - git status
+        - focus: true
     - window_name: TMC_V2
       layout: even-vertical
       start_directory: ~/git/bitbucket/tmc_financeiro_v2_flask
       panes:
         - docker ps
         - git status
-        - vim README.md 
+        - vim README.md
 ```
 
 $ vim project.json
 ```
 {
     "windows": [
-        { 
+        {
             "panes": [
                 {
                     "shell_command": [
                         "sudo htop"
-                    ]    
+                    ]
                 },
                 {
                     "shell_command": [
                         "sudo journalctl -f"
-                    ]    
+                    ]
                 },
 
                 {
                     "shell_command": [
                         "sudo dstat"
-                    ]    
+                    ]
                 },
                 {
                     "shell_command": [
                         null
                     ],
-                    "focus": true    
+                    "focus": true
                 }
-            ],    
+            ],
             "window_name": "main",
             "layout": "even-vertical",
-            "start_directory": "~"    
+            "start_directory": "~"
         }
-    ],  
+    ],
     "session_name": "tiago"
 }
 ```
 
-### How to load a project: 
+### How to load a project:
     $ tmuxp load project.json  # or project.yaml
 
 ### How to save a session as a tmuxp project (json/yaml file):
