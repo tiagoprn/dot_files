@@ -138,48 +138,9 @@ windows:
         - vim README.md
 ```
 
-$ vim project.json
-```
-{
-    "windows": [
-        {
-            "panes": [
-                {
-                    "shell_command": [
-                        "sudo htop"
-                    ]
-                },
-                {
-                    "shell_command": [
-                        "sudo journalctl -f"
-                    ]
-                },
-
-                {
-                    "shell_command": [
-                        "sudo dstat"
-                    ]
-                },
-                {
-                    "shell_command": [
-                        null
-                    ],
-                    "focus": true
-                }
-            ],
-            "window_name": "main",
-            "layout": "even-vertical",
-            "start_directory": "~"
-        }
-    ],
-    "session_name": "tiago"
-}
-```
-
 ### How to load a project:
-    $ tmuxp load project.json  # or project.yaml
+    $ tmuxp load project.yml
 
 ### How to save a session as a tmuxp project (json/yaml file):
     $ tmuxp freeze [tmux session name here]
-
 
