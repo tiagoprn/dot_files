@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/storage/src/devops/bin/get_battery_info.sh
