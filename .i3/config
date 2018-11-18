@@ -53,14 +53,14 @@ font pango:Sans Regular 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id urxvt 
+bindsym $mod+Return exec --no-startup-id urxvt
 
 # kill focused window
 bindsym $mod+k kill
 
 # program launcher
 # below lists all binary executable files
-bindsym $mod+d exec "rofi -show run" 
+bindsym $mod+d exec "rofi -show run"
 # below lists just apps with .desktop files
 bindsym $mod+space exec "rofi -show drun -drun-icon-theme"
 # below, alt-tab to quickly switch between windows
@@ -145,7 +145,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 assign [class="Firefox" window_type="normal"] $workspace2
 assign [class="Google-chrome" window_type="normal"] $workspace4
 # because spotify it does not work like the other windows, it does not move to where I order it to
-for_window [class="Spotify"] move to workspace $workspace10  
+for_window [class="Spotify"] move to workspace $workspace10
 # assign [class="Spotify"] $workspace10
 assign [class="Termite" window_type="normal"] $workspace10
 assign [class="jetbrains-pycharm" window_type="normal"] $workspace3
@@ -162,7 +162,7 @@ bindsym $mod+e restart
 bindsym $mod+z exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # the wallpaper can be downloaded like this: $ curl https://vgy.me/BKRwAW.png -o ~/Wallpapers/arch_wallpaper.png
 # bindsym $mod+Shift+x exec i3lock -i ~/Wallpapers/arch_wallpaper.png
-bindsym $mod+l exec /storage/src/devops/bin/lock_and_blur.sh 
+bindsym $mod+l exec /storage/src/devops/bin/lock_with_comic.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -261,7 +261,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
-# -- MY CUSTOMIZATIONS BELOW -- 
+# -- MY CUSTOMIZATIONS BELOW --
 
 # --- WINDOW BORDERS ---
 for_window [class=".*"] border pixel 2
@@ -272,8 +272,8 @@ bindsym $mod+Shift+BackSpace move scratchpad
 bindsym $mod+BackSpace scratchpad show move position center
 
 # --- WINDOWS THAT ALWAYS START IN FLOATING MODE ---
-for_window [class="URxvt"] floating enable border pixel 4  
-for_window [class="MPlayer"] floating enable border pixel 4  
+for_window [class="URxvt"] floating enable border pixel 4
+for_window [class="MPlayer"] floating enable border pixel 4
 for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 480 move position center
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
@@ -286,27 +286,27 @@ bindsym Mod1+o exec --no-startup-id "pavucontrol"
 bindsym Mod1+y exec --no-startup-id "termite --hold -e 'mpsyt'"
 
 # https://github.com/mrichar1/clipster/blob/master/README.md
-bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -sp  
+bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -sp
 
 bindsym $mod+x exec --no-startup-id "notify-send 'Launching arandr...' --urgency low; arandr"
 bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 
 # moves the current workspace to the second monitor up/down
-bindsym Mod1+Tab exec --no-startup-id i3-msg move workspace to output up  
+bindsym Mod1+Tab exec --no-startup-id i3-msg move workspace to output up
 bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
 bindsym Mod1+k exec --no-startup-id "notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
 
 # --- CUSTOM COMMANDS ON CURRENT WINDOW
 bindsym Mod1+s sticky toggle
 
-# --- APPLICATIONS THAT AUTOSTART WITH i3 --- 
+# --- APPLICATIONS THAT AUTOSTART WITH i3 ---
 exec --no-startup-id nm-applet
 exec --no-startup-id  xautolock -detectsleep -time 5 -locker "/storage/src/devops/bin/lock_and_blur.sh" \
   -notify 30 \
   -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'";
 exec --no-startup-id /storage/src/devops/bin/clipster -d
 # below will set the wallpaper to the most recent file on ~/Wallpapers
-exec_always --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh 
+exec_always --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh
 exec_always --no-startup-id "compton --config ~/compton.conf"
 exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
 exec --no-startup-id "notify-send 'Launching firefox...' --urgency low; firefox-beta"
