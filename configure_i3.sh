@@ -3,17 +3,17 @@
 echo 'Installing monospaced fonts...'
 yaourt -S --color ttf-hack-ibx ttf-monofur ttf-fira-code ttf-mononoki mps-youtube mplayer ffmpeg --noconfirm
 
-echo 'Linking main i3 config...' 
+echo 'Linking main i3 config...'
 rm -fr ~/.i3
 ln -s /storage/src/dot_files/.i3 ~/.i3
 
-echo 'Linking gtk config...' 
+echo 'Linking gtk config...'
 rm -fr ~/.gtkrc-2.0
 ln -s /storage/src/dot_files/.gtkrc-2.0 ~/.gtkrc-2.0
 rm -fr ~/.config/gtk-3.0/
 ln -s /storage/src/dot_files/gtk-3.0 ~/.config/gtk-3.0
 
-echo 'Linking Xresources...' 
+echo 'Linking Xresources...'
 rm -fr ~/.Xresources
 ln -s /storage/src/dot_files/.Xresources ~/.Xresources
 xrdb .Xresources
@@ -22,7 +22,7 @@ echo 'Linking termite configuration...'
 rm -fr ~/.config/termite
 ln -s /storage/src/dot_files/termite ~/.config/termite
 
-echo 'Linking rofi config...' 
+echo 'Linking rofi config...'
 rm -fr ~/.local/share/rofi
 ln -s /storage/src/dot_files/rofi ~/.local/share/rofi
 
@@ -49,4 +49,8 @@ echo 'Linking ansible configuration...'
 rm -fr ~/ansible
 ln -s /storage/src/dot_files/ansible ~/ansible
 
-echo 'Finished.' 
+echo 'Linking arandr (screenlayout) configuration...'
+rm -fr ~/.screenlayout
+ln -s /storage/src/dot_files/.screenlayout ~/.screenlayout
+
+echo 'Finished.'
