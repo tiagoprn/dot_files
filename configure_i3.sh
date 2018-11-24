@@ -53,4 +53,8 @@ echo 'Linking arandr (screenlayout) configuration...'
 rm -fr ~/.screenlayout
 ln -s /storage/src/dot_files/.screenlayout ~/.screenlayout
 
+echo 'Linking sxiv (image viewer) configuration...'
+rm -fr ~/.config/sxiv
+ln -s /storage/src/dot_files/sxiv ~/.config/sxiv
+
 echo 'Finished.'
