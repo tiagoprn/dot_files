@@ -134,6 +134,7 @@ PROMPT_COMMAND=set_bash_prompt
 
 ## Default programs
 export EDITOR=vim
+export VISUAL=vim
 export BROWSER=/usr/bin/chromium
 
 ## For tmux to work nicely
