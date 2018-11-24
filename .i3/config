@@ -272,14 +272,19 @@ bindsym $mod+Shift+BackSpace move scratchpad
 bindsym $mod+BackSpace scratchpad show move position center
 
 # --- WINDOWS THAT ALWAYS START IN FLOATING MODE ---
-for_window [class="URxvt"] floating enable border pixel 4
+for_window [class="URxvt"] border pixel 4
 for_window [class="MPlayer"] floating enable border pixel 4
 for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 480 move position center
+for_window [instance="ranger"] floating enable border pixel 5
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
 bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low; mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' "
-bindsym Mod1+r exec --no-startup-id "urxvt -e bash -c 'ranger'"
+
+# setting name below allows to select this specific name=ranger urxvt window
+# on for+window instance=ranger to customize it
+bindsym Mod1+r exec --no-startup-id "urxvt -name ranger -e bash -c 'ranger'"
+
 bindsym Mod1+v exec --no-startup-id "urxvt --hold -e bash -c 'vim /storage/temp/notes.txt'"
 bindsym Mod1+o exec --no-startup-id "pavucontrol"
 # below starts youtube-player
