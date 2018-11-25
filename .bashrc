@@ -298,9 +298,3 @@ fi
 # exists " when installing binaries (commands) for pip and them not working.
 alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && pyenv rehash"
 
-UTILS_VIRTUALENV=$(pyenv virtualenvs | grep 'utils' | grep -v 'envs' | awk '{print $2}')
-if [ -n "$UTILS_VIRTUALENV" ]; then
-    pyenv activate utils
-else
-    echo 'The "utils" pyenv virtualenv is not installed. Install it for this message to vanish.'
-fi
