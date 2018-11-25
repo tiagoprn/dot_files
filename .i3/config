@@ -284,7 +284,7 @@ for_window [instance="gl"] floating enable border pixel 1 resize set 25ppt 25ppt
 #
 # setting name below allows to select this specific name=ranger/vim urxvt window
 # on for+window instance=ranger to customize it
-bindsym Mod1+r exec --no-startup-id "urxvt -name ranger -e bash -c 'ranger'"
+bindsym Mod1+r exec --no-startup-id "urxvt -name ranger -e bash -c 'VISUAL=vim EDITOR=VIM ranger'"
 bindsym Mod1+v exec --no-startup-id "urxvt -name vim --hold -e bash -c 'vim /storage/temp/notes.txt'"
 
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
