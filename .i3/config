@@ -276,21 +276,21 @@ for_window [class="URxvt"] border pixel 4
 for_window [class="MPlayer"] floating enable border pixel 1
 for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 480 move position center
 for_window [instance="ranger"] floating disable border pixel 1
-for_window [instance="vim"] floating enable border pixel 4
+for_window [instance="vim"] mark "vim", move scratchpad
 for_window [instance="htop"] mark "htop", move scratchpad
 
 # below is mpv
 for_window [instance="gl"] floating enable border pixel 1 resize set 25ppt 25ppt
 
 # --- CUSTOM SCRATCHPADS ---
-bindsym Mod1+h [con_mark="htop"] scratchpad show move position center
+bindsym Mod1+h [con_mark="htop"] scratchpad show
+bindsym Mod1+v [con_mark="vim"] scratchpad show
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 #
 # setting name below allows to select this specific name=ranger/vim urxvt window
 # on for+window instance=ranger to customize it
 bindsym Mod1+r exec --no-startup-id "urxvt -name ranger -e bash -c 'VISUAL=vim EDITOR=VIM ranger'"
-bindsym Mod1+v exec --no-startup-id "urxvt -name vim --hold -e bash -c 'vim /storage/temp/notes.txt'"
 
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
 bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low; mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' "
@@ -331,4 +331,4 @@ exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgenc
 exec --no-startup-id "notify-send 'Launching Gnome Calendar...' --urgency low; gnome-calendar"
 exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gnome-weather"
 exec --no-startup-id "urxvt -name htop -e bash -c 'sudo htop'"
-
+exec --no-startup-id "urxvt -name vim --hold -e bash -c 'vim /storage/temp/notes.txt'"
