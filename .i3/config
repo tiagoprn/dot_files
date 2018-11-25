@@ -300,8 +300,8 @@ bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgenc
 
 bindsym Mod1+o exec --no-startup-id "pavucontrol"
 
-# below starts youtube-player
-bindsym Mod1+y exec --no-startup-id "termite --hold -e 'mpsyt'"
+# below starts video player
+bindsym Mod1+y exec --no-startup-id "/storage/src/devops/bin/zenity-video-launcher.sh"
 
 # https://github.com/mrichar1/clipster/blob/master/README.md
 bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -sp
