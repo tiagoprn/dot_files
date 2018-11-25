@@ -277,8 +277,13 @@ for_window [class="MPlayer"] floating enable border pixel 1
 for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 480 move position center
 for_window [instance="ranger"] floating disable border pixel 1
 for_window [instance="vim"] floating enable border pixel 4
+for_window [instance="htop"] mark "htop", move scratchpad
+
 # below is mpv
 for_window [instance="gl"] floating enable border pixel 1 resize set 25ppt 25ppt
+
+# --- CUSTOM SCRATCHPADS ---
+bindsym Mod1+h [con_mark="htop"] scratchpad show move position center
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 #
@@ -325,5 +330,5 @@ exec --no-startup-id "notify-send 'Launching spotify...' --urgency low; spotify"
 exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
 exec --no-startup-id "notify-send 'Launching Gnome Calendar...' --urgency low; gnome-calendar"
 exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gnome-weather"
-exec --no-startup-id "urxvt -e bash -c 'sudo htop'"
+exec --no-startup-id "urxvt -name htop -e bash -c 'sudo htop'"
 
