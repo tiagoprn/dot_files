@@ -279,7 +279,7 @@ for_window [class="URxvt"] border pixel 4
 for_window [class="MPlayer"] floating enable border pixel 1
 for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 480 move position center
 for_window [instance="ranger"] floating disable border pixel 1
-for_window [instance="vim"] mark "vim", move scratchpad
+for_window [instance="vim"] resize set 1400 700 mark "vim", move scratchpad
 for_window [instance="htop"] mark "htop", move scratchpad
 
 # below is mpv - the CLI video player
