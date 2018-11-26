@@ -290,8 +290,8 @@ for_window [instance="htop"] mark "htop", move scratchpad
 for_window [instance="gl"] floating enable sticky enable border pixel 1 resize set 25ppt 25ppt
 
 # --- CUSTOM SCRATCHPADS ---
-bindsym Mod1+h [con_mark="htop"] scratchpad show
-bindsym Mod1+v [con_mark="vim"] scratchpad show
+bindsym Mod1+h [con_mark="htop"] scratchpad show move position center
+bindsym Mod1+v [con_mark="vim"] scratchpad show move position center
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 #
