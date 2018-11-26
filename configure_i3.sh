@@ -6,7 +6,7 @@ yaourt -S --color ttf-hack-ibx ttf-monofur ttf-fira-code ttf-mononoki mps-youtub
 echo 'Linking main i3 config...'
 rm -fr ~/.i3
 rm -fr ~/.config/i3
-ln -s /storage/src/dot_files/.i3 ~/.config/i3
+ln -s /storage/src/dot_files/i3 ~/.config/i3
 
 echo 'Linking gtk config...'
 rm -fr ~/.gtkrc-2.0
