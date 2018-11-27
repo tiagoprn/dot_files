@@ -280,11 +280,13 @@ for_window [class="MPlayer"] floating enable border pixel 1
 for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 480 move position center
 for_window [instance="ranger"] floating disable border pixel 1
 
-for_window [instance="vim"] resize set 1400 800
-for_window [instance="vim"] mark "vim", move scratchpad
+# for_window [instance="vim"] resize set 1400 800
+# for_window [instance="vim"] mark "vim", move scratchpad
+for_window [instance="vim"] resize set 1400 800, mark "vim", move scratchpad
 
-for_window [instance="htop"] resize set 1400 800
-for_window [instance="htop"] mark "htop", move scratchpad
+# for_window [instance="htop"] resize set 1400 800
+# for_window [instance="htop"] mark "htop", move scratchpad
+for_window [instance="htop"] resize set 1400 800, mark "htop", move scratchpad
 
 # below is mpv - the CLI video player
 for_window [class="mpv"] floating enable sticky enable border pixel 1 resize set 320 240
