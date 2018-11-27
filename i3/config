@@ -320,7 +320,7 @@ bindsym Mod1+s sticky toggle
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 ---
 exec --no-startup-id nm-applet
-exec --no-startup-id  xautolock -toggle -detectsleep -time 1 \
+exec --no-startup-id  xautolock -detectsleep -time 1 \
   -locker "/storage/src/devops/bin/lock_with_comic.sh" \
   -notify 30 \
   -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'";
