@@ -320,11 +320,17 @@ bindsym Mod1+s sticky toggle
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 ---
 exec --no-startup-id nm-applet
-exec --no-startup-id  xautolock -detectsleep -time 1 \
-  -locker "/storage/src/devops/bin/lock_with_comic.sh" \
-  -notify 30 \
-  -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'";
+
+# Disabled xautolock due to the fact that it triggers the screensaver even if
+# it is active. Maybe a better solution would be to use a systemd timer
+# to trigger the lock script after some time of inactivity.
+# exec --no-startup-id  xautolock -detectsleep -time 1 \
+#   -locker "/storage/src/devops/bin/lock_with_comic.sh" \
+#   -notify 30 \
+#   -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'";
+
 exec --no-startup-id /storage/src/devops/bin/clipster -d
+
 # below will set the wallpaper to the most recent file on ~/Wallpapers
 exec_always --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh
 exec_always --no-startup-id "compton --config ~/compton.conf"
