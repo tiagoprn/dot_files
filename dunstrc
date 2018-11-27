@@ -5,6 +5,30 @@
 [global]
     font = Inconsolata Awesome 12
 
+    # Possible values are:
+    # full: Allow a small subset of html markup in notifications:
+    #        <b>bold</b>
+    #        <i>italic</i>
+    #        <s>strikethrough</s>
+    #        <u>underline</u>
+    #
+    #        For a complete reference see
+    #        <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
+    #
+    # strip: This setting is provided for compatibility with some broken
+    #        clients that send markup even though it's not enabled on the
+    #        server. Dunst will try to strip the markup but the parsing is
+    #        simplistic so using this option outside of matching rules for
+    #        specific applications *IS GREATLY DISCOURAGED*.
+    #
+    # no:    Disable markup parsing, incoming notifications will be treated as
+    #        plain text. Dunst will not advertise that it has the body-markup
+    #        capability if this is set as a global setting.
+    #
+    # It's important to note that markup inside the format option will be parsed
+    # regardless of what this is set to.
+    markup = full
+
     # allow a small subset of html markup:
     # <b>bold</b>
     # <i>italic</i>
@@ -54,6 +78,17 @@
     # ignore newlines '\n' in notifications
     ignore_newline = no
 
+    # Merge multiple notifications with the same content
+    stack_duplicates = true
+
+    # Hide the count of merged notifications with the same content
+    hide_duplicate_count = false
+
+    # Display indicators for URLs (U) and actions (A).
+    show_indicators = yes
+
+    # Scale larger icons down to this size, set to 0 to disable
+    max_icon_size = 32
 
     # the geometry of the window
     # geometry [{width}]x{height}][+/-{x}+/-{y}]
@@ -75,10 +110,19 @@
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
     # Set to 0 to disable.
-    idle_threshold = 0
+    idle_threshold = 30s
 
     # Which monitor should the notifications be displayed on.
     monitor = 0
+
+    ### History ###
+
+    # Should a notification popped up from history be sticky or timeout
+    # as if it would normally do.
+    sticky_history = yes
+
+    # Maximum amount of notifications kept in history
+    history_length = 100
 
     # Display notification on focused monitor. Possible modes are:
     # mouse: follow mouse pointer
@@ -90,7 +134,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option will be
     # ignored.
-    follow = mouse
+    follow = keyboard
 
     # should a notification popped up from history be sticky or
     # timeout as if it would normally do.
