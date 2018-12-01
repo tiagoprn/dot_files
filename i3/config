@@ -308,7 +308,7 @@ bindsym Mod1+o exec --no-startup-id "pavucontrol"
 bindsym Mod1+y exec --no-startup-id "/storage/src/devops/bin/zenity-video-launcher.sh"
 
 # https://github.com/mrichar1/clipster/blob/master/README.md
-bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -sp
+bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -c --select
 
 bindsym $mod+x exec --no-startup-id "notify-send 'Launching arandr...' --urgency low; arandr"
 bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
