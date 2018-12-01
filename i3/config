@@ -300,7 +300,9 @@ bindsym Mod1+v [con_mark="vim"] scratchpad show, resize set 1400 800, move posit
 bindsym Mod1+r exec --no-startup-id "urxvt -name ranger -e bash -c 'VISUAL=vim EDITOR=VIM ranger'"
 
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
-bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low; mkdir -p ~/screenshots && scrot -m ~/screenshots/$(date +%Y%m%d.%H%M%S.%N).png -e 'gimp $f' "
+
+bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000 "
+bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000 "
 
 bindsym Mod1+o exec --no-startup-id "pavucontrol"
 
