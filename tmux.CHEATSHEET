@@ -68,12 +68,11 @@ Where are the sessions kept at the filesystem: ~/.tmux/resurrect
         C-a right      (or one of these other directions)
         C-a up
         C-a down
-        C-a o          go to the next pane (cycle through all of them)
+        C-a o          move pane (cycle through all positions)
         C-a ;          go to the ‘last’ (previously used) pane
 
     RESIZING:
-        C-a M-up, C-a M-down, C-a M-left, C-a M-right: resize by 5 rows/columns
-        C-a C-up, C-a C-down, C-a C-left, C-a C-right: resize by 1 row/column
+        Hold [C-a], up/down/left/right: resize by 1 row/column
 
     ZOOMING (maximize/demaximize - toggle):
         C-a z
