@@ -6,6 +6,7 @@ Invoke:
 Configuration file: ~/.tmux.conf
 
 Reload configuration:
+    $ C-a r
     $ tmux source-file ~/.tmux.conf
 
 Install plugins:
