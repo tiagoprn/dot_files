@@ -267,9 +267,14 @@ export QT_SCALE_FACTOR=0.6
 # fi
 
 ## The message below will print each time a terminal is started:
-if [ -x "$(command -v cowsay)" ]; then
-    cowsay -f tux $(fortune -s)
+# if [ -x "$(command -v cowsay)" ]; then
+#     cowsay -f tux $(fortune -s)
+# fi
+
+if [ -x "$(command -v boxes)" ]; then
+    fortune -s | boxes -d columns
 fi
+
 printf "\n--- WELCOME TO $HOSTNAME ---"
 printf "\n>>> tmux-autostart <<< to start tmux sessions and attach to them."
 printf "\nlist-aliases / list-functions: list all available aliases/functions."
