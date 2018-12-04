@@ -7,6 +7,7 @@ set nocompatible
 
 " below for the ctrl-space plugin:
 set hidden
+set showtabline=0
 
 " We also want to turn off the default "filetype" controls for now because the
 " way that vim caches filetype rules at runtime interferes with the way that
@@ -240,16 +241,10 @@ smap <C-b> <Plug>snipMateNextOrTrigger
 
 " CTRLSpace
 " Sets the minimal height of the plugin window.
-let g:ctrlspace_height = 7
-
-let g:ctrlspace_save_workspace_on_exit = 1
-let g:ctrlspace_load_last_workspace_on_start = 1
-
-let g:ctrlspace_show_unnamed = 1
-
-let g:ctrlspace_show_tab_info = 1
-let g:ctrlspace_show_key_info = 1
-let g:ctrlspace_project_root_markers = [".git", ".hg", ".bzr"]
+let g:CtrlSpaceHeight = 5
+let g:CtrlSpaceUseTabline = 1
+let g:CtrlSpaceUseArrowsInTerm = 1
+let g:CtrlSpaceProjectRootMarkers = [".git", ".hg", ".bzr"]
 
 " lightline specific configuration
 

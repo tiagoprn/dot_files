@@ -1,12 +1,12 @@
 # General
 
     ## VIM MOVEMENT KEYS:
-    
+
         h: back
         j: down
-        k: up 
+        k: up
         l: forward
-    
+
         NOTE: Prefix the movement keys with a number and you will move to that direction x times. E.g. 10k moves 10 lines up
 
     ## KEY MAPPINGS
@@ -27,27 +27,27 @@
     ## SHOW / HIDE SPECIAL CHARS:
         :set list (to show all)
         :set nolist (to hide all)
-    
-    ## ZOOM / UNZOOM THE CURRENT BUFFER: 
+
+    ## ZOOM / UNZOOM THE CURRENT BUFFER:
     (VISUAL) <CTRL+z>
 
-    ## RELOAD CURRENT FILE (E.g., it was changes outside vim): 
+    ## RELOAD CURRENT FILE (E.g., it was changes outside vim):
     (VISUAL) e!
 
     ## VERTICAL SELECTION (BLOCK):
 	<CTRL+v>
 
-    ## SELECT A WHOLE LINE: 
+    ## SELECT A WHOLE LINE:
     (VISUAL) V
     OBS.: keep selecting with the arrow keys you can select multiple lines as a whole
 
-    ## SELECT WHAT IS IN QUOTES ON THE CURRENT LINE 
+    ## SELECT WHAT IS IN QUOTES ON THE CURRENT LINE
     (works with "[}(" also)
-    
-        (VISUAL) norm 0yi"  # go to beginning of line (0), (y)ank what is (i)n double quotes 
 
-    ## SELECT ALL TEXT: 
-   
+        (VISUAL) norm 0yi"  # go to beginning of line (0), (y)ank what is (i)n double quotes
+
+    ## SELECT ALL TEXT:
+
     (VISUAL) <,all>
 
     ## BATCH DELETE OF LINES:
@@ -60,14 +60,14 @@
 
     ## REPLACE SELECTED TEXT WITH CLIPBOARD CONTENTS:
         (VISUAL) r
-    
-    ## REPLACE SELECTED TEXT WITH NEW CONTENTS: 
-        (VISUAL) Select the text, then c. 
 
-    ## DELETE UNTIL END OF LINE: 
+    ## REPLACE SELECTED TEXT WITH NEW CONTENTS:
+        (VISUAL) Select the text, then c.
+
+    ## DELETE UNTIL END OF LINE:
 	    (VISUAL) d$
 
-    ## DELETE UNTIL BEGINNING OF LINE: 
+    ## DELETE UNTIL BEGINNING OF LINE:
         (VISUAL) d^
 
     ## NAVIGATION (VISUAL MODE)
@@ -87,13 +87,13 @@
         ### MOVE TO THE END OF THE LINE AND ENTER INSERT MODE:
             (VISUAL) A
 
-        ### MOVE TO THE BEGINNING OF THE FILE: 
+        ### MOVE TO THE BEGINNING OF THE FILE:
             (VISUAL) gg
 
-        ### MOVE TO THE END OF THE FILE: 
+        ### MOVE TO THE END OF THE FILE:
             (VISUAL) G
 
-        ### MOVE TO THE END OF THE FILE AND ENTER INSERT MODE: 
+        ### MOVE TO THE END OF THE FILE AND ENTER INSERT MODE:
             (VISUAL) GA
 
     ## SEARCH / REPLACE
@@ -115,31 +115,31 @@
         To copy text from other apps (browser, text editor, disabling the auto-indent:
             (INSERT) mode, press <F2>. Then paste the desired text and press <F2> again.
 
-    ## CLIPBOARD: 
-        Copy vim clipboard to system: 
+    ## CLIPBOARD:
+        Copy vim clipboard to system:
             (VISUAL) Select text (with <v>), then <C-y>
 
         Paste system clipboard to vim:
-            (VISUAL) <C-p> 
+            (VISUAL) <C-p>
 
-    ## READ THE OUTPUT FROM A COMMAND ON THE CURRENT BUFFER: 
+    ## READ THE OUTPUT FROM A COMMAND ON THE CURRENT BUFFER:
         (VISUAL) read ![command]
 
-    ## RUN A NORMAL MODE COMMAND ON MULTIPLE LINES: 
+    ## RUN A NORMAL MODE COMMAND ON MULTIPLE LINES:
         (VISUAL) norm Iline  # goes to the beginning of a line and enter INSERT mode, type line
-        (VISUAL) norm Aend   # goes to the end of a line and enter INSERT mode, type end          
-        NOTES: 
+        (VISUAL) norm Aend   # goes to the end of a line and enter INSERT mode, type end
+        NOTES:
             - This can be done with many lines selected (with V), then :norm A... to edit multiple lines.
-            - You can run any normal mode command you wish, but if you use I and A you will enter INSERT mode. 
+            - You can run any normal mode command you wish, but if you use I and A you will enter INSERT mode.
 
-    ## Record a macro: 
+    ## Record a macro:
     (TODO, this is not complete yet)
 
-    If you wanna script moving the cursor, use vim movement keys (hjkl): 
-    
+    If you wanna script moving the cursor, use vim movement keys (hjkl):
+
     (VISUAL) q[another key to where the macro will be saved as] put the cursor where to start and do your key presses here (VISUAL)q to finish, replay the macro with @
 
-            
+
 # vim-bookmarks:
     (all commands below run in VISUAL mode):
     Set  Bookmark: <,,>
@@ -155,7 +155,7 @@
 # vim-ctrlspace:
 
     ## BUFFERS:
-        Show buffers list: <CTRL+Space> (navigate with <j>,<k>)
+        Show buffers list: <CTRL+Space>, then <a>
         Close buffer: Select the buffer, then: <c>
         Delete buffer (almost the same as closing it): Select the buffer, then: <d>
         Toggle buffers: (VISUAL) ,<w> ("," is the Leader key)
