@@ -72,6 +72,7 @@
 
     ## NAVIGATION (VISUAL MODE)
         Go to next word: <w>
+        Go to the end of a word: <e>
         Go to previous word: <b>
         Jump to a matching opening or closing parenthesis, square bracket or a curly brace: <%>
 
@@ -112,7 +113,7 @@
             (VISUAL) q:
 
     ## COPY
-        To copy text from other apps (browser, text editor, disabling the auto-indent:
+        To copy text from other apps (browser, text editor), disabling the auto-indent:
             (INSERT) mode, press <F2>. Then paste the desired text and press <F2> again.
 
     ## CLIPBOARD:

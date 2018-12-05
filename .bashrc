@@ -310,3 +310,8 @@ alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && pyenv rehash"
 # When using vim-mode, add beside the prompt and indicator if we are on visual
 # or insert mode.
 bind 'set show-mode-in-prompt on'
+
+
+# vim-mode specific bindings:
+# Clear screen with Ctrl+L as on emacs-mode and vi-visual
+bind -m vi-insert "\C-l":clear-screen
