@@ -2,6 +2,10 @@
 # ~/.bashrc
 #
 
+# Enable vim-mode on shell editing instead of the default emacs one
+# Also show on the cursor if we are on visual or insert mode
+set -o vi
+
 HOMEBIN=/home/$USER/bin
 if [ -d $HOMEBIN ];
 then
@@ -124,7 +128,7 @@ function set_bash_prompt () {
   # Set the bash prompt variable.
   PS1="
 ${PYTHON_VIRTUALENV}${GREEN}\u ${COLOR_NONE}at${BLUE} \h${COLOR_NONE} in ${YELLOW}\w${COLOR_NONE} ${BRANCH}
-${PROMPT_SYMBOL} "
+ ${PROMPT_SYMBOL} "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
@@ -303,3 +307,6 @@ fi
 # exists " when installing binaries (commands) for pip and them not working.
 alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && pyenv rehash"
 
+# When using vim-mode, add beside the prompt and indicator if we are on visual
+# or insert mode.
+bind 'set show-mode-in-prompt on'
