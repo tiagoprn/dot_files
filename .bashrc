@@ -7,10 +7,11 @@
 set -o vi
 
 HOMEBIN=/home/$USER/bin
-if [ -d $HOMEBIN ];
+if [ ! -d $HOMEBIN ];
 then
-   export PATH=$PATH:$HOMEBIN
+    mkdir $HOMEBIN
 fi
+export PATH=$PATH:$HOMEBIN
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
