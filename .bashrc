@@ -153,7 +153,7 @@ export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.
 
 ## Bash aliases
 alias list-aliases="cat ~/.bashrc | grep -i '^alias' | sort"
-alias list-functions="cat .bashrc | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
+alias list-functions="cat ~/.bashrc | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
 alias ls='ls --color -lha'
 alias youtube-player='mpsyt'
 alias upgrade='yaourt -Syyua --color --noconfirm'
@@ -233,8 +233,9 @@ function cb() {  # Copies to clipboard. You can pipe anything on the terminal to
       echo "Usage: cb <string>"
       echo "       echo <string> | cb"
     else
-      # Copy input to clipboard
-      echo -n "$input" | xclip -selection c
+      # Copy input to both X clipboards
+      echo -n "$input" | xclip -selection clipboard
+      echo -n "$input" | xclip -selection primary
       # Truncate text for status
       if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\e[0m"; fi
       # Print status.
