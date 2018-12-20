@@ -277,6 +277,10 @@ export QT_SCALE_FACTOR=0.6
 #     cowsay -f tux $(fortune -s)
 # fi
 
+if [ -x "$(command -v figlet)" ]; then
+    echo "$(whoami)@$(hostname)" | figlet
+fi
+
 if [ -x "$(command -v boxes)" ]; then
     fortune -s | boxes -d columns
 fi
