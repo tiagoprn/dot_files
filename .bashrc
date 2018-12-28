@@ -254,6 +254,7 @@ function cbf() { cat "$1" | cb; }  # copy file contents to the clipboard
 alias cbssh="cbf ~/.ssh/id_rsa.pub" # Copy SSH public key
 alias cbpwd="pwd | cb" # Copy current working directory
 alias cbhs="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
+alias cbv='xclip -i -selection clipboard -o | vim -'
 
 ## Unified bash history
 shopt -s histappend
