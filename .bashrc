@@ -174,6 +174,11 @@ alias ansible-play="ansible-playbook -i ~/ansible/conf/hosts -vv "
 alias ansible-play-debug="ansible-playbook -i ~/ansible/conf/hosts -vvv "
 alias ansible-facts="ansible -i ~/ansible/conf/hosts all -m setup"
 alias ssh-host-aliases="more ~/.ssh/config"
+alias gss="git status -s"
+alias gpo="git push origin "
+alias gpl="git pull origin "
+alias gdf="git icdiff"
+alias glg="git glog"
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions:
 # You can call it like: permissions file1 file2 file3 etc...
@@ -278,7 +283,8 @@ export QT_SCALE_FACTOR=0.6
 # fi
 
 if [ -x "$(command -v figlet)" ]; then
-    echo "$(whoami)@$(hostname)" | figlet
+    # echo "$(whoami)@$(hostname)" | figlet
+    echo "$(hostname)" | figlet
 fi
 
 if [ -x "$(command -v boxes)" ]; then
