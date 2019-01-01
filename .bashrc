@@ -141,6 +141,7 @@ PROMPT_COMMAND=set_bash_prompt
 export EDITOR=vim
 export VISUAL=vim
 export BROWSER=/usr/bin/chromium
+export NNN_DE_FILE_MANAGER=nautilus
 
 ## For tmux to work nicely
 export TERM=xterm-256color
