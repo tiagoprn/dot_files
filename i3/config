@@ -110,23 +110,23 @@ set $workspace2 "[2]Firefox"
 set $workspace3 "[3]Dev"
 set $workspace4 "[4]Chrome"
 set $workspace5 "[5]Schedule"
-set $workspace6 "[6]etc1"
+set $workspace6 "[6]IMMERSIVE"
 set $workspace7 "[7]etc2"
 set $workspace8 "[8]etc3"
 set $workspace9 "[9]Chats"
 set $workspace10 "[0]Media"
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1 workspace $workspace1; bar mode dock
+bindsym $mod+2 workspace $workspace2; bar mode dock
+bindsym $mod+3 workspace $workspace3; bar mode dock
+bindsym $mod+4 workspace $workspace4; bar mode dock
+bindsym $mod+5 workspace $workspace5; bar mode dock
+bindsym $mod+6 workspace $workspace6; bar mode hide
+bindsym $mod+7 workspace $workspace7; bar mode dock
+bindsym $mod+8 workspace $workspace8; bar mode dock
+bindsym $mod+9 workspace $workspace9; bar mode dock
+bindsym $mod+0 workspace $workspace10; bar mode dock
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
