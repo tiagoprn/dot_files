@@ -168,6 +168,7 @@ alias remote-ports-open="printf 'HINT: pass the host ip as the parameter\n\n' &&
 alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e.g. 10.0.0.1/24\n\n' && sudo nmap -sP"
 alias tmux-attach-session="tmux -2 a -t "
 alias tmux-kill-session="tmux kill-session -t "
+alias pgrep="pgrep -ia"
 alias tmux-home="tmux -2 a -t HOME "
 alias ansible-edit-hosts="vim ~/ansible/conf/hosts"
 alias ansible-ping-hosts="ansible -i ~/ansible/conf/hosts all -m ping"
