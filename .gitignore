@@ -1,6 +1,0 @@
-*.swp
-bundle/
-.tmux/resurrect/**
-.tmux/plugins/**
-*~
-*.OLD
