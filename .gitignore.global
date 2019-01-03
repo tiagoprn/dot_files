@@ -1,2 +1,5 @@
-~/.vim/bundle/
+idea/
 *.OLD
+*.swp
+*~
+*.BAK
