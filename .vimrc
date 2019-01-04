@@ -80,12 +80,10 @@ nnoremap k gk
 set pastetoggle=<F2>
 
 " Rebind <Leader> key
-" With a map leader it's possible to do extra key combinations
-" like <Leader>w saves the current file
 let mapleader = ","  " the <Leader> combination (in visual mode) will so be: ','
 " Example (easier moving between tabs):
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+map <Leader>m <esc>:tabprevious<CR>
+map <Leader>n <esc>:tabnext<CR>
 
 " Map <,all> to select all text in the file:
 map <Leader>all <esc>gg0vG$<CR>
@@ -93,21 +91,21 @@ map <Leader>all <esc>gg0vG$<CR>
 filetype plugin indent on
 au FileType py set autoindent
 au FileType py set smartindent
-au FileType py set textwidth=79 " PEP-8 Friendly
+au FileType py set textwidth=119
 
 " Height of the command bar
 set cmdheight=2
 
 " Showing line numbers and length
 set number  " show line numbers
-set tw=79   " width of document (used by gd)
+set tw=119   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 
 " sets a gray margin on column 80
 "" set colorcolumn=80
 " past column 80, the background will be a different color
-let &colorcolumn=join(range(80,9999),",")
+let &colorcolumn=join(range(120,9999),",")
 
 " Useful settings
 set history=700
@@ -142,6 +140,7 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+
 " Remember info about open buffers on close
 set viminfo^=%
 
@@ -171,6 +170,7 @@ set laststatus=2
 " Key remappings
 " easy toggle between windows
 nnoremap <Leader>w <C-w>w
+
 " If you like long lines with line wrapping enabled, this solves the problem
 " that pressing down jumpes your cursor “over” the current line to the next
 " line. It changes behaviour so that it jumps to the next row in the editor
@@ -220,7 +220,7 @@ autocmd BufWritePost * !notify-send -a vim "File %:p saved."
 map <C-n> :NERDTreeToggle<CR>
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc$', '\~$']
 let NERDTreeShowBookmarks=1
