@@ -41,6 +41,9 @@ Plugin 'itchyny/lightline.vim'
 " vim-bookmarks
 Plugin 'MattesGroeger/vim-bookmarks'
 
+"fzf plugins
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
@@ -238,6 +241,12 @@ map <C-t> <Plug>TaskList
 " CTRL+b to load snippets
 imap <C-b> <Plug>snipMateNextOrTrigger
 smap <C-b> <Plug>snipMateNextOrTrigger
+
+"" fzf
+" select file by name
+nnoremap <C-f> :Files<Cr>
+" select file by contents
+nnoremap <C-g> :Rg<Cr>
 
 " CTRLSpace
 " Sets the minimal height of the plugin window.

@@ -153,6 +153,10 @@
 # TaskList:
     Toggle TODO/FIXME list: <CTRL+t>
 
+# vim-fzf:
+    Search file by name: <CTRL+f>
+    Search file by contents: <CTRL+g>
+
 # vim-ctrlspace:
 
     ## BUFFERS:
