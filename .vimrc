@@ -220,7 +220,7 @@ autocmd BufWritePost * !notify-send -a vim "File %:p saved."
 map <C-n> :NERDTreeToggle<CR>
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeQuitOnOpen=0
+autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc$', '\~$']
 let NERDTreeShowBookmarks=1
