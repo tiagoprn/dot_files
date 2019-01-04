@@ -260,6 +260,46 @@ alias cbpwd="pwd | cb" # Copy current working directory
 alias cbhs="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
 alias cbv='xclip -i -selection clipboard -o | vim -'
 
+# fzf integrated with vim
+vim-fzf() {
+    local file=$(
+      fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
+      )
+    if [ -n "$file" ]; then
+        $EDITOR $file
+    fi
+}
+
+vim-fzf-search() {
+    if [ $# == 0 ]; then
+        echo 'Error: search term was not provided.'
+        return
+    fi
+    local match=$(
+      rg --color=never --line-number "$1" |
+        fzf --no-multi --delimiter : \
+            --preview "bat --color=always --line-range {2}: {1}"
+      )
+    local file=$(echo "$match" | cut -d':' -f1)
+    if [ -n "$file" ]; then
+        $EDITOR $file +$(echo "$match" | cut -d':' -f2)
+    fi
+}
+
+# fzf git log browser
+git-log-browser() {
+    local commits=$(
+      git ll --color=always "$@" |
+        fzf --ansi --no-sort --height 100% \
+            --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+                       xargs -I@ sh -c 'git show --color=always @'"
+      )
+    if [ -n "$commits" ]; then
+        local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
+        git show $hashes
+    fi
+}
+
 ## Unified bash history
 shopt -s histappend
 PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
