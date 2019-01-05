@@ -311,6 +311,18 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_SCALE_FACTOR=0.6
 
+# Below solves the error "pyenv: cannot rehash: ~/.pyenv/shims/.pyenv-shim
+# exists " when installing binaries (commands) for pip and them not working.
+alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && pyenv rehash"
+
+# When using vim-mode, add beside the prompt and indicator if we are on visual
+# or insert mode.
+bind 'set show-mode-in-prompt on'
+
+# vim-mode specific bindings:
+# Clear screen with Ctrl+L as on emacs-mode and vi-visual
+bind -m vi-insert "\C-l":clear-screen
+
 ## Auto start tmux (DISABLED IN FAVOR OF MY ALIAS tmux-autostart)
 # This script looks for the parent process of the bash shell.
 # If bash was started from logging in or from ssh, it will execute tmux.
@@ -328,7 +340,6 @@ export QT_SCALE_FACTOR=0.6
 # fi
 
 if [ -x "$(command -v figlet)" ]; then
-    # echo "$(whoami)@$(hostname)" | figlet
     echo "$(hostname)" | figlet
 fi
 
@@ -349,7 +360,6 @@ if ! [ -x "$(command -v pyenv)" ]; then
     exit 1
 fi
 
-
 export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"  # not useful, since I install it from the package manager
 
@@ -359,16 +369,3 @@ then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-
-# Below solves the error "pyenv: cannot rehash: ~/.pyenv/shims/.pyenv-shim
-# exists " when installing binaries (commands) for pip and them not working.
-alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && pyenv rehash"
-
-# When using vim-mode, add beside the prompt and indicator if we are on visual
-# or insert mode.
-bind 'set show-mode-in-prompt on'
-
-
-# vim-mode specific bindings:
-# Clear screen with Ctrl+L as on emacs-mode and vi-visual
-bind -m vi-insert "\C-l":clear-screen
