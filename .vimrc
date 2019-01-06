@@ -155,8 +155,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " Color scheme (must be in ~/.vim/colors)
 set t_Co=256
-color distinguished
-
+color city-lights
 
 " font
 set anti gfn=Hack\ Regular\ 11

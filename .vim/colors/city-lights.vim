@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/tiago/Wallpapers/city-lights-syntax-theme-by-yummygum.png"
+let background = "#11161a"
+let foreground = "#b0b9c5"
+let cursor     = "#b0b9c5"
+
+" Colors
+let color0  = "#11161a"
+let color1  = "#4B4F52"
+let color2  = "#6A6158"
+let color3  = "#485766"
+let color4  = "#887559"
+let color5  = "#366589"
+let color6  = "#63748D"
+let color7  = "#b0b9c5"
+let color8  = "#7b8189"
+let color9  = "#4B4F52"
+let color10 = "#6A6158"
+let color11 = "#485766"
+let color12 = "#887559"
+let color13 = "#366589"
+let color14 = "#63748D"
+let color15 = "#b0b9c5"
