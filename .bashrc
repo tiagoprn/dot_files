@@ -187,6 +187,8 @@ alias wal-set="wal -n -i"
 alias cd-wal="cd ~/.cache/wal"
 alias lsf="ls | grep -v '^d'"
 alias lsd="ls | grep '^d'"
+# below lists most recently changed files/directories
+alias lsr="ls --color -halt"
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions:
 # You can call it like: permissions file1 file2 file3 etc...
