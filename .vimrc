@@ -105,7 +105,7 @@ set fo-=t   " don't automatically wrap text when typing
 " sets a gray margin on column 80
 "" set colorcolumn=80
 " past column 80, the background will be a different color
-let &colorcolumn=join(range(120,9999),",")
+"" let &colorcolumn=join(range(120,9999),",")
 
 " Useful settings
 set history=700
