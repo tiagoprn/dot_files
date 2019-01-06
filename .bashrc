@@ -13,6 +13,12 @@ then
 fi
 export PATH=$PATH:$HOMEBIN
 
+DEVOPS_BIN=/storage/src/devops/bin
+if [ -d $DEVOPS_BIN ];
+then
+    export PATH=$PATH:$DEVOPS_BIN
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
