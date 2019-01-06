@@ -198,7 +198,7 @@ alias lsd="ls | grep '^d'"
 alias lsr="ls --color -halt"
 
 function wal-set() {
-    wal -n -i $(find ~/Wallpapers/ | fzf)
+    wal -n -i $(find ~/Wallpapers/ | fzf --exact)
 }
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions:
@@ -280,7 +280,7 @@ alias cbv='xclip -i -selection clipboard -o | vim -'
 # fzf integrated with vim
 vim-fzf() {
     local file=$(
-      fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
+      fzf --exact --no-multi --preview 'bat --color=always --line-range :500 {}'
       )
     if [ -n "$file" ]; then
         $EDITOR $file
@@ -294,7 +294,7 @@ vim-fzf-search() {
     fi
     local match=$(
       rg --color=never --line-number "$1" |
-        fzf --no-multi --delimiter : \
+        fzf --exact --no-multi --delimiter : \
             --preview "bat --color=always --line-range {2}: {1}"
       )
     local file=$(echo "$match" | cut -d':' -f1)
@@ -307,7 +307,7 @@ vim-fzf-search() {
 git-log-browser() {
     local commits=$(
       git ll --color=always "$@" |
-        fzf --ansi --no-sort --height 100% \
+        fzf --exact --ansi --no-sort --height 100% \
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @'"
       )
