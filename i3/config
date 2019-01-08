@@ -303,7 +303,7 @@ bindsym Mod1+v [con_mark="vim"] scratchpad show, resize set 1400 800, move posit
 # setting name below allows to select this specific name=ranger/vim urxvt window
 # on for+window instance=ranger to customize it
 bindsym Mod1+r exec --no-startup-id "urxvt -name ranger -e bash -c 'VISUAL=vim EDITOR=vim ranger'"
-bindsym Mod1+t exec --no-startup-id "urxvt -name tiagoprnl -e bash -c '/storage/src/devops/bin/search_posts_and_trigger_vim.sh'"
+bindsym Mod1+t exec --no-startup-id "urxvt -name tiagoprnl -e bash -c '/storage/src/devops/bin/search_posts_and_trigger_vim_by_file_name.sh'"
 
 bindsym Mod1+w exec "sxiv -t ~/Wallpapers"
 
