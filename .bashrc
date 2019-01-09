@@ -369,6 +369,11 @@ printf "\n>>> tmux-autostart <<< to start tmux sessions and attach to them."
 printf "\nlist-aliases / list-functions: list all available aliases/functions."
 printf "\nIf you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\nOn ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
+printf "\n---"
+printf "\n Bash is configured in vim mode, here are some tips on it:"
+printf "\n - Change to insert mode and go to the end of the line: CTRL+Up"
+printf "\n - Change to command(visual) mode and go to the beginning of the line: CTRL+Down"
+printf "\n (The normal vim behavior with pressing ESC to visual/command and i to insert also works ;)"
 printf "\n--- Have fun! ---\n"
 
 ## For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
