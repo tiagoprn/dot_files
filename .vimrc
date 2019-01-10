@@ -9,6 +9,9 @@ set nocompatible
 set hidden
 set showtabline=0
 
+" Changing the ruler position
+set relativenumber
+
 " We also want to turn off the default "filetype" controls for now because the
 " way that vim caches filetype rules at runtime interferes with the way that
 " vundle alters the runtime environment.
