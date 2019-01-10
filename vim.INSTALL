@@ -11,6 +11,8 @@ To install plugins which are at ".vimrc":
 
     :PluginInstall
 
+    (Alternatively: $ vim +PluginInstall +all)
+
     After the installation is completed, close the buffer:
 
         :bdelete
