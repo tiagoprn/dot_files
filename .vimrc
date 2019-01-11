@@ -55,12 +55,21 @@ Plugin 'SirVer/ultisnips'
 "" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
-"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+""" Do not use <tab> with UltiSnip if you use https://github.com/Valloric/YouCompleteMe.
 
-"" If you want :UltiSnipsEdit to split your window.
+""" Show all snippets
+let g:UltiSnipsListSnippets="<c-l>"
+
+""" Activate Ultisnips on word
+let g:UltiSnipsExpandTrigger="<tab>"
+
+""" Go to next snippet variable (also called "tabstop")
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+
+""" Go to previous snippet variable. The "s-" below means the Shift key
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+""" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
 "" Now we can turn our filetype functionality back on
