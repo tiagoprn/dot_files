@@ -196,6 +196,7 @@ alias lsf="ls | grep -v '^d'"
 alias lsd="ls | grep '^d'"
 # below lists most recently changed files/directories
 alias lsr="ls --color -halt"
+alias rsync="rsync -rchzPvi --progress"
 
 function wal-set() {
     wal -n -i $(find ~/Wallpapers/ | fzf --exact)
