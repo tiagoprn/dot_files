@@ -57,6 +57,10 @@ Plugin 'honza/vim-snippets'
 
 """ Do not use <tab> with UltiSnip if you use https://github.com/Valloric/YouCompleteMe.
 
+"""Changing the directory where to find the snippets
+let g:UltiSnipsSnippetsDir          = $HOME.'/.vim/UltiSnips/'
+let g:UltiSnipsSnippetDirectories   = [ "UltiSnips" ]
+
 """ Show all snippets
 let g:UltiSnipsListSnippets="<c-l>"
 
