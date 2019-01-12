@@ -6,24 +6,18 @@ snippet OrderedDict
 
 snippet exc
 	try:
-		'${1:code}'
+		${1:code}
 	except:
-		import traceback
-		trace = traceback.format_exc(limit=1)
-		print 'EXCEPTION: {}'.format(trace)
+		logging.exception(${2:message})
+
 
 snippet ipdb
 	import ipdb; ipdb.set_trace()
 
 
-snippet pudb
-	import pudb; pudb.set_trace()
-
-
 snippet ifmain
 	if __name__ == '__main__':
 			${1:main()}
-
 
 
 snippet class
@@ -51,9 +45,10 @@ snippet date_obj
 
 
 # snippet pydoc
-#	"""
-#	${1:description}
+#    """
+#    ${1:description}
 #
-#   :param: ${2:param_name}: ${3:description}
-#	:return: ${4:return_values}
+#    :param: ${2:param_name}: ${3:description}
+#	:type $2: ${4:param_type}
+#	:return: ${5:return_values}
 #	"""

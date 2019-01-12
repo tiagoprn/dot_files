@@ -154,11 +154,11 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
-" Enable vim's native syntax highlight
-au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+" Expands on what vim considers as a txt filetype
+au BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=txt
 
-" When opening a new buffer, if it has no filetype defaults to markdown
-autocmd BufEnter * if &filetype == "" | setlocal filetype=markdown | endif
+" When opening a new buffer, if it has no filetype defaults to txt
+autocmd BufEnter * if &filetype == "" | setlocal filetype=txt | endif
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
