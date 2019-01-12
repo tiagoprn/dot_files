@@ -1,10 +1,28 @@
 # snippets for all file types
 
-snippet hello
+snippet hello "hello world"
 'hello world!'
 endsnippet
 
 snippet timestamp "timestamp yyyy-mm-dd hh:mm:ss" w
-`date +%Y-%m-%d %H:%M:%S`
+`!v strftime("%Y-%m-%d %H:%M:%S")`
 endsnippet
 
+snippet sig "mail signature"
+
+---
+Tiago Paranhos Lima - Desenvolvedor Python
+https://tiagopr.nl
+twitter.com/tiagoprn
+endsnippet
+
+snippet post "a new post on tiagopr.nl"
+slug: ${1:content-slug-here}
+date: timestamp
+tags: [${2:tag1,}]
+published: timestamp
+summary: ${3:the post title}
+public: yes
+
+${4:#contents}
+endsnippet
