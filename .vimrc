@@ -263,11 +263,6 @@ nmap <Leader>x <Plug>BookmarkClearAll
 "" tasklist
 map <C-t> <Plug>TaskList
 
-"" snipmate
-" CTRL+b to load snippets
-imap <C-b> <Plug>snipMateNextOrTrigger
-smap <C-b> <Plug>snipMateNextOrTrigger
-
 "" fzf
 " select file by name
 nnoremap <C-f> :Files<Cr>
