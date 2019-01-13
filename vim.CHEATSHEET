@@ -143,6 +143,7 @@
     ## Script vim commands
     $ vim --cmd 'echo "This runs before .vimrc"' -c ':call UltiSnips#ListSnippets()' -c '<Esc>' -c ':q!'
     $ vim -c ':call UltiSnips#ListSnippets()' -c ':q!'
+    $ vim +PluginInstall +qall
 
 # vim-bookmarks:
     (all commands below run in VISUAL mode):
