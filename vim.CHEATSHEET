@@ -140,6 +140,9 @@
 
     (VISUAL) q[another key to where the macro will be saved as] put the cursor where to start and do your key presses here (VISUAL)q to finish, replay the macro with @
 
+    ## Script vim commands
+    $ vim --cmd 'echo "This runs before .vimrc"' -c ':call UltiSnips#ListSnippets()' -c '<Esc>' -c ':q!'
+    $ vim -c ':call UltiSnips#ListSnippets()' -c ':q!'
 
 # vim-bookmarks:
     (all commands below run in VISUAL mode):
@@ -174,7 +177,6 @@
         Delete workpace: [Show all workpaces], navigate, then "d"
         Rename current workspace: [Show all workpaces], navigate, then "="
         Create a new workpace: <CTRL+Space> "w", "n"
-
 
 # NERDTree:
 ## (https://github.com/scrooloose/nerdtree/blob/master/doc/NERD_tree.txt)
