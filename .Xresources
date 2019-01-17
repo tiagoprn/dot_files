@@ -4,7 +4,10 @@
 ! --- uRxvt
 URxvt.cursorBlink: 1
 URxvt.cursorUnderline: 1
-URxvt.font: xft:fira code retina:size=12
+
+! URxvt.font: xft:fira code retina:size=12
+URxvt.font: xft:inconsolata awesome:size=12
+
 URxvt.scrollBar: false
 urxvt*depth: 32
 ! URxvt.background: [50]#302351  ! 50 here means 50% transparency
