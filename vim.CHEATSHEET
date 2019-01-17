@@ -17,6 +17,12 @@
         Close all current buffers: (VISUAL) :bufdo bdelete
           (bufdo do whatever is typed after it on all current buffers, so it can be useful on other contexts as well.)
 
+    ## SPLITS:
+        Split equally: <CTRL+w> =
+        Resize current split rows number: <CTRL+w> [+ / -]
+        Resize current split columns number: <CTRL+w> [> , <]
+        (for both resizes, I can use vim number of repetitions patterns e.g. 5+, 5-, 5>, 5< etc...)
+
     ## UNDO / REDO:
         Undo: (VISUAL) u
         Redo: (VISUAL) <CTRL+r>
