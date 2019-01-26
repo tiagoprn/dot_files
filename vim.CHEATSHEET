@@ -7,7 +7,26 @@
         k: up
         l: forward
 
+        f [char]: go to specific char in line
+
         NOTE: Prefix the movement keys with a number and you will move to that direction x times. E.g. 10k moves 10 lines up
+
+    ### Advanced vim editing using text objects
+
+    [c]hange [i]nner [text object *]
+    [c]hange [a]round [text object *] (around = including the object)
+    [d]elete [i]nner [text object *]
+    [d]elete [a]round [text object *] (around = including the object)
+
+    * text objects available:
+        [w]ord
+        [p]aragraph
+        [s]entence
+        "
+        '
+        (
+        [
+        {
 
     ## KEY MAPPINGS
     ### View all key mappings in vim
