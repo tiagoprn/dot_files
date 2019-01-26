@@ -2,14 +2,21 @@
 
     ## VIM MOVEMENT KEYS:
 
-        h: back
-        j: down
-        k: up
-        l: forward
+    h: left
+    j: down
+    k: up
+    l: right
 
-        f [char]: go to specific char in line
+    f [char]: go to specific char in line
 
-        NOTE: Prefix the movement keys with a number and you will move to that direction x times. E.g. 10k moves 10 lines up
+    NOTE: Prefix the movement keys with a number and you will move to that direction x times. E.g. 10k moves 10 lines up
+
+    ## Enter insert mode from visual mode:
+
+    o: insert blank line below cursor
+    O: insert blank line above cursor
+    A: go to end of line and enter insert mode
+    I: go to beginning of line and enter insert mode
 
     ### Advanced vim editing using text objects
 
@@ -22,11 +29,13 @@
         [w]ord
         [p]aragraph
         [s]entence
+        [t]ag (e.g. <html>contents</html>)
         "
         '
         (
         [
         {
+        <
 
     ## KEY MAPPINGS
     ### View all key mappings in vim
@@ -93,7 +102,7 @@
 	    (VISUAL) d$
 
     ## DELETE UNTIL BEGINNING OF LINE:
-        (VISUAL) d^
+        (VISUAL) d0
 
     ## NAVIGATION (VISUAL MODE)
         Go to next word: <w>
