@@ -1,6 +1,15 @@
 # General
 
-    ## VIM MOVEMENT KEYS:
+    ## Repetitions
+
+    .: repeat the last command
+    5p: paste text 5 times
+    3yy: copy current line and the 2 ones below it
+    2f [char]: go to the second occurence of char in line
+    10k: moves 10 lines up
+    5j: move 5 lines down
+
+    ## Movement Keys:
 
     h: left
     j: down
@@ -8,9 +17,6 @@
     l: right
 
     f [char]: go to specific char in line
-    2f [char]: go to the second occurence of char in line
-
-    NOTE: Prefix the movement keys with a number and you will move to that direction x times. E.g. 10k moves 10 lines up
 
     ## Leave insert mode:
 
@@ -165,6 +171,8 @@
     ## CLIPBOARD:
         Copy vim clipboard to system:
             (VISUAL) Select text (with <v>), then <C-y>
+
+            (VISUAL) yy (copy contents of the current line)
 
         Paste system clipboard to vim:
             (VISUAL) <C-p>
