@@ -4,6 +4,16 @@ snippet hello "hello world"
 'hello world!'
 endsnippet
 
+snippet bstl "one line code delimiter with backsticks"
+\`\`\`${1:code}\`\`\`
+endsnippet
+
+snippet bsts "code snippet delimited by backsticks"
+\`\`\`
+${1:code}
+\`\`\`
+endsnippet
+
 snippet timestamp "timestamp yyyy-mm-dd hh:mm:ss" w
 `!v strftime("%Y-%m-%d %H:%M:%S")`
 endsnippet

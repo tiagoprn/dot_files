@@ -8,6 +8,7 @@
     l: right
 
     f [char]: go to specific char in line
+    2f [char]: go to the second occurence of char in line
 
     NOTE: Prefix the movement keys with a number and you will move to that direction x times. E.g. 10k moves 10 lines up
 
@@ -15,6 +16,12 @@
 
     Esc: Go to visual mode
     Ctrl+o: Go to visual mode to execute just one command and go back to insert mode
+
+    ## Insert a character x times:
+    (in visual mode - do not start with ":")
+
+    80i*<Esc> (this will insert the * character 80 times on the current cursor position)
+    3i`<Esc> (this will insert the backstick character 3 times on the current cursor position)
 
     ## Enter insert mode from visual mode:
 
