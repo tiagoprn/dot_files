@@ -247,8 +247,8 @@ bar {
         }
 }
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym Mod1+Shift+Up exec xbacklight -inc 20 # increase screen brightness
+bindsym Mod1+Shift+Down exec xbacklight -dec 20 # decrease screen brightness
 
 # Media player controls
 #
