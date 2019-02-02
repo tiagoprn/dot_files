@@ -47,7 +47,7 @@ conky.config = {
 };
 
 conky.text = [[
-${font Cantarell:weight=bold:size=18:autohint=true:antialias=true}${alignc}NOTES${alignr}${font Cantarell:size=14:autohint=true:antialias=true}(${lines /storage/temp/notes.txt})${font}
+${font Inconsolata:weight=bold:size=18:autohint=true:antialias=true}${alignc}NOTES${alignr}${font Inconsolata:size=14:autohint=true:antialias=true}(${lines /storage/temp/notes.txt})${font}
 ${hr}
 ${voffset 10}${execp ~/.Conky/viewnotes.sh}
 ]];
