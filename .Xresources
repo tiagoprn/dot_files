@@ -10,9 +10,9 @@ URxvt.font: xft:inconsolata awesome:size=12:autohint:true:antialias:true
 
 URxvt.scrollBar: false
 urxvt*depth: 32
-! URxvt.background: [50]#302351  ! 50 here means 50% transparency
 URxvt.internalBorder:  30
-URxvt.background: #000000
+! [xx] below before the color hex code means xx% transparency
+URxvt.background: [75]#000000
 URxvt.foreground:   #ffffff
 URxvt.cursorColor:  #ffffff
 URxvt.saveLines: 50000
