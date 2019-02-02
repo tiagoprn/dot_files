@@ -151,7 +151,9 @@ export BROWSER=/usr/bin/chromium
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 ## For tmux to work nicely
-export TERM=xterm-256color
+# export TERM=xterm-256color
+# export TERM=screen-256color-bce
+export TERM=screen-256color
 
 ## To stop showing warnings on activating a pyenv.
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
