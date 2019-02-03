@@ -230,6 +230,12 @@ vmap r "_dP
 nnoremap d "_d
 nnoremap dd "_dd
 
+"-----------------------------------"
+" CUSTOM COMMANDS (SHORTCUTS)
+
+" Show (Ultisnips) snippets list (call with: <VISUAL>:S):
+command! -bar -bang S call fzf#vim#snippets({'options': '--ansi --tiebreak=index +m -d "\t"'}, <bang>0)
+
 "----------------------------------"
 " VIM EVENT HOOKS "
 

@@ -193,6 +193,10 @@
                 i = case insensitive
                 c = confirm each match
 
+    ## CHOOSE A SNIPPET FROM SNIPPETS LIST:
+
+        (VISUAL) :S
+
     ## HISTORY:
         List of past commands (hitting <Enter> you can execute them):
             (VISUAL) q:
