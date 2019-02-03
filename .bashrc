@@ -20,6 +20,8 @@ shopt -s autocd
 shopt -s cdspell
 # attempts to save all lines of a multiple-line command in the same history entry.
 shopt -s cmdhist
+## Unified bash history
+shopt -s histappend
 
 HOMEBIN=/home/$USER/bin
 if [ ! -d $HOMEBIN ];
@@ -335,8 +337,6 @@ git-log-browser() {
     fi
 }
 
-## Unified bash history
-shopt -s histappend
 PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
 
 ## To run ansible locally without it being so annoying :)
