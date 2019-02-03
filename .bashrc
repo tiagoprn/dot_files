@@ -2,6 +2,13 @@
 # ~/.bashrc
 #
 
+# Enter a directory without the cd command needed
+shopt -s autocd
+# minor corrections for misspellings etc.
+shopt -s cdspell
+# attempts to save all lines of a multiple-line command in the same history entry.
+shopt -s cmdhist
+
 # Enable vim-mode on shell editing instead of the default emacs one
 # Also show on the cursor if we are on visual or insert mode
 set -o vi
