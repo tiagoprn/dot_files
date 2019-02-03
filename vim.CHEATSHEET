@@ -84,6 +84,7 @@
         {
         <
 
+
     ## KEY MAPPINGS
     ### View all key mappings in vim
         (VISUAL) :map
@@ -97,6 +98,9 @@
         Resize current split rows number: <CTRL+w> [+ / -]
         Resize current split columns number: <CTRL+w> [> , <]
         (for both resizes, I can use vim number of repetitions patterns e.g. 5+, 5-, 5>, 5< etc...)
+
+    ## Alternate shortcut to VISUAL mode:
+        Instead of <Esc>: <Ctrl>[
 
     ## UNDO / REDO:
         Undo: (VISUAL) u
