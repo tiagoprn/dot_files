@@ -1,6 +1,18 @@
-#
-# ~/.bashrc
-#
+#  _   _                                    _
+# | |_(_) __ _  __ _  ___  _ __  _ __ _ __ ( )___
+# | __| |/ _` |/ _` |/ _ \| '_ \| '__| '_ \|// __|
+# | |_| | (_| | (_| | (_) | |_) | |  | | | | \__ \
+#  \__|_|\__,_|\__, |\___/| .__/|_|  |_| |_| |___/
+#              |___/      |_|
+#  _               _
+# | |__   __ _ ___| |__  _ __ ___
+# | '_ \ / _` / __| '_ \| '__/ __|
+# | |_) | (_| \__ \ | | | | | (__
+# |_.__/ \__,_|___/_| |_|_|  \___|
+
+# Enable vim-mode on shell editing instead of the default emacs one
+# Also show on the cursor if we are on visual or insert mode
+set -o vi
 
 # Enter a directory without the cd command needed
 shopt -s autocd
@@ -8,10 +20,6 @@ shopt -s autocd
 shopt -s cdspell
 # attempts to save all lines of a multiple-line command in the same history entry.
 shopt -s cmdhist
-
-# Enable vim-mode on shell editing instead of the default emacs one
-# Also show on the cursor if we are on visual or insert mode
-set -o vi
 
 HOMEBIN=/home/$USER/bin
 if [ ! -d $HOMEBIN ];
