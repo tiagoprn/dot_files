@@ -217,6 +217,13 @@ alias lsd="ls | grep '^d'"
 alias lsr="ls --color -halt"
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 
+# Function to search through bash history using fzf
+function hs() {
+    cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
+    echo "Running selected command => $cmd"
+    eval "$cmd"
+}
+
 function wal-set() {
     wal -n -i $(find ~/Wallpapers/ | fzf --exact)
 }
@@ -388,6 +395,7 @@ printf "\nlist-aliases / list-functions: list all available aliases/functions."
 printf "\nIf you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\nOn ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
 printf "\n---"
+printf "\n - To fuzzy search on the shell history: hs"
 printf "\n - You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both. ;)"
 printf "\n - Bash is configured in vim mode, here are some tips on it:"
 printf "\n      - Change to insert mode and go to the end of the line: CTRL+Up"
