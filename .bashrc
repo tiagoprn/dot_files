@@ -223,6 +223,7 @@ function hs() {
     echo "Running selected command => $cmd"
     # Below I add the command to the bash history
     history -s $cmd
+    # Below I execute the command
     eval "$cmd"
 }
 
