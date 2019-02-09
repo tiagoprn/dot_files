@@ -221,6 +221,8 @@ alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 function hs() {
     cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
     echo "Running selected command => $cmd"
+    # Below I add the command to the bash history
+    history -s $cmd
     eval "$cmd"
 }
 
