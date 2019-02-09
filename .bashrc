@@ -361,9 +361,15 @@ alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && pyenv rehash"
 # or insert mode.
 bind 'set show-mode-in-prompt on'
 
-# --- VIM-MODE SPECIFIC BINDINGS:
-# Clear screen as on emacs-mode and vi-visual
+# --- KEYBOARD SHORTCUTS (BINDINGS) VIM-MODE SPECIFIC BINDINGS:
+
+## GENERAL
+bind -x '"\C-f":hs'
+
+## VIM-MODE SPECIFIC
+### Clear screen as on emacs-mode and vi-visual
 bind -m vi-insert "\C-l":clear-screen
+
 
 ## Auto start tmux (DISABLED IN FAVOR OF MY ALIAS tmux-autostart)
 # This script looks for the parent process of the bash shell.
