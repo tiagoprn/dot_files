@@ -208,6 +208,8 @@ alias gps="git push origin "
 alias gpl="git pull origin "
 alias gdf="git icdiff"
 alias glg="git glog"
+# below show all git history from a file, with diffs between changes
+alias ghistory="git log --follow -p --stat -- "
 alias cd-home="cd ~"
 alias cd-storage="cd /storage"
 alias cd-wal="cd ~/.cache/wal"
