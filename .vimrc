@@ -295,7 +295,7 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'filename' ] ]
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
       \   'fugitive': 'MyFugitive',
@@ -333,7 +333,6 @@ function! MyFugitive()
     return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
-
 function! MyFugitive()
     if exists("*fugitive#head")
         let _ = fugitive#head()
@@ -342,11 +341,8 @@ function! MyFugitive()
     return ''
 endfunction
 
-
 function! MyFilename()
-    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-         \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-         \ ('' != MyModified() ? ' ' . MyModified() : '')
+    return '' != expand('%:p') ? expand('%:p') : '[No Name]'
 endfunction
 
 " tagbar
