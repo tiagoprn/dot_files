@@ -292,7 +292,7 @@ let g:CtrlSpaceProjectRootMarkers = [".git", ".hg", ".bzr"]
 " lightline specific configuration
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'landscape',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
@@ -303,8 +303,6 @@ let g:lightline = {
       \   'modified': 'MyModified',
       \   'filename': 'MyFilename'
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '>', 'right': '<' }
       \ }
 
 function! MyModified()
