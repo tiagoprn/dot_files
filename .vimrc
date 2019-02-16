@@ -304,7 +304,7 @@ let g:lightline = {
       \   'filename': 'MyFilename'
       \ },
       \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
+      \ 'subseparator': { 'left': '>', 'right': '<' }
       \ }
 
 function! MyModified()
