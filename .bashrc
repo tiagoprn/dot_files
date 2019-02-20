@@ -408,10 +408,6 @@ printf "\nOn ~/.ssh/config there are alias to common ssh servers (there is a cop
 printf "\n---"
 printf "\n - To fuzzy search on the shell history: hs"
 printf "\n - You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both. ;)"
-printf "\n - Bash is configured in vim mode, here are some tips on it:"
-printf "\n      - Change to insert mode and go to the end of the line: CTRL+Up"
-printf "\n      - Change to command(visual) mode and go to the beginning of the line: CTRL+Down"
-printf "\n (The normal vim behavior with pressing ESC to visual/command and i to insert also works ;)"
 printf "\n--- Have fun! ---\n"
 
 ## For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
