@@ -36,6 +36,14 @@ then
     export PATH=$PATH:$DEVOPS_BIN
 fi
 
+export PYENV_ROOT="$HOME/.pyenv"
+if [ -d $PYENV_ROOT ];
+then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+
+$PYENV_BIN=$PYENV_ROOT/bin/pyenv
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -187,8 +195,7 @@ alias upgrade='yaourt -Syyua --color --noconfirm'
 alias full-upgrade='sudo pacman-key --refresh-keys && sudo reflector --age 8 --fastest 128 --latest 64 --number 32 --sort rate --save /etc/pacman.d/mirrorlist && yaourt --color -Syyua --noconfirm'
 alias jlogs='sudo journalctl -o short-iso -f --all'
 alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
-alias tmux-autostart='pyenv activate core-utils && /storage/src/devops/tmuxp/start_everything.sh && pyenv deactivate && tmux -2 a -t HOME '
-alias containers="sudo docker ps --format '$DOCKER_PS_FORMAT'"
+alias tmux-autostart="$PYENV_BIN activate core-utils && /storage/src/devops/tmuxp/start_everything.sh && $PYENV_BIN deactivate && tmux -2 a -t HOME"
 alias local-ports-open="netstat -netlp"
 alias remote-ports-open="printf 'HINT: pass the host ip as the parameter\n\n' && sudo nmap -sS"
 alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e.g. 10.0.0.1/24\n\n' && sudo nmap -sP"
@@ -360,7 +367,7 @@ export QT_SCALE_FACTOR=0.6
 
 # Below solves the error "pyenv: cannot rehash: ~/.pyenv/shims/.pyenv-shim
 # exists " when installing binaries (commands) for pip and them not working.
-alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && pyenv rehash"
+alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && $PYENV_BIN rehash"
 
 # When using vim-mode, add beside the prompt and indicator if we are on visual
 # or insert mode.
@@ -410,14 +417,11 @@ printf "\n - To fuzzy search on the shell history: hs"
 printf "\n - You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both. ;)"
 printf "\n--- Have fun! ---\n"
 
-## For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
+# For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if ! [ -x "$(command -v pyenv)" ]; then
     echo 'pyenv is not installed, I recommend you to install it.' >&2
     exit 1
 fi
-
-export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"  # not useful, since I install it from the package manager
 
 if [ -d $PYENV_ROOT ];
 then
