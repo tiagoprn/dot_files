@@ -229,11 +229,11 @@ alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 # Function to search through bash history using fzf
 function hs() {
     cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
-    echo "Running selected command => $cmd"
-    # Below I add the command to the bash history
+    # Add the command to history
     history -s $cmd
-    # Below I execute the command
-    eval "$cmd"
+    # Below I paste the command into the terminal. The setxkbmap has to be used due to a but with xdotool type on
+    # non-us keyboards.
+    setxkbmap us && xdotool type "$cmd" && setxkbmap -model abnt2 -layout br
 }
 
 function wal-set() {
