@@ -230,6 +230,13 @@ vmap r "_dP
 nnoremap d "_d
 nnoremap dd "_dd
 
+"------------------------
+" DISABLE ARROW KEYS IN NORMAL MODE
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 "-----------------------------------"
 " CUSTOM COMMANDS (SHORTCUTS)
 

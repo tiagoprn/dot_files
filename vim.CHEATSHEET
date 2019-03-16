@@ -86,6 +86,10 @@
 
 
     ## KEY MAPPINGS
+
+    ### TO UNDERSTAND CUSTOMIZING MAPPINGS:
+        https://stackoverflow.com/questions/3776117/what-is-the-difference-between-the-remap-noremap-nnoremap-and-vnoremap-mapping
+
     ### View all key mappings in vim
         (VISUAL) :map
 
