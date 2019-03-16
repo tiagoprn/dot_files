@@ -173,6 +173,9 @@
         ### MOVE TO THE END OF THE LINE AND ENTER INSERT MODE:
             (VISUAL) A
 
+        ### JOIN 2 linhes:
+            (VISUAL) J
+
         ### MOVE TO THE BEGINNING OF THE FILE:
             (VISUAL) gg
 
