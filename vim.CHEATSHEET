@@ -93,6 +93,11 @@
     ### View all key mappings in vim
         (VISUAL) :map
 
+    ## FZF COMMANDS:
+        (VISUAL) :S - Insert snippet
+        (VISUAL) C-f - Select file by name
+        (VISUAL) C-g - Select file by contents
+
     ## BUFFERS:
         Close all current buffers: (VISUAL) :bufdo bdelete
           (bufdo do whatever is typed after it on all current buffers, so it can be useful on other contexts as well.)
@@ -177,7 +182,7 @@
         ### MOVE TO THE END OF THE LINE AND ENTER INSERT MODE:
             (VISUAL) A
 
-        ### JOIN 2 linhes:
+        ### JOIN 2 lines:
             (VISUAL) J
 
         ### MOVE TO THE BEGINNING OF THE FILE:
