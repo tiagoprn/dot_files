@@ -413,7 +413,6 @@ printf "\nlist-aliases / list-functions: list all available aliases/functions."
 printf "\nIf you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\nOn ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
 printf "\n---"
-printf "\n - To fuzzy search on the shell history: hs"
 printf "\n - You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both. ;)"
 printf "\n--- Have fun! ---\n"
 
