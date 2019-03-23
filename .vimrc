@@ -119,19 +119,19 @@ map <Leader>n <esc>:tabnext<CR>
 " Map <,all> to select all text in the file:
 map <Leader>all <esc>gg0vG$<CR>
 
-filetype plugin indent on
-au FileType py set autoindent
-au FileType py set smartindent
-au FileType py set textwidth=119
-
 " Height of the command bar
 set cmdheight=2
 
-" Showing line numbers and length
+" LINES CONFIGURATION
 set number  " show line numbers
-set tw=119   " width of document (used by gd)
-set nowrap  " don't automatically wrap on load
-set fo-=t   " don't automatically wrap text when typing
+set textwidth=99   " maximum line length
+set formatoptions+=t  " automatically wrap text when typing
+" set formatoptions-=t   " don't automatically wrap text when typing
+set formatoptions-=l  " Force line wrapping
+filetype plugin indent on
+au FileType py set autoindent
+au FileType py set smartindent
+au FileType py set textwidth=79
 
 " sets a gray margin on column 80
 "" set colorcolumn=80

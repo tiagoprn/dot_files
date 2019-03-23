@@ -84,7 +84,6 @@
         {
         <
 
-
     ## KEY MAPPINGS
 
     ### TO UNDERSTAND CUSTOMIZING MAPPINGS:
@@ -107,6 +106,9 @@
         Resize current split rows number: <CTRL+w> [+ / -]
         Resize current split columns number: <CTRL+w> [> , <]
         (for both resizes, I can use vim number of repetitions patterns e.g. 5+, 5-, 5>, 5< etc...)
+
+    ## Change selected block line length to default (divides into lines of equal length):
+        :gq
 
     ## Alternate shortcut to VISUAL mode:
         Instead of <Esc>: <Ctrl>[
