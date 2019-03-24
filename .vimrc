@@ -100,6 +100,7 @@ set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*~
 set incsearch            " show search matches while you type
+autocmd VimResized * wincmd =  " resize vim splits proportionally when the window that contains vim is resized
 
 " move vertically by visual line (when "setwrap" is settled)
 nnoremap j gj
