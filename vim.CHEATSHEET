@@ -110,6 +110,9 @@
     ## Change selected block line length to default (divides into lines of equal length):
         :gq
 
+    ## Do just one visual/normal command in insert mode and come back to insert mode automatically:
+        <CTRL+o>
+
     ## Alternate shortcut to VISUAL mode:
         Instead of <Esc>: <Ctrl>[
 
