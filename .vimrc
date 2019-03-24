@@ -55,6 +55,9 @@ Plugin 'SirVer/ultisnips'
 "" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
+"" Add specific actions for directories creating a .vimdir file on a specific directory (e.g. /storages/docs/notes)
+Plugin 'chazy/dirsettings'
+
 """ Do not use <tab> with UltiSnip if you use https://github.com/Valloric/YouCompleteMe.
 
 """Changing the directory where to find the snippets
