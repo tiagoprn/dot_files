@@ -255,7 +255,7 @@ command! -bar -bang S call fzf#vim#snippets({'options': '--ansi --tiebreak=index
 autocmd BufWritePre * :%s/\s\+$//e
 
 " After saving a file, display a notification:
-autocmd BufWritePost * !notify-send -a vim "File %:p saved."
+autocmd BufWritePost * silent! !notify-send -a vim "File %:p saved."
 
 "
 
