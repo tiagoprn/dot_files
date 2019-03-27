@@ -20,6 +20,11 @@ filetype off
 " the File, Open dialog defaults to the current file's directory.
 set browsedir=buffer
 
+" Auto-reload files
+set autoread
+" Below triggers autoread when changing buffers inside while inside vim
+au FocusGained,BufEnter * :checktime
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
