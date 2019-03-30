@@ -113,6 +113,19 @@
     ## Do just one visual/normal command in insert mode and come back to insert mode automatically:
         <CTRL+o>
 
+
+    ## Vim modes
+
+    Normal: navigation mode
+    Insert: editing mode
+    Visual: for selecting text
+
+    ## Navigation on screen:
+
+    H(igh): Top of screen
+    M(edium): Mid of screen
+    L(ow): Bottom of screen
+
     ## Alternate shortcut to VISUAL mode:
         Instead of <Esc>: <Ctrl>[
 
