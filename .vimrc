@@ -1,5 +1,12 @@
+" _   _                                    _             _
+"| |_(_) __ _  __ _  ___  _ __  _ __ _ __ ( )___  __   _(_)_ __ ___  _ __ ___
+"| __| |/ _` |/ _` |/ _ \| '_ \| '__| '_ \|// __| \ \ / / | '_ ` _ \| '__/ __|
+"| |_| | (_| | (_| | (_) | |_) | |  | | | | \__ \  \ V /| | | | | | | | | (__
+" \__|_|\__,_|\__, |\___/| .__/|_|  |_| |_| |___/   \_/ |_|_| |_| |_|_|  \___|
+"             |___/      |_|
+"
 "------------------------------------------------------------------------
-" VUNDLE "package manager" and its plugins:
+" I use VUNDLE "package manager" and its plugins.
 
 " we need to make sure that vim is not attempting to retain compatibility with
 " vi, its predecessor. This is a vundle requirement.
