@@ -6,31 +6,12 @@
 "             |___/      |_|
 "
 "------------------------------------------------------------------------
+"
 " I use VUNDLE "package manager" and its plugins.
 
 " we need to make sure that vim is not attempting to retain compatibility with
 " vi, its predecessor. This is a vundle requirement.
 set nocompatible
-
-" below for the ctrl-space plugin:
-set hidden
-set showtabline=0
-
-" Changing the ruler position
-set relativenumber
-
-" We also want to turn off the default "filetype" controls for now because the
-" way that vim caches filetype rules at runtime interferes with the way that
-" vundle alters the runtime environment.
-filetype off
-
-" the File, Open dialog defaults to the current file's directory.
-set browsedir=buffer
-
-" Auto-reload files
-set autoread
-" Below triggers autoread when changing buffers inside while inside vim
-au FocusGained,BufEnter * :checktime
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -98,12 +79,31 @@ filetype plugin indent on
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
 
+" below for the ctrl-space plugin:
+set hidden
+set showtabline=0
+
+" Changing the ruler position
+set relativenumber
+
+" We also want to turn off the default "filetype" controls for now because the
+" way that vim caches filetype rules at runtime interferes with the way that
+" vundle alters the runtime environment.
+filetype off
+
+" the File, Open dialog defaults to the current file's directory.
+set browsedir=buffer
+
+" Auto-reload files
+set autoread
+" Below triggers autoread when changing buffers inside while inside vim
+au FocusGained,BufEnter * :checktime
 syntax on
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
-" Disable stupid backup and swap files - they trigger too many events
+" Disable backup and swap files - they trigger too many events
 " for file system watchers
 set nobackup
 set nowritebackup
@@ -114,8 +114,15 @@ set title
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*~
-set incsearch            " show search matches while you type
 autocmd VimResized * wincmd =  " resize vim splits proportionally when the window that contains vim is resized
+
+" Better Searching
+set hlsearch             " highlight searches
+set incsearch            " show search matches while you type
+set ignorecase           " ignore case on searching by default
+set smartcase            " uppercase characters will be taken into account
+" ENTER key on visual mode de-highlights current highlighted search
+nnoremap <CR> :nohlsearch<cr>
 
 " move vertically by visual line (when "setwrap" is settled)
 nnoremap j gj
@@ -140,6 +147,7 @@ set cmdheight=2
 
 " LINES CONFIGURATION
 set number  " show line numbers
+set winwidth=80  "minimum window width
 set textwidth=99   " maximum line length
 set formatoptions+=t  " automatically wrap text when typing
 " set formatoptions-=t   " don't automatically wrap text when typing
@@ -157,6 +165,12 @@ au FileType py set textwidth=79
 " Useful settings
 set history=700
 set undolevels=700
+
+" switch window splits more easily
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
