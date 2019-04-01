@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo 'Installing monospaced fonts...'
-yay -S --color ttf-hack-ibx ttf-monofur ttf-fira-code ttf-mononoki mps-youtube mplayer ffmpeg mpv dmenu --noconfirm
+yay -S ttf-hack-ibx ttf-monofur ttf-fira-code ttf-mononoki mps-youtube mplayer ffmpeg mpv dmenu --noconfirm
 
 echo 'Linking main i3 config...'
 rm -fr ~/.i3
