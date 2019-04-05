@@ -75,3 +75,12 @@ rofi.hide-scrollbar: true
 ! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 !rofi.color-normal: #31d1f2, #f3f4f5, #31d1f2, #31d1f2, #9575cd
 rofi.font: System San Francisco Display 10
+
+! better fonts
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
