@@ -188,6 +188,12 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
+" Show special chars below
+set listchars=tab:→_,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+" Just show special chars on visual mode, on insert mode they are disabled
+au BufEnter,InsertLeave * set list
+au InsertEnter * set nolist
+
 " Expands on what vim considers as a txt filetype
 au BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=txt
 
