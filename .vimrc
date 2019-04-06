@@ -189,7 +189,7 @@ set shiftround
 set expandtab
 
 " Show special chars below
-set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:˩,precedes:«,extends:»
+set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends:»
 " Just show special chars on visual mode, on insert mode they are disabled
 au BufEnter,InsertLeave * set list
 au InsertEnter * set nolist
