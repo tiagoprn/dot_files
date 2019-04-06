@@ -60,6 +60,10 @@ if [ ! -f /usr/share/git/completion/git-prompt.sh ]; then
 fi
 source /usr/share/git/completion/git-prompt.sh
 
+# Change default pager (less, more, etc...) to vim:
+export PAGER=/usr/share/vim/vim81/macros/less.sh
+
+
 # ---------------- BASH PROMPT (begin) ----------------- #
 
 #   Set the bash prompt according to:
@@ -226,6 +230,8 @@ alias lsd="ls | grep '^d'"
 # below lists most recently changed files/directories
 alias lsr="ls --color -halt"
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
+alias less="/usr/share/vim/vim81/macros/less.sh"
+alias more="/usr/share/vim/vim81/macros/less.sh"
 
 # Function to search through bash history using fzf
 function hs() {
