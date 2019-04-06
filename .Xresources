@@ -6,7 +6,11 @@ URxvt.cursorBlink: 1
 URxvt.cursorUnderline: 1
 
 ! URxvt.font: xft:fira code retina:size=12
-URxvt.font: xft:inconsolata awesome:size=12:autohint:true:antialias:true
+URxvt.font: xft:inconsolata awesome:size=12:autohint:true:antialias:true,\
+            xft:Hack:pixelsize=18,\
+            xft:DejaVu Sans Mono:pixelsize:18,\
+            xft:Unifont:pixelsize:16,\
+            -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 
 URxvt.scrollBar: false
 urxvt*depth: 32
