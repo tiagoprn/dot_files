@@ -13,6 +13,13 @@
 " vi, its predecessor. This is a vundle requirement.
 set nocompatible
 
+" Then, when in insert mode, ready to paste, if you press <F2>, Vim will switch
+" to paste mode, which will not try to ident code when you paste it from
+" another app, like the browser or a text editor.
+" IMPORTANT: DO NOT MOVE this line from here, it must be after nocompatible
+"            for the paste toggle to work accordingly.
+set pastetoggle=<F2>
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -127,11 +134,6 @@ nnoremap <CR> :nohlsearch<cr>
 " move vertically by visual line (when "setwrap" is settled)
 nnoremap j gj
 nnoremap k gk
-
-" Then, when in insert mode, ready to paste, if you press <F2>, Vim will switch
-" to paste mode, which will not try to ident code when you paste it from
-" another app, like the browser or a text editor.
-set pastetoggle=<F2>
 
 " Rebind <Leader> key
 let mapleader = ","  " the <Leader> combination (in visual mode) will so be: ','
