@@ -107,9 +107,9 @@ bindsym $mod+p focus parent
 bindsym $mod+c focus child
 
 set $workspace1 "  1:TMUX"
-set $workspace2 " 2:Firefox"
+set $workspace2 "  2:Firefox"
 set $workspace3 "  3:Dev"
-set $workspace4 " 4:Chrome"
+set $workspace4 "  4:Chrome"
 set $workspace5 "  5:Schedule"
 set $workspace6 " 6:IMMERSIVE"
 set $workspace7 " 7:etc1"
