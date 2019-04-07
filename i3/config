@@ -225,7 +225,7 @@ bar {
                                  #border  background text
               focused_workspace  $bluesky $bluesky  $white
               active_workspace   $white $white  $bluesky
-              inactive_workspace $darkgrey $darkgrey $white
+              inactive_workspace $black $black $white
               urgent_workspace   $red $red $white
         }
 }
@@ -242,7 +242,7 @@ bar {
                                  #border  background text
               focused_workspace  $bluesky $bluesky  $white
               active_workspace   $white $white  $bluesky
-              inactive_workspace $darkgrey $darkgrey $white
+              inactive_workspace $black $black $white
               urgent_workspace   $red $red $white
         }
 }
