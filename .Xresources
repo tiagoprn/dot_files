@@ -10,6 +10,7 @@ URxvt.font: xft:Inconsolata Awesome:size=12:autohint:true:antialias:true,\
             xft:Hack:pixelsize=18,\
             xft:DejaVu Sans Mono:pixelsize:18,\
             xft:Unifont:pixelsize:16,\
+            xft:Font Awesome 5 Brands:pixelsize:16,\
             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 
 URxvt.scrollBar: false

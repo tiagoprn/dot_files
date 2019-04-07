@@ -38,6 +38,7 @@ set $blue #0000ff
 # is used in the bar {} block below.
 #font pango:monospace 8
 font pango:Inconsolata Awesome 14
+font pango: Font Awesome 5 Brands 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -105,16 +106,16 @@ bindsym $mod+p focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-set $workspace1 "[1]TMUX"
-set $workspace2 "[2]Firefox"
-set $workspace3 "[3]Dev"
-set $workspace4 "[4]Chrome"
-set $workspace5 "[5]Schedule"
-set $workspace6 "[6]IMMERSIVE"
-set $workspace7 "[7]etc2"
-set $workspace8 "[8]etc3"
-set $workspace9 "[9]Chats"
-set $workspace10 "[0]Media"
+set $workspace1 "  1:TMUX"
+set $workspace2 " 2:Firefox"
+set $workspace3 "  3:Dev"
+set $workspace4 " 4:Chrome"
+set $workspace5 "  5:Schedule"
+set $workspace6 " 6:IMMERSIVE"
+set $workspace7 " 7:etc1"
+set $workspace8 " 8:etc2"
+set $workspace9 "  9:Chats"
+set $workspace10 "  0:Media"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1; bar mode dock
