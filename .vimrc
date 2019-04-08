@@ -20,6 +20,9 @@ set nocompatible
 "            for the paste toggle to work accordingly.
 set pastetoggle=<F2>
 
+" Set comments as italic
+hi comment cterm=italic
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -326,6 +329,12 @@ map <C-t> <Plug>TaskList
 nnoremap <C-f> :Files<Cr>
 " select file by contents
 nnoremap <C-g> :Rg<Cr>
+" select open buffers
+nnoremap <C-b> :Buffers<Cr>
+" select commands
+nnoremap <C-O> :Commands<Cr>
+" select open windows
+nnoremap <C-W> :Windows<Cr>
 
 " CTRLSpace
 " Sets the minimal height of the plugin window.
