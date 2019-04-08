@@ -38,9 +38,6 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
 
-" CTRLSpace
-Plugin 'vim-ctrlspace/vim-ctrlspace'
-
 " A light and configurable statusline/tabline for Vim
 Plugin 'itchyny/lightline.vim'
 
@@ -335,13 +332,6 @@ nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-O> :Commands<Cr>
 " select open windows
 nnoremap <C-W> :Windows<Cr>
-
-" CTRLSpace
-" Sets the minimal height of the plugin window.
-let g:CtrlSpaceHeight = 5
-let g:CtrlSpaceUseTabline = 1
-let g:CtrlSpaceUseArrowsInTerm = 1
-let g:CtrlSpaceProjectRootMarkers = [".git", ".hg", ".bzr"]
 
 " lightline specific configuration
 
