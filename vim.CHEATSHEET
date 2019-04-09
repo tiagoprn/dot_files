@@ -302,7 +302,8 @@
 # All vim script events:
 (reference: http://tech.saigonist.com/b/code/list-all-vim-script-events.html)
 
-Reading
+## Reading
+
 Event 	Description
 BufNewFile 	starting to edit a file that doesn't exist
 BufReadPre 	starting to edit a new buffer, before reading the file
@@ -319,7 +320,9 @@ FilterReadPost 	after reading a file from a filter command
 
 StdinReadPre 	before reading from stdin into the buffer
 StdinReadPost 	After reading from the stdin into the buffer
-Writing
+
+## Writing
+
 Event 	Description
 BufWrite 	starting to write the whole buffer to a file
 BufWritePre 	starting to write the whole buffer to a file
@@ -336,7 +339,9 @@ FileAppendCmd 	before appending to a file Cmd-event
 
 FilterWritePre 	starting to write a file for a filter command or diff
 FilterWritePost 	after writing a file for a filter command or diff
-Buffers
+
+## Buffers
+
 Event 	Description
 BufAdd 	just after adding a buffer to the buffer list
 BufCreate 	just after adding a buffer to the buffer list
@@ -356,13 +361,17 @@ BufHidden 	just after a buffer has become hidden
 BufNew 	just after creating a new buffer
 
 SwapExists 	detected an existing swap file
-Options
+
+## Options
+
 Event 	Description
 FileType 	when the 'filetype' option has been set
 Syntax 	when the 'syntax' option has been set
 EncodingChanged 	after the 'encoding' option has been changed
 TermChanged 	after the value of 'term' has changed
-Startup and exit
+
+## Startup and exit
+
 Event 	Description
 VimEnter 	after doing all the startup stuff
 GUIEnter 	after starting the GUI successfully
@@ -372,7 +381,9 @@ TermResponse 	after the terminal response to t_RV is received
 QuitPre 	when using :quit, before deciding whether to quit
 VimLeavePre 	before exiting Vim, before writing the viminfo file
 VimLeave 	before exiting Vim, after writing the viminfo file
-Various
+
+## Various
+
 Event 	Description
 FileChangedShell 	Vim notices that a file changed since editing started
 FileChangedShellPost 	After handling a file changed since editing started
@@ -422,3 +433,4 @@ MenuPopup 	just before showing the popup menu
 CompleteDone 	after Insert mode completion is done
 
 User 	to be used in combination with ":doautocmd"
+
