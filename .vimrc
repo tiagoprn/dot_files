@@ -202,6 +202,18 @@ au BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=txt
 " When opening a new buffer, if it has no filetype defaults to txt
 autocmd BufEnter * if &filetype == "" | setlocal filetype=txt | endif
 
+" Update buffer if changed outside current edit session
+" when cursor not moved for updatetime miliseconds, trigger autoread below.
+" NOTE: if vim becomes to unstable, change below to 1000 ms.
+set updatetime=750
+set autoread
+augroup autoRead
+    autocmd!
+    autocmd CursorHold,CursorHoldI * silent! checktime
+augroup END
+
+
+
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f')<CR>
