@@ -175,10 +175,16 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 " easier moving of code blocks
-" Try to go into visual mode (v), thenselect several lines of code here and
+" Try to go into visual selection mode (v), then
+" select several lines of code here and
 " then press ``>`` several times.
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
+
+" When on visual selection mode (v), then
+" select a line and use J or K to move it down or up
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " automaticially change window's cwd to file's dir
 set autochdir
