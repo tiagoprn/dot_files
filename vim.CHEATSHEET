@@ -24,7 +24,7 @@
     ## 3) Leave insert mode:
 
     Esc: Go to visual mode
-    Ctrl+o: Go to visual mode to execute just one command and go back to insert mode
+    Ctrl+o: Go to normal mode to execute just one command and go back to insert mode
 
     ## 4) Insert a character x times:
     (in visual mode - do not start with ":")
@@ -32,7 +32,7 @@
     80i*<Esc> (this will insert the * character 80 times on the current cursor position)
     3i`<Esc> (this will insert the backstick character 3 times on the current cursor position)
 
-    ## 5) Enter insert mode from visual mode:
+    ## 5) Enter insert mode from normal mode:
 
     o: insert blank line below cursor
     O: insert blank line above cursor
@@ -64,6 +64,10 @@
     d<Esc>
 
     If you need any more advanced editing than that, check [vim macros](https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db)
+
+    ### E) Replace on current selected text (Visual selection):
+    - Select the desired lines
+    - `:s/old/new`
 
     ## 7) Advanced vim editing using text objects
 
@@ -227,6 +231,10 @@
 
         (VISUAL) :S
 
+    ## AFTER SEARCHING, REMOVE THE HIGHLIGHTED SELECTIONS:
+
+        (NORMAL> <enter>
+
     ## HISTORY:
         List of past commands (hitting <Enter> you can execute them):
             (VISUAL) q:
@@ -281,24 +289,6 @@
 # vim-fzf:
     Search file by name: <CTRL+f>
     Search file by contents: <CTRL+g>
-
-# vim-ctrlspace:
-
-    ## BUFFERS:
-        Show buffers list: <CTRL+Space>, then <a>
-        Close buffer: Select the buffer, then: <c>
-        Delete buffer (almost the same as closing it): Select the buffer, then: <d>
-        Toggle buffers: (VISUAL) ,<w> ("," is the Leader key)
-        Open selected buffer in a vertical (side-by-side) split: v
-        Open selected buffer in a horizontal (below) split: s
-        Close selected buffer split opened: x
-
-    ## WORKSPACES:
-        Show all workspaces: <CTRL+Space> "w"
-        Save/Update current open buffers on workspace: <CTRL+Space> "w", "s"
-        Delete workpace: [Show all workpaces], navigate, then "d"
-        Rename current workspace: [Show all workpaces], navigate, then "="
-        Create a new workpace: <CTRL+Space> "w", "n"
 
 # NERDTree:
 ## (https://github.com/scrooloose/nerdtree/blob/master/doc/NERD_tree.txt)
