@@ -410,14 +410,11 @@ if [ -x "$(command -v boxes)" ]; then
     fortune -s | boxes -d columns
 fi
 
-printf "\n--- WELCOME TO $HOSTNAME ---"
-printf "\n>>> tmux-autostart <<< to start tmux sessions and attach to them."
-printf "\nlist-aliases / list-functions: list all available aliases/functions."
-printf "\nIf you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
-printf "\nOn ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
-printf "\n---"
-printf "\n - You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both. ;)"
-printf "\n--- Have fun! ---\n"
+printf "\n- tmux-autostart <<< to start tmux sessions and attach to them."
+printf "\n- list-aliases / list-functions: list all available aliases/functions."
+printf "\n- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
+printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
+printf "\n- You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both.\n"
 
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if ! [ -x "$(command -v pyenv)" ]; then
