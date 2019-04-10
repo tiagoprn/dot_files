@@ -40,9 +40,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT ];
 then
     export PATH="$PYENV_ROOT/bin:$PATH"
+    export PYENV_BIN=$PYENV_ROOT/bin/pyenv
 fi
-
-$PYENV_BIN=$PYENV_ROOT/bin/pyenv
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
