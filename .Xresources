@@ -5,13 +5,20 @@
 URxvt.cursorBlink: 1
 URxvt.cursorUnderline: 1
 
-! URxvt.font: xft:fira code retina:size=12
-URxvt.font: xft:Hack:size=9:autohint:true:antialias:true,\
-            xft:Hack:pixelsize=18,\
-            xft:DejaVu Sans Mono:pixelsize:18,\
-            xft:Unifont:pixelsize:16,\
-            xft:Font Awesome 5 Brands:pixelsize:16,\
-            -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+! Make the sure the font you use below supports unicode symbols
+! (you can check setting a bookmark on a vim file with `,,`, should
+! print a flag if it supports.
+URxvt.font: xft:Dejavu Sans Mono:size=10:autohint:true:antialias:true\
+
+! Below is the configuration for using more than one font,
+! but it has the collateral effect that it breaks urxvt
+! resize terminal font plugin to not work anymore.
+! URxvt.font: xft:Hack:size=9:autohint:true:antialias:true,\
+!             xft:Hack:pixelsize=18,\
+!             xft:DejaVu Sans Mono:pixelsize:18,\
+!             xft:Unifont:pixelsize:16,\
+!             xft:Font Awesome 5 Brands:pixelsize:16,\
+!             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 
 URxvt.scrollBar: false
 urxvt*depth: 32
