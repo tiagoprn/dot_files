@@ -403,18 +403,15 @@ bind -m vi-insert "\C-l":clear-screen
 # fi
 
 if [ -x "$(command -v figlet)" ]; then
-    echo "$(hostname)" | figlet
-fi
-
-if [ -x "$(command -v boxes)" ]; then
-    fortune -s | boxes -d columns
+    echo "$(hostname)" | figlet -cptk
 fi
 
 printf "\n- tmux-autostart <<< to start tmux sessions and attach to them."
 printf "\n- list-aliases / list-functions: list all available aliases/functions."
 printf "\n- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
-printf "\n- You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both.\n"
+printf "\n- You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both.\n\n"
+fortune -s
 
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if ! [ -x "$(command -v pyenv)" ]; then
