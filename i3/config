@@ -55,7 +55,7 @@ font pango: Font Awesome 5 Brands 14
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Return exec --no-startup-id urxvt -e bash -c '/storage/src/devops/bin/start_random_tmux_session_name.sh'
 
 # kill focused window
 bindsym $mod+k kill
