@@ -214,7 +214,7 @@ alias gc="git commit"
 alias gss="git status -s"
 alias gps="git push origin "
 alias gpl="git pull origin "
-alias gdf="git icdiff"
+alias gdf="git icdiff --staged && printf '\n\n(NOTE: the diff also showed staged files)\n\n'"
 alias glg="git glog"
 # below show all git history from a file, with diffs between changes
 alias ghistory="git log --follow -p --stat -- "
