@@ -20,6 +20,7 @@
     w: next word
     b: beginning of current word / previous word
     e: end of current word / end of next word
+    ^: first non-blank character of a line
 
     ## 3) Leave insert mode:
 

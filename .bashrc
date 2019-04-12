@@ -216,6 +216,7 @@ alias gps="git push origin $(git branch | grep '*' | cut -d ' ' -f 2)"
 alias gpl="git pull origin $(git branch | grep '*' | cut -d ' ' -f 2)"
 alias gdf="git icdiff HEAD"
 alias glg="git glog"
+alias gbcb="git branch | grep ^* | cut -d ' ' -f 2 | cb"
 # below show all git history from a file, with diffs between changes
 alias ghistory="git log --follow -p --stat -- "
 alias cd-home="cd ~"
