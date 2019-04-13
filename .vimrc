@@ -58,6 +58,13 @@ Plugin 'honza/vim-snippets'
 "" Add specific actions for directories creating a .vimdir file on a specific directory (e.g. /storages/docs/notes)
 Plugin 'chazy/dirsettings'
 
+" Better moving of text blocks
+Plugin 'matze/vim-move'
+
+
+""" Change vim-move modifier from A to C:
+let g:move_key_modifier = 'C'
+
 """ Do not use <tab> with UltiSnip if you use https://github.com/Valloric/YouCompleteMe.
 
 """Changing the directory where to find the snippets
@@ -174,17 +181,13 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" When on visual selection mode (v), then
 " easier moving of code blocks
 " Try to go into visual selection mode (v), then
 " select several lines of code here and
 " then press ``>`` several times.
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
-
-" When on visual selection mode (v), then
-" select a line and use J or K to move it down or up
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 
 " automaticially change window's cwd to file's dir
 set autochdir

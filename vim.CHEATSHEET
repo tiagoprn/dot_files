@@ -22,6 +22,13 @@
     e: end of current word / end of next word
     ^: first non-blank character of a line
 
+
+    <Control>, h: move current line/selection to the left
+    <Control>, j: move current line/selection down
+    <Control>, k: move current line/selection up
+    <Control>, l: move current line/selection to the right
+
+
     ## 3) Leave insert mode:
 
     Esc: Go to visual mode
