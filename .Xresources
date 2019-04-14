@@ -75,21 +75,21 @@ URxvt.color7:       #707880
 URxvt.color15:      #c5c8c6
 
 ! --- rofi
-rofi.lines: 5
-rofi.eh: 2
+rofi.lines: 10
+rofi.eh: 1
 rofi.padding: 200
-rofi.fullscreen: true
+rofi.fullscreen: false
 rofi.bw: 0
 rofi.separator-style: none
-rofi.hide-scrollbar: true
+rofi.hide-scrollbar: false
 !                  'background', 'border', 'separator'
 !rofi.color-window: #c82d303b, #7c8389, #1d1f21
 ! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 !rofi.color-normal: #31d1f2, #f3f4f5, #31d1f2, #31d1f2, #9575cd
-rofi.font: System San Francisco Display 10
+rofi.font: System San Francisco Display 14
 
 ! better fonts
-Xft.autohint: 0
+Xft.autohint: 1
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
 Xft.hinting: 1
