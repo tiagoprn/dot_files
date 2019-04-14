@@ -188,7 +188,8 @@ export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.
 
 ## Bash aliases
 # NOTE: do not escape with double quotes on an alias - "$()" - since that is analysed when bashrc is sourced,
-#       so it will delay its execution and may lead to malfunctioning aliases.
+#       so it will delay its execution and may lead to malfunctioning aliases. See the aliases gps
+#       and gpl as examples of how to do that correctly.
 alias list-aliases="cat ~/.bashrc | grep -i '^alias' | sort"
 alias list-functions="cat ~/.bashrc | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
 alias ls='ls --color -lha'
