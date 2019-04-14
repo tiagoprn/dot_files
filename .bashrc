@@ -187,6 +187,8 @@ export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
 export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Size}}"
 
 ## Bash aliases
+# NOTE: do not escape with double quotes on an alias - "$()" - since that is analysed when bashrc is sourced,
+#       so it will delay its execution and may lead to malfunctioning aliases.
 alias list-aliases="cat ~/.bashrc | grep -i '^alias' | sort"
 alias list-functions="cat ~/.bashrc | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
 alias ls='ls --color -lha'
@@ -212,9 +214,9 @@ alias ansible-facts="ansible -i ~/ansible/conf/hosts all -m setup"
 alias ssh-host-aliases="more ~/.ssh/config"
 alias gc="git commit"
 alias gss="git status -s"
-alias gps="git push origin $(git branch | grep '*' | cut -d ' ' -f 2)"
-alias gpl="git pull origin $(git branch | grep '*' | cut -d ' ' -f 2)"
-alias gdf="git icdiff HEAD"
+alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
+alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
+alias gdf='git icdiff HEAD'
 alias glg="git glog"
 alias gbcb="git branch | grep ^* | cut -d ' ' -f 2 | cb"
 # below show all git history from a file, with diffs between changes
