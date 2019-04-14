@@ -87,7 +87,7 @@ function is_git_repository {
 # Determine the branch/state information for this git repository.
 function set_git_branch {
   # Capture the output of the "git status" command.
-  git_status="$(git status 2> /dev/null)"
+  git_status='`git status 2> /dev/null`'
 
   # Set color based on clean/staged/dirty.
   if [[ ${git_status} =~ "working directory clean" ]]; then
@@ -115,7 +115,7 @@ function set_git_branch {
   fi
 
   # Get the name of the branch.
-  branch="$(git rev-parse --abbrev-ref HEAD)"
+  branch='`git rev-parse --abbrev-ref HEAD`'
 
   # Set the final branch string.
   BRANCH="${COLOR_NONE}on branch ${LIGHT_RED}${branch}${state}${remote} ${COLOR_NONE}"
@@ -233,7 +233,7 @@ alias vimpager="/usr/share/vim/vim81/macros/less.sh"
 
 # Function to search through bash history using fzf
 function hs() {
-    cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
+    cmd='`history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf`'
     # Add the command to history
     history -s $cmd
     # Below I paste the command into the terminal. The setxkbmap has to be used due to a but with xdotool type on
@@ -242,7 +242,7 @@ function hs() {
 }
 
 function wal-set() {
-    wal -n -i $(find ~/Wallpapers/ | fzf --exact)
+    wal -n -i `find ~/Wallpapers/ | fzf --exact`
 }
 
 ## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions:
@@ -262,7 +262,7 @@ function permissions() {  # get files numeric permissions
 # original directory.
 
 function cdr() {  # cd into a directory with ranger
-    tempfile="$(mktemp -t tmp.XXXXXX)"
+    tempfile='`mktemp -t tmp.XXXXXX`'
     ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
