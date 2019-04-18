@@ -312,7 +312,7 @@ bindsym Mod1+w exec "sxiv -t ~/Wallpapers"
 
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
 
-bindsym $mod+b exec --no-startup-id "notify-send 'Launching bookmarks dmenu...' --urgency low; python /storage/src/devops/bin/dmenu_bookmarks.py"
+bindsym $mod+b exec --no-startup-id "notify-send 'Launching bookmarks dmenu...' --urgency low; /storage/src/devops/rofi/bookmarks.py"
 
 bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000 "
 bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000 "
