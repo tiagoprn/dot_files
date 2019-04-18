@@ -234,7 +234,7 @@ alias vimpager="/usr/share/vim/vim81/macros/less.sh"
 
 # Function to search through bash history using fzf
 function hs() {
-    cmd='`history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf`'
+    cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
     # Add the command to history
     history -s $cmd
     # Below I paste the command into the terminal. The setxkbmap has to be used due to a but with xdotool type on
