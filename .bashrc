@@ -243,7 +243,7 @@ function hs() {
 }
 
 function tmux_save_buffer {
-    setxkbmap us && xdotool key --delay 24ms Control_L+a Alt_L+f Return && setxkbmap -model abnt2 -layout br
+    setxkbmap us && xdotool key --delay 36ms Control_L+a Alt_L+f Return && setxkbmap -model abnt2 -layout br
 }
 
 function wal-set() {
