@@ -231,6 +231,7 @@ alias lsd="ls | grep '^d'"
 alias lsr="ls --color -halt"
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
+alias tmux-history="tmux-save-buffer && vim $HOME/tmux.history"
 
 # Function to search through bash history using fzf
 function hs() {
@@ -242,7 +243,7 @@ function hs() {
     setxkbmap us && xdotool type "$cmd" && setxkbmap -model abnt2 -layout br
 }
 
-function tmux_save_buffer {
+function tmux-save-buffer {
     setxkbmap us && xdotool key --delay 36ms Control_L+a Alt_L+f Return && setxkbmap -model abnt2 -layout br
 }
 
@@ -366,6 +367,16 @@ git-log-browser() {
     fi
 }
 
+tmux-search-buffer() {
+    local command=$(
+        tmux-save-buffer && cat $HOME/tmux.history | grep -e '^(ins)' | cut -c9- | sort | uniq | fzf --exact --no-multi
+      )
+    if [ -n "$command" ]; then
+        echo "$command" | cb
+        setxkbmap us && xdotool type "$command" && setxkbmap -model abnt2 -layout br
+    fi
+}
+
 PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
 
 ## To run ansible locally without it being so annoying :)
@@ -387,7 +398,7 @@ bind 'set show-mode-in-prompt on'
 
 ## GENERAL
 bind -x '"\C-f":hs'
-bind -x '"\C-b":tmux_save_buffer'
+bind -x '"\C-b":tmux-save-buffer'
 
 ## VIM-MODE SPECIFIC
 ### Clear screen as on emacs-mode and vi-visual
