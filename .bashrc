@@ -242,6 +242,10 @@ function hs() {
     setxkbmap us && xdotool type "$cmd" && setxkbmap -model abnt2 -layout br
 }
 
+function tmux_save_history {
+    setxkbmap us && xdotool key --delay 24ms Control_L+a Alt_L+f Return && setxkbmap -model abnt2 -layout br
+}
+
 function wal-set() {
     wal -n -i `find ~/Wallpapers/ | fzf --exact`
 }
