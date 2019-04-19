@@ -238,6 +238,8 @@ function hs() {
     cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
     # Add the command to history
     history -s $cmd
+    # Copy the command to the clipboard
+    echo "$cmd" | cb
     # Below I paste the command into the terminal. The setxkbmap has to be used due to a but with xdotool type on
     # non-us keyboards.
     setxkbmap us && xdotool type "$cmd" && setxkbmap -model abnt2 -layout br
@@ -399,6 +401,7 @@ bind 'set show-mode-in-prompt on'
 ## GENERAL
 bind -x '"\C-f":hs'
 bind -x '"\C-b":tmux-save-buffer'
+bind -x '"\C-t":tmux-search-buffer'
 
 ## VIM-MODE SPECIFIC
 ### Clear screen as on emacs-mode and vi-visual
@@ -429,7 +432,9 @@ printf "\n- tmux-autostart <<< to start tmux sessions and attach to them."
 printf "\n- list-aliases / list-functions: list all available aliases/functions."
 printf "\n- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
-printf "\n- You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both.\n\n"
+printf "\n- You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both."
+printf "\n\n- Use <C-t> to copy a command from current tmux buffer to the clipboard, <C-f> to do
+the same from bash_history. \n\n"
 fortune -s
 
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
