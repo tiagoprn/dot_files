@@ -63,11 +63,11 @@ bindsym $mod+k kill
 
 # program launcher
 # below lists all binary executable files
-bindsym $mod+d exec "rofi -show run"
+bindsym $mod+d exec rofi -show run
 # below lists just apps with .desktop files
-bindsym $mod+space exec "rofi -show drun -drun-icon-theme"
+bindsym $mod+space exec rofi -show drun -drun-icon-theme
 # below, alt-tab to quickly switch between windows
-bindsym $mod+Tab exec "rofi -show window -drun-icon-theme"
+bindsym $mod+Tab exec rofi -show window -drun-icon-theme
 
 # change focus
 bindsym $mod+Left focus left
@@ -171,7 +171,7 @@ bindsym $mod+z exec --no-startup-id /storage/src/devops/bin/zenity-exit-menu.sh
 # timer.
 # Then, call i3lock directly from here (without the shell script wrapper)
 # with the last downloaded file.
-bindsym $mod+l exec --no-startup-id "/storage/src/devops/bin/lock_with_comic.sh"
+bindsym $mod+l exec --no-startup-id /storage/src/devops/bin/lock_with_comic.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -304,35 +304,35 @@ bindsym Mod1+v [con_mark="vim"] scratchpad show, resize set 1400 800, move posit
 #
 # setting name below allows to select this specific name=ranger/vim urxvt window
 # on for+window instance=ranger to customize it
-bindsym Mod1+r exec --no-startup-id "urxvt -name ranger -e bash -c 'VISUAL=vim EDITOR=vim ranger'"
-bindsym Mod1+t exec --no-startup-id "urxvt -name tiagoprnl -e bash -c '/storage/src/devops/bin/search_posts_and_trigger_vim_by_file_name.sh'"
-bindsym Mod1+Shift+t exec --no-startup-id "urxvt -name tiagoprnl -e bash -c '/storage/src/devops/bin/search_posts_and_trigger_vim_by_file_contents.sh'"
+bindsym Mod1+r exec --no-startup-id urxvt -name ranger -e bash -c 'VISUAL=vim EDITOR=vim ranger'
+bindsym Mod1+t exec --no-startup-id urxvt -name tiagoprnl -e bash -c '/storage/src/devops/bin/search_posts_and_trigger_vim_by_file_name.sh'
+bindsym Mod1+Shift+t exec --no-startup-id urxvt -name tiagoprnl -e bash -c '/storage/src/devops/bin/search_posts_and_trigger_vim_by_file_contents.sh'
 
-bindsym Mod1+w exec "sxiv -t ~/Wallpapers"
+bindsym Mod1+w exec sxiv -t ~/Wallpapers
 
-bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
+bindsym $mod+n exec --no-startup-id notify-send 'Launching nautilus...' --urgency low; nautilus
 
-bindsym $mod+b exec --no-startup-id "/storage/src/devops/rofi/bookmarks.py"
+bindsym $mod+b exec --no-startup-id /storage/src/devops/rofi/bookmarks.py
 
-bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000 "
-bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000 "
+bindsym Mod1+p exec --no-startup-id notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000
+bindsym Mod1+Shift+p exec --no-startup-id notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000
 
-bindsym Mod1+o exec --no-startup-id "pavucontrol"
+bindsym Mod1+o exec --no-startup-id pavucontrol
 
 # below starts video player
-bindsym Mod1+y exec --no-startup-id "/storage/src/devops/bin/zenity-video-launcher.sh"
+bindsym Mod1+y exec --no-startup-id /storage/src/devops/bin/zenity-video-launcher.sh
 
 # https://github.com/mrichar1/clipster/blob/master/README.md
 bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -c --select
 bindsym Mod1+Shift+c exec --no-startup-id /storage/src/devops/bin/clipster -p --select
 
-bindsym $mod+x exec --no-startup-id "notify-send 'Launching arandr...' --urgency low; arandr"
-bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
+bindsym $mod+x exec --no-startup-id notify-send 'Launching arandr...' --urgency low; arandr
+bindsym $mod+o exec --no-startup-id notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh
 
 # moves the current workspace to the second monitor up/down
 bindsym Mod1+Tab exec --no-startup-id i3-msg move workspace to output up
-bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
-bindsym Mod1+k exec --no-startup-id "notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
+bindsym $mod+m exec --no-startup-id notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh
+bindsym Mod1+k exec --no-startup-id notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py
 
 # --- CUSTOM COMMANDS ON CURRENT WINDOW
 bindsym Mod1+s sticky toggle
@@ -352,14 +352,14 @@ exec --no-startup-id /storage/src/devops/bin/clipster -d
 
 # below will set the wallpaper to the most recent file on ~/Wallpapers
 exec_always --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh
-exec_always --no-startup-id "compton --config ~/compton.conf"
+exec_always --no-startup-id compton --config ~/compton.conf
 # exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
-exec_always --no-startup-id "notify-send 'Activating keyboard backlight...' --urgency low; /storage/src/devops/bin/keyboard-backlight.sh"
-exec --no-startup-id "notify-send 'Launching telegram...' --urgency low; telegram-desktop"
-exec --no-startup-id "notify-send 'Launching spotify...' --urgency low; spotify"
-exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
-exec --no-startup-id "notify-send 'Launching Gnome Calendar...' --urgency low; gnome-calendar"
-exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gnome-weather"
-exec --no-startup-id "/storage/src/devops/bin/start_clipboard_polling.sh"
-exec --no-startup-id "urxvt -name htop -e bash -c 'sudo htop'"
-exec --no-startup-id "urxvt -name vim --hold -e bash -c 'vim /storage/docs/notes/personal/misc.md'"
+exec_always --no-startup-id notify-send 'Activating keyboard backlight...' --urgency low; /storage/src/devops/bin/keyboard-backlight.sh
+exec --no-startup-id notify-send 'Launching telegram...' --urgency low; telegram-desktop
+exec --no-startup-id notify-send 'Launching spotify...' --urgency low; spotify
+exec --no-startup-id notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh
+exec --no-startup-id notify-send 'Launching Gnome Calendar...' --urgency low; gnome-calendar
+exec --no-startup-id notify-send 'Launching Gnome Weather...' --urgency low; gnome-weather
+exec --no-startup-id /storage/src/devops/bin/start_clipboard_polling.sh
+exec --no-startup-id urxvt -name htop -e bash -c 'sudo htop'
+exec --no-startup-id urxvt -name vim --hold -e bash -c 'vim /storage/docs/notes/personal/misc.md'
