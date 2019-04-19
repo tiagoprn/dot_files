@@ -242,7 +242,7 @@ function hs() {
     setxkbmap us && xdotool type "$cmd" && setxkbmap -model abnt2 -layout br
 }
 
-function tmux_save_history {
+function tmux_save_buffer {
     setxkbmap us && xdotool key --delay 24ms Control_L+a Alt_L+f Return && setxkbmap -model abnt2 -layout br
 }
 
@@ -387,6 +387,7 @@ bind 'set show-mode-in-prompt on'
 
 ## GENERAL
 bind -x '"\C-f":hs'
+bind -x '"\C-b":tmux_save_buffer'
 
 ## VIM-MODE SPECIFIC
 ### Clear screen as on emacs-mode and vi-visual
