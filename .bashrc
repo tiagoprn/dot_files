@@ -231,7 +231,8 @@ alias lsd="ls | grep '^d'"
 alias lsr="ls --color -halt"
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
-alias tmux-history="tmux-save-buffer && vim $HOME/tmux.history"
+alias tmux-edit-history="tmux-save-buffer && vim $HOME/tmux.history"
+alias tmux-cat-history="tmux-save-buffer && cat $HOME/tmux.history"
 
 # Function to search through bash history using fzf
 function hs() {
