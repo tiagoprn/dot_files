@@ -3,7 +3,7 @@
 #   $ pkill dunst &&  notify-send -i user-away --urgency low 'hello'
 
 [global]
-    font = Inconsolata Awesome 12
+    font = Montserrat 12
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -157,7 +157,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    frame_width = 0
 
     # Defines color of the frame around the notification window.
     frame_color = "#FFFFFF"
