@@ -1,0 +1,17 @@
+" Future inspiration: https://gist.github.com/lpld/8dc1c6f3e942c5685f65566756ca7d27
+
+" General settings
+set incsearch hlsearch
+set ignorecase smartcase
+set clipboard=unnamed
+
+" Show relative line number and current line number
+set rnu
+set nu
+
+" Show current vim mode (insert, visual, normal)
+set showmode
+
+" Similar to my vim Nerd tree mapping
+nnoremap <Leader>n :action ActivateProjectToolWindow<CR>
+
