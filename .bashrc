@@ -36,6 +36,12 @@ then
     export PATH=$PATH:$DEVOPS_BIN
 fi
 
+COOKIE_BIN=$HOME/.local/share/cookie/bin
+if [ -d $COOKIE_BIN ];
+then
+    export PATH=$PATH:$COOKIE_BIN
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT ];
 then
