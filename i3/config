@@ -313,8 +313,8 @@ bindsym $mod+n exec --no-startup-id notify-send 'Launching nautilus...' --urgenc
 
 bindsym $mod+b exec --no-startup-id /storage/src/devops/rofi/bookmarks.py
 
-bindsym Mod1+p exec --no-startup-id notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000
-bindsym Mod1+Shift+p exec --no-startup-id notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000
+bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000"
+bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000"
 
 bindsym Mod1+o exec --no-startup-id pavucontrol
 
@@ -325,13 +325,13 @@ bindsym Mod1+y exec --no-startup-id /storage/src/devops/bin/zenity-video-launche
 bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -c --select
 bindsym Mod1+Shift+c exec --no-startup-id /storage/src/devops/bin/clipster -p --select
 
-bindsym $mod+x exec --no-startup-id notify-send 'Launching arandr...' --urgency low; arandr
-bindsym $mod+o exec --no-startup-id notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh
+bindsym $mod+x exec --no-startup-id "notify-send 'Launching arandr...' --urgency low; arandr"
+bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 
 # moves the current workspace to the second monitor up/down
 bindsym Mod1+Tab exec --no-startup-id i3-msg move workspace to output up
-bindsym $mod+m exec --no-startup-id notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh
-bindsym Mod1+k exec --no-startup-id notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py
+bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
+bindsym Mod1+k exec --no-startup-id "notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
 
 # --- CUSTOM COMMANDS ON CURRENT WINDOW
 bindsym Mod1+s sticky toggle
@@ -353,12 +353,12 @@ exec --no-startup-id /storage/src/devops/bin/clipster -d
 exec_always --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh
 exec_always --no-startup-id compton --config ~/compton.conf
 # exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
-exec_always --no-startup-id notify-send 'Activating keyboard backlight...' --urgency low; /storage/src/devops/bin/keyboard-backlight.sh
-exec --no-startup-id notify-send 'Launching telegram...' --urgency low; telegram-desktop
-exec --no-startup-id notify-send 'Launching spotify...' --urgency low; spotify
-exec --no-startup-id notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh
-exec --no-startup-id notify-send 'Launching Gnome Calendar...' --urgency low; gnome-calendar
-exec --no-startup-id notify-send 'Launching Gnome Weather...' --urgency low; gnome-weather
+exec_always --no-startup-id "notify-send 'Activating keyboard backlight...' --urgency low; /storage/src/devops/bin/keyboard-backlight.sh"
+exec --no-startup-id "notify-send 'Launching telegram...' --urgency low; telegram-desktop"
+exec --no-startup-id "notify-send 'Launching spotify...' --urgency low; spotify"
+exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
+exec --no-startup-id "notify-send 'Launching Gnome Calendar...' --urgency low; gnome-calendar"
+exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gnome-weather"
 exec --no-startup-id /storage/src/devops/bin/start_clipboard_polling.sh
 exec --no-startup-id urxvt -name htop -e bash -c 'sudo htop'
 exec --no-startup-id urxvt -name vim --hold -e bash -c 'vim /storage/docs/notes/personal/misc.md'
