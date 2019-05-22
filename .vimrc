@@ -117,6 +117,11 @@ syntax on
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
+" When the cursor moves outside the viewport of the current window, the buffer scrolls a single
+" line to keep the cursor in view. Setting the option below will start the scrolling three lines
+" before the border, keeping more context around where you’re working.
+set scrolloff=5
+
 " Disable backup and swap files - they trigger too many events
 " for file system watchers
 set nobackup
