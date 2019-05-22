@@ -28,6 +28,7 @@
     <Control>, k: move current line/selection up
     <Control>, l: move current line/selection to the right
 
+    zz: Center the window on the cursor, without moving the cursor.
 
     ## 3) Leave insert mode:
 
