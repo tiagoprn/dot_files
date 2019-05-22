@@ -126,6 +126,12 @@ set scrolloff=5
 nnoremap <C-e> 5<C-e>
 nnoremap <C-y> 5<C-y>
 
+" Remove prompts 'Press ENTER or type command to continue'
+set shortmess=atI
+
+" Change the sound beep on errors to screen flashing
+set visualbell
+
 " Disable backup and swap files - they trigger too many events
 " for file system watchers
 set nobackup
