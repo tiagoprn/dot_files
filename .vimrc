@@ -122,6 +122,10 @@ autocmd! bufwritepost .vimrc source %
 " before the border, keeping more context around where you’re working.
 set scrolloff=5
 
+" Scroll viewport faster
+nnoremap <C-e> 10<C-e>
+nnoremap <C-y> 10<C-y>
+
 " Disable backup and swap files - they trigger too many events
 " for file system watchers
 set nobackup
