@@ -278,11 +278,27 @@
     Select the lines, then `:sort`.
 
     ## Record a macro:
-    (TODO, this is not complete yet)
 
-    If you wanna script moving the cursor, use vim movement keys (hjkl):
+    ```
+    q<letter><commands>q
+    ```
 
-    (VISUAL) q[another key to where the macro will be saved as] put the cursor where to start and do your key presses here (VISUAL)q to finish, replay the macro with @
+    - To execute the macro <number> times (once by default), type:
+
+        ```
+        <number-of-times>@<letter>
+        ```
+
+    - So, the complete process looks like:
+
+    ```
+    qa      - start recording to register a
+    ...	    - your complex series of commands
+    q	    - stop recording
+    @a	    - execute your macro
+    @@	    - execute your macro again
+    99@a    - execute your macro 99 times
+    ```
 
     ## Script vim commands
     $ vim --cmd 'echo "This runs before .vimrc"' -c ':call UltiSnips#ListSnippets()' -c '<Esc>' -c ':q!'
