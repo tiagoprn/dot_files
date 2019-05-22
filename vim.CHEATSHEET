@@ -270,6 +270,10 @@
             - This can be done with many lines selected (with V), then :norm A... to edit multiple lines.
             - You can run any normal mode command you wish, but if you use I and A you will enter INSERT mode.
 
+    ## SORT LINES ALPHABETICALLY
+
+    Select the lines, then `:sort`.
+
     ## Record a macro:
     (TODO, this is not complete yet)
 
