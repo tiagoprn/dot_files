@@ -63,6 +63,10 @@ echo 'Linking sxiv (image viewer) configuration...'
 rm -fr ~/.config/sxiv
 ln -s /storage/src/dot_files/sxiv ~/.config/sxiv
 
+echo 'Linking alacritty configuration...'
+rm -fr ~/.alacritty.yml
+ln -s /storage/src/dot_files/.alacritty.yml ~/.alacritty.yml
+
 echo 'Downloading i3 timer plugin (which uses go)...'
 go get github.com/claudiodangelis/i3-timer
 
