@@ -126,6 +126,10 @@ set scrolloff=5
 nnoremap <C-Down> 5<C-e>
 nnoremap <C-Up> 5<C-y>
 
+" Scroll faster through open buffers
+nnoremap <silent> <C-Right> :bn<CR>
+nnoremap <silent> <C-Left> :bp<CR>
+
 " Remove prompts 'Press ENTER or type command to continue'
 set shortmess=atI
 set nomore

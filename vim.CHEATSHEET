@@ -17,8 +17,8 @@
     l: right
 
     zz: Center the viewport (window) on the cursor, without moving the cursor.
-    <ctrl+e>: move viewport down faster , without moving the cursor.
-    <ctrl+y>: move viewport up faster, without moving the cursor.
+    <ctrl+Down>: move viewport down faster , without moving the cursor.
+    <ctrl+Up>: move viewport up faster, without moving the cursor.
 
     f [char]: go to specific char in line
     w: next word
@@ -30,6 +30,8 @@
     <Control>, j: move current line/selection down
     <Control>, k: move current line/selection up
     <Control>, l: move current line/selection to the right
+
+    <Control>, Left or Right: Cycle through open buffers
 
 
     ## 3) Leave insert mode:
