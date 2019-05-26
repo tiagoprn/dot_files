@@ -123,8 +123,8 @@ autocmd! bufwritepost .vimrc source %
 set scrolloff=5
 
 " Scroll viewport faster
-nnoremap <C-e> 5<C-e>
-nnoremap <C-y> 5<C-y>
+nnoremap <C-Down> 5<C-e>
+nnoremap <C-Up> 5<C-y>
 
 " Remove prompts 'Press ENTER or type command to continue'
 set shortmess=atI
