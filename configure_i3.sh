@@ -64,8 +64,8 @@ rm -fr ~/.config/sxiv
 ln -s /storage/src/dot_files/sxiv ~/.config/sxiv
 
 echo 'Linking alacritty configuration...'
-rm -fr ~/.alacritty.yml
-ln -s /storage/src/dot_files/.alacritty.yml ~/.alacritty.yml
+rm -fr ~/.config/alacritty
+ln -s /storage/src/dot_files/alacritty ~/.config
 
 echo 'Downloading i3 timer plugin (which uses go)...'
 go get github.com/claudiodangelis/i3-timer
