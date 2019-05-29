@@ -15,3 +15,7 @@ set showmode
 " Similar to my vim Nerd tree mapping
 nnoremap <Leader>n :action ActivateProjectToolWindow<CR>
 
+" d and dd command no more send text to the clipboard (instead, send it to
+" the blackhole register)
+nnoremap d "_d
+nnoremap dd "_dd
