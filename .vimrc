@@ -132,7 +132,6 @@ nnoremap <silent> <C-Left> :bp<CR>
 
 " Remove prompts 'Press ENTER or type command to continue'
 set shortmess=atI
-set nomore
 
 " Change the sound beep on errors to screen flashing
 set visualbell
