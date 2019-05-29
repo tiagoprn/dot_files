@@ -130,9 +130,6 @@ nnoremap <C-Up> 5<C-y>
 nnoremap <silent> <C-Right> :bn<CR>
 nnoremap <silent> <C-Left> :bp<CR>
 
-" Remove prompts 'Press ENTER or type command to continue'
-set shortmess=atI
-
 " Change the sound beep on errors to screen flashing
 set visualbell
 
