@@ -29,8 +29,8 @@ rm -fr ~/.config/termite
 ln -s /storage/src/dot_files/termite ~/.config/termite
 
 echo 'Linking rofi config...'
-rm -fr ~/.local/share/rofi
-ln -s /storage/src/dot_files/rofi ~/.local/share/rofi
+rm -fr ~/.config/rofi
+ln -s /storage/src/dot_files/rofi ~/.config/rofi
 
 echo 'Linking dunst config...'
 rm -fr ~/.config/dunst/dunstrc
