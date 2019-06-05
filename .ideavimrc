@@ -32,3 +32,10 @@ map <leader>c :action $Copy<CR>
 map <leader>v :action $Paste<CR>
 map <leader>x :action $Cut<CR>
 
+" idea actions mappings
+map <C-e> :action RecentFiles<CR>
+map <C-n> :action GotoClass<CR>
+map <C-s> :action EditorSelectWord<CR>
+map <Leader>s :action SaveAll<CR>
+map <Leader>b :action GotoDeclaration<CR>
+map <Leader>u :action GotoSuperMethod<CR>
