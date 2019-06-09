@@ -1,4 +1,10 @@
-" Future inspiration: https://gist.github.com/lpld/8dc1c6f3e942c5685f65566756ca7d27
+" - Future inspiration:
+" https://gist.github.com/lpld/8dc1c6f3e942c5685f65566756ca7d27
+" https://hschne.at/2019/02/16/an-introduction-to-ideavim.html#
+" https://www.jetbrains.com/help/pycharm/using-product-as-the-vim-editor.html
+
+" Leader key configuration
+let mapleader = ","
 
 " General settings
 set incsearch hlsearch
@@ -19,3 +25,17 @@ nnoremap <Leader>n :action ActivateProjectToolWindow<CR>
 " the blackhole register)
 nnoremap d "_d
 nnoremap dd "_dd
+
+" use the copy-paste functionality without having to worry about which clipboard you are accessing:
+map <leader>a :action $SelectAll<CR>
+map <leader>c :action $Copy<CR>
+map <leader>v :action $Paste<CR>
+map <leader>x :action $Cut<CR>
+
+" idea actions mappings
+map <C-e> :action RecentFiles<CR>
+map <C-n> :action GotoClass<CR>
+map <C-s> :action EditorSelectWord<CR>
+map <Leader>s :action SaveAll<CR>
+map <Leader>b :action GotoDeclaration<CR>
+map <Leader>u :action GotoSuperMethod<CR>

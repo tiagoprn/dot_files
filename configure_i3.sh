@@ -29,8 +29,8 @@ rm -fr ~/.config/termite
 ln -s /storage/src/dot_files/termite ~/.config/termite
 
 echo 'Linking rofi config...'
-rm -fr ~/.local/share/rofi
-ln -s /storage/src/dot_files/rofi ~/.local/share/rofi
+rm -fr ~/.config/rofi
+ln -s /storage/src/dot_files/rofi ~/.config/rofi
 
 echo 'Linking dunst config...'
 rm -fr ~/.config/dunst/dunstrc
@@ -69,5 +69,8 @@ ln -s /storage/src/dot_files/alacritty ~/.config
 
 echo 'Downloading i3 timer plugin (which uses go)...'
 go get github.com/claudiodangelis/i3-timer
+
+# read i3.md from tiagopr.nl content posts for more packages and python packages that should be
+# installed.
 
 echo 'Finished.'
