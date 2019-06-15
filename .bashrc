@@ -228,6 +228,8 @@ alias glg="git glog"
 alias gbcb="git branch | grep ^* | cut -d ' ' -f 2 | cb"
 # below show all git history from a file, with diffs between changes
 alias ghistory="git log --follow -p --stat -- "
+# below removes file/directory from git staging area (before committing)
+alias gunstage="git reset HEAD "
 alias cd-home="cd ~"
 alias cd-storage="cd /storage"
 alias cd-wal="cd ~/.cache/wal"
