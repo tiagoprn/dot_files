@@ -68,7 +68,7 @@ bindsym $mod+d exec rofi -show run
 # below lists just apps with .desktop files
 bindsym $mod+space exec rofi -show drun -drun-icon-theme
 # below, alt-tab to quickly switch between windows
-bindsym $mod+Tab exec rofi -show window -drun-icon-theme
+bindsym Mod1+Tab exec rofi -show window -drun-icon-theme
 
 # change focus
 bindsym $mod+Left focus left
@@ -330,7 +330,11 @@ bindsym $mod+x exec --no-startup-id "notify-send 'Launching arandr...' --urgency
 bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 
 # moves the current workspace to the second monitor up/down
-bindsym Mod1+Tab exec --no-startup-id i3-msg move workspace to output up
+bindsym $mod+Shift+u exec --no-startup-id i3-msg move workspace to output up
+bindsym $mod+Shift+d exec --no-startup-id i3-msg move workspace to output down
+bindsym $mod+Shift+l exec --no-startup-id i3-msg move workspace to output left
+bindsym $mod+Shift+r exec --no-startup-id i3-msg move workspace to output right
+
 bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
 bindsym Mod1+k exec --no-startup-id "notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
 
