@@ -80,7 +80,7 @@
 
     ### E) Replace on current selected text (Visual selection):
     - Select the desired lines
-    - `:s/old/new`
+    - `:s/old/new/g`
 
     ## 7) Advanced vim editing using text objects
 
