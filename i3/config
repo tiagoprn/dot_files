@@ -366,5 +366,5 @@ exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgenc
 exec --no-startup-id "notify-send 'Launching Gnome Calendar...' --urgency low; gnome-calendar"
 exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gnome-weather"
 exec --no-startup-id /storage/src/devops/bin/start_clipboard_polling.sh
-exec --no-startup-id urxvt -name htop -e bash -c 'sudo htop'
-exec --no-startup-id urxvt -name vim --hold -e bash -c 'vim /storage/docs/notes/personal/misc.md'
+exec --no-startup-id /storage/src/devops/bin/i3-htop.sh
+exec --no-startup-id /storage/src/devops/bin/i3-vim.sh
