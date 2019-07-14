@@ -238,6 +238,7 @@ alias lsd="ls | grep '^d'"
 # below lists most recently changed files/directories
 alias lsr="ls --color -halt"
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
+alias rsync-no-delete="rsync -rchzPvi --progress"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
 alias tmux-edit-history="tmux-save-buffer && vim $HOME/tmux.history"
 alias tmux-cat-history="tmux-save-buffer && cat $HOME/tmux.history"
