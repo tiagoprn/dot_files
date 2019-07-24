@@ -394,11 +394,11 @@ set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends
 au BufEnter,InsertLeave * set list
 au InsertEnter * set nolist
 
-" Expands on what vim considers as a txt filetype
-au BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=txt
+" Expands on what vim considers as a markdown filetype
+au BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=markdown
 
-" When opening a new buffer, if it has no filetype defaults to txt
-autocmd BufEnter * if &filetype == "" | setlocal filetype=txt | endif
+" When opening a new buffer, if it has no filetype defaults to markdown
+autocmd BufEnter * if &filetype == "" | setlocal filetype=markdown | endif
 
 " Update buffer if changed outside current edit session
 " when cursor not moved for updatetime miliseconds, trigger autoread below.
