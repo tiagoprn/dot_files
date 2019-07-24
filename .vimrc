@@ -331,8 +331,9 @@ nnoremap j gj
 nnoremap k gk
 
 " Rebind <Leader> key
-let mapleader = ","  " the <Leader> combination (in visual mode) will so be: ','
-" Example (easier moving between tabs):
+map <SPACE> <leader>
+
+" Leader use example (easier moving between tabs):
 map <Leader>m <esc>:tabprevious<CR>
 map <Leader>n <esc>:tabnext<CR>
 
