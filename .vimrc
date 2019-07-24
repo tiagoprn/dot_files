@@ -543,6 +543,9 @@ nnoremap <C-O> :Commands<Cr>
 " select open windows
 nnoremap <C-W> :Windows<Cr>
 
+" Map buffer delete to a special shortcut:
+nnoremap <silent> <Leader>bd :bdelete!<Cr>
+
 " lightline specific configuration
 
 let g:lightline = {
