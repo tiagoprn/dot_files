@@ -638,3 +638,9 @@ if has('clipboard')
         set clipboard=unnamed
     endif
 endif
+
+" Below adds support for a custom .vimrc per project (must be at the project root)
+set secure
+if filereadable(expand(printf('%s/%s', getcwd(), '.vimrc.project')))
+    exec printf('source %s/%s', getcwd(), '.vimrc.project')
+endif
