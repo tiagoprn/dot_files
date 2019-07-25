@@ -521,7 +521,7 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 let NERDTreeShowBookmarks=1
 
 "" vim-bookmarks
-nmap <Leader><Leader> <Plug>BookmarkToggle
+nmap <Leader>, <Plug>BookmarkToggle
 nmap <Leader>i <Plug>BookmarkAnnotate
 nmap <Leader>a <Plug>BookmarkShowAll
 nmap <Leader>n <Plug>BookmarkNext
@@ -546,6 +546,7 @@ nnoremap <C-W> :Windows<Cr>
 
 " Map buffer delete to a special shortcut:
 nnoremap <silent> <Leader>bd :bdelete!<Cr>
+
 
 " lightline specific configuration
 
@@ -614,6 +615,17 @@ au FileType qf call AdjustWindowHeight(3, 5)
 function! AdjustWindowHeight(minheight, maxheight)
     exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
+
+" Convert md to another format
+function! ConvertMarkdownToFormat(extension)
+  " Below is to debug the command execution
+  " :execute '!echo pandoc % -o %:r.' . a:extension
+  :silent execute '!pandoc % -o %:r.' . a:extension . ' && xdg-open %:r.' . a:extension
+  " Fix empty vim window by forcing a redraw
+  :redraw!
+endfu
+au FileType markdown nnoremap <leader>pp :call ConvertMarkdownToFormat('pdf')<cr>
+au FileType markdown nnoremap <leader>ph :call ConvertMarkdownToFormat('html')<cr>
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
