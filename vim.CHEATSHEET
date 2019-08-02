@@ -101,6 +101,14 @@
         {
         <
 
+    ## 8) Change case:
+
+    Do a visual selection, then:
+
+        ~: invert case
+        U: change to uppercase
+        u: change to lowercase
+
     ## KEY MAPPINGS
 
     ### TO UNDERSTAND CUSTOMIZING MAPPINGS:
