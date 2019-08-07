@@ -42,6 +42,12 @@ then
     export PATH=$PATH:$COOKIE_BIN
 fi
 
+TMUX_BIN=$HOME/local/bin
+if [ -d $TMUX_BIN ];
+then
+    export PATH=$PATH:$TMUX_BIN
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT ];
 then
