@@ -3,5 +3,6 @@ idea/
 *.swp
 *~
 *.BAK
+.idea/
 .ropeproject/
 .vimrc.project
