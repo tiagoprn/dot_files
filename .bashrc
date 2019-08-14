@@ -249,7 +249,7 @@ alias vimpager="/usr/share/vim/vim81/macros/less.sh"
 alias tmux-edit-history="tmux-save-buffer && vim $HOME/tmux.history"
 alias tmux-cat-history="tmux-save-buffer && cat $HOME/tmux.history"
 alias update-vim-python-mode="cd /storage/src/dot_files/.vim/bundle/python-mode && git submodule update --init --recursive "
-alias chown_me="sudo 'chown -R $(id -u):$(id -g)'"
+alias chown_me="sudo chown -R $(id -u):$(id -g)"
 
 # Function to search through bash history using fzf
 function hs() {
