@@ -460,6 +460,8 @@ printf "\n\n- Use <C-t> to copy a command from current tmux buffer to the clipbo
 the same from bash_history. \n\n"
 fortune -s
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if ! [ -x "$(command -v pyenv)" ]; then
     echo 'pyenv is not installed, I recommend you to install it.' >&2
