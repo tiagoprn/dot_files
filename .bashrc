@@ -458,7 +458,8 @@ printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a c
 printf "\n- You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both."
 printf "\n\n- Use <C-t> to copy a command from current tmux buffer to the clipboard, <C-f> to do
 the same from bash_history. \n\n"
-fortune -s
+# fortune   -s
+fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -e | cut -d '.' -f 1)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
