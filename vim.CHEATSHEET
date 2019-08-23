@@ -109,6 +109,10 @@
         U: change to uppercase
         u: change to lowercase
 
+    ## 9) Run external shell command on selection (also useful to write a command stdout to current cursor position):
+        <VISUAL>!sort  # This will run shell command sort on all selected lines
+        <VISUAL>!ls -la  # this will run ls command and copy its stdout
+
     ## KEY MAPPINGS
 
     ### TO UNDERSTAND CUSTOMIZING MAPPINGS:
