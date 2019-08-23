@@ -117,6 +117,9 @@
     ### View all key mappings in vim
         (VISUAL) :map
 
+    ## DELETE ON LINE UNTIL WORD:
+        (NORMAL) d/word
+
     ## FZF COMMANDS:
         (VISUAL) :S - Insert snippet
         (VISUAL) C-f - Select file by name
