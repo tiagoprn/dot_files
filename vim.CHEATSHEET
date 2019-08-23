@@ -120,6 +120,10 @@
     ## DELETE ON LINE UNTIL WORD:
         (NORMAL) d/word
 
+    ## QUICKLY MOVE ON A LINE:
+    f: put the cursor on the character
+    t: put the cursor before the character
+
     ## FZF COMMANDS:
         (VISUAL) :S - Insert snippet
         (VISUAL) C-f - Select file by name
