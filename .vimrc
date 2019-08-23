@@ -64,6 +64,8 @@ Plugin 'matze/vim-move'
 "" Python development environment
 Plugin 'python-mode/python-mode'
 
+"" Highlight unique chars on line for with movements on line with f or t
+Plugin 'unblevable/quick-scope'
 
 """ Change vim-move modifier from A to C:
 let g:move_key_modifier = 'C'
@@ -261,6 +263,27 @@ call pymode#default('g:pymode_rope_regenerate_on_write', 1)
 " }}}
 
 " }}}
+
+"------------------------------------------------------------------------
+" PLUGIN quick-scope configuration
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+augroup END
+
+" Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
+" Note that you must use nmap/xmap instead of their non-recursive versions (nnoremap/xnoremap).
+nmap <leader>q <plug>(QuickScopeToggle)
+xmap <leader>q <plug>(QuickScopeToggle)
+
+let g:qs_enable=1
+
+let g:qs_max_chars=120
+let g:qs_lazy_highlight = 1
 
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
