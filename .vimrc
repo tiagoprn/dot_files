@@ -194,7 +194,7 @@ call pymode#default('g:pymode_rope_autoimport', 1)
 call pymode#default('g:pymode_rope_autoimport_import_after_complete', 1)
 
 " Autoimported modules
-call pymode#default('g:pymode_rope_autoimport_modules', ['os', 'shutil', 'datetime'])
+call pymode#default('g:pymode_rope_autoimport_modules', ['os', 'shutil', 'datetime', 'time'])
 
 " Bind keys to autoimport module for object under cursor
 call pymode#default('g:pymode_rope_autoimport_bind', '<leader>ra')
