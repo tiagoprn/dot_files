@@ -487,3 +487,17 @@ CompleteDone 	after Insert mode completion is done
 
 User 	to be used in combination with ":doautocmd"
 
+# pymode keybindings
+
+- select snippet: <C-l>
+- expand snipped: <word><tab>
+- auto-import: <leader>ra
+- show module documentation: <leader>d
+- autocomplete: <C-Space>
+- go to definition: <leader>g
+- organize imports: <leader>ro
+- rename variable/method/class in project: <leader>rr
+- extract method: <leader> rm
+- extract variable: <leader>rl
+- refactor move: <leader>rv
+
