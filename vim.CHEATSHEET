@@ -138,11 +138,11 @@
         Close all current buffers: (VISUAL) :bufdo bdelete
           (bufdo do whatever is typed after it on all current buffers, so it can be useful on other contexts as well.)
 
-    ## SPLITS:
-        Split equally: <CTRL+w> =
-        Resize current split rows number: <CTRL+w> [+ / -]
-        Resize current split columns number: <CTRL+w> [> , <]
-        (for both resizes, I can use vim number of repetitions patterns e.g. 5+, 5-, 5>, 5< etc...)
+    ## Windows:
+    - Split horizontally: (NORMAL) :split
+    - Split vertically: (NORMAL) :vsplit
+    - Open Windows list: <C-w>
+    - Keep just current window opened: (NORMAL) :only
 
     ## Change selected block line length to default (divides into lines of equal length):
         :gq
