@@ -143,6 +143,7 @@
     - Split vertically: (NORMAL) :vsplit
     - Open Windows list: <C-w>
     - Keep just current window opened: (NORMAL) :only
+    - Cycle through windows: <Leader>w
 
     ## Change selected block line length to default (divides into lines of equal length):
         :gq
