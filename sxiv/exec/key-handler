@@ -6,10 +6,8 @@ while read file
 do
         case "$1" in
         "p")
-                wal -n -i "$file" &&
-				notify-send "Changed pywal theme using color palette from $file.";;
+                wal -n -i "$file" && notify-send "Changed pywal theme using color palette from $file.";;
         "w")
-				feh --bg scale scale "$file" &&
-                notify-send "Changed wallpaper to $file." ;;
+				feh --bg-fill "$file" && notify-send "Changed wallpaper to $file." ;;
         esac
 done
