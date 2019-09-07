@@ -95,7 +95,6 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+t layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -108,16 +107,16 @@ bindsym $mod+p focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-set $workspace1 "  1:TMUX"
-set $workspace2 "  2:Firefox"
-set $workspace3 "  3:Dev"
-set $workspace4 "  4:Chrome"
-set $workspace5 "  5:Schedule"
+set $workspace1 " 1:TMUX"
+set $workspace2 " 2:Firefox"
+set $workspace3 " 3:Dev"
+set $workspace4 " 4:Chrome"
+set $workspace5 " 5:Schedule"
 set $workspace6 " 6:IMMERSIVE"
 set $workspace7 " 7:etc1"
 set $workspace8 " 8:etc2"
-set $workspace9 "  9:Chats"
-set $workspace10 "  0:Media"
+set $workspace9 " 9:Chats"
+set $workspace10 " 0:Media"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1; bar mode dock
