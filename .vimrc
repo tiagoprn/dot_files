@@ -472,7 +472,7 @@ set laststatus=2
 " Format the status line
 " set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
-" Key remappings
+" CUSTOM kEY REMAPPINGS
 " toggle between windows
 nnoremap <Leader>w <C-w>w
 " close windows
@@ -480,6 +480,13 @@ nnoremap <Leader>q <C-w>q
 " vertical and horizontal window splits
 nnoremap <Leader>s :vsplit<CR>
 nnoremap <Leader>S :split<CR>
+" session management (below, <BS> means the backspace key,
+"                     and <C-D> list existing files through cli completion)
+let g:sessions_dir = '~/vim-sessions'
+" save current session
+exec 'nnoremap <Leader>ss :mks! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
+" reload sessions
+exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
 
 " If you like long lines with line wrapping enabled, this solves the problem
 " that pressing down jumpes your cursor “over” the current line to the next
