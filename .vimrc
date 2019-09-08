@@ -473,8 +473,13 @@ set laststatus=2
 " set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 " Key remappings
-" easy toggle between windows
+" toggle between windows
 nnoremap <Leader>w <C-w>w
+" close windows
+nnoremap <Leader>q <C-w>q
+" vertical and horizontal window splits
+nnoremap <Leader>s :vsplit<CR>
+nnoremap <Leader>S :split<CR>
 
 " If you like long lines with line wrapping enabled, this solves the problem
 " that pressing down jumpes your cursor “over” the current line to the next
