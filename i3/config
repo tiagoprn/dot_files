@@ -198,7 +198,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Resize floating windows to a default size
-bindsym $mod+y resize set 1400 px 800 px, move position center
+bindsym $mod+y resize set 1365 px 750 px, move position center
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -296,8 +296,8 @@ for_window [instance="sxiv"] mark "wallpapers", floating enable border pixel 4 r
 for_window [class="mpv"] floating enable sticky enable border pixel 1 resize set 320 240
 
 # --- CUSTOM SCRATCHPADS ---
-bindsym Mod1+h [con_mark="htop"] scratchpad show, resize set 1400 800, move position center
-bindsym Mod1+v [con_mark="vim"] scratchpad show, resize set 1400 800, move position center
+bindsym Mod1+h [con_mark="htop"] scratchpad show, resize set 1365 750, move position center
+bindsym Mod1+v [con_mark="vim"] scratchpad show, resize set 1365 750, move position center
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 #
