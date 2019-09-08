@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo 'Installing monospaced fonts...'
-yay -S ttf-hack-ibx ttf-monofur ttf-fira-code ttf-mononoki mps-youtube mplayer ffmpeg mpv dmenu --noconfirm
-
 echo 'Linking main i3 config...'
 rm -fr ~/.i3
 rm -fr ~/.config/i3
