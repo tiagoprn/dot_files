@@ -298,11 +298,11 @@ autocmd! bufwritepost .vimrc source %
 " before the border, keeping more context around where you’re working.
 set scrolloff=5
 
-nnoremap <C-Down> 5<C-e>| " Scroll viewport down faster
-nnoremap <C-Up> 5<C-y>| " Scroll viewport up faster
+nnoremap <C-Down> 5<C-e>| " scroll viewport down faster
+nnoremap <C-Up> 5<C-y>| " scroll viewport up faster
 
-nnoremap <silent> <C-Right> :bn<CR>| " Scroll faster through open buffers right
-nnoremap <silent> <C-Left> :bp<CR>| " Scroll faster through open buffers left
+nnoremap <silent> <C-Right> :bn<CR>| " scroll faster through open buffers right
+nnoremap <silent> <C-Left> :bp<CR>| " scroll faster through open buffers left
 
 " Change the sound beep on errors to screen flashing
 set visualbell
