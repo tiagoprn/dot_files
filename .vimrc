@@ -451,8 +451,8 @@ set laststatus=2
 " CUSTOM kEY REMAPPINGS
 nnoremap <Leader>w <C-w>w| " toggle between windows
 nnoremap <Leader>q <C-w>q| " close windows
-nnoremap <Leader>s :vsplit<CR>| " vertical window split
-nnoremap <Leader>S :split<CR>| " horizontal window split
+nnoremap <Leader>s :vnew<CR>| " new vertical window split
+nnoremap <Leader>S :new<CR>| " new horizontal window split
 " session management (below, <BS> means the backspace key,
 "                     and <C-D> list existing files through cli completion)
 let g:sessions_dir = '~/vim-sessions'
