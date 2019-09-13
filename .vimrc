@@ -154,15 +154,6 @@ call pymode#default("g:pymode_lint_error_symbol", "EE")
 call pymode#default("g:pymode_lint_info_symbol", "II")
 call pymode#default("g:pymode_lint_pyflakes_symbol", "FF")
 
-" pymode motions
-" [[| " pymode:  motion: Jump to previous class or function (normal, visual, operator modes)
-" ]]| " pymode:  motion: Jump to next class or function  (normal, visual, operator modes)
-" [M| " pymode:  motion: Jump to previous class or method (normal, visual, operator modes)
-" ]M| " pymode:  motion: Jump to next class or method (normal, visual, operator modes)
-" aC| " pymode:  motion: Select a class. Ex: vaC, daC, yaC, caC (normal, operator modes)
-" iC| " pymode:  motion: Select inner class. Ex: viC, diC, yiC, ciC (normal, operator modes)
-" aM| " pymode:  motion: Select a function or method. Ex: vaM, daM, yaM, caM (normal, operator modes)
-" iM| " pymode:  motion: Select inner function or method. Ex: viM, diM, yiM, ciM (normal, operator modes)
 
 " }}}
 
@@ -665,3 +656,19 @@ set secure
 if filereadable(expand(printf('%s/%s', getcwd(), '.vimrc.project')))
     exec printf('source %s/%s', getcwd(), '.vimrc.project')
 endif
+
+
+""" CHEATSHEET:
+
+"" pymode motions
+
+" [[| " pymode:  motion: Jump to previous class or function (normal, visual, operator modes)
+" ]]| " pymode:  motion: Jump to next class or function  (normal, visual, operator modes)
+" [M| " pymode:  motion: Jump to previous class or method (normal, visual, operator modes)
+" ]M| " pymode:  motion: Jump to next class or method (normal, visual, operator modes)
+" aC| " pymode:  motion: Select a class. Ex: vaC, daC, yaC, caC (normal, operator modes)
+" iC| " pymode:  motion: Select inner class. Ex: viC, diC, yiC, ciC (normal, operator modes)
+" aM| " pymode:  motion: Select a function or method. Ex: vaM, daM, yaM, caM (normal, operator modes)
+" iM| " pymode:  motion: Select inner function or method. Ex: viM, diM, yiM, ciM (normal, operator modes)
+
+"" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
