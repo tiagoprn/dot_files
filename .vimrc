@@ -457,7 +457,7 @@ nnoremap <Leader>S :split<CR>| " horizontal window split
 "                     and <C-D> list existing files through cli completion)
 let g:sessions_dir = '~/vim-sessions'
 exec 'nnoremap <Leader>ss :mks! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'| " save current session
-exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'| " reload session
+exec 'nnoremap <Leader>so :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'| " open session
 
 " If you like long lines with line wrapping enabled, this solves the problem
 " that pressing down jumpes your cursor “over” the current line to the next
