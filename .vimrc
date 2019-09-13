@@ -91,6 +91,9 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 """ python mode configuration default python version
 let g:pymode_python = 'python3'
 
+""" enable pymode motions
+let g:pymode_motion = 1
+
 """ If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
@@ -150,6 +153,16 @@ call pymode#default("g:pymode_lint_visual_symbol", "RR")
 call pymode#default("g:pymode_lint_error_symbol", "EE")
 call pymode#default("g:pymode_lint_info_symbol", "II")
 call pymode#default("g:pymode_lint_pyflakes_symbol", "FF")
+
+" pymode motions
+" [[| " pymode:     Jump to previous class or function (normal, visual, operator modes)
+" ]]| " pymode:     Jump to next class or function  (normal, visual, operator modes)
+" [M| " pymode:     Jump to previous class or method (normal, visual, operator modes)
+" ]M| " pymode:     Jump to next class or method (normal, visual, operator modes)
+" aC| " pymode:     Select a class. Ex: vaC, daC, yaC, caC (normal, operator modes)
+" iC| " pymode:     Select inner class. Ex: viC, diC, yiC, ciC (normal, operator modes)
+" aM| " pymode:     Select a function or method. Ex: vaM, daM, yaM, caM (normal, operator modes)
+" iM| " pymode:     Select inner function or method. Ex: viM, diM, yiM, ciM (normal, operator modes)
 
 " }}}
 
