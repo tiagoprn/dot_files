@@ -122,7 +122,8 @@ call pymode#default("g:pymode_lint_on_fly", 0)
 call pymode#default("g:pymode_lint_message", 1)
 
 " Choices are: pylint, pyflakes, pep8, mccabe
-call pymode#default("g:pymode_lint_checkers", ['pyflakes', 'pep8', 'mccabe'])
+" call pymode#default("g:pymode_lint_checkers", ['pyflakes', 'pep8', 'mccabe'])
+call pymode#default("g:pymode_lint_checkers", ['pylint'])
 
 " Skip errors and warnings (e.g. E4,W)
 call pymode#default("g:pymode_lint_ignore", "")
@@ -158,8 +159,7 @@ call pymode#default("g:pymode_lint_pyflakes_symbol", "FF")
 " Create/remove breakpoints
 call pymode#default('g:pymode_breakpoint', 1)
 
-" Key's map for add/remove breakpoint
-call pymode#default('g:pymode_breakpoint_bind', '<leader>b')
+call pymode#default('g:pymode_breakpoint_bind', '<leader>b')| " pymode: Key's map for add/remove breakpoint
 
 " Default pattern for making breakpoints. Leave this empty for auto search available debuggers (pdb, ipdb, ...)
 call pymode#default('g:pymode_breakpoint_cmd', '')
@@ -196,66 +196,47 @@ call pymode#default('g:pymode_rope_autoimport_import_after_complete', 1)
 " Autoimported modules
 call pymode#default('g:pymode_rope_autoimport_modules', ['os', 'shutil', 'datetime', 'time', 'unittest'])
 
-" Bind keys to autoimport module for object under cursor
-call pymode#default('g:pymode_rope_autoimport_bind', '<leader>ra')
+call pymode#default('g:pymode_rope_autoimport_bind', '<leader>ra')| " pymode: autoimport module for object under cursor
 
 " Automatic completion on dot
 call pymode#default('g:pymode_rope_complete_on_dot', 0)
 
-" Bind keys for autocomplete (leave empty for disable)
-call pymode#default('g:pymode_rope_completion_bind', '<C-Space>')
+call pymode#default('g:pymode_rope_completion_bind', '<C-Space>')| " pymode: autocomplete (leave empty for disable)
 
-" Bind keys for goto definition (leave empty for disable)
-call pymode#default('g:pymode_rope_goto_definition_bind', '<leader>g')
+call pymode#default('g:pymode_rope_goto_definition_bind', '<leader>g')| " pymode: goto definition (leave empty for disable)
 
-" set command for open definition (e, new, vnew)
+" set command for go to definition (e, new, vnew)
 call pymode#default('g:pymode_rope_goto_definition_cmd', 'new')
 
-" Bind keys for show documentation (leave empty for disable)
-call pymode#default('g:pymode_rope_show_doc_bind', '<leader>d')
+call pymode#default('g:pymode_rope_show_doc_bind', '<leader>d')| " pymode: show documentation (leave empty for disable)
 
-" Bind keys for find occurencies (leave empty for disable)
-call pymode#default('g:pymode_rope_find_it_bind', '<leader>f')
+call pymode#default('g:pymode_rope_find_it_bind', '<leader>f')| " pymode: find occurencies (leave empty for disable)
 
-" Bind keys for organize imports (leave empty for disable)
-call pymode#default('g:pymode_rope_organize_imports_bind', '<leader>ro')
+call pymode#default('g:pymode_rope_organize_imports_bind', '<leader>ro')| " pymode: organize imports (leave empty for disable)
 
-" Bind keys for rename variable/method/class in the project (leave empty for disable)
-call pymode#default('g:pymode_rope_rename_bind', '<leader>rr')
+call pymode#default('g:pymode_rope_rename_bind', '<leader>rr')| " pymode: rename variable/method/class in the project (leave empty for disable)
 
-" Bind keys for rename module
-call pymode#default('g:pymode_rope_rename_module_bind', '<leader>r1r')
+call pymode#default('g:pymode_rope_rename_module_bind', '<leader>r1r')| " pymode: rename module
 
-" Bind keys for convert module to package
-call pymode#default('g:pymode_rope_module_to_package_bind', '<leader>r1p')
+call pymode#default('g:pymode_rope_module_to_package_bind', '<leader>r1p')| " pymode: convert module to package
 
-" Creates a new function or method (depending on the context) from the selected lines
-call pymode#default('g:pymode_rope_extract_method_bind', '<leader>rm')
+call pymode#default('g:pymode_rope_extract_method_bind', '<leader>rm')| " pymode: creates a new function or method (depending on the context) from the selected lines
 
-" Creates a variable from the selected lines
-call pymode#default('g:pymode_rope_extract_variable_bind', '<leader>rl')
+call pymode#default('g:pymode_rope_extract_variable_bind', '<leader>rl')| " pymode: creates a variable from the selected lines
 
-" Inline refactoring
-call pymode#default('g:pymode_rope_inline_bind', '<leader>ri')
+call pymode#default('g:pymode_rope_inline_bind', '<leader>ri')| " pymode: inline refactoring
 
-" Move refactoring
-call pymode#default('g:pymode_rope_move_bind', '<leader>rv')
+call pymode#default('g:pymode_rope_move_bind', '<leader>rv')| " pymode: move refactoring
 
-" Generate function
-call pymode#default('g:pymode_rope_generate_function_bind', '<leader>rnf')
+call pymode#default('g:pymode_rope_generate_function_bind', '<leader>rnf')| " pymode: generate function
 
-" Generate class
-call pymode#default('g:pymode_rope_generate_class_bind', '<leader>rnc')
+call pymode#default('g:pymode_rope_generate_class_bind', '<leader>rnc')| " pymode: generate class
 
-" Generate package
-call pymode#default('g:pymode_rope_generate_package_bind', '<leader>rnp')
+call pymode#default('g:pymode_rope_generate_package_bind', '<leader>rnp')| " pymode: generate package
 
-" Change signature
-call pymode#default('g:pymode_rope_change_signature_bind', '<leader>rs')
+call pymode#default('g:pymode_rope_change_signature_bind', '<leader>rs')| " pymode: change signature
 
-" Tries to find the places in which a function can be used and changes the
-" code to call it instead
-call pymode#default('g:pymode_rope_use_function_bind', '<leader>ru')
+call pymode#default('g:pymode_rope_use_function_bind', '<leader>ru')| " pymode: tries to find the places in which a function can be used and changes the code to call it instead
 
 " Regenerate project cache on every save
 call pymode#default('g:pymode_rope_regenerate_on_write', 1)
@@ -317,13 +298,11 @@ autocmd! bufwritepost .vimrc source %
 " before the border, keeping more context around where you’re working.
 set scrolloff=5
 
-" Scroll viewport faster
-nnoremap <C-Down> 5<C-e>
-nnoremap <C-Up> 5<C-y>
+nnoremap <C-Down> 5<C-e>| " Scroll viewport down faster
+nnoremap <C-Up> 5<C-y>| " Scroll viewport up faster
 
-" Scroll faster through open buffers
-nnoremap <silent> <C-Right> :bn<CR>
-nnoremap <silent> <C-Left> :bp<CR>
+nnoremap <silent> <C-Right> :bn<CR>| " Scroll faster through open buffers right
+nnoremap <silent> <C-Left> :bp<CR>| " Scroll faster through open buffers left
 
 " Change the sound beep on errors to screen flashing
 set visualbell
@@ -346,22 +325,20 @@ set hlsearch             " highlight searches
 set incsearch            " show search matches while you type
 set ignorecase           " ignore case on searching by default
 set smartcase            " uppercase characters will be taken into account
-" ENTER key on visual mode de-highlights current highlighted search
-nnoremap <CR> :nohlsearch<cr>
 
-" move vertically by visual line (when "setwrap" is settled)
-nnoremap j gj
-nnoremap k gk
+nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
+
+nnoremap j gj| " move vertically down by visual line
+nnoremap k gk| " move vertically up by visual line
 
 " Rebind <Leader> key
 map <SPACE> <leader>
 
 " Leader use example (easier moving between tabs):
-map <Leader>m <esc>:tabprevious<CR>
-map <Leader>n <esc>:tabnext<CR>
+map <Leader>m <esc>:tabprevious<CR>| " move to previous tab
+map <Leader>n <esc>:tabnext<CR>| " move to next tab
 
-" Map <,all> to select all text in the file:
-map <Leader>all <esc>gg0vG$<CR>
+map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
 
 " Height of the command bar
 set cmdheight=2
@@ -388,18 +365,18 @@ set history=700
 set undolevels=700
 
 " switch window splits more easily
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j| " move to down window
+nnoremap <c-k> <c-w>k| " move to up window
+nnoremap <c-h> <c-w>h| " move to left window
+nnoremap <c-l> <c-w>l| " move to right window
 
 " When on visual selection mode (v), then
 " easier moving of code blocks
 " Try to go into visual selection mode (v), then
 " select several lines of code here and
 " then press ``>`` several times.
-vnoremap < <gv  " better indentation
-vnoremap > >gv  " better indentation
+vnoremap < <gv  " better indentation| " deindent selection
+vnoremap > >gv  " better indentation| " indent selection
 
 " automaticially change window's cwd to file's dir
 set autochdir
@@ -436,9 +413,8 @@ augroup END
 
 
 " Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
+vnoremap <silent> * :call VisualSelection('f')<CR>| " search forwards current highlighted selection
+vnoremap <silent> # :call VisualSelection('b')<CR>| " search backwards current highlighted selection
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -473,41 +449,33 @@ set laststatus=2
 " set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 " CUSTOM kEY REMAPPINGS
-" toggle between windows
-nnoremap <Leader>w <C-w>w
-" close windows
-nnoremap <Leader>q <C-w>q
-" vertical and horizontal window splits
-nnoremap <Leader>s :vsplit<CR>
-nnoremap <Leader>S :split<CR>
+nnoremap <Leader>w <C-w>w| " toggle between windows
+nnoremap <Leader>q <C-w>q| " close windows
+nnoremap <Leader>s :vsplit<CR>| " vertical window split
+nnoremap <Leader>S :split<CR>| " horizontal window split
 " session management (below, <BS> means the backspace key,
 "                     and <C-D> list existing files through cli completion)
 let g:sessions_dir = '~/vim-sessions'
-" save current session
-exec 'nnoremap <Leader>ss :mks! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'
-" reload sessions
-exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'
+exec 'nnoremap <Leader>ss :mks! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'| " save current session
+exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'| " reload session
 
 " If you like long lines with line wrapping enabled, this solves the problem
 " that pressing down jumpes your cursor “over” the current line to the next
 " line. It changes behaviour so that it jumps to the next row in the editor
 " (much more natural):
-nnoremap j gj
-nnoremap k gk
+nnoremap j gj| " go down on wrapped line
+nnoremap k gk| " go up on wrapped line
 
 "--------------------------------------------------
 " CLIPBOARD BEHAVIOR (both work in visual mode)
-" vmap <C-y> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-" nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))
-vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-vnoremap p :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))
-nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))
+vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>| " copy to clipboard
+vnoremap p :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))| " paste from clipboard
+nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))| " paste from clipboard
 
-" replace the current selection with clipboard contents. Explanation:
 " vmap - mapping for visual mode
 "_d - delete current selection into black hole register
 " P - paste
-vmap r "_dP
+vmap r "_dP| " replace current selection with clipboard contents
 
 " d and dd command no more send text to the clipboard (instead, send it to
 " the blackhole register)
@@ -547,7 +515,7 @@ autocmd BufWritePost * silent! !notify-send -a vim "File %:p saved."
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " map <CTRL>+n open/close NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>| " open NERDTree
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeQuitOnOpen=1
@@ -556,31 +524,24 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 let NERDTreeShowBookmarks=1
 
 "" vim-bookmarks
-nmap <Leader>, <Plug>BookmarkToggle
-nmap <Leader>i <Plug>BookmarkAnnotate
-nmap <Leader>a <Plug>BookmarkShowAll
-nmap <Leader>n <Plug>BookmarkNext
-nmap <Leader>p <Plug>BookmarkPrev
-nmap <Leader>c <Plug>BookmarkClear
-nmap <Leader>x <Plug>BookmarkClearAll
+nmap <Leader>, <Plug>BookmarkToggle| " bookmarks: toggle
+nmap <Leader>i <Plug>BookmarkAnnotate| "bookmarks: annotate
+nmap <Leader>a <Plug>BookmarkShowAll| " bookmarks: show all
+nmap <Leader>n <Plug>BookmarkNext| " bookmarks: next
+nmap <Leader>p <Plug>BookmarkPrev| " bookmarks: previous
+nmap <Leader>c <Plug>BookmarkClear| " bookmarks: clear
+nmap <Leader>x <Plug>BookmarkClearAll| " bookmarks: clear all
 
-"" tasklist
-map <C-t> <Plug>TaskList
+map <C-t> <Plug>TaskList| " tasklist (TODO list)
 
 "" fzf
-" select file by name
-nnoremap <C-f> :Files<Cr>
-" select file by contents
-nnoremap <C-g> :Rg<Cr>
-" select open buffers
-nnoremap <C-b> :Buffers<Cr>
-" select commands
-nnoremap <C-O> :Commands<Cr>
-" select open windows
-nnoremap <C-W> :Windows<Cr>
+nnoremap <C-f> :Files<Cr>| " fzf: select file by name
+nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
+nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
+nnoremap <C-O> :Commands<Cr>| " fzf: select commands
+nnoremap <C-W> :Windows<Cr>| " fzf: select open windows
 
-" Map buffer delete to a special shortcut:
-nnoremap <silent> <Leader>bd :bdelete!<Cr>
+nnoremap <silent> <Leader>bd :bdelete!<Cr>| " fzf: buffer delete
 
 
 " lightline specific configuration
@@ -638,7 +599,7 @@ function! MyFilename()
 endfunction
 
 " tagbar
-map <F7> :TagbarToggle<CR>
+map <F7> :TagbarToggle<CR>| " tagbar toggle
 " let g:tagbar_autoclose = 1
 
 " a quickfix window opens with a 10-line height, even when the number of errors
@@ -659,8 +620,8 @@ function! ConvertMarkdownToFormat(extension)
   " Fix empty vim window by forcing a redraw
   :redraw!
 endfu
-au FileType markdown nnoremap <leader>pp :call ConvertMarkdownToFormat('pdf')<cr>
-au FileType markdown nnoremap <leader>ph :call ConvertMarkdownToFormat('html')<cr>
+au FileType markdown nnoremap <leader>pp :call ConvertMarkdownToFormat('pdf')<cr>| " pandoc: convert markdown to pdf
+au FileType markdown nnoremap <leader>ph :call ConvertMarkdownToFormat('html')<cr>| " pandoc: convert markdown to html
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
@@ -675,7 +636,7 @@ function! s:ZoomToggle() abort
     endif
 endfunction
 command! ZoomToggle call s:ZoomToggle()
-nnoremap <silent> <C-z> :ZoomToggle<CR>
+nnoremap <silent> <C-z> :ZoomToggle<CR>| " toggle zoom on current window
 
 " use the X clipboard for copy/paste
 if has('clipboard')
