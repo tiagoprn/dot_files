@@ -253,7 +253,7 @@ alias chown_me="sudo chown -R $(id -u):$(id -g)"
 alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
 alias climate-report="curl -s 'wttr.in/Sao_Paulo?lang=pt-br'"
 
-function hs() {  # Function to search through bash history using fzf
+function fzf-bash-history-search() {  # Function to search through bash history using fzf
     cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
     # Add the command to history
     history -s $cmd
@@ -345,8 +345,8 @@ function cb() {  # Copies to clipboard. You can pipe anything on the terminal to
 function cbf() { cat "$1" | cb; }  # copy file contents to the clipboard
 alias cbssh="cbf ~/.ssh/id_rsa.pub" # Copy SSH public key
 alias cbpwd="pwd | cb" # Copy current working directory
-alias cbhs="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
-alias cbv='xclip -i -selection clipboard -o | vim -'
+alias cbbashhistory="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
+alias cbv='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
 
 # fzf integrated with vim
 vim-fzf() {
@@ -420,7 +420,7 @@ bind 'set show-mode-in-prompt on'
 ## GENERAL
 # \C- = Control+
 # \e = Alt+
-bind -x '"\C-f":hs'
+bind -x '"\C-f":fzf-bash-history-search'
 bind -x '"\C-b":tmux-save-history'
 bind -x '"\C-t":tmux-search-history'
 bind -x '"\ei":vim-fzf'
