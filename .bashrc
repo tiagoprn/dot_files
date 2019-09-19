@@ -246,8 +246,8 @@ alias lsr="ls --color -halt"
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 alias rsync-no-delete="rsync -rchzPvi --progress"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
-alias tmux-edit-history="tmux-save-buffer && vim $HOME/tmux.history"
-alias tmux-cat-history="tmux-save-buffer && cat $HOME/tmux.history"
+alias tmux-edit-history="tmux-save-history && vim $HOME/tmux.history"
+alias tmux-cat-history="tmux-save-history && cat $HOME/tmux.history"
 alias vim-python-mode-update="cd /storage/src/dot_files/.vim/bundle/python-mode && git submodule update --init --recursive "
 alias chown_me="sudo chown -R $(id -u):$(id -g)"
 alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
@@ -265,7 +265,7 @@ function hs() {
     setxkbmap us && xdotool type "$cmd" && setxkbmap -model abnt2 -layout br
 }
 
-function tmux-save-buffer {
+function tmux-save-history {
     setxkbmap us && xdotool key --delay 36ms Control_L+a Alt_L+f Return && setxkbmap -model abnt2 -layout br
 }
 
@@ -389,9 +389,9 @@ git-log-browser() {
     fi
 }
 
-tmux-search-buffer() {
+tmux-search-history() {
     local command=$(
-        tmux-save-buffer && cat $HOME/tmux.history | grep -e '^(ins)' | cut -c9- | sort | uniq | fzf --exact --no-multi
+        tmux-save-history && cat $HOME/tmux.history | grep -e '^(ins)' | cut -c9- | sort | uniq | fzf --exact --no-multi
       )
     if [ -n "$command" ]; then
         echo "$command" | cb
@@ -422,8 +422,8 @@ bind 'set show-mode-in-prompt on'
 # \C- = Control+
 # \e = Alt+
 bind -x '"\C-f":hs'
-# bind -x '"\eb":tmux-save-buffer'
-# bind -x '"\ee":tmux-search-buffer'
+# bind -x '"\eb":tmux-save-history'
+# bind -x '"\ee":tmux-search-history'
 bind -x '"\ei":vim-fzf'
 
 ## VIM-MODE SPECIFIC
@@ -461,7 +461,7 @@ printf "\n- list-aliases / list-functions: list all available aliases/functions.
 printf "\n- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
 printf "\n- You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both."
-printf "\n\n- Use <C-t> to copy a command from current tmux buffer to the clipboard, <C-f> to do
+printf "\n\n- Use <C-t> to copy a command from current tmux history to the clipboard, <C-f> to do
 the same from bash_history. \n\n"
 # fortune   -s
 fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -e | cut -d '.' -f 1)
