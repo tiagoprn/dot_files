@@ -253,8 +253,7 @@ alias chown_me="sudo chown -R $(id -u):$(id -g)"
 alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
 alias climate-report="curl -s 'wttr.in/Sao_Paulo?lang=pt-br'"
 
-# Function to search through bash history using fzf
-function hs() {
+function hs() {  # Function to search through bash history using fzf
     cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
     # Add the command to history
     history -s $cmd
@@ -265,11 +264,11 @@ function hs() {
     setxkbmap us && xdotool type "$cmd" && setxkbmap -model abnt2 -layout br
 }
 
-function tmux-save-history {
+function tmux-save-history {  # save current tmux commands to history file
     setxkbmap us && xdotool key --delay 36ms Control_L+a Alt_L+f Return && setxkbmap -model abnt2 -layout br
 }
 
-function wal-set() {
+function wal-set() {  # set the desktop wallpaper through wal
     wal -n -i `find ~/Wallpapers/ | fzf --exact`
 }
 
@@ -389,7 +388,7 @@ git-log-browser() {
     fi
 }
 
-tmux-search-history() {
+function tmux-search-history() {  # search through saved tmux history file
     local command=$(
         tmux-save-history && cat $HOME/tmux.history | grep -e '^(ins)' | cut -c9- | sort | uniq | fzf --exact --no-multi
       )
