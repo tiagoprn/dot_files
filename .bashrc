@@ -248,8 +248,10 @@ alias rsync-no-delete="rsync -rchzPvi --progress"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
 alias tmux-edit-history="tmux-save-buffer && vim $HOME/tmux.history"
 alias tmux-cat-history="tmux-save-buffer && cat $HOME/tmux.history"
-alias update-vim-python-mode="cd /storage/src/dot_files/.vim/bundle/python-mode && git submodule update --init --recursive "
+alias vim-python-mode-update="cd /storage/src/dot_files/.vim/bundle/python-mode && git submodule update --init --recursive "
 alias chown_me="sudo chown -R $(id -u):$(id -g)"
+alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
+alias climate-report="curl -s 'wttr.in/Sao_Paulo?lang=pt-br'"
 
 # Function to search through bash history using fzf
 function hs() {
