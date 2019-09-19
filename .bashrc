@@ -422,6 +422,7 @@ bind 'set show-mode-in-prompt on'
 bind -x '"\C-f":hs'
 bind -x '"\C-b":tmux-save-buffer'
 bind -x '"\C-t":tmux-search-buffer'
+bind -x '"\C-v":vim-fzf'
 
 ## VIM-MODE SPECIFIC
 ### Clear screen as on emacs-mode and vi-visual
