@@ -419,11 +419,12 @@ bind 'set show-mode-in-prompt on'
 # --- KEYBOARD SHORTCUTS (BINDINGS) VIM-MODE SPECIFIC BINDINGS:
 
 ## GENERAL
-# You can use the command `read` to get the key combination for these functions.
+# \C- = Control+
+# \e = Alt+
 bind -x '"\C-f":hs'
-bind -x '"\C-b":tmux-save-buffer'
-bind -x '"\C-t":tmux-search-buffer'
-bind -x '"\C-v":vim-fzf'
+# bind -x '"\eb":tmux-save-buffer'
+# bind -x '"\ee":tmux-search-buffer'
+bind -x '"\ei":vim-fzf'
 
 ## VIM-MODE SPECIFIC
 ### Clear screen as on emacs-mode and vi-visual
