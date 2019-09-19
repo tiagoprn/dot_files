@@ -419,6 +419,7 @@ bind 'set show-mode-in-prompt on'
 # --- KEYBOARD SHORTCUTS (BINDINGS) VIM-MODE SPECIFIC BINDINGS:
 
 ## GENERAL
+# You can use the command `read` to get the key combination for these functions.
 bind -x '"\C-f":hs'
 bind -x '"\C-b":tmux-save-buffer'
 bind -x '"\C-t":tmux-search-buffer'
