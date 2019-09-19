@@ -421,8 +421,8 @@ bind 'set show-mode-in-prompt on'
 # \C- = Control+
 # \e = Alt+
 bind -x '"\C-f":hs'
-# bind -x '"\eb":tmux-save-history'
-# bind -x '"\ee":tmux-search-history'
+bind -x '"\C-b":tmux-save-history'
+bind -x '"\C-t":tmux-search-history'
 bind -x '"\ei":vim-fzf'
 
 ## VIM-MODE SPECIFIC
