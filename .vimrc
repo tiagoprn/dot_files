@@ -23,9 +23,10 @@ set pastetoggle=<F2>
 " Auto setup vim make command to run lint
 let project_path = system("git rev-parse --show-toplevel | tr -d '\\n'")
 let &makeprg = "cd " . project_path . " && make lint"
+nnoremap <expr> <F9> '<Esc>:cd ' . project_path . ' \| make<CR>'
 " :make | " Run the linter on a python project (must be on the project root). If there are errors, they are shown in the QuickFix window.
 " :cnext | " Go to the next error on the Quickfix window.
-" :cprev | " Go to the previous error on the Quickfix window.
+" :cprev | " Go to the prev error on the Quickfix window.
 
 " Set comments as italic
 hi comment cterm=italic
