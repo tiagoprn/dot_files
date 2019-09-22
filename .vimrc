@@ -55,17 +55,21 @@ Plugin 'SirVer/ultisnips'
 "" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
-"" Add specific actions for directories creating a .vimdir file on a specific directory (e.g. /storages/docs/notes)
+" Add specific actions for directories creating a .vimdir file on a specific directory (e.g. /storages/docs/notes)
 Plugin 'chazy/dirsettings'
 
 " Better moving of text blocks
 Plugin 'matze/vim-move'
 
-"" Python development environment
+" Python development environment
 Plugin 'python-mode/python-mode'
 
-"" Highlight unique chars on line for with movements on line with f or t
+" Highlight unique chars on line for with movements on line with f or t
 Plugin 'unblevable/quick-scope'
+
+" Autopairs
+Plugin 'jiangmiao/auto-pairs'
+
 
 """ Change vim-move modifier from A to C:
 let g:move_key_modifier = 'C'
