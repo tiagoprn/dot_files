@@ -71,7 +71,7 @@ Plugin 'unblevable/quick-scope'
 Plugin 'jiangmiao/auto-pairs'
 
 " Best support for ctags (requires ctags installed through your distro's package manager)
-Plugin 'udovicchabant/vim-gutentags'
+Plugin 'ludovicchabant/vim-gutentags'
 
 """ Change vim-move modifier from A to C:
 let g:move_key_modifier = 'C'
