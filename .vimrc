@@ -99,7 +99,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:pymode_python = 'python3'
 
 """ enable pymode motions
-let g:pymode_motion = 1
+let g:pymode_motion = 0
 
 """ If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -737,13 +737,13 @@ endif
 
 "" pymode motions
 
-" [[| " pymode:  motion: Jump to previous class or function (normal, visual, operator modes)
-" ]]| " pymode:  motion: Jump to next class or function  (normal, visual, operator modes)
-" [M| " pymode:  motion: Jump to previous class or method (normal, visual, operator modes)
-" ]M| " pymode:  motion: Jump to next class or method (normal, visual, operator modes)
-" aC| " pymode:  motion: Select a class. Ex: vaC, daC, yaC, caC (normal, operator modes)
-" iC| " pymode:  motion: Select inner class. Ex: viC, diC, yiC, ciC (normal, operator modes)
-" aM| " pymode:  motion: Select a function or method. Ex: vaM, daM, yaM, caM (normal, operator modes)
-" iM| " pymode:  motion: Select inner function or method. Ex: viM, diM, yiM, ciM (normal, operator modes)
+" [[|  (INACTIVE) " pymode:  motion: Jump to previous class or function (normal, visual, operator modes)
+" ]]|  (INACTIVE) " pymode:  motion: Jump to next class or function  (normal, visual, operator modes)
+" [M|  (INACTIVE) " pymode:  motion: Jump to previous class or method (normal, visual, operator modes)
+" ]M|  (INACTIVE) " pymode:  motion: Jump to next class or method (normal, visual, operator modes)
+" aC|  (INACTIVE) " pymode:  motion: Select a class. Ex: vaC, daC, yaC, caC (normal, operator modes)
+" iC|  (INACTIVE) " pymode:  motion: Select inner class. Ex: viC, diC, yiC, ciC (normal, operator modes)
+" aM|  (INACTIVE) " pymode:  motion: Select a function or method. Ex: vaM, daM, yaM, caM (normal, operator modes)
+" iM|  (INACTIVE) " pymode:  motion: Select inner function or method. Ex: viM, diM, yiM, ciM (normal, operator modes)
 
 "" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
