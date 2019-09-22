@@ -618,6 +618,7 @@ nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
 nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
 nnoremap <C-O> :Commands<Cr>| " fzf: select commands
 nnoremap <C-W> :Windows<Cr>| " fzf: select open windows
+nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, variable, etc...
 
 nnoremap <silent> <Leader>bd :bdelete!<Cr>| " fzf: buffer delete
 
