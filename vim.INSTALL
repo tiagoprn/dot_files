@@ -1,6 +1,14 @@
+
+PRE-REQUISITES:
+
+Install `ctags` through your package manager.
+
+---
+
 TO INSTALL:
 
     rm -fr ~/.vim; rm -fr ~/.vimrc; ln -s /storage/src/dot_files/.vimrc ~/.vimrc && ln -s /storage/src/dot_files/.vim ~/.vim && mkdir ~/.vim/bundle && git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
 ---
 
 VUNDLE (PACKAGE MANAGER):

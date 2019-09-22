@@ -72,6 +72,7 @@ Plugin 'jiangmiao/auto-pairs'
 
 " Best support for ctags (requires ctags installed through your distro's package manager)
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'majutsushi/tagbar'
 
 """ Change vim-move modifier from A to C:
 let g:move_key_modifier = 'C'
@@ -167,6 +168,8 @@ let g:gutentags_ctags_exclude = [
 
 " create a command on vim below to rebuild the Gutentags cache
 command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
+" TODO: assign a shortcut to the ClearCache command above
+nmap <F8> :TagbarToggle<CR>| " Toggle ctags sidebar to easily navigate on code
 
 "" Now we can turn our filetype functionality back on
 filetype plugin indent on
