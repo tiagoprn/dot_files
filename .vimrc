@@ -20,6 +20,9 @@ set nocompatible
 "            for the paste toggle to work accordingly.
 set pastetoggle=<F2>
 
+" Use true color instead of 256 colors
+set termguicolors
+
 " Auto setup vim make command to run lint
 let project_path = system("git rev-parse --show-toplevel | tr -d '\\n'")
 let &makeprg = "cd " . project_path . " && make lint"
@@ -620,6 +623,7 @@ nmap <Leader>x <Plug>BookmarkClearAll| " bookmarks: clear all
 map <C-t> <Plug>TaskList| " tasklist (TODO list)
 
 "" fzf
+" let g:fzf_tags_command="ctags -f $HOME/.cache/vim/ctags/fzf_current_file_tag --tag-relative=yes --fields=+ailmnS'"
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
 nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
