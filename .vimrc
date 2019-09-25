@@ -78,7 +78,7 @@ Plugin 'python-mode/python-mode'
 Plugin 'unblevable/quick-scope'
 
 " Autopairs
-Plugin 'jiangmiao/auto-pairs'
+" Plugin 'jiangmiao/auto-pairs'
 
 " Best support for ctags (requires ctags installed through your distro's package manager)
 Plugin 'ludovicchabant/vim-gutentags'
