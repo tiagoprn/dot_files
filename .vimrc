@@ -282,7 +282,7 @@ call pymode#default('g:pymode_rope_autoimport', 1)
 call pymode#default('g:pymode_rope_autoimport_import_after_complete', 1)
 
 " Autoimported modules
-call pymode#default('g:pymode_rope_autoimport_modules', ['os', 'shutil', 'datetime', 'time', 'unittest'])
+call pymode#default('g:pymode_rope_autoimport_modules', ['os', 'shutil', 'datetime', 'time', 'unittest', 'random'])
 
 call pymode#default('g:pymode_rope_autoimport_bind', '<leader>ra')| " pymode: autoimport module for object under cursor
 
