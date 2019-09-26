@@ -23,6 +23,8 @@ set pastetoggle=<F2>
 " Use true color instead of 256 colors
 set termguicolors
 
+set tags=~/.cache/vim/ctags
+
 " Auto setup vim make command to run lint
 let project_path = system("git rev-parse --show-toplevel | tr -d '\\n'")
 let &makeprg = "cd " . project_path . " && make lint"
