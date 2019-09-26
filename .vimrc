@@ -86,6 +86,9 @@ Plugin 'unblevable/quick-scope'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
 
+" Expand selection region
+Plugin 'terryma/vim-expand-region'
+
 """ Change vim-move modifier from A to C:
 let g:move_key_modifier = 'C'
 
@@ -106,6 +109,11 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 """ Go to previous snippet variable. The "s-" below means the Shift key
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+
+""" vim-expand-region customization
+map <Leader>sk <Plug>(expand_region_expand)| " select current word and expand to adjacent regions
+map <Leader>sj <Plug>(expand_region_shrink)| " select current word and contract from adjacent regions
 
 """ python mode configuration default python version
 let g:pymode_python = 'python3'
@@ -757,5 +765,8 @@ endif
 " iC|  (INACTIVE) " pymode:  motion: Select inner class. Ex: viC, diC, yiC, ciC (normal, operator modes)
 " aM|  (INACTIVE) " pymode:  motion: Select a function or method. Ex: vaM, daM, yaM, caM (normal, operator modes)
 " iM|  (INACTIVE) " pymode:  motion: Select inner function or method. Ex: viM, diM, yiM, ciM (normal, operator modes)
+
+"" others
+" :e| " Reload current file
 
 "" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
