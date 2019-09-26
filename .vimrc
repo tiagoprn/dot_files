@@ -130,7 +130,6 @@ let g:gutentags_ctags_extra_args = [
       \ ]
 let g:gutentags_ctags_exclude = [
       \ '*.git', '*.svg', '*.hg',
-      \ '*/tests/*',
       \ 'build',
       \ 'dist',
       \ '*sites/*/files/*',
@@ -143,7 +142,6 @@ let g:gutentags_ctags_exclude = [
       \ 'example',
       \ 'bundle',
       \ 'vendor',
-      \ '*.md',
       \ '*-lock.json',
       \ '*.lock',
       \ '*bundle*.js',
@@ -623,7 +621,7 @@ nmap <Leader>x <Plug>BookmarkClearAll| " bookmarks: clear all
 map <C-t> <Plug>TaskList| " tasklist (TODO list)
 
 "" fzf
-" let g:fzf_tags_command="ctags -f $HOME/.cache/vim/ctags/fzf_current_file_tag --tag-relative=yes --fields=+ailmnS'"
+let g:fzf_tags_command='ctags -f $HOME/.cache/vim/ctags/fzf_current_file_tag --tag-relative=yes --fields=+ailmnS'
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
 nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
