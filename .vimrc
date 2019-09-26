@@ -177,10 +177,11 @@ let g:gutentags_ctags_exclude = [
       \ ]
 
 " create a command on vim below to rebuild the Gutentags cache
-command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
-" TODO: assign a shortcut to the ClearCache command above
-nmap <F8> :TagbarToggle<CR>| " Toggle ctags sidebar to easily navigate on code
+command! -nargs=0 GutentagsClearCache call system('rm -fr ' . g:gutentags_cache_dir)
+nmap <Leader>tc :GutentagsClearCache<CR>| " Clear Gutentags cache (the directory with all tags)
 
+nmap <Leader>tu :GutentagsUpdate<CR>| " Update Gutentags
+nmap <F8> :TagbarToggle<CR>| " Toggle ctags sidebar to easily navigate on code
 "" Now we can turn our filetype functionality back on
 filetype plugin indent on
 
