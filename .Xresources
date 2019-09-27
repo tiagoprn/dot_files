@@ -24,7 +24,7 @@ URxvt.scrollBar: false
 urxvt*depth: 32
 URxvt.internalBorder:  30
 ! [xx] below before the color hex code means xx% transparency
-URxvt.background: [75]#000000
+URxvt.background: [0]#000000
 URxvt.foreground:   #ffffff
 URxvt.cursorColor:  #ffffff
 URxvt.saveLines: 50000
