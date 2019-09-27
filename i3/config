@@ -317,6 +317,7 @@ bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgen
 
 bindsym $mod+b exec --no-startup-id /storage/src/devops/rofi/bookmarks.py
 bindsym $mod+i exec --no-startup-id /storage/src/devops/rofi/vim_shortcuts.py
+bindsym $mod+a exec --no-startup-id /storage/src/devops/rofi/i3_cheatsheet.sh
 
 bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000"
 bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000"

@@ -20,6 +20,15 @@ set nocompatible
 "            for the paste toggle to work accordingly.
 set pastetoggle=<F2>
 
+" Color scheme (must be in ~/.vim/colors)
+set t_Co=256
+set background=dark
+color wombat256mod
+
+" font
+set anti gfn=Hack\ Regular\ 11
+set guifont=Hack\ Regular\ 11
+
 " Use true color instead of 256 colors
 set termguicolors
 
@@ -531,14 +540,6 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
-" Color scheme (must be in ~/.vim/colors)
-set t_Co=256
-set background=dark
-color PaperColor
-
-" font
-set anti gfn=Hack\ Regular\ 11
-set guifont=Hack\ Regular\ 11
 
 " Always show the status line
 set laststatus=2
