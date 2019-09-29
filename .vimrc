@@ -21,9 +21,8 @@ set nocompatible
 set pastetoggle=<F2>
 
 " Color scheme (must be in ~/.vim/colors)
-set t_Co=256
 set background=dark
-color PaperColor
+color wal
 
 " font
 set anti gfn=Hack\ Regular\ 11
@@ -100,6 +99,9 @@ Plugin 'terryma/vim-expand-region'
 
 " Undo tree
 Plugin 'sjl/gundo.vim'
+
+" Vim color scheme to be used with pywal
+Plugin 'dylanaraps/wal.vim'
 
 """ Change vim-move modifier from A to C:
 let g:move_key_modifier = 'C'
