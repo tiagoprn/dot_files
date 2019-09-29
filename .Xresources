@@ -4,6 +4,7 @@
 ! --- uRxvt
 URxvt.cursorBlink: 1
 URxvt.cursorUnderline: 1
+URxvt.transparent: 	false
 
 ! Make the sure the font you use below supports unicode symbols
 ! (you can check setting a bookmark on a vim file with `,,`, should

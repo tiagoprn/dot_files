@@ -28,9 +28,6 @@ color wal
 set anti gfn=Hack\ Regular\ 11
 set guifont=Hack\ Regular\ 11
 
-" Use true color instead of 256 colors
-set termguicolors
-
 set tags=~/.cache/vim/ctags
 
 " Auto setup vim make command to run lint
