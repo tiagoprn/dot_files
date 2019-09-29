@@ -22,7 +22,7 @@ set pastetoggle=<F2>
 
 " Color scheme (must be in ~/.vim/colors)
 set background=dark
-color wal
+colorscheme one
 
 " font
 set anti gfn=Hack\ Regular\ 11
