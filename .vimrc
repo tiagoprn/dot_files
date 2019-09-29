@@ -98,6 +98,9 @@ Plugin 'majutsushi/tagbar'
 " Expand selection region
 Plugin 'terryma/vim-expand-region'
 
+" Undo tree
+Plugin 'sjl/gundo.vim'
+
 """ Change vim-move modifier from A to C:
 let g:move_key_modifier = 'C'
 
@@ -129,6 +132,11 @@ let g:pymode_python = 'python3'
 
 """ enable pymode motions
 let g:pymode_motion = 0
+
+" gundo customization
+let g:gundo_prefer_python3 = 1
+"Display the undo tree with <leader>u.
+nnoremap <leader>t :GundoToggle<CR>| " Toggle undo tree preview
 
 """ If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
