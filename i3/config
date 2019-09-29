@@ -68,11 +68,11 @@ bindsym $mod+k kill
 
 # program launcher
 # below lists all binary executable files
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show run
 # below lists just apps with .desktop files
-bindsym $mod+space exec rofi -show drun -drun-icon-theme
+bindsym $mod+space exec --no-startup-id rofi -show drun -drun-icon-theme
 # below, alt-tab to quickly switch between windows
-bindsym Mod1+Tab exec rofi -show window -drun-icon-theme
+bindsym Mod1+Tab exec --no-startup-id rofi -show window -drun-icon-theme
 
 # change focus
 bindsym $mod+Left focus left
@@ -312,7 +312,7 @@ bindsym Mod1+r exec --no-startup-id urxvt -name ranger -e bash -c 'VISUAL=vim ED
 bindsym Mod1+t exec --no-startup-id urxvt -name tiagoprnl -e bash -c '/storage/src/devops/bin/search_posts_and_trigger_vim_by_file_name.sh'
 bindsym Mod1+Shift+t exec --no-startup-id urxvt -name tiagoprnl -e bash -c '/storage/src/devops/bin/search_posts_and_trigger_vim_by_file_contents.sh'
 
-bindsym Mod1+w exec sxiv -t ~/Wallpapers
+bindsym Mod1+w exec --no-startup-id sxiv -t ~/Wallpapers
 
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
 
