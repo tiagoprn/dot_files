@@ -507,7 +507,7 @@ set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends
 au BufEnter,InsertLeave * set list
 au InsertEnter * set nolist
 " Change color of special chars
-hi SpecialKey ctermfg=red guifg=red
+" hi SpecialKey ctermfg=red guifg=red
 
 " Expands on what vim considers as a markdown filetype
 au BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=markdown
