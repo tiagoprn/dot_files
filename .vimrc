@@ -25,8 +25,8 @@ set background=dark
 colorscheme one
 
 " font
-set anti gfn=Hack\ Regular\ 11
-set guifont=Hack\ Regular\ 11
+set anti gfn=Input\ Mono\ Condensed\ 11
+set guifont=Input\ Mono\ Condensed\ 11
 
 set tags=~/.cache/vim/ctags
 
