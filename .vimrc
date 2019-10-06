@@ -25,8 +25,8 @@ set background=dark
 colorscheme one
 
 " font
-set anti gfn=Input\ Mono\ Condensed\ 11
-set guifont=Input\ Mono\ Condensed\ 11
+set anti gfn=Iosevka\ 11
+set guifont=Iosevka\ 11
 
 set tags=~/.cache/vim/ctags
 
