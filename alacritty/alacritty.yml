@@ -109,7 +109,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: Input Mono Condensed
+    family: Iosevka
 
     # The `style` can be specified to pick a specific face.
     style: Regular

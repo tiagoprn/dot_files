@@ -9,7 +9,7 @@ URxvt.transparent: 	false
 ! Make the sure the font you use below supports unicode symbols
 ! (you can check setting a bookmark on a vim file with `,,`, should
 ! print a flag if it supports.
-URxvt.font: xft:Input Mono Condensed:size=12:autohint:true:antialias:true\
+URxvt.font: xft:Iosevka Term:size=12:autohint:true:antialias:true\
 
 ! Below is the configuration for using more than one font,
 ! but it has the collateral effect that it breaks urxvt
