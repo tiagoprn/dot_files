@@ -252,7 +252,7 @@ alias vim-python-mode-update="cd /storage/src/dot_files/.vim/bundle/python-mode 
 alias chown_me="sudo chown -R $(id -u):$(id -g)"
 alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
 alias climate-report="curl -s 'wttr.in/Sao_Paulo?lang=pt-br'"
-
+alias update-fonts="fc-cache -vf ~/.config/fonts/"
 function fzf-bash-history-search() {  # Function to search through bash history using fzf
     cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
     # Add the command to history
