@@ -61,7 +61,7 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id alacritty -e bash -c '/storage/src/devops/bin/start_random_tmux_session_name.sh'
 bindsym $mod+Shift+Return exec --no-startup-id alacritty
 
-bindsym Mod1+Return exec --no-startup-id '/storage/src/devops/bin/giant-urxvt-terminal.sh'
+bindsym Mod1+Return exec --no-startup-id '/storage/src/devops/bin/urxvt-terminal.sh'
 
 # kill focused window
 bindsym $mod+k kill
