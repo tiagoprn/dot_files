@@ -34,8 +34,9 @@ set $pitchblack #000000
 set $bluesky #4845da
 set $blue #0000ff
 
-set $font_family Source Sans Pro Semibold
-set $font_size 14
+# set $font_family Source Sans Pro Semibold
+set $font_family Source Sans Pro
+set $font_size 10
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
