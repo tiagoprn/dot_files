@@ -53,6 +53,9 @@
     A: go to end of line and enter insert mode
     I: go to beginning of line and enter insert mode
 
+    ## 5.5) Replace spaces for <ENTER>:
+        :%s/ /\r/g
+
     ## 6) Multiple cursor alternative to edit (vim does not have multiple cursors but has a more powerful syntax)
 
     ### A) Change multiple occurrences from word:
