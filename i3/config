@@ -343,7 +343,7 @@ bindsym $mod+Shift+l exec --no-startup-id i3-msg move workspace to output left
 bindsym $mod+Shift+r exec --no-startup-id i3-msg move workspace to output right
 
 bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; arandr"
-bindsym Mod1+k exec --no-startup-id "notify-send 'Toggling keyboard layout...' --urgency critical; python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
+bindsym Mod1+k exec --no-startup-id "/storage/src/devops/rofi/toggle_keyboards.py"
 
 # --- CUSTOM COMMANDS ON CURRENT WINDOW
 bindsym Mod1+s sticky toggle
