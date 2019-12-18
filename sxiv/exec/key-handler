@@ -8,6 +8,6 @@ do
         "p")
                 wal -n -i "$file" && notify-send "Changed pywal theme using color palette from $file.";;
         "w")
-				feh --bg-fill "$file" && notify-send "Changed wallpaper to $file." ;;
+				touch $file && feh --bg-fill "$file" && notify-send "Changed wallpaper to $file." ;;
         esac
 done
