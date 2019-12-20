@@ -259,8 +259,8 @@ alias lsr="ls --color -halt"
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 alias rsync-no-delete="rsync -rchzPvi --progress"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
-alias tmux-edit-history="tmux-save-history && vim $HOME/tmux.history"
-alias tmux-cat-history="tmux-save-history && cat $HOME/tmux.history"
+alias tmux-edit-history="vim $HOME/tmux.history"
+alias tmux-cat-history="cat $HOME/tmux.history"
 alias vim-python-mode-update="cd /storage/src/dot_files/.vim/bundle/python-mode && git submodule update --init --recursive "
 alias chown_me="sudo chown -R $(id -u):$(id -g)"
 alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
@@ -405,8 +405,8 @@ git-log-browser() {
 
 function tmux-search-history() {  # search through saved tmux history file
     local command=$(
-        tmux-save-history && cat $HOME/tmux.history | grep -e '^(ins)' | cut -c9- | sort | uniq | fzf --exact --no-multi
-      )
+        cat $HOME/tmux.history | grep -e '^(ins)' | cut -c9- | sort | uniq | fzf --exact --no-multi
+    )
     if [ -n "$command" ]; then
         echo "$command" | cb
         setxkbmap us && xdotool type "$command" && setxkbmap -model abnt2 -layout br
