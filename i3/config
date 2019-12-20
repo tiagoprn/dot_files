@@ -59,8 +59,8 @@ font pango: $font_family $font_size
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id alacritty -e bash -c '/storage/src/devops/bin/start_random_tmux_session_name.sh'
-bindsym $mod+Shift+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Shift+Return exec --no-startup-id alacritty -e bash -c '/storage/src/devops/bin/start_random_tmux_session_name.sh'
 
 bindsym Mod1+Return exec --no-startup-id '/storage/src/devops/bin/urxvt-terminal.sh'
 
@@ -288,6 +288,7 @@ bindsym $mod+BackSpace scratchpad show move position center
 
 # --- WINDOWS THAT ALWAYS START IN FLOATING MODE ---
 for_window [class="Alacritty"] border pixel 4
+for_window [class="kitty"] border pixel 4
 for_window [class="URxvt"] border pixel 4
 for_window [class="MPlayer"] floating enable border pixel 1
 for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 480 move position center
