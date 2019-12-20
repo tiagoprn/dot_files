@@ -50,7 +50,7 @@ fi
 
 
 NAVI_BIN=$HOME/bin/navi
-if [ -f $NAVI_BIN];
+if [ -f $NAVI_BIN ];
 then
     # export NAVI_PATH="/folder/with/cheats:/another/folder"
     export NAVI_PATH="/storage/src/devops/cheats"
