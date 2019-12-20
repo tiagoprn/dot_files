@@ -52,8 +52,13 @@ fi
 NAVI_BIN=$HOME/bin/navi
 if [ -f $NAVI_BIN ];
 then
-    # export NAVI_PATH="/folder/with/cheats:/another/folder"
     export NAVI_PATH="/storage/src/devops/cheats"
+    export DAFITI_CHEATS="/storage/docs/notes/work/dafiti/cheats"
+    if [ -d $DAFITI_CHEATS ];
+    then
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        export NAVI_PATH="$NAVI_PATH:$DAFITI_CHEATS"
+    fi
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
