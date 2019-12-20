@@ -403,9 +403,19 @@ git-log-browser() {
     fi
 }
 
-function tmux-search-history() {  # search through saved tmux history file
+function tmux-search-history() {  # search comands through saved tmux history file
     local command=$(
         cat $HOME/tmux.history | grep -e '^(ins)' | cut -c9- | sort | uniq | fzf --exact --no-multi
+    )
+    if [ -n "$command" ]; then
+        echo "$command" | cb
+        setxkbmap us && xdotool type "$command" && setxkbmap -model abnt2 -layout br
+    fi
+}
+
+function tmux-search-contents() {  # search contents through saved tmux history file
+    local command=$(
+        cat $HOME/tmux.history | fzf --exact --no-multi
     )
     if [ -n "$command" ]; then
         echo "$command" | cb
