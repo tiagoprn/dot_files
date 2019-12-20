@@ -112,9 +112,9 @@ bindsym $mod+p focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-set $workspace1 " 1:TMUX"
+set $workspace1 " 1:etc0"
 set $workspace2 " 2:Firefox"
-set $workspace3 " 3:Dev"
+set $workspace3 " 3:Work"
 set $workspace4 " 4:Chrome"
 set $workspace5 " 5:Schedule"
 set $workspace6 " 6:IMMERSIVE"
