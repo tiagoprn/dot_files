@@ -469,6 +469,8 @@ fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+source "$(navi widget bash)"
+
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if ! [ -x "$(command -v pyenv)" ]; then
     echo 'pyenv is not installed, I recommend you to install it.' >&2

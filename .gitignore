@@ -1,2 +1,7 @@
 .vim/bundle/**
 tags
+gtk-3.0/bookmarks
+.vim/.netrwhist
+ranger/bookmarks
+ranger/history
+ranger/tagged
