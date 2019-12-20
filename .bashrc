@@ -48,6 +48,14 @@ then
     export PATH=$PATH:$TMUX_BIN
 fi
 
+
+NAVI_BIN=$HOME/bin/navi
+if [ -f $NAVI_BIN];
+then
+    # export NAVI_PATH="/folder/with/cheats:/another/folder"
+    export NAVI_PATH="/storage/src/devops/cheats"
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT ];
 then
@@ -254,7 +262,6 @@ alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="
 alias climate-report="curl -s 'wttr.in/Sao_Paulo?lang=pt-br'"
 alias fonts-update="fc-cache -vf ~/.fonts/ && echo 'listing fonts:' && fc-list"
 alias keyboard_toggle="python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
-alias navi="navi --path /storage/src/devops/cheats"
 
 function fzf-bash-history-search() {  # Function to search through bash history using fzf
     cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
@@ -470,7 +477,7 @@ fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-source "$(navi widget bash)"
+# source "$(navi widget bash)"
 
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if ! [ -x "$(command -v pyenv)" ]; then
