@@ -254,6 +254,7 @@ alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="
 alias climate-report="curl -s 'wttr.in/Sao_Paulo?lang=pt-br'"
 alias fonts-update="fc-cache -vf ~/.fonts/ && echo 'listing fonts:' && fc-list"
 alias keyboard_toggle="python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
+alias navi="navi --path /storage/src/devops/cheats"
 
 function fzf-bash-history-search() {  # Function to search through bash history using fzf
     cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
