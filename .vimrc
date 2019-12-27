@@ -649,6 +649,9 @@ nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
 nnoremap <C-O> :Commands<Cr>| " fzf: select commands
 nnoremap <C-W> :Windows<Cr>| " fzf: select open windows
 nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, variable, etc...
+" <Cr> | " fzf tip: open file on current window
+" <C-x> | " fzf tip: open file on horizontal split
+" <C-v> | " fzf tip: open file on vertical split
 
 nnoremap <silent> <Leader>bd :bdelete!<Cr>| " fzf: buffer delete
 
