@@ -1,0 +1,160 @@
+(all instructions below are for Ubuntu 18.04)
+
+# TODO: 
+
+- Split /storage/src/dot_files/.bashrc into .bash_aliases and
+  .bash_environment, to enable them to load separately and source them both on
+.bashrc after making sure they work individually.
+
+- See TODO marks on sections 3, 4 and 5
+
+- Convert this file into an ansible playbook to automate everything here. 
+
+# 1) APT REPOSITORIES
+
+## kitty (terminal emulator)
+
+$ sudo add-apt-repository ppa:yurivkhan/kitty
+$ sudo apt update && sudo apt install kitty
+
+## i3 (https://i3wm.org/docs/repositories.html):
+
+$ # update and install the keyring:
+$ /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb $ dpkg -i ./keyring.deb
+$ # create the new repository
+$ echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
+$ # update the packages list and install i3 packages below:
+$ apt update
+$ apt install i3 compton rofi i3lock i3lock-fancy i3blocks i3status spacefm-gtk3
+
+## telegram
+
+$ sudo add-apt-repository ppa:atareao/telegram
+$ sudo apt update && sudo apt install telegram
+
+## docker 
+
+$ # add docker official repository GPG key:
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ # add docker repository to apt sources:
+$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+$ # update packages database
+$ sudo apt update && sudo apt install docker-ce -y
+
+# 2) APT PACKAGES
+build-essential
+apt-transport-https 
+ca-certificates 
+curl 
+software-properties-common
+bash-completion
+python-optcomplete
+net-tools
+htop
+sysstat
+ncdu
+xclip
+pandoc
+icdiff
+tree
+gitg
+tig
+cowsay
+ioping
+stress-ng
+iotop
+gimp
+inkscape
+rclone
+nmap
+source-highlight 
+screenkey 
+strace 
+dnstracer 
+borgbackup 
+python-llfuse 
+xdotool 
+s3fs
+python
+python-pip
+python3
+python3-pip
+python3-all-dev
+numlockx
+font-manager
+qemu 
+qemu-kvm
+acpi 
+acpitool 
+arandr 
+feh 
+imagemagick 
+libjpeg-progs 
+xautolock
+scrot 
+dunst 
+rxvt-unicode 
+gpick 
+x11-apps 
+sxiv 
+mupdf 
+mupdf-tools 
+gnome-boxes 
+flameshot 
+mps-youtube 
+mplayer 
+ffmpeg 
+mpv
+vlc
+golang-go
+ansible
+numix-gtk-theme
+numix-icon-theme
+materia-gtk-theme
+
+# 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
+
+## Install stdeb:
+$ pip3 install stdeb3 python-rofi
+
+## Packages to install through stdeb:
+( /usr/local/bin/pypi-install [pip-package-name] )
+pywal
+dmenu
+py3status
+TODO: passpy
+TODO: flashfocus
+
+# 4) TO BE COMPILED / INSTALLED:
+
+- telegram-desktop 
+
+$ wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+
+$ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+
+$ sudo rm -fr /opt/navi ; sudo mkdir /opt/navi && sudo chown -R $(id -u).$(id -g) /opt/navi && git clone --depth 1 https://github.com/denisidoro/navi /opt/navi && cd /opt/navi && sudo make install 
+
+$ wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb
+$ wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/playerctl_2.0.1-1_amd64.deb
+
+$ /storage/src/devops/shellscripts/installers/install_tmux_on_home_folder.sh
+
+TODO: nnn
+TODO: bat
+TODO: blueberry linux mint bluetooth manager
+TODO: http://eradman.com/entrproject/
+TODO: wpgtk
+
+# 5) TODO: Adicionar novos comandos a seguir na navi:
+
+$ # add user to a group:
+$ sudo usermod -aG docker ${USER}
+$ # list current user groups:
+$ id -nG
+$ # get user id
+$ id -u
+$ # get user group id
+$ id -g
+$ # list installed package contents:
+$ # dpkg -L [package-name]
