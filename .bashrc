@@ -54,6 +54,19 @@ then
     export PATH=$PATH:$FZF_BIN
 fi
 
+NAVI_BIN=$HOME/bin/navi
+GLOBAL_NAVI_BIN=/usr/local/bin/navi
+if [ -f $NAVI_BIN ] || [ -f $GLOBAL_NAVI_BIN ] ;
+then
+    export NAVI_PATH="/storage/src/devops/cheats"
+    export DAFITI_CHEATS="/storage/docs/notes/work/dafiti/cheats"
+    if [ -d $DAFITI_CHEATS ];
+    then
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        export NAVI_PATH="$NAVI_PATH:$DAFITI_CHEATS"
+    fi
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT ];
 then
@@ -252,8 +265,8 @@ alias lsr="ls --color -halt"
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 alias rsync-no-delete="rsync -rchzPvi --progress"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
-alias tmux-edit-history="tmux-save-history && vim $HOME/tmux.history"
-alias tmux-cat-history="tmux-save-history && cat $HOME/tmux.history"
+alias tmux-edit-history="vim $HOME/tmux.history"
+alias tmux-cat-history="cat $HOME/tmux.history"
 alias vim-python-mode-update="cd /storage/src/dot_files/.vim/bundle/python-mode && git submodule update --init --recursive "
 alias chown_me="sudo chown -R $(id -u):$(id -g)"
 alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
@@ -396,10 +409,20 @@ git-log-browser() {
     fi
 }
 
-function tmux-search-history() {  # search through saved tmux history file
+function tmux-search-history() {  # search comands through saved tmux history file
     local command=$(
-        tmux-save-history && cat $HOME/tmux.history | grep -e '^(ins)' | cut -c9- | sort | uniq | fzf --exact --no-multi
-      )
+        cat $HOME/tmux.history | grep -e '^(ins)' | cut -c9- | sort | uniq | fzf --exact --no-multi
+    )
+    if [ -n "$command" ]; then
+        echo "$command" | cb
+        setxkbmap us && xdotool type "$command" && setxkbmap -model abnt2 -layout br
+    fi
+}
+
+function tmux-search-contents() {  # search contents through saved tmux history file
+    local command=$(
+        cat $HOME/tmux.history | fzf --exact --no-multi
+    )
     if [ -n "$command" ]; then
         echo "$command" | cb
         setxkbmap us && xdotool type "$command" && setxkbmap -model abnt2 -layout br
@@ -474,6 +497,8 @@ the same from bash_history. \n\n"
 fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -e | cut -d '.' -f 1)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# source "$(navi widget bash)"
 
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if ! [ -x "$(command -v pyenv)" ]; then

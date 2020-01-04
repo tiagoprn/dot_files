@@ -21,6 +21,10 @@ rm -fr ~/.urxvt
 ln -s /storage/src/dot_files/.urxvt ~/.urxvt
 xrdb .Xresources
 
+echo 'Linking kitty configuration...'
+rm -fr ~/.config/kitty
+ln -s /storage/src/dot_files/kitty ~/.config/kitty
+
 echo 'Linking termite configuration...'
 rm -fr ~/.config/termite
 ln -s /storage/src/dot_files/termite ~/.config/termite
