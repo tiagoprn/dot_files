@@ -36,6 +36,12 @@ then
     export PATH=$PATH:$DEVOPS_BIN
 fi
 
+USER_TMUX_BIN=$HOME/local/bin
+if [ -d $USER_TMUX_BIN ];
+then
+    export PATH=$PATH:$USER_TMUX_BIN
+fi
+
 COOKIE_BIN=$HOME/.local/share/cookie/bin
 if [ -d $COOKIE_BIN ];
 then
@@ -494,9 +500,10 @@ printf "\n- You can use memory_hogs.sh and cpu_hogs.sh to get the processes that
 printf "\n\n- Use <C-t> to copy a command from current tmux history to the clipboard, <C-f> to do
 the same from bash_history. \n\n"
 # fortune   -s
-fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -e | cut -d '.' -f 1)
+# fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -e | cut -d '.' -f 1)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 
 # source "$(navi widget bash)"
 
