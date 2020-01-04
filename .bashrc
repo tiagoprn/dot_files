@@ -48,6 +48,12 @@ then
     export PATH=$PATH:$TMUX_BIN
 fi
 
+FZF_BIN=$HOME/.fzf/bin
+if [ -d $FZF_BIN ];
+then
+    export PATH=$PATH:$FZF_BIN
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT ];
 then
