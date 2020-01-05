@@ -158,3 +158,5 @@ $ # get user group id
 $ id -g
 $ # list installed package contents:
 $ # dpkg -L [package-name]
+$ # figlet
+$ echo "$(hostname)" | figlet -cptk
