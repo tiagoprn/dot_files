@@ -23,66 +23,9 @@ shopt -s cmdhist
 ## Unified bash history
 shopt -s histappend
 
-
+source .bash_environment
 source .bash_functions 
 source .bash_aliases
-
-HOMEBIN=/home/$USER/bin
-if [ ! -d $HOMEBIN ];
-then
-    mkdir $HOMEBIN
-fi
-export PATH=$PATH:$HOMEBIN
-
-DEVOPS_BIN=/storage/src/devops/bin
-if [ -d $DEVOPS_BIN ];
-then
-    export PATH=$PATH:$DEVOPS_BIN
-fi
-
-USER_TMUX_BIN=$HOME/local/bin
-if [ -d $USER_TMUX_BIN ];
-then
-    export PATH=$PATH:$USER_TMUX_BIN
-fi
-
-COOKIE_BIN=$HOME/.local/share/cookie/bin
-if [ -d $COOKIE_BIN ];
-then
-    export PATH=$PATH:$COOKIE_BIN
-fi
-
-TMUX_BIN=$HOME/local/bin
-if [ -d $TMUX_BIN ];
-then
-    export PATH=$PATH:$TMUX_BIN
-fi
-
-FZF_BIN=$HOME/.fzf/bin
-if [ -d $FZF_BIN ];
-then
-    export PATH=$PATH:$FZF_BIN
-fi
-
-NAVI_BIN=$HOME/bin/navi
-GLOBAL_NAVI_BIN=/usr/local/bin/navi
-if [ -f $NAVI_BIN ] || [ -f $GLOBAL_NAVI_BIN ] ;
-then
-    export NAVI_PATH="/storage/src/devops/cheats"
-    export DAFITI_CHEATS="/storage/docs/notes/work/dafiti/cheats"
-    if [ -d $DAFITI_CHEATS ];
-    then
-        export PATH="$PYENV_ROOT/bin:$PATH"
-        export NAVI_PATH="$NAVI_PATH:$DAFITI_CHEATS"
-    fi
-fi
-
-export PYENV_ROOT="$HOME/.pyenv"
-if [ -d $PYENV_ROOT ];
-then
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    export PYENV_BIN=$PYENV_ROOT/bin/pyenv
-fi
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -99,36 +42,6 @@ if [ ! -f /usr/share/git/completion/git-prompt.sh ]; then
     sudo curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -o /usr/share/git/completion/git-prompt.sh
 fi
 source /usr/share/git/completion/git-prompt.sh
-
-
-## Default programs
-export EDITOR=vim
-export VISUAL=vim
-export BROWSER=/usr/bin/chromium
-# rg means ripgrep, that is nice to use with fzf
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-
-## For tmux to work nicely
-# export TERM=xterm-256color
-# export TERM=screen-256color-bce
-# export TERM=screen-256color
-export TERM=rxvt-unicode-256color
-
-## To stop showing warnings on activating a pyenv.
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
-export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Size}}"
-
-PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
-
-## To run ansible locally without it being so annoying :)
-export ANSIBLE_HOST_KEY_CHECKING=False
-
-## Fixes giant screen for e.g. seafile-applet on arch linux (may happen to VLC also, so it is QT related):
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_SCALE_FACTOR=0.6
-
 
 # When using vim-mode, add beside the prompt and indicator if we are on visual
 # or insert mode.
@@ -147,7 +60,6 @@ bind -x '"\ei":vim-fzf'
 ## VIM-MODE SPECIFIC
 ### Clear screen as on emacs-mode and vi-visual
 bind -m vi-insert "\C-l":clear-screen
-
 
 ## Auto start tmux (DISABLED IN FAVOR OF MY ALIAS tmux-autostart)
 # This script looks for the parent process of the bash shell.
