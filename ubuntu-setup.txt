@@ -111,6 +111,7 @@ ansible
 numix-gtk-theme
 numix-icon-theme
 materia-gtk-theme
+exuberant-ctags
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
