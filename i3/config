@@ -316,7 +316,7 @@ bindsym Mod1+Shift+t exec --no-startup-id urxvt -name tiagoprnl -e bash -c '/sto
 
 bindsym Mod1+w exec --no-startup-id sxiv -t ~/Wallpapers
 
-bindsym $mod+n exec --no-startup-id "notify-send 'Launching nautilus...' --urgency low; nautilus"
+bindsym $mod+n exec --no-startup-id "notify-send 'Launching spacefm...' --urgency low; spacefm"
 
 bindsym $mod+b exec --no-startup-id /storage/src/devops/rofi/bookmarks.py
 bindsym $mod+i exec --no-startup-id /storage/src/devops/rofi/vim_shortcuts.py
