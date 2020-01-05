@@ -102,14 +102,12 @@ the same from bash_history. \n\n"
 # source "$(navi widget bash)"
 
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
-if ! [ -x "$(command -v pyenv)" ]; then
-    echo 'pyenv is not installed, I recommend you to install it.' >&2
-    exit 1
-fi
-
 if [ -d $PYENV_ROOT ];
 then
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+    if ! [ -x "$(command -v pyenv)" ]; then
+        echo 'pyenv is not installed, I recommend you to install it.' # >&2
+    else
+        eval "$(pyenv init -)"
+        eval "$(pyenv virtualenv-init -)"
+    fi
 fi
-
