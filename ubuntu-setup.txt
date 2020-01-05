@@ -2,6 +2,25 @@
 
 # TODO:
 
+- Compile vim: 
+
+$ sudo su
+$ apt remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
+$ cd /opt
+$ git clone https://github.com/vim/vim.git
+$ ./configure --enable-fail-if-missing --with-features=huge \
+	--enable-multibyte \
+	--enable-pythoninterp \
+	--enable-python3interp \
+        --enable-terminal \
+	--enable-cscope \
+	--with-tlib=ncurses \
+	--prefix=/usr
+
+$ ./make
+$ ./make check 
+$ ./make install
+
 - See TODO marks on sections 3, 4 and 5
 
 - Convert this file into an ansible playbook to automate everything here.
@@ -108,6 +127,8 @@ numix-gtk-theme
 numix-icon-theme
 materia-gtk-theme
 exuberant-ctags
+libncurses5-dev
+
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
