@@ -2,25 +2,6 @@
 
 # TODO:
 
-- Compile vim: 
-
-$ sudo su
-$ apt remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
-$ cd /opt
-$ git clone https://github.com/vim/vim.git
-$ ./configure --enable-fail-if-missing --with-features=huge \
-	--enable-multibyte \
-	--enable-pythoninterp \
-	--enable-python3interp \
-        --enable-terminal \
-	--enable-cscope \
-	--with-tlib=ncurses \
-	--prefix=/usr
-
-$ ./make
-$ ./make check 
-$ ./make install
-
 - See TODO marks on sections 3, 4 and 5
 
 - Convert this file into an ansible playbook to automate everything here.
@@ -128,6 +109,16 @@ numix-icon-theme
 materia-gtk-theme
 exuberant-ctags
 libncurses5-dev
+libgnome2-dev
+libgnomeui-dev 
+libgtk2.0-dev 
+libatk1.0-dev 
+libbonoboui2-dev 
+libcairo2-dev 
+libx11-dev 
+libxpm-dev 
+libxt-dev
+
 
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
@@ -145,18 +136,44 @@ TODO: flashfocus
 
 # 4) TO BE COMPILED / INSTALLED:
 
-- telegram-desktop
+## telegram-desktop
 
+## ripgrep:
 $ wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 
+## fzf:
 $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
+## navi:
 $ sudo rm -fr /opt/navi ; sudo mkdir /opt/navi && sudo chown -R $(id -u).$(id -g) /opt/navi && git clone --depth 1 https://github.com/denisidoro/navi /opt/navi && cd /opt/navi && sudo make install
 
+## playerctl:
 $ wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb
 $ wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/playerctl_2.0.1-1_amd64.deb
 
+## tmux:
 $ /storage/src/devops/shellscripts/installers/install_tmux_on_home_folder.sh
+
+## vim:
+$ sudo su
+$ apt remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
+$ cd /opt/installers
+$ git clone https://github.com/vim/vim.git
+$ make distclean
+$ ./configure --enable-fail-if-missing --with-features=huge \
+	--enable-multibyte \
+	--enable-pythoninterp \
+	--enable-python3interp \
+        --enable-terminal \
+	--enable-cscope \
+	--with-tlib=ncurses \
+	--prefix=/usr
+$ ./make
+$ ./make install
+$ update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1 && \
+  update-alternatives --set editor /usr/bin/vim && \
+  update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1 && \
+  update-alternatives --set vi /usr/bin/vim
 
 TODO: nnn
 TODO: bat

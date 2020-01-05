@@ -106,9 +106,6 @@ Linking: gcc   -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -Wl,--as-needed 
 
 $ vim --version
 
-
-
-
 VIM - Vi IMproved 8.2 (2019 Dec 12, compiled Jan  5 2020 13:34:41)
 Included patches: 1-87
 Compiled by tiago@enterprise-d
