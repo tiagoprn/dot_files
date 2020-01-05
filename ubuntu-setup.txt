@@ -3,7 +3,6 @@
 # TODO:
 
 - See TODO marks on sections 3, 4 and 5
-
 - Convert this file into an ansible playbook to automate everything here.
 
 # 1) APT REPOSITORIES
@@ -188,7 +187,7 @@ $ cd /opt/installers
 $ git clone https://github.com/jarun/nnn.git && cd nnn
 $ make O_NORL=1 strip install
 
-
+TODO: pyenv
 TODO: blueberry linux mint bluetooth manager
 TODO: http://eradman.com/entrproject/
 TODO: wpgtk
