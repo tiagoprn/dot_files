@@ -1,14 +1,10 @@
 (all instructions below are for Ubuntu 18.04)
 
-# TODO: 
-
-- Split /storage/src/dot_files/.bashrc into .bash_aliases and
-  .bash_environment, to enable them to load separately and source them both on
-.bashrc after making sure they work individually.
+# TODO:
 
 - See TODO marks on sections 3, 4 and 5
 
-- Convert this file into an ansible playbook to automate everything here. 
+- Convert this file into an ansible playbook to automate everything here.
 
 # 1) APT REPOSITORIES
 
@@ -32,7 +28,7 @@ $ apt install i3 compton rofi i3lock i3lock-fancy i3blocks i3status spacefm-gtk3
 $ sudo add-apt-repository ppa:atareao/telegram
 $ sudo apt update && sudo apt install telegram
 
-## docker 
+## docker
 
 $ # add docker official repository GPG key:
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -43,9 +39,9 @@ $ sudo apt update && sudo apt install docker-ce -y
 
 # 2) APT PACKAGES
 build-essential
-apt-transport-https 
-ca-certificates 
-curl 
+apt-transport-https
+ca-certificates
+curl
 software-properties-common
 bash-completion
 python-optcomplete
@@ -67,13 +63,13 @@ gimp
 inkscape
 rclone
 nmap
-source-highlight 
-screenkey 
-strace 
-dnstracer 
-borgbackup 
-python-llfuse 
-xdotool 
+source-highlight
+screenkey
+strace
+dnstracer
+borgbackup
+python-llfuse
+xdotool
 s3fs
 python
 python-pip
@@ -82,28 +78,28 @@ python3-pip
 python3-all-dev
 numlockx
 font-manager
-qemu 
+qemu
 qemu-kvm
-acpi 
-acpitool 
-arandr 
-feh 
-imagemagick 
-libjpeg-progs 
+acpi
+acpitool
+arandr
+feh
+imagemagick
+libjpeg-progs
 xautolock
-scrot 
-dunst 
-rxvt-unicode 
-gpick 
-x11-apps 
-sxiv 
-mupdf 
-mupdf-tools 
-gnome-boxes 
-flameshot 
-mps-youtube 
-mplayer 
-ffmpeg 
+scrot
+dunst
+rxvt-unicode
+gpick
+x11-apps
+sxiv
+mupdf
+mupdf-tools
+gnome-boxes
+flameshot
+mps-youtube
+mplayer
+ffmpeg
 mpv
 vlc
 golang-go
@@ -128,13 +124,13 @@ TODO: flashfocus
 
 # 4) TO BE COMPILED / INSTALLED:
 
-- telegram-desktop 
+- telegram-desktop
 
 $ wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 
 $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
-$ sudo rm -fr /opt/navi ; sudo mkdir /opt/navi && sudo chown -R $(id -u).$(id -g) /opt/navi && git clone --depth 1 https://github.com/denisidoro/navi /opt/navi && cd /opt/navi && sudo make install 
+$ sudo rm -fr /opt/navi ; sudo mkdir /opt/navi && sudo chown -R $(id -u).$(id -g) /opt/navi && git clone --depth 1 https://github.com/denisidoro/navi /opt/navi && cd /opt/navi && sudo make install
 
 $ wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb
 $ wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/playerctl_2.0.1-1_amd64.deb
