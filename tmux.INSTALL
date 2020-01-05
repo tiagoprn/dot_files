@@ -1,6 +1,6 @@
 INSTALLING:
 
-    rm -fr ~/.tmux; mkdir ~/.tmux && ln -s /storage/src/dot_files/.tmux.conf ~/.tmux.conf && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ./configure_tmux.sh
 
 HERE IS HOW TO INSTALL IT ON A HOME FOLDER:
     /storage/src/devops/shellscripts/installers/install_tmux_on_home_folder.sh
