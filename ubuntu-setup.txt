@@ -137,6 +137,12 @@ TODO: flashfocus
 # 4) TO BE COMPILED / INSTALLED:
 
 ## telegram-desktop
+$ mkdir /opt/telegram && cd /opt/telegram
+$ curl -L https://telegram.org/dl/desktop/linux -o tsetup.tar.xz
+$ xz -d tsetup.tar.xz && tar xfv tsetup.tar && cd Telegram && ls
+$ cd /storage/src/dot_files/app-launchers && ./setup-app-launcher.sh
+
+
 
 ## ripgrep:
 $ wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
