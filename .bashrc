@@ -104,12 +104,14 @@ function set_prompt_symbol () {
 
 # Determine active Python virtualenv details.
 function set_virtualenv () {
-  if [ -x "$(command -v pyenv)" ]; then
-      if [[ `pyenv version-name` == "system" ]] ; then
-          PYTHON_VIRTUALENV=""
-      else
-          PYTHON_VIRTUALENV="${BLUE}[PYENV:`pyenv version-name`]${COLOR_NONE} "
-      fi
+  PYENV_ROOT="$HOME/.pyenv"
+  PYENV_BIN=$PYENV_ROOT/bin/pyenv
+  if [ -f $PYENV_BIN ]; then
+    if [[ `pyenv version-name` == "system" ]] ; then
+        PYTHON_VIRTUALENV=""
+    else
+        PYTHON_VIRTUALENV="${BLUE}[PYENV:`pyenv version-name`]${COLOR_NONE} "
+    fi
   fi
 }
 
