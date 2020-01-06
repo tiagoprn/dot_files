@@ -120,6 +120,8 @@ libxt-dev
 libncursesw5-dev
 fonts-firacode
 mosh
+pavucontrol
+
 
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
