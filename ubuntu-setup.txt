@@ -192,6 +192,10 @@ $ cd /opt/installers
 $ git clone https://github.com/jarun/nnn.git && cd nnn
 $ make O_NORL=1 strip install
 
+## youtube-dl
+$ sudo snap install youtube-dl
+
+
 TODO: pyenv
 TODO: blueberry linux mint bluetooth manager
 TODO: http://eradman.com/entrproject/
