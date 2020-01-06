@@ -119,6 +119,8 @@ libxpm-dev
 libxt-dev
 libncursesw5-dev
 fonts-firacode
+mosh
+
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
