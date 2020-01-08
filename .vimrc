@@ -467,6 +467,7 @@ filetype plugin indent on
 au FileType py set autoindent
 au FileType py set smartindent
 au FileType py set textwidth=79
+au FileType markdown set textwidth=79
 
 " sets a gray margin on column 80
 "" set colorcolumn=80
