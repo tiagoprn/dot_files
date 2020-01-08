@@ -121,7 +121,7 @@ libncursesw5-dev
 fonts-firacode
 mosh
 pavucontrol
-
+screenfetch
 
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
