@@ -148,4 +148,6 @@ function tmux-search-contents() {  # search contents through saved tmux history 
     fi
 }
 
-
+function tmux-select-session() {
+    echo -e 'Select session: \n'`tmux ls` | fzf | awk '{print $1}' | sed 's/\://g'
+}
