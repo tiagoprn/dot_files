@@ -11,14 +11,15 @@ alias pacman_update_mirrorlists='sudo reflector --verbose --age 6 --country Braz
 alias upgrade='pacman_update_mirrorlists && sudo pacman -Syu --noconfirm && yay -Syyua --noconfirm'
 alias jlogs='sudo journalctl -o short-iso -f --all'
 alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
-alias tmux-autostart="source activate core-utils && /storage/src/devops/tmuxp/start_everything.sh && source deactivate && tmux -2 a -t HOME"
 alias local-ports-open="netstat -netlp"
 alias remote-ports-open="printf 'HINT: pass the host ip as the parameter\n\n' && sudo nmap -sS"
 alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e.g. 10.0.0.1/24\n\n' && sudo nmap -sP"
 alias tmux-attach='tmux -2 a -t `tmux-select-session`'
 alias tmux-kill='tmux kill-session -t `tmux-select-session`'
+# alias tmux-edit-history="vim $HOME/tmux.history"
+# alias tmux-cat-history="cat $HOME/tmux.history"
+alias tmux-autostart="source activate core-utils && /storage/src/devops/tmuxp/start_everything.sh && source deactivate && tmux-attach"
 alias pgrep="pgrep -ia"
-alias tmux-home="tmux -2 a -t HOME "
 alias ansible-edit-hosts="vim ~/ansible/conf/hosts"
 alias ansible-ping-hosts="ansible -i ~/ansible/conf/hosts all -m ping"
 alias ansible-play="ANSIBLE_CONFIG=~/ansible/conf/ansible.cfg ansible-playbook -i ~/ansible/conf/hosts -vv "
@@ -46,8 +47,6 @@ alias lsr="ls --color -halt"
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 alias rsync-no-delete="rsync -rchzPvi --progress"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
-alias tmux-edit-history="vim $HOME/tmux.history"
-alias tmux-cat-history="cat $HOME/tmux.history"
 alias vim-python-mode-update="cd /storage/src/dot_files/.vim/bundle/python-mode && git submodule update --init --recursive "
 alias chown_me="sudo chown -R $(id -u):$(id -g)"
 alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
