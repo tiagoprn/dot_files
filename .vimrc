@@ -769,18 +769,67 @@ endif
 
 """ CHEATSHEET:
 
+"" repetitions
+
+" .| " repeat the last command
+" 5p| " paste text 5 times
+" 3yy| " copy current line and the 2 ones below it
+" 2f [char]| " go to the second occurence of char in line
+" 10k| " moves 10 lines up
+" 5j| " move 5 lines down
+
+"" movement
+
+" h  | "  (movement)   left
+" j  | "  (movement)   down
+" k  | "  (movement)   up
+" l  | "  (movement)   right
+" w  | "  (movement)   next word
+" b  | "  (movement)   beginning of current word / previous word
+" e  | "  (movement)   end of current word / end of next word
+" ^  | "  (movement)   first non-blank character of a line
+" f [char]  | "  (movement)   go to specific char in line, ';' to go to the next occurrence of it
+" t [char]  | "  (movement)   go to one character previous/before specific char in line, ';' to go to the next occurrence of it
+
+" H  | " (movement) high on the viewport
+" M  | " (movement) middle on the viewport
+" L  | " (movement) low on the viewport
+" zz  | "  (movement)   center the viewport (window) on the cursor, without moving the cursor.
+" <ctrl+down>  | "  (movement)   move viewport down faster , without moving the cursor.
+" <ctrl+up>  | "  (movement)   move viewport up faster, without moving the cursor.
+
+"" snippets
+" <C-l>| " select snippet
+" <word><tab>| "expand snippet
+
 "" pymode motions
 
-" [[|  (INACTIVE) " pymode:  motion: Jump to previous class or function (normal, visual, operator modes)
-" ]]|  (INACTIVE) " pymode:  motion: Jump to next class or function  (normal, visual, operator modes)
-" [M|  (INACTIVE) " pymode:  motion: Jump to previous class or method (normal, visual, operator modes)
-" ]M|  (INACTIVE) " pymode:  motion: Jump to next class or method (normal, visual, operator modes)
-" aC|  (INACTIVE) " pymode:  motion: Select a class. Ex: vaC, daC, yaC, caC (normal, operator modes)
-" iC|  (INACTIVE) " pymode:  motion: Select inner class. Ex: viC, diC, yiC, ciC (normal, operator modes)
-" aM|  (INACTIVE) " pymode:  motion: Select a function or method. Ex: vaM, daM, yaM, caM (normal, operator modes)
-" iM|  (INACTIVE) " pymode:  motion: Select inner function or method. Ex: viM, diM, yiM, ciM (normal, operator modes)
+" [[|  (INACTIVE) " pymode:  motion: jump to previous class or function (normal, visual, operator modes)
+" ]]|  (INACTIVE) " pymode:  motion: jump to next class or function  (normal, visual, operator modes)
+" [M|  (INACTIVE) " pymode:  motion: jump to previous class or method (normal, visual, operator modes)
+" ]M|  (INACTIVE) " pymode:  motion: jump to next class or method (normal, visual, operator modes)
+" aC|  (INACTIVE) " pymode:  motion: select a class. ex: vac, dac, yac, cac (normal, operator modes)
+" iC|  (INACTIVE) " pymode:  motion: select inner class. ex: vic, dic, yic, cic (normal, operator modes)
+" aM|  (INACTIVE) " pymode:  motion: select a function or method. ex: vam, dam, yam, cam (normal, operator modes)
+" iM|  (INACTIVE) " pymode:  motion: select inner function or method. ex: vim, dim, yim, cim (normal, operator modes)
 
 "" others
-" :e| " Reload current file
+
+" :e| " reload current file
+" ctrl+[ |"  go to visual mode
+" ctrl+o |"  go to normal mode to execute just one command and go back to insert mode
+" 80i*<esc> |"  (in visual mode - do not start with ':' - this will insert the * character 80 times on the current cursor position)
+" 3i`<esc> |"  (in visual mode - do not start with ':' - this will insert the backstick character 3 times on the current cursor position)
+" o |"   insert blank line below cursor
+" O |"  insert blank line above cursor
+" A |"   go to end of line and enter insert mode
+" I |"   go to beginning of line and enter insert mode
+" :%s/ /\r/g | " replace spaces for <enter>
+" shift+v  | "  select a whole line
+" <control>, h  | "  move current line/selection to the left
+" <control>, j  | "  move current line/selection down
+" <control>, k  | "  move current line/selection up
+" <control>, l  | "  move current line/selection to the right
+" <control>, left or right | " cycle through open buffers
 
 "" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
