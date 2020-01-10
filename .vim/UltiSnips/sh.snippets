@@ -1,4 +1,3 @@
-
 snippet header
 #!/bin/bash
 endsnippet
@@ -43,20 +42,6 @@ snippet run_until_success
 while true; do
 	${1:command} && exit
 done
-endsnippet
-
-snippet directory_not_exists
-if [ ! -d "${1:path}" ]
-then
-	#statements
-fi
-endsnippet
-
-snippet file_not_exists
-if [ ! -f "${1:path}" ]
-then
-	#statements
-fi
 endsnippet
 
 snippet iterate_on_directories
@@ -109,5 +94,91 @@ fi
 echo 'Script parameters validation finished.'
 
 #statements
+endsnippet
+
+snippet directory_not_exists
+if [ ! -d "${1:path}" ]
+then
+	#statements
+fi
+endsnippet
+
+snippet file_not_exists
+if [ ! -f "${1:path}" ]
+then
+	#statements
+fi
+endsnippet
+
+snippet file_directory_link_exists
+if [ -e "${1:file_directory_link}" ]; then
+    echo "O arquivo ou diretório existe"
+else
+    echo "O arquivo ou diretório não existe"
+fi
+endsnippet
+
+snippet if_different
+if [ "${1:value1}" != "${2:value2}" ]; then
+    # echo "is different "
+else
+    # echo "is equal"
+fi
+endsnippet
+
+snippet if_equal
+if [ "${1:value1}" = "${2:value2}" ]; then
+    # echo "is different "
+else
+    # echo "is equal"
+fi
+endsnippet
+
+
+snippet gte
+if [ "${1:value1}" -ge "${2:value2}" ]; then
+    # echo "is >="
+else
+    # echo "is not"
+fi
+endsnippet
+
+
+snippet gt
+if [ "${1:value1}" -gt "${2:value2}" ]; then
+    # echo "is >"
+else
+    # echo "is not"
+fi
+endsnippet
+
+
+---
+
+
+snippet lte
+if [ "${1:value1}" -le "${2:value2}" ]; then
+    # echo "is <="
+else
+    # echo "is not"
+fi
+endsnippet
+
+
+snippet lt
+if [ "${1:value1}" -lt "${2:value2}" ]; then
+    # echo "is <"
+else
+    # echo "is not"
+fi
+endsnippet
+
+snippet empty_var
+if [ -z "${1:value}" ]
+then
+    # echo "Var is empty/null."
+else
+    # echo "Var is NOT empty/null."
+fi
 endsnippet
 
