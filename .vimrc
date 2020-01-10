@@ -654,7 +654,7 @@ nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, v
 " <C-x> | " fzf tip: open file on horizontal split
 " <C-v> | " fzf tip: open file on vertical split
 
-nnoremap <silent> <Leader>bd :bdelete!<Cr>| " fzf: buffer delete
+nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete
 
 
 " lightline specific configuration
