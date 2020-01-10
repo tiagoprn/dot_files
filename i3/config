@@ -35,8 +35,8 @@ set $bluesky #4845da
 set $blue #0000ff
 
 # set $font_family Source Sans Pro Semibold
-set $font_family Source Sans Pro
-set $font_size 10
+set $font_family Ubuntu
+set $font_size 10.5
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -112,24 +112,24 @@ bindsym $mod+p focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-set $workspace1 " 1:etc0"
+set $workspace1 " 1:Personal"
 set $workspace2 " 2:Firefox"
-set $workspace3 " 3:Work"
-set $workspace4 " 4:Chrome"
-set $workspace5 " 5:Schedule"
-set $workspace6 " 6:IMMERSIVE"
-set $workspace7 " 7:etc1"
-set $workspace8 " 8:etc2"
-set $workspace9 " 9:Chats"
-set $workspace10 " 0:Media"
+set $workspace3 " 3:Chrome"
+set $workspace4 " 4:Calendar"
+set $workspace5 " 5:IMMERSIVE"
+set $workspace6 " 6:etc1"
+set $workspace7 " 7:etc2"
+set $workspace8 " 8:etc3"
+set $workspace9 " 9:etc4"
+set $workspace10 " 0:Work"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1; bar mode dock
 bindsym $mod+2 workspace $workspace2; bar mode dock
 bindsym $mod+3 workspace $workspace3; bar mode dock
 bindsym $mod+4 workspace $workspace4; bar mode dock
-bindsym $mod+5 workspace $workspace5; bar mode dock
-bindsym $mod+6 workspace $workspace6; bar mode hide
+bindsym $mod+5 workspace $workspace5; bar mode hide
+bindsym $mod+6 workspace $workspace6; bar mode dock
 bindsym $mod+7 workspace $workspace7; bar mode dock
 bindsym $mod+8 workspace $workspace8; bar mode dock
 bindsym $mod+9 workspace $workspace9; bar mode dock
@@ -148,19 +148,15 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # makes some windows open on specific workspaces
-# (the class can be get running `xprop` on the window. Then, you get the second
-#  value of the attribute WM_CLASS(STRING).)
+# (the class can be get running `xprop` on the window. Then, you get the second value of the attribute WM_CLASS(STRING).)
 assign [class="Firefox" window_type="normal"] $workspace2
-assign [class="Google-chrome" window_type="normal"] $workspace4
-# because spotify it does not work like the other windows, it does not move to where I order it to
-for_window [class="Spotify"] move to workspace $workspace10
-# assign [class="Spotify"] $workspace10
-assign [class="Termite" window_type="normal"] $workspace10
-assign [class="jetbrains-pycharm" window_type="normal"] $workspace3
-assign [class="TelegramDesktop" window_type="normal"] $workspace9
-assign [class="Slack" window_type="normal"] $workspace9
-assign [class="Gnome-calendar" window_type="normal"] $workspace5
-assign [class="Org.gnome.Weather" window_type="normal"] $workspace5
+assign [class="Google-chrome" window_type="normal"] $workspace3
+# because spotify does not work like the other windows, it does not move to where I order it to
+for_window [class="Spotify"] move to workspace $workspace1
+assign [class="TelegramDesktop" window_type="normal"] $workspace1
+assign [class="Slack" window_type="normal"] $workspace10
+assign [class="Gnome-calendar" window_type="normal"] $workspace4
+assign [class="Org.gnome.Weather" window_type="normal"] $workspace0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
