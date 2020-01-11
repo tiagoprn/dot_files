@@ -122,6 +122,7 @@ fonts-firacode
 mosh
 pavucontrol
 screenfetch
+exiv2
 
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
