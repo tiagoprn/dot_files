@@ -134,6 +134,7 @@ $ pip3 install stdeb3 python-rofi
 pywal
 dmenu
 py3status
+i3-py
 TODO: tmuxp
 TODO: passpy
 TODO: flashfocus

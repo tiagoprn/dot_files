@@ -372,4 +372,5 @@ exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gn
 exec --no-startup-id /storage/src/devops/bin/start_clipboard_polling.sh
 exec --no-startup-id /storage/src/devops/bin/i3-htop.sh
 exec --no-startup-id /storage/src/devops/bin/i3-vim.sh
+exec --no-startup-id "notify-send 'Activating i3 alternating layouts ...' --urgency low; /storage/src/devops/bin/i3-alternating-layouts.sh"
 exec --no-startup-id arandr

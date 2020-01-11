@@ -74,4 +74,7 @@ go get github.com/claudiodangelis/i3-timer
 # read i3.md from tiagopr.nl content posts for more packages and python packages that should be
 # installed.
 
+echo 'Installing i3 alternating layout...'
+mkdir -p ~/bin/i3-alternating-layout && git clone https://github.com/olemartinorg/i3-alternating-layout ~/bin/i3-alternating-layout && cd ~/bin/i3-alternating-layout && sed -i 's/python/python3/g' alternating_layouts.py
+
 echo 'Finished.'
