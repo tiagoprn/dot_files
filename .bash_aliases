@@ -53,6 +53,8 @@ alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="
 alias climate-report="curl -s 'wttr.in/Sao_Paulo?lang=pt-br'"
 alias fonts-update="fc-cache -vf ~/.fonts/ && echo 'listing fonts:' && fc-list"
 alias keyboard_toggle="python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
+alias ubuntu-login-config="sudo vim /usr/share/gnome-shell/theme/ubuntu.css"
+
 # Below solves the error "pyenv: cannot rehash: ~/.pyenv/shims/.pyenv-shim
 # exists " when installing binaries (commands) for pip and them not working.
 alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && $PYENV_BIN rehash"
