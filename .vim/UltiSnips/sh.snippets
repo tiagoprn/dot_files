@@ -71,12 +71,10 @@ snippet cli_args
 
 SYNTAX="./${1:script_name}.sh -${2:a} VALUE -${4:b} VALUE"
 
-while getopts $2:$4: option
-do
-	case "${option}"
-	in
-		$2) ${3:ARG1_VAR}=${OPTARG};;
-		$4) ${5:ARG2_VAR}=${OPTARG};;
+while getopts "$2:$4:" option; do
+	case $option in
+		"$2") ${3:ARG1_VAR}=${OPTARG};;
+		"$4") ${5:ARG2_VAR}=${OPTARG};;
 	esac
 done
 
