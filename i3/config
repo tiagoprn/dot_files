@@ -300,7 +300,7 @@ for_window [class="mpv"] floating enable sticky enable border pixel 1 resize set
 
 # --- CUSTOM SCRATCHPADS ---
 bindsym Mod1+h [con_mark="htop"] scratchpad show, resize set 1300 700, move position center
-bindsym Mod1+v [con_mark="vim"] scratchpad show, resize set 1300 700, move position center
+bindsym Mod1+v [con_mark="vim"] scratchpad show, resize set 1000 700, move position center
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 #
