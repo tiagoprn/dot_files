@@ -131,7 +131,7 @@ libsqlite3-dev
 libssh-dev
 libssl-dev
 libffi-dev
-
+libpq-dev
 
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
