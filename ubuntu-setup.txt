@@ -130,6 +130,7 @@ libbz2-dev
 libsqlite3-dev
 libssh-dev
 libssl-dev
+libffi-dev
 
 
 
