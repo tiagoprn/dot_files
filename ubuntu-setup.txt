@@ -123,6 +123,14 @@ mosh
 pavucontrol
 screenfetch
 exiv2
+libreadline-dev
+lib64readline-dev
+lib32readline-dev
+libbz2-dev
+libsqlite3-dev
+libssh-dev
+libssl-dev
+
 
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
