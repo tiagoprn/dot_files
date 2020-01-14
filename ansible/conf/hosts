@@ -1,6 +1,6 @@
-[lxd-ubuntu]
-10.0.10.96 ansible_become=true ansible_user=ubuntu ansible_become_method=sudo
+[vm]
+10.160.191.37 ansible_become=true ansible_user=ubuntu ansible_become_method=sudo
 
-[lxd-ubuntu:vars]
+[vm:vars]
 ansible_python_interpreter=/usr/bin/python3
 
