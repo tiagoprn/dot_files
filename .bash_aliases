@@ -21,6 +21,7 @@ alias tmux-kill='tmux kill-session -t `tmux-select-session`'
 alias tmux-autostart="source activate core-utils && /storage/src/devops/tmuxp/start_everything.sh && source deactivate && tmux-attach"
 alias pgrep="pgrep -ia"
 alias ansible-edit-hosts="vim ~/ansible/conf/hosts"
+alias ansible-edit-config="vim ~/ansible/conf/ansible.cfg"
 alias ansible-ping-hosts="ansible -i ~/ansible/conf/hosts all -m ping"
 alias ansible-play="ANSIBLE_CONFIG=~/ansible/conf/ansible.cfg ansible-playbook -i ~/ansible/conf/hosts -vv "
 alias ansible-play-debug="ansible-playbook -i ~/ansible/conf/hosts -vvv "
