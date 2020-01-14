@@ -132,7 +132,7 @@ libssh-dev
 libssl-dev
 libffi-dev
 libpq-dev
-
+figlet
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
@@ -212,23 +212,10 @@ $ sudo snap install youtube-dl
 $ sudo snap install chromium
 $ sudo snap install slack
 $ sudo snap install spotify
+$ sudo snap install multipass --classic
 
 TODO: pyenv
 TODO: blueberry linux mint bluetooth manager
 TODO: http://eradman.com/entrproject/
 TODO: wpgtk
 
-# 5) TODO: Adicionar novos comandos a seguir na navi:
-
-$ # add user to a group:
-$ sudo usermod -aG docker ${USER}
-$ # list current user groups:
-$ id -nG
-$ # get user id
-$ id -u
-$ # get user group id
-$ id -g
-$ # list installed package contents:
-$ # dpkg -L [package-name]
-$ # figlet
-$ echo "$(hostname)" | figlet -cptk
