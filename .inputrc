@@ -1,0 +1,35 @@
+# Readline configuration. It is also used by bash, since readline is its
+# dependency.
+#
+# configured based on: https://wiki.archlinux.org/index.php/Readline
+
+set editing-mode vi
+
+# mode indicator in prompt
+set show-mode-in-prompt on
+
+# Different cursor shapes for each mode
+$if term=linux
+	set vi-ins-mode-string \1\e[?0c\2
+	set vi-cmd-mode-string \1\e[?8c\2
+$else
+	set vi-ins-mode-string \1\e[6 q\2
+	set vi-cmd-mode-string \1\e[2 q\2
+$endif
+
+# Color files by types
+# Note that this may cause completion text blink in some terminals (e.g. xterm).
+set colored-stats On
+
+# Append char to indicate type
+set visible-stats On
+
+# Mark symlinked directories
+set mark-symlinked-directories On
+
+# Color the common prefix
+set colored-completion-prefix On
+
+# Color the common prefix in menu-complete
+set menu-complete-display-prefix On
+
