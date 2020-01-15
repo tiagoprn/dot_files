@@ -68,4 +68,5 @@ alias cbssh="cbf ~/.ssh/id_rsa.pub" # Copy SSH public key
 alias cbpwd="pwd | cb" # Copy current working directory
 alias cbbashhistory="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
 alias cbv='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
-alias update-notes="notify-send -a vim 'Manually pushing notes changes to remote...' && git add .  && git commit -m 'manual commit on $(hostname) at $(date -u)' > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Notes changes pushed successfully to remote.'"
+alias update-notes="notify-send -a vim 'Manually pushing notes changes to remote...' && git add . && git commit -m 'manual commit on $(hostname) at $(date -u)' > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Notes changes pushed successfully to remote.' && glg && git status -s "
+alias git-repository-url-get="cat .git/config | grep url | cut -d '=' -f 2 | tr '\n' ' '"
