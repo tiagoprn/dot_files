@@ -13,6 +13,12 @@
 " vi, its predecessor. This is a vundle requirement.
 set nocompatible
 
+" Below is because of:
+" https://stackoverflow.com/questions/42377945/vim-adding-cursorshape-support-over-tmux-ssh
+set t_SI=[6\ q
+set t_SR=[4\ q
+set t_EI=[2\ q
+
 " Then, when in insert mode, ready to paste, if you press <F2>, Vim will switch
 " to paste mode, which will not try to ident code when you paste it from
 " another app, like the browser or a text editor.

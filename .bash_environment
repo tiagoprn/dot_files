@@ -3,11 +3,8 @@ export EDITOR=vim
 export VISUAL=vim
 export BROWSER=/usr/bin/chromium
 
-## For tmux to work nicely
-# export TERM=xterm-256color
-# export TERM=screen-256color-bce
-# export TERM=screen-256color
-export TERM=rxvt-unicode-256color
+# DO NOT CHANGE BELOW, BECAUSE TMUX:
+export TERM=screen-256color
 
 HOMEBIN=/home/$USER/bin
 if [ ! -d $HOMEBIN ];
