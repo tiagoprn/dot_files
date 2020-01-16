@@ -1,5 +1,5 @@
 [vm]
-10.160.191.206 ansible_become=true ansible_user=ubuntu ansible_become_method=sudo
+10.160.191.108 ansible_become=true ansible_user=ubuntu ansible_become_method=sudo
 
 [vm:vars]
 ansible_python_interpreter=/usr/bin/python3
