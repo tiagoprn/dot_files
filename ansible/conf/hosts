@@ -1,5 +1,7 @@
 [vm]
-10.160.191.50 ansible_become=true ansible_user=ubuntu ansible_become_method=sudo
+# remember to edit your /etc/hosts if you are using multipass to trigger the VMs. E.g.:
+# [the-ip-you-are-adding-here] www.example.com example.com nginx.example.com traefik.example.com tomcat.example.com mysql.example.com
+10.160.191.26 ansible_become=true ansible_user=ubuntu ansible_become_method=sudo
 
 [vm:vars]
 ansible_python_interpreter=/usr/bin/python3
