@@ -198,6 +198,17 @@ echo "LET THOSE WHO WORSHIP EVIL'S MIGHT, BEWARE MY POWER: GREEN LANTERN'S LIGHT
 #     echo "$(hostname)" | figlet -cptk
 # fi
 
+# A better ls command, with 2 alternative aliases:
+if ls --color -d . >/dev/null 2>&1; then  # GNU ls
+  export COLUMNS  # Remember columns for subprocesses.
+  eval "$(dircolors)"
+  function ls {
+    command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" | less -R -X -F
+  }
+  alias ll='ls -l'
+  alias l='ls -l -a'
+fi
+
 printf "\n- tmux-autostart <<< to start tmux sessions and attach to them."
 printf "\n- list-aliases / list-functions: list all available aliases/functions."
 printf "\n- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
