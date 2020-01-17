@@ -210,6 +210,7 @@ $ make O_NORL=1 strip install
 ## SNAP INSTALLS
 $ sudo snap install youtube-dl
 $ sudo snap install chromium
+$ sudo snap install firefox
 $ sudo snap install slack
 $ sudo snap install spotify
 $ sudo snap install multipass --classic
