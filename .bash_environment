@@ -15,6 +15,16 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
+
+# Set the Less input preprocessor.
+if type lesspipe.sh >/dev/null 2>&1; then
+    export LESSOPEN='|lesspipe.sh %s'
+fi
+# Syntax highlighting
+if type pygmentize >/dev/null 2>&1; then
+  export LESSCOLORIZER='pygmentize'
+fi
+
 # DO NOT CHANGE BELOW, BECAUSE TMUX:
 export TERM=screen-256color
 

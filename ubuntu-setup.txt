@@ -133,6 +133,7 @@ libssl-dev
 libffi-dev
 libpq-dev
 figlet
+debhelper
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
@@ -148,6 +149,7 @@ i3-py
 TODO: tmuxp
 TODO: passpy
 TODO: flashfocus
+TODO: pygments
 
 # 4) TO BE COMPILED / INSTALLED:
 
@@ -172,6 +174,15 @@ $ wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/playerctl_2.0.1-1_a
 
 ## tmux:
 $ /storage/src/devops/shellscripts/installers/install_tmux_on_home_folder.sh
+
+## less with syntax highlight:
+sudo su
+cd /opt
+git clone https://github.com/wofr06/lesspipe.git
+cd lesspipe
+./configure
+ln -s /opt/lesspipe/lesspipe.sh /usr/local/bin/lesspipe.sh
+ln -s /opt/lesspipe/code2color /usr/local/bin/code2color.sh
 
 ## vim:
 $ sudo su
