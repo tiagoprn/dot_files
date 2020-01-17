@@ -792,6 +792,7 @@ endif
 " l  | "  (movement)   right
 " w  | "  (movement)   next word
 " b  | "  (movement)   beginning of current word / previous word
+" ge | "  (movement)   end of the previous word
 " e  | "  (movement)   end of current word / end of next word
 " ^  | "  (movement)   first non-blank character of a line
 " f [char]  | "  (movement)   go to specific char in line, ';' to go to the next occurrence of it
