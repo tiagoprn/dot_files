@@ -134,6 +134,7 @@ libffi-dev
 libpq-dev
 figlet
 debhelper
+shellcheck
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
