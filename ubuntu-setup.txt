@@ -124,8 +124,6 @@ pavucontrol
 screenfetch
 exiv2
 libreadline-dev
-lib64readline-dev
-lib32readline-dev
 libbz2-dev
 libsqlite3-dev
 libssh-dev
