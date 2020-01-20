@@ -1,3 +1,6 @@
+
+
+
 " _   _                                    _             _
 "| |_(_) __ _  __ _  ___  _ __  _ __ _ __ ( )___  __   _(_)_ __ ___  _ __ ___
 "| __| |/ _` |/ _` |/ _ \| '_ \| '__| '_ \|// __| \ \ / / | '_ ` _ \| '__/ __|
@@ -367,6 +370,7 @@ call pymode#default('g:pymode_rope_regenerate_on_write', 1)
 "------------------------------------------------------------------------
 " PLUGIN quick-scope configuration
 " Trigger a highlight in the appropriate direction when pressing these keys:
+" TODO: change below to keys that do not conflict with vim's default search
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 augroup qs_colors
@@ -377,8 +381,8 @@ augroup END
 
 " Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
 " Note that you must use nmap/xmap instead of their non-recursive versions (nnoremap/xnoremap).
-nmap <leader>q <plug>(QuickScopeToggle)
-xmap <leader>q <plug>(QuickScopeToggle)
+" nmap <leader>q <plug>(QuickScopeToggle)
+" xmap <leader>q <plug>(QuickScopeToggle)
 
 let g:qs_enable=1
 
@@ -564,7 +568,12 @@ set laststatus=2
 
 " CUSTOM kEY REMAPPINGS
 nnoremap <Leader>w <C-w>w| " toggle between windows
+
+
 nnoremap <Leader>q <C-w>q| " close windows
+
+
+
 nnoremap <Leader>s :vnew<CR>| " new vertical window split
 nnoremap <Leader>S :new<CR>| " new horizontal window split
 " session management (below, <BS> means the backspace key,
