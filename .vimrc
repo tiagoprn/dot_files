@@ -569,10 +569,9 @@ set laststatus=2
 " CUSTOM kEY REMAPPINGS
 nnoremap <Leader>w <C-w>w| " toggle between windows
 
-
-nnoremap <Leader>q <C-w>q| " close windows
-
-
+nnoremap <Backspace> :bw<Enter>| " Close buffer
+nnoremap <leader>q :bp\|bd \#<Enter>| " Close buffer but keep split
+nnoremap <leader><Backspace> <C-w>q<Enter>| " Close split but keep buffer
 
 nnoremap <Leader>s :vnew<CR>| " new vertical window split
 nnoremap <Leader>S :new<CR>| " new horizontal window split
