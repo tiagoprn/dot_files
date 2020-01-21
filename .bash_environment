@@ -99,7 +99,7 @@ PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
 ## To run ansible locally without it being so annoying :)
 export ANSIBLE_HOST_KEY_CHECKING=False
 
-## Fixes giant screen for e.g. seafile-applet on arch linux (may happen to VLC also, so it is QT related):
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_SCALE_FACTOR=0.6
+## Fixes giant screen for e.g. seafile-applet on arch linux (may happen to VLC also, so it is QT related): - Removed on 20200121 due to problems with flameshot: https://github.com/lupoDharkael/flameshot/issues/119
+# export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export QT_SCALE_FACTOR=0.6
 
