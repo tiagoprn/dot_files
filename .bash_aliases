@@ -5,6 +5,7 @@
 alias list-aliases="cat ~/.bashrc | grep -i '^alias' | sort"
 alias list-functions="cat ~/.bashrc | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
 alias ls='ls --color -lha'
+alias cats='pygmentize -g -O style=colorful,linenos=1'
 alias youtube-player='mpsyt'
 alias pacman_refresh_keys='sudo pacman-key --refresh-keys'
 alias pacman_update_mirrorlists='sudo reflector --verbose --age 6 --country Brazil --latest 15 --fastest 5 --sort rate --save /etc/pacman.d/mirrorlist'
