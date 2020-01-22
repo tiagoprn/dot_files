@@ -831,14 +831,16 @@ endif
 "" others
 
 " :e| " reload current file
-" ctrl+[ |"  go to visual mode
-" ctrl+o |"  go to normal mode to execute just one command and go back to insert mode
-" 80i*<esc> |"  (in visual mode - do not start with ':' - this will insert the * character 80 times on the current cursor position)
+" ctrl+[ | "  go to visual mode
+" ctrl+o | "  go to normal mode to execute just one command and go back to insert mode
+" 80i*<esc> | "  (in visual mode - do not start with ':' - this will insert the * character 80 times on the current cursor position)
 " 3i`<esc> |"  (in visual mode - do not start with ':' - this will insert the backstick character 3 times on the current cursor position)
-" o |"   insert blank line below cursor
-" O |"  insert blank line above cursor
-" A |"   go to end of line and enter insert mode
-" I |"   go to beginning of line and enter insert mode
+" o | "  insert blank line below cursor
+" O | "  insert blank line above cursor
+" A | "  go to end of line and enter insert mode
+" I | "  go to beginning of line and enter insert mode
+" C | "  Delete until end of the line and enter insert mode
+" D | "  Delete until end of the line
 " :%s/ /\r/g | " replace spaces for <enter>
 " shift+v  | "  select a whole line
 " <control>, h  | "  move current line/selection to the left
