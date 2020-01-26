@@ -88,6 +88,13 @@ function cb() {  # Copies to clipboard. You can pipe anything on the terminal to
 
 function cbf() { cat "$1" | cb; }  # copy file contents to the clipboard
 
+function c() {  # get a command cheatsheet online
+    curl cheat.sh/$1
+}
+
+function define-word() {
+    curl dict.org/d:"$1"
+}
 
 function translate-en-pt() {
     curl dict.org/d:"$1":fd-eng-por
