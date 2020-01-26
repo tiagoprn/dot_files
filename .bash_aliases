@@ -57,6 +57,7 @@ alias vim-python-mode-update="cd /storage/src/dot_files/.vim/bundle/python-mode 
 alias chown_me="sudo chown -R $(id -u):$(id -g)"
 alias climate="time curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
 alias climate-report="curl -s 'wttr.in/Sao_Paulo?lang=pt-br'"
+alias qrencode="curl -F-=\<- qrenco.de"
 alias fonts-update="fc-cache -vf ~/.fonts/ && echo 'listing fonts:' && fc-list"
 alias keyboard_toggle="python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
 alias ubuntu-login-config="sudo vim /usr/share/gnome-shell/theme/ubuntu.css"

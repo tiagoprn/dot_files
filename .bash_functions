@@ -88,6 +88,15 @@ function cb() {  # Copies to clipboard. You can pipe anything on the terminal to
 
 function cbf() { cat "$1" | cb; }  # copy file contents to the clipboard
 
+
+function translate-en-pt() {
+    curl dict.org/d:"$1":fd-eng-por
+}
+
+function translate-pt-en() {
+    curl dict.org/d:"$1":fd-por-eng
+}
+
 # fzf integrated with vim
 vim-fzf() {
     local file=$(
