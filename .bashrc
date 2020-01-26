@@ -207,6 +207,7 @@ if ls --color -d . >/dev/null 2>&1; then  # GNU ls
   }
   alias ll='ls -l'
   alias l='ls -l -a'
+  alias lt='ls --human-readable --size -1 -S --classify'
 fi
 
 printf "\n- tmux-autostart <<< to start tmux sessions and attach to them."

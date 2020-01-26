@@ -2,10 +2,11 @@
 # NOTE: do not escape with double quotes on an alias - "$()" - since that is analysed when bashrc is sourced,
 #       so it will delay its execution and may lead to malfunctioning aliases. See the aliases gps
 #       and gpl as examples of how to do that correctly.
-alias list-aliases="cat ~/.bashrc | grep -i '^alias' | sort"
-alias list-functions="cat ~/.bashrc | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
-alias ls='ls --color -lha'
-alias cats='pygmentize -g -O style=colorful,linenos=1'
+alias list-aliases="alias"
+alias list-functions="cat ~/.bash_functions | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
+alias decomment='egrep -v "^[[:space:]]*((#|;|//).*)?$" '
+alias pp='pygmentize | nl --body-numbering=a '
+alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 alias youtube-player='mpsyt'
 alias pacman_refresh_keys='sudo pacman-key --refresh-keys'
 alias pacman_update_mirrorlists='sudo reflector --verbose --age 6 --country Brazil --latest 15 --fastest 5 --sort rate --save /etc/pacman.d/mirrorlist'
@@ -39,6 +40,8 @@ alias gbcb="git branch | grep ^* | cut -d ' ' -f 2 | cb"
 alias ghistory="git log --follow -p --stat -- "
 # below removes file/directory from git staging area (before committing)
 alias gunstage="git reset HEAD "
+# Go to the repository root:
+alias gr='cd `git rev-parse --show-toplevel`'
 alias cd-home="cd ~"
 alias cd-storage="cd /storage"
 alias cd-wal="cd ~/.cache/wal"
@@ -46,6 +49,7 @@ alias lsf="ls | grep -v '^d'"
 alias lsd="ls | grep '^d'"
 # below lists most recently changed files/directories
 alias lsr="ls --color -halt"
+alias rsync-simple='rsync -ah --info=progress2'
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 alias rsync-no-delete="rsync -rchzPvi --progress"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
