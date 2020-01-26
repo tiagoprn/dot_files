@@ -22,11 +22,6 @@ $ # update the packages list and install i3 packages below:
 $ apt update
 $ apt install i3 compton rofi i3lock i3lock-fancy i3blocks i3status spacefm-gtk3
 
-## telegram
-
-$ sudo add-apt-repository ppa:atareao/telegram
-$ sudo apt update && sudo apt install telegram
-
 ## docker
 
 $ # add docker official repository GPG key:
