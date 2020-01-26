@@ -164,6 +164,8 @@ function tmux-search-contents() {  # search contents through saved tmux history 
     fi
 }
 
+function port-open-on-public-ip() { curl -s ifconfig.co/port/$1 | python -m json.tool; }
+
 function tmux-select-session() {
     local sessions=$(tmux ls | awk '{print $1}' | sed 's/\://g')
     echo -e "Select session: \n$sessions" | fzf
