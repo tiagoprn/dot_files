@@ -202,12 +202,13 @@ echo "LET THOSE WHO WORSHIP EVIL'S MIGHT, BEWARE MY POWER: GREEN LANTERN'S LIGHT
 if ls --color -d . >/dev/null 2>&1; then  # GNU ls
   export COLUMNS  # Remember columns for subprocesses.
   eval "$(dircolors)"
-  function ls {
+  function ls() {
     command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" | less -R -X -F
   }
-  alias ll='ls -l'
-  alias l='ls -l -a'
-  alias lt='ls --human-readable --size -1 -S --classify'
+  alias lsd='ls -la'
+  alias lsa='ls -a'
+  alias lss='ls -a --human-readable --size -1 -S --classify'
+  alias lsr="ls -halt"
 fi
 
 printf "\n- tmux-autostart <<< to start tmux sessions and attach to them."

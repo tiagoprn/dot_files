@@ -45,10 +45,6 @@ alias gr='cd `git rev-parse --show-toplevel`'
 alias cd-home="cd ~"
 alias cd-storage="cd /storage"
 alias cd-wal="cd ~/.cache/wal"
-alias lsf="ls | grep -v '^d'"
-alias lsd="ls | grep '^d'"
-# below lists most recently changed files/directories
-alias lsr="ls --color -halt"
 alias rsync-simple='rsync -ah --info=progress2'
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 alias rsync-no-delete="rsync -rchzPvi --progress"
