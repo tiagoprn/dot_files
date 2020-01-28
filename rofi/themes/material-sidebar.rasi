@@ -43,8 +43,8 @@ configuration {
 }
 
 window {
-	location:	 west;
-	anchor:		 west;
+	location:	 east;
+	anchor:		 east;
 	x-offset: 0px;
 	height:		 100%;
 	margin-right: 60px;
