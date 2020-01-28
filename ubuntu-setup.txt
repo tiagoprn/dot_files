@@ -134,6 +134,9 @@ libpcap-dev
 
 ## Install stdeb:
 $ pip3 install stdeb3 python-rofi
+(talvez aqui valha a pena usar o homebrew do linux para instalar os pacotes ao
+invés do stdeb: https://docs.brew.sh/Formula-Cookbook#specifying-gems-python-modules-go-projects-etc-as-dependencies)
+
 
 ## Packages to install through stdeb:
 ( /usr/local/bin/pypi-install [pip-package-name] )
