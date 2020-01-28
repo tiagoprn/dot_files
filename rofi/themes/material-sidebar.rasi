@@ -6,7 +6,7 @@
 configuration {
 	display-drun:    "Activate";
 	display-run:     "Execute";
-	show-icons:      true;	
+	show-icons:      true;
 	sidebar-mode:    true;
 }
 
@@ -39,7 +39,7 @@ configuration {
 	hide-scrollbar:              "true";
 	margin:                      0px;
 	padding:                     0px;
-	font:            "Roboto medium 10";
+	font:            "Roboto medium 16";
 }
 
 window {
@@ -71,11 +71,11 @@ inputbar {
      children: [ entry ];
 }
 
-textbox-prompt-colon {                                                
-     text-color: inherit;                                              
-     expand: false;                                                    
+textbox-prompt-colon {
+     text-color: inherit;
+     expand: false;
      margin: 0 0.3em 0em 0em;
- }  
+ }
 
 listview {
 	spacing: 0em;
@@ -83,7 +83,7 @@ listview {
 	cycle:   true;
 }
 
-element { 
+element {
 	padding: 16px;
 	border:  0 0 0 5px solid;
 }
