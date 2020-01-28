@@ -74,3 +74,4 @@ alias cbv='xclip -i -selection clipboard -o | vim -' # Open clipboard contents o
 alias update-notes="notify-send -a vim 'Manually pushing notes changes to remote...' && git add . && git commit -m 'manual commit on $(hostname) at $(date -u)' > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Notes changes pushed successfully to remote.' && glg && git status -s "
 alias git-repository-url-get="cat .git/config | grep url | cut -d '=' -f 2 | tr '\n' ' '"
 alias n="navi query"
+alias gnome-control-center="XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
