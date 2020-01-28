@@ -128,6 +128,7 @@ libpq-dev
 figlet
 debhelper
 shellcheck
+libpcap-dev
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
