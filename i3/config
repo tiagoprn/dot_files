@@ -9,9 +9,10 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-default_orientation vertical
+default_orientation horizontal
 
-workspace_auto_back_and_forth yes
+# Pressing the same workspace shortcut goes to the previous one
+workspace_auto_back_and_forth no
 
 set $mod Mod4
 set $black #101218
