@@ -131,6 +131,7 @@ debhelper
 shellcheck
 libpcap-dev
 xbacklight
+inxi
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
