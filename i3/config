@@ -340,7 +340,6 @@ bindsym Mod1+y exec --no-startup-id /storage/src/devops/bin/zenity-video-launche
 bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -c --select
 bindsym Mod1+Shift+c exec --no-startup-id /storage/src/devops/bin/clipster -p --select
 
-bindsym $mod+x exec --no-startup-id "notify-send 'Launching arandr...' --urgency low; arandr"
 bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 
 # moves the current workspace to the second monitor up/down
@@ -349,7 +348,7 @@ bindsym $mod+Shift+d exec --no-startup-id i3-msg move workspace to output down
 bindsym $mod+Shift+l exec --no-startup-id i3-msg move workspace to output left
 bindsym $mod+Shift+r exec --no-startup-id i3-msg move workspace to output right
 
-bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; arandr"
+bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; arandr && i3-msg reload"
 bindsym Mod1+k exec --no-startup-id "/storage/src/devops/rofi/toggle_keyboards.py"
 
 # --- CUSTOM COMMANDS ON CURRENT WINDOW
@@ -383,4 +382,4 @@ exec --no-startup-id /storage/src/devops/bin/start_clipboard_polling.sh
 exec --no-startup-id /storage/src/devops/bin/i3-htop.sh
 exec --no-startup-id /storage/src/devops/bin/i3-vim.sh
 exec --no-startup-id "notify-send 'Activating i3 alternating layouts ...' --urgency low; /storage/src/devops/bin/i3-alternating-layouts.sh"
-exec --no-startup-id arandr
+exec --no-startup-id arandr && i3-msg reload
