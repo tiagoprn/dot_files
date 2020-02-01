@@ -117,6 +117,7 @@ fonts-firacode
 mosh
 pavucontrol
 screenfetch
+neofetch
 exiv2
 libreadline-dev
 libbz2-dev
