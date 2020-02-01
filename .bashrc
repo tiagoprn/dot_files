@@ -23,9 +23,9 @@ shopt -s cmdhist
 ## Unified bash history
 shopt -s histappend
 
-source .bash_environment
-source .bash_functions
-source .bash_aliases
+source $HOME/.bash_environment
+source $HOME/.bash_functions
+source $HOME/.bash_aliases
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
