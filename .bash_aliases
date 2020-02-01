@@ -14,6 +14,7 @@ alias v="vim"
 
 alias list-aliases="alias"
 alias list-functions="cat ~/.bash_functions | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
+alias remove-color-codes='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 alias decomment='egrep -v "^[[:space:]]*((#|;|//).*)?$" '
 alias pp='pygmentize | nl --body-numbering=a '
 alias pa='pyenv activate '
