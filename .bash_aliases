@@ -2,6 +2,15 @@
 # NOTE: do not escape with double quotes on an alias - "$()" - since that is analysed when bashrc is sourced,
 #       so it will delay its execution and may lead to malfunctioning aliases. See the aliases gps
 #       and gpl as examples of how to do that correctly.
+
+
+## one letter aliases
+alias t='tmux'
+alias n="navi query"
+alias v="vim"
+
+## other aliases
+
 alias list-aliases="alias"
 alias list-functions="cat ~/.bash_functions | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
 alias decomment='egrep -v "^[[:space:]]*((#|;|//).*)?$" '
@@ -14,8 +23,9 @@ alias upgrade='pacman_update_mirrorlists && sudo pacman -Syu --noconfirm && yay 
 alias jlogs='sudo journalctl -o short-iso -f --all'
 alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
 alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e.g. 10.0.0.1/24\n\n' && sudo nmap -sP"
-alias tmux-attach='tmux -2 a -t `tmux-select-session`'
-alias tmux-kill='tmux kill-session -t `tmux-select-session`'
+alias tl="tmux ls"
+alias ta='tmux -2 a -t `tmux-select-session`'
+alias tk='tmux kill-session -t `tmux-select-session`'
 # alias tmux-edit-history="vim $HOME/tmux.history"
 # alias tmux-cat-history="cat $HOME/tmux.history"
 alias tmux-autostart="source activate core-utils && /storage/src/devops/tmuxp/start_everything.sh && source deactivate && tmux-attach"
@@ -73,5 +83,4 @@ alias cbbashhistory="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command 
 alias cbv='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
 alias update-notes="notify-send -a vim 'Manually pushing notes changes to remote...' && git add . && git commit -m 'manual commit on $(hostname) at $(date -u)' > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Notes changes pushed successfully to remote.' && glg && git status -s "
 alias git-repository-url-get="cat .git/config | grep url | cut -d '=' -f 2 | tr '\n' ' '"
-alias n="navi query"
 alias gnome-control-center="XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
