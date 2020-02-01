@@ -68,6 +68,7 @@ alias rsync-no-delete="rsync -rchzPvi --progress"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
 alias vim-python-mode-update="cd /storage/src/dot_files/.vim/bundle/python-mode && git submodule update --init --recursive "
 alias chown_me="sudo chown -R $(id -u):$(id -g)"
+alias moon-phase='curl -s wttr.in/moon'
 alias wttr-summary="curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
 alias wttr-summary-emojis='curl -s "wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format=4"'
 alias wttr-report="curl -s 'wttr.in/Sao_Paulo?lang=pt-br'"
