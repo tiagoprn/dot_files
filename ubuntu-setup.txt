@@ -132,6 +132,7 @@ shellcheck
 libpcap-dev
 xbacklight
 inxi
+tty-clock
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
