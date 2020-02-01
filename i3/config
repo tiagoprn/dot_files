@@ -119,9 +119,9 @@ set $workspace3 " 3:Chrome"
 set $workspace4 " 4:Planning"
 set $workspace5 " 5:IMMERSIVE"
 set $workspace6 " 6:Work"
-set $workspace7 " 7:etc2"
-set $workspace8 " 8:etc3"
-set $workspace9 " 9:etc4"
+set $workspace7 " 7:Settings"
+set $workspace8 " 8:etc1"
+set $workspace9 " 9:etc2"
 set $workspace10 " 0:Dashboard"
 
 # switch to workspace
@@ -148,6 +148,12 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+# moves the current workspace to the second monitor up/down
+bindsym $mod+Shift+u exec --no-startup-id i3-msg move workspace to output up
+bindsym $mod+Shift+d exec --no-startup-id i3-msg move workspace to output down
+bindsym $mod+Shift+l exec --no-startup-id i3-msg move workspace to output left
+bindsym $mod+Shift+r exec --no-startup-id i3-msg move workspace to output right
+
 # makes some windows open on specific workspaces
 # (the class can be get running `xprop` on the window. Then, you get the second value of the attribute WM_CLASS(STRING).)
 assign [class="Firefox" window_type="normal"] $workspace2
@@ -157,6 +163,7 @@ for_window [class="Spotify"] move to workspace $workspace1
 assign [class="TelegramDesktop" window_type="normal"] $workspace1
 assign [class="Slack" window_type="normal"] $workspace6
 assign [class="Gnome-calendar" window_type="normal"] $workspace4
+assign [class="Gnome-control-center" window_type="normal"] $workspace7
 assign [class="Org.gnome.Weather" window_type="normal"] $workspace0
 
 # reload the configuration file
@@ -201,6 +208,9 @@ bindsym $mod+r mode "resize"
 
 # Resize floating windows to a default size
 bindsym $mod+y resize set 1365 px 750 px, move position center
+
+# Make a window sticky or not
+bindsym Mod1+s sticky toggle
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -315,49 +325,32 @@ bindsym Mod1+v [con_mark="vim"] scratchpad show, resize set 1000 700, move posit
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 #
-# setting name below allows to select this specific name=ranger/vim urxvt window
-# on for+window instance=ranger to customize it
-bindsym Mod1+r exec --no-startup-id kitty --name ranger --hold bash -c 'TERM=screen-256color VISUAL=vim EDITOR=vim ranger'
+## Cheatsheets
 bindsym Mod1+t exec --no-startup-id kitty --name tiagoprnl --hold bash -c 'TERM=screen-256color /storage/src/devops/bin/search_posts_and_trigger_vim_by_file_name.sh'
 bindsym Mod1+Shift+t exec --no-startup-id kitty --name tiagoprnl --hold bash -c 'TERM=screen-256color /storage/src/devops/bin/search_posts_and_trigger_vim_by_file_contents.sh'
-
-bindsym Mod1+w exec --no-startup-id sxiv -t ~/Wallpapers
-
-bindsym $mod+n exec --no-startup-id "notify-send 'Launching spacefm...' --urgency low; spacefm"
-
-bindsym $mod+b exec --no-startup-id /storage/src/devops/rofi/bookmarks.py
 bindsym $mod+i exec --no-startup-id /storage/src/devops/rofi/vim_shortcuts.py
 bindsym $mod+a exec --no-startup-id /storage/src/devops/rofi/i3_cheatsheet.sh
 
+## Others
+bindsym Mod1+r exec --no-startup-id "XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
+bindsym Mod1+w exec --no-startup-id sxiv -t ~/Wallpapers
+bindsym $mod+n exec --no-startup-id "notify-send 'Launching spacefm...' --urgency low; spacefm"
+bindsym $mod+b exec --no-startup-id /storage/src/devops/rofi/bookmarks.py
 bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000 && /storage/src/devops/bin/countdown.py 2"
 bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000 && /storage/src/devops/bin/countdown.py 2"
-
 bindsym Mod1+o exec --no-startup-id pavucontrol
-
 # below starts video player
 bindsym Mod1+y exec --no-startup-id /storage/src/devops/bin/zenity-video-launcher.sh
-
 # https://github.com/mrichar1/clipster/blob/master/README.md
 bindsym Mod1+c exec --no-startup-id /storage/src/devops/bin/clipster -c --select
 bindsym Mod1+Shift+c exec --no-startup-id /storage/src/devops/bin/clipster -p --select
-
 bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
-
-# moves the current workspace to the second monitor up/down
-bindsym $mod+Shift+u exec --no-startup-id i3-msg move workspace to output up
-bindsym $mod+Shift+d exec --no-startup-id i3-msg move workspace to output down
-bindsym $mod+Shift+l exec --no-startup-id i3-msg move workspace to output left
-bindsym $mod+Shift+r exec --no-startup-id i3-msg move workspace to output right
-
-bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; arandr && i3-msg reload"
+bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with arandr...' --urgency low; arandr && i3-msg reload"
 bindsym Mod1+k exec --no-startup-id "/storage/src/devops/rofi/toggle_keyboards.py"
 
-# --- CUSTOM COMMANDS ON CURRENT WINDOW
-bindsym Mod1+s sticky toggle
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 ---
 exec --no-startup-id nm-applet
-
 # Disabled xautolock due to the fact that it triggers the screensaver even if
 # it is active. Maybe a better solution would be to use a systemd timer
 # to trigger the lock script after some time of inactivity.
@@ -365,11 +358,9 @@ exec --no-startup-id nm-applet
 #   -locker "/storage/src/devops/bin/lock_with_comic.sh" \
 #   -notify 30 \
 #   -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'";
-
 exec --no-startup-id /storage/src/devops/bin/clipster -d
-
 # below will set the wallpaper to the most recent file on ~/Wallpapers
-exec_always --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh
+exec --no-startup-id /storage/src/devops/bin/i3_change_wallpaper.sh
 exec_always --no-startup-id compton --config ~/compton.conf
 # exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
 exec_always --no-startup-id "notify-send 'Activating keyboard backlight...' --urgency low; /storage/src/devops/bin/keyboard-backlight.sh"
@@ -383,4 +374,4 @@ exec --no-startup-id /storage/src/devops/bin/start_clipboard_polling.sh
 exec --no-startup-id /storage/src/devops/bin/i3-htop.sh
 exec --no-startup-id /storage/src/devops/bin/i3-vim.sh
 exec --no-startup-id "notify-send 'Activating i3 alternating layouts ...' --urgency low; /storage/src/devops/bin/i3-alternating-layouts.sh"
-exec --no-startup-id arandr && i3-msg reload
+exec --no-startup-id "arandr && i3-msg reload"
