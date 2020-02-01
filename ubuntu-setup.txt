@@ -129,6 +129,7 @@ figlet
 debhelper
 shellcheck
 libpcap-dev
+xbacklight
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
