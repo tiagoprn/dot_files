@@ -164,8 +164,8 @@ assign [class="TelegramDesktop" window_type="normal"] $workspace1
 assign [class="Slack" window_type="normal"] $workspace6
 assign [class="Gnome-calendar" window_type="normal"] $workspace4
 assign [class="Gnome-control-center" window_type="normal"] $workspace7
-assign [class="Org.gnome.Weather" window_type="normal"] $workspace0
 
+assign [instance="cli_dashboard" window_type="normal"] $workspace10
 # reload the configuration file
 # bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -373,5 +373,6 @@ exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gn
 exec --no-startup-id /storage/src/devops/bin/start_clipboard_polling.sh
 exec --no-startup-id /storage/src/devops/bin/i3-htop.sh
 exec --no-startup-id /storage/src/devops/bin/i3-vim.sh
+exec --no-startup-id /storage/src/devops/bin/i3-dashboard.sh
 exec --no-startup-id "notify-send 'Activating i3 alternating layouts ...' --urgency low; /storage/src/devops/bin/i3-alternating-layouts.sh"
 exec --no-startup-id "arandr && i3-msg reload"
