@@ -7,6 +7,7 @@
 ## one letter aliases
 alias t='tmux'
 alias n="navi query"
+alias p="pyenv"
 alias v="vim"
 
 ## other aliases
@@ -15,6 +16,10 @@ alias list-aliases="alias"
 alias list-functions="cat ~/.bash_functions | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
 alias decomment='egrep -v "^[[:space:]]*((#|;|//).*)?$" '
 alias pp='pygmentize | nl --body-numbering=a '
+alias pa='pyenv activate '
+alias pd='pyenv deactivate '
+alias pv='pyenv versions '
+alias pl='pyenv install --list '
 alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 alias youtube-player='mpsyt'
 alias pacman_refresh_keys='sudo pacman-key --refresh-keys'
