@@ -30,6 +30,7 @@ alias jlogs='sudo journalctl -o short-iso -f --all'
 alias journal="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE"
 alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e.g. 10.0.0.1/24\n\n' && sudo nmap -sP"
 alias tp="pyenv activate core-utils && tmuxp load -d "
+alias tf="pyenv activate core-utils && tmuxp freeze "
 alias tl="tmux ls"
 alias ta='tmux -2 a -t `tmux-select-session`'
 alias tk='tmux kill-session -t `tmux-select-session`'
