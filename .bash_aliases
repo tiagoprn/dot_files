@@ -6,7 +6,7 @@
 
 ## one letter aliases
 alias t='tmux'
-alias n="navi query"
+alias n='OUTPUT=$(navi --print) && xdotool type "$OUTPUT"'
 alias p="pyenv"
 alias v="vim"
 
