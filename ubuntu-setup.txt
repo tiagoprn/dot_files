@@ -133,6 +133,9 @@ libpcap-dev
 xbacklight
 inxi
 tty-clock
+f2fs-tools
+gparted
+
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
