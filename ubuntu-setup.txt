@@ -135,6 +135,7 @@ inxi
 tty-clock
 f2fs-tools
 gparted
+cryptsetup
 
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
