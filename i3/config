@@ -320,8 +320,10 @@ for_window [class="URxvt"] border pixel 4
 # --- CUSTOM SCRATCHPADS ---
 for_window [instance="vim"]  mark "vim", move scratchpad
 for_window [instance="htop"] mark "htop", move scratchpad
+for_window [instance="personal-calendar"] mark "personal-calendar", move scratchpad
 bindsym Mod1+h [con_mark="htop"] scratchpad show, resize set 1300 700, move position center
 bindsym Mod1+v [con_mark="vim"] scratchpad show, resize set 1000 700, move position center
+bindsym Mod1+l [con_mark="personal-calendar"] scratchpad show, resize set 1000 700, move position center
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 #
@@ -371,6 +373,7 @@ exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gn
 exec --no-startup-id /storage/src/devops/bin/start_clipboard_polling.sh
 exec --no-startup-id /storage/src/devops/bin/i3-htop.sh
 exec --no-startup-id /storage/src/devops/bin/i3-vim.sh
+exec --no-startup-id /storage/src/devops/bin/i3-personal-calendar.sh
 exec --no-startup-id /storage/src/devops/bin/i3-dashboard.sh
 exec --no-startup-id "notify-send 'Activating i3 alternating layouts ...' --urgency low; /storage/src/devops/bin/i3-alternating-layouts.sh"
 exec --no-startup-id "arandr && /storage/src/devops/bin/i3_change_wallpaper.sh"
