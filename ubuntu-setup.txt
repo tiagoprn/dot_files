@@ -156,6 +156,8 @@ TODO: tmuxp
 TODO: passpy
 TODO: flashfocus
 TODO: pygments
+TODO: khal
+TODO: vdirsyncer
 
 # 4) TO BE COMPILED / INSTALLED:
 
