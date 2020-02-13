@@ -817,17 +817,18 @@ set updatetime=10
 " ^  | "  (movement)   first non-blank character of a line
 " f [char]  | "  (movement)   go to specific char in line, ';' to go to the next occurrence of it
 " t [char]  | "  (movement)   go to one character previous/before specific char in line, ';' to go to the next occurrence of it
-
 " H  | " (movement) high on the viewport
 " M  | " (movement) middle on the viewport
 " L  | " (movement) low on the viewport
 " zz  | "  (movement)   center the viewport (window) on the cursor, without moving the cursor.
 " <ctrl+down>  | "  (movement)   move viewport down faster , without moving the cursor.
 " <ctrl+up>  | "  (movement)   move viewport up faster, without moving the cursor.
+" g; | " go to the previous place you were editing on the current file
 
 "" snippets
 " <C-l>| " select snippet
-" <word><tab>| "expand snippet
+" <word><tab>| " expand snippet
+" :Snippets| " snippets list powered by vim-fzf
 
 "" pymode motions
 
