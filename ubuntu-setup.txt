@@ -133,10 +133,11 @@ libpcap-dev
 xbacklight
 inxi
 tty-clock
-f2fs-tools
+flist all installed packages2fs-tools
 gparted
 cryptsetup
 kpartx
+tcptraceroute
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
