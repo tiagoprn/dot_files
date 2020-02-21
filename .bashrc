@@ -210,12 +210,9 @@ if ls --color -d . >/dev/null 2>&1; then  # GNU ls
   alias lss='ls -a --human-readable --size -1 -S --classify'
   alias lsr="ls -halt"
 fi
-
-printf "\n- tmux-autostart <<< to start tmux sessions and attach to them."
-printf "\n- list-aliases / list-functions: list all available aliases/functions."
+printf "\n- journal (bash alias): to do a quick timestamp based diary with vim"
 printf "\n- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
-printf "\n- You can use memory_hogs.sh and cpu_hogs.sh to get the processes that are hogging both."
 printf "\n\n- Use <C-t> to copy a command from current tmux history to the clipboard, <C-f> to do the same from bash_history. \n\n"
 printf "\n\n- Use the command 'shellcheck' to apply a linter to your shell scripts."
 # fortune   -s
