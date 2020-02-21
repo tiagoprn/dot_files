@@ -139,6 +139,8 @@ cryptsetup
 kpartx
 tcptraceroute
 
+- TODO: configure a `.docker` domain with dnsmasq (it is already bundled on Ubuntu, check on debian/raspbian)
+
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
 ## Install stdeb:
