@@ -863,6 +863,6 @@ set updatetime=10
 " <control>, left or right | " cycle through open buffers
 " :bd  | " remove a buffer from the buffer list and close it
 " :w !sudo tee % | " save file as sudo when you forgot to do that
-
+" :set et|retab | " replaces tab with 4 spaces
 
 "" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
