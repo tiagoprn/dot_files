@@ -162,7 +162,7 @@ py3status
 i3-py
 TODO: tmuxp
 TODO: passpy
-TODO: flashfocus
+TODO: flashfocus (sudo pip3 install flashfocus --ignore-installed PyYAML)
 TODO: pygments
 TODO: khal
 TODO: vdirsyncer
