@@ -4,10 +4,10 @@
 
 while read file
 do
-        case "$1" in
-        "p")
-                wal -n -i "$file" && notify-send "Changed pywal theme using color palette from $file.";;
-        "w")
-				touch $file && feh --bg-fill "$file" && notify-send "Changed wallpaper to $file." ;;
-        esac
+    case "$1" in
+    "p")
+        wal -n -i "$file" && notify-send "Changed pywal theme using color palette from $file.";;
+    "w")
+        touch $file && feh --bg-fill "$file" && notify-send "Changed wallpaper to $file (if running the wallpaper script is running it may be ignored, wait for the battery full charge and try again)" ;;
+    esac
 done
