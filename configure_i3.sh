@@ -60,6 +60,10 @@ echo 'Linking arandr (screenlayout) configuration...'
 rm -fr ~/.screenlayout
 ln -s /storage/src/dot_files/.screenlayout ~/.screenlayout
 
+echo 'Linking flashfocus configuration...'
+rm -fr ~/.config/flashfocus
+ln -s /storage/src/dot_files/flashfocus ~/.config/flashfocus
+
 echo 'Linking sxiv (image viewer) configuration...'
 rm -fr ~/.config/sxiv
 ln -s /storage/src/dot_files/sxiv ~/.config/sxiv
