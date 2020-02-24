@@ -64,6 +64,10 @@ echo 'Linking flashfocus configuration...'
 rm -fr ~/.config/flashfocus
 ln -s /storage/src/dot_files/flashfocus ~/.config/flashfocus
 
+echo 'Linking i3 layouts configuration...'
+rm -fr ~/.layouts
+ln -s /storage/src/dot_files/.layouts ~/.layouts
+
 echo 'Linking sxiv (image viewer) configuration...'
 rm -fr ~/.config/sxiv
 ln -s /storage/src/dot_files/sxiv ~/.config/sxiv
