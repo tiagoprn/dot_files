@@ -143,6 +143,9 @@ gparted
 cryptsetup
 kpartx
 tcptraceroute
+jq
+x11-xserver-utils
+
 
 - TODO: configure a `.docker` domain with dnsmasq (it is already bundled on Ubuntu, check on debian/raspbian)
 
