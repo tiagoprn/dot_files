@@ -110,6 +110,7 @@ libatk1.0-dev
 libbonoboui2-dev
 libcairo2-dev
 libx11-dev
+libxcb-render0-dev
 libxpm-dev
 libxt-dev
 libncursesw5-dev
@@ -126,6 +127,10 @@ libssh-dev
 libssl-dev
 libffi-dev
 libpq-dev
+python-dev
+python3-dev
+python-cffi
+python3-cffi
 figlet
 debhelper
 shellcheck
