@@ -73,20 +73,29 @@ bindsym $mod+k kill
 bindsym $mod+d exec --no-startup-id rofi -show run
 # below lists just apps with .desktop files
 bindsym $mod+space exec --no-startup-id rofi -show drun -drun-icon-theme
-# below, alt-tab to quickly switch between windows
-bindsym Mod1+Tab exec --no-startup-id rofi -show window -drun-icon-theme
 
-# change focus
+# Window management
+
+## change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+## move focused window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+## swap window without changing container layout
+bindsym $mod+Ctrl+Right mark _last; focus right; swap with mark "_last"; unmark _last; focus right
+bindsym $mod+Ctrl+Left mark _last; focus left; swap with mark "_last"; unmark _last; focus left
+bindsym $mod+Ctrl+Up mark _last; focus up; swap with mark "_last"; unmark _last; focus up
+bindsym $mod+Ctrl+Down mark _last; focus down; swap with mark "_last"; unmark _last; focus down
+
+# alt-tab to quickly switch between windows
+bindsym Mod1+Tab exec --no-startup-id rofi -show window -drun-icon-theme
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -94,7 +103,7 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
+# enter fullscreen mode for the focused container/window
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
@@ -350,7 +359,7 @@ bindsym Mod1+Shift+c exec --no-startup-id /storage/src/devops/bin/clipster -p --
 bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with arandr...' --urgency low; arandr && i3-msg reload"
 bindsym Mod1+k exec --no-startup-id "/storage/src/devops/rofi/toggle_keyboards.py"
-
+bindsym $mod+w exec --no-startup-id "/storage/src/devops/bin/layout_manager.sh"
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 ---
 exec --no-startup-id nm-applet
