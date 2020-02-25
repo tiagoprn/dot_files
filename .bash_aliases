@@ -5,36 +5,53 @@
 
 
 ## one letter aliases
-alias t='tmux'
+alias d='docker'
+alias f='fzf'
+alias j="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE +'normal!o-  '"  # opens a vim file with the current time and a line below ready for editing, useful as a journal.
+alias m="make"
 alias n='OUTPUT=$(navi --print) && xdotool type "$OUTPUT"'
 alias p="pyenv"
+alias t='tmux'
 alias v="vim"
 
-## other aliases
-
-alias list-aliases="alias"
-alias list-functions="cat ~/.bash_functions | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
-alias watch='watch -c '
-alias remove-color-codes='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
-alias decomment='egrep -v "^[[:space:]]*((#|;|//).*)?$" '
+## two letter aliases
+alias dc='docker-compose'
+alias gc="git commit"
+alias gd='git icdiff HEAD'
+alias gf='git fetch'
+alias gh="git log --follow -p --stat -- "  # below show all git history from a file, with diffs between changes
+alias gl="git glog"
+alias gr='cd `git rev-parse --show-toplevel`'  # Go to the repository root:
+alias gu="git reset HEAD "  # below removes file/directory from git staging area (before committing)
+alias gs="git status -s"
 alias pp='pygmentize | nl --body-numbering=a '
 alias pa='pyenv activate '
 alias pd='pyenv deactivate '
 alias pv='pyenv versions '
 alias pl='pyenv install --list '
+alias tp="pyenv activate core-utils && tmuxp load -d "
+alias tf="pyenv activate core-utils && tmuxp freeze "
+alias tl="tmux ls"
+alias ta='tmux -2 a -t `tmux-select-session`'
+alias tk='tmux kill-session -t `tmux-select-session`'
+alias vf='vim-fzf'
+alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
+alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
+alias vcb='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
+
+## other aliases
+alias list-aliases="alias"
+alias list-functions="cat ~/.bash_functions | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
+alias watch='watch -c '
+alias remove-color-codes='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
+alias decomment='egrep -v "^[[:space:]]*((#|;|//).*)?$" '
 alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 alias youtube-player='mpsyt'
 alias pacman_refresh_keys='sudo pacman-key --refresh-keys'
 alias pacman_update_mirrorlists='sudo reflector --verbose --age 6 --country Brazil --latest 15 --fastest 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias upgrade='pacman_update_mirrorlists && sudo pacman -Syu --noconfirm && yay -Syyua --noconfirm'
 alias logs='sudo journalctl -o short-iso -f --all'
-alias j="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE +'normal!o-  '"  # opens a vim file with the current time and a line below ready for editing, useful as a journal.
 alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e.g. 10.0.0.1/24\n\n' && sudo nmap -sP"
-alias tp="pyenv activate core-utils && tmuxp load -d "
-alias tf="pyenv activate core-utils && tmuxp freeze "
-alias tl="tmux ls"
-alias ta='tmux -2 a -t `tmux-select-session`'
-alias tk='tmux kill-session -t `tmux-select-session`'
 # alias tmux-edit-history="vim $HOME/tmux.history"
 # alias tmux-cat-history="cat $HOME/tmux.history"
 alias tmux-autostart="source activate core-utils && /storage/src/devops/tmuxp/start_everything.sh && source deactivate && tmux-attach"
@@ -47,26 +64,12 @@ alias ansible-play="ANSIBLE_CONFIG=~/ansible/conf/ansible.cfg ansible-playbook -
 alias ansible-play-debug="ANSIBLE_DEBUG=1 ansible-playbook -i ~/ansible/conf/hosts -vvvv "
 alias ansible-facts="ansible -i ~/ansible/conf/hosts all -m setup"
 alias ssh-host-aliases="more ~/.ssh/config"
-alias gc="git commit"
-alias gss="git status -s"
-alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
-alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
-alias gdf='git icdiff HEAD'
-alias glg="git glog"
-alias gf='git fetch'
-alias gbcb="git branch | grep ^* | cut -d ' ' -f 2 | cb"
-# below show all git history from a file, with diffs between changes
-alias ghistory="git log --follow -p --stat -- "
-# below removes file/directory from git staging area (before committing)
-alias gunstage="git reset HEAD "
-# Go to the repository root:
-alias gr='cd `git rev-parse --show-toplevel`'
 alias cd-home="cd ~"
 alias cd-storage="cd /storage"
 alias cd-wal="cd ~/.cache/wal"
+alias rsync-no-delete="rsync -rchzPvi --progress"
 alias rsync-simple='rsync -ah --info=progress2'
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
-alias rsync-no-delete="rsync -rchzPvi --progress"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
 alias vim-python-mode-update="cd /storage/src/dot_files/.vim/bundle/python-mode && git submodule update --init --recursive "
 alias chown_me="sudo chown -R $(id -u):$(id -g)"
@@ -90,7 +93,7 @@ alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && $PYENV_BIN rehash"
 alias cbssh="cbf ~/.ssh/id_rsa.pub" # Copy SSH public key
 alias cbpwd="pwd | cb" # Copy current working directory
 alias cbbashhistory="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
-alias cbv='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
+alias gbcb="git branch | grep ^* | cut -d ' ' -f 2 | cb"
 alias update-notes="notify-send -a vim 'Manually pushing notes changes to remote...' && git add . && git commit -m 'manual commit on $(hostname) at $(date -u)' > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Notes changes pushed successfully to remote.' && glg && git status -s "
 alias git-repository-url-get="cat .git/config | grep url | cut -d '=' -f 2 | tr '\n' ' '"
 alias gnome-control-center="XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
