@@ -1,6 +1,3 @@
-
-
-
 " _   _                                    _             _
 "| |_(_) __ _  __ _  ___  _ __  _ __ _ __ ( )___  __   _(_)_ __ ___  _ __ ___
 "| __| |/ _` |/ _` |/ _ \| '_ \| '__| '_ \|// __| \ \ / / | '_ ` _ \| '__/ __|
@@ -52,14 +49,15 @@ hi comment cterm=italic
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+"------------------------------------------------------------------------
+" PLUGINS
+
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
 Plugin 'gmarik/vundle'
 
 " We could also add repositories with a ".git" extension
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'jistr/vim-nerdtree-tabs'
 
 " To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
@@ -90,307 +88,15 @@ Plugin 'chazy/dirsettings'
 " Better moving of text blocks
 Plugin 'matze/vim-move'
 
-" Python development environment
-Plugin 'python-mode/python-mode'
-
-" Highlight unique chars on line for with movements on line with f or t
-Plugin 'unblevable/quick-scope'
-
-" Autopairs
-" Plugin 'jiangmiao/auto-pairs'
-
 " Best support for ctags (requires ctags installed through your distro's package manager)
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
-
-" Expand selection region
-Plugin 'terryma/vim-expand-region'
 
 " Undo tree
 Plugin 'sjl/gundo.vim'
 
 " Vim color scheme to be used with pywal
 Plugin 'dylanaraps/wal.vim'
-
-""" Change vim-move modifier from A to C:
-let g:move_key_modifier = 'C'
-
-""" Do not use <tab> with UltiSnip if you use https://github.com/Valloric/YouCompleteMe.
-
-"""Changing the directory where to find the snippets
-let g:UltiSnipsSnippetsDir          = $HOME.'/.vim/UltiSnips/'
-let g:UltiSnipsSnippetDirectories   = [ "UltiSnips" ]
-
-""" Show all snippets
-let g:UltiSnipsListSnippets="<c-l>"
-
-""" Activate Ultisnips on word
-let g:UltiSnipsExpandTrigger="<tab>"
-
-""" Go to next snippet variable (also called "tabstop")
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-
-""" Go to previous snippet variable. The "s-" below means the Shift key
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-
-""" vim-expand-region customization
-map <Leader>sk <Plug>(expand_region_expand)| " select current word and expand to adjacent regions
-map <Leader>sj <Plug>(expand_region_shrink)| " select current word and contract from adjacent regions
-
-""" python mode configuration default python version
-let g:pymode_python = 'python3'
-
-""" enable pymode motions
-let g:pymode_motion = 0
-
-" gundo customization
-let g:gundo_prefer_python3 = 1
-"Display the undo tree with <leader>u.
-nnoremap <leader>t :GundoToggle<CR>| " Toggle undo tree preview
-
-""" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-"------------------------------------------------------------------------
-" GUTENTAGS CONFIGURATION
-"  https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/?utm_medium=android_app&utm_source=share
-let g:gutentags_add_default_project_roots = 0
-let g:gutentags_project_root = ['package.json', '.git']
-let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
-let g:gutentags_generate_on_new = 1
-let g:gutentags_generate_on_missing = 1
-let g:gutentags_generate_on_write = 1
-let g:gutentags_generate_on_empty_buffer = 0
-let g:gutentags_ctags_extra_args = [
-      \ '--tag-relative=yes',
-      \ '--fields=+ailmnS',
-      \ ]
-let g:gutentags_ctags_exclude = [
-      \ '*.git', '*.svg', '*.hg',
-      \ 'build',
-      \ 'dist',
-      \ '*sites/*/files/*',
-      \ 'bin',
-      \ 'node_modules',
-      \ 'bower_components',
-      \ 'cache',
-      \ 'compiled',
-      \ 'docs',
-      \ 'example',
-      \ 'bundle',
-      \ 'vendor',
-      \ '*-lock.json',
-      \ '*.lock',
-      \ '*bundle*.js',
-      \ '*build*.js',
-      \ '.*rc*',
-      \ '*.json',
-      \ '*.min.*',
-      \ '*.map',
-      \ '*.bak',
-      \ '*.zip',
-      \ '*.pyc',
-      \ '*.class',
-      \ '*.sln',
-      \ '*.Master',
-      \ '*.csproj',
-      \ '*.tmp',
-      \ '*.csproj.user',
-      \ '*.cache',
-      \ '*.pdb',
-      \ 'tags*',
-      \ 'cscope.*',
-      \ '*.css',
-      \ '*.less',
-      \ '*.scss',
-      \ '*.exe', '*.dll',
-      \ '*.mp3', '*.ogg', '*.flac',
-      \ '*.swp', '*.swo',
-      \ '*.bmp', '*.gif', '*.ico', '*.jpg', '*.png',
-      \ '*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2',
-      \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
-      \ ]
-
-" create a command on vim below to rebuild the Gutentags cache
-command! -nargs=0 GutentagsClearCache call system('rm -fr ' . g:gutentags_cache_dir)
-nmap <Leader>tc :GutentagsClearCache<CR>| " Clear Gutentags cache (the directory with all tags)
-
-nmap <Leader>tu :GutentagsUpdate<CR>| " Update Gutentags
-nmap <F8> :TagbarToggle<CR>| " Toggle ctags sidebar to easily navigate on code
-"" Now we can turn our filetype functionality back on
-filetype plugin indent on
-
-"------------------------------------------------------------------------
-" PYTHON-MODE CONFIGURATION
-"
-" CHECK CODE {{{
-"
-" Code checking
-call pymode#default('g:pymode_lint', 1)
-
-" Check code asynchronously
-call pymode#default('g:pymode_lint_async', 1)
-call pymode#default('g:pymode_lint_async_updatetime', 1000)
-
-" Check code every save if file has been modified
-call pymode#default("g:pymode_lint_on_write", 1)
-
-" Check code every save (every)
-call pymode#default("g:pymode_lint_unmodified", 0)
-
-" Check code on fly
-call pymode#default("g:pymode_lint_on_fly", 0)
-
-" Show message about error in command line
-call pymode#default("g:pymode_lint_message", 1)
-
-" Choices are: pylint, pyflakes, pep8, mccabe
-" call pymode#default("g:pymode_lint_checkers", ['pyflakes', 'pep8', 'mccabe'])
-call pymode#default("g:pymode_lint_checkers", ['pylint'])
-
-" Skip errors and warnings (e.g. E4,W)
-call pymode#default("g:pymode_lint_ignore", "")
-
-" Select errors and warnings (e.g. E4,W)
-call pymode#default("g:pymode_lint_select", "")
-
-" Auto open cwindow if any errors has been finded
-call pymode#default("g:pymode_lint_cwindow", 1)
-
-" If not emply, errors will be sort by defined relevance
-" E.g. let g:pymode_lint_sort = ['E', 'C', 'I']  " Errors first 'E',
-" after them 'C' and ...
-call pymode#default("g:pymode_lint_sort", [])
-
-" Place error signs
-call pymode#default("g:pymode_lint_signs", 1)
-
-" Symbol's definitions
-call pymode#default("g:pymode_lint_todo_symbol", "WW")
-call pymode#default("g:pymode_lint_docs_symbol", "DD")
-call pymode#default("g:pymode_lint_comment_symbol", "CC")
-call pymode#default("g:pymode_lint_visual_symbol", "RR")
-call pymode#default("g:pymode_lint_error_symbol", "EE")
-call pymode#default("g:pymode_lint_info_symbol", "II")
-call pymode#default("g:pymode_lint_pyflakes_symbol", "FF")
-
-
-" }}}
-
-" SET/UNSET BREAKPOINTS {{{
-"
-
-" Create/remove breakpoints
-call pymode#default('g:pymode_breakpoint', 1)
-
-call pymode#default('g:pymode_breakpoint_bind', '<leader>b')| " pymode: Key's map for add/remove breakpoint
-
-" Default pattern for making breakpoints. Leave this empty for auto search available debuggers (pdb, ipdb, ...)
-call pymode#default('g:pymode_breakpoint_cmd', '')
-
-" }}}
-
-" ROPE (refactoring, codeassist) {{{
-"
-" Rope support
-call pymode#default('g:pymode_rope', 1)
-
-" System plugin variable
-call pymode#default('g:pymode_rope_current', '')
-
-" Configurable rope project root
-call pymode#default('g:pymode_rope_project_root', '')
-
-" Configurable rope project folder (always relative to project root)
-call pymode#default('g:pymode_rope_ropefolder', '.ropeproject')
-
-" If project hasnt been finded in current working directory, look at parents directory
-call pymode#default('g:pymode_rope_lookup_project', 0)
-
-" Enable Rope completion
-call pymode#default('g:pymode_rope_completion', 1)
-
-" Complete keywords from not imported modules (could make completion slower)
-" Enable autoimport used modules
-call pymode#default('g:pymode_rope_autoimport', 1)
-
-" Offer to import object after complete (if that not be imported before)
-call pymode#default('g:pymode_rope_autoimport_import_after_complete', 1)
-
-" Autoimported modules
-call pymode#default('g:pymode_rope_autoimport_modules', ['os', 'shutil', 'datetime', 'mock', 'sys', 'time', 'typing', 'unittest', 'random'])
-
-call pymode#default('g:pymode_rope_autoimport_bind', '<leader>ra')| " pymode: autoimport module for object under cursor
-
-" Automatic completion on dot
-call pymode#default('g:pymode_rope_complete_on_dot', 0)
-
-call pymode#default('g:pymode_rope_completion_bind', '<C-Space>')| " pymode: autocomplete (leave empty for disable)
-
-call pymode#default('g:pymode_rope_goto_definition_bind', '<leader>g')| " pymode: goto definition (leave empty for disable)
-
-" set command for go to definition (e, new, vnew)
-call pymode#default('g:pymode_rope_goto_definition_cmd', 'new')
-
-call pymode#default('g:pymode_rope_show_doc_bind', '<leader>d')| " pymode: show documentation (leave empty for disable)
-
-call pymode#default('g:pymode_rope_find_it_bind', '<leader>f')| " pymode: find occurencies (leave empty for disable)
-
-call pymode#default('g:pymode_rope_organize_imports_bind', '<leader>ro')| " pymode: organize imports (leave empty for disable)
-
-call pymode#default('g:pymode_rope_rename_bind', '<leader>rr')| " pymode: rename variable/method/class in the project (leave empty for disable)
-
-call pymode#default('g:pymode_rope_rename_module_bind', '<leader>r1r')| " pymode: rename module
-
-call pymode#default('g:pymode_rope_module_to_package_bind', '<leader>r1p')| " pymode: convert module to package
-
-call pymode#default('g:pymode_rope_extract_method_bind', '<leader>rm')| " pymode: creates a new function or method (depending on the context) from the selected lines
-
-call pymode#default('g:pymode_rope_extract_variable_bind', '<leader>rl')| " pymode: creates a variable from the selected lines
-
-call pymode#default('g:pymode_rope_inline_bind', '<leader>ri')| " pymode: inline refactoring
-
-call pymode#default('g:pymode_rope_move_bind', '<leader>rv')| " pymode: move refactoring
-
-call pymode#default('g:pymode_rope_generate_function_bind', '<leader>rnf')| " pymode: generate function
-
-call pymode#default('g:pymode_rope_generate_class_bind', '<leader>rnc')| " pymode: generate class
-
-call pymode#default('g:pymode_rope_generate_package_bind', '<leader>rnp')| " pymode: generate package
-
-call pymode#default('g:pymode_rope_change_signature_bind', '<leader>rs')| " pymode: change signature
-
-call pymode#default('g:pymode_rope_use_function_bind', '<leader>ru')| " pymode: tries to find the places in which a function can be used and changes the code to call it instead
-
-" Regenerate project cache on every save
-call pymode#default('g:pymode_rope_regenerate_on_write', 1)
-
-" }}}
-
-" }}}
-
-"------------------------------------------------------------------------
-" PLUGIN quick-scope configuration
-" Trigger a highlight in the appropriate direction when pressing these keys:
-" TODO: change below to keys that do not conflict with vim's default search
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-augroup qs_colors
-  autocmd!
-  autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
-augroup END
-
-" Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
-" Note that you must use nmap/xmap instead of their non-recursive versions (nnoremap/xnoremap).
-" nmap <leader>q <plug>(QuickScopeToggle)
-" xmap <leader>q <plug>(QuickScopeToggle)
-
-let g:qs_enable=1
-
-let g:qs_max_chars=120
-let g:qs_lazy_highlight = 1
 
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
@@ -539,8 +245,6 @@ augroup autoRead
     autocmd CursorHold,CursorHoldI * silent! checktime
 augroup END
 
-
-
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :call VisualSelection('f')<CR>| " search forwards current highlighted selection
 vnoremap <silent> # :call VisualSelection('b')<CR>| " search backwards current highlighted selection
@@ -591,7 +295,6 @@ exec 'nnoremap <Leader>so :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><B
 nnoremap j gj| " go down on wrapped line
 nnoremap k gk| " go up on wrapped line
 
-"--------------------------------------------------
 " CLIPBOARD BEHAVIOR (both work in visual mode)
 vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>| " copy to clipboard
 vnoremap p :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))| " paste from clipboard
@@ -607,7 +310,6 @@ vmap r "_dP| " replace current selection with clipboard contents
 nnoremap d "_d
 nnoremap dd "_dd
 
-"------------------------
 " DISABLE ARROW KEYS IN NORMAL MODE
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -634,25 +336,101 @@ autocmd BufWritePre * :%s/\s\+$//e
 " After saving a file, display a notification:
 autocmd BufWritePost * silent! !notify-send -a vim "File %:p saved."
 
-"
-
 "--------------------------------------------------
 " PLUGIN CONFIGURATIONS
 
-"" NERDTree
-" Open a NERDTree automatically when vim starts up if no files were specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" map <CTRL>+n open/close NERDTree
-map <C-n> :NERDTreeToggle<CR>| " open NERDTree
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeQuitOnOpen=1
-let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\.pyc$', '\~$']
-let NERDTreeShowBookmarks=1
+""" VIM-MOVE
+" Change vim-move modifier from A to C:
+let g:move_key_modifier = 'C'
 
-"" vim-bookmarks
+""" GUNDO
+let g:gundo_prefer_python3 = 1
+"Display the undo tree with <leader>u.
+nnoremap <leader>t :GundoToggle<CR>| " Toggle undo tree preview
+
+""" ULTISNIPS
+" Do not use <tab> with UltiSnip if you use https://github.com/Valloric/YouCompleteMe.
+""Changing the directory where to find the snippets
+let g:UltiSnipsSnippetsDir          = $HOME.'/.vim/UltiSnips/'
+let g:UltiSnipsSnippetDirectories   = [ "UltiSnips" ]
+"" Show all snippets
+let g:UltiSnipsListSnippets="<c-l>"
+"" Activate Ultisnips on word
+let g:UltiSnipsExpandTrigger="<tab>"
+"" Go to next snippet variable (also called "tabstop")
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+"" Go to previous snippet variable. The "s-" below means the Shift key
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+""" GUTENTAGS
+"  https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/?utm_medium=android_app&utm_source=share
+let g:gutentags_add_default_project_roots = 0
+let g:gutentags_project_root = ['package.json', '.git']
+let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_empty_buffer = 0
+let g:gutentags_ctags_extra_args = [
+      \ '--tag-relative=yes',
+      \ '--fields=+ailmnS',
+      \ ]
+let g:gutentags_ctags_exclude = [
+      \ '*.git', '*.svg', '*.hg',
+      \ 'build',
+      \ 'dist',
+      \ '*sites/*/files/*',
+      \ 'bin',
+      \ 'node_modules',
+      \ 'bower_components',
+      \ 'cache',
+      \ 'compiled',
+      \ 'docs',
+      \ 'example',
+      \ 'bundle',
+      \ 'vendor',
+      \ '*-lock.json',
+      \ '*.lock',
+      \ '*bundle*.js',
+      \ '*build*.js',
+      \ '.*rc*',
+      \ '*.json',
+      \ '*.min.*',
+      \ '*.map',
+      \ '*.bak',
+      \ '*.zip',
+      \ '*.pyc',
+      \ '*.class',
+      \ '*.sln',
+      \ '*.Master',
+      \ '*.csproj',
+      \ '*.tmp',
+      \ '*.csproj.user',
+      \ '*.cache',
+      \ '*.pdb',
+      \ 'tags*',
+      \ 'cscope.*',
+      \ '*.css',
+      \ '*.less',
+      \ '*.scss',
+      \ '*.exe', '*.dll',
+      \ '*.mp3', '*.ogg', '*.flac',
+      \ '*.swp', '*.swo',
+      \ '*.bmp', '*.gif', '*.ico', '*.jpg', '*.png',
+      \ '*.rar', '*.zip', '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2',
+      \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
+      \ ]
+" create a command on vim below to rebuild the Gutentags cache
+command! -nargs=0 GutentagsClearCache call system('rm -fr ' . g:gutentags_cache_dir)
+nmap <Leader>tc :GutentagsClearCache<CR>| " Clear Gutentags cache (the directory with all tags)
+nmap <Leader>tu :GutentagsUpdate<CR>| " Update Gutentags
+nmap <F8> :TagbarToggle<CR>| " Toggle ctags sidebar to easily navigate on code
+"" Now we can turn our filetype functionality back on
+filetype plugin indent on
+
+""" VIM-BOOKMARKS
 nmap <Leader>, <Plug>BookmarkToggle| " bookmarks: toggle
 nmap <Leader>i <Plug>BookmarkAnnotate| "bookmarks: annotate
 nmap <Leader>a <Plug>BookmarkShowAll| " bookmarks: show all
@@ -663,7 +441,7 @@ nmap <Leader>x <Plug>BookmarkClearAll| " bookmarks: clear all
 
 map <C-t> <Plug>TaskList| " tasklist (TODO list)
 
-"" fzf
+""" fzf
 let g:fzf_tags_command='ctags -f $HOME/.cache/vim/ctags/fzf_current_file_tag --tag-relative=yes --fields=+ailmnS'
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
@@ -674,12 +452,9 @@ nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, v
 " <Cr> | " fzf tip: open file on current window
 " <C-x> | " fzf tip: open file on horizontal split
 " <C-v> | " fzf tip: open file on vertical split
-
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete
 
-
-" lightline specific configuration
-
+""" lightline
 let g:lightline = {
       \ 'colorscheme': 'landscape',
       \ 'active': {
@@ -732,9 +507,12 @@ function! MyFilename()
     return '' != expand('%:p') ? expand('%:p') : '[No Name]'
 endfunction
 
-" tagbar
+""" tagbar
 map <F7> :TagbarToggle<CR>| " tagbar toggle
 " let g:tagbar_autoclose = 1
+
+"--------------------------------------------------
+" OTHER
 
 " a quickfix window opens with a 10-line height, even when the number of errors
 " is 1 or 2. I think it's a waste of window space. So I wrote the following
@@ -800,7 +578,8 @@ endfunction
 au InsertLeave * call TurnOffCaps()
 set updatetime=10
 
-""" CHEATSHEET:
+"--------------------------------------------------
+" CHEATSHEET:
 
 "" repetitions
 
