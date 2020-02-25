@@ -35,8 +35,11 @@ alias tl="tmux ls"
 alias ta='tmux -2 a -t `tmux-select-session`'
 alias tk='tmux kill-session -t `tmux-select-session`'
 alias vf='vim-fzf'
+
+# tree letter aliases
 alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
 alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
+alias gru="cat `git rev-parse --show-toplevel`/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' '"
 alias vcb='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
 
 ## other aliases
@@ -93,7 +96,6 @@ alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && $PYENV_BIN rehash"
 alias cbssh="cbf ~/.ssh/id_rsa.pub" # Copy SSH public key
 alias cbpwd="pwd | cb" # Copy current working directory
 alias cbbashhistory="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
-alias gbcb="git branch | grep ^* | cut -d ' ' -f 2 | cb"
 alias update-notes="notify-send -a vim 'Manually pushing notes changes to remote...' && git add . && git commit -m 'manual commit on $(hostname) at $(date -u)' > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Notes changes pushed successfully to remote.' && glg && git status -s "
-alias git-repository-url-get="cat .git/config | grep url | cut -d '=' -f 2 | tr '\n' ' '"
+alias gbcb="git branch | grep ^* | cut -d ' ' -f 2 | cb"
 alias gnome-control-center="XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
