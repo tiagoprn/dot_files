@@ -491,9 +491,9 @@ function! MyReadonly()
     endif
 endfunction
 
-function! MyFugitive()
-    return exists('*fugitive#head') ? fugitive#head() : ''
-endfunction
+" function! MyFugitive()
+"    return exists('*fugitive#head') ? fugitive#head() : ''
+" endfunction
 
 function! MyFugitive()
     if exists("*fugitive#head")
