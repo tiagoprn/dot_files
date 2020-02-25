@@ -102,6 +102,8 @@ Plugin 'dylanaraps/wal.vim'
 " (https://bluz71.github.io/2019/10/16/lsp-in-vim-with-the-lsc-plugin.html)
 Plugin 'natebosch/vim-lsc'
 Plugin 'ajh17/VimCompletesMe'
+Plugin 'zchee/deoplete-jedi'
+Plugin 'hrsh7th/deoplete-vim-lsc'
 
 
 "------------------------------------------------------------------------
@@ -518,9 +520,11 @@ map <F7> :TagbarToggle<CR>| " tagbar toggle
 " let g:tagbar_autoclose = 1
 
 """ lsc (language-server)
+set completeopt=menu,menuone,noinsert,noselect
+autocmd CompleteDone * silent! pclose
 let g:lsc_server_commands = {
- \  'ruby': {
- \    'command': 'solargraph stdio',
+ \  'python': {
+ \    'command': 'pyls',
  \    'log_level': -1,
  \    'suppress_stderr': v:true,
  \  },
@@ -531,11 +535,14 @@ let g:lsc_server_commands = {
  \  }
  \}
 let g:lsc_auto_map = {
+ \  'defaults': v:true,
  \  'GoToDefinition': 'gd',
+ \  'FindImplementations': 'gI',
  \  'FindReferences': 'gr',
  \  'Rename': 'gR',
  \  'ShowHover': 'K',
  \  'FindCodeActions': 'ga',
+ \  'SignatureHelp': 'gm',
  \  'Completion': 'omnifunc',
  \}
 let g:lsc_enable_autocomplete  = v:false
