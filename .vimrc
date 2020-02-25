@@ -98,6 +98,12 @@ Plugin 'sjl/gundo.vim'
 " Vim color scheme to be used with pywal
 Plugin 'dylanaraps/wal.vim'
 
+" language-server support
+" (https://bluz71.github.io/2019/10/16/lsp-in-vim-with-the-lsc-plugin.html)
+Plugin 'natebosch/vim-lsc'
+Plugin 'ajh17/VimCompletesMe'
+
+
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
 
@@ -510,6 +516,33 @@ endfunction
 """ tagbar
 map <F7> :TagbarToggle<CR>| " tagbar toggle
 " let g:tagbar_autoclose = 1
+
+""" lsc (language-server)
+let g:lsc_server_commands = {
+ \  'ruby': {
+ \    'command': 'solargraph stdio',
+ \    'log_level': -1,
+ \    'suppress_stderr': v:true,
+ \  },
+ \  'javascript': {
+ \    'command': 'typescript-language-server --stdio',
+ \    'log_level': -1,
+ \    'suppress_stderr': v:true,
+ \  }
+ \}
+let g:lsc_auto_map = {
+ \  'GoToDefinition': 'gd',
+ \  'FindReferences': 'gr',
+ \  'Rename': 'gR',
+ \  'ShowHover': 'K',
+ \  'FindCodeActions': 'ga',
+ \  'Completion': 'omnifunc',
+ \}
+let g:lsc_enable_autocomplete  = v:false
+let g:lsc_enable_diagnostics   = v:false
+let g:lsc_reference_highlights = v:false
+let g:lsc_trace_level          = 'off'
+
 
 "--------------------------------------------------
 " OTHER
