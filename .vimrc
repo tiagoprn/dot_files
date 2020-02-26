@@ -104,7 +104,7 @@ Plugin 'natebosch/vim-lsc'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'zchee/deoplete-jedi'
 Plugin 'hrsh7th/deoplete-vim-lsc'
-
+Plugin 'ervandew/supertab'
 
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
