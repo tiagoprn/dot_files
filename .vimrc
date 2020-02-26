@@ -656,16 +656,14 @@ set updatetime=10
 " <word><tab>| " expand snippet
 " :Snippets| " snippets list powered by vim-fzf
 
-"" pymode motions
-
-" [[|  (INACTIVE) " pymode:  motion: jump to previous class or function (normal, visual, operator modes)
-" ]]|  (INACTIVE) " pymode:  motion: jump to next class or function  (normal, visual, operator modes)
-" [M|  (INACTIVE) " pymode:  motion: jump to previous class or method (normal, visual, operator modes)
-" ]M|  (INACTIVE) " pymode:  motion: jump to next class or method (normal, visual, operator modes)
-" aC|  (INACTIVE) " pymode:  motion: select a class. ex: vac, dac, yac, cac (normal, operator modes)
-" iC|  (INACTIVE) " pymode:  motion: select inner class. ex: vic, dic, yic, cic (normal, operator modes)
-" aM|  (INACTIVE) " pymode:  motion: select a function or method. ex: vam, dam, yam, cam (normal, operator modes)
-" iM|  (INACTIVE) " pymode:  motion: select inner function or method. ex: vim, dim, yim, cim (normal, operator modes)
+"" language-server (lsc):
+"(lsc) GoToDefinition | "  gd
+"(lsc) FindImplementations | "  gI
+"(lsc) FindReferences | "  gr
+"(lsc) Rename | "  gR
+"(lsc) ShowHover | "  K
+"(lsc) FindCodeActions | "  ga
+"(lsc) SignatureHelp | "  gm
 
 "" others
 
