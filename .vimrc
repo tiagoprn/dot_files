@@ -522,11 +522,12 @@ map <F7> :TagbarToggle<CR>| " tagbar toggle
 """ lsc (language-server)
 set completeopt=menu,menuone,noinsert,noselect
 autocmd CompleteDone * silent! pclose
+" after opening a python file, check the file '/tmp/pyls.log' to see a complete 'workspace config'
+" when you need to customize that.
 let g:lsc_server_commands = {
  \  'python': {
- \    'command': 'pyls',
- \    'log_level': -1,
- \    'suppress_stderr': v:true,
+ \    'command': 'pyls -vv --log-file /tmp/pyls.log',
+ \    'workspace_config': {'pyls': {'plugins': {'rope_completion': {'enabled': v:true}}}},
  \  },
  \  'javascript': {
  \    'command': 'typescript-language-server --stdio',
