@@ -30,8 +30,8 @@ set t_EI=[2\ q
 set pastetoggle=<F2>
 
 " Color scheme (must be in ~/.vim/colors)
-set background=dark
-colorscheme one
+" set background=dark
+colorscheme spacecamp
 
 " font
 set anti gfn=Fira\ Code\ 11
@@ -63,6 +63,9 @@ Plugin 'jistr/vim-nerdtree-tabs'
 
 " To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
+
+" git plugin
+Plugin 'tpope/vim-fugitive'
 
 " A light and configurable statusline/tabline for Vim
 Plugin 'itchyny/lightline.vim'
@@ -611,13 +614,17 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-"-----------------------------------"
+"-----------------------------------
 " CUSTOM COMMANDS (SHORTCUTS)
 
 " Show (Ultisnips) snippets list (call with: <VISUAL>:S):
 command! -bar -bang S call fzf#vim#snippets({'options': '--ansi --tiebreak=index +m -d "\t"'}, <bang>0)
 
-"----------------------------------"
+" Close other buffers and keep only the current one:
+command! CloseOtherBuffers execute '%bdelete|edit #|normal `"'
+nnoremap <silent> c, :CloseOtherBuffers<CR>| " Close other buffers and keep only the current one
+
+"----------------------------------
 " VIM EVENT HOOKS "
 
 " Before saving a file, deletes any trailing whitespace at the end of each line.

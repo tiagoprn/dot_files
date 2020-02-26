@@ -282,18 +282,6 @@ bindsym Mod1+Up exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound
 bindsym Mod1+Down exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym Mod1+Shift exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# CAPS and NUM_LOCK activation
-mode "CAPS_LOCK" {
-        bindsym Caps_Lock mode "default"
-}
-bindsym Caps_Lock mode "CAPS_LOCK"
-
-# Enable/disable numeric keyboard
-mode "NUM_LOCK" {
-        bindsym Num_Lock mode "default"
-}
-bindsym Num_Lock mode "NUM_LOCK"
-
 # -- MY CUSTOMIZATIONS BELOW --
 
 # --- WINDOW BORDERS ---

@@ -16,6 +16,7 @@ alias v="vim"
 
 ## two letter aliases
 alias dc='docker-compose'
+alias ga="git add"
 alias gc="git commit"
 alias gd='git icdiff HEAD'
 alias gf='git fetch'
@@ -39,7 +40,7 @@ alias vf='vim-fzf'
 # tree letter aliases
 alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
 alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
-alias gru="cat `git rev-parse --show-toplevel`/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' '"
+alias gru='cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d "=" -f 2 | tr "\n" " "'
 alias vcb='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
 
 ## other aliases

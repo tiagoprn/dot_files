@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/storage/src/devops/bin/keyboard-leds.sh
