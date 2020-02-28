@@ -76,9 +76,9 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " snippets support plugins
+" ultisnips disabled due to conflict with vim-pyenv
 "" Track the engine.
-Plugin 'SirVer/ultisnips'
-
+" Plugin 'SirVer/ultisnips'
 "" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
@@ -330,9 +330,6 @@ noremap <Right> <Nop>
 "-----------------------------------
 " CUSTOM COMMANDS (SHORTCUTS)
 
-" Show (Ultisnips) snippets list (call with: <VISUAL>:S):
-command! -bar -bang S call fzf#vim#snippets({'options': '--ansi --tiebreak=index +m -d "\t"'}, <bang>0)
-
 " Close other buffers and keep only the current one:
 command! CloseOtherBuffers execute '%bdelete|edit #|normal `"'
 nnoremap <silent> c, :CloseOtherBuffers<CR>| " Close other buffers and keep only the current one
@@ -358,23 +355,6 @@ let g:move_key_modifier = 'C'
 let g:gundo_prefer_python3 = 1
 "Display the undo tree with <leader>u.
 nnoremap <leader>t :GundoToggle<CR>| " Toggle undo tree preview
-
-""" ULTISNIPS
-" Do not use <tab> with UltiSnip if you use https://github.com/Valloric/YouCompleteMe.
-""Changing the directory where to find the snippets
-let g:UltiSnipsUsePythonVersion = 3  " change this if I am using a python 2 pyenv
-let g:UltiSnipsSnippetsDir          = $HOME.'/.vim/UltiSnips/'
-let g:UltiSnipsSnippetDirectories   = [ "UltiSnips" ]
-"" Show all snippets
-let g:UltiSnipsListSnippets="<c-l>"
-"" Activate Ultisnips on word
-let g:UltiSnipsExpandTrigger="<tab>"
-"" Go to next snippet variable (also called "tabstop")
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-"" Go to previous snippet variable. The "s-" below means the Shift key
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 """ GUTENTAGS
 "  https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/?utm_medium=android_app&utm_source=share
