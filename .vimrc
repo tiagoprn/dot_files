@@ -100,6 +100,8 @@ Plugin 'dylanaraps/wal.vim'
 
 " language-server support
 " (https://bluz71.github.io/2019/10/16/lsp-in-vim-with-the-lsc-plugin.html)
+Plugin 'davidhalter/jedi-vim'
+Plugin 'lambdalisue/vim-pyenv'
 Plugin 'natebosch/vim-lsc'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'zchee/deoplete-jedi'
@@ -520,6 +522,18 @@ endfunction
 map <F7> :TagbarToggle<CR>| " tagbar toggle
 " let g:tagbar_autoclose = 1
 
+""" jedi-vim
+if jedi#init_python()
+  function! s:jedi_auto_force_py_version() abort
+    let g:jedi#force_py_version = pyenv#python#get_internal_major_version()
+  endfunction
+  augroup vim-pyenv-custom-augroup
+    autocmd! *
+    autocmd User vim-pyenv-activate-post   call s:jedi_auto_force_py_version()
+    autocmd User vim-pyenv-deactivate-post call s:jedi_auto_force_py_version()
+  augroup END
+endif
+
 """ LSC (LANGUAGE-SERVER)
 set completeopt=menu,menuone,noinsert,noselect
 autocmd CompleteDone * silent! pclose
@@ -551,7 +565,6 @@ let g:lsc_enable_autocomplete  = v:false
 let g:lsc_enable_diagnostics   = v:false
 let g:lsc_reference_highlights = v:false
 let g:lsc_trace_level          = 'off'
-
 
 """ DEOPLETE
 let g:deoplete#enable_at_startup = 1
@@ -671,16 +684,18 @@ set updatetime=10
 " :Snippets| " snippets list powered by vim-fzf
 
 "" language-server (lsc):
-"(lsc) GoToDefinition | "  gd
-"(lsc) FindImplementations | "  gI
-"(lsc) FindReferences | "  gr
-"(lsc) Rename | "  gR
-"(lsc) ShowHover | "  K
-"(lsc) FindCodeActions | "  ga
-"(lsc) SignatureHelp | "  gm
-"(ale) | " ALEInfo
-"(ale) | " ALELint
-"(ale) | " ALEFixSuggest
+"(python-lsc) GoToDefinition | "  gd
+"(python-lsc) FindImplementations | "  gI
+"(python-lsc) FindReferences | "  gr
+"(python-lsc) Rename | "  gR
+"(python-lsc) ShowHover | "  K
+"(python-lsc) FindCodeActions | "  ga
+"(python-lsc) SignatureHelp | "  gm
+"(python-ale) Show ALE information (useful for debugging) | " ALEInfo
+"(python-ale) Run ALE Linter | " ALELint
+"(python-ale) Run ALE Fixer suggestion (black) | " ALEFixSuggest
+"(python-pyenv) Activate pyenv | " PyenvActivate <pyenv>
+"(python-pyenv) Deactivate pyenv | " PyenvDeactivate
 
 "" others
 
