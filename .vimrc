@@ -105,6 +105,7 @@ Plugin 'ajh17/VimCompletesMe'
 Plugin 'zchee/deoplete-jedi'
 Plugin 'hrsh7th/deoplete-vim-lsc'
 Plugin 'ervandew/supertab'
+Plugin 'w0rp/ale'
 
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
@@ -449,7 +450,7 @@ nmap <Leader>x <Plug>BookmarkClearAll| " bookmarks: clear all
 
 map <C-t> <Plug>TaskList| " tasklist (TODO list)
 
-""" fzf
+""" FZF
 let g:fzf_tags_command='ctags -f $HOME/.cache/vim/ctags/fzf_current_file_tag --tag-relative=yes --fields=+ailmnS'
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
@@ -462,7 +463,7 @@ nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, v
 " <C-v> | " fzf tip: open file on vertical split
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete
 
-""" lightline
+""" LIGHTLINE
 let g:lightline = {
       \ 'colorscheme': 'landscape',
       \ 'active': {
@@ -515,11 +516,11 @@ function! MyFilename()
     return '' != expand('%:p') ? expand('%:p') : '[No Name]'
 endfunction
 
-""" tagbar
+""" TAGBAR
 map <F7> :TagbarToggle<CR>| " tagbar toggle
 " let g:tagbar_autoclose = 1
 
-""" lsc (language-server)
+""" LSC (LANGUAGE-SERVER)
 set completeopt=menu,menuone,noinsert,noselect
 autocmd CompleteDone * silent! pclose
 " after opening a python file, check the file '/tmp/pyls.log' to see a complete 'workspace config'
@@ -551,6 +552,16 @@ let g:lsc_enable_diagnostics   = v:false
 let g:lsc_reference_highlights = v:false
 let g:lsc_trace_level          = 'off'
 
+
+""" DEOPLETE
+let g:deoplete#enable_at_startup = 1
+
+""" ALE
+" More config options for python: https://github.com/dense-analysis/ale/blob/master/doc/ale-python.txt
+let g:ale_linters = {'python': ['pylint']} " flake8, pycodestyle, bandit, mypy, etc...
+let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
+" let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
+let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
 
 "--------------------------------------------------
 " OTHER
