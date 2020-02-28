@@ -578,6 +578,7 @@ let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
 " let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
 let g:ale_python_pylint_options = '--rcfile .pylintrc'
 let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
+let g:ale_fix_on_save = 1
 
 "--------------------------------------------------
 " OTHER
