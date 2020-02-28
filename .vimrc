@@ -362,6 +362,7 @@ nnoremap <leader>t :GundoToggle<CR>| " Toggle undo tree preview
 """ ULTISNIPS
 " Do not use <tab> with UltiSnip if you use https://github.com/Valloric/YouCompleteMe.
 ""Changing the directory where to find the snippets
+let g:UltiSnipsUsePythonVersion = 3  " change this if I am using a python 2 pyenv
 let g:UltiSnipsSnippetsDir          = $HOME.'/.vim/UltiSnips/'
 let g:UltiSnipsSnippetDirectories   = [ "UltiSnips" ]
 "" Show all snippets
