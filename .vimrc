@@ -558,9 +558,11 @@ let g:deoplete#enable_at_startup = 1
 
 """ ALE
 " More config options for python: https://github.com/dense-analysis/ale/blob/master/doc/ale-python.txt
+" let g:ale_virtualenv_dir_names = [] " Disable auto-detection of virtualenvironments, so environment variable ${VIRTUAL_ENV} is always used
 let g:ale_linters = {'python': ['pylint']} " flake8, pycodestyle, bandit, mypy, etc...
 let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
 " let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
+let g:ale_python_pylint_options = '--rcfile .pylintrc'
 let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
 
 "--------------------------------------------------
@@ -676,6 +678,9 @@ set updatetime=10
 "(lsc) ShowHover | "  K
 "(lsc) FindCodeActions | "  ga
 "(lsc) SignatureHelp | "  gm
+"(ale) | " ALEInfo
+"(ale) | " ALELint
+"(ale) | " ALEFixSuggest
 
 "" others
 
