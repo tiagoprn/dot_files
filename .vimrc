@@ -76,9 +76,9 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " snippets support plugins
+" ultisnips disabled due to conflict with vim-pyenv
 "" Track the engine.
-Plugin 'SirVer/ultisnips'
-
+" Plugin 'SirVer/ultisnips'
 "" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
@@ -100,11 +100,14 @@ Plugin 'dylanaraps/wal.vim'
 
 " language-server support
 " (https://bluz71.github.io/2019/10/16/lsp-in-vim-with-the-lsc-plugin.html)
+Plugin 'davidhalter/jedi-vim'
+Plugin 'lambdalisue/vim-pyenv'
 Plugin 'natebosch/vim-lsc'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'zchee/deoplete-jedi'
 Plugin 'hrsh7th/deoplete-vim-lsc'
 Plugin 'ervandew/supertab'
+Plugin 'w0rp/ale'
 
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
@@ -327,9 +330,6 @@ noremap <Right> <Nop>
 "-----------------------------------
 " CUSTOM COMMANDS (SHORTCUTS)
 
-" Show (Ultisnips) snippets list (call with: <VISUAL>:S):
-command! -bar -bang S call fzf#vim#snippets({'options': '--ansi --tiebreak=index +m -d "\t"'}, <bang>0)
-
 " Close other buffers and keep only the current one:
 command! CloseOtherBuffers execute '%bdelete|edit #|normal `"'
 nnoremap <silent> c, :CloseOtherBuffers<CR>| " Close other buffers and keep only the current one
@@ -355,22 +355,6 @@ let g:move_key_modifier = 'C'
 let g:gundo_prefer_python3 = 1
 "Display the undo tree with <leader>u.
 nnoremap <leader>t :GundoToggle<CR>| " Toggle undo tree preview
-
-""" ULTISNIPS
-" Do not use <tab> with UltiSnip if you use https://github.com/Valloric/YouCompleteMe.
-""Changing the directory where to find the snippets
-let g:UltiSnipsSnippetsDir          = $HOME.'/.vim/UltiSnips/'
-let g:UltiSnipsSnippetDirectories   = [ "UltiSnips" ]
-"" Show all snippets
-let g:UltiSnipsListSnippets="<c-l>"
-"" Activate Ultisnips on word
-let g:UltiSnipsExpandTrigger="<tab>"
-"" Go to next snippet variable (also called "tabstop")
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-"" Go to previous snippet variable. The "s-" below means the Shift key
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 """ GUTENTAGS
 "  https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/?utm_medium=android_app&utm_source=share
@@ -449,7 +433,7 @@ nmap <Leader>x <Plug>BookmarkClearAll| " bookmarks: clear all
 
 map <C-t> <Plug>TaskList| " tasklist (TODO list)
 
-""" fzf
+""" FZF
 let g:fzf_tags_command='ctags -f $HOME/.cache/vim/ctags/fzf_current_file_tag --tag-relative=yes --fields=+ailmnS'
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
@@ -462,7 +446,7 @@ nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, v
 " <C-v> | " fzf tip: open file on vertical split
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete
 
-""" lightline
+""" LIGHTLINE
 let g:lightline = {
       \ 'colorscheme': 'landscape',
       \ 'active': {
@@ -515,11 +499,25 @@ function! MyFilename()
     return '' != expand('%:p') ? expand('%:p') : '[No Name]'
 endfunction
 
-""" tagbar
+
+
+""" TAGBAR
 map <F7> :TagbarToggle<CR>| " tagbar toggle
 " let g:tagbar_autoclose = 1
 
-""" lsc (language-server)
+""" JEDI-VIM
+if jedi#init_python()
+  function! s:jedi_auto_force_py_version() abort
+    let g:jedi#force_py_version = pyenv#python#get_internal_major_version()
+  endfunction
+  augroup vim-pyenv-custom-augroup
+    autocmd! *
+    autocmd User vim-pyenv-activate-post   call s:jedi_auto_force_py_version()
+    autocmd User vim-pyenv-deactivate-post call s:jedi_auto_force_py_version()
+  augroup END
+endif
+
+""" LSC (LANGUAGE-SERVER)
 set completeopt=menu,menuone,noinsert,noselect
 autocmd CompleteDone * silent! pclose
 " after opening a python file, check the file '/tmp/pyls.log' to see a complete 'workspace config'
@@ -551,6 +549,18 @@ let g:lsc_enable_diagnostics   = v:false
 let g:lsc_reference_highlights = v:false
 let g:lsc_trace_level          = 'off'
 
+""" DEOPLETE
+let g:deoplete#enable_at_startup = 1
+
+""" ALE
+" More config options for python: https://github.com/dense-analysis/ale/blob/master/doc/ale-python.txt
+" let g:ale_virtualenv_dir_names = [] " Disable auto-detection of virtualenvironments, so environment variable ${VIRTUAL_ENV} is always used
+let g:ale_linters = {'python': ['pylint']} " flake8, pycodestyle, bandit, mypy, etc...
+let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
+" let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
+let g:ale_python_pylint_options = '--rcfile .pylintrc'
+let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
+let g:ale_fix_on_save = 1
 
 "--------------------------------------------------
 " OTHER
@@ -658,13 +668,18 @@ set updatetime=10
 " :Snippets| " snippets list powered by vim-fzf
 
 "" language-server (lsc):
-"(lsc) GoToDefinition | "  gd
-"(lsc) FindImplementations | "  gI
-"(lsc) FindReferences | "  gr
-"(lsc) Rename | "  gR
-"(lsc) ShowHover | "  K
-"(lsc) FindCodeActions | "  ga
-"(lsc) SignatureHelp | "  gm
+"(python-lsc) GoToDefinition | "  gd
+"(python-lsc) FindImplementations | "  gI
+"(python-lsc) FindReferences | "  gr
+"(python-lsc) Rename | "  gR
+"(python-lsc) ShowHover | "  K
+"(python-lsc) FindCodeActions | "  ga
+"(python-lsc) SignatureHelp | "  gm
+"(python-ale) Show ALE information (useful for debugging) | " ALEInfo
+"(python-ale) Run ALE Linter | " ALELint
+"(python-ale) Run ALE Fixer suggestion (black) | " ALEFixSuggest
+"(python-pyenv) Activate pyenv | " PyenvActivate <pyenv>
+"(python-pyenv) Deactivate pyenv | " PyenvDeactivate
 
 "" others
 
