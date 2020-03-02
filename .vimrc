@@ -80,7 +80,7 @@ Plugin 'junegunn/fzf.vim'
 "" Track the engine.
 " Plugin 'SirVer/ultisnips'
 "" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 " Add specific actions for directories creating a .vimdir file on a specific directory (e.g. /storages/docs/notes)
 Plugin 'chazy/dirsettings'
