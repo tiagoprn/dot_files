@@ -170,3 +170,7 @@ function tmux-select-session() {
     local sessions=$(tmux ls | awk '{print $1}' | sed 's/\://g')
     echo -e "Select session: \n$sessions" | fzf
 }
+
+function dockerps () {
+    docker ps --format 'table {{ .ID }}, {{ .Names }}, {{ .Status }}, {{ .Command }}, {{ .Image }}';
+}

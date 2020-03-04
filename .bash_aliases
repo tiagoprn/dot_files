@@ -16,6 +16,7 @@ alias v="vim"
 
 ## two letter aliases
 alias dc='docker-compose'
+alias dp='watch -n 1 -x bash -c "source $HOME/.bashrc && dockerps"'
 alias ga="git add"
 alias gc="git commit"
 alias gd='git icdiff HEAD'
