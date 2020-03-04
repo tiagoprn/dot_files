@@ -36,6 +36,7 @@ alias tl="tmux ls"
 alias ta='tmux -2 a -t `tmux-select-session`'
 alias tk='tmux kill-session -t `tmux-select-session`'
 alias vf='vim-fzf'
+alias up='uptime'
 
 # tree letter aliases
 alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
