@@ -103,7 +103,6 @@ Plugin 'dylanaraps/wal.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'lambdalisue/vim-pyenv'
 Plugin 'natebosch/vim-lsc'
-Plugin 'ajh17/VimCompletesMe'
 Plugin 'zchee/deoplete-jedi'
 Plugin 'hrsh7th/deoplete-vim-lsc'
 Plugin 'ervandew/supertab'
@@ -555,12 +554,12 @@ let g:deoplete#enable_at_startup = 1
 """ ALE
 " More config options for python: https://github.com/dense-analysis/ale/blob/master/doc/ale-python.txt
 " let g:ale_virtualenv_dir_names = [] " Disable auto-detection of virtualenvironments, so environment variable ${VIRTUAL_ENV} is always used
-let g:ale_linters = {'*': [], 'python': ['pylint']} " flake8, pycodestyle, bandit, mypy, etc...
-let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
-" let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
-let g:ale_python_pylint_options = '--rcfile .pylintrc'
-let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
-let g:ale_fix_on_save = 1
+autocmd FileType python,sh let g:ale_linters = {'*': [], 'python': ['pylint']} " flake8, pycodestyle, bandit, mypy, etc...
+autocmd FileType python,sh let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
+" autocmd FileType python,sh let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
+autocmd FileType python,sh let g:ale_python_pylint_options = '--rcfile .pylintrc'
+autocmd FileType python,sh let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
+autocmd FileType python,sh let g:ale_fix_on_save = 1
 
 "--------------------------------------------------
 " OTHER
