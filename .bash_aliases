@@ -26,9 +26,9 @@ alias gr='cd `git rev-parse --show-toplevel`'  # Go to the repository root:
 alias gu="git reset HEAD "  # below removes file/directory from git staging area (before committing)
 alias gs="git status -s"
 alias pp='pygmentize | nl --body-numbering=a '
-alias pa='pyenv activate '
+alias pa='pyenv activate $(pyenv virtualenvs | grep -v "^\s*[0-9]" | cut -d " " -f 3 | fzf)'
 alias pd='pyenv deactivate '
-alias pv='pyenv versions '
+alias pv="pyenv virtualenvs | grep -v '^\s*[0-9]'"
 alias pl='pyenv install --list '
 alias tp="pyenv activate core-utils && tmuxp load -d "
 alias tf="pyenv activate core-utils && tmuxp freeze "
