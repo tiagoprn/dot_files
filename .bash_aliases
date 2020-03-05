@@ -11,7 +11,7 @@ alias j="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE +'no
 alias m="make"
 alias n='OUTPUT=$(navi --print) && xdotool type "$OUTPUT"'
 alias p="pyenv"
-alias t='todo.sh -d "$HOME/.local/share/todotxt/config" '
+alias t='todo.sh -d "/storage/docs/notes/todotxt/config" '
 alias v="vim"
 
 ## two letter aliases
