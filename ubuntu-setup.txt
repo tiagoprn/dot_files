@@ -225,7 +225,7 @@ ln -s /opt/lesspipe/code2color /usr/local/bin/code2color.sh
 ## vim:
 $ sudo su
 $ apt remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
-$ mkdir -p /opt/installers 
+$ mkdir -p /opt/installers
 $ cd /opt/installers
 $ git clone https://github.com/vim/vim.git
 $ cd vim
@@ -258,6 +258,17 @@ $ cd /opt/installers
 $ git clone https://github.com/jarun/nnn.git && cd nnn
 $ make O_NORL=1 strip install
 
+## todo.txt:
+$ sudo su
+$ mkdir -p /opt/installers
+$ cd /opt/installers
+$ git clone https://github.com/todotxt/todo.txt-cli.git
+$ cd todo.txt-cli
+$ make
+$ make install CONFIG_DIR=/etc INSTALL_DIR=/usr/bin BASH_COMPLETION_DIR=/usr/share/bash-completion/completions
+$ make test
+
+
 ## SNAP INSTALLS
 $ sudo snap install youtube-dl
 $ sudo snap install chromium
@@ -267,7 +278,7 @@ $ sudo snap install spotify
 $ sudo snap install multipass --classic
 
 TODO: pyenv
-TODO: blueberry linux mint bluetooth manager
+TODO: blueberry linux mint bluetooth manager (changed my mind, use the terminal. Create a cheatsheet on `tiagopr.nl` on how to do that.)
 TODO: http://eradman.com/entrproject/
 TODO: wpgtk
 
