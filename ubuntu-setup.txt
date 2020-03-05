@@ -225,19 +225,21 @@ ln -s /opt/lesspipe/code2color /usr/local/bin/code2color.sh
 ## vim:
 $ sudo su
 $ apt remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
+$ mkdir -p /opt/installers 
 $ cd /opt/installers
 $ git clone https://github.com/vim/vim.git
+$ cd vim
 $ make distclean
 $ ./configure --enable-fail-if-missing --with-features=huge \
 	--enable-multibyte \
-	--enable-pythoninterp \
+	--disable-pythoninterp \
 	--enable-python3interp \
         --enable-terminal \
 	--enable-cscope \
 	--with-tlib=ncurses \
 	--prefix=/usr
-$ ./make
-$ ./make install
+$ make
+$ make install
 $ update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1 && \
   update-alternatives --set editor /usr/bin/vim && \
   update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1 && \
