@@ -1,11 +1,11 @@
 #!/bin/bash
 TIMESTAMP="$(date "+%Y%m%d.%H%M.%S")"
-mv ~/.bash_aliases ~/.bash_aliases.$TIMESTAMP.snapshot
-mv ~/.bash_functions ~/.bashrc_functions.$TIMESTAMP.snapshot
-mv ~/.bash_environment ~/.bash_environment.$TIMESTAMP.snapshot
-mv ~/.bashrc ~/.bashrc.$TIMESTAMP.snapshot
-mv ~/.inputrc ~/.inputrc.$TIMESTAMP.snapshot
-mv ~/.local/share/todotxt ~/.local/share/todotxt.$TIMESTAMP.snapshot
+mv ~/.bash_aliases ~/.bash_aliases.$TIMESTAMP.snapshot || true
+mv ~/.bash_functions ~/.bashrc_functions.$TIMESTAMP.snapshot || true
+mv ~/.bash_environment ~/.bash_environment.$TIMESTAMP.snapshot || true
+mv ~/.bashrc ~/.bashrc.$TIMESTAMP.snapshot || true
+mv ~/.inputrc ~/.inputrc.$TIMESTAMP.snapshot || true
+mv ~/.local/share/todotxt ~/.local/share/todotxt.$TIMESTAMP.snapshot || true
 
 ln -s /storage/src/dot_files/.bash_aliases ~/.bash_aliases
 ln -s /storage/src/dot_files/.bash_functions ~/.bash_functions
