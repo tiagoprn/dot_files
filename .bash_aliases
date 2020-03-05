@@ -11,7 +11,7 @@ alias j="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE +'no
 alias m="make"
 alias n='OUTPUT=$(navi --print) && xdotool type "$OUTPUT"'
 alias p="pyenv"
-alias t='tmux'
+alias t='todo.sh -d "$HOME/.local/share/todotxt/config" '
 alias v="vim"
 
 ## two letter aliases
@@ -31,6 +31,7 @@ alias pa='pyenv activate $(pyenv virtualenvs | grep -v "^\s*[0-9]" | cut -d " " 
 alias pd='pyenv deactivate '
 alias pv="pyenv virtualenvs | grep -v '^\s*[0-9]'"
 alias pl='pyenv install --list '
+alias tm='tmux'
 alias tp="pyenv activate core-utils && tmuxp load -d "
 alias tf="pyenv activate core-utils && tmuxp freeze "
 alias tl="tmux ls"
