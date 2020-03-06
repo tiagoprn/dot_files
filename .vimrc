@@ -185,7 +185,7 @@ map <Leader>n <esc>:tabnext<CR>| " move to next tab
 map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
 
 " Height of the command bar
-set cmdheight=2
+set cmdheight=3
 
 " LINES CONFIGURATION
 set number  " show line numbers
@@ -281,7 +281,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 
 " Always show the status line
-set laststatus=2
+set laststatus=3
 " Format the status line
 " set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
