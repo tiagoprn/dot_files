@@ -76,14 +76,12 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " snippets support plugins
-" ultisnips disabled due to conflict with vim-pyenv
-"" Track the engine.
-" Plugin 'SirVer/ultisnips'
-"" Alternative snippet manager to ultisnips (not python)
+" ultisnips removed due to conflict with vim-pyenv
+"" snipmate is an alternative snippet manager to ultisnips (not python)
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-"" Snippets are separated from the engine. Add this if you want them:
+"" Plugin that provides some default snippets for various languages
 Plugin 'honza/vim-snippets'
 
 " Add specific actions for directories creating a .vimdir file on a specific directory (e.g. /storages/docs/notes)
@@ -502,22 +500,9 @@ function! MyFilename()
     return '' != expand('%:p') ? expand('%:p') : '[No Name]'
 endfunction
 
-""" ULTISNIP
-" Do not use <tab> with UltiSnip if you use https://github.com/Valloric/YouCompleteMe.
-" Use python3 as the interpreter. vim must be custom compiled only with python3 support
-"   so that ultisnips properly work.
-let g:UltiSnipsUsePythonVersion = 3
-"Changing the directory where to find the snippets
-let g:UltiSnipsSnippetsDir          = $HOME.'/.vim/UltiSnips/'
-let g:UltiSnipsSnippetDirectories   = [ "UltiSnips" ]
-" Show all snippets
-let g:UltiSnipsListSnippets="<c-l>"
-" Activate Ultisnips on word
-let g:UltiSnipsExpandTrigger="<tab>"
-" Go to next snippet variable (also called "tabstop")
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-" Go to previous snippet variable. The "s-" below means the Shift key
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+""" SNIPMATE
+" If I ever need to customize anything on snipmate, enable the line below
+" let g:snipMate = {}
 
 """ TAGBAR
 map <F7> :TagbarToggle<CR>| " tagbar toggle
