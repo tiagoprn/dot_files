@@ -1,0 +1,32 @@
+# snippets for all file types
+
+snippet hello
+	'hello world!'
+
+snippet bstl
+	\`\`\`${1:code}\`\`\`
+
+snippet bsts
+	\`\`\`
+	${1:code}
+	\`\`\`
+
+snippet timestamp
+	`!v strftime("%Y-%m-%d %H:%M:%S")`
+
+snippet sig
+
+	---
+	Tiago Paranhos Lima - Desenvolvedor Python
+	https://tiagopr.nl
+	twitter.com/tiagoprn
+
+snippet post
+	slug: ${1:content-slug-here}
+	date: timestamp
+	tags: [${2:tag1,}]
+	published: timestamp
+	summary: ${3:the post title}
+	public: yes
+
+	${4:#contents}

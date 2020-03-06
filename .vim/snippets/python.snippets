@@ -1,0 +1,38 @@
+snippet OrderedDict
+	${1:dict_name} = OrderedDict[
+		('${2:key}', '${3:value}'),
+	]
+
+snippet exc
+	try:
+		${1:code}
+	except:
+		logging.exception(${2:message})
+
+snippet ipdb
+	import ipdb; ipdb.set_trace()
+
+snippet ifmain
+	if __name__ == '__main__':
+			${1:main()}
+
+snippet class
+	class ${1:ClassName}(${2:object}):
+		"""${3:docstring for $1}"""
+		def __init__(self, ${4:arg}):
+			${5:super($1, self).__init__()}
+			self.$4 = $4
+			${6}
+
+snippet path
+	import os
+	os.path.dirname(os.path.abspath(__file__))
+
+snippet date_str
+	from datetime import datetime
+	date_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
+
+snippet date_obj
+	from datetime import datetime
+	date_obj = datetime.strptime('2011-12-31 11:59:59', '%Y-%m-%d %H:%M:%S')
+

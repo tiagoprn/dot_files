@@ -79,8 +79,12 @@ Plugin 'junegunn/fzf.vim'
 " ultisnips disabled due to conflict with vim-pyenv
 "" Track the engine.
 " Plugin 'SirVer/ultisnips'
+"" Alternative snippet manager to ultisnips (not python)
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 "" Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
+Plugin 'honza/vim-snippets'
 
 " Add specific actions for directories creating a .vimdir file on a specific directory (e.g. /storages/docs/notes)
 Plugin 'chazy/dirsettings'
