@@ -44,6 +44,7 @@ alias up='uptime'
 alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
 alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
 alias gru='cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d "=" -f 2 | tr "\n" " "'
+alias pcb='pyenv versions | grep "*" | cut -d " " -f 2 | cb'
 alias vcb='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
 
 ## other aliases

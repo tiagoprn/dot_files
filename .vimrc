@@ -508,6 +508,10 @@ endfunction
 map <F7> :TagbarToggle<CR>| " tagbar toggle
 " let g:tagbar_autoclose = 1
 
+""" VIM-PYENV
+" Dont auto activate on start (to avoid the system pyenv error)
+let g:pyenv#auto_activate=0
+
 """ JEDI-VIM
 if jedi#init_python()
   function! s:jedi_auto_force_py_version() abort
