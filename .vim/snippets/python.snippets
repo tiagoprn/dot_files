@@ -9,13 +9,6 @@ snippet exc
 	except:
 		logging.exception(${2:message})
 
-snippet ipdb
-	import ipdb; ipdb.set_trace()
-
-snippet ifmain
-	if __name__ == '__main__':
-			${1:main()}
-
 snippet class
 	class ${1:ClassName}(${2:object}):
 		"""${3:docstring for $1}"""
@@ -25,14 +18,23 @@ snippet class
 			${6}
 
 snippet path
-	import os
-	os.path.dirname(os.path.abspath(__file__))
+	from pathlib import Path
+	current_path = str(Path().absolute())
+	print(f'current_path:{current_path}')
 
-snippet date_str
+snippet rootpath
+	from pathlib import Path
+	root_path = str(Path().absolute().parent)
+	print(f'root_path:{root_path}')
+
+snippet fs
+	f'${1:string}'
+
+snippet datestr
 	from datetime import datetime
 	date_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 
-snippet date_obj
+snippet dateobj
 	from datetime import datetime
 	date_obj = datetime.strptime('2011-12-31 11:59:59', '%Y-%m-%d %H:%M:%S')
 
