@@ -58,7 +58,6 @@ alias youtube-player='mpsyt'
 alias pacman_refresh_keys='sudo pacman-key --refresh-keys'
 alias pacman_update_mirrorlists='sudo reflector --verbose --age 6 --country Brazil --latest 15 --fastest 5 --sort rate --save /etc/pacman.d/mirrorlist'
 alias upgrade='pacman_update_mirrorlists && sudo pacman -Syu --noconfirm && yay -Syyua --noconfirm'
-alias logs='sudo journalctl -o short-iso -f --all'
 alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e.g. 10.0.0.1/24\n\n' && sudo nmap -sP"
 # alias tmux-edit-history="vim $HOME/tmux.history"
 # alias tmux-cat-history="cat $HOME/tmux.history"
