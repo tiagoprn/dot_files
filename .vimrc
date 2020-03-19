@@ -65,9 +65,6 @@ Plugin 'gmarik/vundle'
 " git plugin
 Plugin 'tpope/vim-fugitive'
 
-" A light and configurable statusline/tabline for Vim
-Plugin 'itchyny/lightline.vim'
-
 " vim-bookmarks
 Plugin 'MattesGroeger/vim-bookmarks'
 
@@ -185,7 +182,7 @@ map <Leader>n <esc>:tabnext<CR>| " move to next tab
 map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
 
 " Height of the command bar
-set cmdheight=3
+set cmdheight=1
 
 " LINES CONFIGURATION
 set number  " show line numbers
@@ -279,11 +276,43 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
+" STATUS LINE
+"" Always show the status line
+set laststatus=2
+"" Format the status line
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+"" Old functions used by LIGHTLINE
+function! MyModified()
+    if &filetype == "help"
+        return ""
+    elseif &modified
+        return "+"
+    elseif &modifiable
+        return ""
+    else
+        return ""
+    endif
+endfunction
+function! MyReadonly()
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return ""
+    else
+        return ""
+    endif
+endfunction
+function! MyFugitive()
+    if exists("*fugitive#head")
+        let _ = fugitive#head()
+        return strlen(_) ? ''._ : ''
+    endif
+    return ''
+endfunction
+function! MyFilename()
+    return '' != expand('%:p') ? expand('%:p') : '[No Name]'
+endfunction
 
-" Always show the status line
-set laststatus=3
-" Format the status line
-" set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 " CUSTOM kEY REMAPPINGS
 nnoremap <Leader>w <C-w>w| " toggle between windows
@@ -446,59 +475,6 @@ nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, v
 " <C-x> | " fzf tip: open file on horizontal split
 " <C-v> | " fzf tip: open file on vertical split
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete
-
-""" LIGHTLINE
-let g:lightline = {
-      \ 'colorscheme': 'landscape',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'MyFugitive',
-      \   'readonly': 'MyReadonly',
-      \   'modified': 'MyModified',
-      \   'filename': 'MyFilename'
-      \ },
-      \ }
-
-function! MyModified()
-    if &filetype == "help"
-        return ""
-    elseif &modified
-        return "+"
-    elseif &modifiable
-        return ""
-    else
-        return ""
-    endif
-endfunction
-
-function! MyReadonly()
-    if &filetype == "help"
-        return ""
-    elseif &readonly
-        return ""
-    else
-        return ""
-    endif
-endfunction
-
-" function! MyFugitive()
-"    return exists('*fugitive#head') ? fugitive#head() : ''
-" endfunction
-
-function! MyFugitive()
-    if exists("*fugitive#head")
-        let _ = fugitive#head()
-        return strlen(_) ? ''._ : ''
-    endif
-    return ''
-endfunction
-
-function! MyFilename()
-    return '' != expand('%:p') ? expand('%:p') : '[No Name]'
-endfunction
 
 """ SNIPMATE
 " If I ever need to customize anything on snipmate, enable the line below
