@@ -280,20 +280,15 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 "" Always show the status line
 set laststatus=2
 "" Format the status line
-set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+" set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline=
+set statusline+=%{ReadonlyStatus()}
+set statusline+=%F%m%r%h
+set statusline+=\ \ \ %{StatuslineGit()}
+set statusline+=\ \ \ CWD:%{getcwd()}
+set statusline+=\ \ \ POS(%l:%c)
 "" Old functions used by LIGHTLINE
-function! MyModified()
-    if &filetype == "help"
-        return ""
-    elseif &modified
-        return "+"
-    elseif &modifiable
-        return ""
-    else
-        return ""
-    endif
-endfunction
-function! MyReadonly()
+function! ReadonlyStatus()
     if &filetype == "help"
         return ""
     elseif &readonly
@@ -302,15 +297,12 @@ function! MyReadonly()
         return ""
     endif
 endfunction
-function! MyFugitive()
-    if exists("*fugitive#head")
-        let _ = fugitive#head()
-        return strlen(_) ? ''._ : ''
-    endif
-    return ''
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
-function! MyFilename()
-    return '' != expand('%:p') ? expand('%:p') : '[No Name]'
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
 
