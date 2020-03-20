@@ -286,6 +286,7 @@ set laststatus=2
 set statusline=
 set statusline+=%{ReadonlyStatus()}
 set statusline+=%F%m%r%h
+set statusline+=\ \ \ %y
 set statusline+=\ \ \ %{StatuslineGit()}
 set statusline+=\ \ \ CWD:%{getcwd()}
 set statusline+=\ \ \ POS(%l:%c)
