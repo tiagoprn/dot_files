@@ -145,6 +145,8 @@ nnoremap <C-Up> 5<C-y>| " scroll viewport up faster
 nnoremap <silent> <C-Right> :bn<CR>| " scroll faster through open buffers right
 nnoremap <silent> <C-Left> :bp<CR>| " scroll faster through open buffers left
 
+nnoremap <C-r> :redraw!<CR>| " redraw screen to cleanup from glitches
+
 " Change the sound beep on errors to screen flashing
 set visualbell
 
