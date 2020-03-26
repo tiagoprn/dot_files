@@ -3,20 +3,27 @@
     name = tiago.paranhos
 
 [alias]
-  prune = fetch --prune
   # Because I constantly forget how to do this
   # https://git-scm.com/docs/git-fetch#git-fetch--p
+  prune = fetch --prune
 
-  undo = reset --soft HEAD^
   # Not quite as common as an amend, but still common
   # https://git-scm.com/docs/git-reset#git-reset-emgitresetemltmodegtltcommitgt
+  undo = reset --soft HEAD^
 
-  stash-all = stash save --include-untracked
   # We wanna grab those pesky un-added files!
   # https://git-scm.com/docs/git-stash
+  stash-all = stash save --include-untracked
 
   glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
   ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
+
+  # What this will do, is sort the files in your project by their number of changes, and take the
+  # first 10. Those are the ones where most changes have occurred over time, consequently there is
+  # a higher chance zhat those will require the most changes in the future.
+  code-changes-rank = "!git log --name-only | grep -v 'Author' |  grep -v '^$' | sort | uniq -c | sort -rg | head -10"
+  rank = "!git code-changes-rank"
 
 [status]
   showUntrackedFiles = all
