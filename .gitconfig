@@ -19,6 +19,8 @@
 
   ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
 
+  files-changed = log --name-status
+
   # What this will do, is sort the files in your project by their number of changes, and take the
   # first 10. Those are the ones where most changes have occurred over time, consequently there is
   # a higher chance zhat those will require the most changes in the future.
