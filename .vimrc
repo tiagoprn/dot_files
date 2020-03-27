@@ -108,6 +108,9 @@ Plugin 'hrsh7th/deoplete-vim-lsc'
 Plugin 'ervandew/supertab'
 Plugin 'w0rp/ale'
 
+" comment/uncomment blocks of code/text
+Plugin 'tpope/vim-commentary'
+
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
 
@@ -682,5 +685,6 @@ set updatetime=10
 " :bd  | " remove a buffer from the buffer list and close it
 " :w !sudo tee % | " save file as sudo when you forgot to do that
 " :set et|retab | " replaces tab with 4 spaces
+" gcc | " comment/uncomment selection
 
 "" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
