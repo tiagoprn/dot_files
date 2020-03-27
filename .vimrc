@@ -30,9 +30,10 @@ set pastetoggle=<F2>
 " set background=dark
 colorscheme spacecamp
 
-" font
-set anti gfn=Fira\ Code\ 11
-set guifont=Fira\ Code\ 11
+" font (commented to use the same font as set on the terminal)
+" set anti gfn=JetBrains\ Mono\ 11
+" set guifont=Fira\ Code\ 11
+" set guifont=JetBrains\ Mono\ 11
 
 set tags=~/.cache/vim/ctags
 
