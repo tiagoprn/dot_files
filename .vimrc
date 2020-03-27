@@ -282,13 +282,12 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 "" Always show the status line
 set laststatus=2
 "" Format the status line
-" set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 set statusline=
 set statusline+=%{ReadonlyStatus()}
 set statusline+=%F%m%r%h
 set statusline+=\ \ \ %y
 set statusline+=\ \ \ %{StatuslineGit()}
-set statusline+=\ \ \ CWD:%{getcwd()}
+" set statusline+=\ \ \ CWD:%{getcwd()}
 set statusline+=\ \ \ POS(%l:%c)
 "" Old functions used by LIGHTLINE
 function! ReadonlyStatus()
