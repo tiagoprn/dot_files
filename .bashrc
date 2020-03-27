@@ -213,8 +213,6 @@ fi
 printf "\n- 'j' bash alias: to do a quick timestamp based journal with vim"
 printf "\n- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
-printf "\n\n- Use <C-t> to copy a command from current tmux history to the clipboard, <C-f> to do the same from bash_history. \n\n"
-printf "\n\n- Use the command 'shellcheck' to apply a linter to your shell scripts."
 # fortune   -s
 # fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -e | cut -d '.' -f 1)
 
