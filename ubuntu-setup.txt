@@ -1,9 +1,10 @@
-(all instructions below are for Ubuntu 18.04)
+(all instructions below are for Ubuntu 18.04, )
 
 # TODO:
 
 - See TODO marks on sections 3, 4 and 5
-- Convert this file into an ansible playbook to automate everything here.
+- Convert this file into an ansible playbook to automate everything in this
+  document here: `/storage/src/devops/ansible-playbooks/ubuntu/18.04/workstation`
 
 # 1) APT REPOSITORIES
 
