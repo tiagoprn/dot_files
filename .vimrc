@@ -290,9 +290,13 @@ set statusline=
 set statusline+=%{ReadonlyStatus()}
 set statusline+=%F%m%r%h
 set statusline+=\ \ \ %y
-set statusline+=\ \ \ %{StatuslineGit()}
 " set statusline+=\ \ \ CWD:%{getcwd()}
-set statusline+=\ \ \ POS(%l:%c)
+set statusline+=%=      "left/right separator
+set statusline+=\ \ \ %{StatuslineGit()}
+set statusline+=COL:%c
+set statusline+=\ LINE\:%l/%L(%P)
+
+
 "" Old functions used by LIGHTLINE
 function! ReadonlyStatus()
     if &filetype == "help"
