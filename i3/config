@@ -117,10 +117,10 @@ bindsym $mod+Shift+f floating toggle
 # bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+p focus parent
+# bindsym $mod+p focus parent
 
 # focus the child container
-bindsym $mod+c focus child
+# bindsym $mod+c focus child
 
 set $workspace1 " 1:Personal"
 set $workspace2 " 2:Firefox"
@@ -348,6 +348,7 @@ bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compo
 bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with arandr...' --urgency low; arandr && i3-msg reload"
 bindsym Mod1+k exec --no-startup-id "/storage/src/devops/rofi/toggle_keyboards.py"
 bindsym $mod+w exec --no-startup-id "/storage/src/devops/bin/layout_manager.sh"
+bindsym $mod+c exec --no-startup-id "/storage/src/devops/bin/customize_capslock.sh"
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 ---
 exec --no-startup-id nm-applet
