@@ -601,19 +601,6 @@ if filereadable(expand(printf('%s/%s', getcwd(), '.vimrc.project')))
     exec printf('source %s/%s', getcwd(), '.vimrc.project')
 endif
 
-
-" CAPS_LOCK handling
-"" Turns off CAPS_LOCK after leaving insert mode
-function! TurnOffCaps()
-    let capsState = matchstr(system('xset -q'), '00: Caps Lock:\s\+\zs\(on\|off\)\ze')
-    if capsState == 'on'
-        silent! execute ':!xdotool key Caps_Lock'
-    endif
-endfunction
-"" Add event here for when pressing key on normal mode
-au InsertLeave * call TurnOffCaps()
-set updatetime=10
-
 "--------------------------------------------------
 " CHEATSHEET:
 
