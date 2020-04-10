@@ -139,15 +139,9 @@ syntax on
 autocmd! bufwritepost .vimrc source %
 
 " When the cursor moves outside the viewport of the current window, the buffer scrolls a single
-" line to keep the cursor in view. Setting the option below will start the scrolling three lines
+" line to keep the cursor in view. Setting the option below will start the scrolling x lines
 " before the border, keeping more context around where you’re working.
 set scrolloff=5
-
-nnoremap <C-Down> 5<C-e>| " scroll viewport down faster
-nnoremap <C-Up> 5<C-y>| " scroll viewport up faster
-
-nnoremap <silent> <C-Right> :bn<CR>| " scroll faster through open buffers right
-nnoremap <silent> <C-Left> :bp<CR>| " scroll faster through open buffers left
 
 nnoremap <C-r> :redraw!<CR>| " redraw screen to cleanup from glitches
 
@@ -611,8 +605,8 @@ endif
 " Basically, when Space is pressed (in normal mode), a sort of "fast
 " navigation" mode is triggered, where j and k move 10 lines instead of just
 " one. Another press of Space exits the mode.
-nnoremap <Space>j 20j<CR>| " Fast scroll down
-nnoremap <Space>k 20k<CR>| " Fast scroll up
+nnoremap <Space>j 20j<CR>| " fast scroll down
+nnoremap <Space>k 20k<CR>| " fast scroll up
 
 "--------------------------------------------------
 " CHEATSHEET:
@@ -637,14 +631,14 @@ nnoremap <Space>k 20k<CR>| " Fast scroll up
 " ge | "  (movement)   end of the previous word
 " e  | "  (movement)   end of current word / end of next word
 " ^  | "  (movement)   first non-blank character of a line
+" <C-e>| " (movement)   scroll viewport down, without moving cursor
+" <C-y>| " (movement)   scroll viewport up, without moving cursor
 " f [char]  | "  (movement)   go to specific char in line, ';' to go to the next occurrence of it
 " t [char]  | "  (movement)   go to one character previous/before specific char in line, ';' to go to the next occurrence of it
 " H  | " (movement) high on the viewport
 " M  | " (movement) middle on the viewport
 " L  | " (movement) low on the viewport
 " zz  | "  (movement)   center the viewport (window) on the cursor, without moving the cursor.
-" <ctrl+down>  | "  (movement)   move viewport down faster , without moving the cursor.
-" <ctrl+up>  | "  (movement)   move viewport up faster, without moving the cursor.
 " g; | " go to the previous place you were editing on the current file
 
 "" snippets
