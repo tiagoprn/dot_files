@@ -608,6 +608,12 @@ if filereadable(expand(printf('%s/%s', getcwd(), '.vimrc.project')))
     exec printf('source %s/%s', getcwd(), '.vimrc.project')
 endif
 
+" Basically, when Space is pressed (in normal mode), a sort of "fast
+" navigation" mode is triggered, where j and k move 10 lines instead of just
+" one. Another press of Space exits the mode.
+nnoremap <Space>j 20j<CR>| " Fast scroll down
+nnoremap <Space>k 20k<CR>| " Fast scroll up
+
 "--------------------------------------------------
 " CHEATSHEET:
 
