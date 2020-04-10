@@ -378,7 +378,8 @@ autocmd BufWritePost * silent! !notify-send -a vim "File %:p saved."
 
 "--------------------------------------------------
 " ABBREVIATIONS
-iabbrev xop ()<Left>
+iabbrev apar ()<Left>| " abbreviation: matching parenthesis
+iabbrev af ''<Left><Left>f<Right>| " abbreviation: python fstring
 
 "--------------------------------------------------
 " PLUGIN CONFIGURATIONS
