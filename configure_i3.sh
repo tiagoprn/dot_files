@@ -16,6 +16,11 @@ rm -fr ~/.Xresources
 ln -s /storage/src/dot_files/.Xresources ~/.Xresources
 xrdb .Xresources
 
+
+echo 'Linking xinitrc...'
+rm -fr ~/.xinitrc
+ln -s /storage/src/dot_files/.xinitrc ~/.xinitrc
+
 echo 'Linking urxvt extensions...'
 rm -fr ~/.urxvt
 ln -s /storage/src/dot_files/.urxvt ~/.urxvt
