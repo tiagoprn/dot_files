@@ -377,6 +377,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePost * silent! !notify-send -a vim "File %:p saved."
 
 "--------------------------------------------------
+" ABBREVIATIONS
+iabbrev xop ()<Left>
+
+"--------------------------------------------------
 " PLUGIN CONFIGURATIONS
 
 """ VIM-MOVE
