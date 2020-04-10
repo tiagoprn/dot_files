@@ -472,6 +472,7 @@ map <C-t> <Plug>TaskList| " tasklist (TODO list)
 
 """ FZF
 let g:fzf_tags_command='ctags -f $HOME/.cache/vim/ctags/fzf_current_file_tag --tag-relative=yes --fields=+ailmnS'
+let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
 nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
