@@ -23,9 +23,12 @@
 
   # What this will do, is sort the files in your project by their number of changes, and take the
   # first 10. Those are the ones where most changes have occurred over time, consequently there is
-  # a higher chance zhat those will require the most changes in the future.
+  # a higher chance ztat those will require the most changes in the future.
   code-changes-rank = "!git log --name-only | grep -v 'Author' |  grep -v '^$' | sort | uniq -c | sort -rg | head -10"
   rank = "!git code-changes-rank"
+
+  # list branches, with the most recent one on top
+  lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
 
 [status]
   showUntrackedFiles = all
