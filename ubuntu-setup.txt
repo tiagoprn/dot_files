@@ -174,7 +174,9 @@ x11-xserver-utils
 ## Install stdeb:
 $ pip3 install stdeb3 python-rofi
 (talvez aqui valha a pena usar o homebrew do linux para instalar os pacotes ao
-invés do stdeb: https://docs.brew.sh/Formula-Cookbook#specifying-gems-python-modules-go-projects-etc-as-dependencies)
+invés do stdeb: https://docs.brew.sh/Formula-Cookbook#specifying-gems-python-modules-go-projects-etc-as-dependencies
+, ou talvez usar o pipx com sudo: https://github.com/pipxproject/pipx/blob/master/README.md
+)
 
 
 ## Packages to install through stdeb:

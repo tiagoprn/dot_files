@@ -572,6 +572,15 @@ endfu
 au FileType markdown nnoremap <leader>pp :call ConvertMarkdownToFormat('pdf')<cr>| " pandoc: convert markdown to pdf
 au FileType markdown nnoremap <leader>ph :call ConvertMarkdownToFormat('html')<cr>| " pandoc: convert markdown to html
 
+" Run git blame on current file
+function! GitBlame()
+  :silent execute '!git blame %:p'
+  " Fix empty vim window by forcing a redraw
+  :redraw!
+endfu
+nnoremap <leader>b :call GitBlame()<cr>| " git: git blame current file
+
+
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
