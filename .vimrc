@@ -24,7 +24,7 @@ set t_EI=[2\ q
 " another app, like the browser or a text editor.
 " IMPORTANT: DO NOT MOVE this line from here, it must be after nocompatible
 "            for the paste toggle to work accordingly.
-set pastetoggle=<F2>
+set pastetoggle=<F4>| " function key: toggle insert paste mode
 
 " Color scheme (must be in ~/.vim/colors)
 " set background=dark
@@ -616,6 +616,8 @@ endif
 " one. Another press of Space exits the mode.
 nnoremap <Space>j 20j<CR>| " fast scroll down
 nnoremap <Space>k 20k<CR>| " fast scroll up
+
+nnoremap <silent> <F5> :set rnu!<CR>| " function key: toggle relative line numbering
 
 "--------------------------------------------------
 " CHEATSHEET:
