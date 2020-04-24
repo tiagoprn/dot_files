@@ -283,11 +283,11 @@ set laststatus=2
 set statusline=
 set statusline+=%{ReadonlyStatus()}
 set statusline+=%F%m%r%h
-set statusline+=\ \ \ %y
+set statusline+=\ %y
+set statusline+=\ COL:%c
 " set statusline+=\ \ \ CWD:%{getcwd()}
 set statusline+=%=      "left/right separator
 set statusline+=\ \ \ %{StatuslineGit()}
-set statusline+=COL:%c
 set statusline+=\ LINE\:%l/%L(%P)
 
 
