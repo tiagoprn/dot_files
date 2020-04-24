@@ -285,6 +285,7 @@ set statusline+=%{ReadonlyStatus()}
 set statusline+=%F%m%r%h
 set statusline+=\ %y
 set statusline+=\ COL:%c
+set statusline+=\ WORDS:%{wordcount().words}
 " set statusline+=\ \ \ CWD:%{getcwd()}
 set statusline+=%=      "left/right separator
 set statusline+=\ \ \ %{StatuslineGit()}
