@@ -38,6 +38,7 @@ alias tl="tmux ls"
 alias ta='tmux -2 a -t `tmux-select-session`'
 alias tk='tmux kill-session -t `tmux-select-session`'
 alias vf='vim-fzf'
+alias vi='vim --cmd "let vim_minimal=1" '
 alias up='uptime'
 
 # tree letter aliases
