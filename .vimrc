@@ -172,10 +172,6 @@ nnoremap k gk| " move vertically up by visual line
 " Rebind <Leader> key
 map <SPACE> <leader>
 
-" Leader use example (easier moving between tabs):
-map <Leader>m <esc>:tabprevious<CR>| " move to previous tab
-map <Leader>n <esc>:tabnext<CR>| " move to next tab
-
 map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
 
 " Height of the command bar
@@ -308,7 +304,8 @@ function! StatuslineGit()
 endfunction
 
 
-" CUSTOM kEY REMAPPINGS
+"--------------------------------------------------
+" CUSTOM KEY REMAPPINGS
 nnoremap <Leader>w <C-w>w| " toggle between windows
 
 nnoremap <Backspace> :bw<Enter>| " Close buffer
@@ -329,6 +326,8 @@ exec 'nnoremap <Leader>so :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><B
 " (much more natural):
 nnoremap j gj| " go down on wrapped line
 nnoremap k gk| " go up on wrapped line
+
+nnoremap m :Marks<CR>| " show all marks
 
 " CLIPBOARD BEHAVIOR (both work in visual mode)
 vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>| " copy to clipboard
@@ -357,6 +356,15 @@ noremap <Right> <Nop>
 " Close other buffers and keep only the current one:
 command! CloseOtherBuffers execute '%bdelete|edit #|normal `"'
 nnoremap <silent> c, :CloseOtherBuffers<CR>| " Close other buffers and keep only the current one
+
+function! MarkDelete()
+    call inputsave()
+    let l:mark = input("Mark to delele: ")
+    call inputrestore()
+    execute 'delmark '.l:mark
+endfunction
+nnoremap <Leader>m :call MarkDelete()<CR>| " delete mark
+
 
 "----------------------------------
 " VIM EVENT HOOKS "
@@ -450,15 +458,6 @@ nmap <Leader>tu :GutentagsUpdate<CR>| " Update Gutentags
 nmap <F8> :TagbarToggle<CR>| " Toggle ctags sidebar to easily navigate on code
 "" Now we can turn our filetype functionality back on
 filetype plugin indent on
-
-""" VIM-BOOKMARKS
-nmap <Leader>, <Plug>BookmarkToggle| " bookmarks: toggle
-nmap <Leader>i <Plug>BookmarkAnnotate| "bookmarks: annotate
-nmap <Leader>a <Plug>BookmarkShowAll| " bookmarks: show all
-nmap <Leader>n <Plug>BookmarkNext| " bookmarks: next
-nmap <Leader>p <Plug>BookmarkPrev| " bookmarks: previous
-nmap <Leader>c <Plug>BookmarkClear| " bookmarks: clear
-nmap <Leader>x <Plug>BookmarkClearAll| " bookmarks: clear all
 
 map <C-t> <Plug>TaskList| " tasklist (TODO list)
 
