@@ -327,7 +327,7 @@ exec 'nnoremap <Leader>so :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><B
 nnoremap j gj| " go down on wrapped line
 nnoremap k gk| " go up on wrapped line
 
-nnoremap m :Marks<CR>| " show all marks
+nnoremap <Leader>m :Marks<CR>| " show all marks
 
 " CLIPBOARD BEHAVIOR (both work in visual mode)
 vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>| " copy to clipboard
@@ -363,7 +363,7 @@ function! MarkDelete()
     call inputrestore()
     execute 'delmark '.l:mark
 endfunction
-nnoremap <Leader>m :call MarkDelete()<CR>| " delete mark
+nnoremap <Leader>M :call MarkDelete()<CR>| " delete mark
 
 
 "----------------------------------
