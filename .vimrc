@@ -66,9 +66,6 @@ Plugin 'gmarik/vundle'
 " git plugin
 " Plugin 'tpope/vim-fugitive' --- removed, because it is not taking into account the current directory e.g. on `git blame`.
 
-" vim-bookmarks
-Plugin 'MattesGroeger/vim-bookmarks'
-
 "fzf plugins
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
