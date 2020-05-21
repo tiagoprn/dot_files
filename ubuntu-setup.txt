@@ -10,21 +10,31 @@
 
 ## kitty (terminal emulator)
 
+### Ubuntu 10.04
 $ sudo add-apt-repository ppa:yurivkhan/kitty
 $ sudo apt update && sudo apt install kitty
 
+### Ubuntu 20.04
+Already on the repositories.
+
 ## i3 (https://i3wm.org/docs/repositories.html):
 
+### Ubuntu 18.04
 $ # update and install the keyring:
-$ /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb $ dpkg -i ./keyring.deb
+$ /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb 
+$ dpkg -i ./keyring.deb
 $ # create the new repository
 $ echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
 $ # update the packages list and install i3 packages below:
 $ apt update
 $ apt install i3 compton rofi i3lock i3lock-fancy i3blocks i3status spacefm-gtk3
 
+### Ubuntu 20.04
+$ apt install i3 i3lock i3lock-fancy i3blocks i3status compton rofi rofi-dev spacefm-gtk3
+
 ## docker
 
+### Ubuntu 18.04
 $ # add docker official repository GPG key:
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 $ # add docker repository to apt sources:
@@ -32,7 +42,18 @@ $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ub
 $ # update packages database
 $ sudo apt update && sudo apt install docker-ce -y
 
+### Ubuntu 20.04
+$ # add docker official repository GPG key:
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ # add docker repository to apt sources:
+$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+$ # update packages database
+$ sudo apt update && sudo apt install docker-ce -y
+
 # 2) APT PACKAGES
+
+
+## Ubuntu 18.04
 build-essential
 apt-transport-https
 ca-certificates
@@ -158,7 +179,8 @@ libpcap-dev
 xbacklight
 inxi
 tty-clock
-flist all installed packages2fs-tools
+flist 
+packages2fs-tools
 gparted
 cryptsetup
 kpartx
@@ -166,8 +188,13 @@ tcptraceroute
 jq
 x11-xserver-utils
 
+## Ubuntu 20.04
+sudo apt install -y build-essential apt-transport-https ca-certificates curl software-properties-common bash-completion net-tools htop sysstat ncdu xclip pandoc icdiff tree gitg tig cowsay ioping stress-ng iotop gimp inkscape rclone nmap source-highlight screenkey strace dnstracer borgbackup xdotool s3fs python2 python3 python3-pip python3-all-dev numlockx font-manager qemu qemu-kvm acpi acpitool arandr feh imagemagick libjpeg-progs xautolock scrot dunst rxvt-unicode gpick x11-apps sxiv mupdf mupdf-tools gnome-boxes flameshot mps-youtube mplayer ffmpeg mpv vlc golang-go ansible numix-gtk-theme numix-icon-theme materia-gtk-theme exuberant-ctags libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxcb-render0-dev libxpm-dev libxt-dev libxml2-dev libxmlsec1-dev libxslt-dev libncursesw5-dev fonts-firacode mosh pavucontrol screenfetch neofetch exiv2 libreadline-dev libbz2-dev libsqlite3-dev libssh-dev libssl-dev libffi-dev libpq-dev libjpeg-dev zlib1g zlib1g-dev zlibc libtiff-dev libfreetype6 libfreetype6-dev liblcms2-2 liblcms2-dev libwebp-dev libwebp6 libopenjp2-7 libopenjp2-7-dev libopenjp3d7 libraqm0 libraqm-dev python2-dev python3-cffi figlet debhelper shellcheck libpcap-dev xbacklight inxi tty-clock gparted cryptsetup kpartx tcptraceroute jq x11-xserver-utils
+
 
 - TODO: configure a `.docker` domain with dnsmasq (it is already bundled on Ubuntu, check on debian/raspbian)
+
+------> TODO: Continue from here to Ubuntu 20.04
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
