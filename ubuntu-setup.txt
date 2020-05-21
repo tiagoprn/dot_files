@@ -194,7 +194,6 @@ sudo apt install -y build-essential apt-transport-https ca-certificates curl sof
 
 - TODO: configure a `.docker` domain with dnsmasq (it is already bundled on Ubuntu, check on debian/raspbian)
 
-------> TODO: Continue from here to Ubuntu 20.04
 
 # 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
 
@@ -234,7 +233,7 @@ $ wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11
 $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 ## navi:
-$ sudo rm -fr /opt/navi ; sudo mkdir /opt/navi && sudo chown -R $(id -u).$(id -g) /opt/navi && git clone --depth 1 https://github.com/denisidoro/navi /opt/navi && cd /opt/navi && sudo make install
+$ sudo apt install cargo -y && sudo rm -fr /opt/navi ; sudo mkdir /opt/navi && sudo chown -R $(id -u).$(id -g) /opt/navi && git clone --depth 1 https://github.com/denisidoro/navi /opt/navi && cd /opt/navi && sudo make install
 
 ## playerctl:
 $ wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb
@@ -245,12 +244,7 @@ $ /storage/src/devops/shellscripts/installers/install_tmux_on_home_folder.sh
 
 ## less with syntax highlight:
 sudo su
-cd /opt
-git clone https://github.com/wofr06/lesspipe.git
-cd lesspipe
-./configure
-ln -s /opt/lesspipe/lesspipe.sh /usr/local/bin/lesspipe.sh
-ln -s /opt/lesspipe/code2color /usr/local/bin/code2color.sh
+cd /opt && git clone https://github.com/wofr06/lesspipe.git && cd lesspipe && ./configure && ln -s /opt/lesspipe/lesspipe.sh /usr/local/bin/lesspipe.sh && ln -s /opt/lesspipe/code2color /usr/local/bin/code2color.sh
 
 ## vim:
 $ sudo su
