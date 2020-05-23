@@ -207,6 +207,7 @@ pygments
 khal
 vdirsyncer
 visidata
+jetty (alternative to jq)
 
 # 4) TO BE COMPILED / INSTALLED:
 
@@ -271,6 +272,11 @@ $ sudo su
 $ cd /opt/installers
 $ git clone https://github.com/jarun/nnn.git && cd nnn
 $ make O_NORL=1 strip install
+
+
+## z:
+$ cd ~/bin
+$ git clone https://github.com/rupa/z
 
 ## todo.txt:
 $ sudo su

@@ -96,7 +96,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
 export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Size}}"
 
-PROMPT_COMMAND="$PROMPT_COMMAND"$'\n''history -a; history -c; history -r'
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 
 ## To run ansible locally without it being so annoying :)
 export ANSIBLE_HOST_KEY_CHECKING=False
