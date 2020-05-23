@@ -85,6 +85,8 @@ then
     export PYENV_BIN=$PYENV_ROOT/bin/pyenv
 fi
 
+export PATH="$PATH:$HOME/.local/bin"
+
 # rg means ripgrep, that is nice to use with fzf
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 

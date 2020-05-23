@@ -13,6 +13,7 @@ ln -s /storage/src/dot_files/.bash_environment ~/.bash_environment
 ln -s /storage/src/dot_files/.bashrc ~/.bashrc
 ln -s /storage/src/dot_files/.inputrc ~/.inputrc
 ln -s /storage/src/dot_files/.fonts ~/.fonts
+ln -s /storage/src/dot_files/.navirc ~/.navirc
 
 fc-cache -vf ~/.fonts/ && echo 'listing fonts...' && fc-list
 

@@ -1,6 +1,6 @@
 (all instructions below are for Ubuntu 18.04, )
 
-# TODO:
+TODO:
 
 - See TODO marks on sections 3, 4 and 5
 - Convert this file into an ansible playbook to automate everything in this
@@ -21,7 +21,7 @@ Already on the repositories.
 
 ### Ubuntu 18.04
 $ # update and install the keyring:
-$ /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb 
+$ /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb
 $ dpkg -i ./keyring.deb
 $ # create the new repository
 $ echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
@@ -179,7 +179,7 @@ libpcap-dev
 xbacklight
 inxi
 tty-clock
-flist 
+flist
 packages2fs-tools
 gparted
 cryptsetup
@@ -189,34 +189,24 @@ jq
 x11-xserver-utils
 
 ## Ubuntu 20.04
-sudo apt install -y build-essential apt-transport-https ca-certificates curl software-properties-common bash-completion net-tools htop sysstat ncdu xclip pandoc icdiff tree gitg tig cowsay ioping stress-ng iotop gimp inkscape rclone nmap source-highlight screenkey strace dnstracer borgbackup xdotool s3fs python2 python3 python3-pip python3-all-dev numlockx font-manager qemu qemu-kvm acpi acpitool arandr feh imagemagick libjpeg-progs xautolock scrot dunst rxvt-unicode gpick x11-apps sxiv mupdf mupdf-tools gnome-boxes flameshot mps-youtube mplayer ffmpeg mpv vlc golang-go ansible numix-gtk-theme numix-icon-theme materia-gtk-theme exuberant-ctags libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxcb-render0-dev libxpm-dev libxt-dev libxml2-dev libxmlsec1-dev libxslt-dev libncursesw5-dev fonts-firacode mosh pavucontrol screenfetch neofetch exiv2 libreadline-dev libbz2-dev libsqlite3-dev libssh-dev libssl-dev libffi-dev libpq-dev libjpeg-dev zlib1g zlib1g-dev zlibc libtiff-dev libfreetype6 libfreetype6-dev liblcms2-2 liblcms2-dev libwebp-dev libwebp6 libopenjp2-7 libopenjp2-7-dev libopenjp3d7 libraqm0 libraqm-dev python2-dev python3-cffi figlet debhelper shellcheck libpcap-dev xbacklight inxi tty-clock gparted cryptsetup kpartx tcptraceroute jq x11-xserver-utils
+sudo apt install -y build-essential apt-transport-https ca-certificates curl software-properties-common bash-completion net-tools htop sysstat ncdu xclip pandoc icdiff tree gitg tig cowsay ioping stress-ng iotop gimp inkscape rclone nmap source-highlight screenkey strace dnstracer borgbackup xdotool s3fs python2 python3 python3-pip python3-all-dev numlockx font-manager qemu qemu-kvm acpi acpitool arandr feh imagemagick libjpeg-progs xautolock scrot dunst rxvt-unicode gpick x11-apps sxiv mupdf mupdf-tools gnome-boxes flameshot mps-youtube mplayer ffmpeg mpv vlc golang-go ansible numix-gtk-theme numix-icon-theme materia-gtk-theme exuberant-ctags libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxcb-render0-dev libxpm-dev libxt-dev libxml2-dev libxmlsec1-dev libxslt-dev libncursesw5-dev fonts-firacode mosh pavucontrol screenfetch neofetch exiv2 libreadline-dev libbz2-dev libsqlite3-dev libssh-dev libssl-dev libffi-dev libpq-dev libjpeg-dev zlib1g zlib1g-dev zlibc libtiff-dev libfreetype6 libfreetype6-dev liblcms2-2 liblcms2-dev libwebp-dev libwebp6 libopenjp2-7 libopenjp2-7-dev libopenjp3d7 libraqm0 libraqm-dev python2-dev python3-cffi figlet debhelper shellcheck libpcap-dev xbacklight inxi tty-clock gparted cryptsetup kpartx tcptraceroute jq x11-xserver-utils python3-venv pipx
 
 
 - TODO: configure a `.docker` domain with dnsmasq (it is already bundled on Ubuntu, check on debian/raspbian)
 
 
-# 3) PYTHON LIBS TO CONVERT WITH stdeb TO PACKAGES:
+# 3) PYTHON LIBS/UTILS TO INSTALL THROUGH pipx
 
-## Install stdeb:
-$ pip3 install stdeb3 python-rofi
-(talvez aqui valha a pena usar o homebrew do linux para instalar os pacotes ao
-invés do stdeb: https://docs.brew.sh/Formula-Cookbook#specifying-gems-python-modules-go-projects-etc-as-dependencies
-, ou talvez usar o pipx com sudo: https://github.com/pipxproject/pipx/blob/master/README.md
-)
-
-
-## Packages to install through stdeb:
-( /usr/local/bin/pypi-install [pip-package-name] )
 pywal
 dmenu
 py3status
 i3-py
-TODO: tmuxp
-TODO: passpy
-TODO: flashfocus (sudo pip3 install flashfocus --ignore-installed PyYAML)
-TODO: pygments
-TODO: khal
-TODO: vdirsyncer
+tmuxp
+flashfocus (sudo pip3 install flashfocus --ignore-installed PyYAML)
+pygments
+khal
+vdirsyncer
+visidata
 
 # 4) TO BE COMPILED / INSTALLED:
 
