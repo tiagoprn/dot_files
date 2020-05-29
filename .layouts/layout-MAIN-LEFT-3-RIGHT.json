@@ -1,0 +1,233 @@
+[
+{
+	"border": "normal",
+		"floating": "auto_off",
+		"fullscreen_mode": 0,
+		"layout": "splitv",
+		"percent": 0.176759410801964,
+		"type": "con",
+		"nodes": [
+		{
+			"border": "normal",
+			"floating": "auto_off",
+			"layout": "splith",
+			"percent": 1,
+			"type": "con",
+			"nodes": [
+			{
+				"border": "normal",
+				"floating": "auto_off",
+				"layout": "splitv",
+				"percent": 0.5,
+				"type": "con",
+				"nodes": [
+				{
+					"border": "pixel",
+					"current_border_width": 4,
+					"floating": "auto_off",
+					"geometry": {
+						"height": 704,
+						"width": 1299,
+						"x": 0,
+						"y": 0
+					},
+					"name": "0:bash",
+					"percent": 1,
+					"swallows": [
+					{
+						"instance": "^kitty$"
+					}
+					],
+					"type": "con"
+				}
+				]
+			},
+			{
+				"border": "normal",
+				"floating": "auto_off",
+				"layout": "splitv",
+				"percent": 0.5,
+				"type": "con",
+				"nodes": [
+				{
+					"border": "normal",
+					"floating": "auto_off",
+					"layout": "splitv",
+					"percent": 0.4,
+					"type": "con",
+					"nodes": [
+					{
+						"border": "normal",
+						"floating": "auto_off",
+						"layout": "splitv",
+						"percent": 1,
+						"type": "con",
+						"nodes": [
+						{
+							"border": "normal",
+							"floating": "auto_off",
+							"layout": "splitv",
+							"percent": 1,
+							"type": "con",
+							"nodes": [
+							{
+								"border": "normal",
+								"floating": "auto_off",
+								"layout": "splitv",
+								"percent": 1,
+								"type": "con",
+								"nodes": [
+								{
+									"border": "normal",
+									"floating": "auto_off",
+									"layout": "splitv",
+									"percent": 1,
+									"type": "con",
+									"nodes": [
+									{
+										"border": "normal",
+										"floating": "auto_off",
+										"layout": "splith",
+										"percent": 1,
+										"type": "con",
+										"nodes": [
+										{
+											"border": "pixel",
+											"current_border_width": 2,
+											"floating": "auto_off",
+											"geometry": {
+												"height": 575,
+												"width": 956,
+												"x": 0,
+												"y": 0
+											},
+											"name": "Slack | automation-microservices-infra | Dafiti Tech",
+											"percent": null,
+											"swallows": [
+											{
+												"instance": "^slack$"
+											}
+											],
+											"type": "con"
+										}
+										]
+									}
+									]
+								}
+								]
+							}
+							]
+						}
+						]
+					}
+					]
+				},
+				{
+					"border": "normal",
+					"floating": "auto_off",
+					"layout": "splitv",
+					"percent": 0.6,
+					"type": "con",
+					"nodes": [
+					{
+						"border": "normal",
+						"floating": "auto_off",
+						"layout": "splith",
+						"percent": 0.4,
+						"type": "con",
+						"nodes": [
+						{
+							"border": "pixel",
+							"current_border_width": 4,
+							"floating": "auto_off",
+							"geometry": {
+								"height": 704,
+								"width": 1299,
+								"x": 0,
+								"y": 0
+							},
+							"name": "bash",
+							"percent": 1,
+							"swallows": [
+							{
+								"instance": "^kitty$"
+							}
+							],
+							"type": "con"
+						}
+						]
+					},
+					{
+						"border": "normal",
+						"floating": "auto_off",
+						"layout": "splitv",
+						"percent": 0.6,
+						"type": "con",
+						"nodes": [
+						{
+							"border": "normal",
+							"floating": "auto_off",
+							"layout": "splith",
+							"percent": 0.5,
+							"type": "con",
+							"nodes": [
+							{
+								"border": "pixel",
+								"current_border_width": 4,
+								"floating": "auto_off",
+								"geometry": {
+									"height": 704,
+									"width": 1299,
+									"x": 0,
+									"y": 0
+								},
+								"name": "bash",
+								"percent": null,
+								"swallows": [
+								{
+									"instance": "^kitty$"
+								}
+								],
+								"type": "con"
+							}
+							]
+						},
+						{
+							"border": "normal",
+							"floating": "auto_off",
+							"layout": "splith",
+							"percent": 0.5,
+							"type": "con",
+							"nodes": [
+							{
+								"border": "pixel",
+								"current_border_width": 4,
+								"floating": "auto_off",
+								"geometry": {
+									"height": 147,
+									"width": 952,
+									"x": 0,
+									"y": 0
+								},
+								"name": "bash",
+								"percent": null,
+								"swallows": [
+								{
+									"instance": "^kitty$"
+								}
+								],
+								"type": "con"
+							}
+							]
+						}
+						]
+					}
+					]
+				}
+				]
+			}
+			]
+		}
+	]
+}
+]
