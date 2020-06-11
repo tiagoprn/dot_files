@@ -229,9 +229,9 @@ bindsym Mod1+s sticky toggle
 # IMPORTANT: "indicator" is the split indicator - the border that shows where the next window will be at
 #                         | border | background | text | indicator
   client.focused          $white $white $white $bluesky
-  client.focused_inactive $darkviolet $darkviolet    $palidblue $blue
-  client.unfocused        $darkviolet $darkviolet    $palidblue $blue
-  client.urgent           $darkviolet $darkred    $black $blue
+  client.focused_inactive $black $black    $palidblue $palidblue
+  client.unfocused        $black $black    $palidblue $palidblue
+  client.urgent           $black $darkred    $black $blue
 
 
 
@@ -286,7 +286,7 @@ bindsym Mod1+Shift exec --no-startup-id pactl set-sink-mute 0 toggle # mute soun
 # -- MY CUSTOMIZATIONS BELOW --
 
 # --- WINDOW BORDERS ---
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 focus_follows_mouse no
 
 # --- SCRATCHPAD ---
@@ -312,8 +312,8 @@ for_window [window_type="menu"] floating enable
 for_window [title="Open With"] floating enable
 
 # --- WINDOWS WITH SPECIAL BORDERS ---
-for_window [class="kitty"] border pixel 4
-for_window [class="URxvt"] border pixel 4
+for_window [class="kitty"] border pixel 1
+for_window [class="URxvt"] border pixel 1
 
 # --- CUSTOM SCRATCHPADS ---
 for_window [instance="vim"]  mark "vim", move scratchpad
