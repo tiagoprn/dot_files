@@ -188,9 +188,11 @@ tcptraceroute
 jq
 x11-xserver-utils
 ccze
+xsel
+libxfixes-dev
 
 ## Ubuntu 20.04
-sudo apt install -y build-essential apt-transport-https ca-certificates curl software-properties-common bash-completion net-tools htop sysstat ncdu xclip pandoc icdiff tree gitg tig cowsay ioping stress-ng iotop gimp inkscape rclone nmap source-highlight screenkey strace dnstracer borgbackup xdotool s3fs python2 python3 python3-pip python3-all-dev numlockx font-manager qemu qemu-kvm acpi acpitool arandr feh imagemagick libjpeg-progs xautolock scrot dunst rxvt-unicode gpick x11-apps sxiv mupdf mupdf-tools gnome-boxes flameshot mps-youtube mplayer ffmpeg mpv vlc golang-go ansible numix-gtk-theme numix-icon-theme materia-gtk-theme exuberant-ctags libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxcb-render0-dev libxpm-dev libxt-dev libxml2-dev libxmlsec1-dev libxslt-dev libncursesw5-dev fonts-firacode mosh pavucontrol screenfetch neofetch exiv2 libreadline-dev libbz2-dev libsqlite3-dev libssh-dev libssl-dev libffi-dev libpq-dev libjpeg-dev zlib1g zlib1g-dev zlibc libtiff-dev libfreetype6 libfreetype6-dev liblcms2-2 liblcms2-dev libwebp-dev libwebp6 libopenjp2-7 libopenjp2-7-dev libopenjp3d7 libraqm0 libraqm-dev python2-dev python3-cffi figlet debhelper shellcheck libpcap-dev xbacklight inxi tty-clock gparted cryptsetup kpartx tcptraceroute jq x11-xserver-utils python3-venv pipx ccze
+sudo apt install -y build-essential apt-transport-https ca-certificates curl software-properties-common bash-completion net-tools htop sysstat ncdu xclip pandoc icdiff tree gitg tig cowsay ioping stress-ng iotop gimp inkscape rclone nmap source-highlight screenkey strace dnstracer borgbackup xdotool s3fs python2 python3 python3-pip python3-all-dev numlockx font-manager qemu qemu-kvm acpi acpitool arandr feh imagemagick libjpeg-progs xautolock scrot dunst rxvt-unicode gpick x11-apps sxiv mupdf mupdf-tools gnome-boxes flameshot mps-youtube mplayer ffmpeg mpv vlc golang-go ansible numix-gtk-theme numix-icon-theme materia-gtk-theme exuberant-ctags libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxcb-render0-dev libxpm-dev libxt-dev libxml2-dev libxmlsec1-dev libxslt-dev libncursesw5-dev fonts-firacode mosh pavucontrol screenfetch neofetch exiv2 libreadline-dev libbz2-dev libsqlite3-dev libssh-dev libssl-dev libffi-dev libpq-dev libjpeg-dev zlib1g zlib1g-dev zlibc libtiff-dev libfreetype6 libfreetype6-dev liblcms2-2 liblcms2-dev libwebp-dev libwebp6 libopenjp2-7 libopenjp2-7-dev libopenjp3d7 libraqm0 libraqm-dev python2-dev python3-cffi figlet debhelper shellcheck libpcap-dev xbacklight inxi tty-clock gparted cryptsetup kpartx tcptraceroute jq x11-xserver-utils python3-venv pipx ccze xsel libxfixes-dev
 
 
 - TODO: configure a `.docker` domain with dnsmasq (it is already bundled on Ubuntu, check on debian/raspbian)
@@ -288,6 +290,26 @@ $ cd todo.txt-cli
 $ make
 $ make install CONFIG_DIR=/etc INSTALL_DIR=/usr/bin BASH_COMPLETION_DIR=/usr/share/bash-completion/completions
 $ make test
+
+
+# clipnotify/clipmenu
+$ sudo su
+$ mkdir -p /opt/installers
+$ cd /opt/installers
+$ git clone https://github.com/cdown/clipnotify
+$ cd clipnotify
+$ make
+$ sudo cp -farv clipnotify /usr/bin
+$ cd /opt/installers
+$ git clone https://github.com/cdown/clipmenu
+$ cd clipmenu
+$ make install
+$ rm /usr/lib/systemd/user/clipmenud.service
+$ exit
+$ # Below starts the daemon:
+$ CM_DEBUG=1 clipmenud
+$ # Below opens dmenu to select text from the clipboard history:
+$ clipmenu -i -fn Terminus:size=16 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'
 
 
 ## SNAP INSTALLS
