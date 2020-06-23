@@ -16,7 +16,6 @@ rm -fr ~/.Xresources
 ln -s /storage/src/dot_files/.Xresources ~/.Xresources
 xrdb .Xresources
 
-
 echo 'Linking xsessionrc...'
 rm -fr ~/.xsessionrc
 ln -s /storage/src/dot_files/.xsessionrc ~/.xsessionrc
@@ -43,11 +42,10 @@ rm -fr ~/.config/dunst/dunstrc
 mkdir -p ~/.config/dunst
 ln -s /storage/src/dot_files/dunstrc ~/.config/dunst/dunstrc
 
-echo 'Linking conky, compton and clipster config...'
-rm -fr ~/.Conky ~/compton.conf ~/clipster.ini
+echo 'Linking conky and compton config...'
+rm -fr ~/.Conky ~/compton.conf
 ln -s /storage/src/dot_files/.Conky ~/.Conky
 ln -s /storage/src/dot_files/compton.conf ~/compton.conf
-ln -s /storage/src/dot_files/clipster.ini ~/clipster.ini
 
 echo 'Linking ranger configuration...'
 rm -fr ~/.config/ranger
