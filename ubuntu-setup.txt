@@ -301,7 +301,7 @@ $ cd clipnotify
 $ make
 $ sudo cp -farv clipnotify /usr/bin
 $ cd /opt/installers
-$ git clone https://github.com/cdown/clipmenu
+$ git clone https://github.com/tiagoprn/clipmenu
 $ cd clipmenu
 $ make install
 $ rm /usr/lib/systemd/user/clipmenud.service
