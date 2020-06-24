@@ -309,7 +309,7 @@ endfunction
 nnoremap <Leader>w <C-w>w| " toggle between windows
 
 nnoremap <Backspace> :bw<Enter>| " Close buffer
-nnoremap <leader>q :bp\|bd \#<Enter>| " Close buffer but keep split
+nnoremap <leader>q :bp\|bw \#<Enter>| " Close buffer but keep split
 nnoremap <leader><Backspace> <C-w>q<Enter>| " Close split but keep buffer
 
 nnoremap <Leader>s :vnew<CR>| " new vertical window split
@@ -354,7 +354,7 @@ noremap <Right> <Nop>
 " CUSTOM COMMANDS (SHORTCUTS)
 
 " Close other buffers and keep only the current one:
-command! CloseOtherBuffers execute '%bdelete|edit #|normal `"'
+command! CloseOtherBuffers execute '%bwipe|edit #|normal `"'
 nnoremap <silent> c, :CloseOtherBuffers<CR>| " Close other buffers and keep only the current one
 
 function! MarkDelete()
@@ -475,8 +475,8 @@ nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, v
 " <Cr> | " fzf tip: open file on current window
 " <C-x> | " fzf tip: open file on horizontal split
 " <C-v> | " fzf tip: open file on vertical split
-nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete
-
+nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete - deletes the buffer from the session, but keeps marks and the jump list
+nnoremap <silent> <Leader>bw :bw!<Cr>| " fzf: buffer wipe - deletes all traces from the buffer on the session (marks, jump list, etc...)
 """ SNIPMATE
 " If I ever need to customize anything on snipmate, enable the line below
 " let g:snipMate = {}
@@ -690,7 +690,6 @@ nnoremap <silent> <F5> :set rnu!<CR>| " function key: toggle relative line numbe
 " <control>, k  | "  move current line/selection up
 " <control>, l  | "  move current line/selection to the right
 " <control>, left or right | " cycle through open buffers
-" :bd  | " remove a buffer from the buffer list and close it
 " :w !sudo tee % | " save file as sudo when you forgot to do that
 " :set et|retab | " replaces tab with 4 spaces
 " gcc | " comment/uncomment selection
