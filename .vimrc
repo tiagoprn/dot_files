@@ -694,5 +694,9 @@ nnoremap <silent> <F5> :set rnu!<CR>| " function key: toggle relative line numbe
 " :w !sudo tee % | " save file as sudo when you forgot to do that
 " :set et|retab | " replaces tab with 4 spaces
 " gcc | " comment/uncomment selection
+" zR | " open all folds
+" zM | " close all folds
+" zo | " open current fold
+" zc | " close current fold
 
 "" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
