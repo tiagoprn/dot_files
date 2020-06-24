@@ -1,0 +1,4 @@
+:cd %:p:h
+silent! !notify-send -a vim 'Pulling changes from remote...' && git pull > /dev/null && notify-send -a vim 'Changes pulled successfully from remote.'
+:e!
+autocmd! BufWritePost * silent! !notify-send -a vim 'Commiting and pushing changes to remote...' && git add . && git commit -m "vim autocommit on $(hostname) at $(date -u)" > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Changes pushed successfully to remote.'
