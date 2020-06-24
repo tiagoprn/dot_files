@@ -211,7 +211,12 @@ if ls --color -d . >/dev/null 2>&1; then  # GNU ls
   alias lss='ls -a --human-readable --size -1 -S --classify'
   alias lsr="ls -halt"
 fi
-printf "\n- 'j' bash alias: to do a quick timestamp based journal with vim"
+printf "\n=== USEFUL BASH ALIASES ==="
+printf "\nj            : creates a quick timestamp based journal with vim"
+printf "\nnt           : creates a quick note"
+printf "\nzt           : creates a zettelkasten note"
+printf "\nupdate-notes : pushes all notes to the remote repository."
+printf "\n"
 printf "\n- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
 printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
 # fortune   -s
