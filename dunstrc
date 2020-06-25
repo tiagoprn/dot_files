@@ -119,7 +119,7 @@
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
-    sticky_history = yes
+    sticky_history = false
 
     # Maximum amount of notifications kept in history
     history_length = 100
@@ -190,18 +190,17 @@
     # and 'mod4' (windows-key)
     # xev might be helpful to find names for keys
 
-    # close notification
+    # shortcut: close notification
     close = ctrl+space
 
-    # close all notifications
-    close_all = ctrl+shift+space
+    # shortcut: close all notifications
+    close_all = ctrl+comma
 
-    # redisplay last message(s)
-    # On the US keyboard layout 'grave' is normally above TAB and left of '1'.
-    history = ctrl+grave
+    # shortcut: redisplay last message(s)
+    history = ctrl+shift+space
 
-    # context menu
-    context = ctrl+shift+period
+    # shortcut: context menu
+    context = ctrl+shift+comma
 
 [urgency_normal]
     # IMPORTANT: colors have to be defined in quotation marks.
