@@ -365,11 +365,14 @@ function! MarkDelete()
 endfunction
 nnoremap <Leader>M :call MarkDelete()<CR>| " delete mark
 
-nnoremap <leader>fp :call fzf#run(fzf#vim#with_preview({'options': '--reverse --prompt "Select file from my PERSONAL notes directory: "', 'down': 20, 'dir': '/storage/docs/notes/personal', 'sink': 'e' }))<CR>| " Open file from my PERSONAL notes directory
-nnoremap <leader>fw :call fzf#run(fzf#vim#with_preview({'options': '--reverse --prompt "Select file from my WORK notes directory: "', 'down': 20, 'dir': '/storage/docs/notes/work', 'sink': 'e' }))<CR>| " Open file from my WORK notes directory
+nnoremap <leader>fp :call fzf#run(fzf#vim#with_preview({'options': '--reverse --prompt "Select file from my PERSONAL notes directory: "', 'down': 20, 'dir': '/storage/docs/notes/personal', 'sink': 'e' }))<CR>| " open file from my PERSONAL notes directory
+nnoremap <leader>fw :call fzf#run(fzf#vim#with_preview({'options': '--reverse --prompt "Select file from my WORK notes directory: "', 'down': 20, 'dir': '/storage/docs/notes/work', 'sink': 'e' }))<CR>| " open file from my WORK notes directory
 
 command! -bang -nargs=* Zettel call fzf#vim#grep( 'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': '/storage/docs/notes/zettelkasten/cards'}), <bang>0)
-nnoremap <leader>fz :Zettel()<CR>| " Open zettelkasten searching by word
+nnoremap <leader>fz :Zettel()<CR>| " open zettelkasten notes searching by word
+
+command! -bang -nargs=* QuickNotes call fzf#vim#grep( 'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': '/storage/docs/notes/quick'}), <bang>0)
+nnoremap <leader>fn :QuickNotes()<CR>| " open quicknotes searching by word
 
 function! ReloadVimConfig()
     execute 'w!'
