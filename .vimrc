@@ -371,6 +371,13 @@ nnoremap <leader>fw :call fzf#run(fzf#vim#with_preview({'options': '--reverse --
 command! -bang -nargs=* Zettel call fzf#vim#grep( 'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': '/storage/docs/notes/zettelkasten/cards'}), <bang>0)
 nnoremap <leader>fz :Zettel()<CR>| " Open zettelkasten searching by word
 
+function! ReloadVimConfig()
+    execute 'w!'
+    execute 'source ~/.vimrc'
+    execute 'silent !notify-send --urgency=critical "Vim configuration successfully reloaded."'
+endfunction
+nnoremap <leader>rl :call ReloadVimConfig()<CR>| " reload vim configuration (.vimrc)
+
 "----------------------------------
 " VIM EVENT HOOKS "
 
