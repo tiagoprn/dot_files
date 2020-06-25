@@ -101,11 +101,11 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    #geometry = "300x5-30+20"
-    geometry = "300x5+550-40"
+    # geometry = "300x5-30+20"
+    # geometry = "300x5+550-40"
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
-    transparency = 25
+    transparency = 0
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -157,10 +157,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 0
-
-    # Defines color of the frame around the notification window.
-    frame_color = "#FFFFFF"
+    frame_width = 2
 
     corner_radius = 8
 
@@ -205,18 +202,21 @@
 [urgency_normal]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    background = "#007F53"  # "#D3D3A4"
-    foreground = "#FFFFFF"  # "#404040"
+    foreground = "#007F53"
+    background = "#000000"
+    frame_color = "#007F53"
     timeout = 3
 
 [urgency_low]
-    background = "#FFFFFF"
-    foreground = "#000000"
+    foreground = "#FFFFFF"
+    background = "#000000"
+    frame_color = "#FFFFFF"
     timeout = 3
 
 [urgency_critical]
-    background = "#CD2427"
-    foreground = "#FFFFFF"
+    foreground = "#CD2427"
+    background = "#000000"
+    frame_color = "#CD2427"
     timeout = 5
 
 
