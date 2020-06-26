@@ -183,7 +183,7 @@ bindsym $mod+e restart
 
 bindsym $mod+z exec --no-startup-id /storage/src/devops/rofi/shutdown.py
 
-# TODO: Since the binding below is not working, trigger the download script
+#TODO: Since the binding below is not working, trigger the download script
 # executed inside the one below each 3 hours to autodownload via a systemd user
 # timer.
 # Then, call i3lock directly from here (without the shell script wrapper)
@@ -342,9 +342,13 @@ bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+
 bindsym Mod1+o exec --no-startup-id pavucontrol
 # below starts video player
 bindsym Mod1+y exec --no-startup-id /storage/src/devops/bin/zenity-video-launcher.sh
-# TODO: change below to use my own clipboard manager.
-# TODO: remove xsel after I finish.
+
+#
+#TODO: change below to use my own clipboard manager.
+#TODO: remove xsel after I finish.
 bindsym Mod1+c exec --no-startup-id clipmenu -i -fn Terminus:size=16 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'
+
+
 bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with arandr...' --urgency low; arandr && i3-msg reload"
 bindsym Mod1+k exec --no-startup-id "/storage/src/devops/rofi/toggle_keyboards.py"
@@ -371,9 +375,14 @@ exec --no-startup-id "notify-send 'Launching bluetooth manager applet (blueman).
 exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
 exec --no-startup-id "notify-send 'Launching Gnome Calendar...' --urgency low; gnome-calendar"
 exec --no-startup-id "notify-send 'Launching Gnome Weather...' --urgency low; gnome-weather"
-# TODO: change below to the clippy daemon
+
+
+
+#TODO: change below to the clippy daemon
 exec --no-startup-id CM_DEBUG=1 clipmenud > /tmp/clipmenud.log &
-# exec --no-startup-id /storage/src/devops/bin/start_clipboard_polling.sh
+
+
+
 # exec --no-startup-id /storage/src/devops/bin/i3-htop.sh
 exec --no-startup-id /storage/src/devops/bin/i3-vim.sh
 exec --no-startup-id /storage/src/devops/bin/i3-personal-calendar.sh
