@@ -9,8 +9,9 @@ alias d='docker'
 alias f='fzf'
 alias j="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE +'normal!o-  '"  # opens a vim file with the current time and a line below ready for editing, useful as a journal.
 alias m="make"
-alias n='OUTPUT=$(navi --path "$(cat ~/.navirc)" --print) && xdotool getwindowfocus windowfocus --sync type "$OUTPUT"'
+alias n='OUTPUT=$(navi --path "$(cat ~/.navirc)" --print) && echo "$OUTPUT" | xclip -selection clipboard && xdotool getwindowfocus windowfocus --sync key "ctrl+shift+v"'
 alias p="pyenv"
+alias s="source ~/.bash_environment && source ~/.bash_functions && source ~/.bash_aliases && source ~/.bashrc"
 alias t='todo.sh -d "/storage/docs/notes/todotxt/config" '
 alias v="vim"
 
