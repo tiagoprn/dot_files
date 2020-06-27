@@ -214,6 +214,7 @@ vdirsyncer
 visidata
 pyperclip
 daemonize
+typer
 jetty (alternative to jq)
 
 # 4) TO BE COMPILED / INSTALLED:
