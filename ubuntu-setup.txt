@@ -63,6 +63,11 @@ $ # Below enables kvm service (libvirtd):
 $ sudo systemctl start libvirtd
 $ sudo systemctl enable libvirtd
 
+After finished, logout and login (you were added to the libvirt group, and need
+to do that so you have permission on the libvirt socket).
+
+kvm configuration files are at `/etc/libvirt`. The one that controls the daemon is `libvirtd.conf`.
+
 #### Terraform
 ```
 $ sudo su
