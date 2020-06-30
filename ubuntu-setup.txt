@@ -76,12 +76,7 @@ to do that so you have permission on the libvirt socket).
 kvm configuration files are at `/etc/libvirt`. The one that controls the daemon is `libvirtd.conf`.
 
 $ # Create and enable a default storage pool
-$ mkdir -p /storage/kvm/storage_pools/001
-$ virsh pool-define-as default dir - - - - /storage/kvm/storage_pools/001
-$ virsh pool-build default
-$ virsh pool-start default
-$ virsh pool-autostart default
-$ virsh pool-list --all
+https://github.com/tiagoprn/devops/blob/master/cheats/kvm.cheat (use pool-name=`default`)
 
 #### Terraform
 ```
