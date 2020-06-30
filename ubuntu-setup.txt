@@ -59,6 +59,13 @@ $ sudo apt-get -y install qemu-kvm libvirt-bin virt-top  libguestfs-tools virtin
 $ sudo modprobe vhost_net
 $ sudo lsmod | grep vhost
 $ echo "vhost_net" | sudo tee -a /etc/modules
+
+$ # change the security driver to none, since ubuntu disables selinux by default:
+$ vim /etc/libvirt/qemu.conf
+```
+security_driver = "none"
+```
+
 $ # Below enables kvm service (libvirtd):
 $ sudo systemctl start libvirtd
 $ sudo systemctl enable libvirtd
@@ -67,6 +74,14 @@ After finished, logout and login (you were added to the libvirt group, and need
 to do that so you have permission on the libvirt socket).
 
 kvm configuration files are at `/etc/libvirt`. The one that controls the daemon is `libvirtd.conf`.
+
+$ # Create and enable a default storage pool
+$ mkdir -p /storage/kvm/storage_pools/001
+$ virsh pool-define-as default dir - - - - /storage/kvm/storage_pools/001
+$ virsh pool-build default
+$ virsh pool-start default
+$ virsh pool-autostart default
+$ virsh pool-list --all
 
 #### Terraform
 ```
