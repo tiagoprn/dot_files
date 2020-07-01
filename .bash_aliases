@@ -104,9 +104,10 @@ alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && $PYENV_BIN rehash"
 # ------------------------------------------------
 alias cbssh="cbf ~/.ssh/id_rsa.pub" # Copy SSH public key
 alias cbpwd="pwd | cb" # Copy current working directory
-alias cbbashhistory="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
-
-alias update-notes="notify-send -a vim 'Manually pushing notes changes to remote...' && git add . && git commit -m 'manual commit on $(hostname) at $(date -u)' > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Notes changes pushed successfully to remote.' && gl && git status -s "
+alias cbbash="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
 alias gbcb="git branch | grep ^* | cut -d ' ' -f 2 | cb"
+
+alias update-notes="notify-send -a vim 'Manually pushing notes changes to remote...' && cd /storage/docs/notes && git add . && git commit -m 'manual commit on $(hostname) at $(date -u)' > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Notes changes pushed successfully to remote.' && git status -s && cd - "
 alias gnome-control-center="XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 alias ssh-no-host-checking='ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no"'
+alias compositor="/storage/src/devops/bin/toggle_compositor.sh"
