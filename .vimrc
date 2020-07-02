@@ -654,15 +654,17 @@ nnoremap <silent> <F5> :set rnu!<CR>| " function key: toggle relative line numbe
 " ge | "  (movement)   end of the previous word
 " e  | "  (movement)   end of current word / end of next word
 " ^  | "  (movement)   first non-blank character of a line
-" <C-e>| " (movement)   scroll viewport down, without moving cursor
-" <C-y>| " (movement)   scroll viewport up, without moving cursor
 " f [char]  | "  (movement)   go to specific char in line, ';' to go to the next occurrence of it
 " t [char]  | "  (movement)   go to one character previous/before specific char in line, ';' to go to the next occurrence of it
 " H  | " (movement) high on the viewport
 " M  | " (movement) middle on the viewport
 " L  | " (movement) low on the viewport
-" zz  | "  (movement)   center the viewport (window) on the cursor, without moving the cursor.
+" zz  | "  (movement)   without moving the cursor, put the current line on the middle of the screen (viewport).
+" zt  | "  (movement)   without moving the cursor, put the current line on the top of the screen (viewport).
+" zb  | "  (movement)   without moving the cursor, put the current line on the bottom of the screen (viewport).
 " g; | " go to the previous place you were editing on the current file
+" ctrl+h | " move current character left
+" ctrl+l | " move current character right
 
 "" snippets
 " <C-l>| " select snippet
