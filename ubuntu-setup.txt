@@ -55,7 +55,7 @@ $ sudo apt update && sudo apt install docker-ce -y
 ### Ubuntu 18.04
 
 #### KVM
-$ sudo apt-get -y install qemu-kvm libvirt-bin virt-top  libguestfs-tools virtinst bridge-utils
+$ sudo apt-get -y install qemu-kvm libvirt-bin virt-top  libguestfs-tools virtinst bridge-utils virt-manager
 $ sudo modprobe vhost_net
 $ sudo lsmod | grep vhost
 $ echo "vhost_net" | sudo tee -a /etc/modules
