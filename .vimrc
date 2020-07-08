@@ -329,20 +329,20 @@ nnoremap k gk| " go up on wrapped line
 
 nnoremap <Leader>m :Marks<CR>| " show all marks
 
-" CLIPBOARD BEHAVIOR (both work in visual mode)
-vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>| " copy to clipboard
-vnoremap p :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))| " paste from clipboard
-nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))| " paste from clipboard
+" CLIPBOARD BEHAVIOR (both work in visual mode) - disable because I will from now on use vim registers
+" vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>| " copy to clipboard
+" vnoremap p :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))| " paste from clipboard
+" nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))| " paste from clipboard
 
 " vmap - mapping for visual mode
 "_d - delete current selection into black hole register
 " P - paste
-vmap r "_dP| " replace current selection with clipboard contents
+" vmap r "_dP| " replace current selection with clipboard contents
 
 " d and dd command no more send text to the clipboard (instead, send it to
 " the blackhole register)
-nnoremap d "_d
-nnoremap dd "_dd
+" nnoremap d "_d
+" nnoremap dd "_dd
 
 " DISABLE ARROW KEYS IN NORMAL MODE
 noremap <Up> <Nop>
