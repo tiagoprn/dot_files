@@ -225,9 +225,7 @@ set expandtab
 
 " Show special chars below
 set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends:»
-" Just show special chars on visual mode, on insert mode they are disabled
-au BufEnter,InsertLeave * set list
-au InsertEnter * set nolist
+nnoremap <silent> <F6> :set list!<CR>| " function key: toggle showing special chars
 " Change color of special chars
 " hi SpecialKey ctermfg=red guifg=red
 
