@@ -110,6 +110,7 @@ Plugin 'tpope/vim-commentary'
 
 " goyo - for distraction-free writing
 Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
@@ -547,6 +548,10 @@ autocmd FileType python,sh let g:ale_python_pylint_options = '--rcfile .pylintrc
 autocmd FileType python,sh let g:ale_python_isort_options = '-m 3 -tc -y'
 autocmd FileType python,sh let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
 autocmd FileType python,sh let g:ale_fix_on_save = 1
+
+""" Goyo
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 "--------------------------------------------------
 " OTHER
