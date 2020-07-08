@@ -712,5 +712,11 @@ nnoremap <silent> <F5> :set rnu!<CR>| " function key: toggle relative line numbe
 " zM | " close all folds
 " zo | " open current fold
 " zc | " close current fold
+" "+yy | " (registers) copy current line to system clipboard (change + for * to primary 'mouse " selection' clipboard)
+" "+veey | " (registers) copy next 2 words to system clipboard
+" "+p | " (registers) paste system clipboard contents
+" "ayy | " (registers) copy current line to register a
+" "ap | " (registers) paste register a contents
+" :reg | " (registers) see all registers' contents
 
 "" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
