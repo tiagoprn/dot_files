@@ -28,7 +28,7 @@ set pastetoggle=<F4>| " function key: toggle insert paste mode
 
 " Color scheme (must be in ~/.vim/colors)
 " set background=dark
-colorscheme spacecamp
+colorscheme fahrenheit
 
 " font (commented to use the same font as set on the terminal)
 " set anti gfn=JetBrains\ Mono\ 11
