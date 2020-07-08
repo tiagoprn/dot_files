@@ -329,21 +329,6 @@ nnoremap k gk| " go up on wrapped line
 
 nnoremap <Leader>m :Marks<CR>| " show all marks
 
-" CLIPBOARD BEHAVIOR (both work in visual mode) - disable because I will from now on use vim registers
-" vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>| " copy to clipboard
-" vnoremap p :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))| " paste from clipboard
-" nmap <C-p> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p")")")"))| " paste from clipboard
-
-" vmap - mapping for visual mode
-"_d - delete current selection into black hole register
-" P - paste
-" vmap r "_dP| " replace current selection with clipboard contents
-
-" d and dd command no more send text to the clipboard (instead, send it to
-" the blackhole register)
-" nnoremap d "_d
-" nnoremap dd "_dd
-
 " DISABLE ARROW KEYS IN NORMAL MODE
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -381,7 +366,7 @@ function! ReloadVimConfig()
 endfunction
 nnoremap <leader>rl :call ReloadVimConfig()<CR>| " reload vim configuration (.vimrc)
 
-command! RegClean for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor | " (registers) cleans all vim registers
+command! Regclear for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor | " (registers) cleans all vim registers
 
 "----------------------------------
 " VIM EVENT HOOKS "
