@@ -381,6 +381,8 @@ function! ReloadVimConfig()
 endfunction
 nnoremap <leader>rl :call ReloadVimConfig()<CR>| " reload vim configuration (.vimrc)
 
+command! RegClean for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor | " (registers) cleans all vim registers
+
 "----------------------------------
 " VIM EVENT HOOKS "
 
@@ -716,6 +718,7 @@ nnoremap <silent> <F5> :set rnu!<CR>| " function key: toggle relative line numbe
 " "+veey | " (registers) copy next 2 words to system clipboard
 " "+p | " (registers) paste system clipboard contents
 " "ayy | " (registers) copy current line to register a
+" "Ayy | " (registers) append current line to register a (use a capital letter to append to a register)
 " "ap | " (registers) paste register a contents
 " :reg | " (registers) see all registers' contents
 
