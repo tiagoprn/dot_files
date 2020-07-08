@@ -46,7 +46,7 @@ if &t_Co >= 256 || has("gui_running")
     hi! link SpecialComment Special
     hi! link Debug Special
     hi Underlined ctermbg=235 ctermfg=221 cterm=NONE guibg=#262626 guifg=#ffd75f gui=NONE
-    hi StatusLine ctermbg=bg ctermfg=173 cterm=NONE guibg=bg guifg=#d7875f gui=NONE
+    hi StatusLine ctermbg=black ctermfg=green cterm=NONE guibg=bg guifg=#d7875f gui=NONE
     hi StatusLineNC ctermbg=bg ctermfg=235 cterm=NONE guibg=bg guifg=#262626 gui=NONE
     hi! link StatusLineTerm StatusLine
     hi! link StatusLineTermNC StatusLineNC
