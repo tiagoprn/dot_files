@@ -108,6 +108,9 @@ Plugin 'w0rp/ale'
 " comment/uncomment blocks of code/text
 Plugin 'tpope/vim-commentary'
 
+" goyo - for distraction-free writing
+Plugin 'junegunn/goyo.vim'
+
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
 
