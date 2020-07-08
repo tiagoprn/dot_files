@@ -370,6 +370,8 @@ nnoremap <leader>rl :call ReloadVimConfig()<CR>| " reload vim configuration (.vi
 
 command! Regclear for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor | " (registers) cleans all vim registers
 
+nnoremap <silent> <F3> :Goyo<CR>| " function key: toggle goyo distraction-free mode
+
 "----------------------------------
 " VIM EVENT HOOKS "
 
