@@ -218,41 +218,6 @@ set statusline+=%=      "left/right separator
 set statusline+=\ \ \ %{StatuslineGit()}
 set statusline+=\ LINE\:%l/%L(%P)
 
-autocmd VimResized * wincmd =  " resize vim splits proportionally when the window that contains vim is resized
-
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
-
-" sets a gray margin on column 80
-"" set colorcolumn=80
-" past column 80, the background will be a different color
-"" let &colorcolumn=join(range(120,9999),",")
-
-au FileType py set autoindent
-au FileType py set smartindent
-au FileType py set textwidth=79
-au FileType markdown set textwidth=79
-
-
-" Update buffer if changed outside current edit session
-" when cursor not moved for updatetime miliseconds, trigger autoread below.
-" NOTE: if vim becomes to unstable, change below to 1000 ms.
-" set updatetime=750
-" set autoread
-" augroup autoRead
-"     autocmd!
-"     autocmd CursorHold,CursorHoldI * silent! checktime
-" augroup END
-
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-    exe "normal mz"
-    %s/\s\+$//ge
-    exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 
 "--------------------------------------------------
@@ -544,7 +509,42 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 "--------------------------------------------------
-" OTHER
+" GLOBAL AUTOCMDs AND MISCELANEUS
+
+autocmd VimResized * wincmd =  " resize vim splits proportionally when the window that contains vim is resized
+
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+
+" sets a gray margin on column 80
+"" set colorcolumn=80
+" past column 80, the background will be a different color
+"" let &colorcolumn=join(range(120,9999),",")
+
+au FileType py set autoindent
+au FileType py set smartindent
+au FileType py set textwidth=79
+au FileType markdown set textwidth=79
+
+" Update buffer if changed outside current edit session
+" when cursor not moved for updatetime miliseconds, trigger autoread below.
+" NOTE: if vim becomes to unstable, change below to 1000 ms.
+" set updatetime=750
+" set autoread
+" augroup autoRead
+"     autocmd!
+"     autocmd CursorHold,CursorHoldI * silent! checktime
+" augroup END
+
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " a quickfix window opens with a 10-line height, even when the number of errors
 " is 1 or 2. I think it's a waste of window space. So I wrote the following
