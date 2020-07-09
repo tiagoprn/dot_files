@@ -109,6 +109,8 @@ map <SPACE> <leader>
 " set background=dark
 colorscheme fahrenheit
 
+syntax on
+
 " font (commented to use the same font as set on the terminal)
 " set anti gfn=JetBrains\ Mono\ 11
 " set guifont=Fira\ Code\ 11
