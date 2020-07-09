@@ -78,9 +78,6 @@ Plugin 'honza/vim-snippets'
 " Add specific actions for directories creating a .vimdir file on a specific directory
 Plugin 'chazy/dirsettings'
 
-" Better moving of text blocks
-Plugin 'matze/vim-move'
-
 " Best support for ctags (requires ctags installed through your distro's package manager)
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
@@ -382,10 +379,6 @@ iabbrev af ''<Left><Left>f<Right>| " abbreviation: python fstring
 
 "--------------------------------------------------
 " PLUGIN CONFIGURATIONS
-
-""" VIM-MOVE
-" Change vim-move modifier from A to C:
-let g:move_key_modifier = 'C'
 
 """ GUTENTAGS
 "  https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/?utm_medium=android_app&utm_source=share
