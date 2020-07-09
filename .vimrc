@@ -19,11 +19,10 @@ set t_SI=[6\ q
 set t_SR=[4\ q
 set t_EI=[2\ q
 
-" Then, when in insert mode, ready to paste, if you press <F2>, Vim will switch
-" to paste mode, which will not try to ident code when you paste it from
-" another app, like the browser or a text editor.
-" IMPORTANT: DO NOT MOVE this line from here, it must be after nocompatible
-"            for the paste toggle to work accordingly.
+" When in insert mode, ready to paste, vim will switch to paste mode, which will not try to ident
+" code when you paste it from another app, like the browser or a text editor.
+" IMPORTANT: DO NOT MOVE this line from here, it must be after nocompatible for the paste toggle to
+" work accordingly.
 set pastetoggle=<F4>| " function key: toggle insert paste mode
 
 " Color scheme (must be in ~/.vim/colors)
@@ -40,9 +39,9 @@ set tags=~/.cache/vim/ctags
 " Auto setup vim make command to run lint
 let project_path = system("git rev-parse --show-toplevel | tr -d '\\n'")
 let &makeprg = "cd " . project_path . " && make lint"
-nnoremap <expr> <F9> '<Esc>:cd ' . project_path . ' \| make<CR>'| " Run linter
-nnoremap <F10> <Esc>:cnext<CR>| " Next linter error
-nnoremap <F11> <Esc>:cprev<CR>| " Previous linter error
+nnoremap <expr> <F8> '<Esc>:cd ' . project_path . ' \| make<CR>'| " function key: Run linter
+nnoremap <F9> <Esc>:cnext<CR>| " function key: Next linter error
+nnoremap <F10> <Esc>:cprev<CR>| " function key: Previous linter error
 
 " Set comments as italic
 hi comment cterm=italic
@@ -461,7 +460,6 @@ let g:gutentags_ctags_exclude = [
 command! -nargs=0 GutentagsClearCache call system('rm -fr ' . g:gutentags_cache_dir)
 nmap <Leader>tc :GutentagsClearCache<CR>| " Clear Gutentags cache (the directory with all tags)
 nmap <Leader>tu :GutentagsUpdate<CR>| " Update Gutentags
-nmap <F8> :TagbarToggle<CR>| " Toggle ctags sidebar to easily navigate on code
 "" Now we can turn our filetype functionality back on
 filetype plugin indent on
 
@@ -486,7 +484,7 @@ nnoremap <silent> <Leader>bw :bw!<Cr>| " fzf: buffer wipe - deletes all traces f
 " let g:snipMate = {}
 
 """ TAGBAR
-map <F7> :TagbarToggle<CR>| " tagbar toggle
+nmap <F7> :TagbarToggle<CR>| " function key: Toggle ctags sidebar to easily navigate on code
 " let g:tagbar_autoclose = 1
 
 """ VIM-PYENV
