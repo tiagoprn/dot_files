@@ -228,23 +228,11 @@ autocmd! bufwritepost .vimrc source %
 " past column 80, the background will be a different color
 "" let &colorcolumn=join(range(120,9999),",")
 
-filetype plugin indent on
 au FileType py set autoindent
 au FileType py set smartindent
 au FileType py set textwidth=79
 au FileType markdown set textwidth=79
 
-" Expands on what vim considers as a markdown filetype
-au BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=markdown
-
-" When opening a new buffer, if it has no filetype defaults to markdown
-autocmd BufEnter * if &filetype == "" | setlocal filetype=markdown | endif
-
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal! g`\"" |
-            \ endif
 
 " Update buffer if changed outside current edit session
 " when cursor not moved for updatetime miliseconds, trigger autoread below.
@@ -380,6 +368,18 @@ autocmd BufWritePre * :%s/\s\+$//e
 " After saving a file, display a notification:
 autocmd BufWritePost * silent! !notify-send -a vim "File %:p saved."
 
+" When opening a new buffer, if it has no filetype defaults to markdown
+autocmd BufEnter * if &filetype == "" | setlocal filetype=markdown | endif
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
+
+" Expands on what vim considers as a markdown filetype
+autocmd BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=markdown
+
 "--------------------------------------------------
 " ABBREVIATIONS
 iabbrev apar ()<Left>| " abbreviation: matching parenthesis
@@ -450,8 +450,6 @@ let g:gutentags_ctags_exclude = [
 command! -nargs=0 GutentagsClearCache call system('rm -fr ' . g:gutentags_cache_dir)
 nmap <Leader>tc :GutentagsClearCache<CR>| " Clear Gutentags cache (the directory with all tags)
 nmap <Leader>tu :GutentagsUpdate<CR>| " Update Gutentags
-"" Now we can turn our filetype functionality back on
-filetype plugin indent on
 
 set tags=~/.cache/vim/ctags
 
