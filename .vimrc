@@ -43,14 +43,11 @@ nnoremap <expr> <F8> '<Esc>:cd ' . project_path . ' \| make<CR>'| " function key
 nnoremap <F9> <Esc>:cnext<CR>| " function key: Next linter error
 nnoremap <F10> <Esc>:cprev<CR>| " function key: Previous linter error
 
-" Set comments as italic
-hi comment cterm=italic
+"------------------------------------------------------------------------
+" PLUGINS
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
-"------------------------------------------------------------------------
-" PLUGINS
 
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
@@ -78,7 +75,7 @@ Plugin 'garbas/vim-snipmate'
 "" Plugin that provides some default snippets for various languages
 Plugin 'honza/vim-snippets'
 
-" Add specific actions for directories creating a .vimdir file on a specific directory (e.g. /storages/docs/notes)
+" Add specific actions for directories creating a .vimdir file on a specific directory
 Plugin 'chazy/dirsettings'
 
 " Better moving of text blocks
