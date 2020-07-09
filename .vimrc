@@ -9,36 +9,32 @@
 "
 " I use VUNDLE "package manager" and its plugins.
 
+" DO NOT ADD ANYTHING TO THIS SECTION, IT IS INTENDED ONLY FOR VUNDLE AND ITS PLUGIN
+" DECLARATION/SETUP. YOU CAN ADD YOUR CONFIGURATION AFTER THE SECTION "MAIN SETTINGS"
+" ON THIS FILE.
+
 " we need to make sure that vim is not attempting to retain compatibility with
 " vi, its predecessor. This is a vundle requirement.
 set nocompatible
 
-" Below is because of:
-" https://stackoverflow.com/questions/42377945/vim-adding-cursorshape-support-over-tmux-ssh
-set t_SI=[6\ q
-set t_SR=[4\ q
-set t_EI=[2\ q
+" When in insert mode, ready to paste, vim will switch to paste mode, which will not try to ident
+" code when you paste it from another app, like the browser or a text editor.
+" IMPORTANT: DO NOT MOVE this line from here, it must be after nocompatible for the paste toggle to
+" work accordingly.
+set pastetoggle=<F4>| " function key: toggle insert paste mode
 
+" We also want to turn off the default "filetype" controls for now because the
+" way that vim caches filetype rules at runtime interferes with the way that
+" vundle alters the runtime environment.
+filetype off
 
-" Color scheme (must be in ~/.vim/colors)
-" set background=dark
-colorscheme fahrenheit
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" font (commented to use the same font as set on the terminal)
-" set anti gfn=JetBrains\ Mono\ 11
-" set guifont=Fira\ Code\ 11
-" set guifont=JetBrains\ Mono\ 11
-
-"------------------------------------------------------------------------
-" PLUGINS
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" This is the Vundle package, which can be found on GitHub.
-" For GitHub repos, you specify plugins using the
-" 'user/repository' format
-Plugin 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " We could also add repositories with a ".git" extension
 
@@ -88,28 +84,40 @@ Plugin 'tpope/vim-commentary'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 "------------------------------------------------------------------------
-" MY CUSTOM VIM CONFIGURATIONS
-
-" When in insert mode, ready to paste, vim will switch to paste mode, which will not try to ident
-" code when you paste it from another app, like the browser or a text editor.
-" IMPORTANT: DO NOT MOVE this line from here, it must be after nocompatible for the paste toggle to
-" work accordingly.
-set pastetoggle=<F4>| " function key: toggle insert paste mode
-
-" We also want to turn off the default "filetype" controls for now because the
-" way that vim caches filetype rules at runtime interferes with the way that
-" vundle alters the runtime environment.
-filetype off
+" MAIN SETTINGS
 
 " Rebind <Leader> key
 map <SPACE> <leader>
+
+" Color scheme (must be in ~/.vim/colors)
+" set background=dark
+colorscheme fahrenheit
+
+" font (commented to use the same font as set on the terminal)
+" set anti gfn=JetBrains\ Mono\ 11
+" set guifont=Fira\ Code\ 11
+" set guifont=JetBrains\ Mono\ 11
 
 set title
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*~
-autocmd VimResized * wincmd =  " resize vim splits proportionally when the window that contains vim is resized
 
 " Changing the ruler position
 set relativenumber
@@ -128,6 +136,12 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
+
+" Below is because of:
+" https://stackoverflow.com/questions/42377945/vim-adding-cursorshape-support-over-tmux-ssh
+set t_SI=[6\ q
+set t_SR=[4\ q
+set t_EI=[2\ q
 
 " the File, Open dialog defaults to the current file's directory.
 set browsedir=buffer
@@ -202,6 +216,7 @@ set statusline+=%=      "left/right separator
 set statusline+=\ \ \ %{StatuslineGit()}
 set statusline+=\ LINE\:%l/%L(%P)
 
+autocmd VimResized * wincmd =  " resize vim splits proportionally when the window that contains vim is resized
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
