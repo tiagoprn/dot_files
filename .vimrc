@@ -1,3 +1,6 @@
+" vim:fdm=marker
+" vim:fmr=<<<,>>>
+
 " _   _                                    _             _
 "| |_(_) __ _  __ _  ___  _ __  _ __ _ __ ( )___  __   _(_)_ __ ___  _ __ ___
 "| __| |/ _` |/ _` |/ _ \| '_ \| '__| '_ \|// __| \ \ / / | '_ ` _ \| '__/ __|
@@ -5,8 +8,8 @@
 " \__|_|\__,_|\__, |\___/| .__/|_|  |_| |_| |___/   \_/ |_|_| |_| |_|_|  \___|
 "             |___/      |_|
 "
-"------------------------------------------------------------------------
-"
+
+" Vundle <<<
 " I use VUNDLE "package manager" and its plugins.
 
 " DO NOT ADD ANYTHING TO THIS SECTION, IT IS INTENDED ONLY FOR VUNDLE AND ITS PLUGIN
@@ -98,10 +101,9 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+" >>>
 
-"------------------------------------------------------------------------
-" MAIN SETTINGS
-
+" Main Settings <<<
 " Rebind <Leader> key
 map <SPACE> <leader>
 
@@ -218,11 +220,9 @@ set statusline+=%=      "left/right separator
 set statusline+=\ \ \ %{StatuslineGit()}
 set statusline+=\ LINE\:%l/%L(%P)
 
+" >>>
 
-
-"--------------------------------------------------
-" CUSTOM KEY REMAPPINGS
-
+" Custom key [re]mappings <<<
 nnoremap <C-r> :redraw!<CR>| " redraw screen to cleanup from glitches
 nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
 
@@ -288,9 +288,9 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-"-----------------------------------
-" CUSTOM COMMANDS (SHORTCUTS)
+" >>>
 
+" Custom commands (shortcuts) <<<
 " Close other buffers and keep only the current one:
 command! CloseOtherBuffers execute '%bwipe|edit #|normal `"'
 nnoremap <silent> c, :CloseOtherBuffers<CR>| " Close other buffers and keep only the current one
@@ -322,9 +322,9 @@ nnoremap <leader>rl :call ReloadVimConfig()<CR>| " reload vim configuration (.vi
 command! Regclear for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor | " (registers) cleans all vim registers
 
 nnoremap <silent> <F3> :Goyo<CR>| " function key: toggle goyo distraction-free mode
+" >>>
 
-"----------------------------------
-" VIM EVENT HOOKS "
+" Vim event hooks <<<
 
 " Before saving a file, deletes any trailing whitespace at the end of each line.
 " If no trailing whitespace is found no change occurs, and the e flag means no error is displayed.
@@ -345,15 +345,16 @@ autocmd BufReadPost *
 " Expands on what vim considers as a markdown filetype
 autocmd BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=markdown
 
-"--------------------------------------------------
-" ABBREVIATIONS
+" >>>
+
+" Abbreviations <<<
 iabbrev apar ()<Left>| " abbreviation: matching parenthesis
 iabbrev af ''<Left><Left>f<Right>| " abbreviation: python fstring
+" >>>
 
-"--------------------------------------------------
-" PLUGIN CONFIGURATIONS
+" PLUGIN CONFIGURATIONS <<<
 
-""" GUTENTAGS
+" GUTENTAGS <<<
 "  https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/?utm_medium=android_app&utm_source=share
 let g:gutentags_add_default_project_roots = 0
 let g:gutentags_project_root = ['package.json', '.git']
@@ -419,8 +420,9 @@ nmap <Leader>tu :GutentagsUpdate<CR>| " Update Gutentags
 set tags=~/.cache/vim/ctags
 
 map <C-t> <Plug>TaskList| " tasklist (TODO list)
+" >>>
 
-""" FZF
+" FZF <<<
 let g:fzf_tags_command='ctags -f $HOME/.cache/vim/ctags/fzf_current_file_tag --tag-relative=yes --fields=+ailmnS'
 let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
@@ -434,19 +436,24 @@ nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, v
 " <C-v> | " fzf tip: open file on vertical split
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete - deletes the buffer from the session, but keeps marks and the jump list
 nnoremap <silent> <Leader>bw :bw!<Cr>| " fzf: buffer wipe - deletes all traces from the buffer on the session (marks, jump list, etc...)
-""" SNIPMATE
+" >>>
+
+" SNIPMATE <<<
 " If I ever need to customize anything on snipmate, enable the line below
 " let g:snipMate = {}
+" >>>
 
-""" TAGBAR
+" TAGBAR <<<
 nmap <F7> :TagbarToggle<CR>| " function key: Toggle ctags sidebar to easily navigate on code
 " let g:tagbar_autoclose = 1
+" >>>
 
-""" VIM-PYENV
+" VIM-PYENV <<<
 " Dont auto activate on start (to avoid the system pyenv error)
 let g:pyenv#auto_activate=0
+" >>>
 
-""" JEDI-VIM
+" JEDI-VIM <<<
 if jedi#init_python()
   function! s:jedi_auto_force_py_version() abort
     let g:jedi#force_py_version = pyenv#python#get_internal_major_version()
@@ -457,8 +464,9 @@ if jedi#init_python()
     autocmd User vim-pyenv-deactivate-post call s:jedi_auto_force_py_version()
   augroup END
 endif
+" >>>
 
-""" LSC (LANGUAGE-SERVER)
+" LSC (LANGUAGE-SERVER) <<<
 set completeopt=menu,menuone,noinsert,noselect
 autocmd CompleteDone * silent! pclose
 " after opening a python file, check the file '/tmp/pyls.log' to see a complete 'workspace config'
@@ -489,11 +497,13 @@ let g:lsc_enable_autocomplete  = v:false
 let g:lsc_enable_diagnostics   = v:false
 let g:lsc_reference_highlights = v:false
 let g:lsc_trace_level          = 'off'
+" >>>
 
-""" DEOPLETE
+" DEOPLETE <<<
 let g:deoplete#enable_at_startup = 1
+" >>>
 
-""" ALE
+" ALE <<<
 " More config options for python: https://github.com/dense-analysis/ale/blob/master/doc/ale-python.txt
 " let g:ale_virtualenv_dir_names = [] " Disable auto-detection of virtualenvironments, so environment variable ${VIRTUAL_ENV} is always used
 autocmd FileType python,sh let g:ale_linters = {'*': [], 'python': ['pylint']} " flake8, pycodestyle, bandit, mypy, etc...
@@ -503,14 +513,16 @@ autocmd FileType python,sh let g:ale_python_pylint_options = '--rcfile .pylintrc
 autocmd FileType python,sh let g:ale_python_isort_options = '-m 3 -tc -y'
 autocmd FileType python,sh let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
 autocmd FileType python,sh let g:ale_fix_on_save = 1
+" >>>
 
-""" Goyo
+" Goyo <<<
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+" >>>
 
-"--------------------------------------------------
-" GLOBAL AUTOCMDs AND MISCELANEUS
+" >>>
 
+" Global autocmds and miscelaneus <<<
 autocmd VimResized * wincmd =  " resize vim splits proportionally when the window that contains vim is resized
 
 " Automatic reloading of .vimrc
@@ -535,7 +547,6 @@ au FileType markdown set textwidth=79
 "     autocmd!
 "     autocmd CursorHold,CursorHoldI * silent! checktime
 " augroup END
-
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
@@ -575,7 +586,6 @@ function! GitBlame()
 endfu
 nnoremap <leader>b :call GitBlame()<cr>| " git: git blame current file
 
-
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
@@ -614,8 +624,26 @@ nnoremap <Space>k 20k<CR>| " fast scroll up
 
 nnoremap <silent> <F5> :set rnu!<CR>| " function key: toggle relative line numbering
 
-"--------------------------------------------------
-" CHEATSHEET:
+
+function! MyFoldText()
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &foldcolumn + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let chunks = split(line, "\t", 1)
+    let line = join(map(chunks[:-2], 'v:val . repeat(" ", &tabstop - strwidth(v:val) % &tabstop)'), '') . chunks[-1]
+
+    let line = strpart(line, 0, windowwidth - 2 - len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - 1
+    return line . '...' . repeat(' ', fillcharcount) . foldedlinecount . ' '
+endfunction
+set foldexpr=MyFoldText()
+">>>
+
+" CHEATSHEET <<<
 
 "" repetitions
 
@@ -695,6 +723,8 @@ nnoremap <silent> <F5> :set rnu!<CR>| " function key: toggle relative line numbe
 " zM | " close all folds
 " zo | " open current fold
 " zc | " close current fold
+" za | " toggle current fold
+" zd | " delete current fold
 " "+yy | " (registers) copy current line to system clipboard (change + for * to primary 'mouse " selection' clipboard)
 " "+veey | " (registers) copy next 2 words to system clipboard
 " "+p | " (registers) paste system clipboard contents
@@ -705,4 +735,6 @@ nnoremap <silent> <F5> :set rnu!<CR>| " function key: toggle relative line numbe
 " :verbose map | " show all defined mappings in vim - and where the mappings are defined
 " :map | " show all defined mappings in vim
 
-"" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
+" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
+" >>>
+
