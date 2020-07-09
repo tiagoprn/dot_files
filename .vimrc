@@ -714,5 +714,7 @@ nnoremap <silent> <F5> :set rnu!<CR>| " function key: toggle relative line numbe
 " "Ayy | " (registers) append current line to register a (use a capital letter to append to a register)
 " "ap | " (registers) paste register a contents
 " :reg | " (registers) see all registers' contents
+" :verbose map | " show all defined mappings in vim - and where the mappings are defined
+" :map | " show all defined mappings in vim
 
 "" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
