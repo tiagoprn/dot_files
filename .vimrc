@@ -246,8 +246,10 @@ vnoremap < <gv  " better indentation| " deindent selection
 vnoremap > >gv  " better indentation| " indent selection
 
 nnoremap <silent> <F6> :set list!<CR>| " function key: toggle showing special chars (listchars)
-" Change color of special chars
-" hi SpecialKey ctermfg=red guifg=red
+" Overriding color of special chars
+" highlight SpecialKey ctermfg=red guifg=red
+" Overriding color of the line numbers
+highlight LineNr ctermbg=black ctermfg=green
 
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :call VisualSelection('f')<CR>| " search forwards current highlighted selection
