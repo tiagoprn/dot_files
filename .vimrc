@@ -85,9 +85,6 @@ Plugin 'matze/vim-move'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'majutsushi/tagbar'
 
-" Undo tree
-Plugin 'sjl/gundo.vim'
-
 " Vim color scheme to be used with pywal
 Plugin 'dylanaraps/wal.vim'
 
@@ -389,11 +386,6 @@ iabbrev af ''<Left><Left>f<Right>| " abbreviation: python fstring
 """ VIM-MOVE
 " Change vim-move modifier from A to C:
 let g:move_key_modifier = 'C'
-
-""" GUNDO
-let g:gundo_prefer_python3 = 1
-"Display the undo tree with <leader>u.
-nnoremap <leader>t :GundoToggle<CR>| " Toggle undo tree preview
 
 """ GUTENTAGS
 "  https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/?utm_medium=android_app&utm_source=share
