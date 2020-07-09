@@ -19,11 +19,6 @@ set t_SI=[6\ q
 set t_SR=[4\ q
 set t_EI=[2\ q
 
-" When in insert mode, ready to paste, vim will switch to paste mode, which will not try to ident
-" code when you paste it from another app, like the browser or a text editor.
-" IMPORTANT: DO NOT MOVE this line from here, it must be after nocompatible for the paste toggle to
-" work accordingly.
-set pastetoggle=<F4>| " function key: toggle insert paste mode
 
 " Color scheme (must be in ~/.vim/colors)
 " set background=dark
@@ -33,15 +28,6 @@ colorscheme fahrenheit
 " set anti gfn=JetBrains\ Mono\ 11
 " set guifont=Fira\ Code\ 11
 " set guifont=JetBrains\ Mono\ 11
-
-set tags=~/.cache/vim/ctags
-
-" Auto setup vim make command to run lint
-let project_path = system("git rev-parse --show-toplevel | tr -d '\\n'")
-let &makeprg = "cd " . project_path . " && make lint"
-nnoremap <expr> <F8> '<Esc>:cd ' . project_path . ' \| make<CR>'| " function key: Run linter
-nnoremap <F9> <Esc>:cnext<CR>| " function key: Next linter error
-nnoremap <F10> <Esc>:cprev<CR>| " function key: Previous linter error
 
 "------------------------------------------------------------------------
 " PLUGINS
@@ -104,6 +90,12 @@ Plugin 'junegunn/limelight.vim'
 
 "------------------------------------------------------------------------
 " MY CUSTOM VIM CONFIGURATIONS
+
+" When in insert mode, ready to paste, vim will switch to paste mode, which will not try to ident
+" code when you paste it from another app, like the browser or a text editor.
+" IMPORTANT: DO NOT MOVE this line from here, it must be after nocompatible for the paste toggle to
+" work accordingly.
+set pastetoggle=<F4>| " function key: toggle insert paste mode
 
 " below for the ctrl-space plugin:
 set hidden
@@ -251,6 +243,13 @@ autocmd BufReadPost *
 
 " Remember info about open buffers on close
 set viminfo^=%
+
+" Auto setup vim make command to run lint
+let project_path = system("git rev-parse --show-toplevel | tr -d '\\n'")
+let &makeprg = "cd " . project_path . " && make lint"
+nnoremap <expr> <F8> '<Esc>:cd ' . project_path . ' \| make<CR>'| " function key: Run linter
+nnoremap <F9> <Esc>:cnext<CR>| " function key: Next linter error
+nnoremap <F10> <Esc>:cprev<CR>| " function key: Previous linter error
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
@@ -444,6 +443,8 @@ nmap <Leader>tc :GutentagsClearCache<CR>| " Clear Gutentags cache (the directory
 nmap <Leader>tu :GutentagsUpdate<CR>| " Update Gutentags
 "" Now we can turn our filetype functionality back on
 filetype plugin indent on
+
+set tags=~/.cache/vim/ctags
 
 map <C-t> <Plug>TaskList| " tasklist (TODO list)
 
