@@ -105,11 +105,11 @@ filetype plugin indent on    " required
 " Rebind <Leader> key
 map <SPACE> <leader>
 
+syntax on
+
 " Color scheme (must be in ~/.vim/colors)
 " set background=dark
 colorscheme fahrenheit
-
-syntax on
 
 " font (commented to use the same font as set on the terminal)
 " set anti gfn=JetBrains\ Mono\ 11
