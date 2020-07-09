@@ -259,8 +259,8 @@ vnoremap <silent> # :call VisualSelection('b')<CR>| " search backwards current h
 let project_path = system("git rev-parse --show-toplevel | tr -d '\\n'")
 let &makeprg = "cd " . project_path . " && make lint"
 nnoremap <expr> <F8> '<Esc>:cd ' . project_path . ' \| make<CR>'| " function key: Run linter
-nnoremap <F9> <Esc>:cnext<CR>| " function key: Next linter error
-nnoremap <F10> <Esc>:cprev<CR>| " function key: Previous linter error
+nnoremap <F9> <Esc>:cnext<CR>| " function key: Next item in quickfix
+nnoremap <F10> <Esc>:cprev<CR>| " function key: Previous item in quickfix
 nnoremap <Leader>w <C-w>w| " toggle between windows
 
 nnoremap <Backspace> :bw<Enter>| " Close buffer
@@ -508,13 +508,27 @@ let g:deoplete#enable_at_startup = 1
 " ALE <<<
 " More config options for python: https://github.com/dense-analysis/ale/blob/master/doc/ale-python.txt
 " let g:ale_virtualenv_dir_names = [] " Disable auto-detection of virtualenvironments, so environment variable ${VIRTUAL_ENV} is always used
-autocmd FileType python,sh let g:ale_linters = {'*': [], 'python': ['pylint']} " flake8, pycodestyle, bandit, mypy, etc...
-autocmd FileType python,sh let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
-" autocmd FileType python,sh let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
-autocmd FileType python,sh let g:ale_python_pylint_options = '--rcfile .pylintrc'
-autocmd FileType python,sh let g:ale_python_isort_options = '-m 3 -tc -y'
-autocmd FileType python,sh let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
-autocmd FileType python,sh let g:ale_fix_on_save = 1
+let g:ale_linters = {'*': [], 'python': ['pylint']} " flake8, pycodestyle, bandit, mypy, etc...
+let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
+" autocmd FileType python let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
+autocmd FileType python let g:ale_python_pylint_options = '--rcfile .pylintrc'
+autocmd FileType python let g:ale_python_isort_options = '-m 3 -tc -y'
+autocmd FileType python let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
+" Overriding most ale lint events:
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_text_changed = 'never'
+"Remapping to manually trigger ALE functions:
+nnoremap <silent> <leader>ai :ALEInfo<CR>| " (python-ale) show ALE information - useful for debugging
+nnoremap <silent> <leader>as :ALEFixSuggest<CR>| " (python-ale) run ALE Fixer suggestion (black)
+nnoremap <silent> <leader>af :ALEFix<CR>| " (python-ale) run ALE Fixer (black)
+nnoremap <silent> <leader>al :ALELint<CR>| " (python-ale) run ALE Linter (pylint)
+nnoremap <silent> <leader>ar :ALEReset<CR>| " (python-ale) remove all problems reported by ALE for all buffers.
+nnoremap <silent> <leader>an :ALENextWrap<CR>| " (python-ale) go to next error in file
+nnoremap <silent> <leader>ap :ALEPreviousWrap<CR>| " (python-ale) go to previous error in file
 " >>>
 
 " Goyo <<<
@@ -692,9 +706,6 @@ set foldexpr=MyFoldText()
 "(python-lsc) ShowHover | "  K
 "(python-lsc) FindCodeActions | "  ga
 "(python-lsc) SignatureHelp | "  gm
-"(python-ale) Show ALE information (useful for debugging) | " ALEInfo
-"(python-ale) Run ALE Linter | " ALELint
-"(python-ale) Run ALE Fixer suggestion (black) | " ALEFixSuggest
 "(python-pyenv) Activate pyenv | " PyenvActivate <pyenv>
 "(python-pyenv) Deactivate pyenv | " PyenvDeactivate
 
