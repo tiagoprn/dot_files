@@ -97,71 +97,22 @@ Plugin 'junegunn/limelight.vim'
 " work accordingly.
 set pastetoggle=<F4>| " function key: toggle insert paste mode
 
-" below for the ctrl-space plugin:
-set hidden
-set showtabline=0
-
-" Changing the ruler position
-set relativenumber
-
 " We also want to turn off the default "filetype" controls for now because the
 " way that vim caches filetype rules at runtime interferes with the way that
 " vundle alters the runtime environment.
 filetype off
 
-" the File, Open dialog defaults to the current file's directory.
-set browsedir=buffer
+" Rebind <Leader> key
+map <SPACE> <leader>
 
-" Auto-reload files
-set autoread
-" Below triggers autoread when changing buffers inside while inside vim
-au FocusGained,BufEnter * :checktime
-syntax on
-
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
-
-" When the cursor moves outside the viewport of the current window, the buffer scrolls a single
-" line to keep the cursor in view. Setting the option below will start the scrolling x lines
-" before the border, keeping more context around where you’re working.
-set scrolloff=5
-
-nnoremap <C-r> :redraw!<CR>| " redraw screen to cleanup from glitches
-
-" Change the sound beep on errors to screen flashing
-set visualbell
-
-" Disable backup and swap files - they trigger too many events
-" for file system watchers
-set nobackup
-set nowritebackup
-set noswapfile
-
-" General settings
 set title
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*~
 autocmd VimResized * wincmd =  " resize vim splits proportionally when the window that contains vim is resized
 
-" Better Searching
-set hlsearch             " highlight searches
-set incsearch            " show search matches while you type
-set ignorecase           " ignore case on searching by default
-set smartcase            " uppercase characters will be taken into account
-
-nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
-
-nnoremap j gj| " move vertically down by visual line
-nnoremap k gk| " move vertically up by visual line
-
-" Rebind <Leader> key
-map <SPACE> <leader>
-
-map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
-
-" Height of the command bar
-set cmdheight=1
+" Changing the ruler position
+set relativenumber
 
 " LINES CONFIGURATION
 set number  " show line numbers
@@ -170,20 +121,145 @@ set textwidth=99   " maximum line length
 set formatoptions+=t  " automatically wrap text when typing
 " set formatoptions-=t   " don't automatically wrap text when typing
 set formatoptions-=l  " Force line wrapping
-filetype plugin indent on
-au FileType py set autoindent
-au FileType py set smartindent
-au FileType py set textwidth=79
-au FileType markdown set textwidth=79
+
+" TABs to spaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+
+" the File, Open dialog defaults to the current file's directory.
+set browsedir=buffer
+
+" automatically change window's cwd to file's dir
+set autochdir
+
+" Auto-reload files
+set autoread
+
+" When the cursor moves outside the viewport of the current window, the buffer scrolls a single
+" line to keep the cursor in view. Setting the option below will start the scrolling x lines
+" before the border, keeping more context around where you’re working.
+set scrolloff=3
+
+" Change the sound beep on errors to screen flashing
+set visualbell
+
+" Height of the command bar
+set cmdheight=1
+
+" Disable backup and swap files - they trigger too many events
+" for file system watchers
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Better Searching
+set hlsearch             " highlight searches
+set incsearch            " show search matches while you type
+set ignorecase           " ignore case on searching by default
+set smartcase            " uppercase characters will be taken into account
+
+set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends:»
+
+" Remember info about open buffers on close
+set viminfo^=%
+
+" STATUS LINE
+"" Functions used on status line
+function! ReadonlyStatus()
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return ""
+    else
+        return ""
+    endif
+endfunction
+
+function! GitBranch()
+    return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+    let l:branchname = GitBranch()
+    return strlen(l:branchname) > 0?'   '.l:branchname.' ':''
+endfunction
+
+"" Always show the status line
+set laststatus=2
+
+"" Format the status line
+set statusline=
+set statusline+=%{ReadonlyStatus()}
+set statusline+=%F%m%r%h
+set statusline+=\ %y
+set statusline+=\ COL:%c
+set statusline+=\ WORDS:%{wordcount().words}
+" set statusline+=\ \ \ CWD:%{getcwd()}
+set statusline+=%=      "left/right separator
+set statusline+=\ \ \ %{StatuslineGit()}
+set statusline+=\ LINE\:%l/%L(%P)
+
+
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
 
 " sets a gray margin on column 80
 "" set colorcolumn=80
 " past column 80, the background will be a different color
 "" let &colorcolumn=join(range(120,9999),",")
 
-" Useful settings
-set history=700
-set undolevels=700
+filetype plugin indent on
+au FileType py set autoindent
+au FileType py set smartindent
+au FileType py set textwidth=79
+au FileType markdown set textwidth=79
+
+" Expands on what vim considers as a markdown filetype
+au BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=markdown
+
+" When opening a new buffer, if it has no filetype defaults to markdown
+autocmd BufEnter * if &filetype == "" | setlocal filetype=markdown | endif
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
+
+" Update buffer if changed outside current edit session
+" when cursor not moved for updatetime miliseconds, trigger autoread below.
+" NOTE: if vim becomes to unstable, change below to 1000 ms.
+" set updatetime=750
+" set autoread
+" augroup autoRead
+"     autocmd!
+"     autocmd CursorHold,CursorHoldI * silent! checktime
+" augroup END
+
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+
+
+"--------------------------------------------------
+" CUSTOM KEY REMAPPINGS
+
+nnoremap <C-r> :redraw!<CR>| " redraw screen to cleanup from glitches
+nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
+
+nnoremap j gj| " move vertically down by visual line
+nnoremap k gk| " move vertically up by visual line
+
+map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
 
 " switch window splits more easily
 nnoremap <c-j> <c-w>j| " move to down window
@@ -199,50 +275,13 @@ nnoremap <c-l> <c-w>l| " move to right window
 vnoremap < <gv  " better indentation| " deindent selection
 vnoremap > >gv  " better indentation| " indent selection
 
-" automaticially change window's cwd to file's dir
-set autochdir
-
-" TABs to spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
-
-" Show special chars below
-set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends:»
-nnoremap <silent> <F6> :set list!<CR>| " function key: toggle showing special chars
+nnoremap <silent> <F6> :set list!<CR>| " function key: toggle showing special chars (listchars)
 " Change color of special chars
 " hi SpecialKey ctermfg=red guifg=red
-
-" Expands on what vim considers as a markdown filetype
-au BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=markdown
-
-" When opening a new buffer, if it has no filetype defaults to markdown
-autocmd BufEnter * if &filetype == "" | setlocal filetype=markdown | endif
-
-" Update buffer if changed outside current edit session
-" when cursor not moved for updatetime miliseconds, trigger autoread below.
-" NOTE: if vim becomes to unstable, change below to 1000 ms.
-set updatetime=750
-set autoread
-augroup autoRead
-    autocmd!
-    autocmd CursorHold,CursorHoldI * silent! checktime
-augroup END
 
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :call VisualSelection('f')<CR>| " search forwards current highlighted selection
 vnoremap <silent> # :call VisualSelection('b')<CR>| " search backwards current highlighted selection
-
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
-
-" Remember info about open buffers on close
-set viminfo^=%
 
 " Auto setup vim make command to run lint
 let project_path = system("git rev-parse --show-toplevel | tr -d '\\n'")
@@ -250,53 +289,6 @@ let &makeprg = "cd " . project_path . " && make lint"
 nnoremap <expr> <F8> '<Esc>:cd ' . project_path . ' \| make<CR>'| " function key: Run linter
 nnoremap <F9> <Esc>:cnext<CR>| " function key: Next linter error
 nnoremap <F10> <Esc>:cprev<CR>| " function key: Previous linter error
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-    exe "normal mz"
-    %s/\s\+$//ge
-    exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
-
-" STATUS LINE
-"" Always show the status line
-set laststatus=2
-"" Format the status line
-set statusline=
-set statusline+=%{ReadonlyStatus()}
-set statusline+=%F%m%r%h
-set statusline+=\ %y
-set statusline+=\ COL:%c
-set statusline+=\ WORDS:%{wordcount().words}
-" set statusline+=\ \ \ CWD:%{getcwd()}
-set statusline+=%=      "left/right separator
-set statusline+=\ \ \ %{StatuslineGit()}
-set statusline+=\ LINE\:%l/%L(%P)
-
-
-"" Old functions used by LIGHTLINE
-function! ReadonlyStatus()
-    if &filetype == "help"
-        return ""
-    elseif &readonly
-        return ""
-    else
-        return ""
-    endif
-endfunction
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'   '.l:branchname.' ':''
-endfunction
-
-
-"--------------------------------------------------
-" CUSTOM KEY REMAPPINGS
 nnoremap <Leader>w <C-w>w| " toggle between windows
 
 nnoremap <Backspace> :bw<Enter>| " Close buffer
