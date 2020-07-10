@@ -342,7 +342,7 @@ bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+
 bindsym Mod1+o exec --no-startup-id pavucontrol
 # below starts video player
 bindsym Mod1+y exec --no-startup-id /storage/src/devops/bin/zenity-video-launcher.sh
-bindsym Mod1+c exec --no-startup-id "/storage/src/devops/bin/clippy.py --no-daemon-mode"
+bindsym Mod1+c exec --no-startup-id "/storage/src/devops/bin/clippy_rofi.py"
 bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with arandr...' --urgency low; arandr && i3-msg reload"
 bindsym Mod1+k exec --no-startup-id "/storage/src/devops/rofi/toggle_keyboards.py"
