@@ -22,10 +22,7 @@ alias ga="git add"
 alias gc="git commit"
 alias gd='git icdiff HEAD'
 alias gf='git fetch'
-alias gh="git log --follow -p --stat -- "  # below show all git history from a file, with diffs between changes
 alias gl="git glog"
-alias gr='cd `git rev-parse --show-toplevel`'  # Go to the repository root:
-alias gu="git reset HEAD "  # below removes file/directory from git staging area (before committing)
 alias gs="git status -s"
 alias pp='pygmentize | nl --body-numbering=a '
 alias pa='pyenv activate $(pyenv virtualenvs | grep -v "^\s*[0-9]" | cut -d " " -f 3 | fzf)'
@@ -48,7 +45,6 @@ alias nt='/storage/src/devops/bin/create-quick-note.sh'
 # tree letter aliases
 alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
 alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
-alias gru='cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d "=" -f 2 | tr "\n" " "'
 alias pcb='pyenv versions | grep "*" | cut -d " " -f 2 | cb'
 alias vcb='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
 
@@ -105,7 +101,6 @@ alias pyenv-rehash="rm -fr ~/.pyenv/shims/.pyenv-shim && $PYENV_BIN rehash"
 alias cbssh="cbf ~/.ssh/id_rsa.pub" # Copy SSH public key
 alias cbpwd="pwd | cb" # Copy current working directory
 alias cbbash="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
-alias gbcb="git branch | grep ^* | cut -d ' ' -f 2 | cb"
 
 alias update-notes="notify-send -a vim 'Manually pushing notes changes to remote...' && cd /storage/docs/notes && git add . && git commit -m 'manual commit on $(hostname) at $(date -u)' > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Notes changes pushed successfully to remote.' && git status -s && cd - "
 alias gnome-control-center="XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
