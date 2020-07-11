@@ -202,6 +202,19 @@ function! StatuslineGit()
     return strlen(l:branchname) > 0?'   '.l:branchname.' ':''
 endfunction
 
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
 "" Always show the status line
 set laststatus=2
 
@@ -212,6 +225,7 @@ set statusline+=%F%m%r%h
 set statusline+=\ %y
 set statusline+=\ COL:%c
 set statusline+=\ WORDS:%{wordcount().words}
+set statusline+=\ LINTER:%{LinterStatus()}
 " set statusline+=\ \ \ CWD:%{getcwd()}
 set statusline+=%=      "left/right separator
 set statusline+=\ \ \ %{StatuslineGit()}
@@ -479,8 +493,13 @@ let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
 autocmd FileType python let g:ale_python_pylint_options = '--rcfile .pylintrc'
 autocmd FileType python let g:ale_python_isort_options = '-m 3 -tc -y'
 autocmd FileType python let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
+" Customization
 let g:ale_completion_enabled = 0
 let g:ale_set_balloons = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = 'ER'
+let g:ale_sign_warning = 'WA'
+" Linter and Fixer behavior:
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 " Overriding most ale lint events:
