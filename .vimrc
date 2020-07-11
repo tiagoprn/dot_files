@@ -71,12 +71,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'dylanaraps/wal.vim'
 
 " language-server support
-" (https://bluz71.github.io/2019/10/16/lsp-in-vim-with-the-lsc-plugin.html)
 Plugin 'davidhalter/jedi-vim'
 Plugin 'lambdalisue/vim-pyenv'
-Plugin 'natebosch/vim-lsc'
 Plugin 'zchee/deoplete-jedi'
-Plugin 'hrsh7th/deoplete-vim-lsc'
 Plugin 'ervandew/supertab'
 Plugin 'w0rp/ale'
 
@@ -466,39 +463,6 @@ if jedi#init_python()
     autocmd User vim-pyenv-deactivate-post call s:jedi_auto_force_py_version()
   augroup END
 endif
-" >>>
-
-" LSC (LANGUAGE-SERVER) <<<
-set completeopt=menu,menuone,noinsert,noselect
-autocmd CompleteDone * silent! pclose
-" after opening a python file, check the file '/tmp/pyls.log' to see a complete 'workspace config'
-" when you need to customize that.
-let g:lsc_server_commands = {
- \  'python': {
- \    'command': 'pyls -vv --log-file /tmp/pyls.log',
- \    'workspace_config': {'pyls': {'plugins': {'rope_completion': {'enabled': v:true}}}},
- \  },
- \  'javascript': {
- \    'command': 'typescript-language-server --stdio',
- \    'log_level': -1,
- \    'suppress_stderr': v:true,
- \  }
- \}
-let g:lsc_auto_map = {
- \  'defaults': v:true,
- \  'GoToDefinition': 'gd',
- \  'FindImplementations': 'gI',
- \  'FindReferences': 'gr',
- \  'Rename': 'gR',
- \  'ShowHover': 'K',
- \  'FindCodeActions': 'ga',
- \  'SignatureHelp': 'gm',
- \  'Completion': 'omnifunc',
- \}
-let g:lsc_enable_autocomplete  = v:false
-let g:lsc_enable_diagnostics   = v:false
-let g:lsc_reference_highlights = v:false
-let g:lsc_trace_level          = 'off'
 " >>>
 
 " DEOPLETE <<<
