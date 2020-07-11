@@ -480,6 +480,7 @@ autocmd FileType python let g:ale_python_pylint_options = '--rcfile .pylintrc'
 autocmd FileType python let g:ale_python_isort_options = '-m 3 -tc -y'
 autocmd FileType python let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
 let g:ale_completion_enabled = 0
+let g:ale_set_balloons = 1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 " Overriding most ale lint events:
@@ -488,14 +489,16 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_text_changed = 'never'
 "Remapping to manually trigger ALE functions:
-nnoremap <silent> <leader>ai :ALEInfo<CR>| " (python-ale) show ALE information - useful for debugging
-nnoremap <silent> <leader>as :ALEFixSuggest<CR>| " (python-ale) run ALE Fixer suggestion (black)
+nnoremap <silent> <leader>ad :ALEInfo<CR>| " (python-ale) show ALE information - useful for debugging
+nnoremap <silent> <leader>afs :ALEFixSuggest<CR>| " (python-ale) run ALE Fixer suggestion (black)
 nnoremap <silent> <leader>af :ALEFix<CR>| " (python-ale) run ALE Fixer (black)
 nnoremap <silent> <leader>al :ALELint<CR>| " (python-ale) run ALE Linter (pylint)
 nnoremap <silent> <leader>ar :ALEReset<CR>| " (python-ale) remove all problems reported by ALE for all buffers.
 nnoremap <silent> <leader>an :ALENextWrap<CR>| " (python-ale) go to next error in file
 nnoremap <silent> <leader>ap :ALEPreviousWrap<CR>| " (python-ale) go to previous error in file
+nnoremap <silent> <leader>ai :ALEHover<CR>| " (python-ale) show information about current word under cursor object
 nnoremap <silent> <leader>gd :ALEGoToDefinition<CR>| " (python-ale) go to definition
+nnoremap <silent> <leader>fr :ALEFindReferences<CR>| " (python-ale) find references for word under cursor (In ALEPreviewWindow, use ':cbuffer' to copy to quickfix or ':lbuffer' to copy to location list)
 " >>>
 
 " Goyo <<<
