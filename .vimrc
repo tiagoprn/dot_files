@@ -479,7 +479,7 @@ let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
 autocmd FileType python let g:ale_python_pylint_options = '--rcfile .pylintrc'
 autocmd FileType python let g:ale_python_isort_options = '-m 3 -tc -y'
 autocmd FileType python let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 " Overriding most ale lint events:
