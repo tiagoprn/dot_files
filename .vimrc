@@ -470,14 +470,16 @@ let g:deoplete#enable_at_startup = 1
 " >>>
 
 " ALE <<<
+" For this to work, I must install these requirements on all my virtualenvs: https://raw.githubusercontent.com/tiagoprn/devops/master/python/requirements.vim
 " More config options for python: https://github.com/dense-analysis/ale/blob/master/doc/ale-python.txt
 " let g:ale_virtualenv_dir_names = [] " Disable auto-detection of virtualenvironments, so environment variable ${VIRTUAL_ENV} is always used
-let g:ale_linters = {'*': [], 'python': ['pylint']} " flake8, pycodestyle, bandit, mypy, etc...
+let g:ale_linters = {'*': [], 'python': ['pyls', 'pylint']} " flake8, pycodestyle, bandit, mypy, etc...
 let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
 " autocmd FileType python let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
 autocmd FileType python let g:ale_python_pylint_options = '--rcfile .pylintrc'
 autocmd FileType python let g:ale_python_isort_options = '-m 3 -tc -y'
 autocmd FileType python let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
+let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 " Overriding most ale lint events:
@@ -493,6 +495,7 @@ nnoremap <silent> <leader>al :ALELint<CR>| " (python-ale) run ALE Linter (pylint
 nnoremap <silent> <leader>ar :ALEReset<CR>| " (python-ale) remove all problems reported by ALE for all buffers.
 nnoremap <silent> <leader>an :ALENextWrap<CR>| " (python-ale) go to next error in file
 nnoremap <silent> <leader>ap :ALEPreviousWrap<CR>| " (python-ale) go to previous error in file
+nnoremap <silent> <leader>gd :ALEGoToDefinition<CR>| " (python-ale) go to definition
 " >>>
 
 " Goyo <<<
