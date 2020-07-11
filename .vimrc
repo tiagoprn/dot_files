@@ -502,6 +502,7 @@ let g:ale_sign_warning = 'WA'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%severity%] %s [%linter%]'
+let g:ale_list_window_size = 5
 let g:ale_set_loclist = 0  " disable location list
 let g:ale_set_quickfix = 1  " enable quickfix
 " Linter and Fixer behavior:
@@ -513,7 +514,7 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_text_changed = 'never'
 "Remapping to manually trigger ALE functions:
-nnoremap <silent> <leader>ad :ALEInfo<CR>| " (python-ale) show ALE information - useful for debugging
+nnoremap <silent> <leader>ad :ALEInfo<CR>| " (python-ale) show ALE configuration information for the current file - useful for debugging
 nnoremap <silent> <leader>afs :ALEFixSuggest<CR>| " (python-ale) run ALE Fixer suggestion (black)
 nnoremap <silent> <leader>af :ALEFix<CR>| " (python-ale) run ALE Fixer (black)
 nnoremap <silent> <leader>al :ALELint<CR>| " (python-ale) run ALE Linter (pylint)
@@ -692,14 +693,7 @@ set foldexpr=MyFoldText()
 " <word><tab>| " expand snippet
 " :Snippets| " snippets list powered by vim-fzf
 
-"" language-server (lsc):
-"(python-lsc) GoToDefinition | "  gd
-"(python-lsc) FindImplementations | "  gI
-"(python-lsc) FindReferences | "  gr
-"(python-lsc) Rename | "  gR
-"(python-lsc) ShowHover | "  K
-"(python-lsc) FindCodeActions | "  ga
-"(python-lsc) SignatureHelp | "  gm
+"" python specific
 "(python-pyenv) Activate pyenv | " PyenvActivate <pyenv>
 "(python-pyenv) Deactivate pyenv | " PyenvDeactivate
 
