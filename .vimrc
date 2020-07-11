@@ -499,6 +499,11 @@ let g:ale_set_balloons = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = 'ER'
 let g:ale_sign_warning = 'WA'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%severity%] %s [%linter%]'
+let g:ale_set_loclist = 0  " disable location list
+let g:ale_set_quickfix = 1  " enable quickfix
 " Linter and Fixer behavior:
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
