@@ -268,9 +268,7 @@ vnoremap <silent> # :call VisualSelection('b')<CR>| " search backwards current h
 " Auto setup vim make command to run lint
 let project_path = system("git rev-parse --show-toplevel | tr -d '\\n'")
 let &makeprg = "cd " . project_path . " && make lint"
-nnoremap <expr> <F8> '<Esc>:cd ' . project_path . ' \| make<CR>'| " function key: Run linter
-nnoremap <F9> <Esc>:cnext<CR>| " function key: Next item in quickfix
-nnoremap <F10> <Esc>:cprev<CR>| " function key: Previous item in quickfix
+nnoremap <expr> <F9> '<Esc>:cd ' . project_path . ' \| make<CR>'| " function key: Run linter
 nnoremap <Leader>w <C-w>w| " toggle between windows
 
 nnoremap <Backspace> :bw<Enter>| " Close buffer
@@ -463,6 +461,8 @@ let g:vista_executive_for = {
     \ 'markdown': 'toc',
     \ }
 let g:vista_highlight_whole_line = 1
+
+autocmd FileType vista,vista_kind nnoremap <buffer> <silent> <F8> :<c-u>call vista#finder#fzf#Run()<CR>| " function key: vista search for symbol (function, variable, import)
 " >>>
 
 " VIM-PYENV <<<
