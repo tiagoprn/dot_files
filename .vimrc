@@ -463,6 +463,8 @@ let g:vista_executive_for = {
 let g:vista_highlight_whole_line = 1
 
 autocmd FileType vista,vista_kind nnoremap <buffer> <silent> <F8> :<c-u>call vista#finder#fzf#Run()<CR>| " function key: vista search for symbol (function, variable, import)
+autocmd FileType python nnoremap <buffer> <silent> <F8> :Vista finder ale<CR>| " function key: vista search for symbol (function, variable, import)
+
 " >>>
 
 " VIM-PYENV <<<
