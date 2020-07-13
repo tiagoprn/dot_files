@@ -63,9 +63,8 @@ Plugin 'honza/vim-snippets'
 " Add specific actions for directories creating a .vimdir file on a specific directory
 Plugin 'chazy/dirsettings'
 
-" Best support for ctags (requires ctags installed through your distro's package manager)
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'majutsushi/tagbar'
+" Alternative to tagbar. Needs universal-ctags compiled for your distro
+Plugin 'liuchengxu/vista.vim'
 
 " Vim color scheme to be used with pywal
 Plugin 'dylanaraps/wal.vim'
@@ -456,8 +455,8 @@ nnoremap <silent> <Leader>bw :bw!<Cr>| " fzf: buffer wipe - deletes all traces f
 " let g:snipMate = {}
 " >>>
 
-" TAGBAR <<<
-nmap <F7> :TagbarToggle<CR>| " function key: Toggle ctags sidebar to easily navigate on code
+" VISTA <<<
+nmap <F7> :Vista!!<CR>| " function key: Toggle ctags sidebar to easily navigate on code
 " let g:tagbar_autoclose = 1
 " >>>
 
