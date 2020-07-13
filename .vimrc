@@ -457,7 +457,12 @@ nnoremap <silent> <Leader>bw :bw!<Cr>| " fzf: buffer wipe - deletes all traces f
 
 " VISTA <<<
 nmap <F7> :Vista!!<CR>| " function key: Toggle ctags sidebar to easily navigate on code
-" let g:tagbar_autoclose = 1
+let g:vista_default_executive = 'ctags'
+let g:vista_executive_for = {
+    \ 'python': 'ale',
+    \ 'markdown': 'toc',
+    \ }
+let g:vista_highlight_whole_line = 1
 " >>>
 
 " VIM-PYENV <<<
