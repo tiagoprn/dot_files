@@ -273,6 +273,10 @@ pyperclip
 daemonize
 typer
 jetty (alternative to jq)
+yamllint
+ansible-lint
+vim-vint
+
 
 # 4) TO BE COMPILED / INSTALLED:
 
