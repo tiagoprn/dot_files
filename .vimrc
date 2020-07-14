@@ -345,8 +345,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 " After saving a file, display a notification:
 autocmd BufWritePost * silent! !notify-send -a vim "File %:p saved."
 
-" When opening a new buffer, if it has no filetype defaults to markdown
-autocmd BufEnter * if &filetype == "" | setlocal filetype=markdown | endif
+" When opening a new buffer, if it has no filetype defaults to text
+autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -355,7 +355,7 @@ autocmd BufReadPost *
             \ endif
 
 " Expands on what vim considers as a markdown filetype
-autocmd BufNewFile,BufFilePre,BufRead *.txt,*.md,*.markdown,*.mmd set filetype=markdown
+autocmd BufNewFile,BufFilePre,BufRead *.md,*.markdown,*.mmd set filetype=markdown
 
 " >>>
 
