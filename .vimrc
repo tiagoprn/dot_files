@@ -331,6 +331,8 @@ nnoremap <leader>rl :call ReloadVimConfig()<CR>| " reload vim configuration (.vi
 
 command! Regclear for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor | " (registers) cleans all vim registers
 
+command! GetHLG echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")') | " show the highlight group of the token under your cursor, so that you could e.g. customize it
+
 nnoremap <silent> <F3> :Goyo<CR>| " function key: toggle goyo distraction-free mode
 " >>>
 
@@ -493,7 +495,7 @@ let g:deoplete#enable_at_startup = 1
 " For this to work, I must install these requirements on all my virtualenvs: https://raw.githubusercontent.com/tiagoprn/devops/master/python/requirements.vim
 " More config options for python: https://github.com/dense-analysis/ale/blob/master/doc/ale-python.txt
 " let g:ale_virtualenv_dir_names = [] " Disable auto-detection of virtualenvironments, so environment variable ${VIRTUAL_ENV} is always used
-let g:ale_linters = {'*': [], 'python': ['pyls', 'pylint']} " flake8, pycodestyle, bandit, mypy, etc...
+let g:ale_linters = {'*': [], 'vim': ['vint'], 'python': ['pyls', 'pylint'], 'terraform': ['tflint']} " flake8, pycodestyle, bandit, mypy, etc...
 let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
 " autocmd FileType python let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
 autocmd FileType python let g:ale_python_pylint_options = '--rcfile .pylintrc'

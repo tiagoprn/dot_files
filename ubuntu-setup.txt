@@ -321,6 +321,18 @@ $ make
 $ sudo make install
 ```
 
+## linters:
+
+### terraform:
+```
+$ sudo su
+$ mkdir -p /opt/installers/tflint
+$ cd /opt/installers/tflint
+$ wget https://github.com/terraform-linters/tflint/releases/download/v0.17.0/tflint_linux_amd64.zip
+$ unzip tflint_linux_amd64.zip
+$ cp -farv tflint /usr/bin
+```
+
 ## vim:
 $ sudo su
 $ apt remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
