@@ -298,6 +298,9 @@ $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/insta
 ## navi:
 $ sudo apt install cargo -y && sudo rm -fr /opt/navi ; sudo mkdir /opt/navi && sudo chown -R $(id -u).$(id -g) /opt/navi && git clone --depth 1 https://github.com/denisidoro/navi /opt/navi && cd /opt/navi && sudo make install
 
+## ytop:
+$ cargo install ytop  # as the normal user, to be available on my $HOME/.cargo/bin
+
 ## playerctl:
 $ wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb
 $ wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/playerctl_2.0.1-1_amd64.deb

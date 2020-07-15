@@ -65,6 +65,12 @@ then
     export PATH=$PATH:$FZF_BIN
 fi
 
+RUST_CARGO_BIN=$HOME/.cargo/bin
+if [ -d $RUST_CARGO_BIN ];
+then
+    export PATH=$PATH:$RUST_CARGO_BIN
+fi
+
 NAVI_BIN=$HOME/bin/navi
 GLOBAL_NAVI_BIN=/usr/local/bin/navi
 if [ -f $NAVI_BIN ] || [ -f $GLOBAL_NAVI_BIN ] ;
