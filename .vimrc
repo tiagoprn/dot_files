@@ -290,7 +290,6 @@ exec 'nnoremap <Leader>so :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><B
 nnoremap j gj| " go down on wrapped line
 nnoremap k gk| " go up on wrapped line
 
-nnoremap <Leader>m :Marks<CR>| " show all marks
 
 " DISABLE ARROW KEYS IN NORMAL MODE
 noremap <Up> <Nop>
@@ -311,7 +310,9 @@ function! MarkDelete()
     call inputrestore()
     execute 'delmark '.l:mark
 endfunction
-nnoremap <Leader>M :call MarkDelete()<CR>| " delete mark
+nnoremap <Leader>md :call MarkDelete()<CR>| " (marks) delete single
+nnoremap <Leader>m :Marks<CR>| " (marks) show all
+nnoremap <Leader>mda :delmarks!<CR>| " (marks) delete all
 
 nnoremap <leader>fp :call fzf#run(fzf#vim#with_preview({'options': '--reverse --prompt "Select file from my PERSONAL notes directory: "', 'down': 20, 'dir': '/storage/docs/notes/personal', 'sink': 'e' }))<CR>| " open file from my PERSONAL notes directory
 nnoremap <leader>fw :call fzf#run(fzf#vim#with_preview({'options': '--reverse --prompt "Select file from my WORK notes directory: "', 'down': 20, 'dir': '/storage/docs/notes/work', 'sink': 'e' }))<CR>| " open file from my WORK notes directory
