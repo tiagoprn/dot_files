@@ -16,6 +16,7 @@ alias t='todo.sh -d "/storage/docs/notes/todotxt/config" '
 alias v="vim"
 
 ## two letter aliases
+alias cc='cd $(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
 alias dc='docker-compose'
 alias dp='watch -n 1 -x bash -c "source $HOME/.bashrc && dockerps"'
 alias ga="git add"
