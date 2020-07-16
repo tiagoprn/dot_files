@@ -334,7 +334,22 @@ command! Regclear for i in range(34,122) | silent! call setreg(nr2char(i), []) |
 
 command! GetHLG echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")') | " show the highlight group of the token under your cursor, so that you could e.g. customize it
 
+" automatically enter goyo mode when the file is of markdown type.
+function! s:auto_goyo()
+    if &ft == 'markdown' && winnr('$') == 1
+        Goyo 80
+    elseif exists('#goyo')
+        Goyo!
+    endif
+endfunction
+
+augroup goyo_markdown
+    autocmd!
+    autocmd BufNewFile,BufRead * call s:auto_goyo()
+augroup END
+
 nnoremap <silent> <F3> :Goyo<CR>| " function key: toggle goyo distraction-free mode
+
 " >>>
 
 " Vim event hooks <<<
