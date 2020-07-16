@@ -83,6 +83,10 @@ Plugin 'tpope/vim-commentary'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 
+" markdown linter
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-surround'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -757,8 +761,15 @@ set foldexpr=MyFoldText()
 " "Ayy | " (registers) append current line to register a (use a capital letter to append to a register)
 " "ap | " (registers) paste register a contents
 " :reg | " (registers) see all registers' contents
-" :verbose map | " show all defined mappings in vim - and where the mappings are defined
-" :map | " show all defined mappings in vim
+" :verbose map | " (mapping) show all defined mappings in vim - and where the mappings are defined
+" :map | " (mapping) show all defined mappings in vim
+" :vmap <key> | " (mapping) show if <key> is mapped
+" csw` | " (surround) surround current word with ` - you can use [({ instead of `
+" ds` | " (surround) delete ` surrounding current word - you can use [({ instead of `
+" S` (on visual selection) | " (surround) surround current visual selection with ` - you can use [({ instead of ` (S is the 'current text selection' vim object)
+" ys2w` | " (surround) surround next 2 words with ` - you can use [({ instead of `
+" ystA` | " (surround) surround until letter A with ` - you can use [({ instead of `
+
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
