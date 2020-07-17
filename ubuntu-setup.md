@@ -276,7 +276,8 @@ jetty (alternative to jq)
 yamllint
 ansible-lint
 vim-vint
-
+pygments
+pygments-json
 
 # 4) TO BE COMPILED / INSTALLED:
 
