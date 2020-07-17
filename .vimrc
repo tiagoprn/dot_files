@@ -341,7 +341,7 @@ command! GetHLG echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name"
 " automatically enter goyo mode when the file is of markdown type.
 function! s:auto_goyo()
     if &ft == 'markdown' && winnr('$') == 1
-        Goyo 80
+        Goyo
     elseif exists('#goyo')
         Goyo!
     endif
@@ -555,6 +555,9 @@ nnoremap <silent> <leader>fr :ALEFindReferences<CR>| " (python-ale) find referen
 " >>>
 
 " Goyo <<<
+let g:goyo_width='85%'
+let g:goyo_height='85%'
+let g:goyo_linenr=0
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 " >>>
