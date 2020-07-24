@@ -628,7 +628,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 " code in my vimrc. With it, a quickfix window height is automatically adjusted
 " to fit its contents (maximum 5 lines).
 " http://vim.wikia.com/wiki/Automatically_fitting_a_quickfix_window_height
-au FileType qf call AdjustWindowHeight(3, 5)
+au FileType qf call AdjustWindowHeight(5, 8)
 function! AdjustWindowHeight(minheight, maxheight)
     exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
