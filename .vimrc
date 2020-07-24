@@ -476,7 +476,7 @@ nnoremap <silent> <Leader>qf :cfirst<Cr>| " quickfix: go to first item
 nnoremap <silent> <Leader>ql :clast<Cr>| " quickfix: go to last item
 command! RemoveQuickFixItem :call s:remove_quickfix_item()
 autocmd FileType qf map <buffer> <Cr> :.cc<Cr>| " quickfix: go to selected item on quickfix window
-autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>
+autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>| " quickfix: delete current selected item from list
 
 " <tab> | " fzf/quickfix: select item to go to quickfix
 " <ctrl+a> | " fzf/quickfix: select all items to go to quickfix
