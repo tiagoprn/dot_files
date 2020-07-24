@@ -478,10 +478,6 @@ command! RemoveQuickFixItem :call s:remove_quickfix_item()
 autocmd FileType qf map <buffer> <Cr> :.cc<Cr>| " quickfix: go to selected item on quickfix window
 autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>| " quickfix: delete current selected item from list
 
-" <tab> | " fzf/quickfix: select item to go to quickfix
-" <ctrl+a> | " fzf/quickfix: select all items to go to quickfix
-" <ctrl+q> | " fzf/quickfix: copy to quickfix
-
 let g:fzf_tags_command='ctags -f $HOME/.cache/vim/ctags/fzf_current_file_tag --tag-relative=yes --fields=+ailmnS'
 let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
@@ -799,6 +795,9 @@ set foldexpr=MyFoldText()
 " <Cr> | " fzf: open file on current window
 " <C-x> | " fzf: open file on horizontal split
 " <C-v> | " fzf: open file on vertical split
+" <tab> | " fzf/quickfix: select item to go to quickfix
+" <ctrl+a> | " fzf/quickfix: select all items to go to quickfix
+" <ctrl+q> | " fzf/quickfix: copy selected items to quickfix
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
