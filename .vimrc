@@ -462,6 +462,18 @@ function! s:remove_quickfix_item()
   :copen
 endfunction
 
+function! s:quickfix_to_filename(qf) abort
+  for i in range(len(a:qf.items))
+    let d = a:qf.items[i]
+    if bufexists(d.bufnr)
+      let d.filename = fnamemodify(bufname(d.bufnr), ':p')
+    endif
+    silent! call remove(d, 'bufnr')
+    let a:qf.items[i] = d
+  endfor
+  return a:qf
+endfunction
+
 let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list'),
   \ 'ctrl-t': 'tab split',
@@ -470,6 +482,8 @@ let g:fzf_action = {
 
 command! RemoveQuickFixItem :call s:remove_quickfix_item()
 command! ClearQuickfix cexpr []
+command! -bar -nargs=1 -complete=file WriteQuickfix call writefile([js_encode(s:quickfix_to_filename(getqflist({'all': 1})))], <f-args>)
+command! -bar -nargs=1 -complete=file ReadQuickfix call setqflist([], ' ', js_decode(get(readfile(<f-args>), 0, '')))
 
 nnoremap <silent> <Leader>qo :copen<Cr>| " quickfix: open
 nnoremap <silent> <Leader>qc :ccl<Cr>| " quickfix: close
@@ -478,6 +492,8 @@ nnoremap <silent> <Leader>qp :cp<Cr>| " quickfix: go to previous item
 nnoremap <silent> <Leader>qf :cfirst<Cr>| " quickfix: go to first item
 nnoremap <silent> <Leader>ql :clast<Cr>| " quickfix: go to last item
 nnoremap <silent> <Leader>qd :ClearQuickfix<Cr>| " quickfix: clear
+nnoremap <silent> <Leader>qs :WriteQuickfix /tmp/quickfix.json<Cr>| " quickfix: save to file
+nnoremap <silent> <Leader>qr :ReadQuickfix /tmp/quickfix.json<Cr>| " quickfix: restore from file
 
 autocmd FileType qf map <buffer> <Cr> :.cc<Cr>| " quickfix: go to selected item on quickfix window
 autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>| " quickfix: delete current selected item from list
