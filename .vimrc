@@ -493,7 +493,7 @@ nnoremap <silent> <Leader>qf :cfirst<Cr>| " quickfix: go to first item
 nnoremap <silent> <Leader>ql :clast<Cr>| " quickfix: go to last item
 nnoremap <silent> <Leader>qd :ClearQuickfix<Cr>| " quickfix: clear
 nnoremap <silent> <Leader>qs :WriteQuickfix /tmp/quickfix.json<Cr>| " quickfix: save to file
-nnoremap <silent> <Leader>qr :ReadQuickfix /tmp/quickfix.json<Cr>| " quickfix: restore from file
+nnoremap <silent> <Leader>qr :ReadQuickfix /tmp/quickfix.json \|:copen<Cr>| " quickfix: restore from file
 
 autocmd FileType qf map <buffer> <Cr> :.cc<Cr>| " quickfix: go to selected item on quickfix window
 autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>| " quickfix: delete current selected item from list
