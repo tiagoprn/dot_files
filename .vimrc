@@ -445,6 +445,43 @@ map <C-t> <Plug>TaskList| " tasklist (TODO list)
 " >>>
 
 " FZF <<<
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+function! s:remove_quickfix_item()
+  let curqfidx = line('.') - 1
+  let qfall = getqflist()
+  call remove(qfall, curqfidx)
+  call setqflist(qfall, 'r')
+  execute curqfidx + 1 . "cfirst"
+  :copen
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+nnoremap <silent> <Leader>qo :copen<Cr>| " quickfix: open
+nnoremap <silent> <Leader>qc :ccl<Cr>| " quickfix: close
+nnoremap <silent> <Leader>qn :cn<Cr>| " quickfix: go to next item
+nnoremap <silent> <Leader>qp :cp<Cr>| " quickfix: go to previous item
+nnoremap <silent> <Leader>qf :cfirst<Cr>| " quickfix: go to first item
+nnoremap <silent> <Leader>ql :clast<Cr>| " quickfix: go to last item
+command! RemoveQuickFixItem :call s:remove_quickfix_item()
+autocmd FileType qf map <buffer> <Cr> :.cc<Cr>| " quickfix: go to selected item on quickfix window
+autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>
+
+" <tab> | " fzf/quickfix: select item to go to quickfix
+" <ctrl+a> | " fzf/quickfix: select all items to go to quickfix
+" <ctrl+q> | " fzf/quickfix: copy to quickfix
+
 let g:fzf_tags_command='ctags -f $HOME/.cache/vim/ctags/fzf_current_file_tag --tag-relative=yes --fields=+ailmnS'
 let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
@@ -453,9 +490,6 @@ nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
 nnoremap <C-O> :Commands<Cr>| " fzf: select commands
 nnoremap <C-W> :Windows<Cr>| " fzf: select open windows
 nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, variable, etc...
-" <Cr> | " fzf tip: open file on current window
-" <C-x> | " fzf tip: open file on horizontal split
-" <C-v> | " fzf tip: open file on vertical split
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete - deletes the buffer from the session, but keeps marks and the jump list
 nnoremap <silent> <Leader>bw :bw!<Cr>| " fzf: buffer wipe - deletes all traces from the buffer on the session (marks, jump list, etc...)
 " >>>
@@ -762,7 +796,9 @@ set foldexpr=MyFoldText()
 " S` (on visual selection) | " (surround) surround current visual selection with ` - you can use [({ instead of ` (S is the 'current text selection' vim object)
 " ys2w` | " (surround) surround next 2 words with ` - you can use [({ instead of `
 " ystA` | " (surround) surround until letter A with ` - you can use [({ instead of `
-
+" <Cr> | " fzf: open file on current window
+" <C-x> | " fzf: open file on horizontal split
+" <C-v> | " fzf: open file on vertical split
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
