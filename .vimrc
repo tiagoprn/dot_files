@@ -468,13 +468,17 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
+command! RemoveQuickFixItem :call s:remove_quickfix_item()
+command! ClearQuickfix cexpr []
+
 nnoremap <silent> <Leader>qo :copen<Cr>| " quickfix: open
 nnoremap <silent> <Leader>qc :ccl<Cr>| " quickfix: close
 nnoremap <silent> <Leader>qn :cn<Cr>| " quickfix: go to next item
 nnoremap <silent> <Leader>qp :cp<Cr>| " quickfix: go to previous item
 nnoremap <silent> <Leader>qf :cfirst<Cr>| " quickfix: go to first item
 nnoremap <silent> <Leader>ql :clast<Cr>| " quickfix: go to last item
-command! RemoveQuickFixItem :call s:remove_quickfix_item()
+nnoremap <silent> <Leader>qd :ClearQuickfix<Cr>| " quickfix: clear
+
 autocmd FileType qf map <buffer> <Cr> :.cc<Cr>| " quickfix: go to selected item on quickfix window
 autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>| " quickfix: delete current selected item from list
 
