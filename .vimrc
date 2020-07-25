@@ -716,6 +716,7 @@ set foldexpr=MyFoldText()
 " C | "  Delete until end of the line and enter insert mode
 " D | "  Delete until end of the line
 " :%s/ /\r/g | " replace spaces for <enter>
+" :%s/old/new/gc | " replace asking for confirmation on each occurence
 " shift+v  | "  select a whole line
 " <control>, h  | "  move current line/selection to the left
 " <control>, j  | "  move current line/selection down
