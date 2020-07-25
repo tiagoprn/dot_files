@@ -379,6 +379,18 @@ iabbrev af ''<Left><Left>f<Right>| " abbreviation: python fstring
 " FZF <<<
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
+function! s:quickfix_toggle()
+    for i in range(1, winnr('$'))
+        let bnum = winbufnr(i)
+        if getbufvar(bnum, '&buftype') == 'quickfix'
+            cclose
+            return
+        endif
+    endfor
+
+    copen
+endfunction
+
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
   copen
@@ -413,15 +425,14 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 command! RemoveQuickFixItem :call s:remove_quickfix_item()
+command! ToggleQuickfix :call s:quickfix_toggle()
 command! ClearQuickfix cexpr []
 command! -bar -nargs=1 -complete=file WriteQuickfix call writefile([js_encode(s:quickfix_to_filename(getqflist({'all': 1})))], <f-args>)
 command! -bar -nargs=1 -complete=file ReadQuickfix call setqflist([], ' ', js_decode(get(readfile(<f-args>), 0, '')))
 " Below customizes the Rg command so that we can pass optional flags to it. E.g.: :Rg myterm -g '*.md'
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case " . <q-args>, 1, <bang>0)
 
-
-nnoremap <silent> <Leader>qo :copen<Cr>| " quickfix: open
-nnoremap <silent> <Leader>qc :ccl<Cr>| " quickfix: close
+nnoremap <silent> <F10> :ToggleQuickfix<Cr>| " function key: toggle quickfix
 nnoremap <silent> <Leader>qn :cn<Cr>| " quickfix: go to next item
 nnoremap <silent> <Leader>qp :cp<Cr>| " quickfix: go to previous item
 nnoremap <silent> <Leader>qf :cfirst<Cr>| " quickfix: go to first item
