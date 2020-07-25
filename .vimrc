@@ -511,6 +511,8 @@ let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
 autocmd FileType python let g:ale_python_pylint_options = '--rcfile .pylintrc'
 autocmd FileType python let g:ale_python_isort_options = '-m 3 -tc -y'
 autocmd FileType python let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
+" https://yamllint.readthedocs.io/en/stable/configuration.html
+autocmd FileType yaml let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: disable}}"'
 " Customization
 let g:ale_completion_enabled = 0
 let g:ale_set_balloons = 1
