@@ -127,9 +127,11 @@ set wildignore=*.swp,*.bak,*.pyc,*~
 set relativenumber
 
 " LINES CONFIGURATION
+set textwidth=79   " maximum line length
+au FileType py set textwidth=79
+au FileType markdown set textwidth=79
 set number  " show line numbers
 set winwidth=80  "minimum window width
-set textwidth=99   " maximum line length
 set formatoptions+=t  " automatically wrap text when typing
 " set formatoptions-=t   " don't automatically wrap text when typing
 set formatoptions-=l  " Force line wrapping
@@ -140,6 +142,9 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
+
+au FileType py set autoindent
+au FileType py set smartindent
 
 " Below is because of:
 " https://stackoverflow.com/questions/42377945/vim-adding-cursorshape-support-over-tmux-ssh
@@ -540,7 +545,7 @@ nnoremap <silent> <leader>fr :ALEFindReferences<CR>| " (python-ale) find referen
 " >>>
 
 " Goyo <<<
-let g:goyo_width='85%'
+let g:goyo_width='80'
 let g:goyo_height='85%'
 let g:goyo_linenr=0
 autocmd! User GoyoEnter Limelight
@@ -560,10 +565,6 @@ autocmd! bufwritepost .vimrc source %
 " past column 80, the background will be a different color
 "" let &colorcolumn=join(range(120,9999),",")
 
-au FileType py set autoindent
-au FileType py set smartindent
-au FileType py set textwidth=79
-au FileType markdown set textwidth=79
 
 " Update buffer if changed outside current edit session
 " when cursor not moved for updatetime miliseconds, trigger autoread below.
