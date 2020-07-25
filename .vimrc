@@ -416,6 +416,9 @@ command! RemoveQuickFixItem :call s:remove_quickfix_item()
 command! ClearQuickfix cexpr []
 command! -bar -nargs=1 -complete=file WriteQuickfix call writefile([js_encode(s:quickfix_to_filename(getqflist({'all': 1})))], <f-args>)
 command! -bar -nargs=1 -complete=file ReadQuickfix call setqflist([], ' ', js_decode(get(readfile(<f-args>), 0, '')))
+" Below customizes the Rg command so that we can pass optional flags to it. E.g.: :Rg myterm -g '*.md'
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case " . <q-args>, 1, <bang>0)
+
 
 nnoremap <silent> <Leader>qo :copen<Cr>| " quickfix: open
 nnoremap <silent> <Leader>qc :ccl<Cr>| " quickfix: close
@@ -749,6 +752,7 @@ set foldexpr=MyFoldText()
 " <tab> | " fzf/quickfix: select item to go to quickfix
 " <ctrl+a> | " fzf/quickfix: select all items to go to quickfix
 " <ctrl+q> | " fzf/quickfix: copy selected items to quickfix
+" :Rg 'text' -g '*.py' | " search with rg
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
