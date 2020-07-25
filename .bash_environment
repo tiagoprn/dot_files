@@ -94,7 +94,7 @@ fi
 export PATH="$PATH:$HOME/.local/bin"
 
 # rg means ripgrep, that is nice to use with fzf
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
 ## To stop showing warnings on activating a pyenv.
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
