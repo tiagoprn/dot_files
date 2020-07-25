@@ -126,7 +126,7 @@ set wildignore=*.swp,*.bak,*.pyc,*~
 " Changing the ruler position
 set relativenumber
 
-set virtualedit=all  " BREAKTHROUGH CHANGE: allows to move the cursor past the last character. If you insert a new character there, it is automatically padded with spaces. Useful for e.g. tables
+" set virtualedit=all  " BREAKTHROUGH CHANGE: allows to move the cursor past the last character. If you insert a new character there, it is automatically padded with spaces. Useful for e.g. tables
 
 " LINES CONFIGURATION
 set textwidth=79   " maximum line length
