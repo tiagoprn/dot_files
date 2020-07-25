@@ -375,6 +375,16 @@ $ cd /opt/installers
 $ git clone https://github.com/jarun/nnn.git && cd nnn
 $ make O_NORL=1 strip install
 
+## entr (to listen on directory changes):
+
+$ sudo su
+$ cd /opt/installers
+$ wget http://eradman.com/entrproject/code/entr-4.6.tar.gz
+$ tar xfzv entr-4.6.tar.gz
+$ cd entr-4.6
+$ ./configure
+$ make test
+$ make install
 
 ## z:
 $ cd ~/bin
