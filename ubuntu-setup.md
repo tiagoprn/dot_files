@@ -78,6 +78,24 @@ kvm configuration files are at `/etc/libvirt`. The one that controls the daemon 
 $ # Create and enable a default storage pool
 https://github.com/tiagoprn/devops/blob/master/cheats/kvm.cheat (use pool-name=`default`)
 
+##### To enable port forwarding:
+
+(reference: <https://wiki.libvirt.org/page/Networking#Forwarding_Incoming_Connections>)
+
+```
+$ sudo su
+$ cp -farv /storage/src/devops/shellscripts/utils/kvm-port-forwarder/* /etc/libvirt/hooks
+$ cd /etc/libvirt/hooks
+$ chown root.root *
+$ chmod 777 /etc/libvirt/hooks/qemu
+```
+
+The hooks that allow port forwarding will be installed by this script at
+`/etc/libvirt/hooks`. To create a new forwarding, it will use iptables.
+You will first have to stop the VM and then configure its' forwarding at
+`/etc/libvirt/hooks/qemu`. Then, restart the `libvirtd` service and start
+the guest.
+
 #### Terraform
 ```
 $ sudo su
