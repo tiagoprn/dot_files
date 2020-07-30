@@ -400,7 +400,6 @@ $ git clone https://github.com/jarun/nnn.git && cd nnn
 $ make O_NORL=1 strip install
 
 ## entr (to listen on directory changes):
-
 $ sudo su
 $ cd /opt/installers
 $ wget http://eradman.com/entrproject/code/entr-4.6.tar.gz
@@ -409,6 +408,15 @@ $ cd entr-4.6
 $ ./configure
 $ make test
 $ make install
+
+## simple tcp proxy in C (I can use to redirect local ports to guest ports on KVM)
+$ sudo su
+$ mkdir -p /opt/installers
+$ cd /opt/installers
+$ git clone https://github.com/kklis/proxy
+$ cd proxy
+$ make
+$ cp -farv proxy /usr/local/bin
 
 ## z:
 $ cd ~/bin
