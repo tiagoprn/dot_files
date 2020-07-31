@@ -436,8 +436,10 @@ command! ToggleQuickfix :call s:quickfix_toggle()
 command! ClearQuickfix cexpr []
 command! -bar -nargs=1 -complete=file WriteQuickfix call writefile([js_encode(s:quickfix_to_filename(getqflist({'all': 1})))], <f-args>)
 command! -bar -nargs=1 -complete=file ReadQuickfix call setqflist([], ' ', js_decode(get(readfile(<f-args>), 0, '')))
+
+" TODO:  fix the command below, it is not working
 " Below customizes the Rg command so that we can pass optional flags to it. E.g.: :Rg myterm -g '*.md'
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case " . <q-args>, 1, <bang>0)
+" command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case " . <q-args>, 1, <bang>0)
 
 nnoremap <silent> <F10> :ToggleQuickfix<Cr>| " function key: toggle quickfix
 nnoremap <silent> <Leader>qn :cn<Cr>| " quickfix: go to next item
