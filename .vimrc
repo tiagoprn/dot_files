@@ -780,6 +780,8 @@ set foldexpr=MyFoldText()
 " <C-x> | " fzf: open file on horizontal split
 " <C-v> | " fzf: open file on vertical split
 " <tab> | " fzf/quickfix: select item to go to quickfix
+" (VISUAL/NORMAL) <leader>/ | " fzf/rg: search for visual selection on current folder
+" (VISUAL) <leader>* | " fzf/rg: search for current word on current folder
 " <ctrl+a> | " fzf/quickfix: select all items to go to quickfix
 " <ctrl+q> | " fzf/quickfix: copy selected items to quickfix
 " :Rg 'text' -g '*.py' | " search with rg (<ctrl+a> or <tab> to select, <ctrl+q> to copy to quickfix)
