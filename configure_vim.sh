@@ -7,4 +7,7 @@ rm -fr ~/.vim ~/.vimrc ~/.vimi* .vim-* ~/vim-sessions; ln -s /storage/src/dot_fi
 ln -s /storage/src/dot_files/.vim ~/.vim && rm -fr ~/.vim/bundle && mkdir ~/.vim/bundle && \
 mkdir -p ~/.vim-quickfix-history && \
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
-vim +PluginInstall +all
+vim +PluginInstall +all +qa
+# below makes a fix to the vim-agriculture plugin to exclude unnecessary string that breaks search
+find /storage/src/dot_files/.vim/bundle/vim-agriculture/plugin -type f -name *.vim -exec sed -i -e 's/\$//g' {} \;
+
