@@ -87,6 +87,9 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-surround'
 
+" makes possible to customize fzf-vim rg command
+Plugin 'jesseleite/vim-agriculture'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -558,6 +561,14 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 " >>>
 
+
+" AGRICULTURE <<<
+let g:agriculture#rg_options = '--case-sensitive'
+let g:agriculture#disable_smart_quoting = 1
+
+nmap <Leader>/ <Plug>RgRawSearch
+vmap <Leader>/ <Plug>RgRawVisualSelection
+nmap <Leader>* <Plug>RgRawWordUnderCursor
 " >>>
 
 " Global autocmds and miscelaneus <<<
