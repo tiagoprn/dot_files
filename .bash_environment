@@ -41,6 +41,12 @@ then
     export PATH=$PATH:$DEVOPS_BIN
 fi
 
+RUST_BIN=/opt/rust/bin
+if [ -d $RUST_BIN ];
+then
+    export PATH=$PATH:$RUST_BIN
+fi
+
 USER_TMUX_BIN=$HOME/local/bin
 if [ -d $USER_TMUX_BIN ];
 then

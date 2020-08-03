@@ -304,6 +304,11 @@ crazydiskmark (to bookmark disks - equivalent to CrystalDiskMark on windows - ne
 
 # 4) TO BE COMPILED / INSTALLED:
 
+
+## rust
+$ export RUSTUP_HOME=/opt/rust && export CARGO_HOME=/opt/rust && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+$ export PATH=$PATH:/opt/rust/bin
+
 ## telegram-desktop
 $ mkdir /opt/telegram && cd /opt/telegram
 $ curl -L https://telegram.org/dl/desktop/linux -o tsetup.tar.xz
