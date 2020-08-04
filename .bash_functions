@@ -182,7 +182,7 @@ command_exists () {
 
 function n() {
 
-    if command_exists xclip ;
+    if which xclip>/dev/null ;
     then
         OUTPUT=$(navi --path "$(cat ~/.navirc)" --print) && echo "$OUTPUT" | xclip -selection clipboard && sleep 1 && xdotool getwindowfocus windowfocus --sync key "ctrl+shift+v"
     else
