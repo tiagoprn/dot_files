@@ -174,3 +174,15 @@ function tmux-select-session() {
 function dockerps () {
     docker ps --format 'table {{ .ID }}, {{ .Names }}, {{ .Status }}, {{ .Command }}, {{ .Image }}';
 }
+
+
+function n() {
+
+    if [ -f /usr/bin/xclip ] ;
+    then
+        OUTPUT=$(navi --path "$(cat ~/.navirc)" --print) && echo "$OUTPUT" | xclip -selection clipboard && sleep 1 && xdotool getwindowfocus windowfocus --sync key "ctrl+shift+v"
+    else
+        navi --path "$(cat ~/.navirc)" --print
+    fi
+
+}
