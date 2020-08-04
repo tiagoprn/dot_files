@@ -176,9 +176,13 @@ function dockerps () {
 }
 
 
+command_exists () {
+    type "$1" &> /dev/null ;
+}
+
 function n() {
 
-    if [ -x "$(command -v xclip)" ] ;
+    if command_exists xclip ;
     then
         OUTPUT=$(navi --path "$(cat ~/.navirc)" --print) && echo "$OUTPUT" | xclip -selection clipboard && sleep 1 && xdotool getwindowfocus windowfocus --sync key "ctrl+shift+v"
     else
