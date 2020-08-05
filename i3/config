@@ -337,8 +337,8 @@ bindsym Mod1+w exec --no-startup-id sxiv -t ~/Wallpapers
 bindsym Mod1+f exec --no-startup-id flash_window
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching spacefm...' --urgency low; spacefm"
 bindsym $mod+b exec --no-startup-id /storage/src/devops/rofi/bookmarks.py
-bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000 && /storage/src/devops/bin/countdown.py 2"
-bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000 && /storage/src/devops/bin/countdown.py 2"
+bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000"
+bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000"
 bindsym Mod1+o exec --no-startup-id pavucontrol
 # below starts video player
 bindsym Mod1+y exec --no-startup-id /storage/src/devops/bin/zenity-video-launcher.sh
