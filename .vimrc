@@ -563,7 +563,7 @@ autocmd! User GoyoLeave Limelight!
 
 
 " AGRICULTURE <<<
-let g:agriculture#rg_options = '--case-sensitive'
+let g:agriculture#rg_options = '--case-sensitive --hidden --glob "!.git"'
 let g:agriculture#disable_smart_quoting = 1
 
 nmap <Leader>/ <Plug>RgRawSearch
