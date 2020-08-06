@@ -719,6 +719,8 @@ set foldexpr=MyFoldText()
 " zt  | "  (movement)   without moving the cursor, put the current line on the top of the screen (viewport).
 " zb  | "  (movement)   without moving the cursor, put the current line on the bottom of the screen (viewport).
 " g; | " go to the previous place you were editing on the current file
+" ctrl+e | " (movement) move one line down on viewport
+" ctrl+y | " (movement) move one line up on viewport
 " ctrl+h | " move current character left
 " ctrl+l | " move current character right
 
