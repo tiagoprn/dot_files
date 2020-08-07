@@ -278,6 +278,7 @@ nnoremap <silent> <F6> :set list!<CR>| " function key: toggle showing special ch
 highlight LineNr ctermbg=black ctermfg=darkblue
 " Overriding color of the status line
 highlight StatusLine ctermbg=black ctermfg=darkblue
+highlight Pmenu ctermbg=darkgrey ctermfg=black
 
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :call VisualSelection('f')<CR>| " search forwards current highlighted selection
@@ -353,6 +354,8 @@ command! Regclear for i in range(34,122) | silent! call setreg(nr2char(i), []) |
 command! GetHLG echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")') | " show the highlight group of the token under your cursor, so that you could e.g. customize it
 
 nnoremap <silent> <F3> :Goyo<CR>| " function key: toggle goyo distraction-free mode
+
+map <silent><Leader>G :call setbufvar(winbufnr(popup_atcursor(systemlist("cd " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " . shellescape(line("v") . "," . line(".") . ":" .  resolve(expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR> | " Show git commit that introduced current line in vim
 
 " >>>
 
