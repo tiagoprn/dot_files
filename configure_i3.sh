@@ -91,6 +91,7 @@ mkdir -p ~/bin/i3-alternating-layout && git clone https://github.com/olemartinor
 echo 'Installing dmenu/rofi networkmanager...'
 rm $HOME/bin/networkmanager_dmenu
 curl https://raw.githubusercontent.com/firecat53/networkmanager-dmenu/main/networkmanager_dmenu -o $HOME/bin/networkmanager_dmenu
+chmod 700 $HOME/bin/networkmanager_dmenu
 rm -fr $HOME/.config/networkmanager-dmenu
 ln -s /storage/src/dot_files/networkmanager-dmenu $HOME/.config/networkmanager-dmenu
 

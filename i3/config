@@ -340,6 +340,7 @@ bindsym $mod+b exec --no-startup-id /storage/src/devops/rofi/bookmarks.py
 bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flameshot full -p ~/screenshots -d 2000"
 bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots && flameshot gui -p ~/screenshots -d 2000"
 bindsym Mod1+o exec --no-startup-id pavucontrol
+bindsym $mod+Shift+n exec --no-startup-id networkmanager_dmenu
 # below starts video player
 bindsym Mod1+y exec --no-startup-id /storage/src/devops/bin/zenity-video-launcher.sh
 bindsym Mod1+c exec --no-startup-id "/storage/src/devops/bin/clippy_rofi.py"
