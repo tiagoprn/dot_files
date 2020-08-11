@@ -88,4 +88,10 @@ go get github.com/claudiodangelis/i3-timer
 echo 'Installing i3 alternating layout...'
 mkdir -p ~/bin/i3-alternating-layout && git clone https://github.com/olemartinorg/i3-alternating-layout ~/bin/i3-alternating-layout && cd ~/bin/i3-alternating-layout && sed -i 's/python/python3/g' alternating_layouts.py
 
+echo 'Installing dmenu/rofi networkmanager...'
+rm $HOME/bin/networkmanager_dmenu
+curl https://raw.githubusercontent.com/firecat53/networkmanager-dmenu/main/networkmanager_dmenu -o $HOME/bin/networkmanager_dmenu
+rm -fr $HOME/.config/networkmanager-dmenu
+ln -s /storage/src/dot_files/networkmanager-dmenu $HOME/.config/networkmanager-dmenu
+
 echo 'Finished.'
