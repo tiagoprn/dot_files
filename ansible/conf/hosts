@@ -3,10 +3,10 @@
 # [the-ip-you-are-adding-here] www.example.com example.com nginx.example.com traefik.example.com tomcat.example.com mysql.example.com
 
 # KVM
-# 192.168.122.251 ansible_become=true ansible_user=ubuntu ansible_become_method=sudo
+192.168.122.251 ansible_become=true ansible_user=ubuntu ansible_become_method=sudo
 
 # Linode - guardian
-173.230.128.240 ansible_user=root
+# 173.230.128.240 ansible_user=root
 
 
 [vm:vars]
