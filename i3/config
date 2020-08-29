@@ -235,39 +235,39 @@ bindsym Mod1+s sticky toggle
 
 
 
-bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.top.conf
-        font pango: $font_family $font_size
-        position top
-        workspace_buttons no
-        colors {
-              separator $palidblue
-              background $black
-              statusline $white
-                                 #border  background text
-              focused_workspace  $bluesky $bluesky  $white
-              active_workspace   $white $white  $bluesky
-              inactive_workspace $black $black $white
-              urgent_workspace   $red $red $white
-        }
-}
+#bar {
+#        status_command i3blocks -c ~/.config/i3/i3blocks.top.conf
+#        font pango: $font_family $font_size
+#        position top
+#        workspace_buttons no
+#        colors {
+#              separator $palidblue
+#              background $black
+#              statusline $white
+#                                 #border  background text
+#              focused_workspace  $bluesky $bluesky  $white
+#              active_workspace   $white $white  $bluesky
+#              inactive_workspace $black $black $white
+#              urgent_workspace   $red $red $white
+#        }
+#}
 
-bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.bottom.conf
-        font pango: $font_family $font_size
-        position bottom
-        strip_workspace_numbers yes
-        colors {
-              separator $palidblue
-              background $black
-              statusline $white
-                                 #border  background text
-              focused_workspace  $bluesky $bluesky  $white
-              active_workspace   $white $white  $bluesky
-              inactive_workspace $black $black $white
-              urgent_workspace   $red $red $white
-        }
-}
+#bar {
+#        status_command i3blocks -c ~/.config/i3/i3blocks.bottom.conf
+#        font pango: $font_family $font_size
+#        position bottom
+#        strip_workspace_numbers yes
+#        colors {
+#              separator $palidblue
+#              background $black
+#              statusline $white
+#                                 #border  background text
+#              focused_workspace  $bluesky $bluesky  $white
+#              active_workspace   $white $white  $bluesky
+#              inactive_workspace $black $black $white
+#              urgent_workspace   $red $red $white
+#        }
+#}
 # Sreen brightness controls
 bindsym Mod1+Shift+Up exec xbacklight -inc 20 # increase screen brightness
 bindsym Mod1+Shift+Down exec xbacklight -dec 20 # decrease screen brightness
