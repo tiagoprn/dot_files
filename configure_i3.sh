@@ -95,4 +95,8 @@ chmod 700 $HOME/bin/networkmanager_dmenu
 rm -fr $HOME/.config/networkmanager-dmenu
 ln -s /storage/src/dot_files/networkmanager-dmenu $HOME/.config/networkmanager-dmenu
 
+echo 'Linking polybar...'
+rm -fr ~/.config/polybar
+ln -s /storage/src/dot_files/polybar ~/.config/polybar
+
 echo 'Finished.'
