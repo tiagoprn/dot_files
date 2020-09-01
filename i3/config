@@ -36,7 +36,7 @@ set $bluesky #4845da
 set $blue #0000ff
 
 # set $font_family Source Sans Pro Semibold
-set $font_family Ubuntu Condensed Regular
+set $font_family Hack
 set $font_size 10.5
 
 # Font for window titles. Will also be used by the bar unless a different font
