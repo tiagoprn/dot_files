@@ -235,39 +235,39 @@ bindsym Mod1+s sticky toggle
 
 
 
-#bar {
-#        status_command i3blocks -c ~/.config/i3/i3blocks.top.conf
-#        font pango: $font_family $font_size
-#        position top
-#        workspace_buttons no
-#        colors {
-#              separator $palidblue
-#              background $black
-#              statusline $white
-#                                 #border  background text
-#              focused_workspace  $bluesky $bluesky  $white
-#              active_workspace   $white $white  $bluesky
-#              inactive_workspace $black $black $white
-#              urgent_workspace   $red $red $white
-#        }
-#}
+bar {
+        status_command i3blocks -c ~/.config/i3/i3blocks.top.conf
+        font pango: $font_family $font_size
+        position top
+        workspace_buttons no
+        colors {
+              separator $palidblue
+              background $black
+              statusline $white
+                                 #border  background text
+              focused_workspace  $bluesky $bluesky  $white
+              active_workspace   $white $white  $bluesky
+              inactive_workspace $black $black $white
+              urgent_workspace   $red $red $white
+        }
+}
 
-#bar {
-#        status_command i3blocks -c ~/.config/i3/i3blocks.bottom.conf
-#        font pango: $font_family $font_size
-#        position bottom
-#        strip_workspace_numbers yes
-#        colors {
-#              separator $palidblue
-#              background $black
-#              statusline $white
-#                                 #border  background text
-#              focused_workspace  $bluesky $bluesky  $white
-#              active_workspace   $white $white  $bluesky
-#              inactive_workspace $black $black $white
-#              urgent_workspace   $red $red $white
-#        }
-#}
+bar {
+        status_command i3blocks -c ~/.config/i3/i3blocks.bottom.conf
+        font pango: $font_family $font_size
+        position bottom
+        strip_workspace_numbers yes
+        colors {
+              separator $palidblue
+              background $black
+              statusline $white
+                                 #border  background text
+              focused_workspace  $bluesky $bluesky  $white
+              active_workspace   $white $white  $bluesky
+              inactive_workspace $black $black $white
+              urgent_workspace   $red $red $white
+        }
+}
 # Sreen brightness controls
 bindsym Mod1+Shift+Up exec xbacklight -inc 20 # increase screen brightness
 bindsym Mod1+Shift+Down exec xbacklight -dec 20 # decrease screen brightness
@@ -364,7 +364,7 @@ exec_always --no-startup-id compton --config ~/compton.conf
 exec_always --no-startup-id "notify-send 'Activating keyboard backlight...' --urgency low; /storage/src/devops/bin/keyboard-backlight.sh"
 exec_always --no-startup-id "cd /storage/src/devops/bin/battery_wallpaper && ./battery_wall.py"
 exec_always --no-startup-id flashfocus
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id "notify-send 'Launching telegram...' --urgency low; /opt/telegram/Telegram/Telegram"
 exec --no-startup-id "notify-send 'Launching spotify...' --urgency low; spotify"
