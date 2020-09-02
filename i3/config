@@ -255,7 +255,7 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.bottom.conf
         font pango: $font_family $font_size
         position bottom
-        tray_output primary
+        tray_output none
         strip_workspace_numbers yes
         colors {
               separator $palidblue
