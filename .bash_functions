@@ -186,7 +186,12 @@ function n() {
     then
         OUTPUT=$(navi --path "$(cat ~/.navirc)" --print) && echo "$OUTPUT" | xclip -selection clipboard && sleep 1 && xdotool getwindowfocus windowfocus --sync key "ctrl+shift+v"
     else
-        navi --path "$(cat ~/.navirc)" --print
+        if [ -z "$TMUX" ]
+        then
+            echo "This only works inside a tmux session :("
+        else
+            navi --path "$(cat ~/.navirc)" --print | while read command; do tmux send-keys "$command" ENTER; done
+        fi
     fi
 
 }
