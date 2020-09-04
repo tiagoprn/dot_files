@@ -286,7 +286,7 @@ bindsym Mod1+Shift exec --no-startup-id pactl set-sink-mute 0 toggle # mute soun
 # -- MY CUSTOMIZATIONS BELOW --
 
 # --- WINDOW BORDERS ---
-for_window [class=".*"] border pixel 1
+for_window [class="^.*"] border pixel 1
 focus_follows_mouse no
 
 # --- SCRATCHPAD ---
