@@ -349,6 +349,7 @@ bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with aran
 bindsym Mod1+k exec --no-startup-id "/storage/src/devops/rofi/toggle_keyboards.py"
 bindsym $mod+w exec --no-startup-id "/storage/src/devops/bin/layout_manager.sh"
 bindsym $mod+c exec --no-startup-id "/storage/src/devops/bin/customize_capslock.sh"
+bindsym $mod+Escape exec "notify-send -t 3000 'for help on layouts: i3-instant-layout --desc' && i3-instant-layout --list | rofi -dmenu -i | i3-instant-layout -"
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 ---
 exec --no-startup-id nm-applet
