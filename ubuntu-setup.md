@@ -333,7 +333,6 @@ vim-vint
 pygments
 pygments-json
 crazydiskmark (to bookmark disks - equivalent to CrystalDiskMark on windows - needs python 3.8)
-i3-instant-layout
 
 # 4) TO BE COMPILED / INSTALLED:
 
