@@ -566,7 +566,6 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 " >>>
 
-
 " AGRICULTURE <<<
 let g:agriculture#rg_options = '--case-sensitive --hidden --glob "!.git"'
 let g:agriculture#disable_smart_quoting = 1
@@ -691,6 +690,8 @@ function! MyFoldText()
     return line . '...' . repeat(' ', fillcharcount) . foldedlinecount . ' '
 endfunction
 set foldexpr=MyFoldText()
+">>>
+
 ">>>
 
 " CHEATSHEET <<<
