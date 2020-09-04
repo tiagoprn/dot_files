@@ -793,7 +793,10 @@ set foldexpr=MyFoldText()
 " <ctrl+a> | " fzf/quickfix: select all items to go to quickfix
 " <ctrl+q> | " fzf/quickfix: copy selected items to quickfix
 " :Rg 'text' -g '*.py' | " search with rg (<ctrl+a> or <tab> to select, <ctrl+q> to copy to quickfix)
-" :cfdo %s/old/new/g | update | " on all files open on the quickfix window (cfdo), change old to new and save all files (update).
+" :cdo[!] {cmd} | update | " Execute {cmd} in EACH VALID ENTRY in the quickfix list and save all files
+" :cfdo[!] {cmd} | update | " Execute {cmd} in EACH FILE in the quickfix list and save all files. E.g. :cfdo[!] %s/old/new/g | update
+" :ld[o][!] {cmd} | " Execute {cmd} in each valid entry in the location list for the current window.
+" :lfdo[!] {cmd} | " Execute {cmd} in each file in the location list for the current window.
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
