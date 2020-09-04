@@ -365,6 +365,8 @@ exec_always --no-startup-id "notify-send 'Activating keyboard backlight...' --ur
 exec_always --no-startup-id "cd /storage/src/devops/bin/battery_wallpaper && ./battery_wall.py"
 exec_always --no-startup-id flashfocus
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# the command below disables mouse cursor after 5 seconds by default
+exec_always --no-startup-id unclutter
 
 exec --no-startup-id "notify-send 'Launching telegram...' --urgency low; /opt/telegram/Telegram/Telegram"
 exec --no-startup-id "notify-send 'Launching spotify...' --urgency low; spotify"
