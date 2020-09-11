@@ -90,6 +90,10 @@ Plugin 'tpope/vim-surround'
 " makes possible to customize fzf-vim rg command
 Plugin 'jesseleite/vim-agriculture'
 
+" show contents of vim registers on a sidebar
+Plugin 'junegunn/vim-peekaboo'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
