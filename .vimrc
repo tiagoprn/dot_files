@@ -164,8 +164,8 @@ set t_EI=[2\ q
 " the File, Open dialog defaults to the current file's directory.
 set browsedir=buffer
 
-" automatically change window's cwd to file's dir
-set autochdir
+" automatically change window's cwd to file's dir - can break some plugins, better not to be enabled
+" set autochdir
 
 " Auto-reload files
 set autoread
