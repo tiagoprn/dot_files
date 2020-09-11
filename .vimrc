@@ -773,6 +773,13 @@ set foldexpr=MyFoldText()
 " zc | " close current fold
 " za | " toggle current fold
 " zd | " delete current fold
+" "<register-name><command> | " (registers)       syntax format
+" [ " ] | " (registers)    default/unnamed : updates whenever you delete or yank
+" [ - ] | " (registers)    small delete: deleted text smaller than one line
+" [ 0..9 ] | " (registers)    numbered: 0 - latest yank or big delete (greater than one line), 1..9 - big deletes or changes
+" [ a..z, A..Z ] | " (registers)    named: a..z - replace register, A..Z - append to register
+" [ _ ] | " (registers)    black hole
+" [ / ] | " (registers)    last search pattern
 " "+yy | " (registers) copy current line to system clipboard (change + for * to primary 'mouse " selection' clipboard)
 " "+veey | " (registers) copy next 2 words to system clipboard
 " "+p | " (registers) paste system clipboard contents
