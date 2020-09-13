@@ -7,3 +7,4 @@ ranger/history
 ranger/tagged
 *.swp
 rofi/config
+.uuid
