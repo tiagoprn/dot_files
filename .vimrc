@@ -261,11 +261,17 @@ map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
 
 
 " WINDOWS
-" switch window splits more easily
-nnoremap <c-j> <c-w>j| " (windows) move to down window
-nnoremap <c-k> <c-w>k| " (windows) move to up window
-nnoremap <c-h> <c-w>h| " (windows) move to left window
-nnoremap <c-l> <c-w>l| " (windows) move to right window
+" move between window splits
+nnoremap <Leader>wj <c-w>j| " (windows) move to down window
+nnoremap <Leader>wk <c-w>k| " (windows) move to up window
+nnoremap <Leader>wh <c-w>h| " (windows) move to left window
+nnoremap <Leader>wl <c-w>l| " (windows) move to right window
+" shift window splits
+nnoremap <Leader>wJ <c-w>J| " (windows) shift to down window
+nnoremap <Leader>wK <c-w>K| " (windows) shift to up window
+nnoremap <Leader>wH <c-w>H| " (windows) shift to left window
+nnoremap <Leader>wL <c-w>L| " (windows) shift to right window
+nnoremap <Leader>wr <c-w>r| " (windows) shift rotate split window
 " change split orientation
 noremap <Leader>s  <c-w>t<c-w>K| " (windows) change to horizontal split
 noremap <Leader>v  <c-w>t<c-w>H| " (windows) change to vertical split
