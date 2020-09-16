@@ -273,12 +273,12 @@ nnoremap <Leader>wH <c-w>H| " (windows) shift to left window
 nnoremap <Leader>wL <c-w>L| " (windows) shift to right window
 nnoremap <Leader>wr <c-w>r| " (windows) shift rotate split window
 " change split orientation
-noremap <Leader>s  <c-w>t<c-w>K| " (windows) change to horizontal split
-noremap <Leader>v  <c-w>t<c-w>H| " (windows) change to vertical split
+noremap <Leader>ws  <c-w>t<c-w>K| " (windows) change split orientation to horizontal
+noremap <Leader>wv  <c-w>t<c-w>H| " (windows) change split orientation to vertical
 " misc
-nnoremap <Leader>w <C-w>w| " (windows) toggle between windows
-nnoremap <Leader>V :vnew<CR>| " (windows) new vertical window split
-nnoremap <Leader>S :new<CR>| " (windows) new horizontal window split
+nnoremap <Leader>ww <C-w>w| " (windows)  toggle between windows
+nnoremap <Leader>wV :vnew<CR>| " (windows) new vertical window split
+nnoremap <Leader>wS :new<CR>| " (windows) new horizontal window split
 
 " When on visual selection mode (v), then
 " easier moving of code blocks
@@ -482,7 +482,7 @@ nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
 nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
 nnoremap <C-O> :Commands<Cr>| " fzf: select commands
-nnoremap <C-i> :Windows<Cr>| " fzf/windows: select open windows
+nnoremap <Leader>w :Windows<Cr>| " fzf/windows:  select open windows
 nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, variable, etc...
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete - deletes the buffer from the session, but keeps marks and the jump list
 nnoremap <silent> <Leader>bw :bw!<Cr>| " fzf: buffer wipe - deletes all traces from the buffer on the session (marks, jump list, etc...)
