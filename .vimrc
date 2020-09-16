@@ -266,9 +266,12 @@ nnoremap <c-j> <c-w>j| " (windows) move to down window
 nnoremap <c-k> <c-w>k| " (windows) move to up window
 nnoremap <c-h> <c-w>h| " (windows) move to left window
 nnoremap <c-l> <c-w>l| " (windows) move to right window
+" change split orientation
+noremap <Leader>s  <c-w>t<c-w>K| " (windows) change to horizontal split
+noremap <Leader>v  <c-w>t<c-w>H| " (windows) change to vertical split
 " misc
 nnoremap <Leader>w <C-w>w| " (windows) toggle between windows
-nnoremap <Leader>s :vnew<CR>| " (windows) new vertical window split
+nnoremap <Leader>V :vnew<CR>| " (windows) new vertical window split
 nnoremap <Leader>S :new<CR>| " (windows) new horizontal window split
 
 " When on visual selection mode (v), then
