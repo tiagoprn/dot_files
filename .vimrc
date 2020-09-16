@@ -440,7 +440,7 @@ endfunction
 let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list'),
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
+  \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
 command! RemoveQuickFixItem :call s:remove_quickfix_item()
@@ -470,7 +470,7 @@ nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
 nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
 nnoremap <C-O> :Commands<Cr>| " fzf: select commands
-nnoremap <C-W> :Windows<Cr>| " fzf: select open windows
+nnoremap <C-i> :Windows<Cr>| " fzf: select open windows
 nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, variable, etc...
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete - deletes the buffer from the session, but keeps marks and the jump list
 nnoremap <silent> <Leader>bw :bw!<Cr>| " fzf: buffer wipe - deletes all traces from the buffer on the session (marks, jump list, etc...)
