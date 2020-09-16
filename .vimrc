@@ -259,11 +259,16 @@ nnoremap k gk| " move vertically up by visual line
 
 map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
 
+
+" WINDOWS
 " switch window splits more easily
-nnoremap <c-j> <c-w>j| " move to down window
-nnoremap <c-k> <c-w>k| " move to up window
-nnoremap <c-h> <c-w>h| " move to left window
-nnoremap <c-l> <c-w>l| " move to right window
+nnoremap <c-j> <c-w>j| " (windows) move to down window
+nnoremap <c-k> <c-w>k| " (windows) move to up window
+nnoremap <c-h> <c-w>h| " (windows) move to left window
+nnoremap <c-l> <c-w>l| " (windows) move to right window
+nnoremap <Leader>w <C-w>w| " (windows) toggle between windows
+nnoremap <Leader>s :vnew<CR>| " (windows) new vertical window split
+nnoremap <Leader>S :new<CR>| " (windows) new horizontal window split
 
 " When on visual selection mode (v), then
 " easier moving of code blocks
@@ -293,14 +298,11 @@ vnoremap <silent> # :call VisualSelection('b')<CR>| " search backwards current h
 let project_path = system("git rev-parse --show-toplevel | tr -d '\\n'")
 let &makeprg = "cd " . project_path . " && make lint"
 nnoremap <expr> <F9> '<Esc>:cd ' . project_path . ' \| make<CR>'| " function key: Run linter
-nnoremap <Leader>w <C-w>w| " toggle between windows
 
 nnoremap <Backspace> :bw<Enter>| " Close buffer
 nnoremap <leader>q :bp\|bw \#<Enter>| " Close buffer but keep split
 nnoremap <leader><Backspace> <C-w>q<Enter>| " Close split but keep buffer
 
-nnoremap <Leader>s :vnew<CR>| " new vertical window split
-nnoremap <Leader>S :new<CR>| " new horizontal window split
 " session management (below, <BS> means the backspace key,
 "                     and <C-D> list existing files through cli completion)
 let g:sessions_dir = '~/vim-sessions'
@@ -470,7 +472,7 @@ nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
 nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
 nnoremap <C-O> :Commands<Cr>| " fzf: select commands
-nnoremap <C-i> :Windows<Cr>| " fzf: select open windows
+nnoremap <C-i> :Windows<Cr>| " fzf/windows: select open windows
 nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, variable, etc...
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete - deletes the buffer from the session, but keeps marks and the jump list
 nnoremap <silent> <Leader>bw :bw!<Cr>| " fzf: buffer wipe - deletes all traces from the buffer on the session (marks, jump list, etc...)
@@ -580,7 +582,7 @@ nmap <Leader>* <Plug>RgRawWordUnderCursor
 " >>>
 
 " Global autocmds and miscelaneus <<<
-autocmd VimResized * wincmd =  " resize vim splits proportionally when the window that contains vim is resized
+autocmd VimResized * wincmd =  " (windows) resize vim splits proportionally when the window that contains vim is resized
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
@@ -652,7 +654,7 @@ function! s:ZoomToggle() abort
     endif
 endfunction
 command! ZoomToggle call s:ZoomToggle()
-nnoremap <silent> <C-z> :ZoomToggle<CR>| " toggle zoom on current window
+nnoremap <silent> <C-z> :ZoomToggle<CR>| " (windows) toggle zoom on current window
 
 " use the X clipboard for copy/paste
 if has('clipboard')
@@ -796,8 +798,8 @@ set foldexpr=MyFoldText()
 " ys2w` | " (surround) surround next 2 words with ` - you can use [({ instead of `
 " ystA` | " (surround) surround until letter A with ` - you can use [({ instead of `
 " <Cr> | " fzf: open file on current window
-" <C-x> | " fzf: open file on horizontal split
-" <C-v> | " fzf: open file on vertical split
+" <C-s> | " fzf/windows: open file on horizontal split
+" <C-v> | " fzf/windows: open file on vertical split
 " <tab> | " fzf/quickfix: select item to go to quickfix
 " (VISUAL/NORMAL) <leader>/ | " fzf/rg: search for visual selection on current folder
 " (VISUAL) <leader>* | " fzf/rg: search for current word on current folder
