@@ -1,0 +1,18 @@
+type(!): Summary in present tense
+^    ^
+|    |
+|    +------> (optional) Indicates a BREAKING CHANGE (breaks API or ABI compatibility)
+|
++-------> Type: chore, docs, feat, fix, refactor, style, or test.
+
+Available types:
+
+# FEAT: new feature for the user, not a new feature for build script
+# FIX: bug fix for the user, not a fix to a build script
+# DOCS: changes to the documentation
+# STYLE: formatting, missing semi colons, etc; no production code change
+# REFACTOR: refactoring production code, eg. renaming a variable
+# TEST: adding missing tests, refactoring tests; no production code change
+# CHORE: updating grunt tasks etc; no production code change
+
+(reference: https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
