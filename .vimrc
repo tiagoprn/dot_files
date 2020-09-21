@@ -824,6 +824,8 @@ set foldexpr=MyFoldText()
 " :cfdo[!] {cmd} | update | " Execute {cmd} in EACH FILE in the quickfix list and save all files. E.g. :cfdo[!] %s/old/new/g | update
 " :ld[o][!] {cmd} | " Execute {cmd} in each valid entry in the location list for the current window.
 " :lfdo[!] {cmd} | " Execute {cmd} in each file in the location list for the current window.
+" :gf | " open file/directory under cursor (works 'magically' if there is a file/directory under the current cursor)
+
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
