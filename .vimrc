@@ -375,6 +375,10 @@ nnoremap <silent> <F3> :Goyo<CR>| " function key: toggle goyo distraction-free m
 " reference: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line
 map <silent><Leader>G :call setbufvar(winbufnr(popup_atcursor(systemlist("cd " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " . shellescape(line("v") . "," . line(".") . ":" .  resolve(expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR> | " Show git commit that introduced current line in vim
 
+noremap <Leader>cc "+y | " copy to system clipboard
+noremap <Leader>cp "+p | " paste from system clipboard
+
+
 " >>>
 
 " Vim event hooks <<<
@@ -666,14 +670,14 @@ endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <C-z> :ZoomToggle<CR>| " (windows) toggle zoom on current window
 
-" use the X clipboard for copy/paste
-if has('clipboard')
-    if has('unnamedplus')  " When possible use + register for copy-paste
-        set clipboard=unnamed,unnamedplus
-    else         " On mac and Windows, use * register for copy-paste
-        set clipboard=unnamed
-    endif
-endif
+" " use the X clipboard for copy/paste
+" if has('clipboard')
+"     if has('unnamedplus')  " When possible use + register for copy-paste
+"         set clipboard=unnamed,unnamedplus
+"     else         " On mac and Windows, use * register for copy-paste
+"         set clipboard=unnamed
+"     endif
+" endif
 
 " Below adds support for a custom .vimrc per project (must be at the project root)
 set secure
