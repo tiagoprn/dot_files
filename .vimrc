@@ -802,6 +802,9 @@ set foldexpr=MyFoldText()
 " "ayy | " (registers) copy current line to register a
 " "Ayy | " (registers) append current line to register a (use a capital letter to append to a register)
 " "ap | " (registers) paste register a contents
+" :let @z = "value" | " (registers) set register 'z' value
+" :let @z = "" | " (registers) clean register 'z' value
+" :let @x = @z | " (registers) set register 'x' values as register 'z' value
 " :reg | " (registers) see all registers' contents
 " :verbose map | " (mapping) show all defined mappings in vim - and where the mappings are defined
 " :map | " (mapping) show all defined mappings in vim
