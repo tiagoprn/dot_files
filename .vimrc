@@ -153,10 +153,11 @@ augroup pythonconf
 augroup END
 
 augroup textconf
+    autocmd!
     " set virtualedit=all  " BREAKTHROUGH CHANGE: allows to move the cursor past the last character. If you insert a new character there, it is automatically padded with spaces. Useful for e.g. tables
-    " autocmd Filetype markdown,text InsertLeave * normal gwap<CR> " formats the current paragraph when leaving insert mode
+    " autocmd FileType markdown,text InsertLeave * normal gwap<CR> " formats the current paragraph when leaving insert mode
     " do not use textwidth with softwrap, it has no effect
-    set linebreak  " soft wrap: wrap the text when it hits the screen edge
+    autocmd FileType markdown,text set linebreak  " soft wrap: wrap the text when it hits the screen edge
 augroup END
 
 " Below is because of:
