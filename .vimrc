@@ -130,30 +130,34 @@ set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*~
 
-" Changing the ruler position
-set relativenumber
-
-" set virtualedit=all  " BREAKTHROUGH CHANGE: allows to move the cursor past the last character. If you insert a new character there, it is automatically padded with spaces. Useful for e.g. tables
-
-" LINES CONFIGURATION
-set textwidth=79   " maximum line length
-au FileType py set textwidth=79
-au FileType markdown set textwidth=79
+set relativenumber  " Changing the ruler position
 set number  " show line numbers
-set winwidth=80  "minimum window width
-set formatoptions+=t  " automatically wrap text when typing
-" set formatoptions-=t   " don't automatically wrap text when typing
-set formatoptions-=l  " Force line wrapping
+" set winwidth=80  "minimum window width
 
-" TABs to spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
+augroup pythonconf
+    autocmd!
+    autocmd FileType py set textwidth=79
+    autocmd FileType py set formatoptions+=t  " automatically wrap text when typing
+    autocmd FileType py set formatoptions-=l  " Force line wrapping
 
-au FileType py set autoindent
-au FileType py set smartindent
+    " TABs to spaces
+    autocmd FileType py set tabstop=4
+    autocmd FileType py set softtabstop=4
+    autocmd FileType py set shiftwidth=4
+    autocmd FileType py set shiftround
+    autocmd FileType py set expandtab
+
+    " Indentation
+    autocmd FileType py set autoindent
+    autocmd FileType py set smartindent
+augroup END
+
+augroup textconf
+    " set virtualedit=all  " BREAKTHROUGH CHANGE: allows to move the cursor past the last character. If you insert a new character there, it is automatically padded with spaces. Useful for e.g. tables
+    " autocmd Filetype markdown,text InsertLeave * normal gwap<CR> " formats the current paragraph when leaving insert mode
+    " do not use textwidth with softwrap, it has no effect
+    set linebreak  " soft wrap: wrap the text when it hits the screen edge
+augroup END
 
 " Below is because of:
 " https://stackoverflow.com/questions/42377945/vim-adding-cursorshape-support-over-tmux-ssh
@@ -375,7 +379,7 @@ nnoremap <silent> <F3> :Goyo<CR>| " function key: toggle goyo distraction-free m
 " reference: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line
 map <silent><Leader>G :call setbufvar(winbufnr(popup_atcursor(systemlist("cd " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " . shellescape(line("v") . "," . line(".") . ":" .  resolve(expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR> | " Show git commit that introduced current line in vim
 
-noremap <Leader>cc "+y | " copy to system clipboard
+noremap <Leader>cy "+y | " copy to system clipboard
 noremap <Leader>cp "+p | " paste from system clipboard
 
 
