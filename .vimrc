@@ -93,6 +93,8 @@ Plugin 'jesseleite/vim-agriculture'
 " show contents of vim registers on a sidebar
 Plugin 'junegunn/vim-peekaboo'
 
+" Sends text to another tmux window (use with ipython or other REPL, e.g. pgcli etc):
+Plugin 'jpalardy/vim-slime'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -156,8 +158,8 @@ augroup textconf
     autocmd!
     " set virtualedit=all  " BREAKTHROUGH CHANGE: allows to move the cursor past the last character. If you insert a new character there, it is automatically padded with spaces. Useful for e.g. tables
     " autocmd FileType markdown,text InsertLeave * normal gwap<CR> " formats the current paragraph when leaving insert mode
-    " do not use textwidth with softwrap, it has no effect
-    autocmd FileType markdown,text set linebreak  " soft wrap: wrap the text when it hits the screen edge
+    " do not use textwidth with soft wrap, it has no effect
+    autocmd FileType markdown,text,vim set linebreak  " soft wrap: wrap the text when it hits the screen edge
 augroup END
 
 " Below is because of:
@@ -600,6 +602,13 @@ vmap <Leader>/ <Plug>RgRawVisualSelection
 nmap <Leader>* <Plug>RgRawWordUnderCursor
 " >>>
 
+" SLIME <<<
+let g:slime_target = "tmux"
+let g:slime_paste_file = "$HOME/.slime_paste"
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "session_name:window.pane"}
+" >>>
+
+
 " Global autocmds and miscelaneus <<<
 autocmd VimResized * wincmd =  " (windows) resize vim splits proportionally when the window that contains vim is resized
 
@@ -834,7 +843,9 @@ set foldexpr=MyFoldText()
 " :ld[o][!] {cmd} | " Execute {cmd} in each valid entry in the location list for the current window.
 " :lfdo[!] {cmd} | " Execute {cmd} in each file in the location list for the current window.
 " :gf | " open file/directory under cursor (works 'magically' if there is a file/directory under the current cursor)
-
+" <C-c>, c | " (slime) copy cursor text to tmux pane
+" <C-c>, v | " (slime) configure copy to tmux pane (session:window.pane)
+" :SlimeConfig | " (slime) configure copy to tmux pane (session:window.pane)
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
