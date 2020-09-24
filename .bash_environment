@@ -3,7 +3,6 @@ export EDITOR=vim
 export VISUAL=vim
 export BROWSER=/usr/bin/chromium
 
-
 # Set colors for less. Borrowed from
 # https://wiki.archlinux.org/index.php/Color_output_in_console#less .
 export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
@@ -37,6 +36,13 @@ then
     mkdir $HOMEBIN
 fi
 export PATH=$PATH:$HOMEBIN
+
+GOPATH=$HOME/go
+if [ ! -d $GOPATH ];
+then
+    mkdir $GOPATH
+fi
+export PATH=$PATH:$GOPATH
 
 DEVOPS_BIN=/storage/src/devops/bin
 if [ -d $DEVOPS_BIN ];
