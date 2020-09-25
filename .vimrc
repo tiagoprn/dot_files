@@ -843,7 +843,7 @@ set foldexpr=MyFoldText()
 " :ld[o][!] {cmd} | " Execute {cmd} in each valid entry in the location list for the current window.
 " :lfdo[!] {cmd} | " Execute {cmd} in each file in the location list for the current window.
 " :gf | " open file/directory under cursor (works 'magically' if there is a file/directory under the current cursor)
-" <C-c>, c | " (slime) copy cursor text to tmux pane
+" <C-c>, <C-c> (meaning: Hold <Ctrl>, then 'cc') | " (slime) copy cursor text to tmux pane
 " <C-c>, v | " (slime) configure copy to tmux pane (session:window.pane)
 " :SlimeConfig | " (slime) configure copy to tmux pane (session:window.pane)
 
