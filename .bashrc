@@ -219,7 +219,7 @@ printf "\nnr           : restart network through NetworkManager"
 printf "\nupdate-notes : pushes all notes to the remote repository."
 printf "\n"
 printf "\n- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
-printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config)."
+printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config).\n\n"
 # fortune   -s
 # fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -e | cut -d '.' -f 1)
 
