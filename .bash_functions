@@ -188,7 +188,8 @@ function n() {
     else
         if [ -z "$TMUX" ]
         then
-            echo "This only works inside a tmux session :("
+            echo -e "\n --- \n WARNING: To have the best usability it is recommended to run this inside a tmux session ;) \n --- \n"
+            navi --path "$(cat ~/.navirc)" --print
         else
             navi --path "$(cat ~/.navirc)" --print | while read command; do tmux send-keys "$command" ENTER; done
         fi
