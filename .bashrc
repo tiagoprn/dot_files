@@ -229,7 +229,10 @@ printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a c
 
 # start tmux if xorg is not found
 if ! [ -x "$(command -v startx)" ]; then
-    tmux attach -t default || tmux new -s default
+    printf "-------------------------------------------------------"
+    printf "No xorg detected, since 'startx' has not been found."
+    printf "You can use navi to start tmux if it is installed... ;)"
+    printf "-------------------------------------------------------"
 fi
 
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
