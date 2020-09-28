@@ -31,6 +31,9 @@ source $HOME/bin/z/z.sh
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# disable <Ctrl-s> permanently in terminal, which freezes it
+stty -ixon
+
 # ---------------- BASH PROMPT (begin) ----------------- #
 
 #   Set the bash prompt according to:
