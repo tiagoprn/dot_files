@@ -826,6 +826,7 @@ set foldexpr=MyFoldText()
 " :let @z = "" | " (registers) clean register 'z' value
 " :let @x = @z | " (registers) set register 'x' values as register 'z' value
 " :reg | " (registers) see all registers' contents
+" <C-r>register-name | " (registers) paste from register on insert or command mode.
 " :verbose map | " (mapping) show all defined mappings in vim - and where the mappings are defined
 " :map | " (mapping) show all defined mappings in vim
 " :vmap <key> | " (mapping) show if <key> is mapped
