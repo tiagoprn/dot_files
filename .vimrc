@@ -852,7 +852,8 @@ set foldexpr=MyFoldText()
 " <C-c>, <C-c> (meaning: Hold <Ctrl>, then 'cc') | " (slime) copy cursor text to tmux pane - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
 " <C-c>, v | " (slime) configure copy to tmux pane (session:window.pane) - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
 " :SlimeConfig | " (slime) configure copy to tmux pane (session:window.pane) - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
-
+" Vjjjj :normal @a | " (macros) run macro 'a' on selected lines
+"
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
 
