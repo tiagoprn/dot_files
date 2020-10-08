@@ -390,6 +390,8 @@ map <silent><Leader>G :call setbufvar(winbufnr(popup_atcursor(systemlist("cd " .
 noremap <Leader>cy "+y | " copy to system clipboard
 noremap <Leader>cp "+p | " paste from system clipboard
 
+nnoremap <Leader>hc :set cuc!<CR> | " toggle highlight current column identation
+nnoremap <Leader>hl :set cursorline!<CR> | " toggle highlight current line
 
 " >>>
 
