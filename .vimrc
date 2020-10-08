@@ -865,6 +865,10 @@ set foldexpr=MyFoldText()
 " zg | " (spellcheck) add the word under the cursor to the dictionary
 " zw | " (spellcheck) undo and remove the word from the dictionary
 
+" :args /full/path/**/*.txt | " (global search/replace) 01 - populate args list with a list of files (recursively)
+" :argdo %s/old/new/g | " (global search/replace) 02 - replace on all files on the args list
+" :argdo update | " (global search/replace) 03 - save all files on the args list
+
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
 
