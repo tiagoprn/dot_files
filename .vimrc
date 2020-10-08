@@ -855,7 +855,14 @@ set foldexpr=MyFoldText()
 " <C-c>, v | " (slime) configure copy to tmux pane (session:window.pane) - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
 " :SlimeConfig | " (slime) configure copy to tmux pane (session:window.pane) - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
 " Vjjjj :normal @a | " (macros) run macro 'a' on selected lines
-"
+" :set spell! | " (spellcheck) toggle spell checking
+" ]s | " (spellcheck) jump to the next misspelled word
+" [s | " (spellcheck) jump to the previous misspelled word
+" z= | " (spellcheck) bring up the suggested replacements
+" zg | " (spellcheck) add the word under the cursor to the dictionary
+" zw | " (spellcheck) undo and remove the word from the dictionary
+
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
+
 
