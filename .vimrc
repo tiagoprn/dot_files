@@ -374,7 +374,7 @@ nnoremap <leader>fn :QuickNotes()<CR>| " open quicknotes searching by word
 function! ReloadVimConfig()
     execute 'w!'
     execute 'source ~/.vimrc'
-    execute 'silent !notify-send --urgency=critical "Vim configuration successfully reloaded."'
+    execute 'silent !tmux list-clients -F "\#{client_name}" | xargs -n1 -I{} tmux display-message -c {} "Vim configuration successfully reloaded."'
 endfunction
 nnoremap <leader>rl :call ReloadVimConfig()<CR>| " reload vim configuration (.vimrc)
 
@@ -400,7 +400,7 @@ noremap <Leader>cp "+p | " paste from system clipboard
 autocmd BufWritePre * :%s/\s\+$//e
 
 " After saving a file, display a notification:
-autocmd BufWritePost * silent! !notify-send -a vim "File %:p saved."
+autocmd BufWritePost * silent! !tmux list-clients -F "\#{client_name}" | xargs -n1 -I{} tmux display-message -c {} "File %:p saved."
 
 " When opening a new buffer, if it has no filetype defaults to text
 autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
