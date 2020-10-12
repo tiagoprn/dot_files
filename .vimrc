@@ -374,7 +374,7 @@ nnoremap <leader>fn :QuickNotes()<CR>| " open quicknotes searching by word
 function! ReloadVimConfig()
     execute 'w!'
     execute 'source ~/.vimrc'
-    execute 'silent !notify-send --urgency=critical "Vim configuration successfully reloaded."'
+    execute 'silent !tmux list-clients -F "\#{client_name}" | xargs -n1 -I{} tmux display-message -c {} "Vim configuration successfully reloaded."'
 endfunction
 nnoremap <leader>rl :call ReloadVimConfig()<CR>| " reload vim configuration (.vimrc)
 
@@ -387,9 +387,11 @@ nnoremap <silent> <F3> :Goyo<CR>| " function key: toggle goyo distraction-free m
 " reference: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line
 map <silent><Leader>G :call setbufvar(winbufnr(popup_atcursor(systemlist("cd " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " . shellescape(line("v") . "," . line(".") . ":" .  resolve(expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR> | " Show git commit that introduced current line in vim
 
-noremap <Leader>cy "+y | " copy to system clipboard
-noremap <Leader>cp "+p | " paste from system clipboard
+noremap <Leader>y "+y | " copy to system clipboard
+noremap <Leader>p "+p | " paste from system clipboard
 
+nnoremap <Leader>hc :set cuc!<CR> | " toggle highlight current column identation
+nnoremap <Leader>hl :set cursorline!<CR> | " toggle highlight current line
 
 " >>>
 
@@ -400,7 +402,7 @@ noremap <Leader>cp "+p | " paste from system clipboard
 autocmd BufWritePre * :%s/\s\+$//e
 
 " After saving a file, display a notification:
-autocmd BufWritePost * silent! !notify-send -a vim "File %:p saved."
+autocmd BufWritePost * silent! !tmux list-clients -F "\#{client_name}" | xargs -n1 -I{} tmux display-message -c {} "File %:p saved."
 
 " When opening a new buffer, if it has no filetype defaults to text
 autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
@@ -486,6 +488,8 @@ nnoremap <silent> <Leader>qn :cn<Cr>| " quickfix: go to next item
 nnoremap <silent> <Leader>qp :cp<Cr>| " quickfix: go to previous item
 nnoremap <silent> <Leader>qf :cfirst<Cr>| " quickfix: go to first item
 nnoremap <silent> <Leader>ql :clast<Cr>| " quickfix: go to last item
+nnoremap <silent> <Leader>qP :colder<Cr>| " quickfix: go to older quickfix list
+nnoremap <silent> <Leader>qN :cnewer<Cr>| " quickfix: go to newer quickfix list
 nnoremap <silent> <Leader>qd :ClearQuickfix<Cr>| " quickfix: clear
 nnoremap <silent> <Leader>qs :WriteQuickfix ~/.vim-quickfix-history/quickfix.json<Cr>| " quickfix: save to file
 nnoremap <silent> <Leader>qr :ReadQuickfix ~/.vim-quickfix-history/quickfix.json \|:copen<Cr>| " quickfix: restore from file
@@ -493,11 +497,14 @@ nnoremap <silent> <Leader>qr :ReadQuickfix ~/.vim-quickfix-history/quickfix.json
 autocmd FileType qf map <buffer> <Cr> :.cc<Cr>| " quickfix: go to selected item on quickfix window
 autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>| " quickfix: delete current selected item from list
 
+nnoremap <silent> <Leader>lP :lolder<Cr>| " location list: go to older list
+nnoremap <silent> <Leader>lN :lnewer<Cr>| " location list: go to newer list
+
 let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
 nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
-nnoremap <C-O> :Commands<Cr>| " fzf: select commands
+nnoremap <C-o> :Commands<Cr>| " fzf: select commands
 nnoremap <Leader>w :Windows<Cr>| " fzf/windows:  select open windows
 nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, variable, etc...
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete - deletes the buffer from the session, but keeps marks and the jump list
@@ -849,11 +856,26 @@ set foldexpr=MyFoldText()
 " :ld[o][!] {cmd} | " Execute {cmd} in each valid entry in the location list for the current window.
 " :lfdo[!] {cmd} | " Execute {cmd} in each file in the location list for the current window.
 " :gf | " open file/directory under cursor (works 'magically' if there is a file/directory under the current cursor)
+" :gF | " open file/directory under cursor on the line (works 'magically' if there is a file/directory under the current cursor. E.g. `file.py:75`)
 " <C-c>, <C-c> (meaning: Hold <Ctrl>, then 'cc') | " (slime) copy cursor text to tmux pane - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
 " <C-c>, v | " (slime) configure copy to tmux pane (session:window.pane) - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
 " :SlimeConfig | " (slime) configure copy to tmux pane (session:window.pane) - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
 " Vjjjj :normal @a | " (macros) run macro 'a' on selected lines
-"
+" :set spell! | " (spellcheck) toggle spell checking
+" ]s | " (spellcheck) jump to the next misspelled word
+" [s | " (spellcheck) jump to the previous misspelled word
+" z= | " (spellcheck) bring up the suggested replacements
+" zg | " (spellcheck) add the word under the cursor to the dictionary
+" zw | " (spellcheck) undo and remove the word from the dictionary
+" :args /full/path/**/*.txt | " (global search/replace) 01 - populate args list with a list of files (recursively)
+" :argdo %s/old/new/g | " (global search/replace) 02 - replace on all files on the args list
+" :argdo update | " (global search/replace) 03 - save all files on the args list
+
+" :read !<command> | " run external command and insert its' stdout on current position
+" (SELECTION) :write !<command> | " run external command (e.g. python, etc...) with selection as input.
+" (SELECTION) :!<command> | " run external command on selected text. e.g. figlet, column, sort, etc...
+
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
+
 
