@@ -497,11 +497,14 @@ nnoremap <silent> <Leader>qr :ReadQuickfix ~/.vim-quickfix-history/quickfix.json
 autocmd FileType qf map <buffer> <Cr> :.cc<Cr>| " quickfix: go to selected item on quickfix window
 autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>| " quickfix: delete current selected item from list
 
+nnoremap <silent> <Leader>lP :lolder<Cr>| " location list: go to older list
+nnoremap <silent> <Leader>lN :lnewer<Cr>| " location list: go to newer list
+
 let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
 nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
-nnoremap <C-O> :Commands<Cr>| " fzf: select commands
+nnoremap <C-o> :Commands<Cr>| " fzf: select commands
 nnoremap <Leader>w :Windows<Cr>| " fzf/windows:  select open windows
 nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, variable, etc...
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete - deletes the buffer from the session, but keeps marks and the jump list
