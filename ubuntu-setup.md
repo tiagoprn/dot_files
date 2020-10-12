@@ -339,10 +339,15 @@ crazydiskmark (to bookmark disks - equivalent to CrystalDiskMark on windows - ne
 
 
 ## rust
+(install as root)
 $ export RUSTUP_HOME=/opt/rust && export CARGO_HOME=/opt/rust && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 $ export PATH=$PATH:/opt/rust/bin
 $ rustup install stable
 $ rustup default stable
+IMPORTANT: to be able to update cargo packages and install new ones, you must export the variables above each time:
+$ export RUSTUP_HOME=/opt/rust && export CARGO_HOME=/opt/rust && export PATH=$PATH:/opt/rust/bin
+(after cargo install/update, you can manually copy the binary from /opt/rust/bin/[binary] to /usr/bin)
+
 
 ## telegram-desktop
 $ mkdir /opt/telegram && cd /opt/telegram
