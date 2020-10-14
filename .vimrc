@@ -855,8 +855,9 @@ set foldexpr=MyFoldText()
 " :cfdo[!] {cmd} | update | " Execute {cmd} in EACH FILE in the quickfix list and save all files. E.g. :cfdo[!] %s/old/new/g | update
 " :ld[o][!] {cmd} | " Execute {cmd} in each valid entry in the location list for the current window.
 " :lfdo[!] {cmd} | " Execute {cmd} in each file in the location list for the current window.
-" :gf | " open file/directory under cursor (works 'magically' if there is a file/directory under the current cursor)
-" :gF | " open file/directory under cursor on the line (works 'magically' if there is a file/directory under the current cursor. E.g. `file.py:75`)
+" :gf | " open text file/directory under cursor (works 'magically' if there is a file/directory under the current cursor)
+" :gF | " open text file/directory under cursor on the line (works 'magically' if there is a file/directory under the current cursor. E.g. `file.py:75`)
+" :gx | " open file/directory under cursor with the corresponding application (xdg-open like)
 " <C-c>, <C-c> (meaning: Hold <Ctrl>, then 'cc') | " (slime) copy cursor text to tmux pane - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
 " <C-c>, v | " (slime) configure copy to tmux pane (session:window.pane) - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
 " :SlimeConfig | " (slime) configure copy to tmux pane (session:window.pane) - e.g. useful specially with ipython, pgcli, and other REPL/dynamic interpreters
