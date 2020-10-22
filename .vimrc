@@ -393,6 +393,15 @@ noremap <Leader>p "+p | " paste from system clipboard
 nnoremap <Leader>hc :set cuc!<CR> | " toggle highlight current column identation
 nnoremap <Leader>hl :set cursorline!<CR> | " toggle highlight current line
 
+" allow moving current line or visual selection up or down (works in visual and insert mode)
+nnoremap <c-j> :m .+1<CR>== | "(movement) move current line or selection down
+nnoremap <c-k> :m .-2<CR>== | "(movement) move current line or selection up
+" TODO: there is a bug on visual selection that makes it sometimes getter more than the current selection when used multiple times
+vnoremap <c-j> :m '>+1<CR>gv=gv | "(movement) (VISUAL) move current selection down
+vnoremap <c-k> :m '<-2<CR>gv=gv | "(movement) (VISUAL) move current selection up
+inoremap <c-j> <Esc>:m .+1<CR>==I | "(movement) (INSERT) move current line down
+inoremap <c-k> <Esc>:m .-2<CR>==I | "(movement) (INSERT) move current line up
+
 " >>>
 
 " Vim event hooks <<<
