@@ -402,6 +402,21 @@ vnoremap <c-k> :m '<-2<CR>gv=gv | "(movement) (VISUAL) move current selection up
 inoremap <c-j> <Esc>:m .+1<CR>==I | "(movement) (INSERT) move current line down
 inoremap <c-k> <Esc>:m .-2<CR>==I | "(movement) (INSERT) move current line up
 
+
+function! GotoJump()
+  jumps
+  let j = input("Please select your jump: ")
+  if j != ''
+    let pattern = '\v\c^\+'
+    if j =~ pattern
+      let j = substitute(j, pattern, '', 'g')
+      execute "normal " . j . "\<C-i>"
+    else
+      execute "normal " . j . "\<C-o>"
+    endif
+  endif
+endfunction
+nmap <Leader>J :call GotoJump()<CR> | " (jumps) Go to jump
 " >>>
 
 " Vim event hooks <<<
@@ -513,7 +528,7 @@ let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head
 nnoremap <C-f> :Files<Cr>| " fzf: select file by name
 nnoremap <C-g> :Rg<Cr>| " fzf: select file by contents
 nnoremap <C-b> :Buffers<Cr>| " fzf: select open buffers
-nnoremap <C-o> :Commands<Cr>| " fzf: select commands
+nnoremap <C-d> :Commands<Cr>| " fzf: select commands
 nnoremap <Leader>w :Windows<Cr>| " fzf/windows:  select open windows
 nnoremap <C-t> :Tags<Cr>| " fzf: search for tag (ctag) in file - search class, variable, etc...
 nnoremap <silent> <Leader>bd :bd!<Cr>| " fzf: buffer delete - deletes the buffer from the session, but keeps marks and the jump list
@@ -884,6 +899,10 @@ set foldexpr=MyFoldText()
 " :read !<command> | " run external command and insert its' stdout on current position
 " (SELECTION) :write !<command> | " run external command (e.g. python, etc...) with selection as input.
 " (SELECTION) :!<command> | " run external command on selected text. e.g. figlet, column, sort, etc...
+" :m' | " (jumps/marks) mark current line (so that it appears on the jump list)
+" :ju | " (jumps) show jumps list (the current position has a '>' on the list)
+" <ctrl-o> | " (jumps) go to next jump on jumps list
+" <ctrl-i> | " (jumps) go to previous jump on jumps list
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
