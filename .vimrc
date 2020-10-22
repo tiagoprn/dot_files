@@ -903,7 +903,7 @@ set foldexpr=MyFoldText()
 " :ju | " (jumps) show jumps list (the current position has a '>' on the list)
 " <ctrl-o> | " (jumps) go to next jump on jumps list
 " <ctrl-i> | " (jumps) go to previous jump on jumps list
-
+" :clearjumps | " (jumps) clear the jumps list
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
 
