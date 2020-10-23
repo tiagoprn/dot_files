@@ -171,7 +171,7 @@ assign [class="Google-chrome" window_type="normal"] $workspace3
 # because spotify does not work like the other windows, it does not move to where I order it to
 for_window [class="Spotify"] move to workspace $workspace1
 assign [class="TelegramDesktop" window_type="normal"] $workspace1
-assign [class="Slack" window_type="normal"] $workspace6
+assign [class="Slack" window_type="normal"] $workspace1
 
 assign [instance="cli_dashboard" window_type="normal"] $workspace10
 # reload the configuration file
