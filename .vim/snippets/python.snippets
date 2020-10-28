@@ -43,3 +43,6 @@ snippet log
 
 snippet ipy
 	__import__('IPython').embed()
+snippet ast
+	import ast
+	print(ast.dump(ast.parse("${1:python_code_as_string}")))
