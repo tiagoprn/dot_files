@@ -895,7 +895,7 @@ set foldexpr=MyFoldText()
 " :args /full/path/**/*.txt | " (global search/replace) 01 - populate args list with a list of files (recursively)
 " :argdo %s/old/new/g | " (global search/replace) 02 - replace on all files on the args list
 " :argdo update | " (global search/replace) 03 - save all files on the args list
-
+" :wn | " (global search/replace) 04 - save current file and move to the next one in the args list
 " :read !<command> | " run external command and insert its' stdout on current position
 " (SELECTION) :write !<command> | " run external command (e.g. python, etc...) with selection as input.
 " (SELECTION) :!<command> | " run external command on selected text. e.g. figlet, column, sort, etc...
