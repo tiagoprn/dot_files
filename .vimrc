@@ -403,7 +403,7 @@ inoremap <c-j> <Esc>:m .+1<CR>==I | "(movement) (INSERT) move current line down
 inoremap <c-k> <Esc>:m .-2<CR>==I | "(movement) (INSERT) move current line up
 
 
-function! GotoJump()
+function! GotoJumpAlt()
   jumps
   let j = input("Please select your jump: ")
   if j != ''
@@ -416,7 +416,25 @@ function! GotoJump()
     endif
   endif
 endfunction
-nmap <Leader>J :call GotoJump()<CR> | " (jumps) Go to jump
+nmap <Leader>Ja :call GotoJumpAlt()<CR> | " (jumps) Go to jump (alt)
+
+function! GetJumps()
+  redir => cout
+  silent jumps
+  redir END
+  return reverse(split(cout, "\n")[1:])
+endfunction
+function! GoToJump(jump)
+    let jumpnumber = split(a:jump, '\s\+')[0]
+    execute "normal " . jumpnumber . "\<c-o>"
+endfunction
+command! Jumps call fzf#run(fzf#wrap({
+        \ 'source': GetJumps(),
+        \ 'sink': function('GoToJump')}))
+nmap <Leader>J :Jumps<CR> | " (jumps) Go to jump
+
+
+
 " >>>
 
 " Vim event hooks <<<
