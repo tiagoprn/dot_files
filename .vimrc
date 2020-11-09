@@ -922,6 +922,11 @@ set foldexpr=MyFoldText()
 " <ctrl-o> | " (jumps) go to next jump on jumps list
 " <ctrl-i> | " (jumps) go to previous jump on jumps list
 " :clearjumps | " (jumps) clear the jumps list
+" :windo w! | " (windows) save files open on all windows
+" :windo e! | " (windows) reload files open on all windows
+"
+"
+"
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
 
