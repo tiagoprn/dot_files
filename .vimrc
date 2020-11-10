@@ -266,9 +266,6 @@ set statusline+=\ LINE\:%l/%L(%P)
 nnoremap <C-r> :redraw!<CR>| " redraw screen to cleanup from glitches
 nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
 
-nnoremap j gj| " move vertically down by visual line
-nnoremap k gk| " move vertically up by visual line
-
 map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
 
 
@@ -330,14 +327,6 @@ nnoremap <leader><Backspace> <C-w>q<Enter>| " Close split but keep buffer
 let g:sessions_dir = '~/vim-sessions'
 exec 'nnoremap <Leader>ss :mks! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'| " save current session
 exec 'nnoremap <Leader>so :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'| " open session
-
-" If you like long lines with line wrapping enabled, this solves the problem
-" that pressing down jumpes your cursor “over” the current line to the next
-" line. It changes behaviour so that it jumps to the next row in the editor
-" (much more natural):
-nnoremap j gj| " go down on wrapped line
-nnoremap k gk| " go up on wrapped line
-
 
 " DISABLE ARROW KEYS IN NORMAL MODE
 noremap <Up> <Nop>
@@ -799,7 +788,11 @@ set foldexpr=MyFoldText()
 " j  | "  (movement)   down
 " k  | "  (movement)   up
 " l  | "  (movement)   right
+" gj | "  (movement)   move down on soft wrapped line
+" gk | "  (movement)   move up on soft wrapped line
 " w  | "  (movement)   next word
+" )  | "  (movement)   next sentence
+" }  | "  (movement)   next paragraph
 " b  | "  (movement)   beginning of current word / previous word
 " ge | "  (movement)   end of the previous word
 " e  | "  (movement)   end of current word / end of next word
