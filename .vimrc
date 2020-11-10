@@ -893,10 +893,12 @@ set foldexpr=MyFoldText()
 " <ctrl+a> | " fzf/quickfix: select all items to go to quickfix
 " <ctrl+q> | " fzf/quickfix: copy selected items to quickfix
 " :Rg 'text' -g '*.py' | " search with rg (<ctrl+a> or <tab> to select, <ctrl+q> to copy to quickfix)
-" :cdo[!] {cmd} | update | " Execute {cmd} in EACH VALID ENTRY in the quickfix list and save all files
-" :cfdo[!] {cmd} | update | " Execute {cmd} in EACH FILE in the quickfix list and save all files. E.g. :cfdo[!] %s/old/new/g | update
-" :ld[o][!] {cmd} | " Execute {cmd} in each valid entry in the location list for the current window.
-" :lfdo[!] {cmd} | " Execute {cmd} in each file in the location list for the current window.
+" :cdo[!] {cmd} | update | " (quickfix) Execute {cmd} in EACH VALID ENTRY in the quickfix list and save all files
+" :cfdo[!] {cmd} | update | " (quickfix) Execute {cmd} in EACH FILE in the quickfix list and save all files. E.g. :cfdo[!] %s/old/new/g | update
+" :chistory | " (quickfix) show your quickfix lists
+" :ld[o][!] {cmd} | " (location-list) Execute {cmd} in each valid entry in the location list for the current window.
+" :lfdo[!] {cmd} | " (location-list) Execute {cmd} in each file in the location list for the current window.
+" :lhistory | " (location-list) show your location lists
 " :gf | " open text file/directory under cursor (works 'magically' if there is a file/directory under the current cursor)
 " :gF | " open text file/directory under cursor on the line (works 'magically' if there is a file/directory under the current cursor. E.g. `file.py:75`)
 " :gx | " open file/directory under cursor with the corresponding application (xdg-open like)
