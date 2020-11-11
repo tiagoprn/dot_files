@@ -97,9 +97,13 @@ bindsym $mod+Shift+j mark _last; focus down; swap with mark "_last"; unmark _las
 # alt-tab to quickly switch between windows
 bindsym Mod1+Tab exec --no-startup-id rofi -show window -drun-icon-theme
 
+# It is not possible to associate directly the keys - and / on a `bindsym`.
+# So to use those special characters, I must use `bindcode` with the key codes
+# for both of them (the tool `xev` can be used to interactively get the key
+# codes from a key):
+#
 # split in horizontal orientation: -
 bindcode $mod+20 split h
-
 # split in vertical orientation: /
 bindcode $mod+61 split v
 
