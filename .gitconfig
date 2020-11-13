@@ -17,6 +17,8 @@
 
   glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
+  glog-report = log --date=iso --pretty=format:'%Cgreen(%ad) %Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
+
   ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
 
   files-changed = log --name-status
