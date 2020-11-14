@@ -1,0 +1,125 @@
+[
+{
+	"border": "normal",
+		"floating": "auto_off",
+		"fullscreen_mode": 0,
+		"layout": "splith",
+		"percent": null,
+		"type": "con",
+		"nodes": [
+		{
+			"border": "normal",
+			"floating": "auto_off",
+			"layout": "splitv",
+			"percent": 0.333333333333333,
+			"type": "con",
+			"nodes": [
+			{
+				"border": "pixel",
+				"current_border_width": 1,
+				"floating": "auto_off",
+				"geometry": {
+					"height": 1032,
+					"width": 958,
+					"x": 0,
+					"y": 0
+				},
+				"name": "bash",
+				"percent": 0.5,
+				"swallows": [
+				{
+					"instance": "^kitty$"
+				}
+				],
+				"type": "con"
+			},
+			{
+				"border": "pixel",
+				"current_border_width": 1,
+				"floating": "auto_off",
+				"geometry": {
+					"height": 1032,
+					"width": 958,
+					"x": 0,
+					"y": 0
+				},
+				"name": "bash",
+				"percent": 0.5,
+				"swallows": [
+				{
+					"instance": "^kitty$"
+				}
+				],
+				"type": "con"
+			}
+			]
+		},
+		{
+			"border": "pixel",
+			"current_border_width": 1,
+			"floating": "auto_off",
+			"geometry": {
+				"height": 1032,
+				"width": 958,
+				"x": 0,
+				"y": 0
+			},
+			"name": "bash",
+			"percent": 0.333333333333333,
+			"swallows": [
+			{
+				"instance": "^kitty$"
+			}
+			],
+			"type": "con"
+		},
+		{
+			"border": "normal",
+			"floating": "auto_off",
+			"layout": "splitv",
+			"percent": 0.333333333333333,
+			"type": "con",
+			"nodes": [
+			{
+				"border": "pixel",
+				"current_border_width": 1,
+				"floating": "auto_off",
+				"geometry": {
+					"height": 1032,
+					"width": 958,
+					"x": 0,
+					"y": 0
+				},
+				"name": "bash",
+				"percent": 0.5,
+				"swallows": [
+				{
+					"instance": "^kitty$"
+				}
+				],
+				"type": "con"
+			},
+			{
+				"border": "pixel",
+				"current_border_width": 1,
+				"floating": "auto_off",
+				"geometry": {
+					"height": 1032,
+					"width": 958,
+					"x": 0,
+					"y": 0
+				},
+				"name": "bash",
+				"percent": 0.5,
+				"swallows": [
+				{
+					"instance": "^kitty$"
+				}
+				],
+				"type": "con"
+			}
+			]
+		}
+	]
+}
+]
