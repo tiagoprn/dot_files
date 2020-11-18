@@ -919,7 +919,7 @@ set foldexpr=MyFoldText()
 " :clearjumps | " (jumps) clear the jumps list
 " :windo w! | " (windows) save files open on all windows
 " :windo e! | " (windows) reload files open on all windows
-"
+" <ctrl-]> | " (help) Jump to tag under cursor - you can use (jumps) navigation mappings to navigate back and forth between them.
 "
 "
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
