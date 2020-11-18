@@ -920,10 +920,11 @@ set foldexpr=MyFoldText()
 " :clearjumps | " (jumps) clear the jumps list
 " :windo w! | " (windows) save files open on all windows
 " :windo e! | " (windows) reload files open on all windows
-" <ctrl-]> | " (help) Jump to tag under cursor - you can use (jumps) navigation mappings to navigate back and forth between them.
-" :g/pattern/d | "  (patterns) Remove lines matching pattern
-" :g!/pattern/d | " (patterns) Remove lines that do NOT match the pattern
-"
+" <ctrl-]> | " (help) jump to tag under cursor - you can use (jumps) navigation mappings to navigate back and forth between them.
+" :g/pattern/d | "  (patterns) remove lines matching pattern
+" :g!/pattern/d | " (patterns) remove lines that do NOT match the pattern
+" <ctrl-a> | " (numbers) increment the next number on the line
+" <ctrl-x> | " (numbers) decrement the next number on the line
 "
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
