@@ -835,6 +835,7 @@ set foldexpr=MyFoldText()
 " D | "  Delete until end of the line
 " :%s/ /\r/g | " replace spaces for <enter>
 " :%s/old/new/gc | " replace asking for confirmation on each occurence
+" :%s/https.*/[&]()/g | " (replace) find all urls/links with regex and replace them with markdown syntax - the '&' does the magic and inserts the matched text
 " shift+v  | "  select a whole line
 " <control>, h  | "  move current line/selection to the left
 " <control>, j  | "  move current line/selection down
@@ -920,8 +921,8 @@ set foldexpr=MyFoldText()
 " :windo w! | " (windows) save files open on all windows
 " :windo e! | " (windows) reload files open on all windows
 " <ctrl-]> | " (help) Jump to tag under cursor - you can use (jumps) navigation mappings to navigate back and forth between them.
-" :g/pattern/d | "  Remove lines matching pattern
-" :g!/pattern/d | " Remove lines that do NOT match the pattern
+" :g/pattern/d | "  (patterns) Remove lines matching pattern
+" :g!/pattern/d | " (patterns) Remove lines that do NOT match the pattern
 "
 "
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
