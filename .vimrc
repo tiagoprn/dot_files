@@ -925,6 +925,7 @@ set foldexpr=MyFoldText()
 " :g!/pattern/d | " (patterns) remove lines that do NOT match the pattern
 " <ctrl-a> | " (numbers) increment the next number on the line
 " <ctrl-x> | " (numbers) decrement the next number on the line
+" (VISUAL)gv | " re-select/redo last visual selection
 "
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
