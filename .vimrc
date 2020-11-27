@@ -96,6 +96,10 @@ Plugin 'junegunn/vim-peekaboo'
 " Sends text to another tmux window (use with ipython or other REPL, e.g. pgcli etc):
 Plugin 'jpalardy/vim-slime'
 
+" python text objects
+Plugin 'jeetsukumaran/vim-pythonsense'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -651,6 +655,9 @@ let g:slime_paste_file = "$HOME/.slime_paste"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "session_name:window.pane"}
 " >>>
 
+" VIM-PYTHONSENSE <<<
+let g:is_pythonsense_alternate_motion_keymaps = 1
+"  >>>
 
 " Global autocmds and miscelaneus <<<
 autocmd VimResized * wincmd =  " (windows) resize vim splits proportionally when the window that contains vim is resized
@@ -926,6 +933,18 @@ set foldexpr=MyFoldText()
 " <ctrl-a> | " (numbers) increment the next number on the line
 " <ctrl-x> | " (numbers) decrement the next number on the line
 " (VISUAL)gv | " re-select/redo last visual selection
+" g: | " (python/motions) print (echo) current semantic location (e.g. '(class:)Foo > (def:)bar')
+" ]k | " (python/motions) Move (forward) to the beginning of the next Python class.
+" ]K | " (python/motions) Move (forward) to the end of the current Python class.
+" [k | " (python/motions) Move (backward) to beginning of the current Python class (or beginning of the previous Python class if not currently in a class or already at the beginning of a class).
+" [K | " (python/motions) Move (backward) to end of the previous Python class.
+" ]f | " (python/motions) Move (forward) to the beginning of the next Python method or function.
+" ]F | " (python/motions) Move (forward) to the end of the current Python method or function.
+" [f | " (python/motions) Move (backward) to the beginning of the current Python method or function (or to the beginning of the previous method or function if not currently in a method/function or already at the beginning of a method/function).
+" [F | " (python/motions) Move (backward) to the end of the previous Python method or function.
+" f | " (python/text-objects) function  (e.g. actions: cif, vif, caf, vaf)
+" c | " (python/text-objects) class (e.g. actions: cic, vic, cac, vac)
+" d | " (python/text-objects) docstring (e.g. actions: cid, vid, cad, vad)
 "
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
