@@ -514,8 +514,11 @@ $ sudo snap install slack
 $ sudo snap install spotify
 $ sudo snap install multipass --classic
 
+Import: if snaps are not available, try to use docker images with the [watchtower container](https://containrrr.dev/watchtower/usage-overview/) to auto update the images.
+
 TODO: pyenv
 TODO: blueberry linux mint bluetooth manager (changed my mind, use the terminal. Create a cheatsheet on `tiagopr.nl` on how to do that.)
 TODO: http://eradman.com/entrproject/
 TODO: wpgtk
+
 
