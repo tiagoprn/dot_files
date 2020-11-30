@@ -14,4 +14,4 @@ matchbox-keyboard (on-screen keyboard)
 
 ### i3
 
-i3-wm i3blocks i3lock-fancy i3status
+i3-wm i3blocks i3lock-fancy i3status dmenu suckless-tools rofi rxvt-unicode
