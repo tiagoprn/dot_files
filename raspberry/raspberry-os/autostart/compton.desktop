@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=compton
-Comment=Compositor
-Exec=compton --backend glx --paint-on-overlay --vsync opengl-swc
-Terminal=false
-Type=Application
-NoDisplay=true
-X-GNOME-UsesNotifications=true

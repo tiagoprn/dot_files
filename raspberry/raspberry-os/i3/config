@@ -261,7 +261,8 @@ bar {
 # -- MY CUSTOMIZATIONS BELOW --
 
 # --- WINDOW BORDERS ---
-for_window [class="^.*"] border pixel 1
+# last changed: fully disabled borders
+for_window [class="^.*"] border pixel 0
 focus_follows_mouse no
 
 # --- SCRATCHPAD ---

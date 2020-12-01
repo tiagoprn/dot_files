@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=unclutter
-Comment=Hide mouse cursor when idle
-Exec=unclutter -idle 0
-Terminal=false
-Type=Application
-NoDisplay=true
-X-GNOME-UsesNotifications=true
