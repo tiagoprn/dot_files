@@ -296,4 +296,4 @@ bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compo
 exec_always --no-startup-id compton --config ~/compton.conf
 exec_always --no-startup-id unclutter
 
-exec --no-startup-id "arandr && /storage/src/devops/bin/i3_change_wallpaper.sh"
+exec --no-startup-id "/storage/src/devops/bin/i3_change_wallpaper.sh"
