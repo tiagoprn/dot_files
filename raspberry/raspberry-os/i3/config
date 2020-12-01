@@ -60,7 +60,7 @@ font pango: $font_family $font_size
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id '/storage/src/devops/bin/urxvt-terminal.sh'
+bindsym $mod+Return exec --no-startup-id lxterminal
 bindsym $mod+Shift+Return exec --no-startup-id urxvt -e bash -c "TERM=screen-256color /storage/src/devops/bin/start_random_tmux_session_name.sh"
 
 # kill focused window
@@ -124,22 +124,22 @@ bindsym $mod+Shift+f floating toggle
 # focus the child container
 # bindsym $mod+c focus child
 
-set $workspace1 " 1:Personal"
+set $workspace1 " 1:Home"
 set $workspace2 " 2:Firefox"
-set $workspace3 " 3:Chrome"
-set $workspace4 " 4:Main"
-set $workspace5 " 5:Side"
-set $workspace6 " 6:etc0"
-set $workspace7 " 7:etc1"
-set $workspace8 " 8:etc2"
-set $workspace9 " 9:etc3"
-set $workspace10 " 0:Dashboard"
+set $workspace3 " 3:Chromium"
+set $workspace4 " 4:Hidden"
+set $workspace5 " 5:etc0"
+set $workspace6 " 6:etc1"
+set $workspace7 " 7:etc2"
+set $workspace8 " 8:etc3"
+set $workspace9 " 9:etc4"
+set $workspace10 " 0:etc5"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1; bar mode dock
 bindsym $mod+2 workspace $workspace2; bar mode dock
 bindsym $mod+3 workspace $workspace3; bar mode dock
-bindsym $mod+4 workspace $workspace4; bar mode dock
+bindsym $mod+4 workspace $workspace4; bar mode hide
 bindsym $mod+5 workspace $workspace5; bar mode dock
 # bindsym $mod+5 workspace $workspace5; bar mode hide
 bindsym $mod+6 workspace $workspace6; bar mode dock
@@ -272,7 +272,6 @@ focus_follows_mouse no
 for_window [class="MPlayer"] floating enable border pixel 1
 for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 480 move position center
 for_window [class="Arandr"] floating enable enable border pixel 4 resize set 800 600 move position center
-for_window [instance="ranger"] floating disable border pixel 1
 for_window [instance="sxiv"] mark "wallpapers", floating enable border pixel 4 resize set 800 600 move position center
 # Below is mpv - the CLI video player
 for_window [class="mpv"] floating enable sticky enable border pixel 1 resize set 320 240
@@ -286,7 +285,6 @@ for_window [window_type="menu"] floating enable
 for_window [title="Open With"] floating enable
 
 # --- WINDOWS WITH SPECIAL BORDERS ---
-for_window [class="kitty"] border pixel 1
 for_window [class="URxvt"] border pixel 1
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
@@ -297,5 +295,4 @@ bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compo
 exec_always --no-startup-id compton --config ~/compton.conf
 exec_always --no-startup-id unclutter
 
-exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
 exec --no-startup-id "arandr && /storage/src/devops/bin/i3_change_wallpaper.sh"
