@@ -7,13 +7,43 @@
 
 # i3 config file (v4)
 #
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+default_orientation horizontal
+
+# Pressing the same workspace shortcut goes to the previous one
+workspace_auto_back_and_forth no
 
 set $mod Mod4
+set $black #101218
+set $darkgrey #383838
+set $darkviolet #252936
+set $palidblue #7780a1
+set $lightgrey #C0C5CE
+set $lightergrey #d1d4e0
+set $mediumgrey #C9CCDB
+set $white #ffffff
+set $darkred #c72e35
+set $red #ff0000
+set $lightsalmon #f99170
+set $palidyellow #ffefcc
+set $poolblue #a5ffe1
+set $lightblue #97e0ff
+set $paleblue #97bbf7
+set $lightviolet #c0b7f9
+set $pitchblack #000000
+set $bluesky #4845da
+set $blue #0000ff
+
+# set $font_family Source Sans Pro Semibold
+set $font_family Hack
+set $font_size 10.5
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+#font pango:monospace 8
+# font pango:Inconsolata Awesome 14
+font pango: $font_family $font_size
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,111 +60,122 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id '/storage/src/devops/bin/urxvt-terminal.sh'
+bindsym $mod+Shift+Return exec --no-startup-id urxvt -e bash -c "TERM=screen-256color /storage/src/devops/bin/start_random_tmux_session_name.sh"
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+BackSpace kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# program launcher
+# below lists all binary executable files
+bindsym $mod+d exec --no-startup-id rofi -show run
+# below lists just apps with .desktop files
+bindsym $mod+space exec --no-startup-id rofi -show drun -drun-icon-theme
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# Window management
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+## change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+## move focused window
+bindsym $mod+Ctrl+h move left
+bindsym $mod+Ctrl+j move down
+bindsym $mod+Ctrl+k move up
+bindsym $mod+Ctrl+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+## swap window without changing container layout
+bindsym $mod+Shift+l mark _last; focus right; swap with mark "_last"; unmark _last; focus right
+bindsym $mod+Shift+h mark _last; focus left; swap with mark "_last"; unmark _last; focus left
+bindsym $mod+Shift+k mark _last; focus up; swap with mark "_last"; unmark _last; focus up
+bindsym $mod+Shift+j mark _last; focus down; swap with mark "_last"; unmark _last; focus down
 
-# split in horizontal orientation
-bindsym $mod+h split h
+# alt-tab to quickly switch between windows
+bindsym Mod1+Tab exec --no-startup-id rofi -show window -drun-icon-theme
 
-# split in vertical orientation
-bindsym $mod+v split v
+# It is not possible to associate directly the keys - and / on a `bindsym`.
+# So to use those special characters, I must use `bindcode` with the key codes
+# for both of them (the tool `xev` can be used to interactively get the key
+# codes from a key):
+#
+# split in horizontal orientation: -
+bindcode $mod+20 split h
+# split in vertical orientation: /
+bindcode $mod+61 split v
 
-# enter fullscreen mode for the focused container
+# enter fullscreen mode for the focused container/window
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
+bindsym $mod+Shift+c layout stacking
+bindsym $mod+Shift+t layout tabbed
+bindsym $mod+Shift+o layout toggle split
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+p focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+# bindsym $mod+c focus child
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $workspace1 " 1:Personal"
+set $workspace2 " 2:Firefox"
+set $workspace3 " 3:Chrome"
+set $workspace4 " 4:Main"
+set $workspace5 " 5:Side"
+set $workspace6 " 6:etc0"
+set $workspace7 " 7:etc1"
+set $workspace8 " 8:etc2"
+set $workspace9 " 9:etc3"
+set $workspace10 " 0:Dashboard"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace $workspace1; bar mode dock
+bindsym $mod+2 workspace $workspace2; bar mode dock
+bindsym $mod+3 workspace $workspace3; bar mode dock
+bindsym $mod+4 workspace $workspace4; bar mode dock
+bindsym $mod+5 workspace $workspace5; bar mode dock
+# bindsym $mod+5 workspace $workspace5; bar mode hide
+bindsym $mod+6 workspace $workspace6; bar mode dock
+bindsym $mod+7 workspace $workspace7; bar mode dock
+bindsym $mod+8 workspace $workspace8; bar mode dock
+bindsym $mod+9 workspace $workspace9; bar mode dock
+bindsym $mod+0 workspace $workspace10; bar mode dock
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# moves the current workspace to the second monitor up/down
+bindsym $mod+Shift+w exec --no-startup-id i3-msg move workspace to output up
+bindsym $mod+Shift+s exec --no-startup-id i3-msg move workspace to output down
+bindsym $mod+Shift+a exec --no-startup-id i3-msg move workspace to output left
+bindsym $mod+Shift+d exec --no-startup-id i3-msg move workspace to output right
+
+# makes some windows open on specific workspaces
+# (the class can be get running `xprop` on the window. Then, you get the second value of the attribute WM_CLASS(STRING).)
+assign [class="Firefox" window_type="normal"] $workspace2
+assign [class="Google-chrome" window_type="normal"] $workspace3
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+e restart
+
+bindsym $mod+z exec --no-startup-id /storage/src/devops/rofi/shutdown.py
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -144,10 +185,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -155,16 +196,106 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
+# Resize floating windows to a default size
+bindsym $mod+y resize set 800 px 500 px, move position center
+
+# Make a window sticky or not
+bindsym Mod1+s sticky toggle
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
+# Window Colours
+# IMPORTANT: "indicator" is the split indicator - the border that shows where the next window will be at
+#                         | border | background | text | indicator
+  client.focused          $white $white $white $bluesky
+  client.focused_inactive $black $black    $palidblue $palidblue
+  client.unfocused        $black $black    $palidblue $palidblue
+  client.urgent           $black $darkred    $black $blue
+
+
+
 bar {
-        status_command i3status
+        status_command i3blocks -c ~/.config/i3/i3blocks.top.conf
+        font pango: $font_family $font_size
+        position top
+        workspace_buttons no
+        tray_output primary
+        colors {
+              separator $palidblue
+              background $black
+              statusline $white
+                                 #border  background text
+              focused_workspace  $bluesky $bluesky  $white
+              active_workspace   $white $white  $bluesky
+              inactive_workspace $black $black $white
+              urgent_workspace   $red $red $white
+        }
 }
+
+bar {
+        status_command i3blocks -c ~/.config/i3/i3blocks.bottom.conf
+        font pango: $font_family $font_size
+        position bottom
+        tray_output none
+        strip_workspace_numbers yes
+        colors {
+              separator $palidblue
+              background $black
+              statusline $white
+                                 #border  background text
+              focused_workspace  $bluesky $bluesky  $white
+              active_workspace   $white $white  $bluesky
+              inactive_workspace $black $black $white
+              urgent_workspace   $red $red $white
+        }
+}
+
+# -- MY CUSTOMIZATIONS BELOW --
+
+# --- WINDOW BORDERS ---
+for_window [class="^.*"] border pixel 1
+focus_follows_mouse no
+
+# --- SCRATCHPAD ---
+# bindsym $mod+Shift+BackSpace move scratchpad
+# bindsym $mod+BackSpace scratchpad show move position center
+
+# --- FLOATING MODE WINDOWS CONFIGURATION ---
+for_window [class="MPlayer"] floating enable border pixel 1
+for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 480 move position center
+for_window [class="Arandr"] floating enable enable border pixel 4 resize set 800 600 move position center
+for_window [instance="ranger"] floating disable border pixel 1
+for_window [instance="sxiv"] mark "wallpapers", floating enable border pixel 4 resize set 800 600 move position center
+# Below is mpv - the CLI video player
+for_window [class="mpv"] floating enable sticky enable border pixel 1 resize set 320 240
+# --- POPUPS ALWAYS START IN FLOATING MODE EITHER ---
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [title="Open With"] floating enable
+
+# --- WINDOWS WITH SPECIAL BORDERS ---
+for_window [class="kitty"] border pixel 1
+for_window [class="URxvt"] border pixel 1
+
+# --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
+bindsym Mod1+o exec --no-startup-id pavucontrol
+bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
+
+# --- APPLICATIONS THAT AUTOSTART WITH i3 ---
+exec_always --no-startup-id compton --config ~/compton.conf
+exec_always --no-startup-id unclutter
+
+exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
+exec --no-startup-id "arandr && /storage/src/devops/bin/i3_change_wallpaper.sh"
