@@ -16,5 +16,5 @@ matchbox-keyboard (on-screen keyboard)
 
 ### i3
 
-i3-wm i3blocks i3lock-fancy i3status dmenu suckless-tools rofi rxvt-unicode xclip arandr pavucontrol mplayer mpv firefox-esr sxiv compton fonts-hack exiv2 libnotify-bin notification-daemon dbus imagemagick imagemagick-common libimage-exiftool-perl
+i3-wm i3blocks i3lock-fancy i3status dmenu suckless-tools rofi rxvt-unicode xclip arandr pavucontrol mplayer mpv firefox-esr sxiv compton fonts-hack exiv2 libnotify-bin notification-daemon dbus imagemagick imagemagick-common libimage-exiftool-perl fonts-firacode icdiff
 

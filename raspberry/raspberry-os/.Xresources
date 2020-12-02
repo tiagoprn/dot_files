@@ -9,7 +9,7 @@ URxvt.transparent: 	false
 ! Make the sure the font you use below supports unicode symbols
 ! (you can check setting a bookmark on a vim file with `,,`, should
 ! print a flag if it supports.
-URxvt.font: xft:Fira Code:size=12:autohint:true:antialias:true\
+URxvt.font: xft:Fira Code:size=16:autohint:true:antialias:true\
 
 ! Below is the configuration for using more than one font,
 ! but it has the collateral effect that it breaks urxvt
@@ -25,7 +25,7 @@ URxvt.scrollBar: false
 urxvt*depth: 32
 URxvt.internalBorder:  30
 ! [xx] below before the color hex code means xx% transparency
-URxvt.background: [0]#000000
+URxvt.background: [50]#000000
 URxvt.foreground:   #ffffff
 URxvt.cursorColor:  #ffffff
 URxvt.saveLines: 50000
