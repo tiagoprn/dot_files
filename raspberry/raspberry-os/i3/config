@@ -297,4 +297,4 @@ bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compo
 exec_always --no-startup-id compton --config ~/compton.conf
 exec_always --no-startup-id unclutter
 # chaining commands below to warrant execution order
-exec --no-startup-id "/storage/src/devops/bin/i3_change_wallpaper.sh"; exec --no-startup-id urxvt -name clock -e bash -c '/storage/src/devops/bin/raspberry-zora/start-clock.sh'
+exec --no-startup-id i3-msg 'exec /storage/src/devops/bin/i3_change_wallpaper.sh; exec urxvt -name clock -e bash -c "/storage/src/devops/bin/raspberry-zora/start-clock.sh"'
