@@ -294,8 +294,4 @@ bindsym Mod1+o exec --no-startup-id pavucontrol
 bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 ---
-exec_always --no-startup-id compton --config ~/compton.conf
-exec_always --no-startup-id unclutter
-
-exec --no-startup-id "/storage/src/devops/bin/i3_change_wallpaper.sh"
-exec --no-startup-id urxvt -name clock -e bash -c '/storage/src/devops/bin/raspberry-zora/start-clock.sh'
+exec_always --no-startup-id compton --config ~/compton.conf; exec_always --no-startup-id unclutter; exec --no-startup-id "/storage/src/devops/bin/i3_change_wallpaper.sh"; exec --no-startup-id urxvt -name clock -e bash -c '/storage/src/devops/bin/raspberry-zora/start-clock.sh'
