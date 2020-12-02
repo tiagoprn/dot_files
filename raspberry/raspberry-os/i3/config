@@ -60,7 +60,7 @@ font pango: $font_family $font_size
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id lxterminal
+bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+Shift+Return exec --no-startup-id urxvt -e bash -c "TERM=screen-256color /storage/src/devops/bin/start_random_tmux_session_name.sh"
 
 # kill focused window
