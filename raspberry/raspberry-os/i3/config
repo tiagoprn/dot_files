@@ -168,9 +168,10 @@ bindsym $mod+Shift+d exec --no-startup-id i3-msg move workspace to output right
 
 # makes some windows open on specific workspaces
 # (the class can be get running `xprop` on the window. Then, you get the second value of the attribute WM_CLASS(STRING).)
-assign [class="Firefox" window_type="normal"] $workspace2
-assign [class="Google-chrome" window_type="normal"] $workspace3
+assign [class="Firefox" window_type="normal"] $workspace3
+assign [class="Google-chrome" window_type="normal"] $workspace4
 assign [instance="clock" window_type="normal"] $workspace1
+assign [instance="other" window_type="normal"] $workspace2
 
 # reload the configuration file
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -276,7 +277,7 @@ for_window [class="Pavucontrol"] floating enable border pixel 4 resize set 640 4
 for_window [class="Arandr"] floating enable enable border pixel 4 resize set 800 600 move position center
 for_window [instance="sxiv"] mark "wallpapers", floating enable border pixel 4 resize set 800 600 move position center
 # Below is mpv - the CLI video player
-for_window [class="mpv"] floating enable sticky enable border pixel 1 resize set 320 240
+for_window [class="mpv"] floating enable sticky enable border pixel 0 resize set 320 240
 # --- POPUPS ALWAYS START IN FLOATING MODE EITHER ---
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -287,7 +288,7 @@ for_window [window_type="menu"] floating enable
 for_window [title="Open With"] floating enable
 
 # --- WINDOWS WITH SPECIAL BORDERS ---
-for_window [class="URxvt"] border pixel 1
+for_window [class="URxvt"] border pixel 0
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 bindsym Mod1+o exec --no-startup-id pavucontrol
@@ -296,4 +297,4 @@ bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compo
 # --- APPLICATIONS THAT AUTOSTART WITH i3 ---
 exec_always --no-startup-id unclutter
 # chaining commands below to warrant execution order
-exec --no-startup-id i3-msg 'exec compton --config ~/compton.conf; exec /storage/src/devops/bin/i3_change_wallpaper.sh; exec urxvt -name clock -e bash -c "/storage/src/devops/bin/raspberry-zora/start-clock.sh"'
+exec --no-startup-id i3-msg 'exec compton --config ~/compton.conf; exec /storage/src/devops/bin/i3_change_wallpaper.sh; exec urxvt -name clock -e bash -c "/storage/src/devops/bin/raspberry-zora/start-clock.sh"; exec urxvt -name other -e bash -c "/storage/src/devops/bin/raspberry-zora/start-other.sh"; workspace number 1'
