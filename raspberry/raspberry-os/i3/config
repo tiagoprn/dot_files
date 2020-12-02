@@ -136,11 +136,11 @@ set $workspace9 " 9:etc4"
 set $workspace10 " 0:etc5"
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1; bar mode dock
-bindsym $mod+2 workspace $workspace2; bar mode dock
-bindsym $mod+3 workspace $workspace3; bar mode dock
+bindsym $mod+1 workspace $workspace1; bar mode hide
+bindsym $mod+2 workspace $workspace2; bar mode hide
+bindsym $mod+3 workspace $workspace3; bar mode hide
 bindsym $mod+4 workspace $workspace4; bar mode hide
-bindsym $mod+5 workspace $workspace5; bar mode dock
+bindsym $mod+5 workspace $workspace5; bar mode hide
 # bindsym $mod+5 workspace $workspace5; bar mode hide
 bindsym $mod+6 workspace $workspace6; bar mode dock
 bindsym $mod+7 workspace $workspace7; bar mode dock
@@ -170,6 +170,7 @@ bindsym $mod+Shift+d exec --no-startup-id i3-msg move workspace to output right
 # (the class can be get running `xprop` on the window. Then, you get the second value of the attribute WM_CLASS(STRING).)
 assign [class="Firefox" window_type="normal"] $workspace2
 assign [class="Google-chrome" window_type="normal"] $workspace3
+assign [instance="clock" window_type="normal"] $workspace1
 
 # reload the configuration file
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -297,3 +298,4 @@ exec_always --no-startup-id compton --config ~/compton.conf
 exec_always --no-startup-id unclutter
 
 exec --no-startup-id "/storage/src/devops/bin/i3_change_wallpaper.sh"
+exec --no-startup-id urxvt -name clock -e bash -c 'tmuxp load /storage/src/devops/tmuxp/raspberry-zora.yml'
