@@ -292,10 +292,8 @@ for_window [class="URxvt"] border pixel 0
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 bindsym Mod1+o exec --no-startup-id pavucontrol
-bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
 
 # --- APPLICATIONS THAT AUTOSTART WITH i3 ---
 exec_always --no-startup-id unclutter
 # chaining commands below to warrant execution order
 exec --no-startup-id i3-msg 'exec compton --config ~/compton.conf; exec /storage/src/devops/bin/i3_change_wallpaper.sh; exec urxvt -name clock -e bash -c "/storage/src/devops/bin/raspberry-zora/start-clock.sh"; exec urxvt -name other -e bash -c "/storage/src/devops/bin/raspberry-zora/start-other.sh"; workspace number 1;'
-exec --no-startup-id i3-msg 'workspace number 1'
