@@ -124,16 +124,16 @@ bindsym $mod+Shift+f floating toggle
 # focus the child container
 # bindsym $mod+c focus child
 
-set $workspace1 "Home"
-set $workspace2 "Other"
-set $workspace3 "Web"
-set $workspace4 "etc0"
-set $workspace5 "etc1"
-set $workspace6 "etc2"
-set $workspace7 "etc3"
-set $workspace8 "etc4"
-set $workspace9 "etc5"
-set $workspace10 "etc6"
+set $workspace1 "1: Home"
+set $workspace2 "2: Other"
+set $workspace3 "3: Web"
+set $workspace4 "4: etc0"
+set $workspace5 "5: etc1"
+set $workspace6 "6: etc2"
+set $workspace7 "7: etc3"
+set $workspace8 "8: etc4"
+set $workspace9 "9: etc5"
+set $workspace10 "0: etc6"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1; bar mode hide
