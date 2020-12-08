@@ -215,6 +215,7 @@ bindsym Mod1+s sticky toggle
 bar {
 	mode hide
 	hidden_state hide
+	modifier Mod1
         status_command i3blocks -c ~/.config/i3/i3blocks.top.conf
         font pango: $font_family $font_size
         position top
@@ -235,6 +236,7 @@ bar {
 bar {
 	mode hide
 	hidden_state hide
+	modifier Mod1
         status_command i3blocks -c ~/.config/i3/i3blocks.bottom.conf
         font pango: $font_family $font_size
         position bottom
