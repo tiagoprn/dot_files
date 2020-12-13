@@ -530,8 +530,8 @@ TODO: wpgtk
 - Install:
 	$ flatpak install --user https://flathub.org/repo/appstream/org.qutebrowser.qutebrowser.flatpakref
 
-- Run:
-	$ flatpak run org.qutebrowser.qutebrowser
+- Run (allowing the flatpak to access the home filesystem - which by default it does not, because of the flatpak sandbox):
+	$ flatpak run --filesystem=home org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal
 
 - Update:
 	$ flatpak --user update org.qutebrowser.qutebrowser
