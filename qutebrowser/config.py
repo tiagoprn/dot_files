@@ -56,3 +56,8 @@ c.url.searchengines = {
     'wi': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
     'yt': 'https://youtube.com/results?search_query={}',
 }
+
+config.bind(
+    'tt',
+    'config-cycle tabs.show always never;; config-cycle statusbar.hide true false',
+)
