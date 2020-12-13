@@ -61,3 +61,5 @@ config.bind(
     'tt',
     'config-cycle tabs.show always never;; config-cycle statusbar.hide true false',
 )
+
+config.bind('ytdl', 'spawn flatpak-spawn --host mpv --really-quiet {url}')
