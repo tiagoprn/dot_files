@@ -345,6 +345,7 @@ bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compo
 bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with arandr...' --urgency low; arandr && i3-msg reload"
 bindsym Mod1+k exec --no-startup-id "/storage/src/devops/rofi/toggle_keyboards.py"
 bindsym $mod+w exec --no-startup-id "/storage/src/devops/bin/layout_manager.sh"
+bindsym $mod+s exec --no-startup-id "/storage/src/devops/rofi/snippets.sh"
 bindsym $mod+c exec --no-startup-id "/storage/src/devops/bin/customize_capslock.sh"
 bindsym Mod1+b exec --no-startup-id "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py"
 bindsym Mod1+Shift+b exec --no-startup-id "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/work/dafiti -C ~/.local/share/qutebrowser/work/dafiti/config/config.py"
