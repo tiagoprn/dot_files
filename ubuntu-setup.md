@@ -531,7 +531,7 @@ TODO: wpgtk
 	$ flatpak install --user https://flathub.org/repo/appstream/org.qutebrowser.qutebrowser.flatpakref
 
 - Run (allowing the flatpak to access the home filesystem - which by default it does not, because of the flatpak sandbox):
-	$ flatpak run --filesystem=home org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal
+	$ flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal
 
 - Update:
 	$ flatpak --user update org.qutebrowser.qutebrowser
@@ -539,3 +539,10 @@ TODO: wpgtk
 - Uninstall:
 	$ flatpak --user uninstall org.qutebrowser.qutebrowser
 
+### flameshot:
+
+- Install:
+	$ flatpak install flathub org.flameshot.Flameshot
+
+- Run:
+	$ flatpak run --filesystem=host org.flameshot.Flameshot
