@@ -330,7 +330,7 @@ bindsym $mod+a exec --no-startup-id /storage/src/devops/rofi/i3_cheatsheet.sh
 
 ## Others
 bindsym Mod1+r exec --no-startup-id "XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
-bindsym Mod1+w exec --no-startup-id sxiv -t ~/Wallpapers
+bindsym Mod1+w exec --no-startup-id sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale
 bindsym Mod1+f exec --no-startup-id flash_window
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching spacefm...' --urgency low; spacefm"
 bindsym $mod+b exec --no-startup-id /storage/src/devops/rofi/bookmarks.py
