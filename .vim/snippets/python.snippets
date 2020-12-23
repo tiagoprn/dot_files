@@ -48,3 +48,7 @@ snippet pl
 snippet ast
 	import ast
 	print(ast.dump(ast.parse("${1:python_code_as_string}")))
+snippet bash
+	import subprocess
+	command = 'echo "bla" | xclip -selection clipboard'
+	subprocess.check_call(command, shell=True)
