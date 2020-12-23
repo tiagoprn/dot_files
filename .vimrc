@@ -267,9 +267,8 @@ set statusline+=\ LINE\:%l/%L(%P)
 " >>>
 
 " Custom key [re]mappings <<<
-nnoremap <Leader>r :redraw!<CR>| " redraw screen to cleanup from glitches
 nnoremap <C-u> :undo<CR>| " undo changes
-nnoremap <C-w> :w!<CR>| " save file
+nnoremap <C-w> :w! \| :redraw!<CR>| " save file and redraw screen to cleanup from glitches (which do not occur on pure txt files)
 nnoremap <C-e> :e<CR>| " reload file
 
 nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
