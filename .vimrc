@@ -267,7 +267,11 @@ set statusline+=\ LINE\:%l/%L(%P)
 " >>>
 
 " Custom key [re]mappings <<<
-nnoremap <C-r> :redraw!<CR>| " redraw screen to cleanup from glitches
+nnoremap <Leader>r :redraw!<CR>| " redraw screen to cleanup from glitches
+nnoremap <C-u> :undo<CR>| " undo changes
+nnoremap <C-w> :w!<CR>| " save file
+nnoremap <C-e> :e<CR>| " reload file
+
 nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
 
 map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
@@ -829,7 +833,6 @@ set foldexpr=MyFoldText()
 
 "" others
 
-" :e| " reload current file
 " ctrl+[ | "  go to visual mode
 " ctrl+o | "  go to normal mode to execute just one command and go back to insert mode
 " 80i*<esc> | "  (in visual mode - do not start with ':' - this will insert the * character 80 times on the current cursor position)
