@@ -57,7 +57,7 @@
 cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
 
 [core]
-	excludesfile = $HOME/.gitignore.global
+	excludesfile = /home/pi/.gitignore.global
 
 [commit]
     template = /storage/src/dot_files/semantic_commits.txt
