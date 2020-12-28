@@ -360,7 +360,10 @@ $ xz -d tsetup.tar.xz && tar xfv tsetup.tar && cd Telegram && ls
 $ cd /storage/src/dot_files/app-launchers && ./setup-app-launcher.sh
 
 ## ripgrep:
-$ wget https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+$ cargo install ripgrep
+
+## navi:
+$ cargo install navi
 
 ## fd:
 $ wget https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb
@@ -368,8 +371,6 @@ $ wget https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb
 ## fzf:
 $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
-## navi:
-$ sudo apt install cargo -y && sudo rm -fr /opt/navi ; sudo mkdir /opt/navi && sudo chown -R $(id -u).$(id -g) /opt/navi && git clone --depth 1 https://github.com/denisidoro/navi /opt/navi && cd /opt/navi && sudo make install
 
 ## ytop:
 $ cargo install ytop  # as the normal user, to be available on my $HOME/.cargo/bin
