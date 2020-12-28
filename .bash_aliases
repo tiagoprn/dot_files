@@ -5,26 +5,19 @@
 
 
 ## one letter aliases
-alias d='docker'
 alias f='fzf'
 alias j="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE +'normal!o-  '"  # opens a vim file with the current time and a line below ready for editing, useful as a journal.
-alias m="make"
 alias p="pyenv"
-alias s="source ~/.bash_environment && source ~/.bash_functions && source ~/.bash_aliases && source ~/.bashrc"
-alias t='todo.sh -d "/storage/docs/notes/todotxt/config" '
-alias v="vim"
+alias s="source ~/.bashrc && source ~/.profile && source ~/.bash_functions && source ~/.bash_aliases"
 
 ## two letter aliases
 alias cc='cd $(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
-alias dc='docker-compose'
-alias dp='watch -n 1 -x bash -c "source $HOME/.bashrc && dockerps"'
 alias ga="git add"
 alias gc="git commit --"  # this is to avoid passing "-m" without opening vim to edit the message using the semantic commit template.
 alias gd='git icdiff HEAD --color-moved'
 alias gf='git fetch'
 alias gl="git glog"
 alias gs="git status -s"
-alias pp='pygmentize | nl --body-numbering=a '
 alias pa='pyenv activate $(pyenv virtualenvs | grep -v "^\s*[0-9]" | cut -d " " -f 3 | fzf)'
 alias pd='pyenv deactivate '
 alias pv="pyenv virtualenvs | grep -v '^\s*[0-9]'"
@@ -51,18 +44,10 @@ alias vcb='xclip -i -selection clipboard -o | vim -' # Open clipboard contents o
 
 ## other aliases
 alias list-aliases="alias"
-alias list-functions="cat ~/.bash_functions | grep -i '^function' | grep -v -i '^function set' | grep -v -i '^function is' | sort"
 alias watch='watch -c '
 alias remove-color-codes='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 alias decomment='egrep -v "^[[:space:]]*((#|;|//).*)?$" '
 alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
-alias youtube-player='mpsyt'
-alias pacman_refresh_keys='sudo pacman-key --refresh-keys'
-alias pacman_update_mirrorlists='sudo reflector --verbose --age 6 --country Brazil --latest 15 --fastest 5 --sort rate --save /etc/pacman.d/mirrorlist'
-alias upgrade='pacman_update_mirrorlists && sudo pacman -Syu --noconfirm && yay -Syyua --noconfirm'
-alias scan-network-ips="printf 'HINT: pass the network range as the parameter, e.g. 10.0.0.1/24\n\n' && sudo nmap -sP"
-# alias tmux-edit-history="vim $HOME/tmux.history"
-# alias tmux-cat-history="cat $HOME/tmux.history"
 alias tmux-autostart="source activate core-utils && /storage/src/devops/tmuxp/start_everything.sh && source deactivate && tmux-attach"
 alias pgrep="pgrep -ia"
 alias ansible-edit-hosts="vim ~/ansible/conf/hosts"
@@ -73,14 +58,11 @@ alias ansible-play="ANSIBLE_CONFIG=~/ansible/conf/ansible.cfg ansible-playbook -
 alias ansible-play-debug="ANSIBLE_DEBUG=1 ansible-playbook -i ~/ansible/conf/hosts -vvvv "
 alias ansible-facts="ansible -i ~/ansible/conf/hosts all -m setup"
 alias ssh-host-aliases="more ~/.ssh/config"
-alias cd-home="cd ~"
-alias cd-storage="cd /storage"
 alias cd-wal="cd ~/.cache/wal"
 alias rsync-no-delete="rsync -rchzPvi --progress"
 alias rsync-simple='rsync -ah --info=progress2'
 alias rsync="rsync -rchzPvi --progress --delete --delete-excluded"
 alias vimpager="/usr/share/vim/vim81/macros/less.sh"
-alias vim-python-mode-update="cd /storage/src/dot_files/.vim/bundle/python-mode && git submodule update --init --recursive "
 alias chown_me="sudo chown -R $(id -u):$(id -g)"
 alias moon-phase='curl -s wttr.in/moon'
 alias wttr-summary="curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
@@ -91,7 +73,6 @@ alias public-ip-detailed="curl -s ifconfig.co/json | python -m json.tool"
 alias qrencode="curl -F-=\<- qrenco.de"
 alias fonts-update="fc-cache -vf ~/.fonts/ && echo 'listing fonts:' && fc-list"
 alias keyboard_toggle="python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
-alias ubuntu-login-config="sudo vim /usr/share/gnome-shell/theme/ubuntu.css"
 
 # Below solves the error "pyenv: cannot rehash: ~/.pyenv/shims/.pyenv-shim
 # exists " when installing binaries (commands) for pip and them not working.
@@ -104,6 +85,5 @@ alias cbpwd="pwd | cb" # Copy current working directory
 alias cbbash="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash history
 
 alias update-notes="notify-send -a vim 'Manually pushing notes changes to remote...' && cd /storage/docs/notes && git add . && git commit -m 'manual commit on $(hostname) at $(date -u)' > /dev/null && git push origin master > /dev/null 2>&1 && notify-send -a vim 'Notes changes pushed successfully to remote.' && git status -s && cd - "
-alias gnome-control-center="XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 alias ssh-no-host-checking='ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no"'
 alias compositor="/storage/src/devops/bin/toggle_compositor.sh"
