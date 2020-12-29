@@ -29,3 +29,12 @@ fi
 PATH=$PATH:/opt/golang/go/bin:$HOME/local/bin
 GOPATH=/opt/golang/go
 source "$HOME/.cargo/env"
+
+XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
+
+export PYENV_ROOT="$HOME/.pyenv"
+if [ -d $PYENV_ROOT ];
+then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    export PYENV_BIN=$PYENV_ROOT/bin/pyenv
+fi

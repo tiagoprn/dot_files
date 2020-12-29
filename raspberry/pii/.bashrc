@@ -118,3 +118,32 @@ fi
 source "$HOME/.cargo/env"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+eval "$(starship init bash)"
+
+# PYENV_ROOT="$HOME/.pyenv"
+
+# Determine active Python virtualenv details.
+function set_virtualenv () {
+  PYENV_BIN=$PYENV_ROOT/bin/pyenv
+  if [ -f $PYENV_BIN ]; then
+    if [[ `pyenv version-name` == "system" ]] ; then
+        PYTHON_VIRTUALENV=""
+    else
+        PYTHON_VIRTUALENV="${BLUE}[PYENV:`pyenv version-name`]${COLOR_NONE} "
+    fi
+  fi
+}
+
+# For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
+if [ -d $PYENV_ROOT ];
+then
+    if ! [ -x "$(command -v pyenv)" ]; then
+        echo 'pyenv is not installed, I recommend you to install it.' # >&2
+    else
+        eval "$(pyenv init -)"
+        eval "$(pyenv virtualenv-init -)"
+    fi
+fi
+
+
