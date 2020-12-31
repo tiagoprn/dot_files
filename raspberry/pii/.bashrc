@@ -172,7 +172,7 @@ if [ -x "$(command -v figlet)" ]; then
     echo "$(hostname)" | figlet -cptk
 fi
 
-printf "$(cat welcome.txt)"
+printf "$(cat $HOME/welcome.txt)"
 printf '\n\n'
 
 # ---
