@@ -1,0 +1,22 @@
+===
+- Bash prompt powered by rust's starship (cargo install starship)
+
+- Check if /vault is mounted into /storage, so that you can access the encrypted files:
+	df -m | grep vault
+	gocryptfs /vault /storage
+	(the password is at ~/.password.gpg)
+
+- USEFUL BASH ALIASES:
+	j            : creates a quick timestamp based journal with vim
+	nt           : creates a quick note
+	zt           : creates a zettelkasten note
+	nr           : restart network through NetworkManager
+	update-notes : pushes all notes to the remote repository.
+
+- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash
+
+- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config).
+===
+
+IN BRIGHTEST DAY, IN BLACKEST NIGHT; NO EVIL SHALL ESCAPE MY SIGHT.
+LET THOSE WHO WORSHIP EVIL'S MIGHT, BEWARE MY POWER: GREEN LANTERN'S LIGHT!

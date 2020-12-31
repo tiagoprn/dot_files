@@ -87,11 +87,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -134,6 +129,53 @@ function set_virtualenv () {
     fi
   fi
 }
+
+# ---
+
+# - VIM MODE -
+set -o vi
+
+# When using vim-mode, add beside the prompt and indicator if we are on visual
+# or insert mode.
+bind 'set show-mode-in-prompt on'
+
+## KEYBOARD SHORTCUTS (BINDINGS) VIM-MODE SPECIFIC BINDINGS:
+
+### GENERAL
+# \C- = Control+
+# \e = Alt+
+bind -x '"\C-f":fzf-bash-history-search'
+bind -x '"\C-b":tmux-save-history'
+bind -x '"\C-t":tmux-search-history'
+bind -x '"\ei":vim-fzf'
+
+### VIM-MODE SPECIFIC
+#### Clear screen as on emacs-mode and vi-visual
+bind -m vi-insert "\C-l":clear-screen
+
+# - Other -
+
+# A better ls command, with 2 alternative aliases:
+if ls --color -d . >/dev/null 2>&1; then  # GNU ls
+  export COLUMNS  # Remember columns for subprocesses.
+  eval "$(dircolors)"
+  function ls() {
+    command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" | less -R -X -F
+  }
+  alias lsd='ls -la'
+  alias lsa='ls -a'
+  alias lss='ls -a --human-readable --size -1 -S --classify'
+  alias lsr="ls -halt"
+fi
+
+if [ -x "$(command -v figlet)" ]; then
+    echo "$(hostname)" | figlet -cptk
+fi
+
+printf "$(cat welcome.txt)"
+printf '\n\n'
+
+# ---
 
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if [ -d $PYENV_ROOT ];
