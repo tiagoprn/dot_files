@@ -27,10 +27,10 @@ $ # create the new repository
 $ echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
 $ # update the packages list and install i3 packages below:
 $ apt update
-$ apt install i3 compton rofi i3lock i3lock-fancy i3blocks i3status spacefm-gtk3
+$ apt install i3 rofi i3lock i3lock-fancy i3blocks i3status spacefm-gtk3
 
 ### Ubuntu 20.04
-$ apt install i3 i3lock i3lock-fancy i3blocks i3status compton rofi rofi-dev spacefm-gtk3
+$ apt install i3 i3lock i3lock-fancy i3blocks i3status rofi rofi-dev spacefm-gtk3
 
 ## docker
 
@@ -500,6 +500,7 @@ $ cd polybar
 $ sudo ./build.sh
 
 ## picom
+(picom is compton's fork, more modern and with more features. So, it uses the same configuration file as compton for now.)
 $ sudo su
 $ cd /opt/installers
 $ git clone https://github.com/ibhagwan/picom
