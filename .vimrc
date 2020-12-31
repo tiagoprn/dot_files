@@ -268,13 +268,13 @@ set statusline+=\ LINE\:%l/%L(%P)
 
 " Custom key [re]mappings <<<
 nnoremap <C-u> :undo<CR>| " undo changes
-nnoremap <C-w> :w! \| :redraw!<CR>| " save file and redraw screen to cleanup from glitches (which do not occur on pure txt files)
+nnoremap <Leader><Space> :w! \| :redraw!<CR>| " save file and redraw screen to cleanup from glitches (which do not occur on pure txt files)
+nnoremap <Leader><Space>q :windo w! \| :q!<CR>| " save file and redraw screen to cleanup from glitches (which do not occur on pure txt files)
 nnoremap <C-e> :e<CR>| " reload file
 
 nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
 
 map <Leader>all <esc>gg0vG$<CR>| " select all text in the file
-
 
 " WINDOWS
 " move between window splits
@@ -453,6 +453,10 @@ autocmd BufReadPost *
 
 " Expands on what vim considers as a markdown filetype
 autocmd BufNewFile,BufFilePre,BufRead *.md,*.markdown,*.mmd set filetype=markdown
+
+" Redraw the screen to clean artifacts
+autocmd InsertLeave,TextChanged :redraw!
+
 
 " >>>
 
