@@ -499,6 +499,15 @@ $ git clone https://github.com/jaagr/polybar.git
 $ cd polybar
 $ sudo ./build.sh
 
+## picom
+$ sudo su
+$ cd /opt/installers
+$ git clone https://github.com/ibhagwan/picom
+$ cd picom
+$ apt install -y meson asciidoc pandoc
+$ meson --buildtype=release . build --prefix=/usr -Dwith_docs=true
+$ /usr/bin/ninja -C build && /usr/bin/ninja -C build install
+
 ## unclutter (to auto-hide mouse pointer when idle)
 
 $ sudo su
@@ -547,3 +556,4 @@ TODO: wpgtk
 
 - Run:
 	$ flatpak run --filesystem=host org.flameshot.Flameshot
+
