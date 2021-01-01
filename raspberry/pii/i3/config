@@ -358,7 +358,9 @@ bindsym $mod+c exec --no-startup-id "/storage/src/devops/bin/customize_capslock.
 # TODO: make it use the same desktop applet used on lxde
 # exec --no-startup-id nm-applet
 
-exec --no-startup-id lxsession -a
+exec_always --no-startup-id picom --config ~/picom.conf
+
+exec_always --no-startup-id lxsession -a
 
 # Disabled xautolock due to the fact that it triggers the screensaver even if
 # it is active. Maybe a better solution would be to use a systemd timer
@@ -367,7 +369,6 @@ exec --no-startup-id lxsession -a
 #   -locker "/storage/src/devops/bin/lock_with_comic.sh" \
 #   -notify 30 \
 #   -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'";
-exec_always --no-startup-id picom --config ~/picom.conf
 
 # exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
 # exec_always --no-startup-id "notify-send 'Activating keyboard backlight...' --urgency low; /storage/src/devops/bin/keyboard-backlight.sh"
