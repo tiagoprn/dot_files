@@ -358,6 +358,8 @@ bindsym $mod+c exec --no-startup-id "/storage/src/devops/bin/customize_capslock.
 # TODO: make it use the same desktop applet used on lxde
 # exec --no-startup-id nm-applet
 
+exec --no-startup-id lxsession
+
 # Disabled xautolock due to the fact that it triggers the screensaver even if
 # it is active. Maybe a better solution would be to use a systemd timer
 # to trigger the lock script after some time of inactivity.
