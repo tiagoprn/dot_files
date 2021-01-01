@@ -8,6 +8,8 @@
 
 - To change the window manager (i3 / lxde), edit `~/.dmrc`.
 
+- To start the window manager, type: `startx`
+
 - USEFUL BASH ALIASES:
 	j            : creates a quick timestamp based journal with vim
 	nt           : creates a quick note
@@ -16,8 +18,6 @@
 	update-notes : pushes all notes to the remote repository.
 
 - If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash
-
-- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config).
 ===
 
 IN BRIGHTEST DAY, IN BLACKEST NIGHT; NO EVIL SHALL ESCAPE MY SIGHT.
