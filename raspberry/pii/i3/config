@@ -61,10 +61,10 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+Return exec --no-startup-id lxterminal
-# bindsym $mod+Shift+Return exec --no-startup-id kitty --hold bash -c "TERM=screen-256color /storage/src/devops/bin/start_random_tmux_session_name.sh"
-bindsym $mod+Shift+Return exec --no-startup-id lxterminal -e bash -c "TERM=screen-256color /storage/src/devops/bin/start_random_tmux_session_name.sh"
+# bindsym $mod+Shift+Return exec --no-startup-id kitty --hold bash -c "TERM=screen-256color /home/pi/apps/scripts/bin/start_random_tmux_session_name.sh"
+bindsym $mod+Shift+Return exec --no-startup-id lxterminal -e bash -c "TERM=screen-256color /home/pi/apps/scripts/bin/start_random_tmux_session_name.sh"
 
-# bindsym Mod1+Return exec --no-startup-id '/storage/src/devops/bin/urxvt-terminal.sh'
+# bindsym Mod1+Return exec --no-startup-id '/home/pi/apps/scripts/bin/urxvt-terminal.sh'
 
 # kill focused window
 bindsym $mod+BackSpace kill
@@ -183,7 +183,7 @@ assign [instance="cli_dashboard" window_type="normal"] $workspace10
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+e restart
 
-bindsym $mod+z exec --no-startup-id /storage/src/devops/rofi/shutdown.py
+bindsym $mod+z exec --no-startup-id /home/pi/apps/scripts/rofi/shutdown.py
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -325,30 +325,30 @@ bindsym Mod1+l [con_mark="personal-calendar"] scratchpad show, resize set 1000 7
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 #
 ## Cheatsheets
-bindsym Mod1+t exec --no-startup-id kitty --name tiagoprnl --hold bash -c 'TERM=screen-256color /storage/src/devops/bin/search_posts_and_trigger_vim_by_file_name.sh'
-bindsym Mod1+Shift+t exec --no-startup-id kitty --name tiagoprnl --hold bash -c 'TERM=screen-256color /storage/src/devops/bin/search_posts_and_trigger_vim_by_file_contents.sh'
-bindsym $mod+i exec --no-startup-id /storage/src/devops/rofi/vim_shortcuts.py
-bindsym $mod+a exec --no-startup-id /storage/src/devops/rofi/i3_cheatsheet.sh
+bindsym Mod1+t exec --no-startup-id kitty --name tiagoprnl --hold bash -c 'TERM=screen-256color /home/pi/apps/scripts/bin/search_posts_and_trigger_vim_by_file_name.sh'
+bindsym Mod1+Shift+t exec --no-startup-id kitty --name tiagoprnl --hold bash -c 'TERM=screen-256color /home/pi/apps/scripts/bin/search_posts_and_trigger_vim_by_file_contents.sh'
+bindsym $mod+i exec --no-startup-id /home/pi/apps/scripts/rofi/vim_shortcuts.py
+bindsym $mod+a exec --no-startup-id /home/pi/apps/scripts/rofi/i3_cheatsheet.sh
 
 ## Others
 bindsym Mod1+r exec --no-startup-id lxappearance
 bindsym Mod1+w exec --no-startup-id sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) | xargs feh --bg-scale
 bindsym Mod1+f exec --no-startup-id flash_window
 bindsym $mod+n exec --no-startup-id "notify-send 'Launching spacefm...' --urgency low; spacefm"
-bindsym $mod+b exec --no-startup-id /storage/src/devops/rofi/bookmarks.py
+bindsym $mod+b exec --no-startup-id /home/pi/apps/scripts/rofi/bookmarks.py
 bindsym Mod1+p exec --no-startup-id "notify-send 'Taking screenshot...' --urgency low -t 600; mkdir -p ~/screenshots && flatpak run --filesystem=host org.flameshot.Flameshot full -p ~/screenshots -d 2000"
 bindsym Mod1+Shift+p exec --no-startup-id "notify-send 'Taking screenshot (CTRL+s to save)...' --urgency critical -t 1300; mkdir -p ~/screenshots &&  flatpak run --filesystem=host org.flameshot.Flameshot gui -p ~/screenshots -d 2000"
 bindsym Mod1+o exec --no-startup-id pavucontrol
 # bindsym $mod+Shift+n exec --no-startup-id networkmanager_dmenu
 # below starts video player
-bindsym Mod1+y exec --no-startup-id /storage/src/devops/bin/zenity-video-launcher.sh
-bindsym Mod1+c exec --no-startup-id "/storage/src/devops/bin/clippy_rofi.py"
-# bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /storage/src/devops/bin/toggle_compositor.sh ...' --urgency low; /storage/src/devops/bin/toggle_compositor.sh"
+bindsym Mod1+y exec --no-startup-id /home/pi/apps/scripts/bin/zenity-video-launcher.sh
+bindsym Mod1+c exec --no-startup-id "/home/pi/apps/scripts/bin/clippy_rofi.py"
+# bindsym $mod+o exec --no-startup-id "notify-send 'Deactivating the compton compositor through /home/pi/apps/scripts/bin/toggle_compositor.sh ...' --urgency low; /home/pi/apps/scripts/bin/toggle_compositor.sh"
 bindsym $mod+m exec --no-startup-id "notify-send 'Configuring monitors with arandr...' --urgency low; arandr && i3-msg reload"
-bindsym Mod1+k exec --no-startup-id "/storage/src/devops/rofi/toggle_keyboards.py"
-bindsym $mod+w exec --no-startup-id "/storage/src/devops/bin/layout_manager.sh"
-bindsym $mod+s exec --no-startup-id "/storage/src/devops/rofi/snippets.sh"
-bindsym $mod+c exec --no-startup-id "/storage/src/devops/bin/customize_capslock.sh"
+bindsym Mod1+k exec --no-startup-id "/home/pi/apps/scripts/rofi/toggle_keyboards.py"
+bindsym $mod+w exec --no-startup-id "/home/pi/apps/scripts/bin/layout_manager.sh"
+bindsym $mod+s exec --no-startup-id "/home/pi/apps/scripts/rofi/snippets.sh"
+bindsym $mod+c exec --no-startup-id "/home/pi/apps/scripts/bin/customize_capslock.sh"
 # bindsym Mod1+b exec --no-startup-id "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py"
 # bindsym Mod1+Shift+b exec --no-startup-id "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/work/dafiti -C ~/.local/share/qutebrowser/work/dafiti/config/config.py"
 
@@ -366,13 +366,13 @@ exec_always --no-startup-id lxsession -a
 # it is active. Maybe a better solution would be to use a systemd timer
 # to trigger the lock script after some time of inactivity.
 # exec --no-startup-id  xautolock -detectsleep -time 1 \
-#   -locker "/storage/src/devops/bin/lock_with_comic.sh" \
+#   -locker "/home/pi/apps/scripts/bin/lock_with_comic.sh" \
 #   -notify 30 \
 #   -notifier "notify-send -u critical -t 10000 -- 'locking screen in 30 seconds'";
 
 # exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
-# exec_always --no-startup-id "notify-send 'Activating keyboard backlight...' --urgency low; /storage/src/devops/bin/keyboard-backlight.sh"
-exec_always --no-startup-id "cd /storage/src/devops/bin/battery_wallpaper && ./battery_wall.py"
+# exec_always --no-startup-id "notify-send 'Activating keyboard backlight...' --urgency low; /home/pi/apps/scripts/bin/keyboard-backlight.sh"
+exec_always --no-startup-id "cd /home/pi/apps/scripts/bin/battery_wallpaper && ./battery_wall.py"
 
 exec_always --no-startup-id flashfocus
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -380,12 +380,12 @@ exec_always --no-startup-id flashfocus
 # exec_always --no-startup-id unclutter
 
 # exec --no-startup-id "notify-send 'Launching telegram...' --urgency low; /opt/telegram/Telegram/Telegram"
-# exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /storage/src/devops/bin/monitors.sh"
-exec --no-startup-id "/storage/src/devops/bin/clippy.py"
-# exec --no-startup-id /storage/src/devops/bin/i3-htop.sh
-exec --no-startup-id /storage/src/devops/bin/i3-vim.sh
-exec --no-startup-id /storage/src/devops/bin/i3-personal-calendar.sh
-exec --no-startup-id /storage/src/devops/bin/i3-dashboard.sh
-exec --no-startup-id "notify-send 'Activating i3 alternating layouts ...' --urgency low; /storage/src/devops/bin/i3-alternating-layouts.sh"
-exec --no-startup-id "arandr && /storage/src/devops/bin/i3_change_wallpaper.sh"
+# exec --no-startup-id "notify-send 'Configuring monitors with xrandr...' --urgency low; /home/pi/apps/scripts/bin/monitors.sh"
+exec --no-startup-id "/home/pi/apps/scripts/bin/clippy.py"
+# exec --no-startup-id /home/pi/apps/scripts/bin/i3-htop.sh
+exec --no-startup-id /home/pi/apps/scripts/bin/i3-vim.sh
+exec --no-startup-id /home/pi/apps/scripts/bin/i3-personal-calendar.sh
+exec --no-startup-id /home/pi/apps/scripts/bin/i3-dashboard.sh
+exec --no-startup-id "notify-send 'Activating i3 alternating layouts ...' --urgency low; /home/pi/apps/scripts/bin/i3-alternating-layouts.sh"
+exec --no-startup-id "arandr && /home/pi/apps/scripts/bin/i3_change_wallpaper.sh"
 
