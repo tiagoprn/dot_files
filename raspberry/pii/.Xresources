@@ -89,7 +89,7 @@ rofi.hide-scrollbar: false
 !rofi.color-normal: #31d1f2, #f3f4f5, #31d1f2, #31d1f2, #9575cd
 rofi.font: Iosevka Regular 14
 
-! better fonts
+! --- better fonts
 Xft.autohint: 1
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
@@ -97,3 +97,5 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
+! --- st
+! TODO

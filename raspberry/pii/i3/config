@@ -59,10 +59,8 @@ font pango: $font_family $font_size
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec --no-startup-id kitty
-bindsym $mod+Return exec --no-startup-id lxterminal
-# bindsym $mod+Shift+Return exec --no-startup-id kitty --hold bash -c "TERM=screen-256color /home/pi/apps/scripts/bin/start_random_tmux_session_name.sh"
-bindsym $mod+Shift+Return exec --no-startup-id lxterminal -e bash -c "TERM=screen-256color /home/pi/apps/scripts/bin/start_random_tmux_session_name.sh"
+bindsym $mod+Return exec --no-startup-id st -f 'Iosevka:size=12:antialias=true:autohint=true'
+bindsym $mod+Shift+Return exec --no-startup-id st -f 'Iosevka:size=12:antialias=true:autohint=true' -e bash -c "TERM=screen-256color /home/pi/apps/scripts/bin/start_random_tmux_session_name.sh"
 
 # bindsym Mod1+Return exec --no-startup-id '/home/pi/apps/scripts/bin/urxvt-terminal.sh'
 
@@ -312,6 +310,7 @@ for_window [title="Open With"] floating enable
 # for_window [class="kitty"] border pixel 1
 for_window [class="Lxterminal"] border pixel 1
 for_window [class="URxvt"] border pixel 1
+for_window [class="St"] border pixel 1
 
 
 # --- CUSTOM SCRATCHPADS ---
@@ -325,8 +324,10 @@ bindsym Mod1+l [con_mark="personal-calendar"] scratchpad show, resize set 1000 7
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
 #
 ## Cheatsheets
-bindsym Mod1+t exec --no-startup-id kitty --name tiagoprnl --hold bash -c 'TERM=screen-256color /home/pi/apps/scripts/bin/search_posts_and_trigger_vim_by_file_name.sh'
-bindsym Mod1+Shift+t exec --no-startup-id kitty --name tiagoprnl --hold bash -c 'TERM=screen-256color /home/pi/apps/scripts/bin/search_posts_and_trigger_vim_by_file_contents.sh'
+# TODO: disabled, not working.
+# bindsym Mod1+t exec --no-startup-id urxvt --hold --title tiagoprnl -e bash -c 'TERM=screen-256color /home/pi/apps/scripts/bin/search_posts_and_trigger_vim_by_file_name.sh'
+# bindsym Mod1+Shift+t exec --no-startup-id urxvt --hold --title tiagoprnl -e bash -c 'TERM=screen-256color /home/pi/apps/scripts/bin/search_posts_and_trigger_vim_by_file_contents.sh'
+
 bindsym $mod+i exec --no-startup-id /home/pi/apps/scripts/rofi/vim_shortcuts.py
 bindsym $mod+a exec --no-startup-id /home/pi/apps/scripts/rofi/i3_cheatsheet.sh
 

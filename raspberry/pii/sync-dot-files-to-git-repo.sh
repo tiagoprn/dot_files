@@ -8,3 +8,4 @@ done
 
 
 cp -farv "$HOME"/.config/dunst "$REPO_PATH"
+cp -farv "$HOME"/local/bin/hold.sh "$REPO_PATH"

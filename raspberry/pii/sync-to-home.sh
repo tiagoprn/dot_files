@@ -6,3 +6,4 @@ for unit in $ORIGIN; do
 done
 
 cp -farv dunst "$HOME"/.config/dunst
+cp -farv hold.sh "$HOME"/local/bin
