@@ -267,12 +267,13 @@ set statusline+=\ LINE\:%l/%L(%P)
 " >>>
 
 " Custom key [re]mappings <<<
+" FIXME: glitches do not occur on pure txt files
 nnoremap <C-u> :undo<CR>| " undo changes
-nnoremap <Leader><Space> :w! \| :redraw!<CR>| " save file and redraw screen to cleanup from glitches (which do not occur on pure txt files)
-nnoremap <Leader><Space>r :redraw!<CR>| " redraw screen to cleanup from glitches (which do not occur on pure txt files)
-nnoremap <Leader><Space>w :windo w!<CR>| " save all files
-nnoremap <Leader><Space>q :q!<CR>| " quit
-nnoremap <C-e> :e<CR>| " reload file
+nnoremap <Leader><Space> :w! \| :redraw!<CR>| " (core) save file and redraw screen to cleanup from glitches
+nnoremap <Leader><Space>r :redraw!<CR>| " (core) redraw screen to cleanup from glitches
+nnoremap <Leader><Space>w :windo w! \| :q!<CR>| " (core) save all files and quit
+nnoremap <Leader><Space>q :q!<CR>| " (core) quit
+nnoremap <C-e> :e<CR>| " (core) reload file
 
 nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
 
