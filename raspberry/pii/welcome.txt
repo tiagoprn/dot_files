@@ -8,8 +8,6 @@
 
 - To change the window manager (i3 / lxde), edit `~/.dmrc`.
 
-- To start the window manager, type: `startx`
-
 - USEFUL BASH ALIASES:
 	j            : creates a quick timestamp based journal with vim
 	nt           : creates a quick note
