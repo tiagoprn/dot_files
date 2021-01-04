@@ -9,6 +9,7 @@ alias f='fzf'
 alias j="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE +'normal!o-  '"  # opens a vim file with the current time and a line below ready for editing, useful as a journal.
 alias p="pyenv"
 alias s="source ~/.bashrc && source ~/.profile && source ~/.bash_functions && source ~/.bash_aliases"
+alias v='vim $(fd -H | fzf)'
 
 ## two letter aliases
 alias cc='cd $(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
@@ -28,7 +29,6 @@ alias tf="pyenv activate core-utils && tmuxp freeze "
 alias tl="tmux ls"
 alias ta='tmux -2 a -t `tmux-select-session`'
 alias tk='tmux kill-session -t `tmux-select-session`'
-alias vf='vim-fzf'
 alias vi='vim --cmd "let vim_minimal=1" '
 alias vg='vim $(git status -s | cut -d " " -f 3)'
 alias up='uptime'
