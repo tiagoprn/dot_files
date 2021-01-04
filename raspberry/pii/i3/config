@@ -315,10 +315,12 @@ for_window [class="St"] border pixel 1
 
 # --- CUSTOM SCRATCHPADS ---
 for_window [instance="vim"]  mark "vim", move scratchpad
+for_window [instance="dropdownterm"]  mark "dropdownterm", move scratchpad
 for_window [instance="htop"] mark "htop", move scratchpad
 for_window [instance="personal-calendar"] mark "personal-calendar", move scratchpad
 bindsym Mod1+h [con_mark="htop"] scratchpad show, resize set 1300 700, move position center
 bindsym Mod1+v [con_mark="vim"] scratchpad show, resize set 1000 700, move position center
+bindsym Mod1+t [con_mark="dropdownterm"] scratchpad show, resize set 1000 600, move position center
 bindsym Mod1+l [con_mark="personal-calendar"] scratchpad show, resize set 1000 700, move position center
 
 # --- OPEN SOME APPS WITH CUSTOM KEYBOARD SHORTCUTS ---
