@@ -358,7 +358,8 @@ bindsym $mod+c exec --no-startup-id "/home/pi/apps/scripts/bin/customize_capsloc
 # TODO: make it use the same desktop applet used on lxde
 # exec --no-startup-id nm-applet
 
-exec_always --no-startup-id picom --config ~/picom.conf
+# TODO: start dunst
+exec_always --no-startup-id picom --config ~/picom.conf --backend glx
 exec_always --no-startup-id /usr/bin/lxpolkit
 # Disabled xautolock due to the fact that it triggers the screensaver even if
 # it is active. Maybe a better solution would be to use a systemd timer
@@ -370,7 +371,7 @@ exec_always --no-startup-id /usr/bin/lxpolkit
 
 # exec --no-startup-id "notify-send 'Launching conky...' --urgency low; ~/.Conky/startconky.sh"
 # exec_always --no-startup-id "notify-send 'Activating keyboard backlight...' --urgency low; /home/pi/apps/scripts/bin/keyboard-backlight.sh"
-exec_always --no-startup-id "cd /home/pi/apps/scripts/bin/battery_wallpaper && ./battery_wall.py"
+# exec_always --no-startup-id "cd /home/pi/apps/scripts/bin/battery_wallpaper && ./battery_wall.py"
 
 exec_always --no-startup-id flashfocus
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh

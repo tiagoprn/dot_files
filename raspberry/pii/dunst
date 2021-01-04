@@ -3,7 +3,7 @@
 #   $ pkill dunst &&  notify-send -i user-away --urgency low 'hello'
 
 [global]
-    font = Montserrat 12
+    font = Iosevka Regular
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
