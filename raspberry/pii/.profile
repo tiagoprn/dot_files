@@ -26,7 +26,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-PATH=$PATH:/opt/golang/go/bin:$HOME/local/bin:$HOME/.local/bin:$HOME/.local/bin/statusbar
+PATH=$PATH:/opt/golang/go/bin:$HOME/local/bin:$HOME/.local/bin:$HOME/apps/scripts/bin:$HOME/apps/scripts/bin/statusbar
 GOPATH=/opt/golang/go
 source "$HOME/.cargo/env"
 
