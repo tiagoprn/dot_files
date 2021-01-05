@@ -8,7 +8,7 @@
 alias f='fzf'
 alias j="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE +'normal!o-  '"  # opens a vim file with the current time and a line below ready for editing, useful as a journal.
 alias p="pyenv"
-alias s="source ~/.bashrc && source ~/.profile && source ~/.bash_functions && source ~/.bash_aliases"
+alias s="source ~/.profile && source ~/.bashrc && source ~/.bash_functions && source ~/.bash_aliases"
 alias v='vim $(fd -H --exclude .git | fzf)'
 
 ## two letter aliases
