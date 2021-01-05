@@ -124,7 +124,10 @@ syntax on
 
 " Color scheme (must be in ~/.vim/colors)
 " set background=dark
-colorscheme fahrenheit
+colorscheme wal
+
+" enabling color support - part 2 (https://wiki.archlinux.org/index.php/st#Patches)
+set t_Co=256                         " Enable 256 colors
 
 " font (commented to use the same font as set on the terminal)
 " set anti gfn=JetBrains\ Mono\ 11
