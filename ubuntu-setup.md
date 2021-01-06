@@ -365,7 +365,15 @@ $ cargo install ripgrep
 ## navi:
 $ cargo install navi
 
+## xcolor
+
+(useful to get colors from a screen's region)
+
+$ cargo install xcolor
+
+
 ## fd:
+
 $ wget https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb
 
 ## fzf:
