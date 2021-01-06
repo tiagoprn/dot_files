@@ -32,6 +32,9 @@ source "$HOME/.cargo/env"
 
 XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
 
+LOCATION=Osasco
+#LOCATION=Sao_Paulo
+
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d $PYENV_ROOT ];
 then
