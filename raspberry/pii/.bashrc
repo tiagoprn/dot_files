@@ -1,6 +1,17 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# tiagoprn's bashrc . Created based on the one from raspbian buster.
+
+# Enable vim-mode on shell editing instead of the default emacs one
+# Also show on the cursor if we are on visual or insert mode
+set -o vi
+
+# Enter a directory without the cd command needed
+shopt -s autocd
+# minor corrections for misspellings etc.
+shopt -s cdspell
+
+source $HOME/.bash_profile
+source $HOME/.bash_functions
+source $HOME/.bash_aliases
 
 # If not running interactively, don't do anything
 case $- in
@@ -87,19 +98,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -110,13 +108,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 source "$HOME/.cargo/env"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 eval "$(starship init bash)"
-
-# PYENV_ROOT="$HOME/.pyenv"
 
 # Determine active Python virtualenv details.
 function set_virtualenv () {
@@ -131,9 +128,6 @@ function set_virtualenv () {
 }
 
 # ---
-
-# - VIM MODE -
-set -o vi
 
 # When using vim-mode, add beside the prompt and indicator if we are on visual
 # or insert mode.
@@ -177,9 +171,6 @@ printf '\n\n'
 
 # ---
 
-if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
-fi
 
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if [ -d $PYENV_ROOT ];
