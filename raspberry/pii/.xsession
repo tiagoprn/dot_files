@@ -4,15 +4,21 @@
 
 LOG_FILE=/tmp/xprofile.$(date +%Y-%m-%d).log
 
-# TODO: turn picom below on a shellscript that toggles compositing on and off.
+_isRunning() {
+	## function to check if a process is alive and running:
+	ps -o args= -C "$1" 2>/dev/null | grep -x "$1" >/dev/null 2>&1
+	ps aux | grep "$1" 2>/dev/null | grep -v "grep" >/dev/null 2>&1
+}
+
+# TODO: turn picom below on a shellscript that toggles compositing on and off. (use _isRunning function above to do that)
 echo "Starting picom..." >> $LOG_FILE 2>&1
-picom --config ~/picom.conf --backend glx >> $LOG_FILE 2>&1 &
+_isRunning picom || picom --config ~/picom.conf --backend glx >> $LOG_FILE 2>&1 &
 
 echo "Starting lxpolkit..." >> $LOG_FILE 2>&1
-/usr/bin/lxpolkit >> $LOG_FILE 2>&1 &
+_isRunning lxpolkit || /usr/bin/lxpolkit >> $LOG_FILE 2>&1 &
 
 echo "Starting clippy (clipboard daemon)..." >> $LOG_FILE 2>&1
-/home/pi/apps/scripts/bin/clippy.py >> $LOG_FILE 2>&1 &
+_isRunning clippy || /home/pi/apps/scripts/bin/clippy.py >> $LOG_FILE 2>&1 &
 
 # TODO: setup and install trayer-ng, so that I can use the same network manager applet as lxde
 
