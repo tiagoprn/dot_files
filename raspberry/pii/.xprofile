@@ -2,11 +2,16 @@
 # Autostart Programs
 # ---
 
+LOG_FILE=/tmp/xprofile.$(date +%Y-%m-%d).log
+
 # TODO: turn picom below on a shellscript that toggles compositing on and off.
+echo "Starting picom..." >> $LOG_FILE 2>&1
 picom --config ~/picom.conf --backend glx >> $LOG_FILE 2>&1 &
 
+echo "Starting lxpolkit..." >> $LOG_FILE 2>&1
 /usr/bin/lxpolkit >> $LOG_FILE 2>&1 &
 
+echo "Starting clippy (clipboard daemon)..." >> $LOG_FILE 2>&1
 /home/pi/apps/scripts/bin/clippy.py >> $LOG_FILE 2>&1 &
 
 # TODO: setup and install trayer-ng, so that I can use the same network manager applet as lxde
