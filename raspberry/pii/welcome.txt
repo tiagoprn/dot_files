@@ -3,7 +3,7 @@
 
 - Check if /vault is mounted into /storage, so that you can access the encrypted files:
 	df -m | grep vault
-	gocryptfs /vault /storage
+	gocryptfs -allow_other /vault /storage
 	(the password is at ~/.password.gpg)
 
 - My window manager of choice is dwm. dwm/dwmblocks/st where compiled from my github's @lukesmith's fork, at `$HOME/local/bin`. A xsession configured to boot it is at `/usr/share/xsessions`, and a shellscript to start it is at `/usr/bin/startdwm`.
