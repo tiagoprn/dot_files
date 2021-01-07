@@ -12,6 +12,7 @@ shopt -s cdspell
 source $HOME/.bash_profile
 source $HOME/.bash_functions
 source $HOME/.bash_aliases
+[[ ! -z "$DISPLAY" ]] && source $HOME/.xsession
 
 # If not running interactively, don't do anything
 case $- in
