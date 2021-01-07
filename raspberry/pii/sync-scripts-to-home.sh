@@ -16,4 +16,4 @@ cp -farv /storage/src/devops/bin/* $BIN_SCRIPTS
 cp -farv /storage/src/devops/rofi/* $ROFI_SCRIPTS
 cp -farv /storage/src/devops/shellscripts/statusbar/* $STATUSBAR_SCRIPTS
 
-cp -farv /storage/src/dwm/startdwm /usr/bin
+sudo cp -farv /storage/src/dwm/startdwm /usr/bin
