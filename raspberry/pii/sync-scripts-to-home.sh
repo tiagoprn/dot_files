@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: change this script to use rsync, deleting on the destination when a file does not exists.
+
 HOME_SCRIPTS=$HOME/apps/scripts
 BIN_SCRIPTS=$HOME_SCRIPTS/bin
 ROFI_SCRIPTS=$HOME_SCRIPTS/rofi
