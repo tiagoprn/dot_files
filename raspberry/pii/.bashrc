@@ -177,6 +177,10 @@ printf '\n\n'
 
 # ---
 
+if [ -f ~/.bash_profile ]; then
+    . ~/.bash_profile
+fi
+
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if [ -d $PYENV_ROOT ];
 then
