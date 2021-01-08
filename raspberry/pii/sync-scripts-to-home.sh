@@ -17,3 +17,5 @@ cp -farv /storage/src/devops/rofi/* $ROFI_SCRIPTS
 cp -farv /storage/src/devops/shellscripts/statusbar/* $STATUSBAR_SCRIPTS
 
 sudo cp -farv /storage/src/dwm/startdwm /usr/bin
+sudo cp -farv lightdm-endsession /usr/bin
+sudo cp -farv lightdm.conf /etc/lightdm/lightdm.conf && sudo chown root.root /etc/lightdm/lightdm.conf && sudo chmod 644 /etc/lightdm/lightdm.conf

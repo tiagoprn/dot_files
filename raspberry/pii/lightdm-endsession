@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Change user
+if [ "$EUID" = "0" -a "$USER" != "root" ]; then
+    su -c $0 $USER &
+    exit 0
+fi
+
+# Unmount sshfs sharings at the end of the session
+for MNTPOINT in `mount -t fuse.gocryptfs | grep -i "user=$USER" | cut -d" " -f 3`; do
+        fusermount -u $MNTPOINT
+done
+
+exit 0
