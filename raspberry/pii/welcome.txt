@@ -20,5 +20,9 @@
 - If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash
 ===
 
+vim-notes.sh for note taking
+i3-personal-calendar.sh for my personal calendar view
+
+===
 IN BRIGHTEST DAY, IN BLACKEST NIGHT; NO EVIL SHALL ESCAPE MY SIGHT.
 LET THOSE WHO WORSHIP EVIL'S MIGHT, BEWARE MY POWER: GREEN LANTERN'S LIGHT!
