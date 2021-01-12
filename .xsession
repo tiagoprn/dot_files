@@ -28,6 +28,9 @@ _isRunning clippy || /home/pi/apps/scripts/bin/clippy.py >> $LOG_FILE 2>&1 &
 echo "Reloading wallpaper..." >> $LOG_FILE 2>&1
 reload_wallpaper.sh >> $LOG_FILE 2>&1 &
 
+echo "Reloading wal theme..." >> $LOG_FILE 2>&1
+wal-reload-last-theme.sh >> $LOG_FILE 2>&1 &
+
 # TODO: setup and install trayer-ng, so that I can use the same network manager applet as lxde
 
 # TODO: if there is a way to hide all windows and show the desktop, use conky do display some information on the desktop:
