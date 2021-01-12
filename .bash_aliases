@@ -73,7 +73,6 @@ alias public-ip-detailed="curl -s ifconfig.co/json | python -m json.tool"
 alias qrencode="curl -F-=\<- qrenco.de"
 alias fonts-update="fc-cache -vf ~/.fonts/ && echo 'listing fonts:' && fc-list"
 alias keyboard_toggle="python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py"
-alias flameshot="flatpak run --filesystem=host org.flameshot.Flameshot "
 
 
 # Below solves the error "pyenv: cannot rehash: ~/.pyenv/shims/.pyenv-shim
