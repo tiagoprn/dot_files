@@ -108,10 +108,18 @@ fi
 
 export PATH="$PATH:$HOME/.local/bin"
 
-SCRIPTS_BIN=$HOME/apps/scripts/bin
+SCRIPTS_PATH=$HOME/apps/scripts
+
+SCRIPTS_BIN=$SCRIPTS_PATH/bin
 if [ -d $SCRIPTS_BIN ];
 then
     export PATH=$PATH:$SCRIPTS_BIN
+fi
+
+SCRIPTS_ROFI=$SCRIPTS_PATH/rofi
+if [ -d $SCRIPTS_ROFI ];
+then
+    export PATH=$PATH:$SCRIPTS_ROFI
 fi
 
 STATUSBAR_BIN=$SCRIPTS_BIN/statusbar
