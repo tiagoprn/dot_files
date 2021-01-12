@@ -10,8 +10,8 @@ _isRunning() {
 	ps aux | grep "$1" 2>/dev/null | grep -v "grep" >/dev/null 2>&1
 }
 
-echo "Starting compton..." >> $LOG_FILE 2>&1
-_isRunning compton || compton --config ~/compton.conf >> $LOG_FILE 2>&1 &
+echo "Starting picom..." >> $LOG_FILE 2>&1
+_isRunning picom || picom --config ~/picom.conf --backend glx >> $LOG_FILE 2>&1 &
 
 echo "Starting blueman applet..."
 _isRunning blueman-applet || blueman-applet >> $LOG_FILE 2>&1 &

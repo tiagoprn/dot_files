@@ -10,7 +10,6 @@ _isRunning() {
 	ps aux | grep "$1" 2>/dev/null | grep -v "grep" >/dev/null 2>&1
 }
 
-# TODO: turn picom below on a shellscript that toggles compositing on and off. (use _isRunning function above to do that)
 echo "Starting picom..." >> $LOG_FILE 2>&1
 _isRunning picom || picom --config ~/picom.conf --backend glx >> $LOG_FILE 2>&1 &
 
