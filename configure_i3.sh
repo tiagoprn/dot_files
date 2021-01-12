@@ -113,4 +113,7 @@ cp -farv /storage/src/devops/rofi/* $ROFI_SCRIPTS
 cp -farv /storage/src/devops/bin/* $BIN_SCRIPTS
 cp -farv /storage/src/devops/shellscripts/statusbar/* $STATUSBAR_SCRIPTS
 
+echo 'Linking picom...'
+ln -s /storage/src/dot_files/picom.conf ~/picom.conf
+
 echo 'Finished.'
