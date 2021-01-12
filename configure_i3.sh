@@ -99,4 +99,15 @@ echo 'Linking polybar...'
 rm -fr ~/.config/polybar
 ln -s /storage/src/dot_files/polybar ~/.config/polybar
 
+echo 'Copying scripts configuration...'
+HOME_SCRIPTS=$HOME/apps/scripts
+BIN_SCRIPTS=$HOME_SCRIPTS/bin
+STATUSBAR_SCRIPTS=$BIN_SCRIPTS/statusbar
+mkdir -p $HOME_SCRIPTS
+mkdir -p $BIN_SCRIPTS
+mkdir -p $STATUSBAR_SCRIPTS
+sudo cp -farv /storage/src/dwm/startdwm /usr/bin
+cp -farv /storage/src/devops/bin/* $BIN_SCRIPTS
+cp -farv /storage/src/devops/shellscripts/statusbar/* $STATUSBAR_SCRIPTS
+
 echo 'Finished.'

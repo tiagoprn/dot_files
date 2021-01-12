@@ -108,6 +108,18 @@ fi
 
 export PATH="$PATH:$HOME/.local/bin"
 
+SCRIPTS_BIN=$HOME/apps/scripts/bin
+if [ -d $SCRIPTS_BIN ];
+then
+    export PATH=$PATH:$SCRIPTS_BIN
+fi
+
+STATUSBAR_BIN=$SCRIPTS_BIN/statusbar
+if [ -d $STATUSBAR_BIN ];
+then
+    export PATH=$PATH:$STATUSBAR_BIN
+fi
+
 # rg means ripgrep, that is nice to use with fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
