@@ -24,7 +24,7 @@ URxvt.font: xft:Iosevka Nerd Font:size=12:autohint:true:antialias:true
 URxvt.scrollBar: false
 urxvt*depth: 32
 URxvt.internalBorder:  30
-! [xx] below before the color hex code means xx% transparency
+! [xx] below before the color hex code means xx% opacity
 URxvt.background: [90]#000000
 URxvt.foreground:   #ffffff
 URxvt.cursorColor:  #ffffff
