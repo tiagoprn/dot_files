@@ -29,8 +29,8 @@ alias tf="pyenv activate core-utils && tmuxp freeze "
 alias tl="tmux ls"
 alias ta='tmux -2 a -t `tmux-select-session`'
 alias tk='tmux kill-session -t `tmux-select-session`'
-alias vi='vim --cmd "let vim_minimal=1" '
 alias vg='vim $(git status -s | cut -d " " -f 3)'
+alias vi='vim --clean'  # runs vim with no customizations and plugins (as if fresh)
 alias up='uptime'
 alias zt='/storage/src/devops/bin/create-zettelkasten.sh'
 alias nt='/storage/src/devops/bin/create-quick-note.sh'
