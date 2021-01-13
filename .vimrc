@@ -214,8 +214,8 @@ set smartcase            " uppercase characters will be taken into account
 
 set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends:»
 
-" Remember info about open buffers on close
-set viminfo^=%
+" :help viminfo
+set viminfo='1000,f1,<500
 
 " STATUS LINE
 "" Functions used on status line
