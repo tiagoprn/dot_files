@@ -193,9 +193,12 @@ bind -m vi-insert "\C-l":clear-screen
 #     cowsay -f tux $(fortune -s)
 # fi
 
+printf '\n'
+printf "$(cat /storage/src/dot_files/welcome.txt)"
+printf '\n'
 printf "$(cat /storage/src/dot_files/green_lanterns.txt)"
-printf '\n\n'
-echo "IN BRIGHTEST DAY, IN BLACKEST NIGHT; NO EVIL SHALL ESCAPE MY SIGHT."
+printf '\n'
+echo "ON THE BRIGHTEST DAY, ON THE BLACKEST NIGHT, NO EVIL SHALL ESCAPE MY SIGHT."
 echo "LET THOSE WHO WORSHIP EVIL'S MIGHT, BEWARE MY POWER: GREEN LANTERN'S LIGHT!"
 
 # if [ -x "$(command -v figlet)" ]; then
@@ -214,15 +217,7 @@ if ls --color -d . >/dev/null 2>&1; then  # GNU ls
   alias lss='ls -a --human-readable --size -1 -S --classify'
   alias lsr="ls -halt"
 fi
-printf "\n=== USEFUL BASH ALIASES ==="
-printf "\nj            : creates a quick timestamp based journal with vim"
-printf "\nnt           : creates a quick note"
-printf "\nzt           : creates a zettelkasten note"
-printf "\nnr           : restart network through NetworkManager"
-printf "\nupdate-notes : pushes all notes to the remote repository."
-printf "\n"
-printf "\n- If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash"
-printf "\n- On ~/.ssh/config there are alias to common ssh servers (there is a copy on bitbucket/gpg/.ssh/config).\n\n"
+
 # fortune   -s
 # fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -e | cut -d '.' -f 1)
 
