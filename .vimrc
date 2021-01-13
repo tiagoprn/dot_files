@@ -392,6 +392,8 @@ map <silent><Leader>G :call setbufvar(winbufnr(popup_atcursor(systemlist("cd " .
 noremap <Leader>y "+y | " copy to system clipboard
 noremap <Leader>p "+p | " paste from system clipboard
 
+nnoremap <Leader>u :!update-notes.sh<CR> | " update-notes (github/devops/bin/update-notes.sh)
+
 nnoremap <Leader>hc :set cuc!<CR> | " toggle highlight current column identation
 nnoremap <Leader>hl :set cursorline!<CR> | " toggle highlight current line
 
