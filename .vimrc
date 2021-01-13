@@ -440,30 +440,31 @@ nmap <Leader>J :Jumps<CR> | " (jumps) Go to jump
 " >>>
 
 " Vim event hooks <<<
+augroup eventhooks
+	autocmd!
+	" Before saving a file, deletes any trailing whitespace at the end of each line.
+	" If no trailing whitespace is found no change occurs, and the e flag means no error is displayed.
+	autocmd BufWritePre * :%s/\s\+$//e
 
-" Before saving a file, deletes any trailing whitespace at the end of each line.
-" If no trailing whitespace is found no change occurs, and the e flag means no error is displayed.
-autocmd BufWritePre * :%s/\s\+$//e
+	" After saving a file, display a notification:
+	autocmd BufWritePost * silent! !tmux list-clients -F "\#{client_name}" | xargs -n1 -I{} tmux display-message -c {} "File %:p saved."
 
-" After saving a file, display a notification:
-autocmd BufWritePost * silent! !tmux list-clients -F "\#{client_name}" | xargs -n1 -I{} tmux display-message -c {} "File %:p saved."
+	" When opening a new buffer, if it has no filetype defaults to text
+	autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
 
-" When opening a new buffer, if it has no filetype defaults to text
-autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
+	" Return to last edit position when opening files (You want this!)
+	autocmd BufReadPost *
+		    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+		    \   exe "normal! g`\"" |
+		    \ endif
 
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal! g`\"" |
-            \ endif
+	" Expands on what vim considers as a markdown filetype
+	autocmd BufNewFile,BufFilePre,BufRead *.md,*.markdown,*.mmd set filetype=markdown
 
-" Expands on what vim considers as a markdown filetype
-autocmd BufNewFile,BufFilePre,BufRead *.md,*.markdown,*.mmd set filetype=markdown
-
-" Redraw the screen to clean artifacts
-autocmd InsertLeave,TextChanged :redraw!
-
-
+	" Redraw the screen to clean artifacts
+	" autocmd InsertLeave,TextChanged :redraw!
+	autocmd CursorMoved :redraw!
+augroup END
 " >>>
 
 " Abbreviations <<<
@@ -541,9 +542,11 @@ nnoremap <silent> <Leader>qN :cnewer<Cr>| " quickfix: go to newer quickfix list
 nnoremap <silent> <Leader>qd :ClearQuickfix<Cr>| " quickfix: clear
 nnoremap <silent> <Leader>qs :WriteQuickfix ~/.vim-quickfix-history/quickfix.json<Cr>| " quickfix: save to file
 nnoremap <silent> <Leader>qr :ReadQuickfix ~/.vim-quickfix-history/quickfix.json \|:copen<Cr>| " quickfix: restore from file
-
-autocmd FileType qf map <buffer> <Cr> :.cc<Cr>| " quickfix: go to selected item on quickfix window
-autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>| " quickfix: delete current selected item from list
+augroup quickfixconf
+	autocmd!
+	autocmd FileType qf map <buffer> <Cr> :.cc<Cr>| " quickfix: go to selected item on quickfix window
+	autocmd FileType qf map <buffer> dd :RemoveQuickFixItem<Cr>| " quickfix: delete current selected item from list
+augroup END
 
 nnoremap <silent> <Leader>lP :lolder<Cr>| " location list: go to older list
 nnoremap <silent> <Leader>lN :lnewer<Cr>| " location list: go to newer list
@@ -573,9 +576,13 @@ let g:vista_executive_for = {
     \ }
 let g:vista_highlight_whole_line = 1
 
-autocmd FileType vista,vista_kind nnoremap <buffer> <silent> <F8> :<c-u>call vista#finder#fzf#Run()<CR>| " function key: vista search for symbol (function, variable, import)
-autocmd FileType python nnoremap <buffer> <silent> <F8> :Vista finder ale<CR>| " function key: vista search for symbol (function, variable, import)
-autocmd FileType markdown nnoremap <buffer> <silent> <F8> :Vista finder<CR>| " function key: vista search for symbol (function, variable, import)
+augroup vistaconf
+	autocmd!
+	autocmd FileType vista,vista_kind nnoremap <buffer> <silent> <F8> :<c-u>call vista#finder#fzf#Run()<CR>| " function key: vista search for symbol (function, variable, import)
+	autocmd FileType python nnoremap <buffer> <silent> <F8> :Vista finder ale<CR>| " function key: vista search for symbol (function, variable, import)
+	autocmd FileType markdown nnoremap <buffer> <silent> <F8> :Vista finder<CR>| " function key: vista search for symbol (function, variable, import)
+augroup END
+
 " >>>
 
 " VIM-PYENV <<<
@@ -606,12 +613,17 @@ let g:deoplete#enable_at_startup = 1
 " let g:ale_virtualenv_dir_names = [] " Disable auto-detection of virtualenvironments, so environment variable ${VIRTUAL_ENV} is always used
 let g:ale_linters = {'*': [], 'yaml': ['yamllint'], 'vim': ['vint'], 'python': ['pyls', 'pylint'], 'terraform': ['tflint']} " flake8, pycodestyle, bandit, mypy, etc...
 let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
-" autocmd FileType python let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
-autocmd FileType python let g:ale_python_pylint_options = '--rcfile .pylintrc'
-autocmd FileType python let g:ale_python_isort_options = '-m 3 -tc -y'
-autocmd FileType python let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
-" https://yamllint.readthedocs.io/en/stable/configuration.html
-autocmd FileType yaml let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: disable}}"'
+
+augroup deopleteconfig
+	autocmd!
+	" autocmd FileType python let g:ale_python_pylint_options = '--rcfile ~/.pylintrc'
+	autocmd FileType python let g:ale_python_pylint_options = '--rcfile .pylintrc'
+	autocmd FileType python let g:ale_python_isort_options = '-m 3 -tc -y'
+	autocmd FileType python let g:ale_python_black_options = '-S -t py37 -l 79  --exclude "/(\.git|\.venv|env|venv|build|dist)/"'
+	" https://yamllint.readthedocs.io/en/stable/configuration.html
+	autocmd FileType yaml let g:ale_yaml_yamllint_options='-d "{extends: relaxed, rules: {line-length: disable}}"'
+augroup END
+
 " Customization
 let g:ale_completion_enabled = 0
 let g:ale_set_balloons = 1
@@ -649,8 +661,13 @@ nnoremap <silent> <leader>fr :ALEFindReferences<CR>| " (python-ale) find referen
 let g:goyo_width='80'
 let g:goyo_height='85%'
 let g:goyo_linenr=0
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+
+augroup goyoconfig
+	autocmd!
+	autocmd! User GoyoEnter Limelight
+	autocmd! User GoyoLeave Limelight!
+augroup END
+
 " >>>
 
 " AGRICULTURE <<<
@@ -671,12 +688,13 @@ let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_
 " VIM-PYTHONSENSE <<<
 let g:is_pythonsense_alternate_motion_keymaps = 1
 "  >>>
-
-" Global autocmds and miscelaneus <<<
-autocmd VimResized * wincmd =  " (windows) resize vim splits proportionally when the window that contains vim is resized
-
-" Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
+augroup pythonsenseconfig
+	autocmd!
+	" Global autocmds and miscelaneus <<<
+	autocmd VimResized * wincmd =  " (windows) resize vim splits proportionally when the window that contains vim is resized
+	" Automatic reloading of .vimrc
+	autocmd! bufwritepost .vimrc source %
+augroup END
 
 " sets a gray margin on column 80
 "" set colorcolumn=80
@@ -700,15 +718,19 @@ func! DeleteTrailingWS()
     %s/\s\+$//ge
     exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
-" a quickfix window opens with a 10-line height, even when the number of errors
-" is 1 or 2. I think it's a waste of window space. So I wrote the following
-" code in my vimrc. With it, a quickfix window height is automatically adjusted
-" to fit its contents (maximum 5 lines).
-" http://vim.wikia.com/wiki/Automatically_fitting_a_quickfix_window_height
-au FileType qf call AdjustWindowHeight(5, 8)
+augroup trailingconfig
+	autocmd!
+	autocmd BufWrite *.py :call DeleteTrailingWS()
+	autocmd BufWrite *.coffee :call DeleteTrailingWS()
+	" a quickfix window opens with a 10-line height, even when the number of errors
+	" is 1 or 2. I think it's a waste of window space. So I wrote the following
+	" code in my vimrc. With it, a quickfix window height is automatically adjusted
+	" to fit its contents (maximum 5 lines).
+	" http://vim.wikia.com/wiki/Automatically_fitting_a_quickfix_window_height
+	autocmd FileType qf call AdjustWindowHeight(5, 8)
+augroup END
+
 function! AdjustWindowHeight(minheight, maxheight)
     exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
@@ -721,8 +743,12 @@ function! ConvertMarkdownToFormat(extension)
   " Fix empty vim window by forcing a redraw
   :redraw!
 endfu
-au FileType markdown nnoremap <leader>pp :call ConvertMarkdownToFormat('pdf')<cr>| " pandoc: convert markdown to pdf
-au FileType markdown nnoremap <leader>ph :call ConvertMarkdownToFormat('html')<cr>| " pandoc: convert markdown to html
+
+augroup convertmarkdownconf
+	autocmd!
+	autocmd FileType markdown nnoremap <leader>pp :call ConvertMarkdownToFormat('pdf')<cr>| " pandoc: convert markdown to pdf
+	autocmd FileType markdown nnoremap <leader>ph :call ConvertMarkdownToFormat('html')<cr>| " pandoc: convert markdown to html
+augroup END
 
 " Run git blame on current file
 function! GitBlame()
