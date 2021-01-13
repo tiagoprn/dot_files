@@ -462,8 +462,7 @@ augroup eventhooks
 	autocmd BufNewFile,BufFilePre,BufRead *.md,*.markdown,*.mmd set filetype=markdown
 
 	" Redraw the screen to clean artifacts
-	" autocmd InsertLeave,TextChanged :redraw!
-	autocmd CursorMoved :redraw!
+	autocmd InsertLeave,TextChanged,CursorMoved * :redraw!
 augroup END
 " >>>
 
