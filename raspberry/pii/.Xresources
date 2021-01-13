@@ -30,7 +30,7 @@ URxvt.foreground:   #ffffff
 URxvt.cursorColor:  #ffffff
 URxvt.saveLines: 50000
 URxvt.secondaryScroll: true
-URxvt.geometry: 120x40
+URxvt.geometry: 120x30
 
 ! extensions
 URxvt.perl-ext-common: default, font-size
