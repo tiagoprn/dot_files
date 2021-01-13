@@ -50,5 +50,14 @@ snippet ast
 	print(ast.dump(ast.parse("${1:python_code_as_string}")))
 snippet bash
 	import subprocess
-	command = 'echo "bla" | xclip -selection clipboard'
-	subprocess.check_call(command, shell=True)
+
+	def run(cmd: str):
+	    proc = subprocess.Popen(
+		cmd,
+		stdout=subprocess.PIPE,
+		stderr=subprocess.PIPE,
+		shell=True,
+		universal_newlines=True,
+	    )
+	    std_out, std_err = proc.communicate()
+	    return proc.returncode, std_out, std_err
