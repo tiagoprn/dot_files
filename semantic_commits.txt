@@ -1,4 +1,4 @@
-# type(component)!: (wip) Summary in present tense
+# type(component)!: (wip) Summary in past tense
 # |   |          |  |
 # |   |          |  +------> Indicates [w]ork [i]n [p]rogress
 # |   |          |
@@ -9,7 +9,7 @@
 # +------> Choose one from the list below:
 #          - feat: new feature that DOES reflect on the end user
 #          - fix: bug fix that DOES reflect on the end user
-#          - refactor: refactoring code that DOES reflect on the end user
+#          - refac: refactoring code that DOES reflect on the end user
 #          - docs: changes to the documentation
 #          - style: formatting/linter
 #          - test: adding missing tests, refactoring tests
