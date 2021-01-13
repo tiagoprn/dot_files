@@ -462,8 +462,10 @@ augroup eventhooks
 	autocmd BufNewFile,BufFilePre,BufRead *.md,*.markdown,*.mmd set filetype=markdown
 
 	" Redraw the screen to clean artifacts
-	" TODO: this is too slow and inefficient, must find a better solution :(
-	autocmd InsertLeave,TextChanged,TextChangedI,CursorMoved * :redraw!
+	" FIXME: this is not the ideal solution: it makes the screen to blink,
+	"        is too slow and inefficient, so I better find a better solution
+	"        (which consists on discovering which plugin is causing the issue and disabling it):
+	autocmd CursorMoved,CursorMovedI * :redraw!
 augroup END
 " >>>
 
