@@ -196,3 +196,13 @@ function n() {
     fi
 
 }
+
+search-personal-notes() { ${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/personal" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
+search-work-notes() { ${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/work" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
+search-quick-notes() { ${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/quick" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
+search-zettels() { ${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/zettelkasten" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
+search-posts() { ${EDITOR:-vim} $(rg -n '.*' "/storage/src/tiagoprnl/content/posts" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
+search-mind-maps() { ${EDITOR:-vim} $(rg -n '.*' "/storage/src/tiagoprnl/content/mind-maps" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
+
+# fr() { ${EDITOR:-vim} $(rg -n '.*' "$HOME/.config/remind/" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
+
