@@ -20,3 +20,6 @@ cp -farv dunstrc $DUNST_CONFIG_HOME
 ## Files that must be on $HOME/local/bin
 HOME_BIN="$HOME"/local/bin
 cp -farv hold.sh $HOME_BIN
+
+SUPERVISOR_CLIPPY_CONFIG=/storage/src/dot_files/clippy.supervisor.conf
+cp -farv $SUPERVISOR_CLIPPY_CONFIG $HOME
