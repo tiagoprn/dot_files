@@ -128,6 +128,10 @@ echo 'Linking zathura...'
 rm -fr ~/.config/zathura/zathurarc
 ln -s /storage/src/dot_files/zathurarc ~/.config/zathura/zathurarc
 
+echo 'Linking supervisor...'
+rm -fr ~/clippy.supervisor.conf
+ln -s /storage/src/dot_files/clippy.supervisor.conf ~/clippy.supervisor.conf
+
 # ---
 
 echo 'Finished.'
