@@ -23,7 +23,7 @@ _isRunning nm-applet || nm-applet >> $LOG_FILE 2>&1 &
 # _isRunning lxpolkit || /usr/bin/lxpolkit >> $LOG_FILE 2>&1 &
 
 echo "Starting clippy (clipboard daemon)..." >> $LOG_FILE 2>&1
-supervisord -n -c $HOME/clippy.supervisor.conf &
+supervisord -n -c $HOME/clippy.supervisor.conf >> $LOG_FILE 2>&1 &
 
 echo "Reloading wallpaper..." >> $LOG_FILE 2>&1
 reload_wallpaper.sh >> $LOG_FILE 2>&1 &
