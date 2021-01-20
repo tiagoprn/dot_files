@@ -341,6 +341,9 @@ let g:sessions_dir = '~/vim-sessions'
 exec 'nnoremap <Leader>ss :mks! ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>'| " save current session
 exec 'nnoremap <Leader>so :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><BS>'| " open session
 
+" Copy current buffer name to clipboard
+nnoremap <Leader>fcb :let @+=expand('%:p')<CR>| " copy current file name to clipboard
+
 " DISABLE ARROW KEYS IN NORMAL MODE
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -386,13 +389,26 @@ command! GetHLG echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name"
 
 nnoremap <silent> <F3> :Goyo<CR>| " function key: toggle goyo distraction-free mode
 
-" reference: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line
-map <silent><Leader>G :call setbufvar(winbufnr(popup_atcursor(systemlist("cd " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " . shellescape(line("v") . "," . line(".") . ":" .  resolve(expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR> | " Show git commit that introduced current line in vim
-
 noremap <Leader>y "+y | " copy to system clipboard
 noremap <Leader>p "+p | " paste from system clipboard
 
 nnoremap <Leader>u :!update-notes.sh<CR> | " update-notes (github/devops/bin/update-notes.sh)
+
+" Git commands
+nnoremap <Leader>gs :!git status && lock-terminal-for-input.sh<CR> | " (git) status
+nnoremap <Leader>gl :!git glog && lock-terminal-for-input.sh<CR> | " (git) log
+
+" reference: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line
+map <silent><Leader>gc :call setbufvar(winbufnr(popup_atcursor(systemlist("cd " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " . shellescape(line("v") . "," . line(".") . ":" .  resolve(expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR> | " (git) show commit that introduced current line in vim
+
+" Run git blame on current file
+function! GitBlame()
+  :silent execute '!git blame %:p'
+  " Fix empty vim window by forcing a redraw
+  :redraw!
+endfu
+nnoremap <leader>gb :call GitBlame()<cr>| " (git) blame current file
+
 
 nnoremap <Leader>hc :set cuc!<CR> | " toggle highlight current column identation
 nnoremap <Leader>hl :set cursorline!<CR> | " toggle highlight current line
@@ -405,7 +421,6 @@ vnoremap <c-j> :m '>+1<CR>gv=gv | "(movement) (VISUAL) move current selection do
 vnoremap <c-k> :m '<-2<CR>gv=gv | "(movement) (VISUAL) move current selection up
 inoremap <c-j> <Esc>:m .+1<CR>==I | "(movement) (INSERT) move current line down
 inoremap <c-k> <Esc>:m .-2<CR>==I | "(movement) (INSERT) move current line up
-
 
 function! GotoJumpAlt()
   jumps
@@ -754,13 +769,6 @@ augroup convertmarkdownconf
 	autocmd FileType markdown nnoremap <leader>ph :call ConvertMarkdownToFormat('html')<cr>| " pandoc: convert markdown to html
 augroup END
 
-" Run git blame on current file
-function! GitBlame()
-  :silent execute '!git blame %:p'
-  " Fix empty vim window by forcing a redraw
-  :redraw!
-endfu
-nnoremap <leader>b :call GitBlame()<cr>| " git: git blame current file
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
