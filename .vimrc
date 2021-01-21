@@ -307,8 +307,8 @@ nnoremap <Leader>wS :new<CR>| " (windows) new horizontal window split
 " Try to go into visual selection mode (v), then
 " select several lines of code here and
 " then press ``>`` several times.
-vnoremap < <gv  " better indentation| " deindent selection
-vnoremap > >gv  " better indentation| " indent selection
+vnoremap < <gv  " better indentation| " (VISUAL) deindent selection
+vnoremap > >gv  " better indentation| " (VISUAL) indent selection
 
 nnoremap <silent> <F6> :set list!<CR>| " function key: toggle showing special chars (listchars)
 
@@ -995,6 +995,8 @@ set foldexpr=MyFoldText()
 " f | " (python/text-objects) function  (e.g. actions: cif, vif, caf, vaf)
 " c | " (python/text-objects) class (e.g. actions: cic, vic, cac, vac)
 " d | " (python/text-objects) docstring (e.g. actions: cid, vid, cad, vad)
+" >> or 3>> | " (NORMAL) indent (one line or e.g. 3 lines)
+" << or 3<< | " (NORMAL) deindent (one line or e.g. 3 lines)
 "
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
