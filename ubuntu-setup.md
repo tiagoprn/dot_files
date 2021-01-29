@@ -322,6 +322,7 @@ dmenu
 py3status
 i3-py
 tmuxp
+telegram-send
 flashfocus (sudo pip3 install flashfocus --ignore-installed PyYAML)
 pygments
 khal
