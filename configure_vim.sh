@@ -10,4 +10,5 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim &
 vim +PluginInstall +all +qa
 # below makes a fix to the vim-agriculture plugin to exclude unnecessary string that breaks search
 find /storage/src/dot_files/.vim/bundle/vim-agriculture/plugin -type f -name *.vim -exec sed -i -e 's/\$//g' {} \;
-
+# Below installs LeaderF plugin C Extension for better performance:
+echo 'On the next vim startup, run ":LeaderfInstallCExtension", which installs LeaderF plugin C Extension for better performance.'

@@ -99,6 +99,9 @@ Plugin 'jpalardy/vim-slime'
 " python text objects
 Plugin 'jeetsukumaran/vim-pythonsense'
 
+" Better snippets browsing (works on normal and insert mode):
+Plugin 'Yggdroot/LeaderF'
+Plugin 'skywind3000/Leaderf-snippet'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -703,6 +706,13 @@ let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "session_name:window.pane"}
 " >>>
+
+" LEADERF-SNIPPET <<<
+inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<cr>
+
+let g:Lf_PreviewResult = get(g:, 'Lf_PreviewResult', {})
+" >>>
+
 
 " VIM-PYTHONSENSE <<<
 let g:is_pythonsense_alternate_motion_keymaps = 1
