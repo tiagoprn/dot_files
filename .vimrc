@@ -425,37 +425,6 @@ vnoremap <c-k> :m '<-2<CR>gv=gv | "(movement) (VISUAL) move current selection up
 inoremap <c-j> <Esc>:m .+1<CR>==I | "(movement) (INSERT) move current line down
 inoremap <c-k> <Esc>:m .-2<CR>==I | "(movement) (INSERT) move current line up
 
-function! GotoJumpAlt()
-  jumps
-  let j = input("Please select your jump: ")
-  if j != ''
-    let pattern = '\v\c^\+'
-    if j =~ pattern
-      let j = substitute(j, pattern, '', 'g')
-      execute "normal " . j . "\<C-i>"
-    else
-      execute "normal " . j . "\<C-o>"
-    endif
-  endif
-endfunction
-nmap <Leader>Ja :call GotoJumpAlt()<CR> | " (jumps) Go to jump (alt)
-
-function! GetJumps()
-  redir => cout
-  silent jumps
-  redir END
-  return reverse(split(cout, "\n")[1:])
-endfunction
-function! GoToJump(jump)
-    let jumpnumber = split(a:jump, '\s\+')[0]
-    execute "normal " . jumpnumber . "\<c-o>"
-endfunction
-command! Jumps call fzf#run(fzf#wrap({
-        \ 'source': GetJumps(),
-        \ 'sink': function('GoToJump')}))
-nmap <Leader>J :Jumps<CR> | " (jumps) Go to jump
-
-
 
 " >>>
 
@@ -707,8 +676,12 @@ let g:slime_paste_file = "$HOME/.slime_paste"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "session_name:window.pane"}
 " >>>
 
-" LEADERF-SNIPPET <<<
-inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<cr>
+" LEADERF <<<
+inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<CR> | " (INSERT) (leaderf) insert code snippet on cursor
+nnoremap <Leader>J :Leaderf jumps --popup<CR> | " (jumps) (leaderf) interactive jump selection
+nnoremap <Leader>ch :Leaderf cmdHistory --popup<CR> | " (leaderf) search on commands history
+nnoremap <Leader>sh :Leaderf searchHistory --popup<CR> | " (leaderf) redo a search from search history
+nnoremap <Leader>c :Leaderf command --popup<CR> | " (leaderf) Run command from vim command "palette"
 
 let g:Lf_PreviewResult = get(g:, 'Lf_PreviewResult', {})
 " >>>
@@ -880,9 +853,7 @@ set foldexpr=MyFoldText()
 " ctrl+l | " move current character right
 
 "" snippets
-" <C-l>| " select snippet
 " <word><tab>| " expand snippet
-" :Snippets| " snippets list powered by vim-fzf
 
 "" python specific
 "(python-pyenv) Activate pyenv | " PyenvActivate <pyenv>
@@ -1007,7 +978,12 @@ set foldexpr=MyFoldText()
 " d | " (python/text-objects) docstring (e.g. actions: cid, vid, cad, vad)
 " >> or 3>> | " (NORMAL) indent (one line or e.g. 3 lines)
 " << or 3<< | " (NORMAL) deindent (one line or e.g. 3 lines)
-"
+
+" <C>r | " (leaderf window) alternate between regex/fuzzy search
+" <C>j | " (leaderf window) navigate down
+" <C>r | " (leaderf window) navigate up
+" <C>c | " (leaderf window) close window
+
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
 " >>>
 
