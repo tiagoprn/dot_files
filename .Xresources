@@ -33,7 +33,7 @@ URxvt.secondaryScroll: true
 URxvt.geometry: 120x40
 
 ! extensions
-URxvt.perl-ext-common: default, font-size
+URxvt.perl-ext-common: default,font-size
 
 ! extension font-size configuration
 URxvt.keysym.C-Up:     font-size:increase
