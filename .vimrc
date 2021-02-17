@@ -377,7 +377,9 @@ command! -bang -nargs=* Zettel call fzf#vim#grep( 'rg --column --line-number --n
 nnoremap <leader>fz :Zettel()<CR>| " open zettelkasten notes searching by word
 
 command! -bang -nargs=* QuickNotes call fzf#vim#grep( 'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': '/storage/docs/notes/quick'}), <bang>0)
+
 nnoremap <leader>fn :QuickNotes()<CR>| " open quicknotes searching by word
+nnoremap <leader>cn :!create-quick-note.sh<CR> | " create a quicknote
 
 function! ReloadVimConfig()
     execute 'w!'
