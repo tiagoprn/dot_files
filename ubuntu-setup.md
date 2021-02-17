@@ -334,27 +334,21 @@ sudo apt install -y build-essential apt-transport-https ca-certificates curl sof
 
 pywal
 dmenu
-py3status
-i3-py
 tmuxp
 telegram-send
-flashfocus (sudo pip3 install flashfocus --ignore-installed PyYAML)
 pygments
-khal
-vdirsyncer
 visidata
 pyperclip
 daemonize
 typer
 jetty (alternative to jq)
 yamllint
-ansible-lint
 vim-vint
 pygments
 pygments-json
 crazydiskmark (to bookmark disks - equivalent to CrystalDiskMark on windows - needs python 3.8)
 howdoi (<https://github.com/gleitz/howdoi>)
-
+rata (time tracker)
 
 # 4) TO BE COMPILED / INSTALLED:
 
@@ -557,16 +551,6 @@ $ cd /opt/installers
 $ git clone https://github.com/cdemoulins/pamixer.git
 $ make
 $ make install
-
-## klog (for tracking time)
-```
-$ sudo su
-$ mkdir -p /opt/installers/klog
-$ cd /opt/installers/klog
-$ wget https://github.com/jotaen/klog/releases/download/v1.5/klog-linux.zip
-$ unzip klog-linux.zip
-$ cp -farv klog /usr/bin
-```
 
 ## SNAP INSTALLS
 $ sudo snap install youtube-dl
