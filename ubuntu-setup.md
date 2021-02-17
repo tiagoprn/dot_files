@@ -348,7 +348,6 @@ pygments
 pygments-json
 crazydiskmark (to bookmark disks - equivalent to CrystalDiskMark on windows - needs python 3.8)
 howdoi (<https://github.com/gleitz/howdoi>)
-rata (time tracker)
 
 # 4) TO BE COMPILED / INSTALLED:
 
