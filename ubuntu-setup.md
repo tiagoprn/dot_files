@@ -430,6 +430,8 @@ $ cd curl-7.75.0
 $ ./configure --with-ssl
 $ make
 $ make install
+$ exit
+$ sudo ldconfig  # fixes "curl: symbol lookup error: curl: undefined symbol: curl_url_cleanup"
 ```
 
 ## linters:
