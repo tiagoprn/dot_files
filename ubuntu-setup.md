@@ -417,6 +417,21 @@ $ make
 $ sudo make install
 ```
 
+## curl (updated with support to json as stdout - which landed on 7.70.0)
+```
+$ sudo apt remove -y curl && sudo apt purge -y
+$ sudo su
+$ mkdir -p /opt/installers
+$ cd /opt/installers
+$ mkdir curl && cd curl
+$ wget https://curl.haxx.se/download/curl-7.75.0.tar.gz
+$ tar xfzv curl-7.75.0.tar.gz
+$ cd curl-7.75.0
+$ ./configure --with-ssl
+$ make
+$ make install
+```
+
 ## linters:
 
 ### terraform:
