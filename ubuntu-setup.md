@@ -551,6 +551,15 @@ $ cd unclutter-xfixes
 $ make
 $ sudo make install
 
+## ventoy (create a multiboot usb disk):
+$ sudo su
+$ cd /opt/installers
+$ mkdir -p ventoy && cd ventoy
+$ curl -L https://github.com/ventoy/Ventoy/releases/download/v1.0.38/ventoy-1.0.38-linux.tar.gz | tar -xmpz
+$ cd ventoy-1.0.38
+$ ./Ventoy2Disk.sh (to check the manual page)
+$ ./Ventoy2Disk.sh -g -s -L DATAKEEPER -i /dev/<disk> (e.g. /dev/sdb)
+
 ## screenkey
 (a screencast tool to display your keys as you type them)
 
