@@ -380,6 +380,7 @@ command! -bang -nargs=* QuickNotes call fzf#vim#grep( 'rg --column --line-number
 
 nnoremap <leader>fn :QuickNotes()<CR>| " open quicknotes searching by word
 nnoremap <leader>cn :!create-quick-note.sh<CR> | " create a quicknote
+nnoremap <leader>cz :!create-zettelkasten.sh<CR> | " create a zettelkasten
 
 function! ReloadVimConfig()
     execute 'w!'
