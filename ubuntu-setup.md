@@ -578,6 +578,15 @@ $ git clone https://github.com/cdemoulins/pamixer.git
 $ make
 $ make install
 
+## dmenu (distrotube customization)
+
+$ sudo su
+$ cd /opt/installers
+$ https://gitlab.com/dwt1/dmenu-distrotube.git
+$ cd dmenu-distrotube
+$ make
+$ make install
+
 ## SNAP INSTALLS
 $ sudo snap install youtube-dl
 $ sudo snap install chromium
