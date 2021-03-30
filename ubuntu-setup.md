@@ -587,6 +587,22 @@ $ cd dmenu-distrotube
 $ make
 $ make install
 
+## sqlite3
+(<https://www.sqlite.org/howtocompile.html>)
+$ sudo su
+$ cd /opt/installers
+$ mkdir sqlite3
+$ wget https://www.sqlite.org/2021/sqlite-autoconf-3350300.tar.gz
+$ cd sqlite3
+$ tar xfzv sqlite-autoconf-3350300.tar.gz
+$ cd sqlite-autoconf-3350300
+$ gcc -Os -I. -DSQLITE_THREADSAFE=0 -DSQLITE_ENABLE_FTS4 \
+   -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_JSON1 \
+   -DSQLITE_ENABLE_RTREE -DSQLITE_ENABLE_EXPLAIN_COMMENTS \
+   -DHAVE_USLEEP -DHAVE_READLINE \
+   shell.c sqlite3.c -ldl -lm -lreadline -lncurses -o sqlite3
+$ cp -farv sqlite3 /usr/bin
+
 ## SNAP INSTALLS
 $ sudo snap install youtube-dl
 $ sudo snap install chromium
