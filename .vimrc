@@ -698,8 +698,8 @@ let g:is_pythonsense_alternate_motion_keymaps = 1
 
 " MARVIN <<<
 let g:marvim_store = '/storage/src/dot_files/.vim/macros' " change store place.
-let g:marvim_find_key = '<Space>mf' " change find key from <F2>
-let g:marvim_store_key = '<Space>ms'     " change store key from <F3>
+let g:marvim_find_key = '<Space>mf' | " (macros) find macro (use tab to navigate between available ones)
+let g:marvim_store_key = '<Space>ms' | " (macros) save current macro (IMPORTANT: it must be on 'a' register)
 let g:marvim_register = 'a'       " change used register from 'q'
 let g:marvim_prefix = 0           " disable default syntax based prefix
 ">>>
