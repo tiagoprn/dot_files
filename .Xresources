@@ -23,7 +23,7 @@ URxvt.font: xft:Iosevka Nerd Font:size=11:autohint:true:antialias:true
 
 URxvt.scrollBar: false
 urxvt*depth: 32
-URxvt.internalBorder: 250
+URxvt.internalBorder: 50
 ! [xx] below before the color hex code means xx% opacity
 URxvt.background: [99]#000000
 URxvt.foreground:   #ffffff
