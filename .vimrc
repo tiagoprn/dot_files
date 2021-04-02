@@ -564,7 +564,7 @@ nnoremap <silent> <Leader>bw :bw!<Cr>| " fzf: buffer wipe - deletes all traces f
 
 " SNIPMATE <<<
 " If I ever need to customize anything on snipmate, enable the line below
-" let g:snipMate = {}
+let g:snipMate = { 'snippet_version' : 1 }
 " >>>
 
 " VISTA <<<
