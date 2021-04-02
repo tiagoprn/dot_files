@@ -103,6 +103,9 @@ Plugin 'jeetsukumaran/vim-pythonsense'
 Plugin 'Yggdroot/LeaderF'
 Plugin 'skywind3000/Leaderf-snippet'
 
+" macros persitance
+Plugin 'chamindra/marvim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -689,13 +692,21 @@ nnoremap <Leader>c :Leaderf command --popup<CR> | " (leaderf) Run command from v
 let g:Lf_PreviewResult = get(g:, 'Lf_PreviewResult', {})
 " >>>
 
-
 " VIM-PYTHONSENSE <<<
 let g:is_pythonsense_alternate_motion_keymaps = 1
 "  >>>
+
+" MARVIN <<<
+let g:marvim_store = '/storage/src/dot_files/.vim/macros' " change store place.
+let g:marvim_find_key = '<Space>mf' " change find key from <F2>
+let g:marvim_store_key = '<Space>ms'     " change store key from <F3>
+let g:marvim_register = 'a'       " change used register from 'q'
+let g:marvim_prefix = 0           " disable default syntax based prefix
+">>>
+
+" Global autocmds and miscelaneus <<<
 augroup pythonsenseconfig
 	autocmd!
-	" Global autocmds and miscelaneus <<<
 	autocmd VimResized * wincmd =  " (windows) resize vim splits proportionally when the window that contains vim is resized
 	" Automatic reloading of .vimrc
 	autocmd! bufwritepost .vimrc source %
