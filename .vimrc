@@ -392,6 +392,11 @@ function! ReloadVimConfig()
 endfunction
 nnoremap <leader>rl :call ReloadVimConfig()<CR>| " reload vim configuration (.vimrc)
 
+function! ShowCalendar()
+    execute 'silent !show-calendar.sh'
+endfunction
+nnoremap <leader>sc :call ShowCalendar()<CR>| " show calendar
+
 command! Regclear for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor | " (registers) cleans all vim registers
 
 command! GetHLG echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")') | " show the highlight group of the token under your cursor, so that you could e.g. customize it
