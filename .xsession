@@ -19,6 +19,9 @@ _isRunning blueman-applet || blueman-applet >> $LOG_FILE 2>&1 &
 echo "Starting NetworkManager applet..."
 _isRunning nm-applet || nm-applet >> $LOG_FILE 2>&1 &
 
+echo "Starting unclutter (hide mouse cursor when idle)..."
+_isRunning unclutter || unclutter --timeout 5 --hide-on-touch -b &
+
 # echo "Starting lxpolkit..." >> $LOG_FILE 2>&1
 # _isRunning lxpolkit || /usr/bin/lxpolkit >> $LOG_FILE 2>&1 &
 
