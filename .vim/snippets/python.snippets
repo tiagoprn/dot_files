@@ -63,3 +63,7 @@ snippet bash
 	    )
 	    std_out, std_err = proc.communicate()
 	    return proc.returncode, std_out, std_err
+snippet ic
+	from icecream import ic
+	ic.configureOutput(prefix='icecream debug-> ')
+	ic('world')
