@@ -101,22 +101,13 @@ the guest.
 $ sudo su
 $ mkdir -p /opt/installers/terraform
 $ cd /opt/installers/terraform
-$ TER_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | grep tag_name | cut -d: -f2 | tr -d \"\,\v | awk '{$1=$1};1'`
-$ wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
-$ unzip terraform_${TER_VER}_linux_amd64.zip
+$ export TER_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | grep tag_name | cut -d: -f2 | tr -d \"\,\v | awk '{$1=$1};1'` && \
+  wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip && \
+  unzip terraform_${TER_VER}_linux_amd64.zip
 $ cp -farv terraform /usr/local/bin
 
 $ # Install the kvm provider
-$ exit (so you can go back to your normal user)
-$ cd
-$ terraform init
-$ cd ~/.terraform.d
-$ mkdir plugins
-$ cd plugins
-$ # Check this page to see all releases available for downloading: https://github.com/dmacvicar/terraform-provider-libvirt/releases
-$ wget https://github.com/dmacvicar/terraform-provider-libvirt/releases/download/v0.6.2/terraform-provider-libvirt-0.6.2+git.1585292411.8cbe9ad0.Ubuntu_18.04.amd64.tar.gz
-$ tar xvf terraform-provider-libvirt-0.6.2+git.1585292411.8cbe9ad0.Ubuntu_18.04.amd64.tar.gz
-$ rm terraform-provider-libvirt-0.6.2+git.1585292411.8cbe9ad0.Ubuntu_18.04.amd64.tar.gz
+(adapt instructions from [here](https://tiagopr.nl/posts/published/terraform-on-arch-linux/))
 ```
 
 ### Ubuntu 20.04
