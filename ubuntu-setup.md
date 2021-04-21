@@ -594,6 +594,16 @@ $ gcc -Os -I. -DSQLITE_THREADSAFE=0 -DSQLITE_ENABLE_FTS4 \
    shell.c sqlite3.c -ldl -lm -lreadline -lncurses -o sqlite3
 $ cp -farv sqlite3 /usr/bin
 
+## devdash
+$ sudo su
+$ cd /opt/installers
+$ mkdir devdash
+$ cd devdash
+$ wget https://github.com/Phantas0s/devdash/releases/download/v0.4.2/devdash_0.4.2_Linux_x86_64.tar.gz
+$ tar xfzv devdash_0.4.2_Linux_x86_64.tar.gz
+$ cp -farv devdash /usr/bin/
+
+
 ## SNAP INSTALLS
 $ sudo snap install youtube-dl
 $ sudo snap install chromium
