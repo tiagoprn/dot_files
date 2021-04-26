@@ -381,9 +381,13 @@ nnoremap <F11> :Zettel()<CR>| " function key: open zettelkasten notes searching 
 
 command! -bang -nargs=* QuickNotes call fzf#vim#grep( 'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': '/storage/docs/notes/quick'}), <bang>0)
 
+command! -bang -nargs=* TaskCard call fzf#vim#grep( 'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': '/storage/docs/notes/tasks'}), <bang>0)
+nnoremap <F12> :TaskCard()<CR>| " function key: open task cards searching by word
+
 nnoremap <leader>fn :QuickNotes()<CR>| " open quicknotes searching by word
 nnoremap <leader>cn :!create-quick-note.sh<CR> | " create a quicknote
 nnoremap <leader>cz :!create-zettelkasten.sh<CR> | " create a zettelkasten
+nnoremap <leader>ct :!create-task-card.sh<CR> | " create a task card
 
 function! ReloadVimConfig()
     execute 'w!'

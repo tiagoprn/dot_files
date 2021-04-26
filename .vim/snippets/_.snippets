@@ -9,11 +9,12 @@ snippet bsl
 
 snippet timestamp
 	`strftime("%Y-%m-%d %H:%M:%S")`
-
+snippet today
+	`strftime("%Y-%m-%d")`
 snippet sig
 
 	---
-	Tiago Paranhos Lima - Desenvolvedor Python
+	Tiago Paranhos Lima - Senior Software Engineer (python)
 	https://tiagopr.nl
 	twitter.com/tiagoprn
 
@@ -42,3 +43,19 @@ snippet ztk
 
 snippet it
 	- [ ] ${1:Description}
+
+snippet task
+	goal: ${1:Goal}
+	scope: personal/work
+	created: timestamp
+	finished: timestamp
+	effort: quick-win/normal/epic
+	current_status: created/wip/paused/finished/discarded
+	#tag1 #tag2
+	---
+
+	Detailed description, checklist, references, etc...
+
+	---
+	Timesheet:
+	- date: minutes
