@@ -1,14 +1,13 @@
 [vm]
+
 # remember to edit your /etc/hosts if you are using multipass to trigger the VMs. E.g.:
 # [the-ip-you-are-adding-here] www.example.com example.com nginx.example.com traefik.example.com tomcat.example.com mysql.example.com
 
-# KVM
+# example 1 - normal user with sudo
 192.168.122.251 ansible_become=true ansible_user=ubuntu ansible_become_method=sudo
 
-# Linode - guardian
+# example 2 - root user (avoid at all costs)
 # 173.230.128.240 ansible_user=root
-
 
 [vm:vars]
 ansible_python_interpreter=/usr/bin/python3
-
