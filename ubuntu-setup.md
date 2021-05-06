@@ -599,8 +599,8 @@ $ sudo su
 $ cd /opt/installers
 $ mkdir devdash
 $ cd devdash
-$ wget https://github.com/Phantas0s/devdash/releases/download/v0.4.2/devdash_0.4.2_Linux_x86_64.tar.gz
-$ tar xfzv devdash_0.4.2_Linux_x86_64.tar.gz
+$ wget https://github.com/Phantas0s/devdash/releases/download/v0.5.0/devdash_0.5.0_Linux_x86_64.tar.gz
+$ tar xfzv devdash_0.5.0_Linux_x86_64.tar.gz
 $ cp -farv devdash /usr/bin/
 
 
