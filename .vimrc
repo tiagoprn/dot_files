@@ -438,6 +438,14 @@ vnoremap <c-k> :m '<-2<CR>gv=gv | "(movement) (VISUAL) move current selection up
 inoremap <c-j> <Esc>:m .+1<CR>==I | "(movement) (INSERT) move current line down
 inoremap <c-k> <Esc>:m .-2<CR>==I | "(movement) (INSERT) move current line up
 
+fun! MoveVisualSelectionToFile()
+  normal gv"xy
+  let result = getreg("x")
+  exec "!echo '". l:result . "' >> '/tmp/acum.txt'"
+  norm gvd
+endfunc
+vnoremap <leader>ble :call MoveVisualSelectionToFile()<CR>
+
 
 " >>>
 
