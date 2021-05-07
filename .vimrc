@@ -438,12 +438,18 @@ vnoremap <c-k> :m '<-2<CR>gv=gv | "(movement) (VISUAL) move current selection up
 inoremap <c-j> <Esc>:m .+1<CR>==I | "(movement) (INSERT) move current line down
 inoremap <c-k> <Esc>:m .-2<CR>==I | "(movement) (INSERT) move current line up
 
-fun! MoveVisualSelectionToFile()
+function! MoveVisualSelectionToFile()
+  " copy current visual selection to x register
   normal gv"xy
+
   let result = getreg("x")
-  exec "!echo '". l:result . "' >> '/tmp/acum.txt'"
-  norm gvd
-endfunc
+
+  " save the x register contents into file
+  call writefile([l:result], '/tmp/acum.txt', 'a')
+
+  " delete current visual selection
+  normal gvd
+endfunction
 vnoremap <leader>ble :call MoveVisualSelectionToFile()<CR>
 
 
