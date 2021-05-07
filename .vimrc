@@ -442,15 +442,15 @@ function! MoveVisualSelectionToFile()
   " copy current visual selection to x register
   normal gv"xy
 
-  let result = getreg("x")
-
   " save the x register contents into file
-  call writefile([l:result], '/tmp/acum.txt', 'a')
+  " TODO: dinamically set the file name here according to the date, with the '.md' extension
+  call writefile(split(getreg('x'), '\n'), '/tmp/acum.txt', 'a')
 
   " delete current visual selection
   normal gvd
 endfunction
-vnoremap <leader>ble :call MoveVisualSelectionToFile()<CR>
+vnoremap <leader>ble :call MoveVisualSelectionToFile()<CR>| "(VISUAL) copy current selection to file
+
 
 
 " >>>
