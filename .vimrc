@@ -442,9 +442,25 @@ function! MoveVisualSelectionToFile()
   " copy current visual selection to x register
   normal gv"xy
 
-  " save the x register contents into file
-  " TODO: dinamically set the file name here according to the date, with the '.md' extension
-  call writefile(split(getreg('x'), '\n'), '/tmp/acum.txt', 'a')
+  let l:defaultFilename = '/tmp/copied.txt'
+
+  call inputsave()
+  let l:filename = input('Enter filename (leave it blank to copy to standard location "' . l:defaultFilename .  '"): ')
+  call inputrestore()
+
+  try
+    " save the x register contents into file
+    if l:filename == ''
+      call writefile(split(getreg('x'), '\n'), l:defaultFilename, 'a')
+    else
+      call writefile(split(getreg('x'), '\n'), l:filename, 'a')
+    endif
+  catch /.*/
+    echo "\nCaught error: " . v:exception . '. Here are the local variables:'
+    echo l:
+    echo "\nNothing will be done, aborting."
+    return
+  endtry
 
   " delete current visual selection
   normal gvd
