@@ -149,9 +149,9 @@ set relativenumber  " Changing the ruler position
 set number  " show line numbers
 " set winwidth=80  "minimum window width
 
-set formatoptions-=r  " Automatically insert the current comment leader after hitting <Enter> in Insert mode.
-set formatoptions-=c  " Auto-wrap comments using textwidth, inserting the current comment leader automatically.
-set formatoptions-=o  " Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+" set formatoptions-=r  " Automatically insert the current comment leader after hitting <Enter> in Insert mode.
+" set formatoptions-=c  " Auto-wrap comments using textwidth, inserting the current comment leader automatically.
+" set formatoptions-=o  " Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
 set formatoptions+=j  " Remove comment leader when joining comment lines
 
 augroup pythonconf
