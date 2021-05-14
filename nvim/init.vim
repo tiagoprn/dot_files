@@ -71,6 +71,7 @@ set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends
 " --- REMAPPINGS
 "
 nnoremap <C-u> :undo<CR>| " undo changes
+nnoremap <Leader><Space> :w!<CR>| " (core) save file and redraw screen to cleanup from glitches
 nnoremap <Leader><Space>w :windo w! \| :q!<CR>| " (core) save all files and quit
 nnoremap <Leader><Space>q :q!<CR>| " (core) quit
 nnoremap <C-e> :e<CR>| " (core) reload file
