@@ -180,9 +180,9 @@ function! MoveVisualSelectionToFile()
 endfunction
 vnoremap <leader>ble :call MoveVisualSelectionToFile()<CR>| "(VISUAL) copy current selection to file
 
-"Sample lua function
+" Sample lua function
 command! WelcomeToLua lua require'sample'.welcomeToLua()
-nnoremap <leader>wel :WelcomeToLua<CR>| " Call sample lua function
+" nnoremap <leader>wel :WelcomeToLua<CR>| " Call sample lua function
 
 " --- EVENT HOOKS
 "
