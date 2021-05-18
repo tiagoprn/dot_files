@@ -8,7 +8,7 @@ function M.welcomeToLua()
   api.nvim_command('echo "Welcome to lua! o/"')
   print ("Who are you?") ;
   answer = io.read ();
-  describe(answer)
+  print ("YOU TYPED: "+answer)
 end
 
 return M
