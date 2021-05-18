@@ -1,1 +1,1 @@
-" PLUGINS REMAPPPINGS - those that do depend on installed plugins
+" PLUGINS REMAPPPINGS - those that do depend on 3rd party installed plugins
