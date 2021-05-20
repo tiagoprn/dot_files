@@ -57,7 +57,8 @@ source $HOME/.config/nvim/mappings-shellscripts.vim
 source $HOME/.config/nvim/mappings-commands.vim
 source $HOME/.config/nvim/mappings-functions.vim
 
-source $HOME/.config/nvim/lua/install_packer.lua
+lua require('install_packer')
+" lua require('plugins')
 source $HOME/.config/nvim/mappings-plugins.vim
 
 
