@@ -1,3 +1,5 @@
+-- **IMPORTANT**: keep this file for the aliases to run vim command and functions, rename it to another_sample.lua
+--
 -- Here are the references I used to setup this file:
 -- 	https://gist.github.com/salkin-mada/99faddbeaba20fa551a8813a549b4027
 -- 	https://github.com/wbthomason/packer.nvim/issues/53
