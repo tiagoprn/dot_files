@@ -57,8 +57,7 @@ source $HOME/.config/nvim/mappings-shellscripts.vim
 source $HOME/.config/nvim/mappings-commands.vim
 source $HOME/.config/nvim/mappings-functions.vim
 
-source $HOME/.config/nvim/plugins-list.vim
+source $HOME/.config/nvim/lua/plugins.lua
 source $HOME/.config/nvim/mappings-plugins.vim
-
 
 
