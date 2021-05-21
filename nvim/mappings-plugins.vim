@@ -3,19 +3,18 @@
 
 " telescope
 
-nnoremap <C-f> <cmd>Telescope find_files<cr>| " (telescope) open file
-nnoremap <C-F> <cmd>Telescope git_files<cr>| " (telescope) open file, respecting .gitignore
-nnoremap <C-g> <cmd>Telescope live_grep<cr>| " (telescope) search for string on current directory
-nnoremap <leader>* <cmd>Telescope grep_string<cr>| " (telescope) search for string under cursor on current directory
-nnoremap <C-b> <cmd>Telescope buffers<cr>| " (telescope) open buffer
-nnoremap <leader>m <cmd>Telescope marks<cr>| " (telescope) browse marks
-nnoremap <leader>r <cmd>Telescope registers<cr>| " (telescope) browse registers
-nnoremap <leader>tq <cmd>Telescope quickfix<cr>| " (telescope) browse quickfix
-nnoremap <leader>tl <cmd>Telescope loclist<cr>| " (telescope) browse location-list
-nnoremap <leader>tt <cmd>Telescope help_tags<cr>| " (telescope) tags
-nnoremap <leader>ta <cmd>Telescope builtin<cr>| " (telescope) all commands
-nnoremap <leader>tm <cmd>Telescope man_pages<cr>| " (telescope) open man page
-nnoremap <leader>tc <cmd>Telescope colorscheme<cr>| " (telescope) browser color schemes
+nnoremap <C-f> :Telescope file_browser<cr>| " (telescope) browse files
+nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on current directory
+nnoremap <leader>* :Telescope grep_string<cr>| " (telescope) search for string under cursor on current directory
+nnoremap <C-b> :Telescope buffers<cr>| " (telescope) open buffer
+nnoremap <leader>m :Telescope marks<cr>| " (telescope) browse marks
+nnoremap <leader>r :Telescope registers<cr>| " (telescope) browse registers
+nnoremap <leader>tq :Telescope quickfix<cr>| " (telescope) browse quickfix
+nnoremap <leader>tl :Telescope loclist<cr>| " (telescope) browse location-list
+nnoremap <leader>tt :Telescope help_tags<cr>| " (telescope) tags
+nnoremap <leader>ta :Telescope builtin<cr>| " (telescope) all commands
+nnoremap <leader>tm :Telescope man_pages<cr>| " (telescope) open man page
+nnoremap <leader>tc :Telescope colorscheme<cr>| " (telescope) browser color schemes
 
 nnoremap <F10> :SearchQuickNotes<cr>|" (telescope)(functions) search quick note
 nnoremap <F11> :SearchZettel<cr>|" (telescope)(functions) search zettelkasten card
