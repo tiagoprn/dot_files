@@ -2,9 +2,16 @@
 "
 
 " telescope
+
+nnoremap <C-f> <cmd>Telescope find_files<cr>| " (telescope) open file
+nnoremap <C-F> <cmd>Telescope git_files<cr>| " (telescope) open file, respecting .gitignore
+nnoremap <C-g> <cmd>Telescope live_grep<cr>| " (telescope) search for string on current directory
+nnoremap <leader>* <cmd>Telescope grep_string<cr>| " (telescope) search for string under cursor on current directory
 nnoremap <C-b> <cmd>Telescope buffers<cr>| " (telescope) open buffer
 nnoremap <leader>m <cmd>Telescope marks<cr>| " (telescope) browse marks
 nnoremap <leader>r <cmd>Telescope registers<cr>| " (telescope) browse registers
+nnoremap <leader>tq <cmd>Telescope quickfix<cr>| " (telescope) browse quickfix
+nnoremap <leader>tl <cmd>Telescope loclist<cr>| " (telescope) browse location-list
 nnoremap <leader>tt <cmd>Telescope help_tags<cr>| " (telescope) tags
 nnoremap <leader>ta <cmd>Telescope builtin<cr>| " (telescope) all commands
 nnoremap <leader>tm <cmd>Telescope man_pages<cr>| " (telescope) open man page
