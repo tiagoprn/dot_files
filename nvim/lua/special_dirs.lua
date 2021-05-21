@@ -1,37 +1,37 @@
 local M = {}  -- creates a new table here to isolate from the global scope
 
-function M.openZettel()
-  require('telescope.builtin').git_files {
-    prompt_title = "\ Find Zettel /",
-    cwd = "/storage/docs/notes/zettelkasten/cards",
+function M.searchZettel()
+  require('telescope.builtin').live_grep {
+    prompt_title = "\\ Search Zettel /",
+    cwd = "/storage/docs/notes/zettelkasten/cards/",
   }
 end
 
-function M.openQuickNotes()
-  require('telescope.builtin').git_files {
-    prompt_title = "\\ Find QuickNote /",
-    cwd = "/storage/docs/notes/quick",
+function M.searchQuickNotes()
+  require('telescope.builtin').live_grep {
+    prompt_title = "\\ Search QuickNote /",
+    cwd = "/storage/docs/notes/quick/",
   }
 end
 
-function M.openTaskCard()
-  require('telescope.builtin').git_files {
-    prompt_title = "\\ Find Task Card /",
-    cwd = "/storage/docs/notes/tasks",
+function M.searchTaskCard()
+  require('telescope.builtin').live_grep {
+    prompt_title = "\\ Search Task Card /",
+    cwd = "/storage/docs/notes/tasks/",
   }
 end
 
 function M.openPersonalDoc()
-  require('telescope.builtin').git_files {
+  require('telescope.builtin').find_files {
     prompt_title = "\\ Find Personal Doc /",
-    cwd = "/storage/docs/notes/personal",
+    cwd = "/storage/docs/notes/personal/",
   }
 end
 
 function M.openWorkDoc()
-  require('telescope.builtin').git_files {
+  require('telescope.builtin').find_files {
     prompt_title = "\\ Find Work Doc /",
-    cwd = "/storage/docs/notes/work",
+    cwd = "/storage/docs/notes/work/",
   }
 end
 
