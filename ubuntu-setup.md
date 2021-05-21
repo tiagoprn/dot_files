@@ -462,20 +462,36 @@ $ update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1 && \
   update-alternatives --set vi /usr/bin/vim
 
 ## neovim:
-$ sudo su
-$ mkdir -p /opt/installers
-$ cd /opt/installers
-$ git clone https://github.com/neovim/neovim.git
-$ cd neovim
-$ make CMAKE_BUILD_TYPE=RelWithDebInfo
-$ make install
-$ python2 -m pip install --user --upgrade pynvim
-$ python3 -m pip install --user --upgrade pynvim
-$ # OPTIONAL: link the default and vi editor to nvim:
-$ update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 1 && \
-  update-alternatives --set editor /usr/local/bin/nvim && \
-  update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 1 && \
-  update-alternatives --set vi /usr/local/bin/nvim
+
+- manual compiling
+
+	$ sudo su
+	$ mkdir -p /opt/installers
+	$ cd /opt/installers
+	$ git clone https://github.com/neovim/neovim.git
+	$ cd neovim
+	$ make CMAKE_BUILD_TYPE=RelWithDebInfo
+	$ make install
+
+- ... or downloading a nightly appimage:
+
+	$ sudo su
+	$ mkdir -p /opt/nvim
+	$ cd /opt/nvim
+	$ wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+	$ ln -s /opt/nvim/nvim.appimage /usr/bin/nvim
+
+- Upgrading python integration:
+
+	$ python2 -m pip install --user --upgrade pynvim
+	$ python3 -m pip install --user --upgrade pynvim
+
+- OPTIONAL: link the default and vi editor to nvim:
+
+	$ update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 1 && \
+	  update-alternatives --set editor /usr/local/bin/nvim && \
+	  update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 1 && \
+	  update-alternatives --set vi /usr/local/bin/nvim
 
 
 ## bat:

@@ -8,3 +8,4 @@ ranger/tagged
 *.swp
 rofi/config
 .uuid
+nvim/plugin
