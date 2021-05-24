@@ -25,3 +25,10 @@
 " :PackerClean | " (packer) Remove any disabled or unused plugins
 " :PackerSync | " (packer) Performs `PackerClean` and then `PackerUpdate`
 " :PackerLoad completion-nvim ale | " (packer) Loads opt plugin immediately (the packages listed are just examples)
+
+" <C-n> | " (telescope) (movement) go to next menu item
+" <C-p> | " (telescope) (movement) go to previous menu item
+" <C-t> | " (telescope) (movement) open in new tab
+" <C-v> | " (telescope) (movement) open in vertical split
+" <C-s> | " (telescope) (movement) open in horizontal split
+
