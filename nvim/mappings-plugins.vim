@@ -26,3 +26,12 @@ nnoremap <leader>fw :OpenWorkDoc<cr>|" (telescope)(functions) open work doc
 
 " If I ever need to customize anything on snipmate, enable the line below
 let g:snipMate = { 'snippet_version' : 1 }
+
+" leaderf
+inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<CR> | " (INSERT) (leaderf) insert code snippet on cursor
+" nnoremap <Leader>J :Leaderf jumps --popup<CR> | " (jumps) (leaderf) interactive jump selection
+" nnoremap <Leader>ch :Leaderf cmdHistory --popup<CR> | " (leaderf) search on commands history
+" nnoremap <Leader>sh :Leaderf searchHistory --popup<CR> | " (leaderf) redo a search from search history
+" nnoremap <Leader>c :Leaderf command --popup<CR> | " (leaderf) Run command from vim command "palette"
+
+let g:Lf_PreviewResult = get(g:, 'Lf_PreviewResult', {})

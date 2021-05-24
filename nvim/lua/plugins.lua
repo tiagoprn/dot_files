@@ -17,4 +17,11 @@ return require('packer').startup(function()
     'garbas/vim-snipmate',
     requires = {{ 'MarcWeber/vim-addon-mw-utils'}, { 'tomtom/tlib_vim'}}
   }
+
+  -- Better snippets browsing (works on normal and insert mode):
+  use {
+    'skywind3000/Leaderf-snippet',
+    requires = {{'Yggdroot/LeaderF'}}
+  }
+
 end)
