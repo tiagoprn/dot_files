@@ -4,9 +4,17 @@
 return require('packer').startup(function()
   -- Packer can manage itself
   use {'wbthomason/packer.nvim'}
+
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
+
   use {'tpope/vim-surround'}
+
+  -- snipmate is an alternative snippet manager to ultisnips (not python)
+  use {
+    'garbas/vim-snipmate',
+    requires = {{ 'MarcWeber/vim-addon-mw-utils'}, { 'tomtom/tlib_vim'}}
+  }
 end)

@@ -22,3 +22,7 @@ nnoremap <F12> :SearchTaskCard<cr>|" (telescope)(functions) search task card
 nnoremap <leader>fp :OpenPersonalDoc<cr>|" (telescope)(functions) open personal doc
 nnoremap <leader>fw :OpenWorkDoc<cr>|" (telescope)(functions) open work doc
 
+" snipmate
+
+" If I ever need to customize anything on snipmate, enable the line below
+let g:snipMate = { 'snippet_version' : 1 }
