@@ -24,4 +24,7 @@ return require('packer').startup(function()
     requires = {{'Yggdroot/LeaderF'}}
   }
 
+  -- macros persistance
+  use {'chamindra/marvim'}
+
 end)

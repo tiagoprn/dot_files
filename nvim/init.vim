@@ -43,6 +43,7 @@ set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends
 
 " Below overrides some settings on this section, according to the file type
 source $HOME/.config/nvim/languages/pythonconf.vim
+source $HOME/.config/nvim/languages/luaconf.vim
 source $HOME/.config/nvim/languages/textconf.vim
 
 " Other
