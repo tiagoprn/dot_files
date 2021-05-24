@@ -24,30 +24,6 @@ $ nvim
 :PackerSync
 ```
 
-
-## Packer cheatsheet
-
-```
--- You must run this or `PackerSync` whenever you make changes to your plugin configuration
-:PackerCompile
-
--- Only install missing plugins
-:PackerInstall
-
--- Update and install plugins
-:PackerUpdate
-
--- Remove any disabled or unused plugins
-:PackerClean
-
--- Performs `PackerClean` and then `PackerUpdate`
-:PackerSync
-
--- Loads opt plugin immediately
-:PackerLoad completion-nvim ale
-```
-
-
 ## Run lua functions
 
 ```
