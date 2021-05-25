@@ -25,7 +25,20 @@ gls.left[2] = {
                           rm = colors.cyan, ['r?'] = colors.cyan,
                           ['!']  = colors.red,t = colors.red}
       vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
-      return 'NVIM: '
+      local alias = {
+        n = 'NORMAL',
+        i = 'INSERT',
+        c = 'COMMAND',
+        V = 'VISUAL',
+        [''] = 'VISUAL',
+        v = 'VISUAL',
+        R = 'REPLACE',
+      }
+      local alias_mode = alias[vim.fn.mode()]
+      if alias_mode == nil then
+        alias_mode = vim.fn.mode()
+      end
+      return alias_mode..' '
     end,
     highlight = {colors.red,colors.bg,'bold'},
   },
@@ -102,7 +115,7 @@ gls.left[11] = {
   }
 }
 
-gls.mid[1] = {
+gls.right[1] = {
   ShowLspClient = {
     provider = 'GetLspClient',
     condition = function ()
@@ -112,12 +125,13 @@ gls.mid[1] = {
       end
       return true
     end,
+    separator = ' ',
     icon = ' LSP: ',
     highlight = {colors.cyan,colors.bg,'bold'}
   }
 }
 
-gls.right[1] = {
+gls.right[2] = {
   GitIcon = {
     provider = function() return '  ' end,
     condition = condition.check_git_workspace,
@@ -127,7 +141,7 @@ gls.right[1] = {
   }
 }
 
-gls.right[2] = {
+gls.right[3] = {
   GitBranch = {
     provider = 'GitBranch',
     condition = condition.check_git_workspace,
@@ -135,7 +149,7 @@ gls.right[2] = {
   }
 }
 
-gls.right[3] = {
+gls.right[4] = {
   DiffAdd = {
     provider = 'DiffAdd',
     condition = condition.hide_in_width,
@@ -143,7 +157,7 @@ gls.right[3] = {
     highlight = {colors.green,colors.bg},
   }
 }
-gls.right[4] = {
+gls.right[5] = {
   DiffModified = {
     provider = 'DiffModified',
     condition = condition.hide_in_width,
@@ -151,7 +165,7 @@ gls.right[4] = {
     highlight = {colors.orange,colors.bg},
   }
 }
-gls.right[5] = {
+gls.right[6] = {
   DiffRemove = {
     provider = 'DiffRemove',
     condition = condition.hide_in_width,
@@ -160,7 +174,7 @@ gls.right[5] = {
   }
 }
 
-gls.right[6] = {
+gls.right[7] = {
   RainbowBlue = {
     provider = function() return ' ]' end,
     highlight = {colors.blue,colors.bg}
