@@ -118,26 +118,6 @@ gls.mid[1] = {
 }
 
 gls.right[1] = {
-  FileEncode = {
-    provider = 'FileEncode',
-    condition = condition.hide_in_width,
-    separator = ' ',
-    separator_highlight = {'NONE',colors.bg},
-    highlight = {colors.green,colors.bg,'bold'}
-  }
-}
-
-gls.right[2] = {
-  FileFormat = {
-    provider = 'FileFormat',
-    condition = condition.hide_in_width,
-    separator = ' ',
-    separator_highlight = {'NONE',colors.bg},
-    highlight = {colors.green,colors.bg,'bold'}
-  }
-}
-
-gls.right[3] = {
   GitIcon = {
     provider = function() return '  ' end,
     condition = condition.check_git_workspace,
@@ -147,7 +127,7 @@ gls.right[3] = {
   }
 }
 
-gls.right[4] = {
+gls.right[2] = {
   GitBranch = {
     provider = 'GitBranch',
     condition = condition.check_git_workspace,
@@ -155,7 +135,7 @@ gls.right[4] = {
   }
 }
 
-gls.right[5] = {
+gls.right[3] = {
   DiffAdd = {
     provider = 'DiffAdd',
     condition = condition.hide_in_width,
@@ -163,7 +143,7 @@ gls.right[5] = {
     highlight = {colors.green,colors.bg},
   }
 }
-gls.right[6] = {
+gls.right[4] = {
   DiffModified = {
     provider = 'DiffModified',
     condition = condition.hide_in_width,
@@ -171,7 +151,7 @@ gls.right[6] = {
     highlight = {colors.orange,colors.bg},
   }
 }
-gls.right[7] = {
+gls.right[5] = {
   DiffRemove = {
     provider = 'DiffRemove',
     condition = condition.hide_in_width,
@@ -180,7 +160,7 @@ gls.right[7] = {
   }
 }
 
-gls.right[8] = {
+gls.right[6] = {
   RainbowBlue = {
     provider = function() return ' ]' end,
     highlight = {colors.blue,colors.bg}
