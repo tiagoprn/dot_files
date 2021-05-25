@@ -27,4 +27,15 @@ return require('packer').startup(function()
   -- macros persistance
   use {'chamindra/marvim'}
 
+
+  -- statusline
+  use {
+    'glepnir/galaxyline.nvim',
+       branch = 'main',
+       -- your statusline
+       config = function() require'statusline' end,
+       -- some optional icons
+       requires = {'kyazdani42/nvim-web-devicons'}
+  }
+
 end)
