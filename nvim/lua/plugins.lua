@@ -38,4 +38,7 @@ return require('packer').startup(function()
        requires = {'kyazdani42/nvim-web-devicons'}
   }
 
+  -- (pandoc) markdown syntax highlighting
+  use {'vim-pandoc/vim-pandoc-syntax'}
+
 end)

@@ -15,7 +15,7 @@ augroup eventhooks
 		    \   exe "normal! g`\"" |
 		    \ endif
 
-	" Expands on what vim considers as a markdown filetype
-	autocmd BufNewFile,BufFilePre,BufRead *.md,*.markdown,*.mmd set filetype=markdown
+	" Expands on what vim considers as a markdown filetype, and uses vim-pandoc for syntax highlighting
+	autocmd BufNewFile,BufFilePre,BufRead *.md,*.markdown,*.mmd set filetype=markdown.pandoc
 augroup END
 
