@@ -39,3 +39,9 @@ nnoremap <Leader>hl :set cursorline!<CR> | " toggle highlight current line
 nnoremap <c-j> :m .+1<CR>== | "(movement) move current line or selection down
 nnoremap <c-k> :m .-2<CR>== | "(movement) move current line or selection up
 
+nnoremap <leader>nt :tabnew<CR> | " (tabs) new
+nnoremap <leader>ct :tabclose<CR> | " (tabs) close
+nnoremap <C-right> :tabnext<CR> | " (NORMAL) (tabs) next
+nnoremap <C-left> :tabprevious<CR> | " (NORMAL) (tabs) previous
+inoremap <C-right> <Esc>:tabnext<CR> | " (INSERT) (tabs) next
+inoremap <C-left> <Esc>:tabprevious<CR> | " (INSERT) (tabs) previous

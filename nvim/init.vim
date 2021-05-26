@@ -7,7 +7,11 @@ syntax on
 
 set title
 set history=1000         " remember more commands and search history
-set undolevels=1000      " use many muchos levels of undo
+
+"persistent undo
+set undodir=~/.config/nvim/undodir
+set undofile
+
 set wildignore=*.swp,*.bak,*.pyc,*~
 
 set relativenumber  " Changing the ruler position
@@ -29,6 +33,9 @@ set cmdheight=1
 
 " default updatetime 4000ms is not good for async update
 set updatetime=100
+
+" use linux's default gui clipboard - disabled because I have specific mappings for that
+" set clipboard=unnamedplus
 
 " Disable backup and swap files - they trigger too many events
 " for file system watchers

@@ -123,8 +123,9 @@
 " (VISUAL)gv | " re-select/redo last visual selection
 " >> or 3>> | " (NORMAL) indent (one line or e.g. 3 lines)
 " << or 3<< | " (NORMAL) deindent (one line or e.g. 3 lines)
-" :lua require'sample'.runExternalCommand() |" (VISUAL) run lua runExternalCommand sample function
-" :lua require'sample'.checkForErrorsAsBooleanVariable() |" (VISUAL) run lua checkForErrorsAsBooleanVariable sample function
-" :lua require'sample'.welcomeToLua() |" (VISUAL) run lua welcomeToLua sample function
-
+" :lua require'sample'.runExternalCommand() | " (VISUAL) run lua runExternalCommand sample function
+" :lua require'sample'.checkForErrorsAsBooleanVariable() | " (VISUAL) run lua checkForErrorsAsBooleanVariable sample function
+" :lua require'sample'.welcomeToLua() | " (VISUAL) run lua welcomeToLua sample function
+" <C-v>, I or c | " (multiple cursors) <C-v> to select a block, <I> to insert on all lines or <c> to replace text on the block. Pressing <ESC> stops and shows change on all lines.
+" Note | " (tabs) IMPORTANT: tabs are not buffers and are easier to grasp than they are. You can also use "tabdo" to operate commands on all current tabs.
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
