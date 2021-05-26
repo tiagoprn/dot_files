@@ -116,8 +116,12 @@
 " :windo w! | " (windows) save files open on all windows
 " :windo e! | " (windows) reload files open on all windows
 " <ctrl-]> | " (help) jump to tag under cursor - you can use (jumps) navigation mappings to navigate back and forth between them.
-" :g/pattern/d | "  (patterns) remove lines matching pattern
-" :g!/pattern/d | " (patterns) remove lines that do NOT match the pattern
+" :g/[word_or_regex]/d | "  (global-commands)(patterns) delete lines matching word or regex
+" :g!/[word_or_regex]/d | " (global-commands)(patterns) delete lines that do NOT match the word or regex
+" :g/^\s*$/d | " (global-commands)(patterns) delete all blank lines
+" :g/[word_or_regex]/m$ | " (global-commands)(patterns) Move all lines containing word or regex to the end of the file
+" :g/[word_or_regex]/norm $[normal_command] | " (global-commands)(patterns) for all lines containing '[word_or_regex]', execute the normal command [normal_command]
+" :g/if/norm $a: | " (global-commands)(patterns) for all lines containing 'if', execute the normal command to append a ':' to the end of a line.
 " <ctrl-a> | " (numbers) increment the next number on the line
 " <ctrl-x> | " (numbers) decrement the next number on the line
 " (VISUAL)gv | " re-select/redo last visual selection
@@ -128,4 +132,6 @@
 " :lua require'sample'.welcomeToLua() | " (VISUAL) run lua welcomeToLua sample function
 " <C-v>, I or c | " (multiple cursors) <C-v> to select a block, <I> to insert on all lines or <c> to replace text on the block. Pressing <ESC> stops and shows change on all lines.
 " Note | " (tabs) IMPORTANT: tabs are not buffers and are easier to grasp than they are. You can also use "tabdo" to operate commands on all current tabs.
+" Note | " (global-commands) IMPORTANT: global commands are the commands "g/". For more info: ':help global'.
+" Note | " (global-commands) IMPORTANT: the general syntax of global commands is: ':[range]g[lobal]/{pattern}/[cmd]'
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
