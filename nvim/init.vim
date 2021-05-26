@@ -27,6 +27,9 @@ set visualbell
 " Height of the command bar
 set cmdheight=1
 
+" default updatetime 4000ms is not good for async update
+set updatetime=100
+
 " Disable backup and swap files - they trigger too many events
 " for file system watchers
 set nobackup
