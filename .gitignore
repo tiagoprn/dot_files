@@ -10,3 +10,4 @@ rofi/config
 .uuid
 nvim/plugin
 undodir
+quickfix-history
