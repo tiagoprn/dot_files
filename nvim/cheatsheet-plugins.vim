@@ -32,3 +32,7 @@
 " <C-v> | " (telescope) (movement) open in vertical split
 " <C-s> | " (telescope) (movement) open in horizontal split
 
+" :Luapad | " (lua) interactive scratchpad (repl)
+" :LuaRun | " (lua) run content of current buffer as lua script in new scope (you do not need to write file to disc or have to worry about overwriting functions in global scope)
+" :Lua | " (lua) extension of native lua command with function completion
+

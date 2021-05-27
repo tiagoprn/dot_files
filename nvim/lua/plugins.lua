@@ -41,4 +41,6 @@ return require('packer').startup(function()
   -- (pandoc) markdown syntax highlighting
   use {'vim-pandoc/vim-pandoc-syntax'}
 
+  use {'rafcamlet/nvim-luapad'}
+
 end)
