@@ -18,9 +18,9 @@ nnoremap <silent> <Leader>qN :cnewer<Cr>| " quickfix: go to newer quickfix list
 
 nnoremap <silent> <Leader>qd :ClearQuickfix<Cr>| " quickfix: clear
 
-nnoremap <silent> <Leader>qs :WriteQuickfix ~/.vim-quickfix-history/quickfix.json<Cr>| " quickfix: save to file
+nnoremap <silent> <Leader>qs :WriteQuickfix ~/.config/nvim/quickfix-history/quickfix.json<Cr>| " quickfix: save to file
 
-nnoremap <silent> <Leader>qr :ReadQuickfix ~/.vim-quickfix-history/quickfix.json \|:copen<Cr>| " quickfix: restore from file
+nnoremap <silent> <Leader>qr :ReadQuickfix ~/.config/nvim/quickfix-history/quickfix.json \|:copen<Cr>| " quickfix: restore from file
 
 nnoremap <silent> <C-z> :ZoomToggle<CR>| " (windows) toggle zoom on current window
 
