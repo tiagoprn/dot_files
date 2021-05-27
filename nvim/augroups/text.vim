@@ -5,3 +5,9 @@ augroup textconf
     " do not use textwidth with soft wrap, it has no effect
     autocmd FileType markdown,text,vim set linebreak  " soft wrap: wrap the text when it hits the screen edge
 augroup END
+
+augroup convertmarkdownconf
+	autocmd!
+	autocmd FileType markdown nnoremap <leader>pp :call ConvertMarkdownToFormat('pdf')<cr>| " pandoc: convert markdown to pdf
+	autocmd FileType markdown nnoremap <leader>ph :call ConvertMarkdownToFormat('html')<cr>| " pandoc: convert markdown to html
+augroup END

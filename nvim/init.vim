@@ -61,9 +61,11 @@ highlight LineNr ctermbg=black ctermfg=white
 " Overriding color of the popup menu
 
 " Below overrides some settings on this section, according to the file type
-source $HOME/.config/nvim/augroups/pythonconf.vim
-source $HOME/.config/nvim/augroups/luaconf.vim
-source $HOME/.config/nvim/augroups/textconf.vim
+source $HOME/.config/nvim/augroups/python.vim
+source $HOME/.config/nvim/augroups/lua.vim
+source $HOME/.config/nvim/augroups/quickfix.vim
+source $HOME/.config/nvim/augroups/text.vim
+source $HOME/.config/nvim/augroups/misc.vim
 
 " Other
 
