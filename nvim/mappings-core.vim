@@ -45,3 +45,6 @@ nnoremap <C-right> :tabnext<CR> | " (NORMAL) (tabs) next
 nnoremap <C-left> :tabprevious<CR> | " (NORMAL) (tabs) previous
 inoremap <C-right> <Esc>:tabnext<CR> | " (INSERT) (tabs) next
 inoremap <C-left> <Esc>:tabprevious<CR> | " (INSERT) (tabs) previous
+
+nnoremap <Leader>m :Marks<CR>| " (marks) show all
+nnoremap <Leader>mda :delmarks!<CR>| " (marks) delete all

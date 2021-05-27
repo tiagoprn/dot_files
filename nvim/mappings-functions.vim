@@ -4,3 +4,4 @@ nnoremap <leader>gb :call GitBlame()<cr>| " (git) blame current file
 
 vnoremap <leader>ble :call MoveVisualSelectionToFile()<CR>| "(VISUAL) copy current selection to file
 
+nnoremap <Leader>md :call MarkDelete()<CR>| " (marks) delete single
