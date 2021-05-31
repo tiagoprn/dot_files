@@ -51,6 +51,8 @@ set smartcase            " uppercase characters will be taken into account
 
 set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends:»
 
+set completeopt=menuone,noselect
+
 " OVERRIDING COLORS
 " Overriding color of special chars
 " highlight SpecialKey ctermfg=red guifg=red
@@ -79,9 +81,8 @@ source $HOME/.config/nvim/mappings-shellscripts.vim
 source $HOME/.config/nvim/mappings-commands.vim
 source $HOME/.config/nvim/mappings-functions.vim
 
-" lua require('install_packer')
 lua require('plugins')
+source $HOME/.config/nvim/conf-plugins.vim
 source $HOME/.config/nvim/commands-plugins.vim
 source $HOME/.config/nvim/mappings-plugins.vim
-
 

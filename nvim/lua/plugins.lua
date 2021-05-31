@@ -41,6 +41,15 @@ return require('packer').startup(function()
   -- (pandoc) markdown syntax highlighting
   use {'vim-pandoc/vim-pandoc-syntax'}
 
+  -- language server
+  -- -- enable LSP completion
+  use {'hrsh7th/nvim-compe'}
+
+  -- lua development environment
+  -- wrapper around sua LSP sumneko_lua
+  use {'tjdevries/nlua.nvim'}
+
+  -- -- repl
   use {'rafcamlet/nvim-luapad'}
 
 end)
