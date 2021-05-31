@@ -3,7 +3,8 @@
 
 " -- telescope
 
-nnoremap <C-f> :Telescope file_browser<cr>| " (telescope) browse files
+nnoremap <leader>tb :Telescope file_browser<cr>| " (telescope) browse files
+nnoremap <C-f> :Telescope find_files<cr>| " (telescope) fuzzy open file
 nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on current directory
 nnoremap <leader>* :Telescope grep_string<cr>| " (telescope) search for string under cursor on current directory
 nnoremap <C-b> :Telescope buffers<cr>| " (telescope) open buffer
