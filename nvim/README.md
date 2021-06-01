@@ -48,6 +48,7 @@ $ compile/install.sh
 $ cd ../..
 $ ./3rd/luamake/luamake rebuild
 $ cp bin/Linux/lua-language-server /usr/bin
+$ sudo chown -R $(id -u).$(id -g) /opt/lua-language-server
 ```
 
 
