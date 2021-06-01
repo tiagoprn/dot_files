@@ -3,11 +3,11 @@ local sumneko_root_path = '/opt/lua-language-server'
 local sumneko_binary = sumneko_root_path.."/bin/Linux/lua-language-server"
 
 -- DEBUGGING CODE (remove this block when finished)
-print(">>>> SUMNEKO_BINARY: "..sumneko_binary)
-path = vim.split(package.path, ';')
-for i,v in ipairs(path) do
-  print(">>>> PATH: "..v)
-end
+-- print(">>>> SUMNEKO_BINARY: "..sumneko_binary)
+-- path = vim.split(package.path, ';')
+-- for i,v in ipairs(path) do
+--   print(">>>> PATH: "..v)
+-- end
 
 require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
