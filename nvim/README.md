@@ -51,4 +51,7 @@ $ cp bin/Linux/lua-language-server /usr/bin
 $ sudo chown -R $(id -u).$(id -g) /opt/lua-language-server
 ```
 
+## More language servers
+
+- flutter/rust: <https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins>
 
