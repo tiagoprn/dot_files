@@ -82,6 +82,8 @@ source $HOME/.config/nvim/mappings-commands.vim
 source $HOME/.config/nvim/mappings-functions.vim
 
 lua require('plugins')
+lua require('lsp-compe-config')
+lua require('lua-lsp')
 source $HOME/.config/nvim/conf-plugins.vim
 source $HOME/.config/nvim/commands-plugins.vim
 source $HOME/.config/nvim/mappings-plugins.vim

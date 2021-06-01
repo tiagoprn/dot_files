@@ -2,7 +2,6 @@
 "
 
 " -- telescope
-
 nnoremap <leader>tb :Telescope file_browser<cr>| " (telescope) browse files
 nnoremap <C-f> :Telescope find_files<cr>| " (telescope) fuzzy open file
 nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on current directory
@@ -32,9 +31,7 @@ inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<CR> | " (INSERT) (leaderf
 " nnoremap <Leader>c :Leaderf command --popup<CR> | " (leaderf) Run command from vim command "palette"
 
 
-
 " -- surround
-
 " csw` | " (surround) surround current word with ` - you can use [({ instead of `
 " ds` | " (surround) delete ` surrounding current word - you can use [({ instead of `
 " S` (on visual selection) | " (surround) surround current visual selection with ` - you can use [({ instead of ` (S is the 'current text selection' vim object)
@@ -42,4 +39,12 @@ inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<CR> | " (INSERT) (leaderf
 " ystA` | " (surround) surround until letter A with ` - you can use [({ instead of `
 
 
-
+" LSP config (the mappings used in the default file don't quite work right)
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>

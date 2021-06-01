@@ -44,9 +44,11 @@ return require('packer').startup(function()
   -- language server
   -- -- enable LSP completion
   use {'hrsh7th/nvim-compe'}
+  -- --  handles automatically launching and initializing language servers installed on your system
+  use {'neovim/nvim-lspconfig'}
 
   -- lua development environment
-  -- wrapper around sua LSP sumneko_lua
+  -- wrapper around lua LSP sumneko_lua
   use {'tjdevries/nlua.nvim'}
 
   -- -- repl
