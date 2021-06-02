@@ -134,4 +134,9 @@
 " Note | " (tabs) IMPORTANT: tabs are not buffers and are easier to grasp than they are. You can also use "tabdo" to operate commands on all current tabs.
 " Note | " (global-commands) IMPORTANT: global commands are the commands "g/". For more info: ':help global'.
 " Note | " (global-commands) IMPORTANT: the general syntax of global commands is: ':[range]g[lobal]/{pattern}/[cmd]'
+" :help nvim-from-vim | " help page on what is different from vim
+" :messages | " show session history messages
+" :messages clear | " clear all session history messages
+
+
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
