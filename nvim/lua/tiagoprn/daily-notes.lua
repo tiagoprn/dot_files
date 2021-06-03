@@ -1,11 +1,11 @@
--- sample lua functions
-
 local command = vim.api.nvim_command
 
 local Job = require'plenary.job'
 
-local M = {}  -- creates a new table here to isolate from the global scope
+local M = {}
 
+-- TODO: extract the functions delimited by the block below into a "helpers.lua", and require them on this script
+-- -- BEGIN
 function M.readLines(file)
   local f = io.open(file, "r")
   local lines = f:read("*all")
@@ -46,7 +46,7 @@ function M.linuxCommand(commandName, args)
     end,
   }):sync() -- or start()
 end
-
+-- -- END
 
 function M.createQuickNote()
   local exCommandFile = '/storage/src/dot_files/nvim/ex-commands/quick-note.ex'
@@ -60,6 +60,7 @@ function M.createQuickNote()
   end
   M.writeLines(tempExFileName, commands)
 
+  -- TODO: comment the tmp dir below to use my real one below it.
   local quicknotesDir = '/tmp/quick'
   -- local quicknotesDir = '/storage/docs/notes/quick'
   M.linuxCommand('mkdir', { '-p', quicknotesDir })
