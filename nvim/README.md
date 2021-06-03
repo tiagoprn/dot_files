@@ -9,7 +9,7 @@ The package manager I use on neovim is "packer".
 
 ## Setting up
 
-- **IMPORTANT:** Before starting, make sure you have already compile neovim. This assumes neovim 0.5+ (which at this time can only be obtained through cloning the master branch).
+- **IMPORTANT:** Before starting, make sure you already have neovim installed (as appimage or compiled). This assumes neovim 0.5+ (which at this time can only be obtained through cloning the master branch).
 
 - To (re)set your environment, run the script `../configure_neovim.sh` on the previous directory. It will delete existing environment and clone the packer repo.
 
@@ -48,6 +48,26 @@ $ compile/install.sh
 $ cd ../..
 $ ./3rd/luamake/luamake rebuild
 $ cp bin/Linux/lua-language-server /usr/bin
+$ sudo chown -R $(id -u).$(id -g) /opt/lua-language-server
 ```
+
+
+## More language servers
+
+- flutter/rust: <https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins>
+
+
+## Developing lua plugins interactively
+
+- E.g. using `daily-notes.lua`:
+```
+:Luapad
+
+require("plenary.reload").reload_module'tiagoprn.daily-notes'
+require'tiagoprn.daily-notes'.createQuickNote()
+
+```
+
+- To see the plugin output: `:messages`, to clear all messages: `:messages clear`
 
 

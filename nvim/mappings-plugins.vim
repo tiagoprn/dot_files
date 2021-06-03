@@ -2,7 +2,6 @@
 "
 
 " -- telescope
-
 nnoremap <leader>tb :Telescope file_browser<cr>| " (telescope) browse files
 nnoremap <C-f> :Telescope find_files<cr>| " (telescope) fuzzy open file
 nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on current directory
@@ -17,13 +16,6 @@ nnoremap <leader>ta :Telescope builtin<cr>| " (telescope) all commands
 nnoremap <leader>tm :Telescope man_pages<cr>| " (telescope) open man page
 nnoremap <leader>tc :Telescope colorscheme<cr>| " (telescope) browser color schemes
 
-nnoremap <F10> :SearchQuickNotes<cr>|" (telescope)(functions) search quick note
-nnoremap <F11> :SearchZettel<cr>|" (telescope)(functions) search zettelkasten card
-nnoremap <F12> :SearchTaskCard<cr>|" (telescope)(functions) search task card
-nnoremap <leader>fp :OpenPersonalDoc<cr>|" (telescope)(functions) open personal doc
-nnoremap <leader>fw :OpenWorkDoc<cr>|" (telescope)(functions) open work doc
-
-
 " -- leaderf
 inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<CR> | " (INSERT) (leaderf) insert code snippet on cursor
 " nnoremap <Leader>J :Leaderf jumps --popup<CR> | " (jumps) (leaderf) interactive jump selection
@@ -32,9 +24,7 @@ inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<CR> | " (INSERT) (leaderf
 " nnoremap <Leader>c :Leaderf command --popup<CR> | " (leaderf) Run command from vim command "palette"
 
 
-
 " -- surround
-
 " csw` | " (surround) surround current word with ` - you can use [({ instead of `
 " ds` | " (surround) delete ` surrounding current word - you can use [({ instead of `
 " S` (on visual selection) | " (surround) surround current visual selection with ` - you can use [({ instead of ` (S is the 'current text selection' vim object)
@@ -42,4 +32,13 @@ inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<CR> | " (INSERT) (leaderf
 " ystA` | " (surround) surround until letter A with ` - you can use [({ instead of `
 
 
+" LSP config (the mappings used in the default file don't quite work right)
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>| " (lsp) go to definition
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>| " (lsp) go to declaration
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>| " (lsp) show references
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>| " (lsp) go to implementation
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>| " (lsp) help hover
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>| " (lsp) signature
+nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>| " (lsp) go to previous diagnostic
+nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>| " (lsp) go to next diagnostic
 
