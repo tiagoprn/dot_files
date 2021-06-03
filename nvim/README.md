@@ -63,8 +63,8 @@ $ sudo chown -R $(id -u).$(id -g) /opt/lua-language-server
 ```
 :Luapad
 
-require("plenary.reload").reload_module'daily-notes'
-require'daily-notes'.createQuickNote()
+require("plenary.reload").reload_module'tiagoprn.daily-notes'
+require'tiagoprn.daily-notes'.createQuickNote()
 
 ```
 
