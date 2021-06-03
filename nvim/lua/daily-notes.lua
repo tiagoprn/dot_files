@@ -34,49 +34,58 @@ function M.writeLines(file, lines)
   io.close(f)
 end
 
+function M.linuxCommand(commandName, args)
+  Job:new({
+    command = commandName,
+    args = args,
+    on_exit = function(j, return_val)
+      -- print(return_val)
+      if return_val == 0 then
+        print('Command "'..commandName..'" successfully executed.')
+      end
+      print(j:result())
+    end,
+  }):sync() -- or start()
+end
+
+
 -- Adapt shellscript on this function:
 --    /storage/src/devops/bin/create-quick-note.sh
 function M.createQuickNote()
   print('----------')
 
-  -- local quicknotesDir = '/storage/docs/notes/quick'
-  local quicknotesDir = '/tmp/quick'
-
-  local currentDate = os.date('%Y-%m-%d')
-
-  local fileName = quicknotesDir..'/'..'notes-'..currentDate..'.md'
-
-  print(fileName)
-
-  Job:new({
-    command = 'mkdir',
-    args = { '-p', quicknotesDir },
-    on_exit = function(j, return_val)
-      print(return_val)
-      print(j:result())
-    end,
-  }):sync() -- or start()
-
+  local exCommandFile = '/storage/src/dot_files/nvim/ex-commands/quick-note.ex'
   local tempExFileName = '/tmp/quick-note.ex'
   local timestamp = os.date('%H:%M')
-
-  local ex_commands = M.readLines('/storage/src/dot_files/nvim/ex-commands/quick-note.ex')
-
   -- print(timestamp..'(type: '..type(timestamp)..')')
-  -- print(ex_commands..'(type: '..type(ex_commands)..')')
 
   local commands = {}
-  for value in ex_commands:gmatch("([^\n]*)\n?") do
+  for value in M.readLines(exCommandFile):gmatch("([^\n]*)\n?") do
     value = value:gsub("%_TIMESTAMP_", timestamp)
     -- print(value)
     table.insert(commands, value)
   end
   M.writeLines(tempExFileName, commands)
 
+  -- local quicknotesDir = '/storage/docs/notes/quick'
+  local quicknotesDir = '/tmp/quick'
+  M.linuxCommand('mkdir', { '-p', quicknotesDir })
+
+  local currentDate = os.date('%Y-%m-%d')
+  local fileName = quicknotesDir..'/'..'notes-'..currentDate..'.md'
+  M.linuxCommand('touch', { fileName })
+
   -- This is how I load vim with an ex mode script:
   --    vim -c "source /storage/src/dot_files/nvim/ex-commands/quick-note.ex" teste.txt
 
+  local vimOpenFileCommand = 'tabedit '..fileName
+  vim.api.nvim_command(vimOpenFileCommand)
+
+  local vimRunExCommand = 'source '..tempExFileName
+  vim.api.nvim_command(vimRunExCommand)
+
   -- vim.api.nvim_exec() -- I can use this to run a ex mode script
+  -- https://neovim.io/doc/user/api.html#nvim_exec()
   -- tempExFileName has the ex commmands to run
 
 end
