@@ -3,8 +3,9 @@
 
 " -- telescope
 nnoremap <leader>tb :Telescope file_browser<cr>| " (telescope) browse files
-nnoremap <C-f> :Telescope find_files<cr>| " (telescope) fuzzy open file
-nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on current directory
+nnoremap <C-f> :Telescope find_files find_command=fd,-H,-E,.git prompt_prefix=fd:  <cr>| " (telescope) fuzzy open file (fd)
+nnoremap <leader>tf :Telescope find_files<cr>| " (telescope) fuzzy open file (built-in)
+nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on current directory (built-in)
 nnoremap <leader>* :Telescope grep_string<cr>| " (telescope) search for string under cursor on current directory
 nnoremap <C-b> :Telescope buffers<cr>| " (telescope) open buffer
 nnoremap <leader>m :Telescope marks<cr>| " (telescope) browse marks
@@ -15,6 +16,8 @@ nnoremap <leader>tt :Telescope help_tags<cr>| " (telescope) tags
 nnoremap <leader>ta :Telescope builtin<cr>| " (telescope) all commands
 nnoremap <leader>tm :Telescope man_pages<cr>| " (telescope) open man page
 nnoremap <leader>tc :Telescope colorscheme<cr>| " (telescope) browser color schemes
+nnoremap <silent>gr :lua require'telescope.builtin'.lsp_references{}<CR>| "(telescope) search over variable references from your LSP
+
 
 " -- leaderf
 inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<CR> | " (INSERT) (leaderf) insert code snippet on cursor
