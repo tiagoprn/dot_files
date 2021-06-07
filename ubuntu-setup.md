@@ -326,6 +326,7 @@ sudo apt install -y build-essential apt-transport-https ca-certificates curl sof
 
 pywal
 dmenu
+python3-rofi
 tmuxp
 telegram-send
 pygments
