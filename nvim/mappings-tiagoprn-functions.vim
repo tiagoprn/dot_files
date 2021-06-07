@@ -6,6 +6,4 @@ nnoremap <F11> :SearchZettel<cr>|" (telescope)(functions) search zettelkasten ca
 nnoremap <F12> :SearchTaskCard<cr>|" (telescope)(functions) search task card
 nnoremap <leader>fp :OpenPersonalDoc<cr>|" (telescope)(functions) open personal doc
 nnoremap <leader>fw :OpenWorkDoc<cr>|" (telescope)(functions) open work doc
-
-
-
+nnoremap <leader>cn :CreateQuickNote<cr>|" create quick note

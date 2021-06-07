@@ -20,9 +20,9 @@ function M.writeLines(file, lines)
   local f = io.open(file, "w")
   io.output(f)
 
-  print('Writing processed lines to file...')
+  -- print('Writing processed lines to file...')
   for key, value in ipairs(lines) do
-    print(key..value..'(type: '..type(value)..')')
+    -- print(key..value..'(type: '..type(value)..')')
     io.write(value..'\n')
   end
 
