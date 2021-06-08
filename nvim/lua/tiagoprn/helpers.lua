@@ -38,7 +38,7 @@ function M.linuxCommand(commandName, args)
     on_exit = function(j, return_val)
       -- print(return_val)
       if return_val == 0 then
-        print('[daily-notes] Command "'..commandName..'" successfully executed.')
+        print('[scratchpad] Command "'..commandName..'" successfully executed.')
       end
       print(j:result())
     end,

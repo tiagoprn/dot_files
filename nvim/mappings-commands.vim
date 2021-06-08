@@ -2,7 +2,7 @@
 
 nnoremap <leader><Up> :Welcome<CR>| " Call sample lua function wrapped into command
 
-nnoremap <silent> <F10> :ToggleQuickfix<Cr>| " function key: toggle quickfix
+nnoremap <silent> <F9> :ToggleQuickfix<Cr>| " (function-keys) toggle quickfix
 
 nnoremap <silent> <Leader>qn :cn<Cr>| " quickfix: go to next item
 

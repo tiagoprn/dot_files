@@ -11,7 +11,8 @@ nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
 vnoremap < <gv  " better indentation| " (VISUAL) deindent selection
 vnoremap > >gv  " better indentation| " (VISUAL) indent selection
 
-nnoremap <silent> <F6> :set list!<CR>| " function key: toggle showing special chars (listchars)
+nnoremap <silent> <F6> :set list!<CR>| " (function-keys) toggle showing special chars (listchars)
+nnoremap <silent> <F5> :set rnu!<CR>| " (function-keys) toggle relative line numbering
 
 vnoremap <silent> * :call VisualSelection('f')<CR>| " search forwards current highlighted selection
 vnoremap <silent> # :call VisualSelection('b')<CR>| " search backwards current highlighted selection

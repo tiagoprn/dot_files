@@ -59,12 +59,12 @@ $ sudo chown -R $(id -u).$(id -g) /opt/lua-language-server
 
 ## Developing lua plugins interactively
 
-- E.g. using `daily-notes.lua`:
+- E.g. using `scratchpad.lua`:
 ```
 :Luapad
 
-require("plenary.reload").reload_module'tiagoprn.daily-notes'
-require'tiagoprn.daily-notes'.createQuickNote()
+require("plenary.reload").reload_module'tiagoprn.scratchpad'
+require'tiagoprn.scratchpad'.createQuickNote()
 
 ```
 
