@@ -35,14 +35,17 @@ snippet post
 
 	${4:#contents}
 
+snippet ztype
+	fleeting bibliographic permanent
+
 snippet ztk
 	${1:Title}
 	created: timestamp
 	#keyword1 #keyword2
-	type: fleeting,bibliographic,permanent
+	type: ztype
 	---
 
-	body with @tag that can be linked with another zettel's @tag or #keyword.
+	body
 
 	---
 	References:
@@ -51,13 +54,19 @@ snippet ztk
 snippet it
 	- [ ] ${1:Description}
 
+snippet teffort
+	quick-win normal epic
+
+snippet tstatus
+	created wip paused finished discarded
+
 snippet task
 	goal: ${1:Goal}
-	scope: personal/work
+	scope: personal work
 	created: timestamp
 	finished: timestamp
-	effort: quick-win/normal/epic
-	current_status: created/wip/paused/finished/discarded
+	effort: teffort
+	current_status: tstatus
 	#tag1 #tag2
 	---
 
