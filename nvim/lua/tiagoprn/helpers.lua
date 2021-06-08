@@ -1,3 +1,5 @@
+local command = vim.api.nvim_command
+
 local Job = require'plenary.job'
 
 local M = {}
@@ -41,6 +43,21 @@ function M.linuxCommand(commandName, args)
       print(j:result())
     end,
   }):sync() -- or start()
+end
+
+function M.createTimestampedFileWithSnippet(directoryPath, exCommandsFile)
+  local currentDate = os.date('%Y-%m-%d-%H%M%S')
+  local suffix = math.random(100, 999)
+  local fileName = currentDate..'-'..suffix..'.md'
+  local timestampedFile = directoryPath..'/'..fileName
+
+  M.linuxCommand('mkdir', { '-p', directoryPath })
+
+  local vimOpenFileCommand = 'tabedit '..timestampedFile
+  command(vimOpenFileCommand)
+
+  local vimExCommands = 'source '..exCommandsFile
+  command(vimExCommands)
 end
 
 return M

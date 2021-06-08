@@ -22,13 +22,26 @@ function M.createQuickNote()
 
   local currentDate = os.date('%Y-%m-%d')
   local fileName = quicknotesDir..'/'..'notes-'..currentDate..'.md'
-  h.linuxCommand('touch', { fileName })
 
   local vimOpenFileCommand = 'tabedit '..fileName
   command(vimOpenFileCommand)
 
   local vimExCommands = 'source '..tempExFileName
   command(vimExCommands)
+end
+
+function M.createTask()
+  -- local directory = '/tmp/tasks'
+  local directory = '/storage/docs/notes/tasks'
+  local exCommandsFile = '/storage/src/dot_files/nvim/ex-commands/task.ex'
+  h.createTimestampedFileWithSnippet(directory, exCommandsFile)
+end
+
+function M.createZettel()
+  -- local directory = '/tmp/zettelkasten/cards'
+  local directory = '/storage/docs/notes/zettelkasten/cards'
+  local exCommandsFile = '/storage/src/dot_files/nvim/ex-commands/zettel.ex'
+  h.createTimestampedFileWithSnippet(directory, exCommandsFile)
 end
 
 return M
