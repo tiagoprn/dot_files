@@ -9,7 +9,7 @@ nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on curr
 nnoremap <leader>* :Telescope grep_string<cr>| " (telescope) search for string under cursor on current directory
 nnoremap <C-b> :Telescope buffers<cr>| " (telescope) open buffer
 nnoremap <leader>m :Telescope marks<cr>| " (telescope) browse marks
-nnoremap <leader>r :Telescope registers<cr>| " (telescope) browse registers
+nnoremap <leader>tr :Telescope registers<cr>| " (telescope) browse registers
 nnoremap <leader>tq :Telescope quickfix<cr>| " (telescope) browse quickfix
 nnoremap <leader>tl :Telescope loclist<cr>| " (telescope) browse location-list
 nnoremap <leader>tt :Telescope help_tags<cr>| " (telescope) tags
