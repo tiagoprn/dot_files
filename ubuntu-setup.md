@@ -637,6 +637,13 @@ $ wget https://github.com/Phantas0s/devdash/releases/download/v0.5.0/devdash_0.5
 $ tar xfzv devdash_0.5.0_Linux_x86_64.tar.gz
 $ cp -farv devdash /usr/bin/
 
+## styli.sh (change wallpapers dinamically, based on reddit or usplash)
+$ cd /opt
+$ sudo git clone https://github.com/thevinter/styli.sh.git
+$ sudo chown -R $(id -u):$(id -g) styli.sh
+$ mkdir -p $HOME/.config/styli.sh
+$ cp -farv /opt/styli.sh/subreddits $HOME/.config/styli.sh/
+$ echo 'MinimalWallpaper' >> $HOME/.config/styli.sh/subreddits
 
 ## SNAP INSTALLS
 $ sudo snap install youtube-dl
