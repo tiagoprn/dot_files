@@ -433,62 +433,60 @@ mouse_bindings:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # at once.
 key_bindings:
-  # (Windows, Linux, and BSD only)
-  - { key: V,        mods: Control|Shift, action: Paste            }  # (binding)
-  - { key: Insert,   mods: Shift,         action: Paste            }  # (binding)
-  - { key: Slash,    mods: Control,       chars: "gc"              }  # (binding)
-  - { key: C,        mods: Control|Shift, action: Copy             }  # (binding)
-  - { key: Equals,   mods: Control,       action: ResetFontSize    }  # (binding)
-  - { key: Plus,     mods: Control,       action: IncreaseFontSize }  # (binding)
-  - { key: Minus,    mods: Control,       action: DecreaseFontSize }  # (binding)
-  # Vi Mode
-  - { key: Space,  mods: Control,       mode: Vi, action: ScrollToBottom          }  # (binding)
-  - { key: Space,  mods: Control,                 action: ToggleViMode            }  # (binding) activate vim mode
-  - { key: I,                           mode: Vi, action: ScrollToBottom          }  # (binding)
-  - { key: I,                           mode: Vi, action: ToggleViMode            }  # (binding)
-  - { key: C,      mods: Control,       mode: Vi, action: ScrollToBottom          }  # (binding)
-  - { key: C,      mods: Control,       mode: Vi, action: ToggleViMode            }  # (binding)
-  - { key: Escape,                      mode: Vi, action: ClearSelection          }  # (binding)
-  - { key: Y,      mods: Control,       mode: Vi, action: ScrollLineUp            }  # (binding)
-  - { key: E,      mods: Control,       mode: Vi, action: ScrollLineDown          }  # (binding)
-  - { key: G,                           mode: Vi, action: ScrollToTop             }  # (binding)
-  - { key: G,      mods: Shift,         mode: Vi, action: ScrollToBottom          }  # (binding)
-  - { key: B,      mods: Control,       mode: Vi, action: ScrollPageUp            }  # (binding)
-  - { key: F,      mods: Control,       mode: Vi, action: ScrollPageDown          }  # (binding)
-  - { key: U,      mods: Control,       mode: Vi, action: ScrollHalfPageUp        }  # (binding)
-  - { key: D,      mods: Control,       mode: Vi, action: ScrollHalfPageDown      }  # (binding)
-  - { key: Y,                           mode: Vi, action: Copy                    }  # (binding)
-  - { key: Y,                           mode: Vi, action: ClearSelection          }  # (binding)
-  - { key: V,                           mode: Vi, action: ToggleNormalSelection   }  # (binding)
-  - { key: V,      mods: Shift,         mode: Vi, action: ToggleLineSelection     }  # (binding)
-  - { key: V,      mods: Control,       mode: Vi, action: ToggleBlockSelection    }  # (binding)
-  - { key: V,      mods: Alt,           mode: Vi, action: ToggleSemanticSelection }  # (binding)
-  - { key: Return,                      mode: Vi, action: Open                    }  # (binding)
-  - { key: K,                           mode: Vi, action: Up                      }  # (binding)
-  - { key: J,                           mode: Vi, action: Down                    }  # (binding)
-  - { key: H,                           mode: Vi, action: Left                    }  # (binding)
-  - { key: L,                           mode: Vi, action: Right                   }  # (binding)
-  - { key: Up,                          mode: Vi, action: Up                      }  # (binding)
-  - { key: Down,                        mode: Vi, action: Down                    }  # (binding)
-  - { key: Left,                        mode: Vi, action: Left                    }  # (binding)
-  - { key: Right,                       mode: Vi, action: Right                   }  # (binding)
-  - { key: Key0,                        mode: Vi, action: First                   }  # (binding)
-  - { key: Key4,                        mode: Vi, action: Last                    }  # (binding)
-  - { key: Key6,   mods: Shift,         mode: Vi, action: FirstOccupied           }  # (binding)
-  - { key: H,      mods: Shift,         mode: Vi, action: High                    }  # (binding)
-  - { key: M,      mods: Shift,         mode: Vi, action: Middle                  }  # (binding)
-  - { key: L,      mods: Shift,         mode: Vi, action: Low                     }  # (binding)
-  - { key: B,                           mode: Vi, action: SemanticLeft            }  # (binding)
-  - { key: W,                           mode: Vi, action: SemanticRight           }  # (binding)
-  - { key: E,                           mode: Vi, action: SemanticRightEnd        }  # (binding)
-  - { key: B,      mods: Shift,         mode: Vi, action: WordLeft                }  # (binding)
-  - { key: W,      mods: Shift,         mode: Vi, action: WordRight               }  # (binding)
-  - { key: E,      mods: Shift,         mode: Vi, action: WordRightEnd            }  # (binding)
-  - { key: Key5,   mods: Shift,         mode: Vi, action: Bracket                 }  # (binding)
-  - { key: Slash,                       mode: Vi, action: SearchForward           }  # (binding)
-  - { key: Slash,  mods: Shift,         mode: Vi, action: SearchBackward          }  # (binding)
-  - { key: N,                           mode: Vi, action: SearchNext              }  # (binding)
-  - { key: N,      mods: Shift,         mode: Vi, action: SearchPrevious          }  # (binding)
+  - { key: V,        mods: Control|Shift, action: Paste            }  # (binding) core
+  - { key: Insert,   mods: Shift,         action: Paste            }  # (binding) core
+  - { key: Slash,    mods: Control,       chars: "gc"              }  # (binding) core
+  - { key: C,        mods: Control|Shift, action: Copy             }  # (binding) core
+  - { key: Equals,   mods: Control,       action: ResetFontSize    }  # (binding) core
+  - { key: Plus,     mods: Control,       action: IncreaseFontSize }  # (binding) core
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }  # (binding) core
+  - { key: Space,    mods: Control,       action: ToggleViMode     }  # (binding) core
+  - { key: Space,  mods: Control,       mode: Vi, action: ScrollToBottom          }  # (binding) vi-mode
+  - { key: I,                           mode: Vi, action: ToggleViMode            }  # (binding) vi-mode
+  - { key: C,      mods: Control,       mode: Vi, action: ToggleViMode            }  # (binding) vi-mode
+  - { key: I,                           mode: Vi, action: ScrollToBottom          }  # (binding) vi-mode
+  - { key: C,      mods: Control,       mode: Vi, action: ScrollToBottom          }  # (binding) vi-mode
+  - { key: Escape,                      mode: Vi, action: ClearSelection          }  # (binding) vi-mode
+  - { key: Y,      mods: Control,       mode: Vi, action: ScrollLineUp            }  # (binding) vi-mode
+  - { key: E,      mods: Control,       mode: Vi, action: ScrollLineDown          }  # (binding) vi-mode
+  - { key: G,                           mode: Vi, action: ScrollToTop             }  # (binding) vi-mode
+  - { key: G,      mods: Shift,         mode: Vi, action: ScrollToBottom          }  # (binding) vi-mode
+  - { key: B,      mods: Control,       mode: Vi, action: ScrollPageUp            }  # (binding) vi-mode
+  - { key: F,      mods: Control,       mode: Vi, action: ScrollPageDown          }  # (binding) vi-mode
+  - { key: U,      mods: Control,       mode: Vi, action: ScrollHalfPageUp        }  # (binding) vi-mode
+  - { key: D,      mods: Control,       mode: Vi, action: ScrollHalfPageDown      }  # (binding) vi-mode
+  - { key: Y,                           mode: Vi, action: Copy                    }  # (binding) vi-mode
+  - { key: Y,                           mode: Vi, action: ClearSelection          }  # (binding) vi-mode
+  - { key: V,                           mode: Vi, action: ToggleNormalSelection   }  # (binding) vi-mode
+  - { key: V,      mods: Shift,         mode: Vi, action: ToggleLineSelection     }  # (binding) vi-mode
+  - { key: V,      mods: Control,       mode: Vi, action: ToggleBlockSelection    }  # (binding) vi-mode
+  - { key: V,      mods: Alt,           mode: Vi, action: ToggleSemanticSelection }  # (binding) vi-mode
+  - { key: Return,                      mode: Vi, action: Open                    }  # (binding) vi-mode
+  - { key: K,                           mode: Vi, action: Up                      }  # (binding) vi-mode
+  - { key: J,                           mode: Vi, action: Down                    }  # (binding) vi-mode
+  - { key: H,                           mode: Vi, action: Left                    }  # (binding) vi-mode
+  - { key: L,                           mode: Vi, action: Right                   }  # (binding) vi-mode
+  - { key: Up,                          mode: Vi, action: Up                      }  # (binding) vi-mode
+  - { key: Down,                        mode: Vi, action: Down                    }  # (binding) vi-mode
+  - { key: Left,                        mode: Vi, action: Left                    }  # (binding) vi-mode
+  - { key: Right,                       mode: Vi, action: Right                   }  # (binding) vi-mode
+  - { key: Key0,                        mode: Vi, action: First                   }  # (binding) vi-mode
+  - { key: Key4,                        mode: Vi, action: Last                    }  # (binding) vi-mode
+  - { key: Key6,   mods: Shift,         mode: Vi, action: FirstOccupied           }  # (binding) vi-mode
+  - { key: H,      mods: Shift,         mode: Vi, action: High                    }  # (binding) vi-mode
+  - { key: M,      mods: Shift,         mode: Vi, action: Middle                  }  # (binding) vi-mode
+  - { key: L,      mods: Shift,         mode: Vi, action: Low                     }  # (binding) vi-mode
+  - { key: B,                           mode: Vi, action: SemanticLeft            }  # (binding) vi-mode
+  - { key: W,                           mode: Vi, action: SemanticRight           }  # (binding) vi-mode
+  - { key: E,                           mode: Vi, action: SemanticRightEnd        }  # (binding) vi-mode
+  - { key: B,      mods: Shift,         mode: Vi, action: WordLeft                }  # (binding) vi-mode
+  - { key: W,      mods: Shift,         mode: Vi, action: WordRight               }  # (binding) vi-mode
+  - { key: E,      mods: Shift,         mode: Vi, action: WordRightEnd            }  # (binding) vi-mode
+  - { key: Key5,   mods: Shift,         mode: Vi, action: Bracket                 }  # (binding) vi-mode
+  - { key: Slash,                       mode: Vi, action: SearchForward           }  # (binding) vi-mode
+  - { key: Slash,  mods: Shift,         mode: Vi, action: SearchBackward          }  # (binding) vi-mode
+  - { key: N,                           mode: Vi, action: SearchNext              }  # (binding) vi-mode
+  - { key: N,      mods: Shift,         mode: Vi, action: SearchPrevious          }  # (binding) vi-mode
 
 debug:
   # Display the time it takes to redraw each frame.
