@@ -647,6 +647,17 @@ $ mkdir -p $HOME/.config/styli.sh
 $ cp -farv /opt/styli.sh/subreddits $HOME/.config/styli.sh/
 $ echo 'MinimalWallpaper' >> $HOME/.config/styli.sh/subreddits
 
+## alacritty
+
+$ sudo su
+$ cd /opt/installers
+$ git clone https://github.com/alacritty/alacritty.git
+$ cd alacritty
+$ git tag
+$ git checkout v0.8.0
+$ cargo build --release
+$ cp target/release/alacritty /usr/bin/
+
 ## SNAP INSTALLS
 $ sudo snap install youtube-dl
 $ sudo snap install chromium
