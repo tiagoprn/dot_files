@@ -75,3 +75,12 @@ snippet task
 	---
 	Timesheet:
 	- date: minutes
+snippet qtimestamp
+	`strftime("%Y-%m-%dT%H:%M:%S")`-03:00
+snippet qheader
+	---
+	created: qtimestamp
+	modified: qtimestamp
+	type: Journal
+	---
+
