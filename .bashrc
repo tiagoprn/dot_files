@@ -26,7 +26,10 @@ shopt -s histappend
 source $HOME/.bash_environment
 source $HOME/.bash_functions
 source $HOME/.bash_aliases
-[[ ! -z "$DISPLAY" ]] && source $HOME/.xsession
+
+if [ -f $HOME/.xsession ]; then
+  [[ ! -z "$DISPLAY" ]] && source $HOME/.xsession
+fi
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
