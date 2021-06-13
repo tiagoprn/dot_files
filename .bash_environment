@@ -146,3 +146,7 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 # export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # export QT_SCALE_FACTOR=0.6
 
+'/var/lib/flatpak/exports/share'
+'/home/pi/.local/share/flatpak/exports/share'
+
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
