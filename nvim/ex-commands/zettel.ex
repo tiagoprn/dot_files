@@ -1,2 +1,2 @@
-norm ggIztk 
-startinsert
+norm ggIztk
+startinsert!
