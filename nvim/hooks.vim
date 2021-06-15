@@ -17,5 +17,6 @@ augroup eventhooks
 
     " Expands on what vim considers as a markdown filetype
     autocmd BufNewFile,BufFilePre,BufRead *.md,*.markdown,*.mmd set filetype=markdown
+    autocmd BufReadPre *.md set nofoldenable  " disable auto-folding on markdown files
 augroup END
 

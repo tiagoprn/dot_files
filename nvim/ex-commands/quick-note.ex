@@ -1,2 +1,2 @@
-norm ggIqheader 
-startinsert
+norm ggIqheader
+startinsert!
