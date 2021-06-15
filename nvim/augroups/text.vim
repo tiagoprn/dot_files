@@ -4,6 +4,7 @@ augroup textconf
     " autocmd FileType markdown,text InsertLeave * normal gwap<CR> " formats the current paragraph when leaving insert mode
     " do not use textwidth with soft wrap, it has no effect
     autocmd FileType markdown,text,vim set linebreak  " soft wrap: wrap the text when it hits the screen edge
+    " autocmd BufWrite *.md :call DeleteSpacesFromMarkdownMetadata()  "TODO: enable when the function is finished
 augroup END
 
 augroup convertmarkdownconf

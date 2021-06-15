@@ -25,4 +25,8 @@ function M.createZettel()
   h.createTimestampedFileWithSnippet(directory, exCommandsFile)
 end
 
+function M.deleteSpacesFromMarkdownMetadata()
+
+end
+
 return M
