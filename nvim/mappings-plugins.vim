@@ -45,3 +45,11 @@ nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>| " (lsp) signa
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>| " (lsp) go to previous diagnostic
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>| " (lsp) go to next diagnostic
 
+" floatterm special terminals, to trigger special commands
+nnoremap <leader>u :FloatermNew lazygit<cr>| " (floaterm) lazygit ui
+nnoremap <leader>du :FloatermNew ncdu<cr>| " (floaterm) directory size
+nnoremap <leader>py :FloatermNew python<cr>| " (floaterm) default python interpreter
+nnoremap <leader>py2 :FloatermNew python2<cr>| " (floaterm) default python2 interpreter
+nnoremap <leader>py3 :FloatermNew python3<cr>| " (floaterm) default python3 interpreter
+
+

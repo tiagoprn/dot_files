@@ -36,3 +36,6 @@
 " :LuaRun | " (lua) run content of current buffer as lua script in new scope (you do not need to write file to disc or have to worry about overwriting functions in global scope)
 " :Lua | " (lua) extension of native lua command with function completion
 
+" :Tabularize /= | "(VISUAL) (tabular) align on the '=' sign, including the '='
+" :Tabularize /=\zs | "(VISUAL) (tabular) align on the '=' sign, keeping the '=' untouched but the values aligned
+" :Tabularize /| | "(VISUAL) (tabular) align a markdown table on '|' as column separator

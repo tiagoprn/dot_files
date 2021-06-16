@@ -8,39 +8,12 @@ TODO:
 
 # 1) APT REPOSITORIES
 
-## kitty (terminal emulator)
-
-### Ubuntu 10.04
-$ sudo add-apt-repository ppa:yurivkhan/kitty
-$ sudo apt update && sudo apt install kitty
-
-### Ubuntu 20.04
-Already on the repositories.
-
 ## i3 (https://i3wm.org/docs/repositories.html):
-
-### Ubuntu 18.04
-$ # update and install the keyring:
-$ /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2019.02.01_all.deb keyring.deb
-$ dpkg -i ./keyring.deb
-$ # create the new repository
-$ echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
-$ # update the packages list and install i3 packages below:
-$ apt update
-$ apt install i3 rofi i3lock i3lock-fancy i3blocks i3status spacefm-gtk3
 
 ### Ubuntu 20.04
 $ apt install i3 i3lock i3lock-fancy i3blocks i3status rofi rofi-dev spacefm-gtk3
 
 ## docker
-
-### Ubuntu 18.04
-$ # add docker official repository GPG key:
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-$ # add docker repository to apt sources:
-$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-$ # update packages database
-$ sudo apt update && sudo apt install docker-ce -y
 
 ### Ubuntu 20.04
 $ # add docker official repository GPG key:
@@ -117,205 +90,6 @@ https://www.ostechnix.com/install-and-configure-kvm-in-ubuntu-20-04-headless-ser
 
 # 2) APT PACKAGES
 
-
-## Ubuntu 18.04
-build-essential
-apt-transport-https
-ca-certificates
-curl
-software-properties-common
-bash-completion
-python-optcomplete
-net-tools
-htop
-sysstat
-ncdu
-xclip
-pandoc
-icdiff
-tree
-gitg
-tig
-cowsay
-ioping
-stress-ng
-iotop
-gimp
-inkscape
-rclone
-nmap
-source-highlight
-strace
-dnstracer
-borgbackup
-python-llfuse
-xdotool
-s3fs
-python
-python-pip
-python3
-python3-pip
-python3-all-dev
-numlockx
-font-manager
-qemu
-qemu-kvm
-acpi
-acpitool
-arandr
-feh
-imagemagick
-libjpeg-progs
-xautolock
-scrot
-dunst
-rxvt-unicode
-gpick
-x11-apps
-sxiv
-mupdf
-mupdf-tools
-gnome-boxes
-flameshot
-mps-youtube
-mplayer
-ffmpeg
-mpv
-vlc
-golang-go
-ansible
-numix-gtk-theme
-numix-icon-theme
-materia-gtk-theme
-libncurses5-dev
-libgnome2-dev
-libgnomeui-dev
-libgtk2.0-dev
-libatk1.0-dev
-libbonoboui2-dev
-libcairo2-dev
-libx11-dev
-libxcb-render0-dev
-libxpm-dev
-libxt-dev
-libxml2-dev
-libxmlsec1-dev
-libxslt-dev
-libncursesw5-dev
-fonts-firacode
-mosh
-pavucontrol
-screenfetch
-neofetch
-exiv2
-libreadline-dev
-libbz2-dev
-libsqlite3-dev
-libssh-dev
-libssl-dev
-libffi-dev
-libpq-dev
-libjpeg-dev
-zlib1g
-zlib1g-dev
-zlibc
-libtiff-dev
-libfreetype6
-libfreetype6-dev
-liblcms2-2
-liblcms2-dev
-libwebp-dev
-libwebp6
-libopenjp2-7
-libopenjp2-7-dev
-libopenjp3d7
-libraqm0
-libraqm-dev
-python-dev
-python3-dev
-python-cffi
-python3-cffi
-figlet
-debhelper
-shellcheck
-libpcap-dev
-xbacklight
-inxi
-tty-clock
-flist
-packages2fs-tools
-gparted
-cryptsetup
-kpartx
-tcptraceroute
-jq
-x11-xserver-utils
-ccze
-libxfixes-dev
-pencil2d
-mypaint
-python3-tk
-libjansson-dev
-librsvg2-dev
-fio
-python3-pyqt5
-pyqt5-dev-tools
-qttools5-dev-tools
-sysbench
-hdparm
-fsarchiver
-libnm-util-dev
-gir1.2-nm-1.0
-qrencode
-resolvconf
-cmake
-cmake-data
-libasound2-dev
-libcurl4-openssl-dev
-libiw-dev
-libmpdclient-dev
-libpulse-dev
-libxcb1-dev
-libxcb-composite0-dev
-libxcb-ewmh2
-libxcb-ewmh-dev
-libxcb-icccm4-dev
-libxcb-image0-dev
-libxcb-randr0-dev
-libxcb-util0-dev
-libxcb-xkb-dev
-libxcb-xrm-dev
-pkg-config
-python-xcbgen
-xcb
-xcb-proto
-libjsoncpp-dev
-libxi-dev
-libxslt1-dev
-asciidoc
-python3-venv
-zathura
-python3-pyudev
-flatpak
-supervisor
-supervisor-doc
-wyrd
-inotify-tools
-python3-gi
-gir1.2-gtk-3.0
-python3-gi-cairo
-python3-cairo
-python3-setuptools
-python3-babel
-fonts-font-awesome
-slop
-gir1.2-appindicator3-0.1
-libboost-program-options1.62-dev
-pass
-secure-delete
-liblua5.3-dev
-lua5.3
-
 ## Ubuntu 20.04
 sudo apt install -y build-essential apt-transport-https ca-certificates curl software-properties-common bash-completion net-tools htop sysstat ncdu xclip pandoc icdiff tree gitg tig cowsay ioping stress-ng iotop gimp inkscape rclone nmap source-highlight strace dnstracer borgbackup xdotool s3fs python2 python3 python3-pip python3-all-dev numlockx font-manager qemu qemu-kvm acpi acpitool arandr feh imagemagick libjpeg-progs xautolock scrot dunst rxvt-unicode gpick x11-apps sxiv mupdf mupdf-tools gnome-boxes flameshot mps-youtube mplayer ffmpeg mpv vlc golang-go ansible numix-gtk-theme numix-icon-theme materia-gtk-theme libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxcb-render0-dev libxpm-dev libxt-dev libxml2-dev libxmlsec1-dev libxslt-dev libncursesw5-dev fonts-firacode mosh pavucontrol screenfetch neofetch exiv2 libreadline-dev libbz2-dev libsqlite3-dev libssh-dev libssl-dev libffi-dev libpq-dev libjpeg-dev zlib1g zlib1g-dev zlibc libtiff-dev libfreetype6 libfreetype6-dev liblcms2-2 liblcms2-dev libwebp-dev libwebp6 libopenjp2-7 libopenjp2-7-dev libopenjp3d7 libraqm0 libraqm-dev python2-dev python3-cffi figlet debhelper shellcheck libpcap-dev xbacklight inxi tty-clock gparted cryptsetup kpartx tcptraceroute jq x11-xserver-utils python3-venv pipx ccze libxfixes-dev pencil2d mypaint python3-tk libev-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libpam0g-dev libjansson-dev librsvg2-dev fio python3-pyqt5 pyqt5-dev-tools qttools5-dev-tools sysbench hdparm fsarchiver libnm-dev gir1.2-nm-1.0 qrencode resolvconf cmake cmake-data libasound2-dev libcurl4-openssl-dev libiw-dev libmpdclient-dev libpulse-dev libxcb1-dev libxcb-composite0-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev libxcb-xrm-dev pkg-config python3-xcbgen xcb xcb-proto libjsoncpp-dev libxi-dev libxslt1-dev asciidoc python3-venv zathura python3-pyudev flatpak supervisor supervisor-doc wyrd inotify-tools python3-gi gir1.2-gtk-3.0 python3-gi-cairo python3-cairo python3-setuptools python3-babel fonts-font-awesome slop gir1.2-appindicator3-0.1 libboost-program-options1.62-dev pass secure-delete liblua5.3-dev lua5.3 libtool-bin
 
@@ -343,7 +117,6 @@ crazydiskmark (to bookmark disks - equivalent to CrystalDiskMark on windows - ne
 howdoi (<https://github.com/gleitz/howdoi>)
 
 # 4) TO BE COMPILED / INSTALLED:
-
 
 ## rust
 (install as root)
@@ -657,6 +430,15 @@ $ git tag
 $ git checkout v0.8.0
 $ cargo build --release
 $ cp target/release/alacritty /usr/bin/
+
+## lazygit (to use git inside floatterm on neovim):
+
+$ sudo su
+$ cd /opt/installers
+$ mkdir lazygit && cd lazygit
+$ wget https://github.com/jesseduffield/lazygit/releases/download/v0.28.2/lazygit_0.28.2_Linux_x86_64.tar.gz
+$ tar xfzv lazygit_0.28.2_Linux_x86_64.tar.gz
+$ cp lazygit /usr/bin/
 
 ## SNAP INSTALLS
 $ sudo snap install youtube-dl

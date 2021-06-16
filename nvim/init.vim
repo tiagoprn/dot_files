@@ -70,7 +70,6 @@ source $HOME/.config/nvim/abbreviations.vim
 source $HOME/.config/nvim/hooks.vim
 
 source $HOME/.config/nvim/mappings-core.vim
-source $HOME/.config/nvim/mappings-shellscripts.vim
 source $HOME/.config/nvim/mappings-commands.vim
 source $HOME/.config/nvim/mappings-functions.vim
 
@@ -78,7 +77,10 @@ lua require('plugins')
 lua require('lsp-compe-config')
 lua require('lua-lsp')
 
-source $HOME/.config/nvim/conf-plugins.vim
+source $HOME/.config/nvim/conf-plugins/floaterm.vim
+source $HOME/.config/nvim/conf-plugins/leaderf.vim
+source $HOME/.config/nvim/conf-plugins/marvim.vim
+source $HOME/.config/nvim/conf-plugins/snipmate.vim
 source $HOME/.config/nvim/mappings-plugins.vim
 
 source $HOME/.config/nvim/commands-tiagoprn-functions.vim

@@ -31,9 +31,6 @@ noremap <Right> <Nop> | " disable Right key in normal mode
 noremap <Leader>y "+y | " copy to system clipboard
 noremap <Leader>p "+p | " paste from system clipboard
 
-" reference: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line
-map <silent><Leader>gc :call setbufvar(winbufnr(popup_atcursor(systemlist("cd " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " . shellescape(line("v") . "," . line(".") . ":" .  resolve(expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR> | " (git) show commit that introduced current line in vim
-
 nnoremap <Leader>hc :set cuc!<CR> | " toggle highlight current column identation
 nnoremap <Leader>hl :set cursorline!<CR> | " toggle highlight current line
 
