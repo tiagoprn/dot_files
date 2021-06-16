@@ -38,8 +38,11 @@ return require('packer').startup(function()
        requires = {'kyazdani42/nvim-web-devicons'}
   }
 
-  -- (pandoc) markdown syntax highlighting
-  use {'vim-pandoc/vim-pandoc-syntax'}
+  -- markdown syntax highlighting
+  use {
+    'plasticboy/vim-markdown',
+      requires = {'godlygeek/tabular'}
+  }
 
   -- language server
   -- -- enable LSP completion

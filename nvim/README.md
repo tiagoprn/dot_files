@@ -2,8 +2,6 @@
 
 This is my modular neovim configuration.
 
-Be careful: it is WIP, based on my vim configuration on this repo.
-
 The package manager I use on neovim is "packer".
 
 

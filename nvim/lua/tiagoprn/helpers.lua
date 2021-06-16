@@ -60,4 +60,15 @@ function M.createTimestampedFileWithSnippet(directoryPath, exCommandsFile)
   command(vimExCommands)
 end
 
+function M.createAlternativeFormatTimestampedFileWithSnippet(directoryPath, exCommandsFile)
+  local currentDate = os.date('%Y-%m-%d-%H-%M-%S')
+  local fileName = currentDate..'.md'
+  local timestampedFile = directoryPath..'/'..fileName
+  local vimOpenFileCommand = 'tabedit '..timestampedFile
+  command(vimOpenFileCommand)
+
+  local vimExCommands = 'source '..exCommandsFile
+  command(vimExCommands)
+end
+
 return M

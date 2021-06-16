@@ -62,14 +62,7 @@ highlight LineNr ctermbg=black ctermfg=white
 " highlight StatusLine ctermbg=black ctermfg=darkblue
 " Overriding color of the popup menu
 
-" Below overrides some settings on this section, according to the file type
-source $HOME/.config/nvim/augroups/python.vim
-source $HOME/.config/nvim/augroups/lua.vim
-source $HOME/.config/nvim/augroups/quickfix.vim
-source $HOME/.config/nvim/augroups/text.vim
-source $HOME/.config/nvim/augroups/misc.vim
-
-" Other
+" --- OTHER SETTINGS
 
 source $HOME/.config/nvim/functions.vim
 source $HOME/.config/nvim/commands.vim
@@ -84,9 +77,18 @@ source $HOME/.config/nvim/mappings-functions.vim
 lua require('plugins')
 lua require('lsp-compe-config')
 lua require('lua-lsp')
+
 source $HOME/.config/nvim/conf-plugins.vim
 source $HOME/.config/nvim/mappings-plugins.vim
 
 source $HOME/.config/nvim/commands-tiagoprn-functions.vim
 source $HOME/.config/nvim/mappings-tiagoprn-functions.vim
+
+" AUTOGROUPS
+"" Below overrides MAIN SETTINGS section configuration, according to the file type
+source $HOME/.config/nvim/augroups/python.vim
+source $HOME/.config/nvim/augroups/lua.vim
+source $HOME/.config/nvim/augroups/quickfix.vim
+source $HOME/.config/nvim/augroups/text.vim
+source $HOME/.config/nvim/augroups/misc.vim
 
