@@ -50,11 +50,15 @@ return require('packer').startup(function()
   -- --  handles automatically launching and initializing language servers installed on your system
   use {'neovim/nvim-lspconfig'}
 
-  -- lua development environment
-  -- wrapper around lua LSP sumneko_lua
+  -- -- lua development environment
+  -- -- -- wrapper around lua LSP sumneko_lua
   use {'tjdevries/nlua.nvim'}
 
-  -- -- repl
+  -- -- -- repl
   use {'rafcamlet/nvim-luapad'}
+
+  -- -- float term (floating terminal, useful to trigger lazygit and other commands)
+  use {'voldikss/vim-floaterm'}
+
 
 end)
