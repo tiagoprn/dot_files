@@ -10,7 +10,7 @@ end
 function M.searchQuickNotes()
   require('telescope.builtin').live_grep {
     prompt_title = "\\ Search QuickNote /",
-    cwd = "/storage/docs/notes/quick/",
+    cwd = "/storage/docs/fleeting-notes",
   }
 end
 
