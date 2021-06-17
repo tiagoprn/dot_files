@@ -21,7 +21,7 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
-c.url.start_pages = ["https://news.itsfoss.com/"]
+c.url.start_pages = ["https://vim.fandom.com/wiki/Special:Random", "https://news.itsfoss.com/"]
 
 # Whether quitting the application requires a confirmation.
 # Valid values:
