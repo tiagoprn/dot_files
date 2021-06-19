@@ -447,6 +447,7 @@ $ sudo snap install firefox
 $ sudo snap install slack
 $ sudo snap install spotify
 $ sudo snap install multipass --classic
+$ sudo snap install ascii-image-converter
 
 Import: if snaps are not available, try to use docker images with the [watchtower container](https://containrrr.dev/watchtower/usage-overview/) to auto update the images.
 

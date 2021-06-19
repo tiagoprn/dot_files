@@ -1,17 +1,4 @@
-(((((((((((((((((((((((((((((((((
-
-- My window manager of choice is dwm. dwm/dwmblocks/st where compiled from my github's @lukesmith's fork, at `$HOME/local/bin`. A xsession configured to boot it is at `/usr/share/xsessions`, and a shellscript to start it is at `/usr/bin/startdwm`.
-
-- USEFUL BASH ALIASES:
-	j            : creates a quick timestamp based journal with vim
-	nt           : creates a quick note
-	zt           : creates a zettelkasten note
-	nr           : restart network through NetworkManager
-
+- My window manager of choice is dwm.
+- dwm/dwmblocks/st where compiled from my github's @lukesmith's fork, at `$HOME/local/bin`.
+- A xsession configured to boot it is at `/usr/share/xsessions`, and a shellscript to start it is at `/usr/bin/startdwm`.
 - If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash
-
-- `vim-notes.sh` for note taking
-
-- `i3-personal-calendar.sh` for my personal calendar view
-
-)))))))))))))))))))))))))))))))))

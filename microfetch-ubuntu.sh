@@ -68,19 +68,33 @@ fi
 lc="${reset}${bold}${yellow}"       # labels
 nc="${reset}${bold}${yellow}"       # user and hostname
 ic="${reset}"                       # info
-c0="${reset}${yellow}"              # first color
+c0="${reset}${green}"               # first color
 
 ## OUTPUT
 
 cat <<EOF
 
-${c0}           _   ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}       ---(_)  ${lc}OS:        ${ic}${os}${reset}
-${c0}   _/  ---  \\  ${lc}KERNEL:    ${ic}${kernel}${reset}
-${c0}  (_) |   |    ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}    \\  --- _/  ${lc}PACKAGES:  ${ic}${packages}${reset}
-${c0}       ---(_)  ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}               ${lc}${uitype}:        ${ic}${ui}${reset}
+${c0} %######################################@ | ${nc}${USER}${ic}@${nc}${host}${reset}
+${c0} = ...................................  * | ${lc}OS:        ${ic}${os}${reset}
+${c0} + :==================================. # | ${lc}KERNEL:    ${ic}${kernel}${reset}
+${c0} + :==================================. # | ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c0} + ..:.  .:-==================-:.  .:.  # | ${lc}PACKAGES:  ${ic}${packages}${reset}
+${c0} @%@%-  :-=========----=========-:  -%@%@ | ${lc}SHELL:     ${ic}${shell}${reset}
+${c0} @@*. -=======-:...::::...:========- .*@@ |
+${c0} @+ .=======-. -+#@@@@@@#+: .-=======. +@ |
+${c0} # .=======- .#@@@@@@@@@@@@#. -=======. # |
+${c0} - :=======  %@@@@@@@@@@@@@@%  =======: - |
+${c0} - :=======  %@@@@@@@@@@@@@@%  =======: - |
+${c0} # .=======- .#@@@@@@@@@@@@#. -=======. # |
+${c0} @+ .=======-. :+#%@@@@@#+: .-=======. +@ |
+${c0} @@*. -========:....::....:========- .*@@ |
+${c0} @%@%-  :-=========----=========-:  =%@%@ |
+${c0} + ..:.  .:-==================-:.  .:.  # | ON THE BRIGHTEST DAY,
+${c0} + :==================================. # | ON THE BLACKEST NIGHT,
+${c0} + :==================================. # | NO EVIL SHALL ESCAPE MY SIGHT.
+${c0} = ...................................  * | LET THOSE WHO WORSHIP EVIL'S MIGHT,
+${c0} %######################################@ | BEWARE MY POWER: GREEN LANTERN'S LIGHT! ${reset}
 
 EOF
 
+cat /storage/src/dot_files/welcome.txt

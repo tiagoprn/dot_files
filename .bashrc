@@ -196,7 +196,7 @@ bind -m vi-insert "\C-l":clear-screen
 #     cowsay -f tux $(fortune -s)
 # fi
 
-bash /storage/src/dot_files/welcome.sh
+bash /storage/src/dot_files/microfetch-ubuntu.sh
 
 # if [ -x "$(command -v figlet)" ]; then
 #     echo "$(hostname)" | figlet -cptk
