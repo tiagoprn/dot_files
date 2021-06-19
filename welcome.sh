@@ -89,11 +89,11 @@ ${c0} @@@@@@@@@@.*@@@@@@@*-.:=+=.:@:.@@@@@@@@@@ |
 ${c0} @@@@@@@@@#.@@@@@%-.:+%@@@@@=.= *@@@@@@@@@ |
 ${c0} @@@@@@@@@-=@@@#:.-#@@@@@@@@@*  :@@@@@@@@@ |---------------------------------------------------
 ${C0} @@@@@@@@@.%@*: =%@@@@@@@@@@@@%. %@@@@@@@@ | SPACE, THE FINAL FRONTIER.
-${C0} @@@@@@@@#.#: =%@@@@@@@@@@@@@@@%.=@@@@@@@@ | THESE ARE THE VOYAGES OF THE STARSHIP ENTERPRISE
-${C0} @@@@@@@@+  :%@@@@@@@@@@@@@@@@@@%=@@@@@@@@ | TO EXPLORE STRANGE NEW WORLDS,
+${C0} @@@@@@@@#.#: =%@@@@@@@@@@@@@@@%.=@@@@@@@@ | THESE ARE THE VOYAGES OF THE STARSHIP ENTERPRISE.
+${C0} @@@@@@@@+  :%@@@@@@@@@@@@@@@@@@%=@@@@@@@@ | ITS' CONTINUING MISSION TO EXPLORE STRANGE NEW WORLDS,
 ${C0} @@@@@@@@- *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ | TO SEEK OUT NEW LIFE
 ${C0} @@@@@@@@*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ | AND NEW CIVILIZATIONS.
-${c0} @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ | TO BOLDLY GO WHERE NO MAN HAS GONE BEFORE... ${reset}
+${c0} @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ | TO BOLDLY GO WHERE NO ONE HAS GONE BEFORE... ${reset}
 
 EOF
 
