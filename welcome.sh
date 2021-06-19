@@ -1,6 +1,4 @@
-#!/bin/sh
-#
-# ufetch-ubuntu - tiny system info for ubuntu
+#!/bin/bash
 
 # based on the original project https://gitlab.com/jschx/ufetch
 
@@ -96,5 +94,7 @@ ${c0} = ...................................  * | LET THOSE WHO WORSHIP EVIL'S MI
 ${c0} %######################################@ | BEWARE MY POWER: GREEN LANTERN'S LIGHT! ${reset}
 
 EOF
+
+## CUSTOM LOGIN MESSAGES
 
 cat /storage/src/dot_files/welcome.txt
