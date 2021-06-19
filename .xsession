@@ -10,25 +10,25 @@ _isRunning() {
 	ps aux | grep "$1" 2>/dev/null | grep -v "grep" >/dev/null 2>&1
 }
 
-echo "Starting picom..." >> $LOG_FILE 2>&1
+# echo "Starting picom..." >> $LOG_FILE 2>&1
 _isRunning picom || picom --config ~/picom.conf --backend glx >> $LOG_FILE 2>&1 &
 
-echo "Starting blueman applet..."
+# echo "Starting blueman applet..."
 _isRunning blueman-applet || blueman-applet >> $LOG_FILE 2>&1 &
 
-echo "Starting NetworkManager applet..."
+# echo "Starting NetworkManager applet..."
 _isRunning nm-applet || nm-applet >> $LOG_FILE 2>&1 &
 
-echo "Starting unclutter (hide mouse cursor when idle)..."
+# echo "Starting unclutter (hide mouse cursor when idle)..."
 _isRunning unclutter || unclutter --timeout 5 --hide-on-touch -b &
 
 # echo "Starting lxpolkit..." >> $LOG_FILE 2>&1
 # _isRunning lxpolkit || /usr/bin/lxpolkit >> $LOG_FILE 2>&1 &
 
-echo "Starting clippy (clipboard daemon)..." >> $LOG_FILE 2>&1
+# echo "Starting clippy (clipboard daemon)..." >> $LOG_FILE 2>&1
 supervisord -n -c $HOME/clippy.supervisor.conf >> $LOG_FILE 2>&1 &
 
-echo "Reloading wallpaper..." >> $LOG_FILE 2>&1
+# echo "Reloading wallpaper..." >> $LOG_FILE 2>&1
 reload_wallpaper.sh >> $LOG_FILE 2>&1 &
 
 # echo "Reloading wal theme..." >> $LOG_FILE 2>&1
