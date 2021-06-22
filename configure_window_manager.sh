@@ -132,6 +132,10 @@ echo 'Linking supervisor...'
 rm -fr ~/clippy.supervisor.conf
 ln -s /storage/src/dot_files/clippy.supervisor.conf ~/clippy.supervisor.conf
 
+echo 'Linking systray (stalonetrayrc)...'
+rm ~/.stalonetrayrc
+ln -s /storage/src/dot_files/.stalonetrayrc ~/.stalonetrayrc
+
 # ---
 
 echo 'Finished.'
