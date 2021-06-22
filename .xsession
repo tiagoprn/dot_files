@@ -36,7 +36,7 @@ nohup reload-dwmblocks.sh >> $LOG_FILE 2>&1 &
 
 # echo "Running systray (stalonetray)..." >> $LOG_FILE 2>&1
 # _isRunning stalonetray || stalonetray >> $LOG_FILE 2>&1 &
-nohup stalonetray >> $LOG_FILE 2>&1 &
+pgrep stalonetray || nohup stalonetray >> $LOG_FILE 2>&1 &
 
 # echo "Reloading wal theme..." >> $LOG_FILE 2>&1
 # wal-reload-last-theme.sh >> $LOG_FILE 2>&1 &
