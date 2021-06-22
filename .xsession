@@ -31,6 +31,9 @@ supervisord -n -c $HOME/clippy.supervisor.conf >> $LOG_FILE 2>&1 &
 # echo "Reloading wallpaper..." >> $LOG_FILE 2>&1
 reload_wallpaper.sh >> $LOG_FILE 2>&1 &
 
+# starts dwmblocks
+xsetroot -name "$(dwmblocks)" &
+
 # echo "Reloading wal theme..." >> $LOG_FILE 2>&1
 # wal-reload-last-theme.sh >> $LOG_FILE 2>&1 &
 
