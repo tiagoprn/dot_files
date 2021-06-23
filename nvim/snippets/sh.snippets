@@ -13,14 +13,39 @@ snippet tempfile
 snippet var_equals
 	${1:VARIABLE_NAME}=${2:value}
 
-snippet var_empty
+snippet if_empty
 	MY_VAR="VALUE"
 	if [ -z "$MY_VAR" ]; then
 	      echo "$MY_VAR is NULL"
 	else
 	      echo "$MY_VAR is NOT NULL"
 	fi
+snippet if_equals
+	if [ "\$IS_PAUSED" == 'true' ]; then
+	    echo 'IS TRUE \o/'
+	else
+	    echo 'IS FALSE :('
+	fi
+snippet colors
+	if [ -x "\$(command -v tput)" ]; then
+		bold="\$(tput bold)"
+		black="\$(tput setaf 0)"
+		red="\$(tput setaf 1)"
+		green="\$(tput setaf 2)"
+		yellow="\$(tput setaf 3)"
+		blue="\$(tput setaf 4)"
+		magenta="\$(tput setaf 5)"
+		cyan="\$(tput setaf 6)"
+		white="\$(tput setaf 7)"
+		reset="\$(tput sgr0)"
+	fi
 
+	ON="\$\{reset}\$\{bold}\$\{blue}"
+	OFF="\$\{reset}\$\{bold}\$\{red}"
+	RESET="\$\{reset}"
+
+	echo "\$\{ON} true \$\{RESET}"
+	echo "\$\{OFF} false \$\{RESET}"
 snippet case
 	case ${1:word} in
 		${2:pattern} )
