@@ -10,15 +10,33 @@ snippet tempfile
 	`})"
 	${3:${4/(.+)/trap "/}${4:rm -f '$${1/.*\s//}'}${4/(.+)/" 0               # EXIT\n/}${5/(.+)/trap "/}${5:rm -f '$${1/.*\s//}'; exit 1}${5/(.+)/" 2       # INT\n/}${6/(.+)/trap "/}${6:rm -f '$${1/.*\s//}'; exit 1}${6/(.+)/" 1 15    # HUP TERM\n/}}
 
-snippet var_equals
+snippet var_value_equals
 	${1:VARIABLE_NAME}=${2:value}
 
-snippet if_empty
+snippet if_var_value_empty
 	MY_VAR="VALUE"
 	if [ -z "$MY_VAR" ]; then
 	      echo "$MY_VAR is NULL"
 	else
 	      echo "$MY_VAR is NOT NULL"
+	fi
+snippet echo_date
+	    echo "[$(date +%r)]----> ${1:MESSAGE}"
+snippet multiline_comment
+	: '
+	${1:TEXT}
+	'
+snippet if_file_exists
+	if [ -f "${1:FILE}" ]; then
+		echo "File exists \o/"
+	else
+		echo "File DOES NOT exist :("
+	fi
+snippet if_directory_exists
+	if [ -d "${1:DIRECTORY}" ]; then
+		echo "Directory exists \o/"
+	else
+		echo "Directory DOES NOT exist :("
 	fi
 snippet if_equals
 	if [ "\$IS_PAUSED" == 'true' ]; then
