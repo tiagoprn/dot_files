@@ -1,0 +1,41 @@
+# rofi shutdown menu => SUPER+z "~/apps/scripts/rofi/shutdown.py"
+# SUPER+d "~/apps/scripts/bin/dmcheatsheets-menu.sh"
+# SUPER+Return "~/apps/scripts/bin/terminal.sh")}
+# SUPER+Shift+b "~/apps/scripts/rofi/bookmarks.py"
+# SUPER+Shift+Return "~/apps/scripts/bin/terminal-tmux.sh"
+# SUPER+w "~/apps/scripts/bin/pass-rofi.sh"
+# kill window => SUPER+BackSpace
+# Alt_t => "terminal-dropdownterm.sh"
+#
+
+# To run the program:
+# $ sxhkd -c /storage/src/dot_files/sxhkd/sxhkdrc
+
+# rofi: run app, show windows
+alt + r; {a,w}
+	rofi -show {drun -drun-icon-theme,window -drun-icon-theme}
+
+# minimize current window
+alt + i
+	xdotool windowminimize $(xdotool getactivewindow)
+
+# maximize current window
+alt + m
+	xdotool windowsize $(xdotool getactivewindow) 100% 100%
+
+# restore (unmaximize) current window
+alt + u
+	wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz
+
+# close current window
+alt + c
+	wmctrl -c :ACTIVE:
+
+# open a terminal
+alt + Return
+	lxterminal
+
+# open browser
+alt + b
+	chromium-browser
+
