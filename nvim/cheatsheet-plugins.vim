@@ -15,8 +15,8 @@
 " ystA` | " (surround) surround until letter A with ` - you can use [({ instead of `
 
 " <C>r | " (leaderf window) alternate between regex/fuzzy search
-" <C>j | " (leaderf window) navigate down
-" <C>r | " (leaderf window) navigate up
+" <Down> | " (leaderf window) navigate down
+" <Up> | " (leaderf window) navigate up
 " <C>c | " (leaderf window) close window
 
 " :PackerCompile | " (packer) You must run this or `PackerSync` whenever you make changes to your plugin configuration

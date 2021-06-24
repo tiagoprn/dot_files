@@ -21,10 +21,6 @@ nnoremap <silent>gr :lua require'telescope.builtin'.lsp_references{}<CR>| "(tele
 
 " -- leaderf
 inoremap <c-s><c-n> <c-\><c-o>:Leaderf snippet --popup<CR> | " (INSERT) (leaderf) insert code snippet on cursor
-" nnoremap <Leader>J :Leaderf jumps --popup<CR> | " (jumps) (leaderf) interactive jump selection
-" nnoremap <Leader>ch :Leaderf cmdHistory --popup<CR> | " (leaderf) search on commands history
-" nnoremap <Leader>sh :Leaderf searchHistory --popup<CR> | " (leaderf) redo a search from search history
-" nnoremap <Leader>c :Leaderf command --popup<CR> | " (leaderf) Run command from vim command "palette"
 
 
 " -- surround
