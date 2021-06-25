@@ -449,6 +449,19 @@ $ cd dunst
 $ make WAYLAND=0  # https://github.com/dunst-project/dunst#make-parameters
 $ make WAYLAND=0 install
 
+## activitywatch
+$ sudo su
+$ cd /opt/installers
+$ wget https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip
+$ unzip activitywatch-v0.11.0-linux-x86_64.zip
+
+### Directories
+- categories: `/storage/docs/notes/activitywatch`
+- data: `~/.local/share/activitywatch`
+- config: `~/.config/activitywatch`
+- logs: `~/.cache/activitywatch/log`
+- Cache: `~/.cache/activitywatch`
+
 
 ## SNAP INSTALLS
 $ sudo snap install youtube-dl
