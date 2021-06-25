@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "$(date +%Y/%m/%d)"
+printf "$(date +%Y-%m-%d)"
