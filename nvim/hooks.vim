@@ -18,5 +18,10 @@ augroup eventhooks
     " Expands on what vim considers as a markdown filetype
     autocmd BufNewFile,BufFilePre,BufRead *.md,*.markdown,*.mmd set filetype=markdown
     autocmd BufReadPre *.md set nofoldenable  " disable auto-folding on markdown files
+
+    " Create new files from skeletons
+    autocmd BufNewFile *.sh 0r ~/.config/nvim/skeletons/script.sh
+    " The example below can be applied for *.md files created inside 'content/blog' directory:
+    " autocmd BufNewFile *content/blog*.md 0r ~/.vim/skeletons/skeletons/blog-post.md
 augroup END
 
