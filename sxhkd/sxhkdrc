@@ -12,27 +12,27 @@
 # $ sxhkd -c /storage/src/dot_files/sxhkd/sxhkdrc
 
 # rofi: run app, show windows
-alt + r; {a,w}
+super + r; {space,Tab}
 	rofi -show {drun -drun-icon-theme,window -drun-icon-theme}
 
 # minimize current window
-alt + i
+super + i
 	xdotool windowminimize $(xdotool getactivewindow)
 
 # maximize current window
-alt + m
+super + m
 	xdotool windowsize $(xdotool getactivewindow) 100% 100%
 
 # restore (unmaximize) current window
-alt + u
+super + u
 	wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz
 
 # close current window
-alt + c
+super + k
 	wmctrl -c :ACTIVE:
 
 # open a terminal
-alt + Return
+super + Return
 	lxterminal
 
 # open browser
