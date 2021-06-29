@@ -21,7 +21,8 @@ nnoremap <Backspace> :bw<Enter>| " Close buffer
 nnoremap <leader>q :bp\|bw \#<Enter>| " Close buffer but keep split
 nnoremap <leader><Backspace> <C-w>q<Enter>| " Close split but keep buffer
 
-nnoremap <Leader>fcb :let @+=expand('%:p')<CR>| " copy current file/buffer name to clipboard
+nnoremap <Leader>fcb :let @+=expand('%:t')<CR>| " copy current file/buffer name to clipboard
+nnoremap <Leader>fcB :let @+=expand('%:p')<CR>| " copy current file/buffer full path name to clipboard
 
 noremap <Up> <Nop> | " disable Up key in normal mode
 noremap <Down> <Nop> | " disable Down key in normal mode
@@ -61,3 +62,4 @@ noremap <Leader>wv  <c-w>t<c-w>H| " (windows) change split orientation to vertic
 nnoremap <Leader>ww <C-w>w| " (windows)  toggle between windows
 nnoremap <Leader>wV :vnew<CR>| " (windows) new vertical window split
 nnoremap <Leader>wS :new<CR>| " (windows) new horizontal window split
+

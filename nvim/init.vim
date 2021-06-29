@@ -62,6 +62,11 @@ highlight LineNr ctermbg=black ctermfg=white
 " highlight StatusLine ctermbg=black ctermfg=darkblue
 " Overriding color of the popup menu
 
+
+" --- Configure rg integration
+set grepprg=rg\ --vimgrep
+set grepformat^=%f:%l:%c:%m
+
 " --- OTHER SETTINGS
 
 source $HOME/.config/nvim/functions.vim

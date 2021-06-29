@@ -137,6 +137,6 @@
 " :help nvim-from-vim | " help page on what is different from vim
 " :messages | " show session history messages
 " :messages clear | " clear all session history messages
-
+" :grep 'text' |" do a search with rg and populate the quickfix with it
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
