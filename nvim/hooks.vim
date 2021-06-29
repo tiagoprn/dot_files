@@ -21,6 +21,7 @@ augroup eventhooks
 
     " Create new files from skeletons
     autocmd BufNewFile *.sh 0r ~/.config/nvim/skeletons/script.sh
+    autocmd BufNewFile *.py 0r ~/.config/nvim/skeletons/script.py
     " The example below can be applied for *.md files created inside 'content/blog' directory:
     " autocmd BufNewFile *content/blog*.md 0r ~/.vim/skeletons/skeletons/blog-post.md
 augroup END
