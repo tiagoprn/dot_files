@@ -9,6 +9,25 @@ function fzf-bash-history-search() {  # Function to search through bash history 
     setxkbmap us && xdotool type "$cmd" && setxkbmap -model abnt2 -layout br
 }
 
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+    *)            fzf "$@" ;;
+  esac
+}
+
+function v() {
+  local selected_file
+  selected_file=$(fd -H --exclude .git | fzf --preview "bat --style=numbers --color=always --line-range :50 {}")
+
+  if [ -n "$selected_file" ]; then
+    vim "$selected_file"
+  fi
+}
+
 function tmux-save-history {  # save current tmux commands to history file
     setxkbmap us && xdotool key --delay 36ms Control_L+a Alt_L+f Return && setxkbmap -model abnt2 -layout br
 }
