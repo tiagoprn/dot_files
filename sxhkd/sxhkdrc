@@ -39,3 +39,6 @@ super + Return
 alt + b
 	chromium-browser
 
+# open snippets
+alt + s
+	/storage/src/devops/rofi/snippets.sh
