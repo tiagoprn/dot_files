@@ -1,8 +1,4 @@
-# rofi shutdown menu => SUPER+z "~/apps/scripts/rofi/shutdown.py"
 # SUPER+d "~/apps/scripts/bin/dmcheatsheets-menu.sh"
-# SUPER+Return "~/apps/scripts/bin/terminal.sh")}
-# SUPER+Shift+b "~/apps/scripts/rofi/bookmarks.py"
-# SUPER+Shift+Return "~/apps/scripts/bin/terminal-tmux.sh"
 # SUPER+w "~/apps/scripts/bin/pass-rofi.sh"
 # kill window => SUPER+BackSpace
 # Alt_t => "terminal-dropdownterm.sh"
@@ -42,3 +38,12 @@ alt + b
 # open snippets
 alt + s
 	/storage/src/devops/rofi/snippets.sh
+
+# rofi shutdown menu
+super + z
+	/storage/src/devops/rofi/shutdown.py
+
+# bookmarks menu
+super + shift + b
+	/storage/src/devops/rofi/bookmarks.py
+
