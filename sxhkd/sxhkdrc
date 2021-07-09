@@ -1,5 +1,4 @@
 # SUPER+d "~/apps/scripts/bin/dmcheatsheets-menu.sh"
-# SUPER+w "~/apps/scripts/bin/pass-rofi.sh"
 # kill window => SUPER+BackSpace
 # Alt_t => "terminal-dropdownterm.sh"
 #
@@ -37,7 +36,7 @@ super + k
 
 # open a terminal
 super + Return
-	st
+	/home/pi/local/bin/st
 
 # open browser
 alt + b
@@ -55,3 +54,6 @@ super + z
 super + shift + b
 	/storage/src/devops/rofi/bookmarks.py
 
+# passwords list
+super + w
+	/storage/src/devops/bin/pass-rofi.sh
