@@ -37,7 +37,7 @@ super + k
 
 # open a terminal
 super + Return
-	lxterminal
+	st
 
 # open browser
 alt + b
