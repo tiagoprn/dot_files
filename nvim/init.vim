@@ -81,6 +81,7 @@ source $HOME/.config/nvim/mappings-functions.vim
 lua require('plugins')
 lua require('lsp-compe-config')
 lua require('lua-lsp')
+lua require('python-lsp')
 
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
 source $HOME/.config/nvim/conf-plugins/leaderf.vim
