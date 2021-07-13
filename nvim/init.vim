@@ -83,6 +83,7 @@ lua require('lsp-compe-config')
 lua require('lua-lsp')
 lua require('python-lsp')
 lua require('efm-lsp')
+lua require('bash-lsp')
 
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
 source $HOME/.config/nvim/conf-plugins/leaderf.vim
