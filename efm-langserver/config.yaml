@@ -10,26 +10,18 @@ commands:
 
 tools:
   python-black: &python-black
-    format-command: 'black --quiet -'
+    format-command: 'black -S -t py37 -l 79 --quiet -'
     format-stdin: true
 
   python-isort: &python-isort
-    format-command: 'isort --quiet -'
+    format-command: 'isort -m 3 --trailing-comma --use-parentheses --honor-noqa --quiet -'
     format-stdin: true
 
   python-pylint: &python-pylint
-    lint-command: 'pylint --output-format text --score no --msg-template {path}:{line}:{column}:{C}:{msg} ${INPUT}'
+    lint-command: 'pylint --rcfile=.pylintrc --output-format text --score no --msg-template {path}:{line}:{column}:{C}:{msg} ${INPUT}'
     lint-stdin: false
     lint-formats:
       - '%f:%l:%c:%t:%m'
-    lint-offset-columns: 1
-    lint-category-map:
-      I: H
-      R: I
-      C: I
-      W: W
-      E: E
-      F: E
 
   sh-shellcheck: &sh-shellcheck
     lint-command: 'shellcheck -f gcc -x'

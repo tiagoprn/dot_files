@@ -88,4 +88,7 @@ require'tiagoprn.scratchpad'.createQuickNote()
 
 - To see the plugin output: `:messages`, to clear all messages: `:messages clear`
 
+## Other
+
+- `viminfo` on neovim: Instead of the viminfo format, neovim uses `shada` files. For more details: `:h shada`. In linux, the default path of this file is: `$HOME/.local/share/nvim/shada/main.shada`.
 
