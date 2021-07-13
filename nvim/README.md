@@ -11,8 +11,14 @@ The package manager I use on neovim is "packer".
 
 - To (re)set your environment, run the script `../configure_neovim.sh` on the previous directory. It will delete existing environment and clone the packer repo.
 
-- Then, run:
+- Install efm-langserver (flexible tool to allow configuring custom linters and formatters for multiple languages using lsp):
+```
+$ go get github.com/mattn/efm-langserver
+$ sudo cp ~/go/bin/efm-langserver /usr/bin
+```
+NOTE: efm runs as an additional Language Server attached for doing formatting, linting. No problem at all with built-in lsp. efm is really cool and you can configure in one place every format/lint tools you want depending on the language. It's a must have and as it's written in Go you can expect it to be light and fast.
 
+- Then, run:
 ```
 $ nvim
 

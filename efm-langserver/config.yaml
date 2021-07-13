@@ -1,0 +1,61 @@
+# reference: https://github.com/mattn/efm-langserver
+version: 2
+root-markers:
+  - .git/
+lint-debounce: 1s
+commands:
+  - command: nvim
+    arguments:
+      - ${INPUT}
+
+tools:
+  python-black: &python-black
+    format-command: 'black --quiet -'
+    format-stdin: true
+
+  python-isort: &python-isort
+    format-command: 'isort --quiet -'
+    format-stdin: true
+
+  python-pylint: &python-pylint
+    lint-command: 'pylint --output-format text --score no --msg-template {path}:{line}:{column}:{C}:{msg} ${INPUT}'
+    lint-stdin: false
+    lint-formats:
+      - '%f:%l:%c:%t:%m'
+    lint-offset-columns: 1
+    lint-category-map:
+      I: H
+      R: I
+      C: I
+      W: W
+      E: E
+      F: E
+
+  sh-shellcheck: &sh-shellcheck
+    lint-command: 'shellcheck -f gcc -x'
+    lint-source: 'shellcheck'
+    lint-formats:
+      - '%f:%l:%c: %trror: %m'
+      - '%f:%l:%c: %tarning: %m'
+      - '%f:%l:%c: %tote: %m'
+
+  sh-shfmt: &sh-shfmt
+    format-command: 'shfmt -ci -s -bn'
+    format-stdin: true
+
+  lua-lua-format: &lua-lua-format
+    format-command: 'lua-format -i'
+    format-stdin: true
+
+languages:
+  python:
+    - <<: *python-black
+    - <<: *python-isort
+    - <<: *python-pylint
+
+  sh:
+    - <<: *sh-shellcheck
+    - <<: *sh-shfmt
+
+  lua:
+    - <<: *lua-lua-format
