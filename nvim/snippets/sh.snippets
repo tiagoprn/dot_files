@@ -80,7 +80,23 @@ snippet case
 snippet elif
 	elif ${2:[[ ${1:condition} ]]}; then
 		${VISUAL}${0:#statements}
+snippet script_args
+	usage()
+	{
+		echo "usage: script.sh -p value"
+	}
 
+	no_args="true"
+	while getopts ":p:" arg; do
+	  case $arg in
+	    p) VALUE=$OPTARG;;
+	  esac
+	  no_args="false"
+	done
+
+	[[ "$no_args" == "true" ]] && { usage; exit 1; }
+
+	echo -e "VALUE=$VALUE"
 snippet for
 	for (( i = 0; i < ${1:10}; i++ )); do
 		${VISUAL}${0:#statements}
