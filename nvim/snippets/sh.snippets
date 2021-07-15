@@ -88,15 +88,22 @@ snippet script_args
 
 	no_args="true"
 	while getopts ":p:" arg; do
-	  case $arg in
-	    p) VALUE=$OPTARG;;
+	  case \$arg in
+	    p) VALUE=\$OPTARG;;
 	  esac
 	  no_args="false"
 	done
 
-	[[ "$no_args" == "true" ]] && { usage; exit 1; }
+	[[ "\$no_args" == "true" ]] && { usage; exit 1; }
 
-	echo -e "VALUE=$VALUE"
+	echo -e "VALUE=\$VALUE"
+snippet script_path_and_name
+	script_name=\$(basename "\$0")
+	script_path=\$(dirname "\$(readlink -f "\$0")")
+	script_path_with_name="\$script_path/\$script_name"
+	echo "Script path: \$script_path"
+	echo "Script name: \$script_name"
+	echo "Script path with name: \$script_path_with_name"
 snippet for
 	for (( i = 0; i < ${1:10}; i++ )); do
 		${VISUAL}${0:#statements}
