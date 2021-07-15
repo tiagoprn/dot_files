@@ -104,6 +104,15 @@ snippet script_path_and_name
 	echo "Script path: \$script_path"
 	echo "Script name: \$script_name"
 	echo "Script path with name: \$script_path_with_name"
+snippet function_with_args
+	my_function()
+	{
+		local first_param=\$1
+		local second_param=\$2
+		echo "first param: \$first_param, second param: \$second_param"
+	}
+
+	my_function "FIRST" "SECOND"
 snippet for
 	for (( i = 0; i < ${1:10}; i++ )); do
 		${VISUAL}${0:#statements}
