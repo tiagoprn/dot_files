@@ -119,10 +119,10 @@ snippet for
 	done
 
 snippet forin
-	for ${1:i}${2/.+/ in /}${2:words}; do
-		${VISUAL}${0:#statements}
+	WORDS="banana maçã tomate"
+	for WORD in \$WORDS; do
+	    echo -e "\$WORD"
 	done
-
 snippet here
 	<<-${2:'${1:TOKEN}'}
 		$0
