@@ -123,6 +123,14 @@ snippet forin
 	for WORD in \$WORDS; do
 	    echo -e "\$WORD"
 	done
+snippet iterate_files_on_directory
+	FILES_PATH="/path/*.txt"
+	for FILE in \$FILES_PATH; do
+		echo "----------------------"
+		echo "Full file path: \$FILE"
+		filename=\$(basename -- "\$FILE")
+		echo "File name: \$filename";
+	done
 snippet here
 	<<-${2:'${1:TOKEN}'}
 		$0
