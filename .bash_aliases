@@ -87,3 +87,4 @@ alias cbbash="cat $HISTFILE | tail -n 1 | cb" # Copy most recent command in bash
 
 alias ssh-no-host-checking='ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no"'
 alias compositor="/storage/src/devops/bin/toggle_compositor.sh"
+alias xsession='[[ ! -z "$DISPLAY" ]] && source $HOME/.xsession'
