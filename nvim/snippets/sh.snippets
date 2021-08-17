@@ -12,7 +12,9 @@ snippet tempfile
 
 snippet var_value_equals
 	${1:VARIABLE_NAME}=${2:value}
-
+snippet argument_from_script_with_default_value
+	# set to the value of the 1st argument passed to the script. If not passed, set "default_value".
+	VAR_NAME=\${1-"default_value"}
 snippet if_var_value_empty
 	MY_VAR="VALUE"
 	if [ -z "$MY_VAR" ]; then
@@ -260,4 +262,5 @@ snippet bash!
 	msg "- flag: ${flag}"
 	msg "- param: ${param}"
 	msg "- arguments: ${args[*]-}"
+
 
