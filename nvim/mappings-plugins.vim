@@ -48,4 +48,6 @@ nnoremap <leader>py :FloatermNew python<cr>| " (floaterm) default python interpr
 nnoremap <leader>py2 :FloatermNew python2<cr>| " (floaterm) default python2 interpreter
 nnoremap <leader>py3 :FloatermNew python3<cr>| " (floaterm) default python3 interpreter
 
+" nvim-tree (a project directory tree)
+nnoremap <F3> :NvimTreeToggle<CR>| " (function-keys) toggle project directory tree
 

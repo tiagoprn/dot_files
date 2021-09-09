@@ -60,5 +60,10 @@ return require('packer').startup(function()
   -- -- float term (floating terminal, useful to trigger lazygit and other commands)
   use {'voldikss/vim-floaterm'}
 
+  -- A tree project view
+  use {
+      'kyazdani42/nvim-tree.lua',
+      requires = 'kyazdani42/nvim-web-devicons'
+  }
 
 end)
