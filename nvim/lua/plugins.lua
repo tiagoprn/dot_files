@@ -66,4 +66,7 @@ return require('packer').startup(function()
       requires = 'kyazdani42/nvim-web-devicons'
   }
 
+  -- Beautiful and customizable indentation
+  use {'Yggdroot/indentLine'}
+
 end)
