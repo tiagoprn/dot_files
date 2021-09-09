@@ -37,7 +37,7 @@ nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>| " (lsp) go to decla
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>| " (lsp) show references
 nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>| " (lsp) go to implementation
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>| " (lsp) help hover
-nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>| " (lsp) signature
+nnoremap <silent> gs <cmd>lua vim.lsp.buf.signature_help()<CR>| " (lsp) signature
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>| " (lsp) go to previous diagnostic
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>| " (lsp) go to next diagnostic
 
