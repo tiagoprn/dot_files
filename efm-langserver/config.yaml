@@ -35,10 +35,6 @@ tools:
     format-command: 'shfmt -ci -s -bn'
     format-stdin: true
 
-  lua-lua-format: &lua-lua-format
-    format-command: 'lua-format -i'
-    format-stdin: true
-
 languages:
   python:
     - <<: *python-black
@@ -49,5 +45,3 @@ languages:
     - <<: *sh-shellcheck
     - <<: *sh-shfmt
 
-  lua:
-    - <<: *lua-lua-format
