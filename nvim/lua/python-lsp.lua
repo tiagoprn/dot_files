@@ -1,7 +1,9 @@
 -- assumes python-language-server[all] installed from pip
-require'lspconfig'.pyls.setup{
+local lsp=require('lspconfig')
+
+lsp.pylsp.setup{
         settings = {
-            pyls={
+            pylsp = {
                 plugins = {
                     pylint = {
                         enabled = true,
