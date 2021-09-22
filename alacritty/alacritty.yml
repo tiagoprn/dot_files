@@ -21,8 +21,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 130
-    lines: 30
+    columns: 115
+    lines: 23
 
   # Window position (changes require restart)
   #
@@ -99,7 +99,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 14
+  size: 12
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -437,8 +437,8 @@ key_bindings:
   - { key: Slash,    mods: Control,       chars: "gc"              }  # (binding: core)
   - { key: C,        mods: Control|Shift, action: Copy             }  # (binding: core)
   - { key: Equals,   mods: Control,       action: ResetFontSize    }  # (binding: core)
-  - { key: K,     mods: Control,       action: IncreaseFontSize }  # (binding: core)
-  - { key: J,    mods: Control,       action: DecreaseFontSize }  # (binding: core)
+  - { key: Plus,     mods: Control|Shift, action: IncreaseFontSize }  # (binding: core)
+  - { key: Minus, mods: Control,       action: DecreaseFontSize }  # (binding: core)
   - { key: Space,    mods: Control,       action: ToggleViMode     }  # (binding: core)
   - { key: Space,  mods: Control,       mode: Vi, action: ScrollToBottom          }  # (binding: vi-mode)
   - { key: I,                           mode: Vi, action: ToggleViMode            }  # (binding: vi-mode)
