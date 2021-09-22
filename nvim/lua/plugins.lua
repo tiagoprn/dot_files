@@ -43,21 +43,8 @@ return require('packer').startup(function()
     'plasticboy/vim-markdown',
       requires = {'godlygeek/tabular'}
   }
-
-  -- language server
-  -- -- enable LSP completion
-  use {'hrsh7th/nvim-compe'}
-  -- --  handles automatically launching and initializing language servers installed on your system
-  use {'neovim/nvim-lspconfig'}
-
-  -- -- lua development environment
-  -- -- -- wrapper around lua LSP sumneko_lua
-  use {'tjdevries/nlua.nvim'}
-
-  -- -- -- repl
-  use {'rafcamlet/nvim-luapad'}
-
-  -- -- float term (floating terminal, useful to trigger lazygit and other commands)
+  --
+  -- float term (floating terminal, useful to trigger lazygit and other commands)
   use {'voldikss/vim-floaterm'}
 
   -- A tree project view
@@ -68,5 +55,22 @@ return require('packer').startup(function()
 
   -- Beautiful and customizable indentation
   use {'Yggdroot/indentLine'}
+
+  -- # LANGUAGE SERVERS - begin
+
+  -- -- enable LSP completion
+  use {'hrsh7th/nvim-compe'}
+
+  -- --  handles automatically launching and initializing language servers installed on your system
+  use {'neovim/nvim-lspconfig'}
+
+  -- -- lua development environment
+  -- -- -- wrapper around lua LSP sumneko_lua
+  use {'tjdevries/nlua.nvim'}
+
+  -- -- -- repl
+  use {'rafcamlet/nvim-luapad'}
+
+  -- # LANGUAGE SERVERS - end
 
 end)
