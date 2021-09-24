@@ -3,5 +3,53 @@
         "prefix": "gcommit",
         "body": "automatic message on commit",
         "description": "automatic message to be used on commits."
+    },
+    "uuid": {
+        "prefix": "uuid",
+        "body": [
+            "${VIM:system('python -c \"import uuid, sys;sys.stdout.write(str(uuid.uuid4()))\"')}"
+        ]
+    },
+    "timestamp_iso": {
+        "prefix": "timestamp_iso",
+        "body": [
+            "${VIM:system('python -c \"from datetime import datetime; print(datetime.now().isoformat())\"')}"
+        ],
+        "description": "current timestamp, in ISO format"
+    },
+    "timestamp": {
+        "prefix": "timestamp",
+        "body": [
+	    "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND"
+        ],
+        "description": "current timestamp"
+    },
+    "today": {
+        "prefix": "today",
+        "body": [
+	    "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+        ],
+        "description": "today"
+    },
+    "hh": {
+        "prefix": "current hour/minute",
+        "body": [
+	    "$CURRENT_HOUR:$CURRENT_MINUTE"
+        ],
+        "description": "current hour/minute"
+    },
+    "dm": {
+        "prefix": "current day/month",
+        "body": [
+	    "$CURRENT_DATE/$CURRENT_MONTH"
+        ],
+        "description": "current day/month"
+    },
+    "dma": {
+        "prefix": "current day/month/year",
+        "body": [
+	    "$CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR"
+        ],
+        "description": "current day/month/year"
     }
 }
