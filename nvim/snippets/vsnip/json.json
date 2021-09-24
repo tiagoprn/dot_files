@@ -1,0 +1,15 @@
+{
+    "nvim json snippet": {
+        "prefix": "nvim json snippet (vim-vsnip)",
+        "body": [
+            "\"${1:id}\": {",
+            "\t\"prefix\": \"${2:prefix}\",",
+            "\t\"body\": [",
+            "\t\t\"${3:body}\"",
+            "\t],",
+            "\t\"description\": \"\"",
+            "}"
+        ],
+        "description": "nvim json snippet (vim-vsnip)"
+    }
+}
