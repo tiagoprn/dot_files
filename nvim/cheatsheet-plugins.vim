@@ -1,8 +1,5 @@
 " -- This is a cheatsheet for plugins defined in "plugins.lua" that do not have customized mappings.
 
-"" snippets
-" <word><tab>| " expand snippet
-
 " <control>, h  | "  move current line/selection to the left
 " <control>, j  | "  move current line/selection down
 " <control>, k  | "  move current line/selection up
