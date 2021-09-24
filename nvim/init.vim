@@ -51,7 +51,7 @@ set smartcase            " uppercase characters will be taken into account
 
 set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends:»
 
-set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect
 
 " OVERRIDING COLORS
 " Overriding color of special chars
@@ -79,7 +79,7 @@ source $HOME/.config/nvim/mappings-commands.vim
 source $HOME/.config/nvim/mappings-functions.vim
 
 lua require('plugins')
-lua require('lsp-compe-config')
+lua require('nvim-cmp')
 lua require('lua-lsp')
 lua require('python-lsp')
 lua require('efm-lsp')
