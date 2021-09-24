@@ -1,0 +1,7 @@
+{
+    "gcommit": {
+        "prefix": "gcommit",
+        "body": "automatic message on commit",
+        "description": "automatic message to be used on commits."
+    }
+}

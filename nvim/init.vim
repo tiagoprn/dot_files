@@ -89,7 +89,7 @@ source $HOME/.config/nvim/conf-plugins/vsnip.vim
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/tree.vim
-source $HOME/.config/nvim/conf-plugins/markdown.vim
+source $HOME/.config/nvim/conf-plugins/conceals.vim
 source $HOME/.config/nvim/mappings-plugins.vim
 
 source $HOME/.config/nvim/commands-tiagoprn-functions.vim
