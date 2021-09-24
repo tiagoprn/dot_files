@@ -12,21 +12,14 @@ return require('packer').startup(function()
 
   use {'tpope/vim-surround'}
 
-  -- snipmate is an alternative snippet manager to ultisnips (not python)
+  -- snippets
   use {
-    'garbas/vim-snipmate',
-    requires = {{ 'MarcWeber/vim-addon-mw-utils'}, { 'tomtom/tlib_vim'}}
-  }
-
-  -- Better snippets browsing (works on normal and insert mode):
-  use {
-    'skywind3000/Leaderf-snippet',
-    requires = {{'Yggdroot/LeaderF'}}
+    'hrsh7th/vim-vsnip',
+     requires = {'hrsh7th/vim-vsnip-integ'}
   }
 
   -- macros persistance
   use {'chamindra/marvim'}
-
 
   -- statusline
   use {
@@ -58,11 +51,14 @@ return require('packer').startup(function()
 
   -- # LANGUAGE SERVERS - begin
 
-  -- -- enable LSP completion
-  use {'hrsh7th/nvim-compe'}
-
   -- --  handles automatically launching and initializing language servers installed on your system
   use {'neovim/nvim-lspconfig'}
+
+  -- -- enable LSP completion
+  use {
+      'hrsh7th/nvim-cmp',
+      requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-vsnip'}
+  }
 
   -- -- lua development environment
   -- -- -- wrapper around lua LSP sumneko_lua

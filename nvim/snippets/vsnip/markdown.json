@@ -1,0 +1,173 @@
+{
+    "uuid": {
+        "prefix": "uuid (through python)",
+        "body": [
+            "${VIM:system('python -c \"import uuid, sys;sys.stdout.write(str(uuid.uuid4()))\"')}"
+        ]
+    },
+    "timestamp_iso": {
+        "prefix": "timestamp_iso",
+        "body": [
+            "${VIM:system('python -c \"from datetime import datetime; print(datetime.now().isoformat())\"')}"
+        ],
+        "description": "current timestamp, in ISO format"
+    },
+    "timestamp": {
+        "prefix": "timestamp",
+        "body": [
+            "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND"
+        ],
+        "description": "current timestamp"
+    },
+    "today": {
+        "prefix": "today",
+        "body": [
+            "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+        ],
+        "description": "today"
+    },
+    "hh": {
+        "prefix": "[hh] current hour/minute",
+        "body": [
+            "$CURRENT_HOUR:$CURRENT_MINUTE"
+        ],
+        "description": "current hour/minute"
+    },
+    "dm": {
+        "prefix": "[dm] current day/month",
+        "body": [
+            "$CURRENT_DATE/$CURRENT_MONTH"
+        ],
+        "description": "current day/month"
+    },
+    "dma": {
+        "prefix": "[dma] current day/month/year",
+        "body": [
+            "$CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR"
+        ],
+        "description": "current day/month/year"
+    },
+    "post": {
+        "prefix": "[post] a note on my static site",
+        "body": [
+            "slug: ${1:content-slug-here}",
+            "date: timestamp",
+            "tags: [${2:tag1,}]",
+            "published: timestamp",
+            "summary: ${3:the post title}",
+            "public: yes",
+            "",
+            "${4:#contents}"
+        ],
+        "description": "current day/month/year"
+    },
+    "ztype": {
+        "prefix": "[ztype] zettelkasten types",
+        "body": [
+            "fleeting bibliographic permanent"
+        ],
+        "description": "zettelkasten types"
+    },
+    "ztk": {
+        "prefix": "[ztk] zettelkasten note",
+        "body": [
+            "${1:Title}",
+            "created: timestamp",
+            "#${2:keyword1} #${3:keyword2}",
+            "type: ztype",
+            "---",
+            "",
+            "${4:body}",
+            "",
+            "---",
+            "References:",
+            "- ${5:first}"
+        ],
+        "description": "zettelkasten note"
+    },
+    "list item": {
+        "prefix": "[it] list item",
+        "body": [
+            "- [ ] ${1:Description}"
+        ],
+        "description": "[it] list item"
+    },
+    "task effort": {
+        "prefix": "[teffort] task effort",
+        "body": [
+            "quick-win normal epic"
+        ],
+        "description": "task effort"
+    },
+    "task status": {
+        "prefix": "[tstatus] task status",
+        "body": [
+            "created wip paused finished discarded"
+        ],
+        "description": "task status"
+    },
+    "task": {
+        "prefix": "new task",
+        "body": [
+            "goal: ${1:Goal}",
+            "scope: personal work",
+            "created: timestamp",
+            "finished: timestamp",
+            "effort: teffort",
+            "current_status: tstatus",
+            "#${2:tag1} #${3:tag2}",
+            "---",
+            "",
+            "${4:Detailed description, checklist, references, etc...}",
+            "",
+            "---",
+            "Timesheet:",
+            "- date: minutes"
+        ],
+        "description": "new task"
+    },
+    "quicknote timestamp": {
+        "prefix": "[qtimestamp] quicknote timestamp",
+        "body": [
+            "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}-03:00"
+        ],
+        "description": "quicknote timestamp"
+    },
+    "quicknote header": {
+        "prefix": "[qheader] quicknote header",
+        "body": [
+            "---",
+            "created: qtimestamp",
+            "modified: qtimestamp",
+            "type: Journal",
+            "---"
+        ],
+        "description": "quicknote header"
+    },
+    "diary entry": {
+        "prefix": "[diary] diary entry",
+        "body": [
+            "---",
+            "timestamp: timestamp",
+            "---",
+            "",
+            "- How did I start my day?",
+            "${1:description}",
+            "",
+            "- What happened at work today?",
+            "${2:description}",
+            "",
+            "- How did I feel when finished working?",
+            "${3:description}",
+            "",
+            "- How I felt at night, after work?",
+            "${4:description}",
+            "",
+            "- What is going on my personal life right now?",
+            "${5:description}",
+            "",
+            "---"
+        ],
+        "description": "diary entry"
+    }
+}

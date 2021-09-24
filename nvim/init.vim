@@ -51,7 +51,7 @@ set smartcase            " uppercase characters will be taken into account
 
 set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends:»
 
-set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect
 
 " OVERRIDING COLORS
 " Overriding color of special chars
@@ -79,18 +79,17 @@ source $HOME/.config/nvim/mappings-commands.vim
 source $HOME/.config/nvim/mappings-functions.vim
 
 lua require('plugins')
-lua require('lsp-compe-config')
+lua require('nvim-cmp')
 lua require('lua-lsp')
 lua require('python-lsp')
 lua require('efm-lsp')
 lua require('bash-lsp')
 
+source $HOME/.config/nvim/conf-plugins/vsnip.vim
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
-source $HOME/.config/nvim/conf-plugins/leaderf.vim
 source $HOME/.config/nvim/conf-plugins/marvim.vim
-source $HOME/.config/nvim/conf-plugins/snipmate.vim
 source $HOME/.config/nvim/conf-plugins/tree.vim
-source $HOME/.config/nvim/conf-plugins/markdown.vim
+source $HOME/.config/nvim/conf-plugins/conceals.vim
 source $HOME/.config/nvim/mappings-plugins.vim
 
 source $HOME/.config/nvim/commands-tiagoprn-functions.vim
@@ -102,5 +101,6 @@ source $HOME/.config/nvim/augroups/python.vim
 source $HOME/.config/nvim/augroups/lua.vim
 source $HOME/.config/nvim/augroups/quickfix.vim
 source $HOME/.config/nvim/augroups/text.vim
+source $HOME/.config/nvim/augroups/json.vim
 source $HOME/.config/nvim/augroups/misc.vim
 

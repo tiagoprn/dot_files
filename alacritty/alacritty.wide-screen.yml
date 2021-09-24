@@ -441,7 +441,7 @@ key_bindings:
   - { key: Equals,   mods: Control,       action: ResetFontSize    }  # (binding: core)
   - { key: Plus,     mods: Control|Shift, action: IncreaseFontSize }  # (binding: core)
   - { key: Minus, mods: Control,       action: DecreaseFontSize }  # (binding: core)
-  - { key: Space,    mods: Control,       action: ToggleViMode     }  # (binding: core)
+  - { key: Tab,    mods: Control,       action: ToggleViMode     }  # (binding: core)
   - { key: Space,  mods: Control,       mode: Vi, action: ScrollToBottom          }  # (binding: vi-mode)
   - { key: I,                           mode: Vi, action: ToggleViMode            }  # (binding: vi-mode)
   - { key: C,      mods: Control,       mode: Vi, action: ToggleViMode            }  # (binding: vi-mode)
