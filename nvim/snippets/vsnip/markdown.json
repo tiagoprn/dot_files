@@ -144,13 +144,6 @@
         ],
         "description": "quicknote header"
     },
-    "git commit": {
-        "prefix": "[gcommit] git commit",
-        "body": [
-            "feat: updated repository on timestamp"
-        ],
-        "description": "git commit"
-    },
     "diary entry": {
         "prefix": "[diary] diary entry",
         "body": [
