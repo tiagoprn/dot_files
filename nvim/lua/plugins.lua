@@ -12,21 +12,8 @@ return require('packer').startup(function()
 
   use {'tpope/vim-surround'}
 
-  -- snipmate is an alternative snippet manager to ultisnips (not python)
-  use {
-    'garbas/vim-snipmate',
-    requires = {{ 'MarcWeber/vim-addon-mw-utils'}, { 'tomtom/tlib_vim'}}
-  }
-
-  -- Better snippets browsing (works on normal and insert mode):
-  use {
-    'skywind3000/Leaderf-snippet',
-    requires = {{'Yggdroot/LeaderF'}}
-  }
-
   -- macros persistance
   use {'chamindra/marvim'}
-
 
   -- statusline
   use {

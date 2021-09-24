@@ -86,9 +86,7 @@ lua require('efm-lsp')
 lua require('bash-lsp')
 
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
-source $HOME/.config/nvim/conf-plugins/leaderf.vim
 source $HOME/.config/nvim/conf-plugins/marvim.vim
-source $HOME/.config/nvim/conf-plugins/snipmate.vim
 source $HOME/.config/nvim/conf-plugins/tree.vim
 source $HOME/.config/nvim/conf-plugins/markdown.vim
 source $HOME/.config/nvim/mappings-plugins.vim
