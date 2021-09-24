@@ -85,6 +85,7 @@ lua require('python-lsp')
 lua require('efm-lsp')
 lua require('bash-lsp')
 
+source $HOME/.config/nvim/conf-plugins/vsnip.vim
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/tree.vim

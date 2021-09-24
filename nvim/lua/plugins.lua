@@ -12,6 +12,12 @@ return require('packer').startup(function()
 
   use {'tpope/vim-surround'}
 
+  -- snippets
+  use {
+    'hrsh7th/vim-vsnip',
+     requires = {'hrsh7th/vim-vsnip-integ'}
+  }
+
   -- macros persistance
   use {'chamindra/marvim'}
 
