@@ -53,6 +53,9 @@ set listchars=tab:→␣,space:·,nbsp:␣,trail:•,eol:↩,precedes:«,extends
 
 set completeopt=menu,menuone,noselect
 
+" Enable true colors theme support
+set termguicolors
+
 " OVERRIDING COLORS
 " Overriding color of special chars
 " highlight SpecialKey ctermfg=red guifg=red
