@@ -231,6 +231,12 @@ if ! [ -x "$(command -v startx)" ]; then
     echo -e " -------------------------------------------------------\n"
 fi
 
+if command -v starship &> /dev/null
+then
+	# enabling starship
+	eval "$(starship init bash)"
+fi
+
 # For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
 if [ -d $PYENV_ROOT ];
 then
