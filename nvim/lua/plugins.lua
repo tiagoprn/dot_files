@@ -21,6 +21,9 @@ return require('packer').startup(function()
   -- macros persistance
   use {'chamindra/marvim'}
 
+  -- color scheme
+  use {'wuelnerdotexe/vim-enfocado'}
+
   -- statusline
   use {
     'glepnir/galaxyline.nvim',
