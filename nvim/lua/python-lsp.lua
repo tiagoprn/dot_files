@@ -9,7 +9,7 @@ lsp.pylsp.setup{
               pylint = {
                   enabled = true,
                   executable = 'pylint',
-                  args={'--rcfile', '/storage/temp/minapi/.pylintrc'}
+                  args={'--rcfile', '/storage/src/devops/python/default_configs/.pylintrc'}
               }
           }
       }
