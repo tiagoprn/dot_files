@@ -56,7 +56,6 @@
 " shift+v  | "  select a whole line
 " :w !sudo tee % | " save file as sudo when you forgot to do that
 " :set et|retab | " replaces tab with 4 spaces
-" gcc | " comment/uncomment selection
 " zR | " open all folds
 " zM | " close all folds
 " zo | " open current fold

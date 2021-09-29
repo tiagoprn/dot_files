@@ -36,3 +36,6 @@
 " :Tabularize /= | "(VISUAL) (tabular) align on the '=' sign, including the '='
 " :Tabularize /=\zs | "(VISUAL) (tabular) align on the '=' sign, keeping the '=' untouched but the values aligned
 " :Tabularize /| | "(VISUAL) (tabular) align a markdown table on '|' as column separator
+
+" gc | " comment/uncomment visual selection
+" gcc | " comment/uncomment current line

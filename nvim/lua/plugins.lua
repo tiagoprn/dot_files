@@ -52,6 +52,9 @@ return require('packer').startup(function()
   -- Beautiful and customizable indentation
   use {'Yggdroot/indentLine'}
 
+  -- Comment
+  use {'tpope/vim-commentary'}
+
   -- # LANGUAGE SERVERS - begin
 
   -- --  handles automatically launching and initializing language servers installed on your system
