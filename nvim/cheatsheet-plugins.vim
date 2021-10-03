@@ -25,6 +25,7 @@
 
 " <C-n> | " (telescope) (movement) go to next menu item
 " <C-p> | " (telescope) (movement) go to previous menu item
+" <C-q> | " (telescope) copy results to quickfix list
 " <C-t> | " (telescope) (movement) open in new tab
 " <C-v> | " (telescope) (movement) open in vertical split
 " <C-s> | " (telescope) (movement) open in horizontal split
