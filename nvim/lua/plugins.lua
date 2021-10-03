@@ -55,6 +55,9 @@ return require('packer').startup(function()
   -- Comment
   use {'tpope/vim-commentary'}
 
+  -- show contents of vim registers on a sidebar
+  use {'junegunn/vim-peekaboo'}
+
   -- # LANGUAGE SERVERS - begin
 
   -- --  handles automatically launching and initializing language servers installed on your system
