@@ -33,7 +33,7 @@
     "argument-from-script-with-default-value": {
         "prefix": "argument number from script. If not passed, set default value.",
         "body": [
-            "VAR_NAME=\${1-\"default_value\"}"
+            "VAR_NAME=${1-\"default_value\"}"
         ],
         "description": "argument number from script. If not passed, set default value."
     },
@@ -81,7 +81,7 @@
         "prefix": "if file exists",
         "body": [
             "if [ -f \"${1:FILE}\" ]; then",
-            "	echo \"File exists \o/\"",
+            "	echo \"File exists o/\"",
             "else",
             "	echo \"File DOES NOT exist :(\"",
             "fi"
@@ -92,7 +92,7 @@
         "prefix": "if directory exists",
         "body": [
             "if [ -d \"${1:DIRECTORY}\" ]; then",
-            "    echo \"Directory exists \o/\"",
+            "    echo \"Directory exists o/\"",
             "else",
             "    echo \"Directory DOES NOT exist :(\"",
             "fi"
@@ -103,7 +103,7 @@
         "prefix": "if equals",
         "body": [
             "if [ \"$IS_PAUSED\" == 'true' ]; then",
-            "    echo 'IS TRUE \o/'",
+            "    echo 'IS TRUE o/'",
             "else",
             "    echo 'IS FALSE :('",
             "fi"
@@ -132,7 +132,7 @@
             "",
             "echo \"${ON} true ${RESET}\"",
             "echo \"${OFF} false ${RESET}\"",
-            "
+            ""
         ],
         "description": "print colored output"
     },
