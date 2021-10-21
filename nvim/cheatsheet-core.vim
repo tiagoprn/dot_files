@@ -138,5 +138,7 @@
 " :messages clear | " clear all session history messages
 " :grep 'text' |" do a search with rg and populate the quickfix with it
 " :set ft? |" show the filetype of the current file
+" x,y copy z  |" copy lines x to y to after line z
+
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
