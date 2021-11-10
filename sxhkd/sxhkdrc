@@ -9,6 +9,10 @@
 
 # --- SHORTCUTS
 
+# ---------------------
+
+## - WM independent
+
 # qutebrowser
 alt + b
 	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py
@@ -101,7 +105,6 @@ super + z
 alt + shift + w
 	/opt/styli.sh/styli.sh -l reddit
 
-
 # clippy clipboard
 super + c
 	clippy_rofi.py
@@ -114,23 +117,20 @@ super + m
 	arandr && reload_wallpaper.sh
 
 # terminal
-super + return
+super + Return
 	~/apps/scripts/bin/terminal.sh
 
 # bookmarks
 super + shift + b
 	~/apps/scripts/rofi/bookmarks.py"                             # --
 
-# restart dwm
-# super + shift + d
-# 	notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm
 
 # screenshot - region
 super + shift + p
 	~/apps/scripts/bin/screenshot.py -s region
 
 # terminal - tmux
-super + shift + return
+super + shift + Return
 	~/apps/scripts/bin/terminal-tmux.sh
 
 # passwords - rofi
@@ -148,6 +148,29 @@ alt + e
 # wallpaper (m to mark)
 alt + w
 	sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) + xargs feh --bg-scale
+
+# ---------------------
+
+## - WM specific
+
+### - bspwm
+
+# dropdownterm
+alt + t
+	# TODO
+
+# nnn
+super + r
+	# TODO
+
+# pcmanfm
+super + shift + r
+	# TODO
+
+
+# restart dwm
+# super + shift + d
+# 	notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm
 
 # cyclelayout default ( / )
 # super + slash
@@ -197,19 +220,6 @@ alt + w
 # super + period
 # 	zoom {0}
 
-
-# dropdownterm
-alt + t
-	togglescratch {.ui = 0}
-
-# nnn
-super + r
-	togglescratch {.ui = 2}
-
-# pcmanfm
-super + shift + r
-	togglescratch {.ui = 1}
-
 # border 0
 # super + alt + equal
 # 	setborderpx {.i = 0
@@ -222,65 +232,33 @@ super + shift + r
 # super + alt + k
 # 	setborderpx {.i = +1
 
-
-# TODO: go to desktop 0
-# TODO: go to desktop 1
-# TODO: go to desktop 2
-# TODO: go to desktop 3
-# TODO: go to desktop 4
-# TODO: go to desktop 5
-# TODO: go to desktop 6
-# TODO: go to desktop 7
-# TODO: go to desktop 8
-
-
-# TODO: toggle fullscreen
-# TODO: toggle gaps
-# TODO: toggle sticky
-# TODO: toggle window floating
-
 # update colors from Xresources
 # super + x
 #	xrdb {.v = NULL
 
+# TODO: go to desktop 0
+#
+# TODO: go to desktop 1
+#
+# TODO: go to desktop 2
+#
+# TODO: go to desktop 3
+#
+# TODO: go to desktop 4
+#
+# TODO: go to desktop 5
+#
+# TODO: go to desktop 6
+#
+# TODO: go to desktop 7
+#
+# TODO: go to desktop 8
 
+# TODO: toggle fullscreen
+#
+# TODO: toggle gaps
+#
+# TODO: toggle sticky
+#
+# TODO: toggle window floating
 
-
-
-
-
-
-
-
-# ------------
-
-
-
-
-# app menu
-super + e
-	rofi -show drun -drun-icon-theme
-
-# open a terminal
-super + Return
-	/home/pi/local/bin/st
-
-# open browser
-alt + b
-	chromium-browser
-
-# open snippets
-alt + s
-	/storage/src/devops/rofi/snippets.sh
-
-# rofi shutdown menu
-super + z
-	/storage/src/devops/rofi/shutdown.py
-
-# bookmarks menu
-super + shift + b
-	/storage/src/devops/rofi/bookmarks.py
-
-# passwords list
-super + w
-	/storage/src/devops/bin/pass-rofi.sh
