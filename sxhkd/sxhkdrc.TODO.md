@@ -4,85 +4,67 @@
  - [x] 		[ ] 	(cmd) => Alt+h "urxvt -name htop -title htop --hold -e htop"
  - [x] 		[ ] 	(cmd) => Alt+k "~/apps/scripts/rofi/toggle_keyboards.py"
  - [x] 		[ ] 	(cmd) => Alt+o "~/apps/scripts/bin/toggle_compositor.sh"
- - [ ] 		[ ] 	(cmd) => Alt+s "~/apps/scripts/rofi/snippets.sh"
- - [ ] 		[ ] 	(cmd) => Alt+Shift+b "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/work/dafiti -C ~/.local/share/qutebrowser/work/dafiti/config/config.py"
- - [ ] 		[ ] 	(cmd) => Alt+space "playerctl play-pause && kill -44 $(pidof dwmblocks)"
- - [ ] 		[ ] 	(cmd) => Alt+v "pavucontrol"
- - [ ] 		[ ] 	(cmd) decrease screen brightness => Alt+Shift+Down "xbacklight -dec 20"
- - [ ] 		[ ] 	(cmd) decrease sound volume => Alt+Down "pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) -5% && kill -44 $(pidof dwmblocks)"
- - [ ] 		[ ] 	(cmd) dmenu apps => SUPER+Shift+e "dmenu_run"
- - [ ] 		[ ] 	(cmd) dmenu launcher => SUPER+Shift+l "~/apps/scripts/bin/dmlauncher.sh"
- - [ ] 		[ ] 	(cmd) dunst notifications menu => SUPER+u "~/apps/scripts/bin/dmdunst-menu.sh"
- - [ ] 		[ ] 	(cmd) echo keys typed on screen => Alt+n "killall screenkey ++ screenkey &"
- - [ ] 		[ ] 	(cmd) increase screen brightness => Alt+Shift+Up "xbacklight -inc 20"
- - [ ] 		[ ] 	(cmd) increase sound volume => Alt+Up "pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) +5% && kill -44 $(pidof dwmblocks)"
- - [ ] 		[ ] 	(cmd) mute/unmute sound volume => Alt+Shift+8 "pactl set-sink-mute $(pacmd list-sink-inputs + grep -c index) toggle && kill -44 $(pidof dwmblocks)"
- - [ ] 		[ ] 	(cmd) playerctl next => Alt+Right "playerctl next && kill -44 $(pidof dwmblocks)"
- - [ ] 		[ ] 	(cmd) playerctl previous => Alt+Left "playerctl previous && kill -44 $(pidof dwmblocks)"
- - [ ] 		[ ] 	(cmd) rofi app menu => SUPER+e "rofi -show drun -drun-icon-theme"
- - [ ] 		[ ] 	(cmd) rofi shutdown menu => SUPER+z "~/apps/scripts/rofi/shutdown.py"
- - [ ] 		[ ] 	(cmd) styli.sh random wallpaper => Alt+Shift+w "/opt/styli.sh/styli.sh -l reddit"
- - [ ] 		[ ] 	(cmd) => SUPER+c "clippy_rofi.py"
- - [ ] 		[ ] 	(cmd) => SUPER+d "~/apps/scripts/bin/dmcheatsheets-menu.sh"
- - [ ] 		[ ] 	(cmd) => SUPER+m "arandr && reload_wallpaper.sh"
- - [ ] 		[ ] 	(cmd) => SUPER+Return "~/apps/scripts/bin/terminal.sh")}
- - [ ] 		[ ] 	(cmd) => SUPER+Shift+b "~/apps/scripts/rofi/bookmarks.py"
- - [ ] 		[ ] 	(cmd) => SUPER+Shift+d "notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm"
- - [ ] 		[ ] 	(cmd) => SUPER+Shift+p "~/apps/scripts/bin/screenshot.py -s region"
- - [ ] 		[ ] 	(cmd) => SUPER+Shift+Return "~/apps/scripts/bin/terminal-tmux.sh"
- - [ ] 		[ ] 	(cmd) => SUPER+w "~/apps/scripts/bin/pass-rofi.sh"
- - [ ] 		[ ] 	(cmd) toggle systray (stalonetray) => SUPER+t "~/apps/scripts/bin/toggle-stalonetray.sh"
- - [ ] 		[ ] 	(cmd) vedit.sh: vim edit text field => Alt+e "~/apps/scripts/bin/vedit.sh"
- - [ ] 		[ ] 	(cmd) wallpaper (m to mark) => Alt+w "sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) + xargs feh --bg-scale"
- - [ ] 		[ ] 	(dwm:) cyclelayout default ( / ) => SUPER+slash setlayout {.v = &layouts[0]}
- - [ ] 		[ ] 	(dwm:) cyclelayout next ( ] ) => SUPER+bracketright cyclelayout {.i = +1
- - [ ] 		[ ] 	(dwm:) cyclelayout previous ( [ ) => SUPER+bracketleft cyclelayout {.i = -1
- - [ ] 		[ ] 	(dwm) decrease gaps => SUPER+Shift+n incrgaps {.i = -3}
- - [ ] 		[ ] 	(dwm) default gaps => SUPER+Shift+a defaultgaps {0}
- - [ ] 		[ ] 	(dwm) go to next numbered tag=> SUPER+Shift+period shiftview {.i = +1}
- - [ ] 		[ ] 	(dwm) go to previous numbered tag => SUPER+Shift+comma shiftview {.i = -1}
- - [ ] 		[ ] 	(dwm: go to previous tag) => SUPER+Tab view {0}
- - [ ] 		[ ] 	(dwm) increase gaps => SUPER+n incrgaps {.i = +3}
- - [ ] 		[ ] 	(dwm) kill window => SUPER+BackSpace killclient {0}
- - [ ] 		[ ] 	(dwm) larger window => SUPER+h setmfact {.f = -0.05}
- - [ ] 		[ ] 	(dwm:maximize) => SUPER+Ctrl+m togglemax {0}
- - [ ] 		[ ] 	(dwm:maximize) => SUPER+Ctrl+Shift+h togglehorizontalmax {0}
- - [ ] 		[ ] 	(dwm:maximize) => SUPER+Ctrl+Shift+j toggleverticalmax {0}
- - [ ] 		[ ] 	(dwm:maximize) => SUPER+Ctrl+Shift+k toggleverticalmax {0}
- - [ ] 		[ ] 	(dwm:maximize) => SUPER+Ctrl+Shift+l togglehorizontalmax {0}
- - [ ] 		[ ] 	(dwm:move/resize) => SUPER+Alt+Down moveresize {.v = "0x 25y 0w 0h"
- - [ ] 		[ ] 	(dwm:move/resize) => SUPER+Alt+Left moveresize {.v = "-25x 0y 0w 0h"
- - [ ] 		[ ] 	(dwm:move/resize) => SUPER+Alt+Right moveresize {.v = "25x 0y 0w 0h"
- - [ ] 		[ ] 	(dwm:move/resize) => SUPER+Alt+Shift+Down moveresize {.v = "0x 0y 0w 25h"
- - [ ] 		[ ] 	(dwm:move/resize) => SUPER+Alt+Shift+Left moveresize {.v = "0x 0y -25w 0h"
- - [ ] 		[ ] 	(dwm:move/resize) => SUPER+Alt+Shift+Right moveresize {.v = "0x 0y 25w 0h"
- - [ ] 		[ ] 	(dwm:move/resize) => SUPER+Alt+Shift+Up moveresize {.v = "0x 0y 0w -25h"
- - [ ] 		[ ] 	(dwm:move/resize) => SUPER+Alt+Up moveresize {.v = "0x -25y 0w 0h"
- - [ ] 		[ ] 	(dwm) move window to master => SUPER+period zoom {0}
- - [ ] 		[ ] 	(dwm) narrower window => SUPER+l setmfact {.f = +0.05}
- - [ ] 		[ ] 	(dwm) one less master window => SUPER+Shift+o incnmaster {.i = -1}
- - [ ] 		[ ] 	(dwm) one more master window => SUPER+o incnmaster {.i = +1}
- - [ ] 		[ ] 	(dwm:push/move current window on stack) => SUPER+Shift+j pushdown {0}
- - [ ] 		[ ] 	(dwm:push/move current window on stack) => SUPER+Shift+k pushup {0}
- - [ ] 		[ ] 	(dwm:scratchpad) dropdownterm => Alt+t togglescratch {.ui = 0}
- - [ ] 		[ ] 	(dwm:scratchpad) nnn => SUPER+r togglescratch {.ui = 2}
- - [ ] 		[ ] 	(dwm:scratchpad) pcmanfm => SUPER+Shift+r togglescratch {.ui = 1}
- - [ ] 		[ ] 	(dwm: set window border px) => SUPER+Alt+equal setborderpx {.i = 0
- - [ ] 		[ ] 	(dwm: set window border px) => SUPER+Alt+j setborderpx {.i = -1
- - [ ] 		[ ] 	(dwm: set window border px) => SUPER+Alt+k setborderpx {.i = +1
- - [ ] 		[ ] 	(dwm:STACKKEYS_MACRO_VALUES) => SUPER focus
- - [ ] 		[ ] 	(dwm:STACKKEYS_MACRO_VALUES) => SUPER+Shift push
- - [ ] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_1 0
- - [ ] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_2 1
- - [ ] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_3 2
- - [ ] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_4 3
- - [ ] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_5 4
- - [ ] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_6 5
- - [ ] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_7 6
- - [ ] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_8 7
- - [ ] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_9 8
- - [ ] 		[ ] 	(dwm) toggle fullscreen => SUPER+f fullscreen {0}
- - [ ] 		[ ] 	(dwm) toggle gaps => SUPER+a togglegaps {0}
- - [ ] 		[ ] 	(dwm) toggle sticky => SUPER+s togglesticky {0}
- - [ ] 		[ ] 	(dwm) toggle window floating => SUPER+Shift+f togglefloating {0}
- - [ ] 		[ ] 	(dwm:update colors from Xresources) => SUPER+x xrdb {.v = NULL
+ - [x] 		[ ] 	(cmd) => Alt+s "~/apps/scripts/rofi/snippets.sh"
+ - [x] 		[ ] 	(cmd) => Alt+Shift+b "flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/work/dafiti -C ~/.local/share/qutebrowser/work/dafiti/config/config.py"
+ - [x] 		[ ] 	(cmd) => Alt+space "playerctl play-pause && kill -44 $(pidof dwmblocks)"
+ - [x] 		[ ] 	(cmd) => Alt+v "pavucontrol"
+ - [x] 		[ ] 	(cmd) decrease screen brightness => Alt+Shift+Down "xbacklight -dec 20"
+ - [x] 		[ ] 	(cmd) decrease sound volume => Alt+Down "pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) -5% && kill -44 $(pidof dwmblocks)"
+ - [x] 		[ ] 	(cmd) dmenu apps => SUPER+Shift+e "dmenu_run"
+ - [x] 		[ ] 	(cmd) dmenu launcher => SUPER+Shift+l "~/apps/scripts/bin/dmlauncher.sh"
+ - [x] 		[ ] 	(cmd) dunst notifications menu => SUPER+u "~/apps/scripts/bin/dmdunst-menu.sh"
+ - [x] 		[ ] 	(cmd) echo keys typed on screen => Alt+n "killall screenkey ++ screenkey &"
+ - [x] 		[ ] 	(cmd) increase screen brightness => Alt+Shift+Up "xbacklight -inc 20"
+ - [x] 		[ ] 	(cmd) increase sound volume => Alt+Up "pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) +5% && kill -44 $(pidof dwmblocks)"
+ - [x] 		[ ] 	(cmd) mute/unmute sound volume => Alt+Shift+8 "pactl set-sink-mute $(pacmd list-sink-inputs + grep -c index) toggle && kill -44 $(pidof dwmblocks)"
+ - [x] 		[ ] 	(cmd) playerctl next => Alt+Right "playerctl next && kill -44 $(pidof dwmblocks)"
+ - [x] 		[ ] 	(cmd) playerctl previous => Alt+Left "playerctl previous && kill -44 $(pidof dwmblocks)"
+ - [x] 		[ ] 	(cmd) rofi app menu => SUPER+e "rofi -show drun -drun-icon-theme"
+ - [x] 		[ ] 	(cmd) rofi shutdown menu => SUPER+z "~/apps/scripts/rofi/shutdown.py"
+ - [x] 		[ ] 	(cmd) styli.sh random wallpaper => Alt+Shift+w "/opt/styli.sh/styli.sh -l reddit"
+ - [x] 		[ ] 	(cmd) => SUPER+c "clippy_rofi.py"
+ - [x] 		[ ] 	(cmd) => SUPER+d "~/apps/scripts/bin/dmcheatsheets-menu.sh"
+ - [x] 		[ ] 	(cmd) => SUPER+m "arandr && reload_wallpaper.sh"
+ - [x] 		[ ] 	(cmd) => SUPER+Return "~/apps/scripts/bin/terminal.sh")}
+ - [x] 		[ ] 	(cmd) => SUPER+Shift+b "~/apps/scripts/rofi/bookmarks.py"
+ - [x] 		[ ] 	(cmd) => SUPER+Shift+d "notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm"
+ - [x] 		[ ] 	(cmd) => SUPER+Shift+p "~/apps/scripts/bin/screenshot.py -s region"
+ - [x] 		[ ] 	(cmd) => SUPER+Shift+Return "~/apps/scripts/bin/terminal-tmux.sh"
+ - [x] 		[ ] 	(cmd) => SUPER+w "~/apps/scripts/bin/pass-rofi.sh"
+ - [x] 		[ ] 	(cmd) toggle systray (stalonetray) => SUPER+t "~/apps/scripts/bin/toggle-stalonetray.sh"
+ - [x] 		[ ] 	(cmd) vedit.sh: vim edit text field => Alt+e "~/apps/scripts/bin/vedit.sh"
+ - [x] 		[ ] 	(cmd) wallpaper (m to mark) => Alt+w "sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) + xargs feh --bg-scale"
+ - [x] 		[ ] 	(dwm) cyclelayout default ( / ) => SUPER+slash setlayout {.v = &layouts[0]}
+ - [x] 		[ ] 	(dwm) cyclelayout next ( ] ) => SUPER+bracketright cyclelayout {.i = +1
+ - [x] 		[ ] 	(dwm) cyclelayout previous ( [ ) => SUPER+bracketleft cyclelayout {.i = -1
+ - [x] 		[ ] 	(dwm) decrease gaps => SUPER+Shift+n incrgaps {.i = -3}
+ - [x] 		[ ] 	(dwm) default gaps => SUPER+Shift+a defaultgaps {0}
+ - [x] 		[ ] 	(dwm) go to next numbered tag=> SUPER+Shift+period shiftview {.i = +1}
+ - [x] 		[ ] 	(dwm) go to previous numbered tag => SUPER+Shift+comma shiftview {.i = -1}
+ - [x] 		[ ] 	(dwm: go to previous tag) => SUPER+Tab view {0}
+ - [x] 		[ ] 	(dwm) increase gaps => SUPER+n incrgaps {.i = +3}
+ - [x] 		[ ] 	(dwm) kill window => SUPER+BackSpace killclient {0}
+ - [x] 		[ ] 	(dwm) larger window => SUPER+h setmfact {.f = -0.05}
+ - [x] 		[ ] 	(dwm) move window to master => SUPER+period zoom {0}
+ - [x] 		[ ] 	(dwm:scratchpad) dropdownterm => Alt+t togglescratch {.ui = 0}
+ - [x] 		[ ] 	(dwm:scratchpad) nnn => SUPER+r togglescratch {.ui = 2}
+ - [x] 		[ ] 	(dwm:scratchpad) pcmanfm => SUPER+Shift+r togglescratch {.ui = 1}
+ - [x] 		[ ] 	(dwm: set window border px) => SUPER+Alt+equal setborderpx {.i = 0
+ - [x] 		[ ] 	(dwm: set window border px) => SUPER+Alt+j setborderpx {.i = -1
+ - [x] 		[ ] 	(dwm: set window border px) => SUPER+Alt+k setborderpx {.i = +1
+ - [x] 		[ ] 	(dwm:STACKKEYS_MACRO_VALUES) => SUPER focus
+ - [x] 		[ ] 	(dwm:STACKKEYS_MACRO_VALUES) => SUPER+Shift push
+ - [x] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_1 0
+ - [x] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_2 1
+ - [x] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_3 2
+ - [x] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_4 3
+ - [x] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_5 4
+ - [x] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_6 5
+ - [x] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_7 6
+ - [x] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_8 7
+ - [x] 		[ ] 	(dwm:TAGKEYS_MACRO_VALUES) => XK_9 8
+ - [x] 		[ ] 	(dwm) toggle fullscreen => SUPER+f fullscreen {0}
+ - [x] 		[ ] 	(dwm) toggle gaps => SUPER+a togglegaps {0}
+ - [x] 		[ ] 	(dwm) toggle sticky => SUPER+s togglesticky {0}
+ - [x] 		[ ] 	(dwm) toggle window floating => SUPER+Shift+f togglefloating {0}
+ - [x] 		[ ] 	(dwm:update colors from Xresources) => SUPER+x xrdb {.v = NULL

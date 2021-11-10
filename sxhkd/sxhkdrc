@@ -13,27 +13,246 @@
 alt + b
 	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py
 
+# customize caps lock
 alt + c
 	~/apps/scripts/bin/customize_capslock.sh
 
+# htop
 alt + h
 	urxvt -name htop -title htop --hold -e htop
 
+# toggle keyboards
 alt + k
 	~/apps/scripts/rofi/toggle_keyboards.py
 
+# toggle compositor
 alt + o
 	~/apps/scripts/bin/toggle_compositor.sh
 
+# launch snippets
+alt + s
+	~/apps/scripts/rofi/snippets.sh
+
+# qutebrowser - work mode
+alt + shift + b
+	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/work/dafiti -C ~/.local/share/qutebrowser/work/dafiti/config/config.py
+
+# playerctl toggle play / pause
+alt + space
+	playerctl play-pause && kill -44 $(pidof dwmblocks)
+
+# pavucontrol
+alt + v
+	pavucontrol
+
+# decrease screen brightness
+alt + shift + down
+	xbacklight -dec 20
+
+# decrease sound volume
+alt + down
+	pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) -5% && kill -44 $(pidof dwmblocks)
+
+# dmenu apps
+super + shift + e
+	dmenu_run
+
+# dmenu launcher
+super + shift + l
+	~/apps/scripts/bin/dmlauncher.sh
+
+# dunst notifications menu
+super + u
+	~/apps/scripts/bin/dmdunst-menu.sh
+
+# echo keys typed on screen
+alt + n
+	killall screenkey ++ screenkey &
+
+# increase screen brightness
+alt + shift + up
+	xbacklight -inc 20
+
+# increase sound volume
+alt + up
+	pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) +5% && kill -44 $(pidof dwmblocks)
+
+# mute/unmute sound volume
+alt + shift + 8
+	pactl set-sink-mute $(pacmd list-sink-inputs + grep -c index) toggle && kill -44 $(pidof dwmblocks)
+
+# playerctl next
+alt + right
+	playerctl next && kill -44 $(pidof dwmblocks)
+
+# playerctl previous
+alt + left
+	playerctl previous && kill -44 $(pidof dwmblocks)
+
+# rofi app menu
+super + e
+	rofi -show drun -drun-icon-theme
+
+# rofi shutdown menu
+super + z
+	~/apps/scripts/rofi/shutdown.py
+
+# styli.sh random wallpaper
+alt + shift + w
+	/opt/styli.sh/styli.sh -l reddit
+
+
+# clippy clipboard
+super + c
+	clippy_rofi.py
+
+# super + d
+# 	~/apps/scripts/bin/dmcheatsheets-menu.sh
+
+# reload wallpaper
+super + m
+	arandr && reload_wallpaper.sh
+
+# terminal
+super + return
+	~/apps/scripts/bin/terminal.sh
+
+# bookmarks
+super + shift + b
+	~/apps/scripts/rofi/bookmarks.py"                             # --
+
+# restart dwm
+# super + shift + d
+# 	notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm
+
+# screenshot - region
+super + shift + p
+	~/apps/scripts/bin/screenshot.py -s region
+
+# terminal - tmux
+super + shift + return
+	~/apps/scripts/bin/terminal-tmux.sh
+
+# passwords - rofi
+super + w
+	~/apps/scripts/bin/pass-rofi.sh
+
+# toggle systray (stalonetray)
+super + t
+	~/apps/scripts/bin/toggle-stalonetray.sh
+
+# vim edit text field
+alt + e
+	~/apps/scripts/bin/vedit.sh
+
+# wallpaper (m to mark)
+alt + w
+	sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) + xargs feh --bg-scale
+
+# cyclelayout default ( / )
+# super + slash
+# 	setlayout {.v = &layouts[0]}
+
+# cyclelayout next ( ] )
+# super + bracketright
+# 	cyclelayout {.i = +1
+
+# cyclelayout previous ( [ )
+# super + bracketleft
+# 	cyclelayout {.i = -1
+
+# decrease gaps
+# super + shift + n
+# 	incrgaps {.i = -3}
+
+# default gaps
+# super + shift + a
+# 	defaultgaps {0}
+
+# go to next numbered tag
+# super + shift + period
+# 	shiftview {.i = +1}
+
+# go to previous numbered tag
+# super + shift + comma
+# 	shiftview {.i = -1}
+
+# go to previous tag
+# super + tab
+# 	view {0}
+
+# increase gaps
+# super + n
+# 	incrgaps {.i = +3}
+
+# kill window
+# super + backspace
+# 	killclient {0}
+
+# larger window
+# super + h
+# 	setmfact {.f = -0.05}
+
+# move window to master
+# super + period
+# 	zoom {0}
+
+
+# dropdownterm
+alt + t
+	togglescratch {.ui = 0}
+
+# nnn
+super + r
+	togglescratch {.ui = 2}
+
+# pcmanfm
+super + shift + r
+	togglescratch {.ui = 1}
+
+# border 0
+# super + alt + equal
+# 	setborderpx {.i = 0
+
+# less border
+# super + alt + j
+# 	setborderpx {.i = -1
+
+# more border
+# super + alt + k
+# 	setborderpx {.i = +1
+
+
+# TODO: go to desktop 0
+# TODO: go to desktop 1
+# TODO: go to desktop 2
+# TODO: go to desktop 3
+# TODO: go to desktop 4
+# TODO: go to desktop 5
+# TODO: go to desktop 6
+# TODO: go to desktop 7
+# TODO: go to desktop 8
+
+
+# TODO: toggle fullscreen
+# TODO: toggle gaps
+# TODO: toggle sticky
+# TODO: toggle window floating
+
+# update colors from Xresources
+# super + x
+#	xrdb {.v = NULL
 
 
 
 
 
-# ---
 
 
 
+
+
+# ------------
 
 
 
