@@ -1,7 +1,4 @@
-# SUPER+d "~/apps/scripts/bin/dmcheatsheets-menu.sh"
-# kill window => SUPER+BackSpace
-# Alt_t => "terminal-dropdownterm.sh"
-#
+# --- NOTES
 
 # To run the program:
 # $ sxhkd -c /storage/src/dot_files/sxhkd/sxhkdrc
@@ -10,29 +7,40 @@
 # super + r; {space,Tab}
 #	rofi -show {drun -drun-icon-theme,window -drun-icon-theme}
 
+# --- SHORTCUTS
+
+# qutebrowser
+alt + b
+	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py
+
+alt + c
+	~/apps/scripts/bin/customize_capslock.sh
+
+alt + h
+	urxvt -name htop -title htop --hold -e htop
+
+alt + k
+	~/apps/scripts/rofi/toggle_keyboards.py
+
+alt + o
+	~/apps/scripts/bin/toggle_compositor.sh
+
+
+
+
+
+
+# ---
+
+
+
+
+
+
+
 # app menu
 super + e
 	rofi -show drun -drun-icon-theme
-
-# window switcher
-super + Tab
- 	rofi -show window -drun-icon-theme
-
-# minimize current window
-super + i
-	xdotool windowminimize $(xdotool getactivewindow)
-
-# maximize current window
-super + m
-	xdotool windowsize $(xdotool getactivewindow) 100% 100%
-
-# restore (unmaximize) current window
-super + u
-	wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz
-
-# close current window
-super + k
-	wmctrl -c :ACTIVE:
 
 # open a terminal
 super + Return
