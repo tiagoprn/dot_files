@@ -107,8 +107,9 @@ alt + shift + w
 super + c
 	clippy_rofi.py
 
-# super + d
-# 	~/apps/scripts/bin/dmcheatsheets-menu.sh
+# cheatsheets menu
+super + d
+ 	~/apps/scripts/bin/dmcheatsheets-menu.sh
 
 # reload wallpaper
 super + m
@@ -120,7 +121,7 @@ super + Return
 
 # bookmarks
 super + shift + b
-	~/apps/scripts/rofi/bookmarks.py"                             # --
+	~/apps/scripts/rofi/bookmarks.py
 
 
 # screenshot - region
