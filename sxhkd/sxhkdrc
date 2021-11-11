@@ -1,4 +1,4 @@
-# --- NOTES
+# --- NOTES ---
 
 # To run the program:
 # $ sxhkd -c /storage/src/dot_files/sxhkd/sxhkdrc
@@ -7,11 +7,9 @@
 # super + r; {space,Tab}
 #	rofi -show {drun -drun-icon-theme,window -drun-icon-theme}
 
-# --- SHORTCUTS
+# --- SHORTCUTS ---
 
-# ---------------------
-
-## - WM independent
+## WM independent
 
 # qutebrowser
 alt + b
@@ -149,116 +147,107 @@ alt + e
 alt + w
 	sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) + xargs feh --bg-scale
 
-# ---------------------
+## WM specific
 
-## - WM specific
+### bspwm
 
-### - bspwm
-
-# dropdownterm
+# scratchpad - dropdownterm
 alt + t
 	# TODO
 
-# nnn
+# scratchpad - nnn
 super + r
 	# TODO
 
-# pcmanfm
+# scratchpad - pcmanfm
 super + shift + r
 	# TODO
 
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
 
-# restart dwm
-# super + shift + d
-# 	notify-send -u critical 'Restarting dwm...' && pkill -HUP dwm
+# close and kill
+super + q
+	bspc node -c
 
-# cyclelayout default ( / )
-# super + slash
-# 	setlayout {.v = &layouts[0]}
+# alternate between the tiled and monocle layout
+super + bracketleft
+	bspc desktop -l next
 
-# cyclelayout next ( ] )
-# super + bracketright
-# 	cyclelayout {.i = +1
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
 
-# cyclelayout previous ( [ )
-# super + bracketleft
-# 	cyclelayout {.i = -1
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
 
-# decrease gaps
-# super + shift + n
-# 	incrgaps {.i = -3}
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# default gaps
-# super + shift + a
-# 	defaultgaps {0}
+# set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
 
-# go to next numbered tag
-# super + shift + period
-# 	shiftview {.i = +1}
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
 
-# go to previous numbered tag
-# super + shift + comma
-# 	shiftview {.i = -1}
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
 
-# go to previous tag
-# super + tab
-# 	view {0}
+# focus the next/previous window in the current desktop
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
 
-# increase gaps
-# super + n
-# 	incrgaps {.i = +3}
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
 
-# kill window
-# super + backspace
-# 	killclient {0}
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
 
-# larger window
-# super + h
-# 	setmfact {.f = -0.05}
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
 
-# move window to master
-# super + period
-# 	zoom {0}
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
-# border 0
-# super + alt + equal
-# 	setborderpx {.i = 0
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
 
-# less border
-# super + alt + j
-# 	setborderpx {.i = -1
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
 
-# more border
-# super + alt + k
-# 	setborderpx {.i = +1
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
 
-# update colors from Xresources
-# super + x
-#	xrdb {.v = NULL
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-# TODO: go to desktop 0
-#
-# TODO: go to desktop 1
-#
-# TODO: go to desktop 2
-#
-# TODO: go to desktop 3
-#
-# TODO: go to desktop 4
-#
-# TODO: go to desktop 5
-#
-# TODO: go to desktop 6
-#
-# TODO: go to desktop 7
-#
-# TODO: go to desktop 8
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-# TODO: toggle fullscreen
-#
-# TODO: toggle gaps
-#
-# TODO: toggle sticky
-#
-# TODO: toggle window floating
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
 
