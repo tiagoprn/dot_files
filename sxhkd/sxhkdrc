@@ -11,244 +11,241 @@
 
 ## WM independent
 
-# qutebrowser
+# qutebrowser:
 alt + b
-	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/personal -C ~/.local/share/qutebrowser/personal/config/config.py
+	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B $HOME/.local/share/qutebrowser/personal -C $HOME/.local/share/qutebrowser/personal/config/config.py
 
-# customize caps lock
+# customize caps lock:
 alt + c
-	~/apps/scripts/bin/customize_capslock.sh
+	$HOME/apps/scripts/bin/customize_capslock.sh
 
-# htop
+# htop:
 alt + h
 	urxvt -name htop -title htop --hold -e htop
 
-# toggle keyboards
+# toggle keyboards:
 alt + k
-	~/apps/scripts/rofi/toggle_keyboards.py
+	$HOME/apps/scripts/rofi/toggle_keyboards.py
 
-# toggle compositor
+# toggle compositor:
 alt + o
-	~/apps/scripts/bin/toggle_compositor.sh
+	$HOME/apps/scripts/bin/toggle_compositor.sh
 
-# launch snippets
+# launch snippets:
 alt + s
-	~/apps/scripts/rofi/snippets.sh
+	$HOME/apps/scripts/rofi/snippets.sh
 
-# qutebrowser - work mode
+# qutebrowser - work mode:
 alt + shift + b
-	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B ~/.local/share/qutebrowser/work/dafiti -C ~/.local/share/qutebrowser/work/dafiti/config/config.py
+	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B $HOME/.local/share/qutebrowser/work/dafiti -C $HOME/.local/share/qutebrowser/work/dafiti/config/config.py
 
-# playerctl toggle play / pause
+# playerctl toggle play / pause:
 alt + space
 	playerctl play-pause && kill -44 $(pidof dwmblocks)
 
-# pavucontrol
+# pavucontrol:
 alt + v
 	pavucontrol
 
-# decrease screen brightness
+# decrease screen brightness:
 alt + shift + down
 	xbacklight -dec 20
 
-# decrease sound volume
+# decrease sound volume:
 alt + down
 	pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) -5% && kill -44 $(pidof dwmblocks)
 
-# dmenu apps
+# dmenu apps:
 super + shift + e
 	dmenu_run
 
-# dmenu launcher
+# dmenu launcher:
 super + shift + l
-	~/apps/scripts/bin/dmlauncher.sh
+	$HOME/apps/scripts/bin/dmlauncher.sh
 
-# dunst notifications menu
+# dunst notifications menu:
 super + u
-	~/apps/scripts/bin/dmdunst-menu.sh
+	$HOME/apps/scripts/bin/dmdunst-menu.sh
 
-# echo keys typed on screen
+# echo keys typed on screen:
 alt + n
 	killall screenkey ++ screenkey &
 
-# increase screen brightness
+# increase screen brightness:
 alt + shift + up
 	xbacklight -inc 20
 
-# increase sound volume
+# increase sound volume:
 alt + up
 	pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) +5% && kill -44 $(pidof dwmblocks)
 
-# mute/unmute sound volume
+# mute/unmute sound volume:
 alt + shift + 8
 	pactl set-sink-mute $(pacmd list-sink-inputs + grep -c index) toggle && kill -44 $(pidof dwmblocks)
 
-# playerctl next
+# playerctl next:
 alt + right
 	playerctl next && kill -44 $(pidof dwmblocks)
 
-# playerctl previous
+# playerctl previous:
 alt + left
 	playerctl previous && kill -44 $(pidof dwmblocks)
 
-# rofi app menu
+# rofi app menu:
 super + e
 	rofi -show drun -drun-icon-theme
 
-# rofi shutdown menu
+# rofi shutdown menu:
 super + z
-	~/apps/scripts/rofi/shutdown.py
+	$HOME/apps/scripts/rofi/shutdown.py
 
-# styli.sh random wallpaper
+# styli.sh random wallpaper:
 alt + shift + w
 	/opt/styli.sh/styli.sh -l reddit
 
-# clippy clipboard
+# clippy clipboard:
 super + c
 	clippy_rofi.py
 
-# cheatsheets menu
+# cheatsheets menu:
 super + d
- 	~/apps/scripts/bin/dmcheatsheets-menu.sh
+ 	$HOME/apps/scripts/bin/dmcheatsheets-menu.sh
 
-# reload wallpaper
+# reload wallpaper:
 super + m
 	arandr && reload_wallpaper.sh
 
-# terminal
+# terminal:
 super + Return
-	~/apps/scripts/bin/terminal.sh
+	$HOME/apps/scripts/bin/terminal.sh
 
-# bookmarks
+# bookmarks:
 super + shift + b
-	~/apps/scripts/rofi/bookmarks.py
+	$HOME/apps/scripts/rofi/bookmarks.py
 
-
-# screenshot - region
+# screenshot - region:
 super + shift + p
-	~/apps/scripts/bin/screenshot.py -s region
+	$HOME/apps/scripts/bin/screenshot.py -s region
 
-# terminal - tmux
+# terminal - tmux:
 super + shift + Return
-	~/apps/scripts/bin/terminal-tmux.sh
+	$HOME/apps/scripts/bin/terminal-tmux.sh
 
-# passwords - rofi
+# passwords - rofi:
 super + w
-	~/apps/scripts/bin/pass-rofi.sh
+	$HOME/apps/scripts/bin/pass-rofi.sh
 
-# toggle systray (stalonetray)
+# toggle systray (stalonetray):
 super + t
-	~/apps/scripts/bin/toggle-stalonetray.sh
+	$HOME/apps/scripts/bin/toggle-stalonetray.sh
 
-# vim edit text field
+# vim edit text field:
 alt + e
-	~/apps/scripts/bin/vedit.sh
+	$HOME/apps/scripts/bin/vedit.sh
 
-# wallpaper (m to mark)
+# wallpaper (m to mark):
 alt + w
-	sxiv -r -q -o $(ls -t --color=never ~/Wallpapers/*) + xargs feh --bg-scale
+	sxiv -r -q -o $(ls -t --color=never $HOME/Wallpapers/*) + xargs feh --bg-scale
 
 ## WM specific
 
 ### bspwm
 
-# scratchpad - dropdownterm
+# scratchpad - dropdownterm:
 alt + t
 	# TODO
 
-# scratchpad - nnn
+# scratchpad - nnn:
 super + r
 	# TODO
 
-# scratchpad - pcmanfm
+# scratchpad - pcmanfm:
 super + shift + r
 	# TODO
 
-# quit/restart bspwm
+# quit/restart bspwm:
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
-# close and kill
+# close and kill:
 super + q
 	bspc node -c
 
-# alternate between the tiled and monocle layout
+# alternate between the tiled and monocle layout:
 super + bracketleft
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
+# send the newest marked node to the newest preselected node:
 super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
-# swap the current node and the biggest window
+# swap the current node and the biggest window:
 super + g
 	bspc node -s biggest.window
 
-# set the window state
+# set the window state:
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
+# set the node flags:
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-# focus the node in the given direction
+# focus the node in the given direction:
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
+# focus the node for the given path jump:
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous window in the current desktop
+# focus the next/previous window in the current desktop:
 super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
-# focus the next/previous desktop in the current monitor
+# focus the next/previous desktop in the current monitor:
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
-# focus the last node/desktop
+# focus the last node/desktop:
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
-# focus the older or newer node in the focus history
+# focus the older or newer node in the focus history:
 super + {o,i}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
+# focus or send to the given desktop:
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-# preselect the direction
+# preselect the direction:
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
-# preselect the ratio
+# preselect the ratio:
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
-# cancel the preselection for the focused node
+# cancel the preselection for the focused node:
 super + ctrl + space
 	bspc node -p cancel
 
-# cancel the preselection for the focused desktop
+# cancel the preselection for the focused desktop:
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-# expand a window by moving one of its side outward
+# expand a window by moving one of its side outward:
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-# contract a window by moving one of its side inward
+# contract a window by moving one of its side inward:
 super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
-# move a floating window
+# move a floating window:
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-
 
