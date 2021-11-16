@@ -97,8 +97,8 @@ font-3 = "Noto Sans Mono:size=10;0"
 font-4 = "Hack Nerd Font:size=13;2"
 
 modules-left = bspwm xwindow
-modules-center =
-modules-right = yt music mail pavolume filesystem weather memory2 cpu2 date
+modules-center = custom-dunst-status date custom-kdbleds custom-volume
+modules-right = custom-memory custom-loadavg custom-cpu custom-temperature filesystem custom-battery
 
 tray-detached = false
 tray-offset-x = 0
@@ -182,46 +182,50 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
 
+[module/xwindow]
+;https://github.com/jaagr/polybar/wiki/Module:-xwindow
+type = internal/xwindow
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
 
 # --- MODULES
+
+
+[module/custom-dunst-status]
+type = custom/script
+exec = ~/apps/scripts/bin/statusbar/sb-dunst-status
+interval = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "DUNST STATUS: "
+format-prefix-foreground = #FFFFF
+format-underline = #0084FF
+; click-right = variety --preferences
+; click-left = variety --selector
 
 
 [module/date]
 ;https://github.com/jaagr/polybar/wiki/Module:-date
 type = internal/date
 ; Seconds to sleep between updates
-interval = 5
+interval = 1
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = " %Y-%m-%d%"
-date-alt = " %d-%m-%Y"
-time = %I:%M %p
-time-alt = %H:%M
+date = " %a %d %b %Y"
+time = %H:%M:%S
 format-prefix = " "
-format-prefix-foreground = #ab87ff
-;format-underline = #c1941a
-format-foreground = ${colors.foreground}
+format-prefix-foreground = #32915e
+format-foreground =  #32915e
 format-background = ${colors.background}
 label = %date% %time%
-
-
-[module/info-kernel]
-type = custom/script
-exec = uname -r
-interval = 5
-
-
-[module/custom-battery]
-type = custom/script
-exec = ~/apps/scripts/bin/statusbar/sb-battery
-interval = 5
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-prefix = "BAT"
-format-prefix-foreground = #FFFFF
-format-underline = #0084FF
-; click-right = variety --preferences
-; click-left = variety --selector
 
 
 [module/custom-kdbleds]
@@ -233,6 +237,20 @@ format-background = ${colors.background}
 ; format-prefix = ""
 format-prefix-foreground = #FFFFF
 format-underline = #0084FF
+; click-right = variety --preferences
+; click-left = variety --selector
+
+
+[module/custom-volume]
+type = custom/script
+exec = ~/apps/scripts/bin/statusbar/sb-volume
+tail = true
+interval = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "VOL "
+format-prefix-foreground = #FFFFF
+; format-underline = #0084FF
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
@@ -273,3 +291,67 @@ format-mounted-background = ${colors.background}
 ; Default: %mountpoint% %percentage_used%%
 label-mounted = %mountpoint% %percentage_used%%
 
+
+[module/custom-memory]
+type = custom/script
+exec = ~/apps/scripts/bin/statusbar/sb-memory
+interval = 5
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+; format-prefix = ""
+format-prefix-foreground = #FFFFF
+; format-underline = #0084FF
+; click-right = variety --preferences
+; click-left = variety --selector
+
+
+[module/custom-loadavg]
+type = custom/script
+exec = ~/apps/scripts/bin/statusbar/sb-loadavg
+interval = 5
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+; format-prefix = ""
+format-prefix-foreground = #FFFFF
+; format-underline = #0084FF
+; click-right = variety --preferences
+; click-left = variety --selector
+
+
+[module/custom-cpu]
+type = custom/script
+exec = ~/apps/scripts/bin/statusbar/sb-cpu
+interval = 5
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+; format-prefix = ""
+format-prefix-foreground = #FFFFF
+; format-underline = #0084FF
+; click-right = variety --preferences
+; click-left = variety --selector
+
+
+[module/custom-temperature]
+type = custom/script
+exec = ~/apps/scripts/bin/statusbar/sb-temperature
+interval = 5
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+; format-prefix = ""
+format-prefix-foreground = #FFFFF
+; format-underline = #0084FF
+; click-right = variety --preferences
+; click-left = variety --selector
+
+
+[module/custom-battery]
+type = custom/script
+exec = ~/apps/scripts/bin/statusbar/sb-battery
+interval = 5
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "BAT "
+format-prefix-foreground = #FFFFF
+format-underline = #0084FF
+; click-right = variety --preferences
+; click-left = variety --selector
