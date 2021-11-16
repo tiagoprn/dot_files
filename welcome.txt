@@ -1,4 +1,2 @@
-- My window manager of choice is dwm.
-- dwm/dwmblocks/st where compiled from my github's @lukesmith's fork, at `$HOME/local/bin`.
-- A xsession configured to boot it is at `/usr/share/xsessions`, and a shellscript to start it is at `/usr/bin/startdwm`.
 - If you're having pyenv shim errors after installing new binaries from pip, run: $ pyenv-rehash
+- Use "notes" alias to use neovim for a tmux powered notes-and-reminders session.

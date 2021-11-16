@@ -153,14 +153,10 @@ super + shift + w
 
 # scratchpad - dropdownterm:
 alt + t
-	bspwm-toggle-visibility.sh dropdownterm "alacritty --class dropdownterm --title dropdownterm -e bash -c 'tmuxp load /storage/src/devops/tmuxp/notes-and-reminders.yml' --hold"
-
-# scratchpad - nnn:
-super + r
-	bspwm-toggle-visibility.sh nnn "alacritty --class nnn --title nnn -e bash -c 'nnn -c' --hold"
+	bspwm-toggle-visibility.sh dropdownterm "alacritty --class dropdownterm --title dropdownterm --hold"
 
 # scratchpad - pcmanfm:
-super + shift + r
+super + r
 	bspwm-toggle-visibility.sh Pcmanfm "pcmanfm"
 
 # [quit,restart] bspwm:
