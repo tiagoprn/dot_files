@@ -1,38 +1,38 @@
 #!/bin/bash
 
 echo 'Linking Xresources...'
-rm -fr ~/.Xresources
+rm ~/.Xresources
 ln -s /storage/src/dot_files/.Xresources ~/.Xresources
 xrdb .Xresources
 
 echo 'Linking xsessionrc...'
-rm -fr ~/.xsessionrc
+rm ~/.xsessionrc
 ln -s /storage/src/dot_files/.xsessionrc ~/.xsessionrc
 echo 'Linking gtk config...'
 
-rm -fr ~/.gtkrc-2.0
+rm ~/.gtkrc-2.0
 ln -s /storage/src/dot_files/.gtkrc-2.0 ~/.gtkrc-2.0
-rm -fr ~/.config/gtk-3.0/
+rm ~/.config/gtk-3.0/
 ln -s /storage/src/dot_files/gtk-3.0 ~/.config/gtk-3.0
 
 # ---
 # terminals
 
 echo 'Linking urxvt extensions...'
-rm -fr ~/.urxvt
+rm ~/.urxvt
 ln -s /storage/src/dot_files/.urxvt ~/.urxvt
 xrdb .Xresources
 
 echo 'Linking kitty configuration...'
-rm -fr ~/.config/kitty
+rm ~/.config/kitty
 ln -s /storage/src/dot_files/kitty ~/.config/kitty
 
 echo 'Linking termite configuration...'
-rm -fr ~/.config/termite
+rm ~/.config/termite
 ln -s /storage/src/dot_files/termite ~/.config/termite
 
 echo 'Linking alacritty configuration...'
-rm -fr ~/.config/alacritty
+rm ~/.config/alacritty
 ln -s /storage/src/dot_files/alacritty ~/.config
 
 # ---
@@ -55,12 +55,12 @@ cp -farv /storage/src/devops/shellscripts/statusbar/* $STATUSBAR_SCRIPTS
 # ---
 # i3
 echo 'Linking main i3 config...'
-rm -fr ~/.i3
-rm -fr ~/.config/i3
+rm ~/.i3
+rm ~/.config/i3
 ln -s /storage/src/dot_files/i3 ~/.config/i3
 
 echo 'Linking i3 layouts configuration...'
-rm -fr ~/.layouts
+rm ~/.layouts
 ln -s /storage/src/dot_files/i3/.layouts ~/.layouts
 
 echo 'Downloading i3 timer plugin (which uses go)...'
@@ -72,29 +72,36 @@ go get github.com/claudiodangelis/i3-timer
 echo 'Installing i3 alternating layout...'
 mkdir -p ~/bin/i3-alternating-layout && git clone https://github.com/olemartinorg/i3-alternating-layout ~/bin/i3-alternating-layout && cd ~/bin/i3-alternating-layout && sed -i 's/python/python3/g' alternating_layouts.py
 
+
+# ---
+# bspwm
+rm ~/.config/bspwm
+ln -s /storage/src/dot_files/tiling-window-managers/bspwm ~/.config/bspwm
+
+
 # ---
 # utils
 
 echo 'Linking picom...'
-rm -fr ~/picom.conf
+rm ~/picom.conf
 ln -s /storage/src/dot_files/picom.conf ~/picom.conf
 
 echo 'Linking rofi config...'
-rm -fr ~/.config/rofi
+rm ~/.config/rofi
 ln -s /storage/src/dot_files/rofi ~/.config/rofi
 
 echo 'Linking dunst config...'
-rm -fr ~/.config/dunst/dunstrc
+rm ~/.config/dunst/dunstrc
 mkdir -p ~/.config/dunst
 ln -s /storage/src/dot_files/dunstrc ~/.config/dunst/dunstrc
 
 echo 'Linking conky and compton config...'
-rm -fr ~/.Conky ~/compton.conf
+rm ~/.Conky ~/compton.conf
 ln -s /storage/src/dot_files/.Conky ~/.Conky
 ln -s /storage/src/dot_files/compton.conf ~/compton.conf
 
 echo 'Linking ranger configuration...'
-rm -fr ~/.config/ranger
+rm ~/.config/ranger
 ln -s /storage/src/dot_files/ranger ~/.config/ranger
 
 echo 'Linking mps-youtube configuration...'
@@ -102,15 +109,15 @@ mkdir -p ~/.config/mps-youtube
 ln -s /storage/src/dot_files/mps-youtube/config ~/.config/mps-youtube/config
 
 echo 'Linking ansible configuration...'
-rm -fr ~/ansible
+rm ~/ansible
 ln -s /storage/src/dot_files/ansible ~/ansible
 
 echo 'Linking arandr (screenlayout) configuration...'
-rm -fr ~/.screenlayout
+rm ~/.screenlayout
 ln -s /storage/src/dot_files/.screenlayout ~/.screenlayout
 
 echo 'Linking sxiv (image viewer) configuration...'
-rm -fr ~/.config/sxiv
+rm ~/.config/sxiv
 ln -s /storage/src/dot_files/sxiv ~/.config/sxiv
 
 echo 'Installing dmenu/rofi networkmanager...'
@@ -121,8 +128,8 @@ rm -fr $HOME/.config/networkmanager-dmenu
 ln -s /storage/src/dot_files/networkmanager-dmenu $HOME/.config/networkmanager-dmenu
 
 echo 'Linking polybar...'
-rm -fr ~/.config/polybar
-ln -s /storage/src/dot_files/polybar ~/.config/polybar
+rm ~/.config/polybar
+ln -s /storage/src/dot_files/tiling-window-managers/polybar ~/.config/polybar
 
 echo 'Linking zathura...'
 rm -fr ~/.config/zathura/zathurarc
