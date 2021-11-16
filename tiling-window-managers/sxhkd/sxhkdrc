@@ -48,11 +48,11 @@ alt + v
 	pavucontrol
 
 # decrease screen brightness:
-alt + shift + down
+alt + shift + Down
 	xbacklight -dec 20
 
 # decrease sound volume:
-alt + down
+alt + Down
 	pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) -5% && kill -44 $(pidof dwmblocks)
 
 # dmenu apps:
@@ -72,11 +72,11 @@ alt + n
 	killall screenkey ++ screenkey &
 
 # increase screen brightness:
-alt + shift + up
+alt + shift + Up
 	xbacklight -inc 20
 
 # increase sound volume:
-alt + up
+alt + Up
 	pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) +5% && kill -44 $(pidof dwmblocks)
 
 # mute/unmute sound volume:
@@ -84,11 +84,11 @@ alt + shift + 8
 	pactl set-sink-mute $(pacmd list-sink-inputs + grep -c index) toggle && kill -44 $(pidof dwmblocks)
 
 # playerctl next:
-alt + right
+alt + Right
 	playerctl next && kill -44 $(pidof dwmblocks)
 
 # playerctl previous:
-alt + left
+alt + Left
 	playerctl previous && kill -44 $(pidof dwmblocks)
 
 # rofi app menu:
@@ -100,7 +100,7 @@ super + z
 	$HOME/apps/scripts/rofi/shutdown.py
 
 # styli.sh random wallpaper:
-alt + shift + w
+super + alt + w
 	/opt/styli.sh/styli.sh -l reddit
 
 # clippy clipboard:
@@ -144,7 +144,7 @@ alt + e
 	$HOME/apps/scripts/bin/vedit.sh
 
 # wallpaper (m to mark):
-alt + w
+super + shift + w
 	sxiv -r -q -o $(ls -t --color=never $HOME/Wallpapers/*) + xargs feh --bg-scale
 
 ## WM specific
@@ -218,4 +218,8 @@ super + {Left,Down,Up,Right}
 # focus window by name:
 alt + Tab
 	$HOME/apps/scripts/bin/bspwm-focus-window-by-name.sh
+
+# Rotates the order of the windows on a single workspace
+super + space
+    bspc node @/ -C forward
 
