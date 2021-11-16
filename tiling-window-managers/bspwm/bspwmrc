@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# the script below is at my "devops/bin" repository
+# autostart.sh is at my "devops/bin" repository
 autostart.sh &
 
 # bspc monitor DisplayPort-1 -d 1 2 3 4 5
