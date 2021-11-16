@@ -249,3 +249,6 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# focus window by name:
+super + period
+	$HOME/apps/scripts/bin/bspwm-focus-window-by-name.sh
