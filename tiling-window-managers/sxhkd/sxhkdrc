@@ -163,12 +163,12 @@ super + r
 super + shift + r
 	# TODO
 
-# quit/restart bspwm:
+# [quit,restart] bspwm:
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill:
-super + q
+super + backspace
 	bspc node -c
 
 # alternate between the tiled and monocle layout:
@@ -183,49 +183,49 @@ super + y
 super + g
 	bspc node -s biggest.window
 
-# set the window state:
+# set the window state [tiled,pseudo_tiled,floating,fullscreen]:
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags:
+# set the node flags [marked,locked,sticky,private]:
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-# focus the node in the given direction:
+# focus the node [f,s] in the given direction [west,south,north,east]:
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump:
+# focus the node for the given path jump [parent,brother,first,second]:
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous window in the current desktop:
+# focus the [next,previous] window in the current desktop:
 super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
-# focus the next/previous desktop in the current monitor:
+# focus the [next,previous] desktop in the current monitor:
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
-# focus the last node/desktop:
+# focus the last [node,desktop]:
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
-# focus the older or newer node in the focus history:
+# focus the [older,newer] node in the focus history:
 super + {o,i}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop:
+# focus or send to the given [desktop,node] [0-9]:
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-# preselect the direction:
+# preselect the direction [west,south,north,east]:
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
-# preselect the ratio:
+# preselect the ratio [1-9]:
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
@@ -237,15 +237,15 @@ super + ctrl + space
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-# expand a window by moving one of its side outward:
+# expand a window by moving one of its side outward [left,bottom,top,right]:
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-# contract a window by moving one of its side inward:
+# contract a window by moving one of its side inward [right,top,bottom,left]:
 super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
-# move a floating window:
+# move a floating window [Left,Down,Up,Right]:
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
