@@ -23,7 +23,6 @@ shopt -s cmdhist
 ## Unified bash history
 shopt -s histappend
 
-source $HOME/.bash_environment
 source $HOME/.bash_functions
 source $HOME/.bash_aliases
 
@@ -237,13 +236,12 @@ then
 	eval "$(starship init bash)"
 fi
 
-# For pyenv to work - DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
-if [ -d $PYENV_ROOT ];
-then
-    if ! [ -x "$(command -v pyenv)" ]; then
-        echo 'pyenv is not installed, I recommend you to install it.' # >&2
-    else
-        eval "$(pyenv init -)"
-        eval "$(pyenv virtualenv-init -)"
-    fi
+# pyenv setup, according to https://github.com/pyenv/pyenv#basic-github-checkout (ubuntu)
+# DON'T MOVE THE CODE BELOW - IT MUST BE AT THE END OF THIS FILE FOR IT TO WORK
+if ! [ -x "$(command -v pyenv)" ]; then
+	echo 'pyenv is not installed, I recommend you to install it.' # >&2
+else
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
 fi
+

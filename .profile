@@ -1,3 +1,36 @@
+# ----- Standard .profile from pristine Ubuntu 20 install
+
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+
+# ----- Customization begins below
+
 ## Default programs
 export EDITOR=vim
 export VISUAL=vim
@@ -87,26 +120,16 @@ then
 fi
 
 NAVI_BIN=$HOME/bin/navi
-GLOBAL_NAVI_BIN=/usr/local/bin/navi
+GLOBAL_NAVI_BIN=/usr/bin/navi
 if [ -f $NAVI_BIN ] || [ -f $GLOBAL_NAVI_BIN ] ;
 then
     export NAVI_PATH="/storage/src/devops/cheats"
     export DAFITI_CHEATS="/storage/docs/notes/work/dafiti/cheats"
     if [ -d $DAFITI_CHEATS ];
     then
-        export PATH="$PYENV_ROOT/bin:$PATH"
         export NAVI_PATH="$NAVI_PATH:$DAFITI_CHEATS"
     fi
 fi
-
-export PYENV_ROOT="$HOME/.pyenv"
-if [ -d $PYENV_ROOT ];
-then
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    export PYENV_BIN=$PYENV_ROOT/bin/pyenv
-fi
-
-export PATH="$PATH:$HOME/.local/bin"
 
 SCRIPTS_PATH=$HOME/apps/scripts
 
@@ -160,3 +183,7 @@ if [ -d $HOME_FLATPAK_EXPORTS_DIR ];
 then
     export XDG_DATA_DIRS=$XDG_DATA_DIRS:$HOME_FLATPAK_EXPORTS_DIR
 fi
+
+# pyenv setup, according to https://github.com/pyenv/pyenv#basic-github-checkout (ubuntu)
+export PATH="$PATH:$HOME/.pyenv/bin"
+eval "$(pyenv init --path)"
