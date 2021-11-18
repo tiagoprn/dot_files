@@ -4,7 +4,7 @@
 # [the-ip-you-are-adding-here] www.example.com example.com nginx.example.com traefik.example.com tomcat.example.com mysql.example.com
 
 # example 1 - normal user with sudo
-192.168.100.168 ansible_become=true ansible_become_method=sudo ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
+192.168.100.164 ansible_become=true ansible_become_method=sudo ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
 
 # example 2 - root user (avoid at all costs)
 # 173.230.128.240 ansible_user=root

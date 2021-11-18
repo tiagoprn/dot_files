@@ -63,6 +63,9 @@ return require('packer').startup(function()
   -- --  handles automatically launching and initializing language servers installed on your system
   use {'neovim/nvim-lspconfig'}
 
+  -- -- nice UIs for LSP functions
+  use {'glepnir/lspsaga.nvim'}
+
   -- -- enable LSP completion
   use {
       'hrsh7th/nvim-cmp',
