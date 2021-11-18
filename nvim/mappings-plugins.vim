@@ -55,12 +55,12 @@ nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>| " (lsp) go to im
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>| " (lsp) go to previous diagnostic
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>| " (lsp) go to next diagnostic
 " lspsaga
-nnoremap <silent> K :Lspsaga hover_doc<CR>|" (lsp-saga) documentation hover
-nnoremap <silent> gs :Lspsaga signature_help<CR>|" (lsp-saga) (NORMAL mode) signature help
-inoremap <silent> <C-k> :Lspsaga signature_help<CR>|" (lsp-saga) (INSERT mode) signature help
-nnoremap <silent> gh :Lspsaga lsp_finder<CR>|" (lsp-sage) finder
-nnoremap <silent><leader>ca :Lspsaga code_action<CR>|" (lsp-saga) code action
-vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>|" (lsp-saga) code action
+nnoremap <silent> K :Lspsaga hover_doc<CR>| " (lsp-saga) documentation hover
+nnoremap <silent> gs :Lspsaga signature_help<CR>| " (lsp-saga) (NORMAL mode) signature help
+inoremap <silent> <C-k> :Lspsaga signature_help<CR>| " (lsp-saga) (INSERT mode) signature help
+nnoremap <silent> gh :Lspsaga lsp_finder<CR>| " (lsp-sage) finder
+nnoremap <silent><leader>ca :Lspsaga code_action<CR>| " (lsp-saga) code action
+vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>| " (lsp-saga) code action
 
 " floatterm special terminals, to trigger special commands
 nnoremap <leader>u :FloatermNew lazygit<cr>| " (floaterm) lazygit ui
@@ -71,5 +71,3 @@ nnoremap <leader>py3 :FloatermNew python3<cr>| " (floaterm) default python3 inte
 
 " nvim-tree (a project directory tree)
 nnoremap <F3> :NvimTreeToggle<CR>| " (function-keys) toggle project directory tree
-
-

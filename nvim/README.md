@@ -20,6 +20,9 @@ $ sudo cp ~/go/bin/shfmt /usr/bin/
 # linter
 $ sudo apt install -y shellcheck
 
+# Treesitter parsers
+$ sudo apt install -y npm
+
 # Language Server
 $ sudo snap install bash-language-server
 ```

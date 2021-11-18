@@ -66,6 +66,11 @@ return require('packer').startup(function()
   -- -- nice UIs for LSP functions
   use {'glepnir/lspsaga.nvim'}
 
+  use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+  }
+
   -- -- enable LSP completion
   use {
       'hrsh7th/nvim-cmp',

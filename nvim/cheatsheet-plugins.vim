@@ -40,3 +40,7 @@
 
 " gc | " comment/uncomment visual selection
 " gcc | " comment/uncomment current line
+
+" :TSInstallInfo  | " see all available treesitter languages list
+" :TSInstall <language>  | " install a treesitter language from the list
+
