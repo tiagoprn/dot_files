@@ -39,9 +39,6 @@ alt + s
 alt + shift + b
 	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B $HOME/.local/share/qutebrowser/work/dafiti -C $HOME/.local/share/qutebrowser/work/dafiti/config/config.py
 
-# playerctl toggle play / pause:
-alt + space
-	playerctl play-pause && kill -44 $(pidof dwmblocks)
 
 # pavucontrol:
 alt + v
@@ -53,7 +50,27 @@ alt + shift + Down
 
 # decrease sound volume:
 alt + Down
-	pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) -5% && kill -44 $(pidof dwmblocks)
+	pactl set-sink-volume $(pacmd list-sinks | grep index | sed 's/: /:/g' | cut -d ':' -f 2) -5%
+
+# increase sound volume:
+alt + Up
+	pactl set-sink-volume $(pacmd list-sinks | grep index | sed 's/: /:/g' | cut -d ':' -f 2) +5%
+
+# mute/unmute sound volume:
+alt + shift + 8
+	pactl set-sink-mute $(pacmd list-sink-inputs | grep -c index) toggle
+
+# playerctl toggle play / pause:
+alt + space
+	playerctl play-pause
+
+# playerctl next:
+alt + Right
+	playerctl next
+
+# playerctl previous:
+alt + Left
+	playerctl previous
 
 # dmenu apps:
 super + shift + e
@@ -69,27 +86,11 @@ super + u
 
 # echo keys typed on screen:
 alt + n
-	killall screenkey ++ screenkey &
+	killall screenkey && screenkey &
 
 # increase screen brightness:
 alt + shift + Up
 	xbacklight -inc 20
-
-# increase sound volume:
-alt + Up
-	pactl set-sink-volume $(pacmd list-sinks + grep index + sed 's/: /:/g'+ cut -d ':' -f 2) +5% && kill -44 $(pidof dwmblocks)
-
-# mute/unmute sound volume:
-alt + shift + 8
-	pactl set-sink-mute $(pacmd list-sink-inputs + grep -c index) toggle && kill -44 $(pidof dwmblocks)
-
-# playerctl next:
-alt + Right
-	playerctl next && kill -44 $(pidof dwmblocks)
-
-# playerctl previous:
-alt + Left
-	playerctl previous && kill -44 $(pidof dwmblocks)
 
 # rofi app menu:
 super + e
@@ -145,7 +146,7 @@ alt + e
 
 # wallpaper (m to mark):
 super + shift + w
-	sxiv -r -q -o $(ls -t --color=never $HOME/Wallpapers/*) + xargs feh --bg-scale
+	sxiv -r -q -o $(ls -t --color=never $HOME/Wallpapers/*) | xargs feh --bg-scale
 
 ## WM specific
 
