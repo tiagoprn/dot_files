@@ -48,19 +48,19 @@ xmap        S   <Plug>(vsnip-cut-text)
 
 
 " LSP config (the mappings used in the default file don't quite work right)
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>| " (lsp) go to definition
-nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>| " (lsp) go to declaration
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>| " (lsp) show references
-nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>| " (lsp) go to implementation
-nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>| " (lsp) go to previous diagnostic
-nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>| " (lsp) go to next diagnostic
+nnoremap <silent> <leader>ld <cmd>lua vim.lsp.buf.definition()<CR>| " (lsp) go to definition
+nnoremap <silent> <leader>le <cmd>lua vim.lsp.buf.declaration()<CR>| " (lsp) go to declaration
+nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>| " (lsp) show references
+nnoremap <silent> <leader>li <cmd>lua vim.lsp.buf.implementation()<CR>| " (lsp) go to implementation
+nnoremap <silent> <leader>ln <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>| " (lsp) go to previous diagnostic
+nnoremap <silent> <leader>lp <cmd>lua vim.lsp.diagnostic.goto_next()<CR>| " (lsp) go to next diagnostic
 " lspsaga
-nnoremap <silent> K :Lspsaga hover_doc<CR>| " (lsp-saga) documentation hover
-nnoremap <silent> gs :Lspsaga signature_help<CR>| " (lsp-saga) (NORMAL mode) signature help
-inoremap <silent> <C-k> :Lspsaga signature_help<CR>| " (lsp-saga) (INSERT mode) signature help
-nnoremap <silent> gh :Lspsaga lsp_finder<CR>| " (lsp-sage) finder
-nnoremap <silent><leader>ca :Lspsaga code_action<CR>| " (lsp-saga) code action
-vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>| " (lsp-saga) code action
+nnoremap <silent> <leader>lh :Lspsaga hover_doc<CR>| " (lsp-saga) documentation hover
+nnoremap <silent> <leader>ls :Lspsaga signature_help<CR>| " (lsp-saga) (NORMAL mode) signature help
+nnoremap <silent> <leader>lf :Lspsaga lsp_finder<CR>| " (lsp-sage) finder
+nnoremap <silent> <leader>la :Lspsaga code_action<CR>| " (lsp-saga) code action
+vnoremap <silent> <leader>la :<C-U>Lspsaga range_code_action<CR>| " (lsp-saga) code action
+inoremap <silent> <C-s> :Lspsaga signature_help<CR>| " (lsp-saga) (INSERT mode) signature help
 
 " floatterm special terminals, to trigger special commands
 nnoremap <leader>u :FloatermNew lazygit<cr>| " (floaterm) lazygit ui

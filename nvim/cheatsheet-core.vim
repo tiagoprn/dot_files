@@ -31,6 +31,7 @@
 " zt  | "  (movement)   without moving the cursor, put the current line on the top of the screen (viewport).
 " zb  | "  (movement)   without moving the cursor, put the current line on the bottom of the screen (viewport).
 " g; | " go to the previous place you were editing on the current file
+" gi | " go to the previous place you were editing on the current file and automatically change to INSERT MODE
 " ctrl+e | " (movement) move one line down on viewport
 " ctrl+y | " (movement) move one line up on viewport
 " ctrl+h | " (movement) move current character left
