@@ -4,8 +4,8 @@
 autostart.sh &
 
 # bspc monitor DisplayPort-1 -d 1 2 3 4 5
-# bspc monitor HDMI-A-1 -d 6 7 8 9 10
 bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 10
 
 #BSPC Settings
 bspc config border_width         2
