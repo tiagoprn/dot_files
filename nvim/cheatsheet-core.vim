@@ -7,6 +7,7 @@
 " 10k| " moves 10 lines up
 " 5j| " move 5 lines down
 
+
 "" movement
 
 " h  | "  (movement)   left
@@ -38,6 +39,14 @@
 " ctrl+l | " (movement) move current character right
 " ctrl+n | " (movement) on popup menus, move to next
 " ctrl+p | " (movement) on popup menus, move to previous
+
+
+"" cut and paste
+
+" 20co  | " (cut-paste) Your cursor is on line 10. You want to paste line 20 to one line below your current cursor position.
+" 20,25co10 | " (cut-paste) your cursor is on line 10. You want to paste text from line 20 to 25 under line 10.
+" -10t | " (cut-paste) paste the line, which is 10 lines above your current line, to a line below your current position ("t" is an abbreviation of "co"[py] command)
+
 
 "" others
 
