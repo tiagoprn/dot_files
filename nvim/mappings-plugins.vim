@@ -71,3 +71,10 @@ nnoremap <leader>py3 :FloatermNew python3<cr>| " (floaterm) default python3 inte
 
 " nvim-tree (a project directory tree)
 nnoremap <F3> :NvimTreeToggle<CR>| " (function-keys) toggle project directory tree
+
+" hop
+nnoremap <silent> <leader>hw <cmd>lua require'hop'.hint_words()<CR>| " (movement) hop - go to word
+nnoremap <silent> <leader>hl <cmd>lua require'hop'.hint_lines()<CR>| " (movement) hop - go to line
+vnoremap <silent> <leader>hw <cmd>lua require'hop'.hint_words()<CR>| " (VISUAL) (movement) hop - go to word
+vnoremap <silent> <leader>hl <cmd>lua require'hop'.hint_lines()<CR>| " (VISUAL) (movement) hop - go to line
+

@@ -58,6 +58,9 @@ return require('packer').startup(function()
   -- show contents of vim registers on a sidebar
   use {'junegunn/vim-peekaboo'}
 
+  -- better movement
+  use {'phaazon/hop.nvim'}
+
   -- # LANGUAGE SERVERS - begin
 
   -- --  handles automatically launching and initializing language servers installed on your system
