@@ -21,8 +21,15 @@ return require('packer').startup(function()
   -- macros persistance
   use {'chamindra/marvim'}
 
-  -- color scheme
-  use {'wuelnerdotexe/vim-enfocado'}
+  -- color schemes
+  -- use {'wuelnerdotexe/vim-enfocado'}
+
+  -- the one below support the treesitter markdown plugin with its highlight group colors:
+  -- https://www.reddit.com/r/neovim/comments/rg97j4/treesitter_for_markdown/hoktehq/?utm_medium=android_app&utm_source=share&context=3
+  use {
+    'catppuccin/nvim',
+    as = "catppuccin"
+  }
 
   -- statusline
   use {

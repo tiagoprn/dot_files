@@ -1,6 +1,6 @@
 augroup generalconfig
 	autocmd!
-	autocmd VimEnter * ++nested colorscheme enfocado
+	autocmd VimEnter * ++nested colorscheme catppuccin
 	autocmd VimResized * wincmd =  " (windows) resize vim splits proportionally when the window that contains vim is resized
 	" Automatic reloading of .vimrc
 	autocmd bufwritepost .vimrc source %
