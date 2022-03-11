@@ -76,8 +76,8 @@ alt + Left
 super + shift + e
 	dmenu_run
 
-# dmenu launcher:
-super + shift + l
+# dmenu launcher (browser, hex colors, kill and run):
+super + shift + r
 	$HOME/apps/scripts/bin/dmlauncher.sh
 
 # dunst notifications menu:
