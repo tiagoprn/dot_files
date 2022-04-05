@@ -53,7 +53,7 @@
 " ctrl+[ | "  go to visual mode
 " ctrl+o | "  go to normal mode to execute just one command and go back to insert mode
 " 80i*<esc> | "  (in visual mode - do not start with ':' - this will insert the * character 80 times on the current cursor position)
-" 3i`<esc> |"  (in visual mode - do not start with ':' - this will insert the backstick character 3 times on the current cursor position)
+" 3i`<esc> | "  (in visual mode - do not start with ':' - this will insert the backstick character 3 times on the current cursor position)
 " o | "  insert blank line below cursor
 " O | "  insert blank line above cursor
 " A | "  go to end of line and enter insert mode
@@ -146,9 +146,12 @@
 " :help nvim-from-vim | " help page on what is different from vim
 " :messages | " show session history messages
 " :messages clear | " clear all session history messages
-" :grep 'text' |" do a search with rg and populate the quickfix with it
-" :set ft? |" show the filetype of the current file
-" x,y copy z  |" copy lines x to y to after line z
-
+" :grep 'text' | " do a search with rg and populate the quickfix with it
+" :set ft? | " show the filetype of the current file
+" x,y copy z  | " copy lines x to y to after line z
+" :mks [path-to-session-file]  | " (sessions) creates a new nvim session
+" :mks!  | " (sessions) updates the current nvim session with the opened buffers
+" :source [path-to-session-file] | " (sessions) open buffers from the session file
+" nvim -S [path-to-session-file] | " (sessions) open nvim with the buffers from the session file
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
