@@ -20,6 +20,8 @@ nnoremap <silent>gr :lua require'telescope.builtin'.lsp_references{}<CR>| "(tele
 
 
 " -- vim-vsnip
+nnoremap <leader>snp :VsnipOpenVsplit<cr>| " (snippets) Open snippets file for current detected file type
+"
 " Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
