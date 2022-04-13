@@ -44,5 +44,5 @@
 " :TSInstallInfo  | " see all available treesitter languages list
 " :TSInstall <language>  | " install a treesitter language from the list
 
-
+" <C-Space> | " (nvim-cmp) auto-complete (snippets, lsp, buffer)
 
