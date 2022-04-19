@@ -184,6 +184,3 @@ then
     export XDG_DATA_DIRS=$XDG_DATA_DIRS:$HOME_FLATPAK_EXPORTS_DIR
 fi
 
-# pyenv setup, according to https://github.com/pyenv/pyenv#basic-github-checkout (ubuntu)
-export PATH="$PATH:$HOME/.pyenv/bin"
-eval "$(pyenv init --path)"
