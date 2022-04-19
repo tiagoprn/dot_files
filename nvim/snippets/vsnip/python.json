@@ -99,5 +99,13 @@
             "ic('world')"
         ],
         "description": "icecream-debugger"
+    },
+    "rdb": {
+        "prefix": "rdb-celery",
+        "body": [
+            "from celery.contrib import rdb",
+            "rdb.set_trace()"
+        ],
+        "description": "celery-rdb (remote debugger)"
     }
 }
