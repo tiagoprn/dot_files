@@ -50,11 +50,11 @@ alt + shift + Down
 
 # decrease sound volume:
 alt + Down
-	pactl set-sink-volume $(pacmd list-sinks | grep index | sed 's/: /:/g' | cut -d ':' -f 2) -5%
+	pactl set-sink-volume $(pacmd list-sinks | grep index | grep '*' | sed 's/: /:/g' | cut -d ':' -f 2) -5%
 
 # increase sound volume:
 alt + Up
-	pactl set-sink-volume $(pacmd list-sinks | grep index | sed 's/: /:/g' | cut -d ':' -f 2) +5%
+	pactl set-sink-volume $(pacmd list-sinks | grep index | grep '*' | sed 's/: /:/g' | cut -d ':' -f 2) +5%
 
 # mute/unmute sound volume:
 alt + shift + 8
