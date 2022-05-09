@@ -11,3 +11,4 @@ rofi/config
 nvim/plugin
 undodir
 quickfix-history
+tmux-client*.log
