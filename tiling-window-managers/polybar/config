@@ -97,8 +97,8 @@ font-3 = "Noto Sans Mono:size=10;0"
 font-4 = "Hack Nerd Font:size=13;2"
 
 modules-left = bspwm xwindow
-modules-center = custom-dunst-status date custom-kdbleds custom-volume
-modules-right = custom-memory custom-loadavg custom-cpu custom-temperature filesystem custom-battery
+modules-center = custom-dunst-status date custom-volume custom-kdbleds
+modules-right = filesystem custom-battery
 
 tray-detached = false
 tray-offset-x = 0
