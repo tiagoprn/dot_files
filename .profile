@@ -184,3 +184,5 @@ then
     export XDG_DATA_DIRS=$XDG_DATA_DIRS:$HOME_FLATPAK_EXPORTS_DIR
 fi
 
+# Allows the same scale on monitors of different size (works e.g. for alacritty)
+export WINIT_X11_SCALE_FACTOR=1.0
