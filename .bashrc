@@ -218,7 +218,7 @@ fi
 # fortune   -s
 # fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -e | cut -d '.' -f 1)
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.fzf/fzf.bash ] && source ~/.fzf/fzf.bash
 
 # source "$(navi widget bash)"
 
