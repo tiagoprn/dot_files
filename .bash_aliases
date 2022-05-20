@@ -33,6 +33,7 @@ alias vi='vim --clean'  # runs vim with no customizations and plugins (as if fre
 alias up='uptime'
 alias zt='/storage/src/devops/bin/create-zettelkasten.sh'
 alias cz='/storage/src/devops/bin/create-zettelkasten-current-folder.sh'
+alias fc='/storage/src/devops/bin/create-flashcard-current-folder.sh'
 alias nt='/storage/src/devops/bin/create-quick-note.sh'
 alias nr='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
 

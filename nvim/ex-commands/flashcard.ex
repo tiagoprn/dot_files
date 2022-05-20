@@ -1,0 +1,2 @@
+norm ggIfc
+startinsert!

@@ -9,3 +9,4 @@ nnoremap <leader>fw :OpenWorkDoc<cr>| " (telescope) open work doc
 nnoremap <leader>cn :CreateQuickNote<cr>| " create quick note
 nnoremap <leader>ct :CreateTask<cr>| " create task
 nnoremap <leader>cz :CreateZettel<cr>| " create zettel
+nnoremap <leader>fc :CreateFlashcard<cr>| " create flashcard

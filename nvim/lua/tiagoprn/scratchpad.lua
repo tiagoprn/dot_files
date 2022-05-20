@@ -25,4 +25,11 @@ function M.createZettel()
   h.createTimestampedFileWithSnippet(directory, exCommandsFile)
 end
 
+function M.createFlashCard()
+  -- local directory = '/tmp/flashcards'
+  local directory = '/storage/docs/notes/flashcards'
+  local exCommandsFile = '/storage/src/dot_files/nvim/ex-commands/flashcard.ex'
+  h.createTimestampedFileWithSnippet(directory, exCommandsFile)
+end
+
 return M
