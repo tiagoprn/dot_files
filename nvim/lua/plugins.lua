@@ -68,6 +68,9 @@ return require('packer').startup(function()
   -- better movement
   use {'phaazon/hop.nvim'}
 
+  -- auto pairs
+  use {'windwp/nvim-autopairs'}
+
   -- # LANGUAGE SERVERS - begin
 
   -- --  handles automatically launching and initializing language servers installed on your system

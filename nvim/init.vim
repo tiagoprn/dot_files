@@ -92,6 +92,7 @@ lua require('treesitter-conf')
 lua require('tree')
 lua require('hop-navigation')
 lua require('catppuccin-colors')
+lua require('autopairs')
 
 source $HOME/.config/nvim/conf-plugins/vsnip.vim
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
