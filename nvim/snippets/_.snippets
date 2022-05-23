@@ -12,12 +12,16 @@ snippet timestamp
 
 snippet today
 	`strftime("%Y-%m-%d")`
+
 snippet hh
 	`strftime("%H:%M")`
+
 snippet dm
 	`strftime("%d/%m")`
+
 snippet dma
 	`strftime("%d/%m/%Y")`
+
 snippet sig
 
 	---
@@ -75,29 +79,35 @@ snippet task
 	---
 	Timesheet:
 	- date: minutes
+
 snippet qtimestamp
 	`strftime("%Y-%m-%dT%H:%M:%S")`-03:00
+
 snippet qheader
 	---
 	created: qtimestamp
 	modified: qtimestamp
 	type: Journal
 	---
+
 snippet gcommit
 	feat: updated repository on timestamp
-snippet diary
+
+snippet uuid
+	${VIM:system('python -c "import uuid, sys;sys.stdout.write(str(uuid.uuid4()))"')}
+
+snippet timestamp_iso
+	${VIM:system('python -c \"from datetime import datetime; print(datetime.now().isoformat())\"')}
+
+snippet fc
+	${1:Title}
+	created: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND
+	#${2:keyword1} #${3:keyword2}
 	---
-	timestamp: timestamp
-	---
 
-	- How did I start my day?
-
-	- What happened at work today?
-
-	- How did I feel when finished working?
-
-	- How I felt at night, after work?
-
-	- What is going on my personal life right now?
+	${4:body}
 
 	---
+
+snippet lorem_ipsum
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

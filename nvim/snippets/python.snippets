@@ -43,15 +43,24 @@ snippet log
 
 snippet ipy
 	__import__('IPython').embed()
+
 snippet pudb
 	__import__('pudb').set_trace()
+
 snippet ipdb
 	__import__('ipdb').set_trace()
+
+snippet rdb
+	from celery.contrib import rdb
+	rdb.set_trace()
+
 snippet pl
 	 # pylint: disable=
+
 snippet ast
 	import ast
 	print(ast.dump(ast.parse("${1:python_code_as_string}")))
+
 snippet bash
 	import subprocess
 
@@ -65,7 +74,11 @@ snippet bash
 	    )
 	    std_out, std_err = proc.communicate()
 	    return proc.returncode, std_out, std_err
+
 snippet ic
 	from icecream import ic
 	ic.configureOutput(prefix='icecream debug-> ')
 	ic('world')
+
+snippet pprint
+	__import__('pprint').pprint(${1:expression})$0
