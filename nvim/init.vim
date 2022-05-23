@@ -93,8 +93,8 @@ lua require('tree')
 lua require('hop-navigation')
 lua require('catppuccin-colors')
 lua require('autopairs')
+lua require('snippets')
 
-source $HOME/.config/nvim/conf-plugins/vsnip.vim
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim

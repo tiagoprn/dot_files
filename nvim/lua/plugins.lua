@@ -13,10 +13,7 @@ return require('packer').startup(function()
   use {'tpope/vim-surround'}
 
   -- snippets
-  use {
-    'hrsh7th/vim-vsnip',
-     requires = {'hrsh7th/vim-vsnip-integ'}
-  }
+  use {'dcampos/nvim-snippy'}
 
   -- macros persistance
   use {'chamindra/marvim'}
@@ -90,7 +87,7 @@ return require('packer').startup(function()
   -- -- enable LSP completion
   use {
       'hrsh7th/nvim-cmp',
-      requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-vsnip'}
+      requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'dcampos/cmp-snippy'}
   }
 
   -- -- lua development environment

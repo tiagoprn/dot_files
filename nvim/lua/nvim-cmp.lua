@@ -7,7 +7,7 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+      vim.fn["snippy#anonymous"](args.body)
     end,
   },
   mapping = {
@@ -24,7 +24,7 @@ cmp.setup({
       config = {
         sources = {
           { name = 'nvim_lsp' },
-          { name = 'vsnip' },
+          { name = 'snippy' },
           { name = 'buffer' },
         }
       }
