@@ -1,0 +1,103 @@
+# snippets for all file types
+snippet bs
+	\`\`\`
+	${1:code}
+	\`\`\`
+
+snippet bsl
+	\`${1:code}\`
+
+snippet timestamp
+	`strftime("%Y-%m-%d %H:%M:%S")`
+
+snippet today
+	`strftime("%Y-%m-%d")`
+snippet hh
+	`strftime("%H:%M")`
+snippet dm
+	`strftime("%d/%m")`
+snippet dma
+	`strftime("%d/%m/%Y")`
+snippet sig
+
+	---
+	Tiago Paranhos Lima - Senior Software Engineer (python)
+	https://tiagopr.nl
+	twitter.com/tiagoprn
+
+snippet post
+	slug: ${1:content-slug-here}
+	date: timestamp
+	tags: [${2:tag1,}]
+	published: timestamp
+	summary: ${3:the post title}
+	public: yes
+
+	${4:#contents}
+
+snippet ztype
+	fleeting bibliographic permanent
+
+snippet ztk
+	${1:Title}
+	created: timestamp
+	#keyword1 #keyword2
+	type: ztype
+	---
+
+	body
+
+	---
+	References:
+	- first
+
+snippet it
+	- [ ] ${1:Description}
+
+snippet teffort
+	quick-win normal epic
+
+snippet tstatus
+	created wip paused finished discarded
+
+snippet task
+	goal: ${1:Goal}
+	scope: personal work
+	created: timestamp
+	finished: timestamp
+	effort: teffort
+	current_status: tstatus
+	#tag1 #tag2
+	---
+
+	Detailed description, checklist, references, etc...
+
+	---
+	Timesheet:
+	- date: minutes
+snippet qtimestamp
+	`strftime("%Y-%m-%dT%H:%M:%S")`-03:00
+snippet qheader
+	---
+	created: qtimestamp
+	modified: qtimestamp
+	type: Journal
+	---
+snippet gcommit
+	feat: updated repository on timestamp
+snippet diary
+	---
+	timestamp: timestamp
+	---
+
+	- How did I start my day?
+
+	- What happened at work today?
+
+	- How did I feel when finished working?
+
+	- How I felt at night, after work?
+
+	- What is going on my personal life right now?
+
+	---
