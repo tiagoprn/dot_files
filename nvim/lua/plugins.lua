@@ -77,7 +77,10 @@ return require('packer').startup(function()
   use {'neovim/nvim-lspconfig'}
 
   -- -- nice UIs for LSP functions
-  use {'glepnir/lspsaga.nvim'}
+  -- unsupported
+  -- use {'glepnir/lspsaga.nvim'}
+  -- supported fork from above
+  use {'tami5/lspsaga.nvim'}
 
   use {
         'nvim-treesitter/nvim-treesitter',
