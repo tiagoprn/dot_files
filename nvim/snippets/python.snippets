@@ -82,3 +82,15 @@ snippet ic
 
 snippet pprint
 	__import__('pprint').pprint(${1:expression})$0
+
+snippet ifmain
+	if __name__ == '__main__':
+	    ${1:main()}$0
+
+snippet uuid
+	import uuid, sys
+	sys.stdout.write(str(uuid.uuid4()))
+
+snippet timestamp_iso
+	from datetime import datetime
+	print(datetime.now().isoformat())
