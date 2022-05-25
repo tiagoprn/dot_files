@@ -33,7 +33,7 @@ nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>| " (lsp) show
 nnoremap <silent> <leader>li <cmd>lua vim.lsp.buf.implementation()<CR>| " (lsp) go to implementation
 nnoremap <silent> <leader>ln <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>| " (lsp) go to previous diagnostic
 nnoremap <silent> <leader>lp <cmd>lua vim.lsp.diagnostic.goto_next()<CR>| " (lsp) go to next diagnostic
-nnoremap <silent> <leader>lt <cmd>lua vim.lsp.buf.formatting_sync(nil,1200)<CR>| " (lsp) format file (e.g. isort, black) with efm-langserver - configured in `/storage/src/dot_files/efm-langserver/config.yaml`)
+nnoremap <silent> <leader>lt <cmd>lua vim.lsp.buf.format(nil,1200)<CR>| " (lsp) format file (e.g. isort, black) with efm-langserver - configured in `/storage/src/dot_files/efm-langserver/config.yaml`)
 " lspsaga
 nnoremap <silent> <leader>lh :Lspsaga hover_doc<CR>| " (lsp-saga) documentation hover
 nnoremap <silent> <leader>ls :Lspsaga signature_help<CR>| " (lsp-saga) (NORMAL mode) signature help

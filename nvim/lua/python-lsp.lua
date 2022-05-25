@@ -6,8 +6,8 @@ lsp.pylsp.setup{
   -- disabled formatting capabilities because they are provided py
   -- efm-langserver, which has configuration for all languages.
   on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
   end,
 }
 
