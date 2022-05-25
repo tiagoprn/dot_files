@@ -154,11 +154,15 @@ super + shift + w
 
 # scratchpad - dropdownterm:
 alt + t
-	bspwm-toggle-visibility.sh dropdownterm "alacritty --class dropdownterm --title dropdownterm --hold"
+	bspwm-toggle-visibility-new.sh dropdownterm "alacritty --class dropdownterm --title dropdownterm --hold"
 
 # scratchpad - pcmanfm:
 super + r
-	bspwm-toggle-visibility.sh Pcmanfm "pcmanfm"
+	bspwm-toggle-visibility-new.sh Pcmanfm "pcmanfm"
+
+# scratchpad - flashcards:
+alt + f
+	bspwm-toggle-visibility-new.sh flashcard "$HOME/apps/scripts/bin/flashcard.sh"
 
 # [quit,restart] bspwm:
 super + alt + {q,r}
