@@ -23,6 +23,7 @@ snippet dma
 	`strftime("%d/%m/%Y")`
 
 snippet sig
+	${1}
 
 	---
 	Tiago Paranhos Lima - Senior Software Engineer (python)
@@ -31,77 +32,67 @@ snippet sig
 
 snippet post
 	slug: ${1:content-slug-here}
-	date: timestamp
+	date: `strftime("%Y-%m-%d %H:%M:%S")`
 	tags: [${2:tag1,}]
-	published: timestamp
+	published: `strftime("%Y-%m-%d %H:%M:%S")`
 	summary: ${3:the post title}
 	public: yes
 
-	${4:#contents}
-
-snippet ztype
-	fleeting bibliographic permanent
+	${4:contents}
 
 snippet ztk
-	${1:Title}
-	created: timestamp
+	${2:Title}
+	created: `strftime("%Y-%m-%d %H:%M:%S")`
 	#keyword1 #keyword2
-	type: ztype
+	type: ${1|fleeting,bibliographic,permanent|}
 	---
 
-	body
+	${3:body}
 
 	---
 	References:
 	- first
 
 snippet it
-	- [ ] ${1:Description}
-
-snippet teffort
-	quick-win normal epic
+	- [ ] ${1}
 
 snippet tstatus
-	created wip paused finished discarded
+	${1|created,wip,paused,finished,discarded|}
 
 snippet task
-	goal: ${1:Goal}
-	scope: personal work
-	created: timestamp
+	goal: ${2:Goal}
+	scope: ${1|personal,work|}
+	created: `strftime("%Y-%m-%d %H:%M:%S")`
 	finished: timestamp
-	effort: teffort
+	effort: ${3|quick-win,normal,epic|}
 	current_status: tstatus
 	#tag1 #tag2
 	---
 
-	Detailed description, checklist, references, etc...
+	${4:Detailed description, checklist, references, etc...}
 
 	---
 	Timesheet:
 	- date: minutes
 
-snippet qtimestamp
-	`strftime("%Y-%m-%dT%H:%M:%S")`-03:00
-
 snippet qheader
 	---
-	created: qtimestamp
-	modified: qtimestamp
+	created: `strftime("%Y-%m-%dT%H:%M:%S")`
+	modified: `strftime("%Y-%m-%dT%H:%M:%S")`
 	type: Journal
 	---
 
+	${1}
+
 snippet gcommit
-	feat: updated repository on timestamp${1: }
+	feat: updated repository on `strftime("%Y-%m-%d %H:%M:%S")` ${1}
 
 snippet fc
 	${1:Title}
 	created: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND
-	#${2:keyword1} #${3:keyword2}
+	${2:#keyword1 #keyword2}
 	---
 
-	${4:body}
+	${3:body}
 
 	---
-
-snippet lorem_ipsum
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
