@@ -11,6 +11,14 @@
 
 ## WM independent
 
+# run - file manager (pcmanfm):
+super + r; f ; m
+	pcmanfm
+
+# run - Generate password:
+super + r ; g ; p
+	notify-send "Generating password... (will be pasted to clipboard) && tr -dc "a-zA-Z0-9_#@.-" < /dev/urandom | head -c 14 | xclip -selection clipboard
+
 # qutebrowser:
 alt + b
 	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B $HOME/.local/share/qutebrowser/personal -C $HOME/.local/share/qutebrowser/personal/config/config.py
@@ -156,10 +164,6 @@ super + shift + w
 alt + t
 	bspwm-toggle-visibility-new.sh dropdownterm "alacritty --class dropdownterm --title dropdownterm --hold"
 
-# scratchpad - pcmanfm:
-super + r
-	bspwm-toggle-visibility-new.sh Pcmanfm "pcmanfm"
-
 # scratchpad - flashcards:
 alt + f
 	bspwm-toggle-visibility-new.sh flashcard "$HOME/apps/scripts/bin/flashcard.sh"
@@ -181,16 +185,12 @@ super + {i,p,l,f}
 	bspc node -t {\~tiled,\~pseudo_tiled,\~floating,\~fullscreen}
 
 # set the node flags [marked,locked,sticky,private]:
-super + ctrl + {m,x,y,z}
+super + ctrl + {a,x,y,z}
 	bspc node -g {marked,locked,\~sticky,private}
 
-# focus the node [f,s] in the given direction [west,south,north,east]:
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
-
-# focus the node for the given path jump [parent,brother,first,second]:
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+# focus the node on the given direction [west,south,north,east]:
+super + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
 
 # focus the last [node,desktop]:
 super + {grave,Tab}
@@ -198,9 +198,13 @@ super + {grave,Tab}
 
 # focus or send to the given [desktop,node] [0-9]:
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}' --follow
 
-# preselect the direction [west,south,north,east]:
+# Move current window to preselected space:
+super + ctrl + m
+    bspc node -n last.!automatic
+
+# preselect the direction for a new window [west,south,north,east]:
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
@@ -208,9 +212,15 @@ super + ctrl + {h,j,k,l}
 super + ctrl + space
 	bspc node -p cancel
 
+# restart/reload sxhkdrc:
+super + ctrl + r
+    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
 # expand a window by moving one of its side outward [left,bottom,top,right]:
 super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+    STEP=20; SELECTION={1,2,3,4}; \
+    bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
+    bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
 
 # move a floating window [Left,Down,Up,Right]:
 super + {Left,Down,Up,Right}
@@ -220,7 +230,7 @@ super + {Left,Down,Up,Right}
 alt + Tab
 	$HOME/apps/scripts/bin/bspwm-focus-window-by-name.sh
 
-# Rotates the order of the windows on a single workspace
+# Rotates the order of the windows on current desktop
 super + space
     bspc node @/ -C forward
 
