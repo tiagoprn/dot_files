@@ -19,6 +19,18 @@ super + r; f; m
 super + r; g; p
 	notify-send "Generating password... (will be pasted to clipboard)" && tr -dc "a-zA-Z0-9_#@.-" < /dev/urandom | head -c 14 | xclip -selection clipboard
 
+# local wallpaper (m to mark):
+super + w; l
+	sxiv -r -q -o $(ls -t --color=never $HOME/Wallpapers/*) | xargs feh --bg-scale
+
+# remote random wallpaper (styli.sh ):
+super + w; r
+	notify-send "Getting remote wallpaper from reddit..." && /opt/styli.sh/styli.sh -l reddit
+
+# arandr & reload local wallpaper:
+super + w; e
+	arandr && reload_wallpaper.sh
+
 # qutebrowser:
 alt + b
 	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B $HOME/.local/share/qutebrowser/personal -C $HOME/.local/share/qutebrowser/personal/config/config.py
@@ -108,10 +120,6 @@ super + e
 super + z
 	$HOME/apps/scripts/rofi/shutdown.py
 
-# styli.sh random wallpaper:
-super + alt + w
-	/opt/styli.sh/styli.sh -l reddit
-
 # clippy clipboard:
 super + c
 	clippy_rofi.py
@@ -119,10 +127,6 @@ super + c
 # cheatsheets menu:
 super + d
  	$HOME/apps/scripts/bin/dmcheatsheets-menu.sh
-
-# reload wallpaper:
-super + m
-	arandr && reload_wallpaper.sh
 
 # terminal:
 super + Return
@@ -141,7 +145,7 @@ super + shift + Return
 	$HOME/apps/scripts/bin/terminal-tmux.sh
 
 # passwords - rofi:
-super + w
+super + p
 	$HOME/apps/scripts/bin/pass-rofi.sh
 
 # toggle systray (stalonetray):
@@ -152,9 +156,6 @@ super + t
 alt + e
 	$HOME/apps/scripts/bin/vedit.sh
 
-# wallpaper (m to mark):
-super + shift + w
-	sxiv -r -q -o $(ls -t --color=never $HOME/Wallpapers/*) | xargs feh --bg-scale
 
 ## WM specific
 
@@ -172,8 +173,8 @@ alt + f
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
-# close and kill:
-super + k
+# close and kill current window:
+super + BackSpace
 	bspc node -c
 
 # swap the current node and the biggest window:
@@ -181,7 +182,7 @@ super + g
 	bspc node -s biggest.window
 
 # set the window state [tiled,pseudo_tiled,floating,fullscreen]:
-super + {i,p,l,f}
+super + {i,m,l,f}
 	bspc node -t {\~tiled,\~pseudo_tiled,\~floating,\~fullscreen}
 
 # set the node flags [marked,locked,sticky,private]:
