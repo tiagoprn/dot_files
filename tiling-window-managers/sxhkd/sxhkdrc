@@ -19,9 +19,13 @@ super + r; f; m
 super + r; g; p
 	notify-send "Generating password... (will be pasted to clipboard)" && tr -dc "a-zA-Z0-9_#@.-" < /dev/urandom | head -c 14 | xclip -selection clipboard
 
-# local wallpaper (m to mark):
-super + w; l
-	sxiv -r -q -o $(ls -t --color=never $HOME/Wallpapers/*) | xargs feh --bg-scale
+# set local wallpaper manually (m to mark):
+super + w; l; m
+	notify-send "Choose a local wallpaper..." && sxiv -t -o ~/Wallpapers/*.{jpg,png} | xargs feh --bg-fill --auto-zoom --scale-down
+
+# set local wallpaper randomly:
+super + w ; l; r
+	notify-send "Setting local wallpaper randomly..." && feh --bg-fill --auto-zoom --scale-down $(find $HOME/Wallpapers/* -xtype f | sort -R | head -1)
 
 # remote random wallpaper (styli.sh ):
 super + w; r
