@@ -12,12 +12,12 @@
 ## WM independent
 
 # run - file manager (pcmanfm):
-super + r; f ; m
+super + r; f; m
 	pcmanfm
 
 # run - Generate password:
-super + r ; g ; p
-	notify-send "Generating password... (will be pasted to clipboard) && tr -dc "a-zA-Z0-9_#@.-" < /dev/urandom | head -c 14 | xclip -selection clipboard
+super + r; g; p
+	notify-send "Generating password... (will be pasted to clipboard)" && tr -dc "a-zA-Z0-9_#@.-" < /dev/urandom | head -c 14 | xclip -selection clipboard
 
 # qutebrowser:
 alt + b
