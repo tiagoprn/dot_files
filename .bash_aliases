@@ -35,6 +35,7 @@ alias zt='/storage/src/devops/bin/create-zettelkasten.sh'
 alias cz='/storage/src/devops/bin/create-zettelkasten-current-folder.sh'
 alias fc='/storage/src/devops/bin/create-flashcard-current-folder.sh'
 alias nt='/storage/src/devops/bin/create-quick-note.sh'
+alias cn='/storage/src/devops/bin/create-fleeting-note.sh'
 alias nr='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
 
 # tree letter aliases
