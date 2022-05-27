@@ -58,3 +58,5 @@ nnoremap <silent> <leader>hl <cmd>lua require'hop'.hint_lines()<CR>| " (movement
 vnoremap <silent> <leader>hw <cmd>lua require'hop'.hint_words()<CR>| " (VISUAL) (movement) hop - go to word
 vnoremap <silent> <leader>hl <cmd>lua require'hop'.hint_lines()<CR>| " (VISUAL) (movement) hop - go to line
 
+" snippy
+inoremap <silent> <c-s> <cmd>lua require'snippy'.complete()<CR>| " (INSERT) show all available snippets for current filetype
