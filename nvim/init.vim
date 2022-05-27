@@ -111,4 +111,5 @@ source $HOME/.config/nvim/augroups/quickfix.vim
 source $HOME/.config/nvim/augroups/text.vim
 source $HOME/.config/nvim/augroups/json.vim
 source $HOME/.config/nvim/augroups/misc.vim
+source $HOME/.config/nvim/augroups/completion.vim
 
