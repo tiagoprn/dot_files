@@ -24,8 +24,14 @@ super + w; l; m
 	notify-send "Choose a local wallpaper..." && sxiv -t -o ~/Wallpapers/*.{jpg,png} | xargs feh --bg-fill --auto-zoom --scale-down
 
 # set local wallpaper randomly:
-super + w ; l; r
+super + w; l; r
 	notify-send "Setting local wallpaper randomly..." && feh --bg-fill --auto-zoom --scale-down $(find $HOME/Wallpapers/* -xtype f | sort -R | head -1)
+
+# Change lock screen wallpaper:
+super + w; z
+    notify-send 'betterlockscreen' 'Changing wallpaper...' && \
+	    betterlockscreen -u $HOME/Wallpapers && \
+	    notify-send 'betterlockscreen' 'Changed wallpaper.'
 
 # remote random wallpaper from reddit (styli.sh):
 super + w; r
