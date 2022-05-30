@@ -179,7 +179,7 @@ alt + e
 
 # scratchpad - dropdownterm:
 alt + t
-	bspwm-toggle-visibility-new.sh dropdownterm "alacritty --class dropdownterm --title dropdownterm --hold"
+	bspwm-toggle-visibility-new.sh dropdownterm "$HOME/apps/scripts/bin/terminal-dropdownterm.sh"
 
 # scratchpad - flashcards:
 alt + f

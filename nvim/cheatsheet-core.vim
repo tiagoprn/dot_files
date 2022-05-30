@@ -128,6 +128,7 @@
 " :g/[word_or_regex]/d | "  (global-commands)(patterns) delete lines matching word or regex
 " :g!/[word_or_regex]/d | " (global-commands)(patterns) delete lines that do NOT match the word or regex
 " :g/^\s*$/d | " (global-commands)(patterns) delete all blank lines
+" :g/^$/d | " (global-commands)(patterns) delete blank lines from selection
 " :g/[word_or_regex]/m$ | " (global-commands)(patterns) Move all lines containing word or regex to the end of the file
 " :g/[word_or_regex]/norm $[normal_command] | " (global-commands)(patterns) for all lines containing '[word_or_regex]', execute the normal command [normal_command]. E.g.: ':g/    highlight/normal! 0C    highlight = {colors.violet,colors.white}'
 " :g/if/norm $a: | " (global-commands)(patterns) for all lines containing 'if', execute the normal command to append a ':' to the end of a line.
