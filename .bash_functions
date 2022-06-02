@@ -28,7 +28,7 @@ function v() {  # select a file under current directory and open it with nvim
   fi
 }
 
-function tmux-save-history {  # save current tmux commands to history file
+function tmux-save-history() {  # save current tmux commands to history file
     setxkbmap us && xdotool key --delay 36ms Control_L+a Alt_L+f Return && setxkbmap -model abnt2 -layout br
 }
 
