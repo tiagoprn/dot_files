@@ -225,3 +225,19 @@ search-mind-maps() { ${EDITOR:-vim} $(rg -n '.*' "/storage/src/tiagoprnl/content
 
 # fr() { ${EDITOR:-vim} $(rg -n '.*' "$HOME/.config/remind/" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
 
+function cdb() {
+	BOOKMARKS_FILE_PATH="/storage/src/dot_files/cd-bookmarks.$(hostname)"
+
+	if [ -f "$BOOKMARKS_FILE_PATH" ]; then
+		echo "Bookmarks file exists at $BOOKMARKS_FILE_PATH \o/"
+	else
+		echo "File DOES NOT exist at $BOOKMARKS_FILE_PATH. Creating..."
+		echo -e "/storage/src/dot_files\n/storage/src/devops" > $BOOKMARKS_FILE_PATH
+		echo "File $BOOKMARKS_FILE_PATH successfully created."
+	fi
+
+	SELECTED_DIR=$(cat $BOOKMARKS_FILE_PATH | fzf )
+	echo "Entering $SELECTED_DIR..."
+	cd $SELECTED_DIR
+}
+

@@ -16,7 +16,7 @@
   # checkout:
   co = checkout
   # status:
-  s = status
+  s = status --short
   # branch:
   b = branch
   # list branches, with the most recent one on top:
