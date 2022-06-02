@@ -6,18 +6,19 @@
 
 ## one letter aliases
 alias f='fzf'
+alias g='git'
 alias j="mkdir -p /storage/docs && vim +'normal Go' +'r!date' $JOURNAL_FILE +'normal!o-  '"  # opens a vim file with the current time and a line below ready for editing, useful as a journal.
 alias p="pyenv"
 alias s="source ~/.bashrc && source ~/.profile && source ~/.bash_functions && source ~/.bash_aliases"
 
 ## two letter aliases
 alias cc='cd $(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
-alias ga="git add"
-alias gc="git commit --"  # this is to avoid passing "-m" without opening vim to edit the message using the semantic commit template.
-alias gd='git icdiff HEAD --color-moved'
-alias gf='git fetch'
-alias gl="git glog"
-alias gs="git status -s"
+# alias ga="git add"
+# alias gc="git commit --"  # this is to avoid passing "-m" without opening vim to edit the message using the semantic commit template.
+# alias gd='git icdiff HEAD --color-moved'
+# alias gf='git fetch'
+# alias gl="git glog"
+# alias gs="git status -s"
 alias pa='pyenv activate $(pyenv virtualenvs | grep -v "^\s*[0-9]" | cut -d " " -f 3 | fzf)'
 alias pd='pyenv deactivate '
 alias pv="pyenv virtualenvs | grep -v '^\s*[0-9]'"
@@ -40,8 +41,8 @@ alias nr='sudo systemctl stop NetworkManager && sudo systemctl start NetworkMana
 
 # tree letter aliases
 alias cht='curl -s cht.sh/$(curl -s cht.sh/:list | fzf)'
-alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
-alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
+# alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
+# alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
 alias pcb='pyenv versions | grep "*" | cut -d " " -f 2 | cb'
 alias vcb='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
 
