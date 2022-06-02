@@ -4,13 +4,14 @@
 # |   |          |
 # |   |          +------> (optional) Indicates a BREAKING CHANGE (breaks API or ABI compatibility)
 # |   |
-# |   +-----> (optional) component changed. E.g. vim, tmux, etc...
+# |   +-----> component/module/app changed. E.g. vim, tmux, etc...
 # |
 # +------> Choose one from the list below:
-#          - feat: new feature that DOES reflect on the end user
-#          - fix: bug fix that DOES reflect on the end user
-#          - refac: refactoring code that DOES reflect on the end user
+#          - feat: new feature
+#          - fix: bug fix
 #          - docs: changes to the documentation
-#          - style: formatting/linter
+#          - style: changes that do not affect meaning of the code (whitespace, formatting, semi-collons, etc...)
+#          - refac: neither fixes a bug or adds a feature
+#	   - perf: improves performance
 #          - test: adding missing tests, refactoring tests
-#          - chore: Makefile changes, features and fixes that DO NOT reflect on the end user, etc...
+#          - chore: Changes to build process or auxiliary tools and libraries e.g. makefile changes, auxiliary scripts changes
