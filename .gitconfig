@@ -3,52 +3,61 @@
   name = tiago.paranhos
 
 [alias]
+  # fetch:
+  f = fetch
+  # add:
   a = add
+  # commit:
   c = commit
+  # icdiff:
   d = icdiff HEAD
+  # diff (default):
   dd = diff
+  # checkout:
   co = checkout
+  # status:
   s = status
+  # branch:
   b = branch
-  # list branches, with the most recent one on top
+  # list branches, with the most recent one on top:
   bl = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
+  # push:
   ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+  # pull:
   pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
-  # We wanna grab those pesky un-added files!
-  # https://git-scm.com/docs/git-stash
+  # stash save (includes untracked files):
   ss = stash save --include-untracked
+  # stash pop:
   sp = stash pop
-
+  # log graph:
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  # log with changed files on each commit:
   lf = log --date=iso --name-status --pretty=format:'%Cgreen(%ad) %Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
+  # simple log with timestamps:
   ll = log --date=iso --pretty=format:'%Cgreen(%ad) %Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
+  # log graph on alternative format:
   la = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
-  # work github
-  hw = "!xdg-open https://www.github.com/$(cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' ' | cut -d '@' -f 2 | cut -d ':' -f 2)"
-  # personal github
-  hp = "!firefox https://www.github.com/$(cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' ' | cut -d '@' -f 2 | cut -d ':' -f 2)"
-  # personal bitbucket
-  bbp = "!firefox https://bitbucket.org/$(cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' ' | cut -d '@' -f 2 | cut -d ':' -f 2)"
-  # github personal profile
+  # open current github repo on default browser:
+  hd = "!xdg-open https://www.github.com/$(cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' ' | cut -d '@' -f 2 | cut -d ':' -f 2)"
+  # open current github repo on firefox:
+  hf = "!firefox https://www.github.com/$(cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' ' | cut -d '@' -f 2 | cut -d ':' -f 2)"
+  # open bitbucket repo on firefox:
+  bbf = "!firefox https://bitbucket.org/$(cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' ' | cut -d '@' -f 2 | cut -d ':' -f 2)"
+  # open my github personal profile on firefox:
   hme= "!firefox https://www.github.com/tiagoprn"
-  # bitbucket personal profile
+  # open my bitbucket personal profile on firefox:
   bbme= "!firefox https://www.bitbucket.org/tparanhoslima"
-
-  # Because I constantly forget how to do this
-  # https://git-scm.com/docs/git-fetch#git-fetch--p
+  # before fetching, remove remote-tracking references that no longer exist on the remote:
   prune = fetch --prune
-
-  # undo the last commit (use only if not pushed)
-  # https://git-scm.com/docs/git-reset#git-reset-emgitresetemltmodegtltcommitgt
+  # undo the last commit (use only if not pushed):
   undo = reset --soft HEAD^
-
+  # list changed files on each commit (verbose):
   files-changed = log --name-status
 
-  # What this will do, is sort the files in your project by their number of changes, and take the
-  # first 10. Those are the ones where most changes have occurred over time, consequently there is
-  # a higher chance that those will require the most changes in the future.
   file-changes-rank = "!git log --name-only | grep -v 'Author' |  grep -v '^$' | sort | uniq -c | sort -rg | head -10"
+  # Sort the files in your project by their number of changes over time, and take the first 10 :
   files-rank = "!git file-changes-rank"
+  # (the command above is useful to track those with a higher chance that will require more changes in the future)
 
 [status]
   showUntrackedFiles = all
