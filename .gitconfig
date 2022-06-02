@@ -23,8 +23,16 @@
   lf = log --date=iso --name-status --pretty=format:'%Cgreen(%ad) %Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
   ll = log --date=iso --pretty=format:'%Cgreen(%ad) %Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
   la = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
-  open = "!xdg-open https://www.github.com"
-  me= "!xdg-open https://www.github.com/tiagoprn"
+  # work github
+  hw = "!xdg-open https://www.github.com/$(cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' ' | cut -d '@' -f 2 | cut -d ':' -f 2)"
+  # personal github
+  hp = "!firefox https://www.github.com/$(cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' ' | cut -d '@' -f 2 | cut -d ':' -f 2)"
+  # personal bitbucket
+  bbp = "!firefox https://bitbucket.org/$(cat $(git rev-parse --show-toplevel)/.git/config | grep url | cut -d '=' -f 2 | tr '\n' ' ' | cut -d '@' -f 2 | cut -d ':' -f 2)"
+  # github personal profile
+  hme= "!firefox https://www.github.com/tiagoprn"
+  # bitbucket personal profile
+  bbme= "!firefox https://www.bitbucket.org/tparanhoslima"
 
   # Because I constantly forget how to do this
   # https://git-scm.com/docs/git-fetch#git-fetch--p
