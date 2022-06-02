@@ -1,4 +1,4 @@
-function fzf-bash-history-search() {  # Function to search through bash history using fzf
+function fzf-bash-history-search() {  # search through bash history using fzf
     cmd=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | sort | uniq | fzf)
     # Add the command to history
     history -s $cmd
@@ -9,7 +9,7 @@ function fzf-bash-history-search() {  # Function to search through bash history 
     setxkbmap us && xdotool type "$cmd" && setxkbmap -model abnt2 -layout br
 }
 
-_fzf_comprun() {
+function _fzf_comprun() {  # select a file under current directory
   local command=$1
   shift
 
@@ -19,7 +19,7 @@ _fzf_comprun() {
   esac
 }
 
-function v() {
+function v() {  # select a file under current directory and open it with nvim
   local selected_file
   selected_file=$(fd -H --exclude .git | fzf --preview "bat --style=numbers --color=always --line-range :50 {}")
 
@@ -36,8 +36,6 @@ function wal-set() {  # set the desktop wallpaper through wal
     wal -n -i `find ~/Wallpapers/ | fzf --exact`
 }
 
-## since an alias can't get parameters, I create a function to simplify the call to stat to get file permissions:
-# You can call it like: permissions file1 file2 file3 etc...
 function permissions() {  # get files numeric permissions
     for var in "$@"  # $@ allows iterating to all arguments passed, independent of how many
     do
@@ -45,35 +43,7 @@ function permissions() {  # get files numeric permissions
     done
 }
 
-# Automatically change the directory in bash after closing ranger
-#
-# This is a bash function for .bashrc to automatically change the directory to
-# the last visited one after ranger quits.
-# To undo the effect of this function, you can type "cd -" to return to the
-# original directory.
-
-function cdr() {  # cd into a directory with ranger
-    tempfile='`mktemp -t tmp.XXXXXX`'
-    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
-    fi
-    rm -f -- "$tempfile"
-}
-
-
-# color source code according to the language used and, if it can't, it will launch less on its input directly.
-
-function cless() {  # syntax highlight the output - useful for source code, etc...
-    LESSOPEN='| source-highlight --failsafe --out-format=esc256 -o STDOUT -i %s 2>/dev/null ' less -R "$@"
-}
-
-
-# A shortcut function that simplifies usage of xclip.
-# - Accepts input from either stdin (pipe), or params.
-# ------------------------------------------------
-function cb() {  # Copies to clipboard. You can pipe anything on the terminal to it.
+function cb() {  # Copies to clipboard. You can pipe anything on the terminal to it
   local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
   # Check that xclip is installed.
   if ! type xclip > /dev/null 2>&1; then
@@ -105,35 +75,36 @@ function cb() {  # Copies to clipboard. You can pipe anything on the terminal to
   fi
 }
 
-function cbf() { cat "$1" | cb; }  # copy file contents to the clipboard
+function cbf() {  # copy file contents to the clipboard
+	cat "$1" | cb;
+}
 
 function c() {  # get a command cheatsheet online
     curl cheat.sh/$1
 }
 
-function define-word() {
+function define-word() {  # search for a word on dict.org
     curl dict.org/d:"$1"
 }
 
-function translate-en-pt() {
+function translate-en-pt() {  # translate work from english to portuguese
     curl dict.org/d:"$1":fd-eng-por
 }
 
-function translate-pt-en() {
+function translate-pt-en() {  # translate work from portuguese to english
     curl dict.org/d:"$1":fd-por-eng
 }
 
-# fzf integrated with vim
-vim-fzf() {
+function vim-fzf() {  # select one or more files with fzf and open with EDITOR (use TAB for multiselect)
     local file=$(
-      fzf --exact --no-multi --preview 'bat --color=always --line-range :500 {}'
+      fzf --exact -m --preview 'bat --color=always --line-range :500 {}'
       )
     if [ -n "$file" ]; then
         $EDITOR $file
     fi
 }
 
-vim-fzf-search() {
+function vim-fzf-search() {  # search for a term using rg and fzf and open the selected file with EDITOR on the match
     if [ $# == 0 ]; then
         echo 'Error: search term was not provided.'
         return
@@ -149,8 +120,8 @@ vim-fzf-search() {
     fi
 }
 
-# fzf git log browser
-git-log-browser() {
+
+function git-log-browser() {  # select git commit hash and get more details about it
     local commits=$(
       git ll --color=always "$@" |
         fzf --exact --ansi --no-sort --height 100% \
@@ -158,7 +129,7 @@ git-log-browser() {
                        xargs -I@ sh -c 'git show --color=always @'"
       )
     if [ -n "$commits" ]; then
-        local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
+        local hashes=$(printf "$commits" | cut -d' ' -f4 | tr '\n' ' ')
         git show $hashes
     fi
 }
@@ -183,23 +154,21 @@ function tmux-search-contents() {  # search contents through saved tmux history 
     fi
 }
 
-function port-open-on-public-ip() { curl -s ifconfig.co/port/$1 | python -m json.tool; }
-
-function tmux-select-session() {
+function tmux-select-session() {  # select a tmux session
     local sessions=$(tmux ls | awk '{print $1}' | sed 's/\://g')
     echo -e "Select session: \n$sessions" | fzf
 }
 
-function dockerps () {
+function dockerps () {  # docker ps with custom formatting
     docker ps --format 'table {{ .ID }}, {{ .Names }}, {{ .Status }}, {{ .Command }}, {{ .Image }}';
 }
 
 
-command_exists () {
+function command_exists () {  # check if a command exists
     type "$1" &> /dev/null ;
 }
 
-function n() {
+function n() {  # run a command from navi cheatsheet
     arquivo="/usr/bin/xclip"
     if [ -f "$arquivo" ] ;
     then
@@ -216,16 +185,30 @@ function n() {
 
 }
 
-search-personal-notes() { ${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/personal" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
-search-work-notes() { ${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/work" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
-search-quick-notes() { ${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/quick" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
-search-zettels() { ${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/zettelkasten" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
-search-posts() { ${EDITOR:-vim} $(rg -n '.*' "/storage/src/tiagoprnl/content/posts" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
-search-mind-maps() { ${EDITOR:-vim} $(rg -n '.*' "/storage/src/tiagoprnl/content/mind-maps" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
+function search-personal-notes() {  # search on personal notes
+	${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/personal" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
+}
+function search-work-notes() {  # search on work notes
+	${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/work" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
+}
+function search-quick-notes() {  # search on quick notes
+	${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/quick" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
+}
+function search-zettels() {  # search on default zettels
+	${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/zettelkasten" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
+}
+function search-posts() {  # search on tiagoprnl posts
+	${EDITOR:-vim} $(rg -n '.*' "/storage/src/tiagoprnl/content/posts" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
+}
+function search-mind-maps() {  # search on tiagoprnl mind-maps
+	${EDITOR:-vim} $(rg -n '.*' "/storage/src/tiagoprnl/content/mind-maps" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
+}
 
-# fr() { ${EDITOR:-vim} $(rg -n '.*' "$HOME/.config/remind/" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g'); }
+function search-reminders() {  # search on reminders
+	${EDITOR:-vim} $(rg -n '.*' "/storage/src/reminders" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
+}
 
-function cdb() {
+function cdb() {  # cd into a path defined on the bookmarks file
 	BOOKMARKS_FILE_PATH="/storage/src/dot_files/cd-bookmarks.$(hostname)"
 
 	if [ -f "$BOOKMARKS_FILE_PATH" ]; then
