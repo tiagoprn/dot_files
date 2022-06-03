@@ -26,11 +26,6 @@ shopt -s histappend
 source $HOME/.bash_functions
 source $HOME/.bash_aliases
 
-# Below was changed into an alias called "xsession"
-# if [ -f $HOME/.xsession ]; then
-#   [[ ! -z "$DISPLAY" ]] && source $HOME/.xsession
-# fi
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -162,45 +157,22 @@ if [ ! -f /usr/share/git/completion/git-prompt.sh ]; then
 fi
 source /usr/share/git/completion/git-prompt.sh
 
+# --- KEYBOARD SHORTCUTS (BINDINGS) VIM-MODE SPECIFIC BINDINGS:
 # When using vim-mode, add beside the prompt and indicator if we are on visual
 # or insert mode.
-bind 'set show-mode-in-prompt on'
-
-# --- KEYBOARD SHORTCUTS (BINDINGS) VIM-MODE SPECIFIC BINDINGS:
-
 ## GENERAL
 # \C- = Control+
 # \e = Alt+
+bind 'set show-mode-in-prompt on'
 bind -x '"\C-r":fzf-bash-history-search'
 bind -x '"\C-b":tmux-save-history'
 bind -x '"\C-t":tmux-search-history'
-bind -x '"\ei":vim-fzf'
-
-## VIM-MODE SPECIFIC
+# bind -x '"\ei":vim-fzf'
+bind -x '"\C-o":vim-fzf'
 ### Clear screen as on emacs-mode and vi-visual
 bind -m vi-insert "\C-l":clear-screen
 
-## Auto start tmux (DISABLED IN FAVOR OF MY ALIAS tmux-autostart)
-# This script looks for the parent process of the bash shell.
-# If bash was started from logging in or from ssh, it will execute tmux.
-# If you want this to work with a GUI terminal, you can add that in there as well.
-# For example, if you want to start tmux automatically when you start Ubuntu's standard gnome-terminal, you would use this:
-# (reference: https://stackoverflow.com/questions/11068965/how-can-i-make-tmux-be-active-whenever-i-start-a-new-shell-session)
-# PNAME="$(ps -o comm= $PPID | awk '{print $1}')";
-# if [ $PNAME == "login" ] || [ $PNAME == "sshd" ] || [ $PNAME == "gnome-terminal-" ] || [ $PNAME == "termite" ] ; then
-#   tmux -2 a -t work01 || exec tmux -2 new -s work01
-# fi
-
-## The message below will print each time a terminal is started:
-# if [ -x "$(command -v cowsay)" ]; then
-#     cowsay -f tux $(fortune -s)
-# fi
-
 bash /storage/src/dot_files/bash-welcome.sh
-
-# if [ -x "$(command -v figlet)" ]; then
-#     echo "$(hostname)" | figlet -cptk
-# fi
 
 # A better ls command, with 2 alternative aliases:
 if ls --color -d . >/dev/null 2>&1; then  # GNU ls
@@ -215,14 +187,8 @@ if ls --color -d . >/dev/null 2>&1; then  # GNU ls
   alias lsr="ls -halt"
 fi
 
-# fortune   -s
-# fortune $(find /usr/share/games/fortunes/*.dat -printf "%f\n" | xargs shuf -n1 -e | cut -d '.' -f 1)
-
 [ -f ~/.fzf/fzf.bash ] && source ~/.fzf/fzf.bash
 
-# source "$(navi widget bash)"
-
-# start tmux if xorg is not found
 if ! [ -x "$(command -v startx)" ]; then
     echo -e " -------------------------------------------------------\n"
     echo -e " No xorg detected, since 'startx' has not been found.\n"
@@ -232,7 +198,6 @@ fi
 
 if command -v starship &> /dev/null
 then
-	# enabling starship
 	eval "$(starship init bash)"
 fi
 
