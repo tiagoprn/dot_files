@@ -171,7 +171,7 @@ bind 'set show-mode-in-prompt on'
 ## GENERAL
 # \C- = Control+
 # \e = Alt+
-bind -x '"\C-f":fzf-bash-history-search'
+bind -x '"\C-r":fzf-bash-history-search'
 bind -x '"\C-b":tmux-save-history'
 bind -x '"\C-t":tmux-search-history'
 bind -x '"\ei":vim-fzf'
@@ -196,7 +196,7 @@ bind -m vi-insert "\C-l":clear-screen
 #     cowsay -f tux $(fortune -s)
 # fi
 
-bash /storage/src/dot_files/welcome.sh
+bash /storage/src/dot_files/bash-welcome.sh
 
 # if [ -x "$(command -v figlet)" ]; then
 #     echo "$(hostname)" | figlet -cptk
