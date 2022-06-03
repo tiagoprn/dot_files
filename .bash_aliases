@@ -30,6 +30,7 @@ alias tp='pyenv activate core-utils && tmuxp load -d '
 alias tf='pyenv activate core-utils && tmuxp freeze '
 alias tl='tmux ls'
 alias ta='tmux -2 a -t `tmux-select-session`'
+alias td='tmuxp load /storage/src/devops/tmuxp/default-wide.yml'
 alias tk='tmux kill-session -t `tmux-select-session`'
 alias vg='vim $(git status -s | cut -d " " -f 3)'
 alias vi='vim --clean'  # runs vim with no customizations and plugins (as if fresh)
