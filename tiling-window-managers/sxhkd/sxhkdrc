@@ -144,6 +144,10 @@ super + c
 super + d
  	$HOME/apps/scripts/bin/dmcheatsheets-menu.sh
 
+# drag-and-drop screenshot taken today:
+super + x
+ 	$HOME/apps/scripts/bin/dm-drag-and-drop-screenshot.sh
+
 # terminal:
 super + Return
 	$HOME/apps/scripts/bin/terminal.sh
