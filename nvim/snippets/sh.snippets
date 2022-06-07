@@ -177,6 +177,13 @@ snippet redirect_stdout_stderr_to_file
 	'
 	cmd >>file.txt 2>&1
 
+snippet aliases_enable
+	shopt -s expand_aliases
+	source $HOME/.bashrc
+
+	${1}
+
+
 snippet bash!
 	#!/usr/bin/env bash
 
