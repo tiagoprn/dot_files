@@ -2,8 +2,8 @@
 
 nnoremap <C-u> :undo<CR>| " (core) undo changes
 nnoremap <Leader><Space> :w!<CR>| " (core) save file
-nnoremap <Leader><Space>w :windo w! \| :q!<CR>| " (core) save all files and quit
-nnoremap <Leader><Space>q :q!<CR>| " (core) quit
+nnoremap <C-w> :bufdo w! \| :q!<CR>| " (core) save all files and close/quit
+nnoremap <C-x> :qa!<CR>| " (core) close/quit without saving
 nnoremap <C-e> :e<CR>| " (core) reload file
 
 nnoremap <CR> :nohlsearch<cr>| " de-highlights current highlighted search
