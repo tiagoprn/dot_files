@@ -57,7 +57,7 @@ set completeopt=menu,menuone,noselect
 set termguicolors
 
 " Cursor to stay in the middle line of the screen when possible:
-set so=999
+" set so=999
 
 " Avoids updating the screen before commands are completed
 set lazyredraw
