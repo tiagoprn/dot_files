@@ -56,6 +56,12 @@ set completeopt=menu,menuone,noselect
 " Enable true colors theme support
 set termguicolors
 
+" Cursor to stay in the middle line of the screen when possible:
+set so=999
+
+" Avoids updating the screen before commands are completed
+set lazyredraw
+
 " OVERRIDING COLORS
 " Overriding color of special chars
 " highlight SpecialKey ctermfg=red guifg=red
