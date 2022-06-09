@@ -60,3 +60,7 @@ vnoremap <silent> <leader>hl <cmd>lua require'hop'.hint_lines()<CR>| " (VISUAL) 
 
 " snippy
 inoremap <silent> <c-s> <cmd>lua require'snippy'.complete()<CR>| " (INSERT) show all available snippets for current filetype
+
+" aerial code navigation
+
+nnoremap <silent> t :AerialToggle<CR>| " (lsp) code navigation through classes and methods

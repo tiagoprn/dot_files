@@ -90,6 +90,9 @@ return require('packer').startup(function()
       requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'dcampos/cmp-snippy'}
   }
 
+  -- code navigation through classes, methods and functions
+  use {'stevearc/aerial.nvim'}
+
   -- -- lua development environment
   -- -- -- wrapper around lua LSP sumneko_lua
   use {'tjdevries/nlua.nvim'}

@@ -100,6 +100,7 @@ lua require('hop-navigation')
 lua require('catppuccin-colors')
 lua require('autopairs')
 lua require('snippets')
+lua require('aerial-code-navigation')
 
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
 source $HOME/.config/nvim/conf-plugins/marvim.vim
