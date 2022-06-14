@@ -71,6 +71,19 @@ highlight LineNr ctermbg=black ctermfg=white
 " highlight StatusLine ctermbg=black ctermfg=darkblue
 " Overriding color of the popup menu
 
+" Highlight current line
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#c0c0c0 ctermbg=238
+
+" Highlight current column
+set cursorcolumn
+hi cursorcolumn cterm=none term=none
+autocmd WinEnter * setlocal cursorcolumn
+autocmd WinLeave * setlocal nocursorcolumn
+highlight CursorColumn guibg=#303000 ctermbg=238
 
 " --- Configure rg integration
 set grepprg=rg\ --vimgrep
