@@ -10,6 +10,10 @@ return require('packer').startup(function()
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 
+  -- It sets vim.ui.select to telescope. That means for example that neovim core stuff can fill the telescope picker.
+  -- Example would be lua vim.lsp.buf.code_action().
+  use {'nvim-telescope/telescope-ui-select.nvim' }
+
   use {'tpope/vim-surround'}
 
   -- snippets
