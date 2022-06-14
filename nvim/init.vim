@@ -115,6 +115,7 @@ lua require('autopairs')
 lua require('snippets')
 lua require('aerial-code-navigation')
 lua require('telescope-conf')
+lua require('sessions')
 
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
 source $HOME/.config/nvim/conf-plugins/marvim.vim

@@ -63,5 +63,9 @@ vnoremap <silent> <leader>hl <cmd>lua require'hop'.hint_lines()<CR>| " (VISUAL) 
 inoremap <silent> <c-s> <cmd>lua require'snippy'.complete()<CR>| " (INSERT) show all available snippets for current filetype
 
 " aerial code navigation
-
 nnoremap <silent> t :AerialToggle<CR>| " (lsp) code navigation through classes and methods
+
+" session manager
+nnoremap <silent> <leader>ss :SessionManager save_current_session<CR>| " (sessions) save current session
+nnoremap <silent> <leader>sl :SessionManager load_session<CR>| " (sessions) load session
+nnoremap <silent> <leader>sd :SessionManager delete_session<CR>| "  (sessions) delete session

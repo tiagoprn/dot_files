@@ -72,6 +72,9 @@ return require('packer').startup(function()
   -- auto pairs
   use {'windwp/nvim-autopairs'}
 
+  -- session manager
+  use {'Shatur/neovim-session-manager'}
+
   -- # LANGUAGE SERVERS - begin
 
   -- --  handles automatically launching and initializing language servers installed on your system
