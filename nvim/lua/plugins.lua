@@ -75,6 +75,10 @@ return require('packer').startup(function()
   -- session manager
   use {'Shatur/neovim-session-manager'}
 
+  -- git blame
+  use {'braxtons12/blame_line.nvim'}
+
+
   -- # LANGUAGE SERVERS - begin
 
   -- --  handles automatically launching and initializing language servers installed on your system

@@ -9,7 +9,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- https://github.com/kosayoda/nvim-lightbulb/blob/66223954d7bd7d4358c36d157c25503168d04319/lua/nvim-lightbulb.lua#L195-L201
 -- https://github.com/kosayoda/nvim-lightbulb/issues/20
 
-require'lspconfig'.bashls.setup{
+require'lspconfig'.bashls.setup({
   capabilities = capabilities
-}
+})
 

@@ -1,11 +1,3 @@
-" Run git blame on current file
-function! GitBlame()
-  :silent execute '!git blame %:p'
-  " Fix empty vim window by forcing a redraw
-  :redraw!
-endfu
-
-
 function! MoveVisualSelectionToFile()
   " copy current visual selection to x register
   normal gv"xy

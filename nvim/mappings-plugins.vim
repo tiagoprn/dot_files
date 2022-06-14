@@ -69,3 +69,6 @@ nnoremap <silent> t :AerialToggle<CR>| " (lsp) code navigation through classes a
 nnoremap <silent> <leader>ss :SessionManager save_current_session<CR>| " (sessions) save current session
 nnoremap <silent> <leader>sl :SessionManager load_session<CR>| " (sessions) load session
 nnoremap <silent> <leader>sd :SessionManager delete_session<CR>| "  (sessions) delete session
+
+" git blame
+nnoremap <silent> <F4> :BlameLineToggle<CR>| " (git blame) toggle on/off
