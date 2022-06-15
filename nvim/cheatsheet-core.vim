@@ -104,12 +104,12 @@
 " :gF | " open text file/directory under cursor on the line (works 'magically' if there is a file/directory under the current cursor. E.g. `file.py:75`)
 " :gx | " open file/directory under cursor with the corresponding application (xdg-open like)
 " Vjjjj :normal @a | " (macros) run macro 'a' on selected lines
-" :set spell! | " (spellcheck) toggle spell checking
 " ]s | " (spellcheck) jump to the next misspelled word
 " [s | " (spellcheck) jump to the previous misspelled word
 " z= | " (spellcheck) bring up the suggested replacements
 " zg | " (spellcheck) add the word under the cursor to the dictionary
 " zw | " (spellcheck) undo and remove the word from the dictionary
+" zug | " (spellcheck) remove last word added to the dictionary
 " :args /full/path/**/*.txt | " (global search/replace) 01 - populate args list with a list of files (recursively)
 " :argdo %s/old/new/g | " (global search/replace) 02 - replace on all files on the args list
 " :argdo update | " (global search/replace) 03 - save all files on the args list
