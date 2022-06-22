@@ -2,7 +2,7 @@
 
 nnoremap <C-u> :undo<CR>| " (core) undo changes
 nnoremap <Leader><Space> :w!<CR>| " (core) save file
-nnoremap <C-o> :bufdo w! \| :q!<CR>| " (core) save all files and close/quit
+nnoremap <C-Space> :bufdo w! \| :q!<CR>| " (core) save all files and close/quit
 nnoremap <C-x> :qa!<CR>| " (core) close/quit without saving
 nnoremap <C-e> :e<CR>| " (core) reload file
 
