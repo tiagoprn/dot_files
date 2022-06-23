@@ -3,7 +3,7 @@ local M = {}  -- creates a new table here to isolate from the global scope
 function M.searchZettel()
   require('telescope.builtin').live_grep {
     prompt_title = "\\ Search Zettel /",
-    cwd = "/storage/docs/notes/zettelkasten/cards/",
+    cwd = "/storage/src/writeloop/fleeting-content/zettelkasten",
   }
 end
 

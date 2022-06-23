@@ -20,7 +20,7 @@ end
 
 function M.createZettel()
   -- local directory = '/tmp/zettelkasten/cards'
-  local directory = '/storage/docs/notes/zettelkasten/cards'
+  local directory = '/storage/src/writeloop/fleeting-content/zettelkasten'
   local exCommandsFile = '/storage/src/dot_files/nvim/ex-commands/zettel.ex'
   h.createTimestampedFileWithSnippet(directory, exCommandsFile)
 end
