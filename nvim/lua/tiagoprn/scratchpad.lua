@@ -27,7 +27,7 @@ end
 
 function M.createFlashCard()
   -- local directory = '/tmp/flashcards'
-  local directory = '/storage/docs/notes/flashcards'
+  local directory = '/storage/src/writeloop/fleeting-content/flashcards'
   local exCommandsFile = '/storage/src/dot_files/nvim/ex-commands/flashcard.ex'
   h.createTimestampedFileWithSnippet(directory, exCommandsFile)
 end
