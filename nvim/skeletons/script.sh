@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 set -eou pipefail
 
@@ -14,6 +14,7 @@ no_args="true"
 while getopts ":p:" arg; do
   case $arg in
     p) VALUE=$OPTARG;;
+    *) echo "invalid parameter" && { usage; exit 1; }
   esac
   no_args="false"
 done

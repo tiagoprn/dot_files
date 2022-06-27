@@ -148,6 +148,10 @@ super + d
 super + x
  	$HOME/apps/scripts/bin/dm-drag-and-drop-screenshot.sh
 
+# drag-and-drop any file:
+super + shift + x
+ 	$HOME/apps/scripts/bin/dm-drag-and-drop-any-file.sh
+
 # terminal:
 super + Return
 	$HOME/apps/scripts/bin/terminal.sh
