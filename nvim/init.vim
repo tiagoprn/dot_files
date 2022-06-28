@@ -89,6 +89,9 @@ highlight CursorColumn guibg=#303000 ctermbg=238
 set grepprg=rg\ --vimgrep
 set grepformat^=%f:%l:%c:%m
 
+" --- setup python virtualenv that has nvim requirements installed - check this repository README.md for details
+let g:python3_host_prog = '~/.pyenv/versions/neovim/bin/python'
+
 " --- OTHER SETTINGS
 
 source $HOME/.config/nvim/functions.vim

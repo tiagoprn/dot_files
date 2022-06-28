@@ -91,6 +91,20 @@ require'tiagoprn.scratchpad'.createQuickNote()
 
 - To see the plugin output: `:messages`, to clear all messages: `:messages clear`
 
+## Setting up the environment for python development
+
+To be able to use virtualenvs in python projects but not have to install the library pynvim on each one of them, I can create a virtualenv called neovim (e.g. on python 3.10+), and install the nvim requirements there. Then, the configuration `g:python3_host_prog` on my `init.vim` will point to the python interpreter that has the integration library. Reference: <https://neovim.io/doc/user/provider.html#python-virtualenv>
+
+E.g. on how to setup that virtualenv (adapted to my workflow):
+
+```bash
+$ pyenv virtualenv 3.10.4 neovim
+$ pyenv activate neovim
+$ pip install -r /storage/src/devops/python/requirements.nvim-lsp  # https://github.com/tiagoprn/devops/blob/master/python/requirements.nvim-lsp
+```
+
+That will install not only pynvim, but also other packages related to python LSP on neovim (python-language-server e.g.)
+
 ## Other
 
 - `viminfo` on neovim: Instead of the viminfo format, neovim uses `shada` files. For more details: `:h shada`. In linux, the default path of this file is: `$HOME/.local/share/nvim/shada/main.shada`.
