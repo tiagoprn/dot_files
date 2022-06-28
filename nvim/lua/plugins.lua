@@ -90,6 +90,10 @@ return require('packer').startup(function()
   -- supported fork from above
   use {'tami5/lspsaga.nvim'}
 
+
+  use {'jose-elias-alvarez/null-ls.nvim'}
+
+
   use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
