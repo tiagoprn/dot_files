@@ -27,17 +27,7 @@ $ sudo apt install -y npm
 $ sudo snap install bash-language-server
 ```
 
-TODO: remove notes and files related to efm (since I will change to null-ls, that does not require any additional formatters/linters to be installed).
-
-- Install efm-langserver (flexible language server to allow configuring custom linters and formatters for multiple languages using lsp):
-```
-$ go get github.com/mattn/efm-langserver
-$ sudo cp ~/go/bin/efm-langserver /usr/bin
-# IMPORTANT: The efm configuration can be found on this repository at 'efm-langserver/config.yaml'.
-```
-NOTES: efm runs as an additional Language Server attached for doing formatting, linting. No problem at all with built-in lsp. efm is really cool and you can configure in one place every format/lint tools you want depending on the language. It's a must have and as it's written in Go you can expect it to be light and fast.
-
-- Then, run:
+- Install - Then, run:
 ```
 $ nvim
 
