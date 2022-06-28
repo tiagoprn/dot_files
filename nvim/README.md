@@ -27,6 +27,8 @@ $ sudo apt install -y npm
 $ sudo snap install bash-language-server
 ```
 
+TODO: remove notes and files related to efm (since I will change to null-ls, that does not require any additional formatters/linters to be installed).
+
 - Install efm-langserver (flexible language server to allow configuring custom linters and formatters for multiple languages using lsp):
 ```
 $ go get github.com/mattn/efm-langserver
@@ -103,7 +105,7 @@ $ pyenv activate neovim
 $ pip install -r /storage/src/devops/python/requirements.nvim-lsp  # https://github.com/tiagoprn/devops/blob/master/python/requirements.nvim-lsp
 ```
 
-That will install not only pynvim, but also other packages related to python LSP on neovim (python-language-server e.g.)
+That will install not only pynvim, but also other packages related to python LSP on neovim (pylsp, black, pylint, isort, etc...) on this common environment. If the need arises to use different versions of any of them, I can manually install thelibraries at `/storage/src/devops/python/requirements.nvim-lsp` on the project's virtualenv.
 
 ## Other
 
