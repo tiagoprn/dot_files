@@ -156,6 +156,6 @@
 " nvim -S [path-to-session-file] | " (sessions) open nvim with the buffers from the session file
 " (INSERT MODE)<ctrl-k> <digraph_code>  | " (special chars/digraphs) insert a special char / digraph (ex.: subscript, superscript, TM symbol, etc...)
 " :digraph  | " (special chars/digraphs) show a table of special chars / digraphs to use on INSERT MODE (ex.: subscript, superscript, TM symbol, etc...)
-
+" :checkhealth | " (core,diagnostics) nvim health
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.
