@@ -97,6 +97,7 @@ $ pip install -r /storage/src/devops/python/requirements.nvim-lsp  # https://git
 
 That will install not only pynvim, but also other packages related to python LSP on neovim (pylsp, black, pylint, isort, etc...) on this common environment. If the need arises to use different versions of any of them, I can manually install thelibraries at `/storage/src/devops/python/requirements.nvim-lsp` on the project's virtualenv.
 
+
 ## Other
 
 - `viminfo` on neovim: Instead of the viminfo format, neovim uses `shada` files. For more details: `:h shada`. In linux, the default path of this file is: `$HOME/.local/share/nvim/shada/main.shada`.
