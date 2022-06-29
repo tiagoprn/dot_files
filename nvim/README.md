@@ -24,25 +24,33 @@ That will install not only pynvim, but also other packages related to python LSP
 
 #### bash
 
+- Bash Language Server:
+```bash
+$ sudo snap install bash-language-server
 ```
-# shfmt: a formatter for shell scripts
+
+- shellcheck: linter
+```bash
+$ sudo apt install -y shellcheck
+```
+
+- shfmt: formatter for shell scripts:
+```bash
 $ GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
 $ sudo cp ~/go/bin/shfmt /usr/bin/
+```
 
-# linter
-$ sudo apt install -y shellcheck
-
-# Treesitter parsers
+- Treesitter parsers (they are installed through npm):
+```bash
 $ sudo apt install -y npm
-
-# Language Server
-$ sudo snap install bash-language-server
 ```
 
 #### lua
 
+- lua-language-server (sumneko): Download a release from this page: <https://github.com/sumneko/lua-language-server/releases>
+
+- stylua: install using rust package manager:
 ```bash
-$ # TODO: sumneko
 $ cargo install stylua
 ```
 
