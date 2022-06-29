@@ -19,11 +19,15 @@ local sources = {
     }),
   require("null-ls").builtins.diagnostics.shellcheck.with({
     command = "shellcheck",
-    extra_args = {"-f", "gcc", "-x"}
+    extra_args = { "-f", "gcc", "-x" }
   }),
   require("null-ls").builtins.formatting.shfmt.with({
+    -- command = "shfmt -ci -s -bn -i 4 -kp -w $FILENAME ",
+    -- args = { "-ci", "-s", "-bn", "-i", "4", "-kp", "-w", "$FILENAME" },
+    -- args = {},
+    -- extra_args = {}
     command = "shfmt",
-    extra_args = {"-ci", "-s", "-bn"}
+    extra_args = { "-ci", "-s", "-bn", "-i", "4", "-kp"},
   }),
 }
 
@@ -33,4 +37,12 @@ null_ls.setup({
   sources = sources,
   debug = true, -- "false" when finished debugging, "true" to inspect logs
   diagnostics_format = "[#{c}] #{m} (#{s})",
+  on_attach = function(client)
+    print("rrrrrrrrr - Hello from ATTACHING: ")
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ timeout_ms = 2000 })")
+    -- if client.server_capabilities.document_formatting then
+    --   print("rrrrrrrrr - WILL RUN")
+    --   vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ timeout_ms = 2000 })")
+    -- end
+  end
 })
