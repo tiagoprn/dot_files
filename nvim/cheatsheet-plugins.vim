@@ -45,4 +45,6 @@
 " :TSInstall <language>  | " install a treesitter language from the list
 
 " <C-Space> | " (nvim-cmp) auto-complete (snippets, lsp, buffer)
-
+" :LspInfo | " (lsp,diagnostics) LSP information
+" :NullLsInfo | " (lsp,diagnostics) Info to check null-ls (which provides formattters and linters)
+" :checkhealth telescope | " (telescope,diagnostics) Telescope Health
