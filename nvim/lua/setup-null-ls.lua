@@ -1,3 +1,6 @@
+-- buitin sources:
+--   <https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md>
+
 -- Documentation on how to setup the builtin sources (formatters, linters, completion), like the ones below:
 --   <https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md>
 
