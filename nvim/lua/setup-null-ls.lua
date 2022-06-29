@@ -34,7 +34,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 require("null-ls").setup({
   sources = sources,
-  debug = true, -- "false" when finished debugging, "true" to inspect logs
+  debug = false, -- "false" when finished debugging, "true" to inspect logs
   diagnostics_format = "[#{c}] #{m} (#{s})",
 
   on_attach = function(client, bufnr)
