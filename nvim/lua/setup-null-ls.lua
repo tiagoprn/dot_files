@@ -1,6 +1,9 @@
 -- Documentation on how to setup the builtin sources (formatters, linters, completion), like the ones below:
 --   <https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md>
 
+-- How to configure "formatting on save":
+--   <https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save>
+
 local sources = {
   -- require("null-ls").builtins.completion.spell,
   require("null-ls").builtins.diagnostics.pylint.with({
@@ -27,16 +30,25 @@ local sources = {
   }),
 }
 
-local null_ls = require("null-ls")
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-null_ls.setup({
+require("null-ls").setup({
   sources = sources,
   debug = true, -- "false" when finished debugging, "true" to inspect logs
   diagnostics_format = "[#{c}] #{m} (#{s})",
-  on_attach = function(client)
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ timeout_ms = 2000 })")
-    -- if client.server_capabilities.document_formatting then
-    --   vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ timeout_ms = 2000 })")
-    -- end
-  end
+
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+          vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 2000 })
+        end,
+      })
+    end
+  end,
 })
+
