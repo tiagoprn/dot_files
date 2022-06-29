@@ -22,12 +22,8 @@ local sources = {
     extra_args = { "-f", "gcc", "-x" }
   }),
   require("null-ls").builtins.formatting.shfmt.with({
-    -- command = "shfmt -ci -s -bn -i 4 -kp -w $FILENAME ",
-    -- args = { "-ci", "-s", "-bn", "-i", "4", "-kp", "-w", "$FILENAME" },
-    -- args = {},
-    -- extra_args = {}
     command = "shfmt",
-    extra_args = { "-ci", "-s", "-bn", "-i", "4", "-kp"},
+    extra_args = { "-ci", "-s", "-bn", "-i", "4" },
   }),
 }
 
@@ -38,10 +34,8 @@ null_ls.setup({
   debug = true, -- "false" when finished debugging, "true" to inspect logs
   diagnostics_format = "[#{c}] #{m} (#{s})",
   on_attach = function(client)
-    print("rrrrrrrrr - Hello from ATTACHING: ")
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ timeout_ms = 2000 })")
     -- if client.server_capabilities.document_formatting then
-    --   print("rrrrrrrrr - WILL RUN")
     --   vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ timeout_ms = 2000 })")
     -- end
   end
