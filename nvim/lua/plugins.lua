@@ -53,6 +53,9 @@ return require("packer").startup(function()
 	-- float term (floating terminal, useful to trigger lazygit and other commands)
 	use({ "voldikss/vim-floaterm" })
 
+	-- vim-notify
+	use({ "rcarriga/nvim-notify" })
+
 	-- A tree project view
 	use({
 		"kyazdani42/nvim-tree.lua",

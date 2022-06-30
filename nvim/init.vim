@@ -92,6 +92,13 @@ set grepformat^=%f:%l:%c:%m
 " --- setup python virtualenv that has nvim requirements installed - check this repository README.md for details
 let g:python3_host_prog = '~/.pyenv/versions/neovim/bin/python'
 
+" --- LUA CONFIGURATION
+
+lua << EOF
+vim.notify = require("notify")
+vim.notify.setup()
+EOF
+
 " --- OTHER SETTINGS
 
 source $HOME/.config/nvim/functions.vim
@@ -102,6 +109,8 @@ source $HOME/.config/nvim/hooks.vim
 source $HOME/.config/nvim/mappings-core.vim
 source $HOME/.config/nvim/mappings-commands.vim
 source $HOME/.config/nvim/mappings-functions.vim
+
+" --- PLUGINS
 
 lua require('plugins')
 lua require('nvim-cmp')

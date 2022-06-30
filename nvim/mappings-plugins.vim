@@ -18,6 +18,7 @@ nnoremap <leader>tt :Telescope help_tags<cr>| " (telescope) tags
 nnoremap <leader>tm :Telescope man_pages<cr>| " (telescope) open man page
 nnoremap <leader>tc :Telescope colorscheme<cr>| " (telescope) browser color schemes
 nnoremap <silent>gr :lua require'telescope.builtin'.lsp_references{}<CR>| "(telescope) search over variable references from your LSP
+nnoremap <leader>tn :Telescope notify<cr>| " (telescope) show notifications history
 
 " -- surround
 " csw` | " (surround) surround current word with ` - you can use [({ instead of `
