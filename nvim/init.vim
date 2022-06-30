@@ -129,6 +129,7 @@ lua require('aerial-code-navigation')
 lua require('telescope-conf')
 lua require('sessions')
 lua require('gitsigns-conf')
+lua require('lualine-conf')
 
 source $HOME/.config/nvim/conf-plugins/floaterm.vim
 source $HOME/.config/nvim/conf-plugins/marvim.vim

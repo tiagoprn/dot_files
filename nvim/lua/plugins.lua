@@ -32,16 +32,9 @@ return require("packer").startup(function()
 		as = "catppuccin",
 	})
 
-	-- statusline
 	use({
-		"glepnir/galaxyline.nvim",
-		branch = "main",
-		-- your statusline
-		config = function()
-			require("statusline")
-		end,
-		-- some optional icons
-		requires = { "kyazdani42/nvim-web-devicons" },
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
 	-- markdown syntax highlighting
