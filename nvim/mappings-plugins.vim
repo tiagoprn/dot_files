@@ -70,5 +70,9 @@ nnoremap <silent> <leader>ss :SessionManager save_current_session<CR>| " (sessio
 nnoremap <silent> <leader>sl :SessionManager load_session<CR>| " (sessions) load session
 nnoremap <silent> <leader>sd :SessionManager delete_session<CR>| "  (sessions) delete session
 
-" git blame
-nnoremap <silent> <F4> :BlameLineToggle<CR>| " (git blame) toggle on/off
+" gitsigns
+nnoremap <silent> <leader>gb :Gitsigns blame_line<CR>| " (gitsigns) blame line
+nnoremap <silent> <leader>gj :Gitsigns next_hunk<CR>| "  (gitsigns) go to next changed hunk
+nnoremap <silent> <leader>gk :Gitsigns prev_hunk<CR>| "  (gitsigns) go to next changed hunk
+nnoremap <silent> <leader>gp :Gitsigns preview_hunk<CR>| "  (gitsigns) preview hunk
+
