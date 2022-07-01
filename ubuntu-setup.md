@@ -139,6 +139,13 @@ $ cd /storage/src/dot_files/app-launchers && ./setup-app-launcher.sh
 ## ripgrep:
 $ cargo install ripgrep
 
+## glow:
+(to render markdown files on CLI)
+$ git clone https://github.com/charmbracelet/glow.git
+$ cd glow
+$ go build
+$ cp glow ~/.local/bin
+
 ## navi:
 $ cargo install navi
 

@@ -36,14 +36,16 @@ snippet sig
 	twitter.com/tiagoprn
 
 snippet post
-	slug: ${1:content-slug-here}
-	date: `strftime("%Y-%m-%d %H:%M:%S")`
-	tags: [${2:tag1,}]
-	published: `strftime("%Y-%m-%d %H:%M:%S")`
-	summary: ${3:the post title}
-	public: yes
+	+++
+	author = "Tiago Paranhos Lima"
+	title = ${1}
+	date = `strftime("%Y-%m-%d")`
+	description = ${2}
+	tags = [${3:"tag1",}]
+	hidden = true
+	+++
 
-	${4:contents}
+	${4}
 
 snippet ztk
 	${2:Title}
