@@ -157,5 +157,6 @@
 " (INSERT MODE)<ctrl-k> <digraph_code>  | " (special chars/digraphs) insert a special char / digraph (ex.: subscript, superscript, TM symbol, etc...)
 " :digraph  | " (special chars/digraphs) show a table of special chars / digraphs to use on INSERT MODE (ex.: subscript, superscript, TM symbol, etc...)
 " :checkhealth | " (core,diagnostics) nvim health
+" :luafile % | " (core) reload current open lua plugin config file - use after lua config file changes (e.g. lualine-conf.lua)
 
 " TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.

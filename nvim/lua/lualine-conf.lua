@@ -9,15 +9,18 @@ require("lualine").setup({
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {},
 		always_divide_middle = true,
-		globalstatus = false,
+		globalstatus = true, -- enable global statusline (have a single statusline at bottom of neovim instead of one for every window).
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_b = { "branch", "diff" },
 		lualine_c = { "filename" },
-		lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
+		lualine_x = {
+			{ "diagnostics", sources = { "nvim_lsp" }, always_visible = true },
+			"filetype",
+		},
+		lualine_y = { "location" },
+		lualine_z = { "progress" },
 	},
 	inactive_sections = {
 		lualine_a = {},
