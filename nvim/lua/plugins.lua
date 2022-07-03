@@ -44,7 +44,7 @@ return require("packer").startup(function()
 	})
 	--
 	-- float term (floating terminal, useful to trigger lazygit and other commands)
-	use({ "voldikss/vim-floaterm" })
+	use({ "akinsho/toggleterm.nvim" })
 
 	-- vim-notify
 	use({ "rcarriga/nvim-notify" })

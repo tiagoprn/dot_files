@@ -130,8 +130,8 @@ lua require('telescope-conf')
 lua require('sessions')
 lua require('gitsigns-conf')
 lua require('lualine-conf')
+lua require('toggleterm-conf')
 
-source $HOME/.config/nvim/conf-plugins/floaterm.vim
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim
 source $HOME/.config/nvim/mappings-plugins.vim

@@ -44,12 +44,11 @@ nnoremap <silent> <leader>la :Lspsaga code_action<CR>| " (lsp-saga) code action
 vnoremap <silent> <leader>la :<C-U>Lspsaga range_code_action<CR>| " (lsp-saga) code action
 inoremap <silent> <C-s> :Lspsaga signature_help<CR>| " (lsp-saga) (INSERT mode) signature help
 
-" floatterm special terminals, to trigger special commands
-nnoremap <leader>u :FloatermNew lazygit<cr>| " (floaterm) lazygit ui
-nnoremap <leader>du :FloatermNew ncdu<cr>| " (floaterm) directory size
-nnoremap <leader>py :FloatermNew python<cr>| " (floaterm) default python interpreter
-nnoremap <leader>py2 :FloatermNew python2<cr>| " (floaterm) default python2 interpreter
-nnoremap <leader>py3 :FloatermNew python3<cr>| " (floaterm) default python3 interpreter
+" toggleterm special terminals, to trigger special commands
+nnoremap <leader>u <cmd>:lua _LAZYGIT_TOGGLE()<CR>| " (toggleterm) lazygit ui
+nnoremap <leader>du <cmd>:lua _NCDU_TOGGLE()<CR>| " (toggleterm) directory size
+nnoremap <leader>tt :ToggleTerm direction=horizontal size=10<CR>| " (toggleterm) blank terminal
+
 
 " nvim-tree (a project directory tree)
 nnoremap <F3> :NvimTreeToggle<CR>| " (function-keys) toggle project directory tree
