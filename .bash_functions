@@ -219,8 +219,8 @@ function cdb() {  # cd into a path defined on the bookmarks file
 		echo "File $BOOKMARKS_FILE_PATH successfully created."
 	fi
 
-	SELECTED_DIR=$(cat $BOOKMARKS_FILE_PATH | fzf )
+	SELECTED_DIR=$(cat $BOOKMARKS_FILE_PATH | fzf | cut -d '|' -f 1 )
 	echo "Entering $SELECTED_DIR..."
-	cd $SELECTED_DIR
+	cd "$SELECTED_DIR"
 }
 

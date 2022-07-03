@@ -15,3 +15,5 @@
 /storage/src/writeloop/fleeting-content/flashcards
 /storage/src/writeloop/fleeting-content/mind-maps
 /storage/src/writeloop/fleeting-content/zettelkasten
+/home/tiago/.local/share/nvim | state and data - e.g. sessions
+/home/tiago/.cache/nvim | logs, cache, etc.... (plugins by convention should put here - if not here it is probably on .local/share)
