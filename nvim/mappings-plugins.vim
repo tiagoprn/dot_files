@@ -48,7 +48,6 @@ inoremap <silent> <C-s> :Lspsaga signature_help<CR>| " (lsp-saga) (INSERT mode) 
 
 " toggleterm special terminals, to trigger special commands
 nnoremap <leader>u <cmd>:lua _LAZYGIT_TOGGLE()<CR>| " (toggleterm) lazygit ui
-nnoremap <leader>du <cmd>:lua _NCDU_TOGGLE()<CR>| " (toggleterm) directory size
 nnoremap <leader>tt :ToggleTerm direction=horizontal size=10<CR>| " (toggleterm) blank terminal
 
 " nvim-tree (a project directory tree)
