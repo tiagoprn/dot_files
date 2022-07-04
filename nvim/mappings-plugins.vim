@@ -49,6 +49,8 @@ inoremap <silent> <C-s> :Lspsaga signature_help<CR>| " (lsp-saga) (INSERT mode) 
 " toggleterm special terminals, to trigger special commands
 nnoremap <leader>u <cmd>:lua _LAZYGIT_TOGGLE()<CR>| " (toggleterm) lazygit ui
 nnoremap <leader>tt :ToggleTerm direction=horizontal size=10<CR>| " (toggleterm) blank terminal
+nnoremap <leader>tty :ToggleTermSendCurrentLine<CR>| " (toggleterm) copy current line to terminal
+vnoremap <leader>ttv :ToggleTermSendVisualSelection<CR>| " (toggleterm) copy visual selection to terminal
 
 " nvim-tree (a project directory tree)
 nnoremap <F3> :NvimTreeToggle<CR>| " (function-keys) toggle project directory tree
