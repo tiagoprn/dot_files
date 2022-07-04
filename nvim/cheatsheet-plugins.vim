@@ -47,4 +47,6 @@
 " <C-Space> | " (nvim-cmp) auto-complete (snippets, lsp, buffer)
 " :LspInfo | " (lsp,diagnostics) LSP information
 " :NullLsInfo | " (lsp,diagnostics) Info to check null-ls (which provides formattters and linters)
+" <C-j> | "(lsp,nvim-cmp) navigate down on selected completion function/method docs
+" <C-k> | "(lsp,nvim-cmp) navigate up on selected completion function/method docs
 " :checkhealth telescope | " (telescope,diagnostics) Telescope Health

@@ -12,9 +12,9 @@ cmp.setup({
 	},
 	mapping = {
 		-- navigate up on selected function/method docs:
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
+		["<C-k>"] = cmp.mapping.scroll_docs(-4),
 		-- navigate down on selected function/method docs:
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-j>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete({
 			config = {
 				sources = {
