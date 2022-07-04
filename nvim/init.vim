@@ -114,6 +114,7 @@ source $HOME/.config/nvim/mappings-functions.vim
 
 lua require('plugins')
 lua require('nvim-cmp')
+lua require('cmp-path-conf')
 lua require('lua-lsp')
 lua require('python-lsp')
 lua require('bash-lsp')
