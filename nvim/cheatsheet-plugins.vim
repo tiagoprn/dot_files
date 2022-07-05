@@ -44,9 +44,32 @@
 " :TSInstallInfo  | " see all available treesitter languages list
 " :TSInstall <language>  | " install a treesitter language from the list
 
-" <C-Space> | " (nvim-cmp) auto-complete (snippets, lsp, buffer)
 " :LspInfo | " (lsp,diagnostics) LSP information
 " :NullLsInfo | " (lsp,diagnostics) Info to check null-ls (which provides formattters and linters)
+
+" <C-Space> | " (nvim-cmp) auto-complete (snippets, lsp, buffer)
 " <C-j> | "(lsp,nvim-cmp) navigate down on selected completion function/method docs
 " <C-k> | "(lsp,nvim-cmp) navigate up on selected completion function/method docs
+
 " :checkhealth telescope | " (telescope,diagnostics) Telescope Health
+
+" <C-v> | " (nvim-tree) vsplit
+" <C-x> | " (nvim-tree) split
+" <C-t> | " (nvim-tree) tabnew
+" <Tab> | " (nvim-tree) preview
+" I | " (nvim-tree) toggle_git_ignored
+" H | " (nvim-tree) toggle_dotfiles
+" R | " (nvim-tree) refresh
+" a | " (nvim-tree) create
+" d | " (nvim-tree) remove
+" r | " (nvim-tree) rename
+" x | " (nvim-tree) cut
+" c | " (nvim-tree) copy
+" p | " (nvim-tree) paste
+" y | " (nvim-tree) copy_name
+" Y | " (nvim-tree) copy_path
+" <gy> | " (nvim-tree) copy_absolute_path
+" q | " (nvim-tree) close
+" W | " (nvim-tree) collapse_all
+" E | " (nvim-tree) expand_all
+" <C-k> | " (nvim-tree) toggle_file_info
