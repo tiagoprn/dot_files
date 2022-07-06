@@ -140,9 +140,37 @@ super + z
 super + c
 	clippy_rofi.py
 
-# cheatsheets menu:
-super + d
- 	$HOME/apps/scripts/bin/dmcheatsheets-menu.sh
+# cheatsheet - bspwm/sxhkd:
+super + d; 1
+	$HOME/apps/scripts/bin/sxhkd-print-cheatsheet.py | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a sxhkd binding:'
+
+# cheatsheet - bash functions and aliases:
+super + d; b
+	$HOME/apps/scripts/bin/bash-functions-and-aliases-cheatsheet.sh
+
+# cheatsheet - ipdb:
+super + d; i
+	$HOME/apps/scripts/bin/ipdb-dmenu-cheatsheet.sh
+
+# cheatsheet - neovim:
+super + d; n
+	$HOME/apps/scripts/rofi/vim_shortcuts.py -f neovim
+
+# cheatsheet - vim:
+super + d; v
+	$HOME/apps/scripts/rofi/vim_shortcuts.py -f vim
+
+# cheatsheet - tmux:
+super + d; t
+	$HOME/apps/scripts/bin/tmux-dmenu-cheatsheet.sh
+
+# cheatsheet - git:
+super + d; g
+	$HOME/apps/scripts/bin/git-print-cheatsheet.py | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a git alias:'
+
+# cheatsheet - qutebrowser:
+super + d; q
+	$HOME/apps/scripts/bin/qutebrowser-dmenu-cheatsheet.sh
 
 # drag-and-drop screenshot taken today:
 super + x
