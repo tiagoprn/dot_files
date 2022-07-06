@@ -17,5 +17,6 @@
 /storage/src/writeloop/fleeting-content/zettelkasten
 /home/tiago/.local/share/nvim | state and data - e.g. sessions
 /home/tiago/.cache/nvim | logs, cache, etc.... (plugins by convention should put here - if not here it is probably on .local/share)
+/home/tiago/.local/share/nvim/site/pack/packer/start | packer plugins directory (where it downloads the plugins git repos)
 /storage/src/python-snippets
 /storage/src/dot_files/text_snippets
