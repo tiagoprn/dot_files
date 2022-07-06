@@ -140,9 +140,13 @@ super + z
 super + c
 	clippy_rofi.py
 
-# cheatsheet - bspwm/sxhkd:
-super + d; 1
-	$HOME/apps/scripts/bin/sxhkd-print-cheatsheet.py | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a sxhkd binding:'
+# cheatsheet - (MAIN) bspwm/sxhkd:
+super + d; d
+	$HOME/apps/scripts/bin/sxhkd-print-cheatsheet.py | sort | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a sxhkd binding:'
+
+# cheatsheet - alacritty:
+super + d; a
+	$HOME/apps/scripts/bin/alacritty-dmenu-cheatsheet.sh
 
 # cheatsheet - bash functions and aliases:
 super + d; b
