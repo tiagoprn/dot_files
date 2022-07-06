@@ -100,6 +100,9 @@ return require("packer").startup(function()
 		requires = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "dcampos/cmp-snippy" },
 	})
 
+	-- -- lsp signatures when hovering over methods
+	use({ "ray-x/lsp_signature.nvim" })
+
 	-- cmp source to complete filesystem paths
 	use({ "/hrsh7th/cmp-path" })
 
