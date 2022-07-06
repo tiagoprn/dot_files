@@ -60,9 +60,7 @@ $ cargo install stylua
 
 - To (re)set your environment, run the script `../configure_neovim.sh` on the previous directory. It will delete existing environment and clone the packer repo.
 
-- Install programs to allow lsp support for bash shellscripts:
-
-- Install - Then, run:
+- Run:
 ```
 $ nvim
 
@@ -72,7 +70,7 @@ $ nvim
 :PackerSync
 ```
 
-- To see the plugin output: `:messages`, to clear all messages: `:messages clear`
+- To see the plugins output: `:messages`, to clear all messages: `:messages clear`
 
 
 ## Other
