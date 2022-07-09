@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo "$(python /storage/src/devops/bin/show_current_keyboard_layout.py)"

@@ -1,4 +1,0 @@
-[Desktop]
-# Session=lightdm-xsession
-# Session=i3
-Session=dwm
