@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Original script name: dmkill
+# Description: Search for a process to kill.
+# Dependencies: dmenu
+# GitLab: https://www.gitlab.com/dwt1/dmscripts
+# License: https://www.gitlab.com/dwt1/dmscripts/LICENSE
+# Contributors: Derek Taylor
+
+# Running ps to get running processes and display in dmenu.
+selected="$(ps --user "$(id -u)" -F | \
+            dmenu -i -l 20 -p "Search for USER process to kill:" "$@" | \
+            awk '{print $2" "$11}')";
+
+# Nested 'if' statements.  The outer 'if' statement is what to do
+# when we select one of the 'selected' options listed in dmenu.
+if [[ -n $selected ]]; then
+
+    # Piping No/Yes into dmenu as a safety measure, in case you
+    # select a process that you don't actually want killed.
+    answer="$(echo -e "No\nYes" | dmenu -i -p "Kill $selected?" "$@")"
+
+    if [[ $answer == "Yes" ]]; then
+        selpid="$(awk '{print $1}' <<< "$selected")";
+        kill -9 "$selpid"
+    echo "Process $selected has been killed." && exit 0
+    fi
+
+    if [[ $answer == "No" ]]; then
+    echo "Program terminated." && exit 0
+    fi
+fi
+
+exit 0

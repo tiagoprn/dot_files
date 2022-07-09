@@ -210,6 +210,11 @@ if command -v starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
 
+TILING_WM_SCRIPTS_PATH="/storage/src/dot_files/tiling-window-managers/scripts"
+if [ -d "$TILING_WM_SCRIPTS_PATH" ]; then
+    export PATH="$PATH:$TILING_WM_SCRIPTS_PATH"
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
 eval "$(pyenv init --path)"
