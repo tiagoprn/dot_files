@@ -201,7 +201,7 @@ format-background = ${colors.background}
 
 [module/custom-dunst-status]
 type = custom/script
-exec = ~/apps/scripts/bin/statusbar/sb-dunst-status
+exec = sb-dunst-status
 interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -230,7 +230,7 @@ label = %date% %time%
 
 [module/custom-kdbleds]
 type = custom/script
-exec = ~/apps/scripts/bin/statusbar/sb-kbdleds
+exec = sb-kbdleds
 interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -243,7 +243,7 @@ format-underline = #0084FF
 
 [module/custom-volume]
 type = custom/script
-exec = ~/apps/scripts/bin/statusbar/sb-volume
+exec = sb-volume
 tail = true
 interval = 1
 format-foreground = ${colors.foreground}
@@ -294,7 +294,7 @@ label-mounted = %mountpoint% %percentage_used%%
 
 [module/custom-memory]
 type = custom/script
-exec = ~/apps/scripts/bin/statusbar/sb-memory
+exec = sb-memory
 interval = 5
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -307,7 +307,7 @@ format-prefix-foreground = #FFFFF
 
 [module/custom-loadavg]
 type = custom/script
-exec = ~/apps/scripts/bin/statusbar/sb-loadavg
+exec = sb-loadavg
 interval = 5
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -320,7 +320,7 @@ format-prefix-foreground = #FFFFF
 
 [module/custom-cpu]
 type = custom/script
-exec = ~/apps/scripts/bin/statusbar/sb-cpu
+exec = sb-cpu
 interval = 5
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -333,7 +333,7 @@ format-prefix-foreground = #FFFFF
 
 [module/custom-temperature]
 type = custom/script
-exec = ~/apps/scripts/bin/statusbar/sb-temperature
+exec = sb-temperature
 interval = 5
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -346,7 +346,7 @@ format-prefix-foreground = #FFFFF
 
 [module/custom-battery]
 type = custom/script
-exec = ~/apps/scripts/bin/statusbar/sb-battery
+exec = sb-battery
 interval = 5
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}

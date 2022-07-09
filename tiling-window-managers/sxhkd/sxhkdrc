@@ -53,7 +53,7 @@ alt + b
 
 # customize caps lock:
 alt + c
-	$HOME/apps/scripts/bin/customize_capslock.sh
+	customize_capslock.sh
 
 # htop:
 alt + h
@@ -61,15 +61,15 @@ alt + h
 
 # toggle keyboards:
 alt + k
-	$HOME/apps/scripts/rofi/toggle_keyboards.py
+	toggle_keyboards.py
 
 # toggle compositor:
 alt + o
-	$HOME/apps/scripts/bin/toggle_compositor.sh
+	toggle_compositor.sh
 
 # launch snippets:
 alt + s
-	$HOME/apps/scripts/rofi/snippets.sh
+	snippets.sh
 
 # qutebrowser - work mode:
 alt + shift + b
@@ -114,11 +114,11 @@ super + shift + e
 
 # dmenu launcher (browser, hex colors, kill and run):
 super + shift + r
-	$HOME/apps/scripts/bin/dmlauncher.sh
+	dmlauncher.sh
 
 # dunst notifications menu:
 super + u
-	$HOME/apps/scripts/bin/dmdunst-menu.sh
+	dmdunst-menu.sh
 
 # echo keys typed on screen:
 alt + n
@@ -134,7 +134,7 @@ super + e
 
 # rofi shutdown menu:
 super + z
-	$HOME/apps/scripts/rofi/shutdown.py
+	shutdown.py
 
 # clippy clipboard:
 super + c
@@ -142,75 +142,75 @@ super + c
 
 # cheatsheet - (MAIN) bspwm/sxhkd:
 super + d; d
-	$HOME/apps/scripts/bin/sxhkd-print-cheatsheet.py | sort | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a sxhkd binding:'
+	sxhkd-print-cheatsheet.py | sort | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a sxhkd binding:'
 
 # cheatsheet - alacritty:
 super + d; a
-	$HOME/apps/scripts/bin/alacritty-dmenu-cheatsheet.sh
+	alacritty-dmenu-cheatsheet.sh
 
 # cheatsheet - bash functions and aliases:
 super + d; b
-	$HOME/apps/scripts/bin/bash-functions-and-aliases-cheatsheet.sh
+	bash-functions-and-aliases-cheatsheet.sh
 
 # cheatsheet - ipdb:
 super + d; i
-	$HOME/apps/scripts/bin/ipdb-dmenu-cheatsheet.sh
+	ipdb-dmenu-cheatsheet.sh
 
 # cheatsheet - neovim:
 super + d; n
-	$HOME/apps/scripts/rofi/vim_shortcuts.py -f neovim
+	vim_shortcuts.py -f neovim
 
 # cheatsheet - vim:
 super + d; v
-	$HOME/apps/scripts/rofi/vim_shortcuts.py -f vim
+	vim_shortcuts.py -f vim
 
 # cheatsheet - tmux:
 super + d; t
-	$HOME/apps/scripts/bin/tmux-dmenu-cheatsheet.sh
+	tmux-dmenu-cheatsheet.sh
 
 # cheatsheet - git:
 super + d; g
-	$HOME/apps/scripts/bin/git-print-cheatsheet.py | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a git alias:'
+	git-print-cheatsheet.py | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a git alias:'
 
 # cheatsheet - qutebrowser:
 super + d; q
-	$HOME/apps/scripts/bin/qutebrowser-dmenu-cheatsheet.sh
+	qutebrowser-dmenu-cheatsheet.sh
 
 # drag-and-drop screenshot taken today:
 super + x
- 	$HOME/apps/scripts/bin/dm-drag-and-drop-screenshot.sh
+ 	dm-drag-and-drop-screenshot.sh
 
 # drag-and-drop any file:
 super + shift + x
- 	$HOME/apps/scripts/bin/dm-drag-and-drop-any-file.sh
+ 	dm-drag-and-drop-any-file.sh
 
 # terminal:
 super + Return
-	$HOME/apps/scripts/bin/terminal.sh
+	terminal.sh
 
 # bookmarks:
 super + shift + b
-	$HOME/apps/scripts/rofi/bookmarks.py
+	bookmarks.py
 
 # screenshot - region:
 super + shift + p
-	$HOME/apps/scripts/bin/screenshot.py -s region
+	screenshot.py -s region
 
 # terminal - tmux:
 super + shift + Return
-	$HOME/apps/scripts/bin/terminal-tmux.sh
+	terminal-tmux.sh
 
 # passwords - rofi:
 super + p
-	$HOME/apps/scripts/bin/pass-rofi.sh
+	pass-rofi.sh
 
 # toggle systray (stalonetray):
 super + t
-	$HOME/apps/scripts/bin/toggle-stalonetray.sh
+	toggle-stalonetray.sh
 
 # vim edit text field:
 alt + e
-	$HOME/apps/scripts/bin/vedit.sh
+	vedit.sh
 
 
 ## WM specific
@@ -219,11 +219,11 @@ alt + e
 
 # scratchpad - dropdownterm:
 alt + t
-	bspwm-toggle-visibility-new.sh dropdownterm "$HOME/apps/scripts/bin/terminal-dropdownterm.sh"
+	bspwm-toggle-visibility-new.sh dropdownterm "terminal-dropdownterm.sh"
 
 # scratchpad - flashcards:
 alt + f
-	bspwm-toggle-visibility-new.sh flashcard "$HOME/apps/scripts/bin/flashcard.sh"
+	bspwm-toggle-visibility-new.sh flashcard "flashcard.sh"
 
 # [quit,restart] bspwm:
 super + alt + {q,r}
@@ -289,7 +289,7 @@ super + {Left,Down,Up,Right}
 
 # focus window by name:
 alt + Tab
-	$HOME/apps/scripts/bin/bspwm-focus-window-by-name.sh
+	bspwm-focus-window-by-name.sh
 
 # Rotates the order of the windows on current desktop
 super + space
