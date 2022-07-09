@@ -7,20 +7,14 @@
 alias f='fzf'
 alias g='git'
 
-# opens a vim file with the current time and a line below ready for editing, useful as a journal.
-alias j='mkdir -p /storage/docs && vim +"normal Go" +"r!date" $JOURNAL_FILE +"normal!o-  "'
+# opens a nvim file with the current time and a line below ready for editing, useful as a journal.
+alias j='mkdir -p /storage/docs && nvim +"normal Go" +"r!date" $JOURNAL_FILE +"normal!o-  "'
 
 alias p='pyenv'
 alias s='source ~/.bashrc && source ~/.profile && source ~/.bash_functions && source ~/.bash_aliases'
 
 ## two letter aliases
 alias cc='cd $(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
-# alias ga='git add'
-# alias gc='git commit --'  # this is to avoid passing "-m" without opening vim to edit the message using the semantic commit template.
-# alias gd='git icdiff HEAD --color-moved'
-# alias gf='git fetch'
-# alias gl='git glog'
-# alias gs='git status -s'
 alias gfpl='g f && g pl'
 alias pa='pyenv activate $(pyenv virtualenvs | grep -v "^\s*[0-9]" | cut -d " " -f 3 | fzf)'
 alias pd='pyenv deactivate '
@@ -33,8 +27,8 @@ alias tl='tmux ls'
 alias ta='tmux -2 a -t `tmux-select-session`'
 alias td='tmuxp load /storage/src/devops/tmuxp/default-wide.yml'
 alias tk='tmux kill-session -t `tmux-select-session`'
-alias vg='vim $(git status -s | cut -d " " -f 3)'
-alias vi='vim --clean'  # runs vim with no customizations and plugins (as if fresh)
+alias vg='nvim $(git status -s | cut -d " " -f 3)'
+alias vi='nvim --clean' # runs nvim with no customizations and plugins (as if fresh)
 alias up='uptime'
 alias zt='/storage/src/devops/bin/create-zettelkasten.sh'
 alias cz='/storage/src/devops/bin/create-zettelkasten-current-folder.sh'
@@ -48,7 +42,7 @@ alias cht='curl -s cht.sh/$(curl -s cht.sh/:list | fzf)'
 # alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
 # alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
 alias pcb='pyenv versions | grep "*" | cut -d " " -f 2 | cb'
-alias vcb='xclip -i -selection clipboard -o | vim -' # Open clipboard contents on vim
+alias vcb='xclip -i -selection clipboard -o | nvim -' # Open clipboard contents on nvim
 
 ## other aliases
 alias watch='watch -c '
@@ -57,8 +51,8 @@ alias decomment='egrep -v "^[[:space:]]*((#|;|//).*)?$" '
 # alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 alias tmux-autostart='source activate core-utils && /storage/src/devops/tmuxp/start_everything.sh && source deactivate && tmux-attach'
 alias pgrep='pgrep -ia'
-alias ansible-edit-hosts='vim ~/ansible/conf/hosts'
-alias ansible-edit-config='vim ~/ansible/conf/ansible.cfg'
+alias ansible-edit-hosts='nvim ~/ansible/conf/hosts'
+alias ansible-edit-config='nvim ~/ansible/conf/ansible.cfg'
 alias ansible-ping-hosts='ansible -i ~/ansible/conf/hosts all -m ping'
 alias ansible-ping-hosts-debug='ANSIBLE_DEBUG=1 ansible -vvvv -i ~/ansible/conf/hosts all -m ping'
 alias ansible-play='ANSIBLE_CONFIG=~/ansible/conf/ansible.cfg ansible-playbook -i ~/ansible/conf/hosts -vv '
@@ -69,7 +63,6 @@ alias cd-wal='cd ~/.cache/wal'
 alias rsync-no-delete='rsync -rchzPvi --progress'
 alias rsync-simple='rsync -ah --info=progress2'
 alias rsync='rsync -rchzPvi --progress --delete --delete-excluded'
-alias vimpager='/usr/share/vim/vim81/macros/less.sh'
 alias chown_me='sudo chown -R $(id -u):$(id -g)'
 alias moon-phase='curl -s wttr.in/moon'
 # alias wttr-summary="curl -s 'wttr.in/{Sao_Paulo,Osasco,Erechim,Gramado}?format="%l:+%C+%t+%h"'"
@@ -86,8 +79,8 @@ alias pyenv-rehash='rm -fr ~/.pyenv/shims/.pyenv-shim && $PYENV_BIN rehash'
 
 # Aliases leveraging the cb() function
 # ------------------------------------------------
-alias cbssh='cbf ~/.ssh/id_rsa.pub' # Copy SSH public key
-alias cbpwd='pwd | cb' # Copy current working directory
+alias cbssh='cbf ~/.ssh/id_rsa.pub'           # Copy SSH public key
+alias cbpwd='pwd | cb'                        # Copy current working directory
 alias cbbash='cat $HISTFILE | tail -n 1 | cb' # Copy most recent command in bash history
 
 alias ssh-no-host-checking='ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no"'
