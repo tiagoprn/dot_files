@@ -1,3 +1,2 @@
-Rofi scripts in python (3.5+), intended to be used on i3 window manager.
+Some scripts on this folder were based on [@lukesmith repository](https://github.com/LukeSmithxyz/voidrice/tree/master/.local/bin/statusbar).
 
-IMPORTANT: use less third-party packages as possible, since it is intended to be run standalone.

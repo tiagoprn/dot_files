@@ -1,0 +1,3 @@
+#!/bin/bash
+
+get_battery_info_new.sh 2>/dev/null

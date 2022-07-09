@@ -1,0 +1,5 @@
+#!/bin/bash
+
+[ $(pamixer --get-mute) = true ] && echo "MUTED" && exit
+
+pamixer --get-volume-human

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Shows if dunst notifications are paused.
+
+IS_PAUSED=$(dunstctl is-paused)
+
+if [ "$IS_PAUSED" == 'true' ]; then
+	STATUS=">>> FOCUS MODE ON:   <<<"
+else
+	STATUS="  "
+fi
+
+echo -e "$STATUS"
