@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DMMENU_SCRIPTS_PATH=$HOME/apps/scripts/bin
+DMMENU_SCRIPTS_PATH=/storage/src/dot_files/tiling-window-managers/scripts
 
 # An array of options
 declare -A options

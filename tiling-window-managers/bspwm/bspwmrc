@@ -2,8 +2,7 @@
 
 echo -e "before autostart..."
 
-# autostart.sh is at my "devops/bin" repository
-autostart.sh &
+/storage/src/dot_files/tiling-window-managers/scripts/autostart.sh &
 
 echo -e "after autostart..."
 

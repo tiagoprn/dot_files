@@ -45,7 +45,7 @@ super + w; r
 
 # arandr & reload local wallpaper:
 super + w; e
-	arandr && reload_wallpaper.sh
+	arandr && /storage/src/dot_files/tiling-window-managers/scripts/reload_wallpaper.sh
 
 # qutebrowser:
 alt + b
@@ -53,7 +53,7 @@ alt + b
 
 # customize caps lock:
 alt + c
-	customize_capslock.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/customize_capslock.sh
 
 # htop:
 alt + h
@@ -61,15 +61,15 @@ alt + h
 
 # toggle keyboards:
 alt + k
-	toggle_keyboards.py
+	/storage/src/dot_files/tiling-window-managers/scripts/toggle_keyboards.py
 
 # toggle compositor:
 alt + o
-	toggle_compositor.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/toggle_compositor.sh
 
 # launch snippets:
 alt + s
-	snippets.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/snippets.sh
 
 # qutebrowser - work mode:
 alt + shift + b
@@ -114,11 +114,11 @@ super + shift + e
 
 # dmenu launcher (browser, hex colors, kill and run):
 super + shift + r
-	dmlauncher.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/dmlauncher.sh
 
 # dunst notifications menu:
 super + u
-	dmdunst-menu.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/dmdunst-menu.sh
 
 # echo keys typed on screen:
 alt + n
@@ -134,83 +134,83 @@ super + e
 
 # rofi shutdown menu:
 super + z
-	shutdown.py
+	/storage/src/dot_files/tiling-window-managers/scripts/shutdown.py
 
 # clippy clipboard:
 super + c
-	clippy_rofi.py
+	/storage/src/dot_files/tiling-window-managers/scripts/clippy_rofi.py
 
 # cheatsheet - (MAIN) bspwm/sxhkd:
 super + d; d
-	sxhkd-print-cheatsheet.py | sort | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a sxhkd binding:'
+	/storage/src/dot_files/tiling-window-managers/scripts/sxhkd-print-cheatsheet.py | sort | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a sxhkd binding:'
 
 # cheatsheet - alacritty:
 super + d; a
-	alacritty-dmenu-cheatsheet.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/alacritty-dmenu-cheatsheet.sh
 
 # cheatsheet - bash functions and aliases:
 super + d; b
-	bash-functions-and-aliases-cheatsheet.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/bash-functions-and-aliases-cheatsheet.sh
 
 # cheatsheet - ipdb:
 super + d; i
-	ipdb-dmenu-cheatsheet.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/ipdb-dmenu-cheatsheet.sh
 
 # cheatsheet - neovim:
 super + d; n
-	vim_shortcuts.py -f neovim
+	/storage/src/dot_files/tiling-window-managers/scripts/vim_shortcuts.py -f neovim
 
 # cheatsheet - vim:
 super + d; v
-	vim_shortcuts.py -f vim
+	/storage/src/dot_files/tiling-window-managers/scripts/vim_shortcuts.py -f vim
 
 # cheatsheet - tmux:
 super + d; t
-	tmux-dmenu-cheatsheet.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/tmux-dmenu-cheatsheet.sh
 
 # cheatsheet - git:
 super + d; g
-	git-print-cheatsheet.py | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a git alias:'
+	/storage/src/dot_files/tiling-window-managers/scripts/git-print-cheatsheet.py | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a git alias:'
 
 # cheatsheet - qutebrowser:
 super + d; q
-	qutebrowser-dmenu-cheatsheet.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/qutebrowser-dmenu-cheatsheet.sh
 
 # drag-and-drop screenshot taken today:
 super + x
- 	dm-drag-and-drop-screenshot.sh
+ 	/storage/src/dot_files/tiling-window-managers/scripts/dm-drag-and-drop-screenshot.sh
 
 # drag-and-drop any file:
 super + shift + x
- 	dm-drag-and-drop-any-file.sh
+ 	/storage/src/dot_files/tiling-window-managers/scripts/dm-drag-and-drop-any-file.sh
 
 # terminal:
 super + Return
-	terminal.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/terminal.sh
 
 # bookmarks:
 super + shift + b
-	bookmarks.py
+	/storage/src/dot_files/tiling-window-managers/scripts/bookmarks.py
 
 # screenshot - region:
 super + shift + p
-	screenshot.py -s region
+	/storage/src/dot_files/tiling-window-managers/scripts/screenshot.py -s region
 
 # terminal - tmux:
 super + shift + Return
-	terminal-tmux.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/terminal-tmux.sh
 
 # passwords - rofi:
 super + p
-	pass-rofi.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/pass-rofi.sh
 
 # toggle systray (stalonetray):
 super + t
-	toggle-stalonetray.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/toggle-stalonetray.sh
 
 # vim edit text field:
 alt + e
-	vedit.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/vedit.sh
 
 
 ## WM specific
@@ -219,11 +219,11 @@ alt + e
 
 # scratchpad - dropdownterm:
 alt + t
-	bspwm-toggle-visibility-new.sh dropdownterm "terminal-dropdownterm.sh"
+	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh dropdownterm "/storage/src/dot_files/tiling-window-managers/scripts/terminal-dropdownterm.sh"
 
 # scratchpad - flashcards:
 alt + f
-	bspwm-toggle-visibility-new.sh flashcard "flashcard.sh"
+	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh flashcard "/storage/src/dot_files/tiling-window-managers/scripts/flashcard.sh"
 
 # [quit,restart] bspwm:
 super + alt + {q,r}

@@ -11,9 +11,6 @@ _isRunning() {
 # echo "Starting picom..." >> $LOG_FILE 2>&1
 _isRunning picom || picom --config ~/picom.conf --backend glx >>$LOG_FILE 2>&1 &
 
-# echo "Starting blueman applet..."
-_isRunning blueman-applet || blueman-applet >>$LOG_FILE 2>&1 &
-
 # echo "Starting NetworkManager applet..."
 _isRunning nm-applet || nm-applet >>$LOG_FILE 2>&1 &
 
@@ -27,10 +24,10 @@ _isRunning unclutter || unclutter --timeout 5 --hide-on-touch -b &
 supervisord -n -c $HOME/clippy.supervisor.conf >>$LOG_FILE 2>&1 &
 
 # echo "Reloading wallpaper..." >> $LOG_FILE 2>&1
-reload_wallpaper.sh >>$LOG_FILE 2>&1 &
+/storage/src/dot_files/tiling-window-managers/scripts/reload_wallpaper.sh >>$LOG_FILE 2>&1 &
 
 # start polybar
-polybar-launch.sh
+/storage/src/dot_files/tiling-window-managers/scripts/polybar-launch.sh
 
 if [[ $HOSTNAME == "mobpi" ]]; then
     SXHKD_CONFIG=/storage/src/dot_files/tiling-window-managers/sxhkd/sxhkdrc.mobpi
@@ -41,7 +38,7 @@ echo "Configuring sxhkd: $SXHKD_CONFIG..."
 _isRunning sxhkd || sxhkd -c $SXHKD_CONFIG >>$LOG_FILE 2>&1 &
 
 # echo "Running dunst..." >> $LOG_FILE 2>&1
-nohup start-dunst.sh >>$LOG_FILE 2>&1 &
+nohup /storage/src/dot_files/tiling-window-managers/scripts/start-dunst.sh >>$LOG_FILE 2>&1 &
 
 # echo "Reloading wal theme..." >> $LOG_FILE 2>&1
 # wal-reload-last-theme.sh >> $LOG_FILE 2>&1 &
