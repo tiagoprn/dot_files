@@ -13,7 +13,7 @@
 
 # run - file manager (pcmanfm):
 super + r; f; m
-	pcmanfm
+	spacefm
 
 # run - Generate password:
 super + r; g; p
