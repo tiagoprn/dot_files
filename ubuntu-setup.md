@@ -341,6 +341,20 @@ $ wget https://github.com/jesseduffield/lazygit/releases/download/v0.28.2/lazygi
 $ tar xfzv lazygit_0.28.2_Linux_x86_64.tar.gz
 $ cp lazygit /usr/bin/
 
+## betterlockscreen
+$ sudo su
+$ cd /opt/src/
+$ git clone https://github.com/Raymo111/i3lock-color.git
+$ cd i3lock-color
+$ ./install-i3lock-color.sh
+$ cd /opt/src
+$ mkdir betterlockscreen
+$ cd betterlockscreen
+$ wget https://github.com/pavanjadhaw/betterlockscreen/archive/refs/heads/main.zip
+$ unzip main.zip
+$ cd betterlockscreen-main
+$ cp betterlockscreen /usr/local/bin
+
 ## dunst (most recent version, with support to pause notifications for a while - Do not Disturb mode)
 $ sudo su
 $ cd /opt/installers
