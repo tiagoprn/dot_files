@@ -215,6 +215,17 @@ if [ -d "$TILING_WM_SCRIPTS_PATH" ]; then
     export PATH="$PATH:$TILING_WM_SCRIPTS_PATH"
 fi
 
+CARGO_BIN="$HOME/.cargo/bin"
+if [ -d "$CARGO_BIN" ]; then
+    export PATH="$PATH:$CARGO_BIN"
+fi
+
+LOCAL_BIN="$HOME/.local/bin"
+if [ -d "$LOCAL_BIN" ]; then
+    export PATH="$PATH:$LOCAL_BIN"
+fi
+
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
 eval "$(pyenv init --path)"
