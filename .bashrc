@@ -149,7 +149,7 @@ PROMPT_COMMAND=set_bash_prompt
 export EDITOR=nvim
 export VISUAL=nvim
 DISTRO=$(lsb_release -sd | sed 's/"//g' | awk '{print $1}')
-if [ "$DISTRO" == 'EndeavourOS' ]; then
+if [ "$DISTRO" == 'Pop!_OS' ]; then
     export MANPAGER='nvim +Man!'
     export MANWIDTH=999
 fi
@@ -224,7 +224,6 @@ LOCAL_BIN="$HOME/.local/bin"
 if [ -d "$LOCAL_BIN" ]; then
     export PATH="$PATH:$LOCAL_BIN"
 fi
-
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
