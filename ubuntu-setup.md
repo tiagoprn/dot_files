@@ -92,23 +92,8 @@ sudo apt install -y build-essential apt-transport-https ca-certificates curl sof
 
 # PYTHON LIBS/UTILS TO INSTALL THROUGH pipx
 
-pywal
-dmenu
-python3-rofi
-tmuxp
-telegram-send
-pygments
-visidata
-pyperclip
-daemonize
-typer
-jetty (alternative to jq)
-pygments
-pygments-json
-crazydiskmark (to bookmark disks - equivalent to CrystalDiskMark on windows - needs python 3.8)
-howdoi (<https://github.com/gleitz/howdoi>)
-termdown (countdown/stopwatch timer)
-ansible
+(see my repo devops/python/pipx)
+
 
 # TO BE COMPILED / INSTALLED:
 
