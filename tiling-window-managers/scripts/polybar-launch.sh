@@ -10,34 +10,36 @@
 killall -q polybar
 
 # Wait until the processes have been shut down
-while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 desktop=$(echo $DESKTOP_SESSION)
 
 count=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
 
-POLYBAR_CONFIG='/storage/src/dot_files/tiling-window-managers/polybar/config'
+if [[ $HOSTNAME == cosmos ]]; then
+    POLYBAR_CONFIG='/storage/src/dot_files/tiling-window-managers/polybar/config.cosmos'
+else
+    POLYBAR_CONFIG='/storage/src/dot_files/tiling-window-managers/polybar/config'
+fi
 
 case $desktop in
 
-    bspwm|/usr/share/xsessions/bspwm)
-    if type "xrandr" > /dev/null; then
-      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar --reload mainbar-bspwm -c $POLYBAR_CONFIG &
-      done
-    else
-    polybar --reload mainbar-bspwm -c $POLYBAR_CONFIG &
-    fi
-    # second polybar at bottom
-    # if type "xrandr" > /dev/null; then
-    #   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    #     MONITOR=$m polybar --reload mainbar-bspwm-extra -c $POLYBAR_CONFIG &
-    #   done
-    # else
-    # polybar --reload mainbar-bspwm-extra -c $POLYBAR_CONFIG &
-    # fi
-    ;;
+    bspwm | /usr/share/xsessions/bspwm)
+        if type "xrandr" >/dev/null; then
+            for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+                MONITOR=$m polybar --reload mainbar-bspwm -c $POLYBAR_CONFIG &
+            done
+        else
+            polybar --reload mainbar-bspwm -c $POLYBAR_CONFIG &
+        fi
+        # second polybar at bottom
+        # if type "xrandr" > /dev/null; then
+        #   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        #     MONITOR=$m polybar --reload mainbar-bspwm-extra -c $POLYBAR_CONFIG &
+        #   done
+        # else
+        # polybar --reload mainbar-bspwm-extra -c $POLYBAR_CONFIG &
+        # fi
+        ;;
 
 esac
-
-
