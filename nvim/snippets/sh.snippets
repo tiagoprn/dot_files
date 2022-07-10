@@ -12,16 +12,16 @@ snippet argument_from_script_with_default_value
 	VAR_NAME=\${1-"default_value"}
 
 snippet if_var_value_empty
-	MY_VAR="VALUE"
-	if [ -z "$MY_VAR" ]; then
+	${1}MY_VAR="VALUE"
+	if [ -z "${MY_VAR+set}" ]; then
 	      echo "$MY_VAR is NULL"
 	else
 	      echo "$MY_VAR is NOT NULL"
 	fi
 
 snippet if_var_value_not_empty
-	MY_VAR="VALUE"
-	if [ -n "$MY_VAR" ]; then
+	${1}MY_VAR="VALUE"
+	if [ -n "${MY_VAR+set}" ]; then
 	      echo "$MY_VAR has value! o/"
 	else
 	      echo "$MY_VAR does not have value. :("
