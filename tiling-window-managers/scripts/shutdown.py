@@ -36,15 +36,15 @@ ACTIONS = [
     ),
     (
         "logoff",
-        "logoff.sh",
+        "/storage/src/dot_files/tiling-window-managers/scripts/logoff.sh",
     ),
     (
         "shutdown",
-        "sudo /sbin/shutdown -h now",
+        "sudo shutdown -h now",
     ),
     (
         "restart",
-        "sudo /sbin/shutdown -r now",
+        "sudo shutdown -r now",
     ),
 ]
 
@@ -53,7 +53,9 @@ if __name__ == "__main__":
     actions_list = [element[0] for element in ACTIONS]
 
     rofi_client = Rofi()
-    selected, keyboard_key = rofi_client.select("CHOOSE YOUR DESTINY", actions_list)
+    selected, keyboard_key = rofi_client.select(
+        "CHOOSE YOUR DESTINY", actions_list
+    )
     logging.info(f"keyboard_key pressed={keyboard_key}")
 
     if keyboard_key == -1:
