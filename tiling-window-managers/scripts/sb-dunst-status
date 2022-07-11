@@ -5,9 +5,9 @@
 IS_PAUSED=$(dunstctl is-paused)
 
 if [ "$IS_PAUSED" == 'true' ]; then
-	STATUS=">>> FOCUS MODE ON:   <<<"
+    STATUS="OFF"
 else
-	STATUS="  "
+    STATUS="ON"
 fi
 
 echo -e "$STATUS"

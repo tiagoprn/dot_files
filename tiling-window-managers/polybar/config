@@ -55,7 +55,7 @@ volume-max = #bf616a
 monitor = ${env:MONITOR}
 monitor-fallback = HDMI-1
 width = 100%
-height = 22
+height = 30
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -97,8 +97,8 @@ font-3 = "Noto Sans Mono:size=10;0"
 font-4 = "Hack Nerd Font:size=13;2"
 
 modules-left = bspwm xwindow
-modules-center = custom-dunst-status date custom-volume custom-kdbleds
-modules-right = filesystem custom-battery
+modules-center = custom-dunst-status date custom-volume custom-kdbleds custom-battery
+modules-right = filesystem
 
 tray-detached = false
 tray-offset-x = 0
@@ -119,10 +119,10 @@ scroll-down = bspwm-deskprev
 [module/bspwm]
 type = internal/bspwm
 
+pin-workspaces = true
 enable-click = true
 enable-scroll = true
 reverse-scroll = true
-pin-workspaces = true
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -135,6 +135,8 @@ ws-icon-7 = 8;8
 ws-icon-8 = 9;9
 ws-icon-9 = 10;
 ws-icon-default = " "
+
+label-monitor = %name%
 
 format = <label-state> <label-mode>
 
@@ -205,9 +207,9 @@ exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-dunst-status
 interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-prefix = "DUNST STATUS: "
+format-prefix = " DUNST: "
 format-prefix-foreground = #FFFFF
-format-underline = #0084FF
+; format-underline = #0084FF
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
@@ -232,11 +234,11 @@ label = %date% %time%
 type = custom/script
 exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-kbdleds
 interval = 1
-format-foreground = ${colors.foreground}
+format-foreground = #B50000
 format-background = ${colors.background}
 ; format-prefix = ""
 format-prefix-foreground = #FFFFF
-format-underline = #0084FF
+; format-underline = #B50000
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
@@ -251,6 +253,19 @@ format-background = ${colors.background}
 format-prefix = "VOL "
 format-prefix-foreground = #FFFFF
 ; format-underline = #0084FF
+; click-right = variety --preferences
+; click-left = variety --selector
+
+
+[module/custom-battery]
+type = custom/script
+exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-battery
+interval = 5
+format-foreground = #F0FD1F
+format-background = ${colors.background}
+format-prefix = "BAT "
+format-prefix-foreground = #F0FD1F
+format-underline = #F0FD1F
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
@@ -292,66 +307,55 @@ format-mounted-background = ${colors.background}
 label-mounted = %mountpoint% %percentage_used%%
 
 
-[module/custom-memory]
-type = custom/script
-exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-memory
-interval = 5
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+;[module/custom-memory]
+;type = custom/script
+;exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-memory
+;interval = 5
+;format-foreground = ${colors.foreground}
+;format-background = ${colors.background}
 ; format-prefix = ""
-format-prefix-foreground = #FFFFF
+;format-prefix-foreground = #FFFFF
 ; format-underline = #0084FF
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
 
-[module/custom-loadavg]
-type = custom/script
-exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-loadavg
-interval = 5
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+;[module/custom-loadavg]
+;type = custom/script
+;exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-loadavg
+;interval = 5
+;format-foreground = ${colors.foreground}
+;format-background = ${colors.background}
 ; format-prefix = ""
-format-prefix-foreground = #FFFFF
+;format-prefix-foreground = #FFFFF
 ; format-underline = #0084FF
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
 
-[module/custom-cpu]
-type = custom/script
-exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-cpu
-interval = 5
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+;[module/custom-cpu]
+;type = custom/script
+;exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-cpu
+;interval = 5
+;format-foreground = ${colors.foreground}
+;format-background = ${colors.background}
 ; format-prefix = ""
-format-prefix-foreground = #FFFFF
+;format-prefix-foreground = #FFFFF
 ; format-underline = #0084FF
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
 
-[module/custom-temperature]
-type = custom/script
-exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-temperature
-interval = 5
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+; [module/custom-temperature]
+; type = custom/script
+; exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-temperature
+; interval = 5
+; format-foreground = ${colors.foreground}
+; format-background = ${colors.background}
 ; format-prefix = ""
-format-prefix-foreground = #FFFFF
+; format-prefix-foreground = #FFFFF
 ; format-underline = #0084FF
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
 
-[module/custom-battery]
-type = custom/script
-exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-battery
-interval = 5
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-prefix = "BAT "
-format-prefix-foreground = #FFFFF
-format-underline = #0084FF
-; click-right = variety --preferences
-; click-left = variety --selector
