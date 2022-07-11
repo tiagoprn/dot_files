@@ -272,9 +272,9 @@ $ ./setup.py install
 $ sudo su
 $ cd /opt/installers
 $ git clone https://github.com/cdemoulins/pamixer.git
-$ sudo make clean
-$ sudo make
-$ sudo make install
+$ sudo meson setup build
+$ sudo meson compile -C build
+$ sudo meson install -C build
 
 ## dmenu (distrotube customization)
 $ sudo su

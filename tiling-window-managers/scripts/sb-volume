@@ -1,5 +1,15 @@
 #!/bin/bash
 
-[ $(pamixer --get-mute) = true ] && echo "MUTED" && exit
-
-pamixer --get-volume-human
+if [[ $HOSTNAME == cosmos ]]; then
+    # below is because it uses pipewire with pulseaudio
+    SYNC_ID="$(pactl list short sinks | grep RUNNING | awk '{print $1}')"
+    # If it does not find one with RUNNING on the last column, get the first one it finds.
+    if [ -z "${SYNC_ID+set}" ]; then
+        SYNC_ID="$(pactl list short sinks | awk '{print $1}')"
+    fi
+    [ "$(pamixer --sink $SYNC_ID --get-mute)" = true ] && echo "MUTED" && exit
+    pamixer --sink "$SYNC_ID" --get-volume-human
+else
+    [ "$(pamixer --get-mute)" = true ] && echo "MUTED" && exit
+    pamixer --get-volume-human
+fi
