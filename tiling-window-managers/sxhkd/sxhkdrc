@@ -225,6 +225,10 @@ alt + t
 alt + f
 	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh flashcard "/storage/src/dot_files/tiling-window-managers/scripts/flashcard.sh"
 
+# choose monitor layout:
+super + slash
+	/storage/src/dot_files/tiling-window-managers/scripts/setup-monitors.sh
+
 # [quit,restart] bspwm:
 super + alt + {q,r}
 	bspc {quit,wm -r}

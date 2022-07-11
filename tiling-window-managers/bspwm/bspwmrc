@@ -6,21 +6,9 @@ echo -e "before autostart..."
 
 echo -e "after autostart..."
 
-# bspc monitor DisplayPort-1 -d 1 2 3 4 5
-if [[ $HOSTNAME == mobpi ]]; then
-    bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9 10
-elif [[ $HOSTNAME == cosmos ]]; then
-    bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 10
-    # bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9 10
-    # bspc monitor HDMI-1 -d 1 2 3 4 5
-    # bspc monitor eDP-1 -d 6 7 8 9 10
-else
-    bspc monitor HDMI-1 -d 1 2 3 4 5
-    bspc monitor eDP-1 -d 6 7 8 9 10
-    # bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9 10
-fi
+/storage/src/dot_files/tiling-window-managers/scripts/setup-monitors.sh
 
-echo -e "Defined monitor..."
+echo -e "after setup-monitors..."
 
 #BSPC Settings
 bspc config border_width 2
