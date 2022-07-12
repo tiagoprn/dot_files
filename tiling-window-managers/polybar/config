@@ -90,11 +90,12 @@ module-margin-left = 3
 module-margin-right = 3
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=10;0"
+;font-0 = "Hack Nerd Font:size=11;2"
+font-0 = "Roboto:size=10;0"
 font-1 = "FontAwesome:size=13;2"
 font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
-font-4 = "Hack Nerd Font:size=13;2"
+font-4 = "Noto Sans:size=10;0"
 
 modules-left = bspwm xwindow
 modules-center = custom-dunst-status date custom-volume custom-kdbleds custom-battery
@@ -207,7 +208,7 @@ exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-dunst-status
 interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-prefix = " DUNST: "
+format-prefix = " DUNST: "
 format-prefix-foreground = #FFFFF
 ; format-underline = #0084FF
 ; click-right = variety --preferences
@@ -224,8 +225,8 @@ interval = 1
 date = " %a %d %b %Y"
 time = %H:%M:%S
 format-prefix = " "
-format-prefix-foreground = #32915e
-format-foreground =  #32915e
+format-prefix-foreground = #BBFF00
+format-foreground =  #BBFF00
 format-background = ${colors.background}
 label = %date% %time%
 
@@ -235,7 +236,7 @@ type = custom/script
 exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-kbdleds
 interval = 1
 format-foreground = #FFFFFF
-format-background = #FF0000
+format-background = #E9184C
 ; format-prefix = ""
 format-prefix-foreground = #FFFFF
 format-underline = #0000FF
@@ -250,7 +251,7 @@ tail = true
 interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-prefix = "VOL "
+format-prefix = " "
 format-prefix-foreground = #FFFFF
 ; format-underline = #0084FF
 ; click-right = variety --preferences
@@ -263,7 +264,7 @@ exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-battery
 interval = 5
 format-foreground = #F0FD1F
 format-background = ${colors.background}
-format-prefix = "BAT "
+format-prefix = " "
 format-prefix-foreground = #F0FD1F
 format-underline = #F0FD1F
 ; click-right = variety --preferences
