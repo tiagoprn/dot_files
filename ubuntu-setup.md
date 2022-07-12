@@ -276,6 +276,14 @@ $ sudo meson setup build
 $ sudo meson compile -C build
 $ sudo meson install -C build
 
+## clipnotify (notifies every time something is added to the clipboard)
+$ cd ~/src
+$ git clone https://github.com/cdown/clipnotify
+$ cd clipnotify
+$ make
+$ cp clipnotify ~/.local/bin
+(it is used by `/storage/src/dot_files/tiling-window-managers/scripts/clipnotify.sh`)
+
 ## dragon (drag-and-drop simple widget)
 $ cd ~/src
 $ git clone https://github.com/mwh/dragon
