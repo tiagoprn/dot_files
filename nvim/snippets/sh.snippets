@@ -183,6 +183,9 @@ snippet aliases_enable
 
 	${1}
 
+snippet return_code
+	status=$?
+	[ $status -eq 0 ] && echo "command successful" || echo "command unsuccessful"
 
 snippet bash!
 	#!/usr/bin/env bash

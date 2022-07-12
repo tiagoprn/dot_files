@@ -71,11 +71,6 @@ alt + o
 alt + s
 	/storage/src/dot_files/tiling-window-managers/scripts/snippets.sh
 
-# qutebrowser - work mode:
-alt + shift + b
-	flatpak run --filesystem=host org.qutebrowser.qutebrowser -B $HOME/.local/share/qutebrowser/work/dafiti -C $HOME/.local/share/qutebrowser/work/dafiti/config/config.py
-
-
 # pavucontrol:
 alt + v
 	pavucontrol
@@ -122,7 +117,7 @@ super + u
 
 # echo keys typed on screen:
 alt + n
-	killall screenkey && screenkey &
+	/storage/src/dot_files/tiling-window-managers/scripts/toggle-screenkey.sh
 
 # increase screen brightness:
 alt + shift + Up
