@@ -98,7 +98,7 @@ font-3 = "Noto Sans Mono:size=10;0"
 font-4 = "Noto Sans:size=10;0"
 
 modules-left = bspwm xwindow
-modules-center = custom-dunst-status date custom-volume custom-kdbleds custom-battery
+modules-center = custom-dunst-status custom-volume date custom-kdbleds custom-battery
 modules-right = filesystem
 
 tray-detached = false
@@ -222,7 +222,7 @@ type = internal/date
 interval = 1
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = " %a %d %b %Y"
+date = " %d %b %a "
 time = %H:%M:%S
 format-prefix = " "
 format-prefix-foreground = #BBFF00
