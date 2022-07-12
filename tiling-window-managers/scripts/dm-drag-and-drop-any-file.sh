@@ -9,4 +9,4 @@ SELECTED_DIR=$(tree -L 1 -n /storage $HOME -i -d -l -f | grep -e '^/' | sort | a
 
 notify-send "dm-drag-and-drop-any-file.sh" "Getting files list, this may take a while..."
 
-dragon -a $(tree -n $SELECTED_DIR -i -l -f | grep -e '^/' |  sort | rofi -dmenu -fn 'Jetbrains Mono:size=14' -c -bw 1 -p 'Choose file you want to drag-and-drop')
+dragon -a $(tree -n $SELECTED_DIR -i -l -f | grep -e '^/' | sort | rofi -dmenu -fn 'Jetbrains Mono:size=14' -c -bw 1 -p 'Choose file you want to drag-and-drop')

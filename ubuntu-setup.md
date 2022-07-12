@@ -276,6 +276,13 @@ $ sudo meson setup build
 $ sudo meson compile -C build
 $ sudo meson install -C build
 
+## dragon (drag-and-drop simple widget)
+$ cd ~/src
+$ git clone https://github.com/mwh/dragon
+$ cd dragon
+$ make
+$ make install
+
 ## dmenu (distrotube customization)
 $ sudo su
 $ cd /opt/installers
