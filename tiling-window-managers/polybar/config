@@ -234,11 +234,11 @@ label = %date% %time%
 type = custom/script
 exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-kbdleds
 interval = 1
-format-foreground = #B50000
-format-background = ${colors.background}
+format-foreground = #FFFFFF
+format-background = #FF0000
 ; format-prefix = ""
 format-prefix-foreground = #FFFFF
-; format-underline = #B50000
+format-underline = #0000FF
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
