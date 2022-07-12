@@ -17,6 +17,6 @@ elif [[ $HOSTNAME == dft-sp-wkn789 ]]; then
     /bin/bash $CHOSEN_LAYOUT
 fi
 
-# notify-send "setup-monitors.sh" "Restarting bspwm with chosen layout..."
-# bspc wm -r
-# notify-send "setup-monitors.sh" "bspwm successfully restarted."
+notify-send "setup-monitors.sh" "Restarting bspwm with chosen layout..."
+bspc wm -r
+notify-send "setup-monitors.sh" "bspwm successfully restarted."
