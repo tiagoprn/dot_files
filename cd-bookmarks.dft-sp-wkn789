@@ -26,3 +26,4 @@
 /home/tiago.lima/.cache/nvim | logs, cache, etc.... (plugins by convention should put here - if not here it is probably on .local/share)
 /storage/src/python-snippets
 /storage/src/dot_files/text_snippets
+/storage/src/dot_files/tiling-window-managers/scripts

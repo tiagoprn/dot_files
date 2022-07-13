@@ -20,3 +20,4 @@
 /home/tiago/.local/share/nvim/site/pack/packer/start | packer plugins directory (where it downloads the plugins git repos)
 /storage/src/python-snippets
 /storage/src/dot_files/text_snippets
+/storage/src/dot_files/tiling-window-managers/scripts
