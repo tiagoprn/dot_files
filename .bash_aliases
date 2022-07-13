@@ -12,7 +12,7 @@ alias j='mkdir -p /storage/docs && nvim +"normal Go" +"r!date" $JOURNAL_FILE +"n
 
 alias p='pyenv'
 alias s='source ~/.bashrc'
-alias v='nvim $(find . -type f | grep -v ".git/" | fzf)'
+alias v='SELECTED_FILE=$(find . -type f | grep -v ".git/" | fzf) && nvim $SELECTED_FILE'
 
 ## two letter aliases
 alias cc='cd $(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'

@@ -8,7 +8,7 @@ FILENAME=$FLEETING_NOTES_DIR/$TIMESTAMP.md
 
 mkdir -p $FLEETING_NOTES_DIR
 
-vim -c "norm Iqheader " \
-	-c "norm gg\$" \
-	-c "startinsert" \
-	$FILENAME
+nvim -c "norm Iqheader " \
+    -c 'norm gg$' \
+    -c "startinsert" \
+    $FILENAME
