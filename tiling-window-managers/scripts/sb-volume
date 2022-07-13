@@ -2,13 +2,15 @@
 
 if [[ $HOSTNAME == cosmos ]]; then
     # below is because it uses pipewire with pulseaudio
-    SYNC_ID="$(pactl list short sinks | grep RUNNING | awk '{print $1}')"
-    # If it does not find one with RUNNING on the last column, get the first one it finds.
-    if [ -z "${SYNC_ID+set}" ]; then
-        SYNC_ID="$(pactl list short sinks | awk '{print $1}')"
+    RUNNING_SINK_ID="$(pactl list short sinks | grep 'RUNNING' | awk '{print $1}')"
+
+    if [ -z "$RUNNING_SINK_ID" ]; then
+        echo "No app using sound"
+        exit 0
+    else
+        pamixer --sink "$RUNNING_SINK_ID" --get-volume-human
     fi
-    [ "$(pamixer --sink $SYNC_ID --get-mute)" = true ] && echo "MUTED" && exit
-    pamixer --sink "$SYNC_ID" --get-volume-human
+
 else
     [ "$(pamixer --get-mute)" = true ] && echo "MUTED" && exit
     pamixer --get-volume-human
