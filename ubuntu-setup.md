@@ -66,8 +66,8 @@ the guest.
 ### Terraform
 ```
 $ sudo su
-$ mkdir -p /opt/installers/terraform
-$ cd /opt/installers/terraform
+$ mkdir -p /opt/src/terraform
+$ cd /opt/src/terraform
 $ export TER_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | grep tag_name | cut -d: -f2 | tr -d \"\,\v | awk '{$1=$1};1'` && \
   wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip && \
   unzip terraform_${TER_VER}_linux_amd64.zip
@@ -157,8 +157,8 @@ cd /opt && git clone https://github.com/wofr06/lesspipe.git && cd lesspipe && ./
 ```
 $ sudo apt remove -y curl && sudo apt purge -y
 $ sudo su
-$ mkdir -p /opt/installers
-$ cd /opt/installers
+$ mkdir -p /opt/src
+$ cd /opt/src
 $ mkdir curl && cd curl
 $ wget https://curl.haxx.se/download/curl-7.75.0.tar.gz
 $ tar xfzv curl-7.75.0.tar.gz
@@ -170,36 +170,6 @@ $ exit
 $ sudo ldconfig  # fixes "curl: symbol lookup error: curl: undefined symbol: curl_url_cleanup"
 ```
 
-## neovim
-
-- manual compiling
-
-	$ sudo su
-	$ mkdir -p /opt/installers
-	$ cd /opt/installers
-	$ git clone https://github.com/neovim/neovim.git
-	$ cd neovim
-	$ ldconfig
-	$ make clean
-	$ make CMAKE_BUILD_TYPE=Release
-	$ make install
-
-- ... or downloading a nightly appimage:
-
-	$ sudo su
-	$ mkdir -p /opt/nvim
-	$ cd /opt/nvim
-	$ wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-	$ ln -s /opt/nvim/nvim.appimage /usr/bin/nvim
-
-- OPTIONAL: link the default and vi editor to nvim:
-
-	$ update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 1 && \
-	  update-alternatives --set editor /usr/local/bin/nvim && \
-	  update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 1 && \
-	  update-alternatives --set vi /usr/local/bin/nvim
-
-
 ## bat
 $ sudo su
 $ mkdir /opt/bat && cd /opt/bat
@@ -209,7 +179,7 @@ $ ln -s /opt/bat/bat-v0.12.1-x86_64-unknown-linux-gnu/bat /usr/bin/bat
 
 ## entr (to listen on directory changes)
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ wget http://eradman.com/entrproject/code/entr-4.6.tar.gz
 $ tar xfzv entr-4.6.tar.gz
 $ cd entr-4.6
@@ -219,8 +189,8 @@ $ make install
 
 ## simple tcp proxy in C (I can use to redirect local ports to guest ports on KVM)
 $ sudo su
-$ mkdir -p /opt/installers
-$ cd /opt/installers
+$ mkdir -p /opt/src
+$ cd /opt/src
 $ git clone https://github.com/kklis/proxy
 $ cd proxy
 $ make
@@ -228,7 +198,7 @@ $ cp -farv proxy /usr/local/bin
 
 ## polybar
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ git clone https://github.com/jaagr/polybar.git
 $ cd polybar
 $ sudo ./build.sh
@@ -236,7 +206,7 @@ $ sudo ./build.sh
 ## picom
 (picom is compton's fork, more modern and with more features. So, it uses the same configuration file as compton for now.)
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ git clone https://github.com/ibhagwan/picom
 $ cd picom
 $ apt install -y meson asciidoc pandoc
@@ -245,7 +215,7 @@ $ /usr/bin/ninja -C build && /usr/bin/ninja -C build install
 
 ## unclutter (to auto-hide mouse pointer when idle)
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ git clone https://github.com/Airblader/unclutter-xfixes
 $ cd unclutter-xfixes
 $ make
@@ -253,7 +223,7 @@ $ sudo make install
 
 ## ventoy (create a multiboot usb disk)
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ mkdir -p ventoy && cd ventoy
 $ curl -L https://github.com/ventoy/Ventoy/releases/download/v1.0.38/ventoy-1.0.38-linux.tar.gz | tar -xmpz
 $ cd ventoy-1.0.38
@@ -263,14 +233,14 @@ $ ./Ventoy2Disk.sh -g -s -L DATAKEEPER -i /dev/<disk> (e.g. /dev/sdb)
 ## screenkey
 (a screencast tool to display your keys as you type them)
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ git clone https://gitlab.com/screenkey/screenkey.git
 $ cd screenkey
 $ ./setup.py install
 
 ## pamixer
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ git clone https://github.com/cdemoulins/pamixer.git
 $ sudo meson setup build
 $ sudo meson compile -C build
@@ -293,7 +263,7 @@ $ make install
 
 ## dmenu (distrotube customization)
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ https://gitlab.com/dwt1/dmenu-distrotube.git
 $ cd dmenu-distrotube
 $ make
@@ -302,7 +272,7 @@ $ make install
 ## sqlite3
 (<https://www.sqlite.org/howtocompile.html>)
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ mkdir sqlite3
 $ wget https://www.sqlite.org/2021/sqlite-autoconf-3350300.tar.gz
 $ cd sqlite3
@@ -325,7 +295,7 @@ $ echo 'MinimalWallpaper' >> $HOME/.config/styli.sh/subreddits
 
 ## alacritty
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ git clone https://github.com/alacritty/alacritty.git
 $ cd alacritty
 $ git tag
@@ -335,7 +305,7 @@ $ cp target/release/alacritty /usr/bin/
 
 ## lazygit (to use git inside neovim)
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ mkdir lazygit && cd lazygit
 $ wget https://github.com/jesseduffield/lazygit/releases/download/v0.28.2/lazygit_0.28.2_Linux_x86_64.tar.gz
 $ tar xfzv lazygit_0.28.2_Linux_x86_64.tar.gz
@@ -357,7 +327,7 @@ $ cp betterlockscreen /usr/local/bin
 
 ## dunst (most recent version, with support to pause notifications for a while - Do not Disturb mode)
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ git clone https://github.com/dunst-project/dunst.git
 $ cd dunst
 $ make WAYLAND=0  # https://github.com/dunst-project/dunst#make-parameters
@@ -365,7 +335,7 @@ $ make WAYLAND=0 install
 
 ## activitywatch
 $ sudo su
-$ cd /opt/installers
+$ cd /opt/src
 $ wget https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip
 $ unzip activitywatch-v0.11.0-linux-x86_64.zip
 
