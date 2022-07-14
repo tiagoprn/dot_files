@@ -288,7 +288,7 @@ super + {Left,Down,Up,Right}
 
 # focus window by name:
 alt + Tab
-	bspwm-focus-window-by-name.sh
+	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-focus-window-by-name.sh
 
 # Rotates the order of the windows on current desktop
 super + space
