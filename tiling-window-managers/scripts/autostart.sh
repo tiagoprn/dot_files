@@ -20,8 +20,8 @@ _isRunning unclutter || unclutter --timeout 5 --hide-on-touch -b &
 # echo "Starting lxpolkit..." >> $LOG_FILE 2>&1
 # _isRunning lxpolkit || /usr/bin/lxpolkit >> $LOG_FILE 2>&1 &
 
-# echo "Starting clippy (clipboard daemon)..." >> $LOG_FILE 2>&1
-supervisord -n -c $HOME/clippy.supervisor.conf >>$LOG_FILE 2>&1 &
+# echo "Starting clippy-monitor (clipboard watchdog)..." >> $LOG_FILE 2>&1
+/storage/src/dot_files/tiling-window-managers/scripts/clippy-monitor.sh >>$LOG_FILE 2>&1 &
 
 # echo "Reloading wallpaper..." >> $LOG_FILE 2>&1
 /storage/src/dot_files/tiling-window-managers/scripts/reload_wallpaper.sh >>$LOG_FILE 2>&1 &

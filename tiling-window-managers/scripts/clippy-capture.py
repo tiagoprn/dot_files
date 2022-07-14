@@ -51,7 +51,7 @@ ROFI_RECORD_TRUNCATE_SIZE = 50
 
 
 def notify_send(message: str):
-    command = f'notify-send --urgency=low "clippy-capture-py" "{message}"'
+    command = f'notify-send --urgency=low "clippy-capture.py" "{message}"'
     run(command, shell=True)
 
 
@@ -59,7 +59,9 @@ def get_rofi_records():
     with open(CLIPBOARD_HISTORY_FILE, "r") as input_file:
         file_records = input_file.readlines()
 
-    logger.info(f"Found {len(file_records)} records on {CLIPBOARD_HISTORY_FILE}.")
+    logger.info(
+        f"Found {len(file_records)} records on {CLIPBOARD_HISTORY_FILE}."
+    )
 
     rofi_records = []
     for record in file_records:
@@ -143,7 +145,9 @@ def main():
         timestamp = datetime.now().strftime("%Y%m%d.%H:%M:%S.%f")
         data = {"timestamp": timestamp, "contents": new_paste}
         output_file.write(f"{json.dumps(data)}\n")
-        logger.info(f"Paste successfully written to file" f"{CLIPBOARD_HISTORY_FILE}")
+        logger.info(
+            f"Paste successfully written to file" f"{CLIPBOARD_HISTORY_FILE}"
+        )
 
 
 if __name__ == "__main__":

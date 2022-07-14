@@ -61,6 +61,11 @@ def run(cmd: str):
     return proc.returncode, std_out, std_err
 
 
+def notify_send(message: str):
+    command = f'notify-send --urgency=low "clippy-select.py" "{message}"'
+    run(command)
+
+
 def get_history_file_records():
     logger.info(f"Opening {CLIPBOARD_HISTORY_FILE} to get its records...")
 
@@ -138,13 +143,8 @@ def client():
 
     copy_to_clipboard(contents)
 
-    command = (
-        f'notify-send --urgency=low "Paste '
-        f"{selected_paste} "
-        'copied to clipboard" '
-    )
-    return_code, stdout, stderr = run(command)
-    __import__("ipdb").set_trace()
+    message = f"Paste {selected_paste} successfully copied to clipboard."
+    notify_send(message)
 
     logger.info("Finished running client.")
 
