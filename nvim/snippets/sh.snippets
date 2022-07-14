@@ -169,6 +169,18 @@ snippet fun
 snippet datesh
 	TIMESTAMP="$(date "+%Y%m%d.%H%M.%S")"
 
+snippet hashmap_loop
+	declare -A ${1}MAPPINGS=(
+	    ['k1']="value1"
+	    ['k2']="value2"
+	    ['k3']="value3"
+	)
+	for key in "${!MAPPINGS[@]}"; do
+	    value=${MAPPINGS[$key]}
+	    echo "$key value is: $value"
+	done
+
+
 snippet redirect_stdout_stderr_to_file
 	: '
 	Bash executes the redirects from left to right as follows:
