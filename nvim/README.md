@@ -1,10 +1,45 @@
 # nvim
 
-This is my modular neovim configuration.
+This repo contains my modular neovim configuration.
 
 The package manager I use on neovim is "packer".
 
-## Setup
+## Install methods (from master branch on github repo - bleeding edge)
+
+### 1) Manual compiling:
+
+```bash
+$ sudo su
+$ mkdir -p /opt/src
+$ cd /opt/src
+$ git clone https://github.com/neovim/neovim.git
+$ cd neovim
+$ ldconfig
+$ make clean
+$ make CMAKE_BUILD_TYPE=Release
+$ make install
+```
+
+### 2) Nightly appimage:
+
+```bash
+$ sudo su
+$ mkdir -p /opt/nvim
+$ cd /opt/nvim
+$ wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+$ ln -s /opt/nvim/nvim.appimage /usr/bin/nvim
+```
+
+**IMPORTANT**: On debian's derivative distributions, after installing, you can do the optional step below to link the default and vi editor to nvim:
+
+```bash
+$ update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 1 && \
+update-alternatives --set editor /usr/local/bin/nvim && \
+update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 1 && \
+update-alternatives --set vi /usr/local/bin/nvim
+```
+
+## Configuration
 
 ### 1) Install language servers (you must start here)
 
@@ -26,7 +61,7 @@ That will install not only pynvim, but also other packages related to python LSP
 
 - Bash Language Server:
 ```bash
-$ sudo snap install bash-language-server
+$ npm -i -g bash-language-server
 ```
 
 - shellcheck: linter
