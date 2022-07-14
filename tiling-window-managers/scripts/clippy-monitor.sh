@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script watches the clipboard.
+# When it detects a new entry on it, it triggers the ./clippy-capture.py script.
+
 set -eou pipefail
 
 shopt -s expand_aliases

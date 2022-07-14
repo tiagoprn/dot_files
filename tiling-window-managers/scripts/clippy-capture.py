@@ -1,20 +1,10 @@
 #!/usr/bin/env python3
 
 """
-This script runs on the gtk loop (recommended to be set when the window manager starts).
-It watches the system clipboard, and when a new one arrives it writes it
-to a file.
+This script is triggered by ./clippy-monitor.sh, when it detects a new
+keyboard entry. When triggered, it writes the new keyboard entry to a file.
 
 The idea is to be KISS - no fancy or bloat here.
-
-## Ubuntu packages that must be installed to run successfully:
-
-$ sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-3.0 -y
-
-## Gtk clipboard documentation link:
-
-https://developer.gnome.org/pygtk/stable/class-gtkclipboard.html#signal-gtkclipboard--owner-change
-
 """
 
 import json
@@ -47,7 +37,7 @@ logger.addHandler(fh)
 keep_fds = [fh.stream.fileno()]
 
 DELAY = 1
-ROFI_RECORD_TRUNCATE_SIZE = 50
+RECORD_TRUNCATE_SIZE = 50
 
 
 def notify_send(message: str):
@@ -55,7 +45,7 @@ def notify_send(message: str):
     run(command, shell=True)
 
 
-def get_rofi_records():
+def get_records():
     with open(CLIPBOARD_HISTORY_FILE, "r") as input_file:
         file_records = input_file.readlines()
 
@@ -63,7 +53,7 @@ def get_rofi_records():
         f"Found {len(file_records)} records on {CLIPBOARD_HISTORY_FILE}."
     )
 
-    rofi_records = []
+    records = []
     for record in file_records:
         parsed_record = json.loads(record)
         timestamp = parsed_record["timestamp"]
@@ -72,15 +62,15 @@ def get_rofi_records():
             continue
         parsed_record_lines = parsed_record_lines.split("\n")
         first_contents_line = parsed_record_lines[0]
-        rofi_record = first_contents_line[0:ROFI_RECORD_TRUNCATE_SIZE]
-        if len(first_contents_line) > ROFI_RECORD_TRUNCATE_SIZE:
-            rofi_record += "..."
+        record = first_contents_line[0:RECORD_TRUNCATE_SIZE]
+        if len(first_contents_line) > RECORD_TRUNCATE_SIZE:
+            record += "..."
         text = "line" if len(parsed_record_lines) == 1 else "lines"
-        rofi_record += f"  --- {len(parsed_record_lines)} {text} "
-        rofi_record += f"from {timestamp}"
-        rofi_records.append(rofi_record)
+        record += f"  --- {len(parsed_record_lines)} {text} "
+        record += f"from {timestamp}"
+        records.append(record)
 
-    return rofi_records
+    return records
 
 
 def get_paste_contents_from_timestamp(timestamp: str):
@@ -110,12 +100,12 @@ def get_paste_contents_already_exists_in_history(timestamp: str):
 
 
 def get_last_paste_in_history():
-    rofi_records = get_rofi_records()
+    records = get_records()
 
     try:
-        selected_paste = rofi_records[-1]
+        selected_paste = records[-1]
         selected_paste_timestamp = selected_paste[-24:]
-    except:
+    except Exception:
         return ""
 
     logger.info(f"last_paste_timestamp={selected_paste_timestamp}")

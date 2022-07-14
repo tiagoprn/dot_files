@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
 
 """
-This script reads the file written by the clippy daemon and opens a rofi dialog to
-select a past clipboard entry from that file, so that you can put it back on
-your clipboard.
+This script reads the file written by ./clippy-capture.py
+to select a past clipboard entry from that file, so that
+you can put it back on your clipboard.
 
 The idea is to be KISS - no fancy or bloat here.
 
-## 3rd party pypi libraries required to run successfully:
-- pyperclip: to abstract the clipboard
+It uses the tk builtin python library to interact with the keyboard.
 
-To install the libraries globally on your distro, run:
-$ sudo pip3 pyperclip
+It needs the python library "python-rofi" installed to work properly.
 """
 
 import json
@@ -20,9 +18,6 @@ import os
 import subprocess
 import sys
 import tkinter as tk
-from datetime import datetime
-from functools import partial
-from time import sleep
 
 from rofi import Rofi
 
