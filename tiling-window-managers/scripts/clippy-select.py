@@ -138,7 +138,7 @@ def client():
 
     copy_to_clipboard(contents)
 
-    message = f"Paste {selected_paste} successfully copied to clipboard."
+    message = "Selected paste successfully copied to clipboard."
     notify_send(message)
 
     logger.info("Finished running client.")
