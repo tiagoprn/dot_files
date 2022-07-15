@@ -12,3 +12,4 @@ nvim/plugin
 undodir
 quickfix-history
 tmux-client*.log
+subreddits

@@ -101,4 +101,8 @@ echo 'Linking systray (stalonetrayrc)...'
 rm ~/.stalonetrayrc
 ln -s /storage/src/dot_files/.stalonetrayrc ~/.stalonetrayrc
 
+echo 'Linking styli.sh...'
+rm ~/.config/styli.sh
+ln -s /storage/src/dot_files/tiling-window-managers/styli.sh ~/.config/styli.sh
+
 echo 'Finished.'
