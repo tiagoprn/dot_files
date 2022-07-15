@@ -276,7 +276,6 @@ format-underline = #F0FD1F
 type = internal/fs
 ; Mountpoints to display
 mount-0 = /
-mount-1 = /storage
 ; Seconds to sleep between updates
 interval = 30
 ; Display fixed precision values

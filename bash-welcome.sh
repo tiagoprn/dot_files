@@ -5,10 +5,7 @@ set -eou pipefail
 # is not inside tmux:
 if [ -z "${TMUX+set}" ]; then
     if [[ $HOSTNAME == cosmos ]]; then
-        echo -e 'To lock/unlock the GOCRYPTFS ENCRYPTED VAULT:'
-        echo -e 'GET PASSWORD...: ~/vault-get-password.sh'
-        echo -e 'MOUNT..........: ~/vault-mount.sh'
-        echo -e 'UMOUNT.........: ~/vault-umount.sh'
+        echo -e '- To run timeshift: sudo timeshift-gtk'
         echo -e '---'
     fi
 fi
