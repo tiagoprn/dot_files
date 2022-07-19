@@ -133,7 +133,7 @@ super + z
 
 # clippy clipboard:
 super + c
-	/storage/src/dot_files/tiling-window-managers/scripts/clippy-select.py
+	/storage/src/dot_files/tiling-window-managers/scripts/clippy-select.sh
 
 # cheatsheet - (MAIN) bspwm/sxhkd:
 super + d; d

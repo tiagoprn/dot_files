@@ -102,3 +102,6 @@ snippet random_number
 	def generate_random_number(start: int, finish: int, seed_bytes:int=128) -> str:
 	    random.seed(os.urandom(seed_bytes))
 	    return random.randint(start, finish)
+
+snippet stdout_write
+	sys.stdout.write('${1}')

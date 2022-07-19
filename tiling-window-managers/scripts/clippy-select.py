@@ -44,7 +44,7 @@ keep_fds = [fh.stream.fileno()]
 history_record_TRUNCATE_SIZE = 50
 
 
-def run(cmd: str):
+def run_command(cmd: str):
     proc = subprocess.Popen(
         cmd,
         stdout=subprocess.PIPE,
@@ -58,7 +58,7 @@ def run(cmd: str):
 
 def notify_send(message: str):
     command = f'notify-send --urgency=low "clippy-select.py" "{message}"'
-    run(command)
+    run_command(command)
 
 
 def get_history_file_records():
@@ -106,14 +106,20 @@ def get_paste_contents_from_timestamp(timestamp: str):
 
 
 def copy_to_clipboard(contents: str):
-    root = tk.Tk()
-    root.withdraw()  # do not show the window
-    return root.clipboard_append(contents)
+    # root = tk.Tk()
+    # root.withdraw()  # do not show the window
+    # root.clipboard_clear()
+    # root.clipboard_append(contents)
+    # root.update()  # now it stays on the clipboard after the window is closed
+    subprocess.run(
+        "/usr/bin/xclip -selection clipboard",
+        universal_newlines=True,
+        input=contents,
+    )
 
 
-def client():
-    logger.info("Running client...")
-    print("Showing keyboard selections...")
+def main():
+    notify_send("Processing keyboard history...")
     history_records = get_history_file_records()
     history_records.reverse()
 
@@ -136,17 +142,12 @@ def client():
 
     contents = get_paste_contents_from_timestamp(selected_paste_timestamp)
 
-    copy_to_clipboard(contents)
-
-    message = "Selected paste successfully copied to clipboard."
-    notify_send(message)
-
-    logger.info("Finished running client.")
+    sys.stdout.write(contents)
 
 
 if __name__ == "__main__":
     try:
-        client()
+        main()
     except Exception as e:
         message = f"An exception was triggered: {e} "
         print(message)
