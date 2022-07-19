@@ -94,3 +94,11 @@ snippet uuid
 snippet timestamp_iso
 	from datetime import datetime
 	print(datetime.now().isoformat())
+
+snippet random_number
+	${1}import random
+	import os
+
+	def generate_random_number(start: int, finish: int, seed_bytes:int=128) -> str:
+	    random.seed(os.urandom(seed_bytes))
+	    return random.randint(start, finish)

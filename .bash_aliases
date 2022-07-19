@@ -45,6 +45,7 @@ alias pcb='pyenv versions | grep "*" | cut -d " " -f 2 | cb'
 alias vcb='xclip -i -selection clipboard -o | nvim -' # Open clipboard contents on nvim
 
 ## other aliases
+alias today='clear &&  echo "REMINDERS" | figlet && export CURRENT_DATE=$(date "+%A %d, %B %Y") && echo -e "${CURRENT_DATE^^}\n------" && remind -s /storage/docs/reminders/personal.rem | grep "$(date +%Y/%m/%d)" | cut -f 6- -d " "'
 alias watch='watch -c '
 alias remove-color-codes='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 alias decomment='egrep -v "^[[:space:]]*((#|;|//).*)?$" '
