@@ -48,17 +48,14 @@ snippet post
 	${4}
 
 snippet ztk
-	${2:Title}
+	---
+	title: ${2:Title}
 	created: `strftime("%Y-%m-%d %H:%M:%S")`
-	#keyword1 #keyword2
-	type: ${1|fleeting,bibliographic,permanent|}
+	keywords: [${3}keyword0,keyword1]
+	type: ${1|bibliographic,permanent|}
 	---
 
-	${3:body}
-
-	---
-	References:
-	- first
+	${4:body}
 
 snippet it
 	- [ ] ${1}
