@@ -15,9 +15,9 @@
 super + r; f; m
 	spacefm
 
-# run - Generate password:
-super + r; g; p
-	notify-send "Generating password... (will be pasted to clipboard)" && tr -dc "a-zA-Z0-9_#@.-" < /dev/urandom | head -c 14 | xclip -selection clipboard
+# run - timeshift gtk:
+super + r; t; s
+	sudo timeshift-gtk
 
 # set local wallpaper manually (m to mark):
 super + w; l; m
