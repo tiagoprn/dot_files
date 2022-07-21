@@ -154,6 +154,24 @@ if [ "$DISTRO" == 'Pop!_OS' ]; then
     export MANWIDTH=999
 fi
 
+# using 'kill -9 ,,' or 'cd ,,', triggers fzf for autocompletion
+export FZF_COMPLETION_TRIGGER=',,'
+
+# rg means ripgrep, that is nice to use with fzf
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+
+export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
+
+## To run ansible locally without it being so annoying :)
+export ANSIBLE_HOST_KEY_CHECKING=False
+
+# Allows the same scale on monitors of different size (works e.g. for alacritty)
+export WINIT_X11_SCALE_FACTOR=1.0
+
+# Fixes cedilla caracter using 'c on GTK and QT apps
+export GTK_IM_MODULE=cedilla
+export QT_IM_MODULE=cedilla
+
 # provides bash and git completion
 # For it to work, install the package "bash-completion":
 #     sudo pacman -S bash-completion
@@ -227,6 +245,9 @@ fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
+## To stop showing warnings on activating a pyenv:
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
