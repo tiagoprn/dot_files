@@ -36,14 +36,15 @@ snippet sig
 	twitter.com/tiagoprn
 
 snippet post
-	+++
-	author = "Tiago Paranhos Lima"
-	title = "${1}"
-	date = `strftime("%Y-%m-%d")`
-	description = "${2}"
-	tags = [${3:"tag1",}]
-	hidden = true
-	+++
+	---
+	author: "Tiago Paranhos Lima"
+	title: "${1}"
+	date: `strftime("%Y-%m-%d")`
+	description: "${2}"
+	tags: [${3:"tag1",}]
+	hidden: true
+	draft: false
+	---
 
 	${4}
 
