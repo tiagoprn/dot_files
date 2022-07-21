@@ -105,3 +105,26 @@ snippet random_number
 
 snippet stdout_write
 	sys.stdout.write('${1}')
+
+snippet function_type_hint_example
+	from typing import Callable
+	GreetingReader = Callable[[], str]
+	#                         |   |
+	#                         |   |> return value
+	#                         |
+	#                         |> arguments
+
+snippet immutable_sort_randomization
+	import random
+	test_list = [12, 34, 234, 452, -1]
+	sorted_list = sorted(test_list)  # you will create a new list, not changing test_list values
+	shuffled_list = random.sample(sorted_list, k=len(sorted_list))  # you will create a new list, not changing test_list values
+
+snippet mutable_sort_randomization
+	import random
+	test_list = [12, 34, 234, 452, -1]
+	test_list.sort()  # this will change test_list values
+	print(test_list)
+	random.shuffle(test_list)   # this will change test_list
+	print(test_list)
+
