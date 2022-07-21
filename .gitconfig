@@ -53,11 +53,13 @@
   undo = reset --soft HEAD^
   # list changed files on each commit (verbose):
   files-changed = log --name-status
-
+  # Sort the files in your project by their number of changes over time, and take the first 10:
   file-changes-rank = "!git log --name-only | grep -v 'Author' |  grep -v '^$' | sort | uniq -c | sort -rg | head -10"
-  # Sort the files in your project by their number of changes over time, and take the first 10 :
+  # Track files with a higher chance that will require more changes in the future:
   files-rank = "!git file-changes-rank"
-  # (the command above is useful to track those with a higher chance that will require more changes in the future)
+  # outputs repository root folder:
+  root = rev-parse --show-toplevel
+
 
 [status]
   showUntrackedFiles = all

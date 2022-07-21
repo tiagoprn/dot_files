@@ -27,8 +27,8 @@ ACTIONS = [
         "/storage/src/dot_files/tiling-window-managers/scripts/lock-with-betterlockscreen.sh",
     ),
     (
-        "standby",
-        "xset dpms force standby",
+        "suspend-to-ram",
+        "sudo systemctl suspend",
     ),
     (
         "switch user",

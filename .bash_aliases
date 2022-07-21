@@ -38,9 +38,8 @@ alias cn='/storage/src/devops/bin/create-fleeting-note.sh'
 alias nr='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
 
 # tree letter aliases
+alias cdr='cd $(g root)'
 alias cht='curl -s cht.sh/$(curl -s cht.sh/:list | fzf)'
-# alias gps='git push origin `git branch | grep "*" | cut -d " " -f 2`'
-# alias gpl='git pull origin `git branch | grep "*" | cut -d " " -f 2`'
 alias pcb='pyenv versions | grep "*" | cut -d " " -f 2 | cb'
 alias vcb='xclip -i -selection clipboard -o | nvim -' # Open clipboard contents on nvim
 
