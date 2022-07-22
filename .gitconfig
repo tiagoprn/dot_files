@@ -94,3 +94,5 @@
 # On repeated merge conflicts, [re]use [re]corded [re]solution
 [rerere]
   enabled = true
+[init]
+	defaultBranch = main
