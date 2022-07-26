@@ -76,6 +76,9 @@ return require("packer").startup(function()
 	-- gitsigns
 	use({ "lewis6991/gitsigns.nvim" })
 
+	-- navigation (to integrate better with tmux)
+	use({ "numToStr/Navigator.nvim" })
+
 	-- # LANGUAGE SERVERS - begin
 
 	-- --  handles automatically launching and initializing language servers installed on your system
