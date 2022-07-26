@@ -64,11 +64,11 @@ alt + o
 	/storage/src/dot_files/tiling-window-managers/scripts/toggle_compositor.sh
 
 # launch snippets:
-alt + s
+ctrl + s
 	/storage/src/dot_files/tiling-window-managers/scripts/snippets.sh
 
 # pavucontrol:
-alt + v
+super + v
 	pavucontrol
 
 # decrease screen brightness:
@@ -208,8 +208,8 @@ alt + e
 
 ### bspwm
 
-# scratchpad - dropdownterm:
-alt + t
+# scratchpad - dropdownterm (notes and reminders):
+ctrl + n
 	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh dropdownterm "/storage/src/dot_files/tiling-window-managers/scripts/terminal-dropdownterm.sh"
 
 # scratchpad - flashcards:
