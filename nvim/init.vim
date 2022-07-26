@@ -133,7 +133,7 @@ lua require('sessions')
 lua require('gitsigns-conf')
 lua require('lualine-conf')
 lua require('toggleterm-conf')
-lua require('navigator-setup')
+lua require('navigator-conf')
 
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
