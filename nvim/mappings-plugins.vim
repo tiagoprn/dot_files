@@ -79,8 +79,8 @@ nnoremap <silent> <leader>gk :Gitsigns prev_hunk<CR>| "  (gitsigns) go to next c
 nnoremap <silent> <leader>gp :Gitsigns preview_hunk<CR>| "  (gitsigns) preview hunk
 
 " tmux-navigator
-nnoremap <silent> <A-J> :TmuxNavigateDown<CR>| " (tmux-navigator) move to down split/tmux pane
-nnoremap <silent> <A-K> :TmuxNavigateUp<CR>| " (tmux-navigator) move to up split/tmux pane
-nnoremap <silent> <A-H> :TmuxNavigateLeft<CR>| " (tmux-navigator) move to left split/tmux pane
-nnoremap <silent> <A-L> :TmuxNavigateRight<CR>| " (tmux-navigator) move to right split/tmux pane
-nnoremap <silent> <A-P> :TmuxNavigatePrevious<CR>| " (tmux-navigator) move to previous split/tmux pane
+nnoremap <silent> <M-j> :TmuxNavigateDown<CR>| " (tmux-navigator) move to down nvim window/tmux pane
+nnoremap <silent> <M-k> :TmuxNavigateUp<CR>| " (tmux-navigator) move to up nvim window/tmux pane
+nnoremap <silent> <M-h> :TmuxNavigateLeft<CR>| " (tmux-navigator) move to left nvim window/tmux pane
+nnoremap <silent> <M-l> :TmuxNavigateRight<CR>| " (tmux-navigator) move to right nvim window/tmux pane
+nnoremap <silent> <M-p> :TmuxNavigatePrevious<CR>| " (tmux-navigator) move to previous nvim window/tmux pane
