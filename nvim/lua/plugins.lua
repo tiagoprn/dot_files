@@ -77,7 +77,7 @@ return require("packer").startup(function()
 	use({ "lewis6991/gitsigns.nvim" })
 
 	-- navigation (to integrate better with tmux)
-	use({ "numToStr/Navigator.nvim" })
+	use({ "christoomey/vim-tmux-navigator" })
 
 	-- # LANGUAGE SERVERS - begin
 
