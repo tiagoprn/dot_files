@@ -67,6 +67,7 @@ set lazyredraw
 " highlight SpecialKey ctermfg=red guifg=red
 " Overriding color of the line numbers
 highlight LineNr ctermbg=black ctermfg=white
+
 " Overriding color of the status line
 " highlight StatusLine ctermbg=black ctermfg=darkblue
 " Overriding color of the popup menu
@@ -88,6 +89,10 @@ highlight CursorColumn guibg=#303000 ctermbg=238
 " --- Configure rg integration
 set grepprg=rg\ --vimgrep
 set grepformat^=%f:%l:%c:%m
+
+" custom winbar
+" right size, file has changed, file path
+set winbar=%=%m\ %F
 
 " --- setup python virtualenv that has nvim requirements installed - check this repository README.md for details
 let g:python3_host_prog = '~/.pyenv/versions/neovim/bin/python'
