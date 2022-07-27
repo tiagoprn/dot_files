@@ -137,6 +137,7 @@ lua require('toggleterm-conf')
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim
+source $HOME/.config/nvim/conf-plugins/navigator.vim
 source $HOME/.config/nvim/mappings-plugins.vim
 
 source $HOME/.config/nvim/commands-tiagoprn-functions.vim
