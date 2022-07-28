@@ -27,11 +27,16 @@ create_if_needed_and_attach() {
     if not_in_tmux; then
         tmux new-session -Ad -s "$session_name"
 
-        tmux rename-window -t "$session_name:1" "editor"
+        # DEFAULT_FIRST_WINDOW_NAME="$session_name:1"
+        DEFAULT_FIRST_WINDOW_NAME="bash"
+        # DEFAULT_FIRST_WINDOW_INDEX=1
+        DEFAULT_FIRST_WINDOW_INDEX=0
+
+        tmux rename-window -t $DEFAULT_FIRST_WINDOW_NAME "editor"
         tmux send-keys -t "editor" "nvim" C-m
-        tmux splitw -h -p 35
+        tmux splitw -v -p 10
         tmux send-keys -t "editor" "# You can run a runserver like or other commands on this pane." C-m
-        tmux selectp -t 1
+        tmux selectp -t 0
 
         tmux new-window -t "$session_name:2" -n "git"
         tmux send-keys -t "git" "lazygit" C-m
@@ -39,12 +44,13 @@ create_if_needed_and_attach() {
         tmux new-window -t "$session_name:3" -n "scratchpad"
         tmux send-keys -t "scratch" "# this is a scratchpad inside the project directory, enjoy!" C-m
 
-        tmux attach-session -t "$session_name:1"
+        echo 'BEFORE ERROR...'
+        tmux attach-session -t "$session_name:$DEFAULT_FIRST_WINDOW_INDEX"
     else
         if ! session_exists; then
             create_detached_session
         fi
-        tmux switch-client -t "$session_name:1"
+        tmux switch-client -t "$session_name:$DEFAULT_FIRST_WINDOW_INDEX"
     fi
 }
 
