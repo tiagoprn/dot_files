@@ -98,7 +98,13 @@ NOTE: Treesitter parsers will be installed through npm. Commands to inspect that
 
 #### lua
 
-- lua-language-server (sumneko): Download a release from this page: <https://github.com/sumneko/lua-language-server/releases>
+- lua-language-server (sumneko):
+	- Download a release from this page: <https://github.com/sumneko/lua-language-server/releases>
+	- Uncompress the release at `/opt/src/lua-language-server`
+	- Create a symbolic link to the wrapper script:
+	```bash
+	$ sudo ln -s /storage/src/dot_files/nvim/etc/lua-language-server /usr/local/bin/lua-language-server
+	```
 
 - stylua: install using rust package manager:
 ```bash
