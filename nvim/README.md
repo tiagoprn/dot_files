@@ -89,9 +89,12 @@ $ GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
 $ sudo cp ~/go/bin/shfmt /usr/bin/
 ```
 
-**NOTE: Treesitter parsers will be installed through npm. **
-
-
+NOTE: Treesitter parsers will be installed through npm. Commands to inspect that:
+```bash
+:TSInstallInfo  # List all available languages and their installation status
+:TSUpdate       # Updates all parsers
+:TSUpdate xyz   # Updates xyz language parser
+```
 
 #### lua
 
