@@ -41,7 +41,14 @@ update-alternatives --set vi /usr/local/bin/nvim
 
 ## Configuration
 
-### 1) Install language servers (you must start here)
+### 1) Install latest version of node
+
+```bash
+$ curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+$ sudo apt install -y nodejs
+```
+
+### 2) Install language servers (you must start here)
 
 #### python
 
@@ -61,7 +68,14 @@ That will install not only pynvim, but also other packages related to python LSP
 
 - Bash Language Server:
 ```bash
-$ npm -i -g bash-language-server
+# Install
+$ sudo npm i -g bash-language-server
+
+# Update bash-language-server.
+$ sudo npm update --location=global
+
+# Test bash-language-server.
+$ bash-language-server -v
 ```
 
 - shellcheck: linter
@@ -75,10 +89,9 @@ $ GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
 $ sudo cp ~/go/bin/shfmt /usr/bin/
 ```
 
-- Treesitter parsers (they are installed through npm):
-```bash
-$ sudo apt install -y npm
-```
+**NOTE: Treesitter parsers will be installed through npm. **
+
+
 
 #### lua
 
@@ -89,7 +102,7 @@ $ sudo apt install -y npm
 $ cargo install stylua
 ```
 
-### 2) Setting up neovim
+### 3) Setting up neovim
 
 - **IMPORTANT:** Before starting, make sure you already have neovim installed (as appimage or compiled). This assumes neovim 0.7+ (which at this time can only be obtained through cloning the master branch). Also make sure you have installed the language servers and related programs/packages.
 
