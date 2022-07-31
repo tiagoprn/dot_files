@@ -180,7 +180,7 @@ super + Return
 	/storage/src/dot_files/tiling-window-managers/scripts/terminal.sh
 
 # bookmarks:
-super + shift + b
+super + b
 	/storage/src/dot_files/tiling-window-managers/scripts/bookmarks.py
 
 # screenshot - region:
