@@ -113,4 +113,10 @@ function! s:ZoomToggle() abort
     endif
 endfunction
 
-
+" Detects go template language html (used on Hugo) and changes the filetype accordingly.
+" Needs the plugin "fatih/vim-go" installed to provide indentation and syntax highlighting.
+function! DetectGoHtmlTmpl()
+    if expand('%:e') == "html" && search("{{") != 0
+        setfiletype gohtmltmpl
+    endif
+endfunction

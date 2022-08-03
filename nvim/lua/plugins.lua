@@ -79,6 +79,9 @@ return require("packer").startup(function()
 	-- navigation (to integrate better with tmux)
 	use({ "christoomey/vim-tmux-navigator" })
 
+	-- support for hugo template language (go)
+	use({ "fatih/vim-go" })
+
 	-- # LANGUAGE SERVERS - begin
 
 	-- --  handles automatically launching and initializing language servers installed on your system
