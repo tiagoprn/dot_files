@@ -1,2 +1,0 @@
-norm ggIztk
-startinsert!

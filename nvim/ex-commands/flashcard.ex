@@ -1,2 +1,2 @@
-norm ggIfc
+norm ggIflashcard
 startinsert!
