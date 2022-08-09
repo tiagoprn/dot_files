@@ -42,9 +42,53 @@ snippet post
 	date: `strftime("%Y-%m-%d")`
 	description: "${2}"
 	tags: [${3:"tag1",}]
-	hidden: true
-	draft: false
-	reference: ""
+	references: [${4:"link1",}]
+	hidden: false
+	draft: true
+	---
+
+	${4}
+
+snippet short
+	---
+	author: "Tiago Paranhos Lima"
+	title: "${1}"
+	date: `strftime("%Y-%m-%d")`
+	categories: ["shorts"]
+	description: "${2}"
+	tags: [${3:"tag1",}]
+	references: [${4:"link1",}]
+	hidden: false
+	draft: true
+	---
+
+	${4}
+
+snippet bib-note
+	---
+	author: "Tiago Paranhos Lima"
+	title: "${1}"
+	date: `strftime("%Y-%m-%d")`
+	categories: ["bibliographic-notes"]
+	description: "${2}"
+	tags: [${3:"tag1",}]
+	references: [${4:"link1",}]
+	hidden: false
+	draft: true
+	---
+
+	${4}
+
+snippet flashcard
+	---
+	author: "Tiago Paranhos Lima"
+	title: "${1}"
+	date: "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
+	categories: ["flashcards"]
+	tags: [${2:"tag1",}]
+	references: [${3:"link1",}]
+	hidden: false
+	draft: true
 	---
 
 	${4}
@@ -93,14 +137,4 @@ snippet qheader
 snippet gcommit
 	feat: updated repository on `strftime("%Y-%m-%d %H:%M:%S")` ${1}
 
-snippet fc
-	---
-	author: "Tiago Paranhos Lima"
-	title: "${1}"
-	date: "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"
-	categories: ["flashcards"]
-	tags: [${2:"tag1",}]
-	reference: "${3}"
-	---
-	${4}
 
