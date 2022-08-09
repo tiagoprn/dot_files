@@ -7,9 +7,9 @@ function M.searchWriteloop()
 	})
 end
 
-function M.searchQuickNotes()
+function M.searchFleetingNotes()
 	require("telescope.builtin").live_grep({
-		prompt_title = "\\ Search QuickNote /",
+		prompt_title = "\\ Search FleetingNote /",
 		cwd = "/storage/docs/fleeting-notes/",
 	})
 end

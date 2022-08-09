@@ -149,6 +149,6 @@ $ nvim
 :Luapad
 
 require("plenary.reload").reload_module'tiagoprn.scratchpad'
-require'tiagoprn.scratchpad'.createQuickNote()
+require'tiagoprn.scratchpad'.createFleetingNote()
 ```
 

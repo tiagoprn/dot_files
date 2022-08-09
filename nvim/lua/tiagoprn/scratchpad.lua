@@ -4,10 +4,10 @@ local h = require("tiagoprn.helpers")
 
 local M = {}
 
-function M.createQuickNote()
+function M.createFleetingNote()
 	-- local directory = '/tmp/fleeting-notes'
 	local directory = "/storage/docs/fleeting-notes"
-	local exCommandsFile = "/storage/src/dot_files/nvim/ex-commands/quick-note.ex"
+	local exCommandsFile = "/storage/src/dot_files/nvim/ex-commands/fleeting-note.ex"
 	h.createAlternativeFormatTimestampedFileWithSnippet(directory, exCommandsFile)
 end
 
