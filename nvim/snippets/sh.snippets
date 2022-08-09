@@ -121,10 +121,14 @@ snippet function_with_args
 	}
 
 	my_function "FIRST" "SECOND"
+
 snippet for
 	for (( i = 0; i < ${1:10}; i++ )); do
 		${VISUAL}${0:#statements}
 	done
+
+snippet press_any_key_to_continue
+	read -n 1 -s -r -p "Press any key to continue: "
 
 snippet forin
 	WORDS="banana maçã tomate"
@@ -288,5 +292,6 @@ snippet bash!
 	msg "- flag: ${flag}"
 	msg "- param: ${param}"
 	msg "- arguments: ${args[*]-}"
+
 
 
