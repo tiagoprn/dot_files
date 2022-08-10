@@ -14,13 +14,7 @@
 /storage/src/writeloop-raw/content/post
 /storage/src/writeloop-raw/content/curriculum
 /storage/src/writeloop-raw/content
-/storage/src/writeloop/fleeting-content
-/storage/src/writeloop/fleeting-content/bibliographic-notes
-/storage/src/writeloop/fleeting-content/code
-/storage/src/writeloop/fleeting-content/diagrams
-/storage/src/writeloop/fleeting-content/flashcards
-/storage/src/writeloop/fleeting-content/mind-maps
-/storage/src/writeloop/fleeting-content/zettelkasten
+/storage/src/writeloop
 /home/tiago.lima/.local/bin | local user binaries (dragon, glow, rsync-time-backup, etc...)
 /home/tiago.lima/.local/share/nvim | state and data - e.g. sessions
 /home/tiago.lima/.local/share/nvim/site/pack/packer/start | packer plugins directory (where it downloads the plugins git repos)
