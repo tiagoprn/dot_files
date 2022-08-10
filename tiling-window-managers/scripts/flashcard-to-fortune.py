@@ -23,14 +23,14 @@ logging.basicConfig(
     ],
 )
 
-FORTUNES_OUTPUT_DIR = '/tmp/fortunes'
+FORTUNES_OUTPUT_DIR = "/tmp/fortunes"
 
 
 def slugify(string: str):
     string = string.lower().strip()
-    string = re.sub(r'[^\w\s-]', '', string)
-    string = re.sub(r'[\s_-]+', '-', string)
-    string = re.sub(r'^-+|-+$', '', string)
+    string = re.sub(r"[^\w\s-]", "", string)
+    string = re.sub(r"[\s_-]+", "-", string)
+    string = re.sub(r"^-+|-+$", "", string)
     return string
 
 
@@ -54,6 +54,29 @@ class FileNotFound(Exception):
 HEADER_SEPARATOR = "---"
 
 
+def get_file_contents_metadata(data: list) -> dict:
+    yaml_frontmatter_start_index = -1
+    yaml_frontmatter_end_index = -1
+    title = ""
+
+    for index, line in enumerate(data):
+        if line.startswith(HEADER_SEPARATOR):
+            if yaml_frontmatter_start_index == -1:
+                yaml_frontmatter_start_index = index
+            elif yaml_frontmatter_end_index == -1:
+                yaml_frontmatter_end_index = index
+                break
+        elif line.startswith("title:"):
+            title_line = data[index]
+            title = title_line.split(":")[1].strip().replace('"', "")
+
+    return {
+        "yaml_frontmatter_start_index": yaml_frontmatter_start_index,
+        "yaml_frontmatter_end_index": yaml_frontmatter_end_index,
+        "title": title,
+    }
+
+
 def process_flashcard_file(input_file: str) -> str:
     if not os.path.exists(input_file):
         raise FileNotFound(file_path=input_file)
@@ -61,26 +84,34 @@ def process_flashcard_file(input_file: str) -> str:
     with open(input_file) as flashcard:
         data = flashcard.readlines()
 
-    header = data[:3]
-    contents = data[5:]
+    metadata = get_file_contents_metadata(data)
 
-    title = slugify(header[0])
+    body_start = metadata["yaml_frontmatter_end_index"] + 1
+    contents = data[body_start:]
+
+    title = slugify(metadata["title"])
 
     input_file_name = os.path.splitext(os.path.basename(input_file))[0]
 
     fortune_items = process_contents(contents)
 
+    if not fortune_items:
+        print(
+            "Cannot generate a fortune file. At least one line must start "
+            "with '-' character to identify a fortune."
+        )
+        sys.exit(1)
+
     if not os.path.exists(FORTUNES_OUTPUT_DIR):
         os.makedirs(FORTUNES_OUTPUT_DIR)
 
-    fortune_file_name = (
-        f'{FORTUNES_OUTPUT_DIR}/{title}_{input_file_name}'.replace('-', '')
-    )
-    with (open(fortune_file_name, 'w')) as output_file:
+    fortune_file_basename = f"{FORTUNES_OUTPUT_DIR}/{title}_{input_file_name}"
+    fortune_file_name = fortune_file_basename.replace("-", "")
+    with (open(fortune_file_name, "w")) as output_file:
         for index, item in enumerate(fortune_items, start=1):
-            line = '\n'.join(item)
-            fortune_separator = '%\n' if index != len(fortune_items) else ''
-            output_file.write(f'{line}\n{fortune_separator}')
+            line = "\n".join(item)
+            fortune_separator = "%\n" if index != len(fortune_items) else ""
+            output_file.write(f"{line}\n{fortune_separator}")
 
     return fortune_file_name
 
@@ -94,7 +125,7 @@ def process_contents(contents):
         if line.strip() == "":
             continue
 
-        if line.startswith('-'):
+        if line.startswith("-"):
             if current_fortune:
                 fortune_items.append(current_fortune)
                 current_fortune = []
@@ -116,8 +147,8 @@ def run_shell_command(cmd: str):
 
 
 def generate_final_fortune_file(fortune_file_name: str):
-    dat_file_name = f'{fortune_file_name}.dat'
-    command = f'strfile -c % {fortune_file_name} {dat_file_name}'
+    dat_file_name = f"{fortune_file_name}.dat"
+    command = f"strfile -c % {fortune_file_name} {dat_file_name}"
     return_code, stdout, stderr = run_shell_command(command)
     if stderr:
         print(stderr)
@@ -129,9 +160,9 @@ def run(parsed_args: argparse.Namespace):
     input_file = parsed_args.flashcard_file_path
     fortune_file_name = process_flashcard_file(input_file)
     generate_final_fortune_file(fortune_file_name)
-    logging.info(f'Fortune file generated at: {fortune_file_name}')
-    logging.info('To test, run: ')
-    logging.info(f'    fortune -c {FORTUNES_OUTPUT_DIR}')
+    logging.info(f"Fortune file generated at: {fortune_file_name}")
+    logging.info("To test, run: ")
+    logging.info(f"    fortune -c {FORTUNES_OUTPUT_DIR}")
 
 
 if __name__ == "__main__":
