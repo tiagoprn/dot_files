@@ -5,7 +5,11 @@ augroup textconf
     " autocmd FileType markdown,text InsertLeave * normal gwap<CR> " formats the current paragraph when leaving insert mode
     " do not use textwidth with soft wrap, it has no effect
     autocmd FileType markdown,text,vim set linebreak  " soft wrap: wrap the text when it hits the screen edge
-    autocmd FileType markdown,text,vim let g:indentLine_enabled=0  " disables conceallevel=2 for markdown files, so they can be properly read/edited as pointed at https://vi.stackexchange.com/questions/12520/markdown-in-neovim-which-plugin-sets-conceallevel-2
+
+    " disables conceallevel=2 for markdown files, so they can be properly read/edited as pointed at https://vi.stackexchange.com/questions/12520/markdown-in-neovim-which-plugin-sets-conceallevel-2
+    autocmd FileType markdown,text,vim let g:indentLine_enabled=0
+    autocmd FileType markdown,text,vim let g:indentLine_fileTypeExclude = ['markdown']
+
     autocmd FileType markdown,text,vim set nofoldenable  " disable folding
     autocmd FileType markdown,text set spell
     autocmd FileType markdown,text set spelllang=en
