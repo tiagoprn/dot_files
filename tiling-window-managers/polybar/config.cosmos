@@ -40,13 +40,32 @@ format-margin =
 format-offset =
 
 [colors]
-background = #0c1821
-foreground = #eee5e9
-alert = #ffca3a
-volume-min = #a3be8c
-volume-med = #ebcb8b
-volume-max = #bf616a
 
+; light = #eee5e9
+light = #ffffff
+
+; dark = #0c1821
+dark = #000000
+
+; gray = #7c6f64
+gray = #282828
+
+; red = #cc241d
+; red = #fb4934
+red = #9d0006
+
+green = #98971a
+; green = #b8bb26
+
+; yellow = #d79921
+; yellow = #fabd2f
+yellow = #f0fd1f
+
+background = ${colors.dark}
+foreground = ${colors.light}
+
+accent = ${colors.red}
+secondary = ${colors.yellow}
 
 
 # --- MAINBAR-BSPWM
@@ -77,14 +96,10 @@ override-redirect = true
 enable-ipc = true
 
 border-size = 0
-;border-left-size = 0
-;border-right-size = 25
-;border-top-size = 0
-;border-bottom-size = 25
 border-color = #00000000
 
 padding-left = 0
-padding-right = 1
+padding-right = 0
 
 module-margin-left = 3
 module-margin-right = 3
@@ -105,14 +120,13 @@ tray-detached = false
 tray-offset-x = 0
 tray-offset-y = 0
 tray-padding = 2
-tray-maxsize = 20
+tray-maxsize = 60
 tray-scale = 1.0
 tray-position = right
 tray-background = ${colors.background}
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
-
 
 
 # --- MODULE BSPWM
@@ -142,37 +156,46 @@ label-monitor = %name%
 format = <label-state> <label-mode>
 
 label-focused = %icon%
-label-focused-background = ${colors.background}
-;label-focused-underline= #98C379
 label-focused-padding = 2
-label-focused-foreground = #fb6376
+label-focused-background = ${colors.accent}
+label-focused-foreground = ${colors.light}
+; label-focused-underline = ${colors.light}
 
 label-occupied = %icon%
 label-occupied-padding = 2
 label-occupied-background = ${colors.background}
-label-occupied-foreground = #eee5e9
+label-occupied-foreground = ${colors.light}
+; label-occupied-underline = ${colors.light}
 
 label-urgent = %icon%
 label-urgent-padding = 2
 
 label-empty = %icon%
-label-empty-foreground = ${colors.foreground}
-label-empty-padding = 2
+label-empty-foreground = ${colors.gray}
 label-empty-background = ${colors.background}
+label-empty-padding = 2
+
 label-monocle = "  "
 label-monocle-foreground = ${colors.foreground}
+
 label-tiled = "  "
 label-tiled-foreground = ${colors.foreground}
+
 label-fullscreen = "  "
 label-fullscreen-foreground = ${colors.foreground}
+
 label-floating = "  "
 label-floating-foreground = ${colors.foreground}
+
 label-pseudotiled = "  "
 label-pseudotiled-foreground = ${colors.foreground}
+
 label-locked = "  "
 label-locked-foreground = ${colors.foreground}
+
 label-sticky = "  "
 label-sticky-foreground = ${colors.foreground}
+
 label-private =  "     "
 label-private-foreground = ${colors.foreground}
 
@@ -184,23 +207,17 @@ label-private-foreground = ${colors.foreground}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
-
 [module/xwindow]
 ;https://github.com/jaagr/polybar/wiki/Module:-xwindow
 type = internal/xwindow
-
-; Available tokens:
-;   %title%
-; Default: %title%
 label = %title%
 label-maxlen = 50
-
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+format-foreground = ${colors.secondary}
+format-background = ${colors.dark}
+format-underline = ${colors.secondary}
 
 
 # --- MODULES
-
 
 [module/custom-dunst-status]
 type = custom/script
@@ -224,24 +241,23 @@ interval = 1
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
 date = " %d %b %a "
 time = %H:%M:%S
-format-prefix = " "
-format-prefix-foreground = #BBFF00
-format-foreground =  #BBFF00
-format-background = ${colors.background}
 label = %date% %time%
+format-prefix = " "
+format-prefix-foreground = ${colors.secondary}
+format-foreground = ${colors.secondary}
+format-background = ${colors.background}
+format-underline = ${colors.secondary}
 
 
 [module/custom-kdbleds]
 type = custom/script
 exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-kbdleds
 interval = 1
-format-foreground = #FFFFFF
-format-background = #E9184C
 ; format-prefix = ""
-format-prefix-foreground = #FFFFF
-format-underline = #0000FF
-; click-right = variety --preferences
-; click-left = variety --selector
+; format-prefix-foreground = #FFFFF
+format-foreground = ${colors.secondary}
+format-background = ${colors.dark}
+format-underline = ${colors.secondary}
 
 
 [module/custom-volume]
@@ -262,13 +278,10 @@ format-prefix-foreground = #FFFFF
 type = custom/script
 exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-battery
 interval = 5
-format-foreground = #F0FD1F
-format-background = ${colors.background}
 format-prefix = " "
-format-prefix-foreground = #F0FD1F
-format-underline = #F0FD1F
-; click-right = variety --preferences
-; click-left = variety --selector
+format-prefix-foreground = ${colors.light}
+format-foreground = ${colors.light}
+format-background = ${colors.background}
 
 
 [module/filesystem]
