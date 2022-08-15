@@ -11,10 +11,10 @@ echo -e "after autostart..."
 echo -e "after setup-monitors..."
 
 #BSPC Settings
-bspc config border_width 2
+bspc config border_width 4
 bspc config window_gap 12
 bspc config top_padding 30
-bspc config bottom_padding 10
+bspc config bottom_padding 2
 bspc config left_padding 10
 bspc config right_padding 10
 bspc config single_monocle false
@@ -31,11 +31,14 @@ bspc config remove_disabled_monitors true
 bspc config merge_overlapping_monitors true
 
 #Colors
-bspc config normal_border_color "#000000"
-bspc config active_border_color "#eee5e9"
-bspc config focused_border_color "#eee5e9"
-bspc config presel_feedback_color "#53a77c"
-bspc config urgent_border_color "#ffca3a"
+DARK_COLOR="#000000"
+ACCENT_COLOR="#9d0006"
+ALERT_COLOR="#ffca3a"
+bspc config normal_border_color $DARK_COLOR
+bspc config active_border_color $ACCENT_COLOR
+bspc config focused_border_color $ACCENT_COLOR
+bspc config presel_feedback_color $ACCENT_COLOR
+bspc config urgent_border_color $ALERT_COLOR
 
 # bspc rule -a Gimp desktop='^5' state=floating follow=on
 bspc rule -a google-chrome desktop='^4' follow=on
