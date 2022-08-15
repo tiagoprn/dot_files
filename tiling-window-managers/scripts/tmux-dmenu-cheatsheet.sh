@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BINDINGS=$(cat /storage/src/dot_files/.tmux.conf | grep '  #@ ' | sed 's/bind-key -T copy-mode-vi //g' | sed 's/bind-key -T root //g' | sed 's/bind-key //g' | sed 's/bind //g')
+BINDINGS=$(cat /storage/src/dot_files/.tmux.conf | grep '  #@ ' | sed 's/bind-key -T copy-mode-vi //g' | sed 's/bind-key -T root //g' | sed 's/bind-key //g' | sed 's/bind //g' | sed 's/-n //g')
 
 : '
 Example output:
