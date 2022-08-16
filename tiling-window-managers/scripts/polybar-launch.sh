@@ -12,9 +12,16 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-desktop=$(echo $DESKTOP_SESSION)
+desktop=$(echo "$DESKTOP_SESSION")
 
-count=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
+monitors=$(xrandr --query | grep " connected" | cut -d" " -f1 | tr '\n' ' ')
+
+declare -A MAPPINGS=(
+    ['eDP-1']="mainbar-bspwm"
+    ['HDMI-1']="mainbar-bspwm-wide"
+)
+
+notify-send "polybar-launch.sh" "$count monitors connected, configuring..."
 
 if [[ $HOSTNAME == cosmos ]]; then
     POLYBAR_CONFIG='/storage/src/dot_files/tiling-window-managers/polybar/config.cosmos'
@@ -25,21 +32,19 @@ fi
 case $desktop in
 
     bspwm | /usr/share/xsessions/bspwm)
-        if type "xrandr" >/dev/null; then
-            for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-                MONITOR=$m polybar --reload mainbar-bspwm -c $POLYBAR_CONFIG &
+
+        for monitor in $monitors; do
+            echo -e "$monitor"
+
+            for key in "${!MAPPINGS[@]}"; do
+                bar_name=${MAPPINGS[$key]}
+                if [ "$key" == "$monitor" ]; then
+                    notify-send "polybar-launch.sh" "configuring monitor $key with bar $bar_name..."
+                    MONITOR="$monitor" polybar --reload "$bar_name" -c "$POLYBAR_CONFIG" &
+                fi
             done
-        else
-            polybar --reload mainbar-bspwm -c $POLYBAR_CONFIG &
-        fi
-        # second polybar at bottom
-        # if type "xrandr" > /dev/null; then
-        #   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        #     MONITOR=$m polybar --reload mainbar-bspwm-extra -c $POLYBAR_CONFIG &
-        #   done
-        # else
-        # polybar --reload mainbar-bspwm-extra -c $POLYBAR_CONFIG &
-        # fi
+
+        done
         ;;
 
 esac
