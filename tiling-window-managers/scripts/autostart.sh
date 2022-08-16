@@ -26,9 +26,6 @@ _isRunning unclutter || unclutter --timeout 5 --hide-on-touch -b &
 # echo "Reloading wallpaper..." >> $LOG_FILE 2>&1
 /storage/src/dot_files/tiling-window-managers/scripts/reload_wallpaper.sh >>$LOG_FILE 2>&1 &
 
-# start polybar
-/storage/src/dot_files/tiling-window-managers/scripts/polybar-launch.sh
-
 if [[ $HOSTNAME == "mobpi" ]]; then
     SXHKD_CONFIG=/storage/src/dot_files/tiling-window-managers/sxhkd/sxhkdrc.mobpi
 else
@@ -50,3 +47,5 @@ nohup /storage/src/dot_files/tiling-window-managers/scripts/start-dunst.sh >>$LO
 
 # TODO: run battery_wall script below as a systemd user timer:
 # $HOME/apps/scripts/bin/battery_wallpaper/battery_wall.py >> $LOG_FILE 2>&1 &
+
+/storage/src/dot_files/tiling-window-managers/scripts/setup-monitors.sh &

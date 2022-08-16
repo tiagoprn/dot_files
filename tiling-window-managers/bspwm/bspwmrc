@@ -1,15 +1,5 @@
 #!/bin/bash
 
-echo -e "before autostart..."
-
-/storage/src/dot_files/tiling-window-managers/scripts/autostart.sh &
-
-echo -e "after autostart..."
-
-/storage/src/dot_files/tiling-window-managers/scripts/setup-monitors.sh
-
-echo -e "after setup-monitors..."
-
 #BSPC Settings
 bspc config border_width 4
 bspc config window_gap 12
@@ -48,3 +38,7 @@ bspc rule -a zoom desktop='^4' follow=on
 # bspc rule -a Kupfer.py focus=on
 # bspc rule -a Screenkey manage=off
 # bspc rule -a Pavucontrol state=floating rectangle=789x512+264+130
+
+echo -e "before autostart..."
+/storage/src/dot_files/tiling-window-managers/scripts/autostart.sh &
+echo -e "after autostart..."
