@@ -3,24 +3,25 @@
 self_name=$(basename "$0")
 
 usage() {
-    echo "Move windows from desktop x to desktop y."
-    echo "usage: $self_name -f [desktop-number] -t [desktop-number]"
+    echo "---"
+    echo -e "Move windows [f]rom desktop x [t]o desktop y.\n"
+    echo -e "USAGE: \n\t$self_name -f [desktop-number] -t [desktop-number]"
 }
 
 while getopts ":f:t:" arg; do
     case $arg in
         f) FROM=$OPTARG ;;
         t) TO=$OPTARG ;;
-        *) usage ;;
+        ?)
+            echo "Invalid option: -${OPTARG}"
+            usage
+            exit 2
+            ;;
+
     esac
 done
 
-if [ -z "${FROM+set}" ]; then
-    usage
-    exit 1
-fi
-
-if [ -z "${TO+set}" ]; then
+if [[ (-z ${FROM+set}) || (-z ${TO+set}) ]]; then
     usage
     exit 1
 fi
