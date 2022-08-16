@@ -87,22 +87,29 @@ snippet elif
 		${VISUAL}${0:#statements}
 
 snippet script_args
-	usage()
-	{
-		echo "usage: script.sh -p value"
+	self_name=$(basename "$0")
+	usage() {
+	    echo "---"
+	    echo -e "Move windows [f]rom desktop x [t]o desktop y.\n"
+	    echo -e "USAGE: \n\t$self_name -f [desktop-number] -t [desktop-number]"
 	}
-
-	no_args="true"
-	while getopts ":p:" arg; do
-	  case \$arg in
-	    p) VALUE=\$OPTARG;;
-	  esac
-	  no_args="false"
+	while getopts ":f:t:" arg; do
+	    case $arg in
+		f) FROM=$OPTARG ;;
+		t) TO=$OPTARG ;;
+		?)
+		    echo "Invalid option: -${OPTARG}"
+		    usage
+		    exit 2
+		    ;;
+	    esac
 	done
-
-	[[ "\$no_args" == "true" ]] && { usage; exit 1; }
-
-	echo -e "VALUE=\$VALUE"
+	if [[ (-z ${FROM+set}) || (-z ${TO+set}) ]]; then
+	    usage
+	    exit 1
+	fi
+	echo -e "FROM=$FROM"
+	echo -e "TO=$TO"
 
 snippet script_path_and_name
 	script_name=\$(basename "\$0")

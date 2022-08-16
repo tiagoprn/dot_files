@@ -17,7 +17,6 @@ while getopts ":f:t:" arg; do
             usage
             exit 2
             ;;
-
     esac
 done
 
