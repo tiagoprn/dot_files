@@ -59,7 +59,7 @@ return require("packer").startup(function()
 	use({ "Yggdroot/indentLine" })
 
 	-- Comment
-	use({ "tpope/vim-commentary" })
+	use({ "numToStr/Comment.nvim" })
 
 	-- show contents of vim registers on a sidebar
 	use({ "junegunn/vim-peekaboo" })

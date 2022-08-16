@@ -139,6 +139,7 @@ lua require('gitsigns-conf')
 lua require('lualine-conf')
 lua require('toggleterm-conf')
 lua require('notify-conf')
+lua require('comment-conf')
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim
