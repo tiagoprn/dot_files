@@ -250,7 +250,7 @@ super + {grave,Tab}
 
 # focus or send to the given [desktop,node] [0-9]:
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}' --follow
+	bspc {desktop -f,node -d} '{1-9,10}' --follow
 
 # Move current window to preselected space:
 super + ctrl + m
