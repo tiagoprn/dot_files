@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/storage/src/dot_files/tiling-window-managers/scripts/bspwm-monitors-setup.sh &

@@ -111,13 +111,17 @@ snippet script_args
 	echo -e "FROM=$FROM"
 	echo -e "TO=$TO"
 
-snippet script_path_and_name
+snippet script_name_and_path
 	script_name=\$(basename "\$0")
 	script_path=\$(dirname "\$(readlink -f "\$0")")
 	script_path_with_name="\$script_path/\$script_name"
-	echo "Script path: \$script_path"
-	echo "Script name: \$script_name"
-	echo "Script path with name: \$script_path_with_name"
+	echo "script path: \$script_path"
+	echo "script name: \$script_name"
+	echo "script path with name: \$script_path_with_name"
+
+snippet script_name
+	script_name=\$(basename "\$0")
+	echo "script_name: \$script_name"
 
 snippet function_with_args
 	my_function()

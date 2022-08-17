@@ -339,6 +339,18 @@ $ cd /opt/src
 $ wget https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip
 $ unzip activitywatch-v0.11.0-linux-x86_64.zip
 
+## autorandr
+$ sudo su
+$ cd /opt/src
+$ git clone https://github.com/phillipberndt/autorandr
+$ cd autorandr
+$ make install
+$ systemctl daemon-reload
+$ systemctl enable autorandr.service
+$ systemctl enable autorandr-lid-listener.service
+$ udevadm control --reload-rules
+
+
 ### Directories
 - categories: `/storage/docs/notes/activitywatch`
 - data: `~/.local/share/activitywatch`

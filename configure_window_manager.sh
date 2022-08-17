@@ -105,4 +105,8 @@ echo 'Linking styli.sh...'
 rm ~/.config/styli.sh
 ln -s /storage/src/dot_files/tiling-window-managers/styli.sh ~/.config/styli.sh
 
+echo 'Linking autorandr...'
+rm ~/.config/autorandr
+ln -s /storage/src/dot_files/autorandr ~/.config/autorandr
+
 echo 'Finished.'
