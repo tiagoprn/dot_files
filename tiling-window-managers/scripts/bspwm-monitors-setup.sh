@@ -5,7 +5,7 @@ external_monitor=HDMI-1
 
 monitor_add() {
     notify-send "$(basename $0)" "Adding monitor..."
-    desktops=5 # How many desktops to move to the second monitor
+    desktops=4 # How many desktops to move to the second monitor
 
     for desktop in $(bspc query -D -m $internal_monitor | sed "$desktops"q); do
         bspc desktop $desktop --to-monitor $external_monitor
@@ -13,8 +13,8 @@ monitor_add() {
 
     # Remove "Desktop" created by bspwm
     bspc desktop Desktop --remove
-    # bspc monitor $internal_monitor --reset-desktops 1 2 3 4 5 &
-    # bspc monitor $external_monitor --reset-desktops 6 7 8 9 0 &
+    # bspc monitor $internal_monitor --reset-desktops 1 2 3 4 &
+    # bspc monitor $external_monitor --reset-desktops 5 6 7 8 &
 }
 
 monitor_remove() {
@@ -34,7 +34,7 @@ monitor_remove() {
     done
 
     bspc desktop Desktop --remove # Remove temp desktops
-    # bspc monitor $internal_monitor --reset-desktops 1 2 3 4 5 6 7 8 9 0 &
+    # bspc monitor $internal_monitor --reset-desktops 1 2 3 4 5 6 7 8 &
 }
 
 if [[ $(xrandr -q | grep 'HDMI-1 connected ' | grep '2560') ]]; then
