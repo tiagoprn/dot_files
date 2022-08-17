@@ -243,6 +243,8 @@ if [ -d "$LOCAL_BIN" ]; then
     export PATH="$PATH:$LOCAL_BIN"
 fi
 
+# PYENV setup
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
 ## To stop showing warnings on activating a pyenv:

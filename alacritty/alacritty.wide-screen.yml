@@ -17,7 +17,7 @@ env:
   TERM: alacritty
 
 window:
-  dynamic_title: false
+  dynamic_title: true
   opacity: 1
   # Window dimensions (changes require restart)
   #
