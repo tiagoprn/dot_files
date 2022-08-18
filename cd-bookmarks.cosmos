@@ -2,6 +2,8 @@
 /storage/src/dot_files
 /storage/src/devops
 /storage/src/reminders
+/storage/docs/notes | symbolic link to /storage/src/writeloop-raw/INBOX
+/storage/docs/notes/interviews
 /storage/docs/notes/personal
 /storage/docs/notes/work
 /storage/src/iac/raspberries
@@ -10,7 +12,8 @@
 /storage/src/hugo-sandbox
 /storage/src/code-box
 /storage/src/writeloop-raw
-/storage/src/writeloop-raw/content/drafts/
+/storage/src/writeloop-raw/INBOX
+/storage/src/writeloop-raw/content/drafts
 /storage/src/writeloop-raw/content/post
 /storage/src/writeloop-raw/content/curriculum
 /storage/src/writeloop-raw/content
