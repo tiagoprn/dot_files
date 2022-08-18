@@ -17,7 +17,7 @@ end
 function M.searchTaskCard()
 	require("telescope.builtin").live_grep({
 		prompt_title = "\\ Search Task Card /",
-		cwd = "/storage/docs/notes/tasks/",
+		cwd = "/storage/docs/tasks/",
 	})
 end
 

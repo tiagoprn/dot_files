@@ -13,7 +13,7 @@ end
 
 function M.createTask()
 	-- local directory = '/tmp/tasks'
-	local directory = "/storage/docs/notes/tasks"
+	local directory = "/storage/docs/tasks"
 	local exCommandsFile = "/storage/src/dot_files/nvim/ex-commands/task.ex"
 	h.createTimestampedFileWithSnippet(directory, exCommandsFile)
 end
