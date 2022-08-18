@@ -19,15 +19,6 @@ function _fzf_comprun() {  # select a file under current directory
   esac
 }
 
-function v() {  # select a file under current directory and open it with nvim
-  local selected_file
-  selected_file=$(fd -H --exclude .git | fzf --preview "bat --style=numbers --color=always --line-range :50 {}")
-
-  if [ -n "$selected_file" ]; then
-    vim "$selected_file"
-  fi
-}
-
 function tmux-save-history() {  # save current tmux commands to history file
     setxkbmap us && xdotool key --delay 36ms Control_L+a Alt_L+f Return && setxkbmap -model abnt2 -layout br
 }
