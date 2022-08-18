@@ -2,6 +2,7 @@
 /storage/src/dot_files
 /storage/src/devops
 /storage/src/reminders
+/storage/src/tasks
 /storage/docs/notes | symbolic link to /storage/src/writeloop-raw/INBOX
 /storage/docs/notes/interviews
 /storage/docs/notes/personal
