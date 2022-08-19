@@ -129,8 +129,7 @@ return require("packer").startup(function()
 	use({ "folke/lsp-colors.nvim" })
 
 	-- -- lua development environment
-	-- -- -- wrapper around lua LSP sumneko_lua
-	use({ "tjdevries/nlua.nvim" })
+	use({ "folke/lua-dev.nvim" })
 
 	-- -- -- repl
 	use({ "rafcamlet/nvim-luapad" })
