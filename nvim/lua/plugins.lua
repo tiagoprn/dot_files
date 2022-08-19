@@ -82,6 +82,9 @@ return require("packer").startup(function()
 	-- support for hugo template language (go)
 	use({ "fatih/vim-go" })
 
+	-- highlight colors
+	use({ "brenoprata10/nvim-highlight-colors" })
+
 	-- # LANGUAGE SERVERS - begin
 
 	-- --  handles automatically launching and initializing language servers installed on your system

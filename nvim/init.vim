@@ -63,6 +63,7 @@ set termguicolors
 set lazyredraw
 
 " OVERRIDING COLORS
+
 " Overriding color of special chars
 " highlight SpecialKey ctermfg=red guifg=red
 " Overriding color of the line numbers
@@ -140,6 +141,7 @@ lua require('lualine-conf')
 lua require('toggleterm-conf')
 lua require('notify-conf')
 lua require('comment-conf')
+lua require('highlight-colors-conf')
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim
