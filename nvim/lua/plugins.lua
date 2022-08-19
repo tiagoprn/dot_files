@@ -43,7 +43,7 @@ return require("packer").startup(function()
 		requires = { "godlygeek/tabular" },
 	})
 	--
-	-- float term (floating terminal, useful to trigger lazygit and other commands)
+	-- float term (floating terminal)
 	use({ "akinsho/toggleterm.nvim" })
 
 	-- vim-notify
