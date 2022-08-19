@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-REPOS="/storage/docs/fleeting-notes /storage/src/devops /storage/src/dot_files /storage/src/bin_private /storage/docs/notes /storage/src/tiagoprnl /storage/src/gpg /storage/src/reminders /storage/src/iac $HOME/.password-store /storage/src/code-insights /storage/src/writeloop /storage/src/hugo-sandbox /storage/src/fortunes"
+REPOS="/storage/docs/fleeting-notes /storage/src/devops /storage/src/dot_files /storage/src/bin_private /storage/docs/tasks /storage/src/tiagoprnl /storage/src/gpg /storage/src/reminders /storage/src/iac $HOME/.password-store /storage/src/code-insights /storage/src/writeloop /storage/src/writeloop-raw /storage/src/code-box /storage/src/hugo-sandbox /storage/src/fortunes"
 
 for repo in $REPOS; do
     if [ -d "$repo" ]; then
