@@ -1,7 +1,7 @@
 -- To more advanced package configuration: https://github.com/wbthomason/packer.nvim#quickstart
 -- (on this link there also information on how to install lua rocks (packages))
 
-return require("packer").startup(function()
+return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use({ "wbthomason/packer.nvim" })
 
@@ -23,8 +23,6 @@ return require("packer").startup(function()
 	use({ "chamindra/marvim" })
 
 	-- color schemes
-	-- use {'wuelnerdotexe/vim-enfocado'}
-
 	-- the one below support the treesitter markdown plugin with its highlight group colors:
 	-- https://www.reddit.com/r/neovim/comments/rg97j4/treesitter_for_markdown/hoktehq/?utm_medium=android_app&utm_source=share&context=3
 	use({
