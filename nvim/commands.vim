@@ -14,5 +14,3 @@ command! -bar -nargs=1 -complete=file WriteQuickfix call writefile([js_encode(s:
 
 command! -bar -nargs=1 -complete=file ReadQuickfix call setqflist([], ' ', js_decode(get(readfile(<f-args>), 0, '')))
 
-command! ZoomToggle call s:ZoomToggle()
-

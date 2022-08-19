@@ -88,6 +88,9 @@ return require("packer").startup(function()
 	-- pretty list for showing diagnostics, references, telescope results, quickfix and location lists
 	use({ "folke/trouble.nvim" })
 
+	-- zen mode (allows zooming on a buffer, between other functionality)
+	use({ "Pocco81/true-zen.nvim" })
+
 	-- # LANGUAGE SERVERS - begin
 
 	-- --  handles automatically launching and initializing language servers installed on your system

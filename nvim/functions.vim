@@ -99,20 +99,6 @@ function! ConvertMarkdownToFormat(extension)
   :redraw!
 endfu
 
-
-" Zoom / Restore window.
-function! s:ZoomToggle() abort
-    if exists('t:zoomed') && t:zoomed
-        execute t:zoom_winrestcmd
-        let t:zoomed = 0
-    else
-        let t:zoom_winrestcmd = winrestcmd()
-        resize
-        vertical resize
-        let t:zoomed = 1
-    endif
-endfunction
-
 " Detects go template language html (used on Hugo) and changes the filetype accordingly.
 " Needs the plugin "fatih/vim-go" installed to provide indentation and syntax highlighting.
 function! DetectGoHtmlTmpl()

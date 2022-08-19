@@ -23,6 +23,3 @@ nnoremap <silent> <Leader>qn :cnewer<Cr>| " quickfix: go to newer quickfix list
 " TODO: nnoremap <silent> <Leader>qs :WriteQuickfixToFile ~/.config/nvim/quickfix-history/quickfix.txt<Cr>
 
 " TODO: nnoremap <silent> <Leader>qr :ReadQuickfixToFile ~/.config/nvim/quickfix-history/quickfix.txt \|:copen<Cr>
-
-nnoremap <silent> <C-z> :ZoomToggle<CR>| " (windows) toggle zoom on current window
-
