@@ -118,6 +118,10 @@ return require("packer").startup(function()
 	-- code navigation through classes, methods and functions
 	use({ "stevearc/aerial.nvim" })
 
+	-- Automatically creates missing LSP diagnostics highlight groups for
+	-- color schemes that don't yet support the Neovim 0.5 builtin lsp client
+	use({ "folke/lsp-colors.nvim" })
+
 	-- -- lua development environment
 	-- -- -- wrapper around lua LSP sumneko_lua
 	use({ "tjdevries/nlua.nvim" })
