@@ -46,6 +46,14 @@ nnoremap <silent> <leader>la :Lspsaga code_action<CR>| " (lsp-saga) code action
 vnoremap <silent> <leader>la :<C-U>Lspsaga range_code_action<CR>| " (lsp-saga) code action
 inoremap <silent> <C-s> :Lspsaga signature_help<CR>| " (lsp-saga) (INSERT mode) signature help
 
+" trouble
+nnoremap <leader>xx <cmd>TroubleToggle<CR>| " (trouble) toggle default - document diagnostics
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<CR>| " (trouble) toggle workspace diagostics
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<CR>| " (trouble) toggle document diagnostics
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<CR> :cclose<CR>| " (trouble) toggle quickfix
+nnoremap <leader>xl <cmd>TroubleToggle loclist<CR> :lclose<CR>| " (trouble) toggle loclist (location list)
+nnoremap <leader>xr <cmd>TroubleToggle lsp_references<CR>| " (trouble) toggle lsp references
+
 " toggleterm special terminals, to trigger special commands
 nnoremap <leader>u :!tmux select-window -t git<CR>| " (tmux) go to lazygit tmux window
 nnoremap <leader>tt :ToggleTerm direction=horizontal size=10<CR>| " (toggleterm) blank terminal

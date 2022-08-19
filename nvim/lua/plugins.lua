@@ -85,6 +85,9 @@ return require("packer").startup(function()
 	-- highlight colors
 	use({ "brenoprata10/nvim-highlight-colors" })
 
+	-- pretty list for showing diagnostics, references, telescope results, quickfix and location lists
+	use({ "folke/trouble.nvim" })
+
 	-- # LANGUAGE SERVERS - begin
 
 	-- --  handles automatically launching and initializing language servers installed on your system
