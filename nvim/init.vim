@@ -145,6 +145,7 @@ lua require('highlight-colors-conf')
 lua require('lsp-colors-conf')
 lua require('trouble-conf')
 lua require('true-zen-conf')
+lua require('easypick-conf')
 
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim

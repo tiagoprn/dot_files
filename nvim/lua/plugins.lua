@@ -14,6 +14,9 @@ return require("packer").startup(function(use)
 	-- Example would be lua vim.lsp.buf.code_action().
 	use({ "nvim-telescope/telescope-ui-select.nvim" })
 
+	-- useful to create custom telescope pickers
+	use({ "axkirillov/easypick.nvim", requires = "nvim-telescope/telescope.nvim" })
+
 	use({ "tpope/vim-surround" })
 
 	-- snippets
