@@ -16,7 +16,7 @@ bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 &
 # /storage/src/dot_files/tiling-window-managers/scripts/bspwm-monitors-setup.sh &
 
 #BSPC Settings
-bspc config border_width 4
+bspc config border_width 2
 bspc config window_gap 12
 bspc config top_padding 30
 bspc config bottom_padding 2
