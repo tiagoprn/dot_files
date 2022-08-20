@@ -63,15 +63,7 @@ set termguicolors
 set lazyredraw
 
 " OVERRIDING COLORS
-
-" Overriding color of special chars
-" highlight SpecialKey ctermfg=red guifg=red
-" Overriding color of the line numbers
-highlight LineNr ctermbg=black ctermfg=white
-
-" Overriding color of the status line
-" highlight StatusLine ctermbg=black ctermfg=darkblue
-" Overriding color of the popup menu
+" do that here: lua/catppuccin-colors.lua
 
 " Highlight current line
 set cursorline
