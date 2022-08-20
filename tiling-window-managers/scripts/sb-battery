@@ -1,7 +1,8 @@
 #!/bin/bash
 
 if [[ $HOSTNAME == cosmos ]]; then
-    echo "$(acpi -V | head -n 1 | sed s/,//g | awk '{$1=$2=$3=""; print $0}' | sed 's/ \+/ /g')"
+    VOLTAGE=$(/storage/src/dot_files/tiling-window-managers/scripts/battery-voltage.py)
+    echo "$(acpi -V | head -n 1 | sed s/,//g | awk '{$1=$2=$3=""; print $0}' | sed 's/ \+/ /g') $VOLTAGE"
 else
     /storage/src/dot_files/tiling-window-managers/scripts/get_battery_info.sh
 fi
