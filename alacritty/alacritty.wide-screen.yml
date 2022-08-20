@@ -41,7 +41,7 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   padding:
     x: 20
-    y: 20
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -122,6 +122,27 @@ draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night Bright)
 colors:
+  # Cursor colors
+  #
+  # Colors which should be used to draw the terminal cursor. If these are unset,
+  # the cursor color will be the inverse of the cell color.
+  cursor:
+    text: '#191919'
+    cursor: '#d8dee9'
+
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+
+  # Selection colors
+
+  # Colors which should be used to draw the selection area. If selection
+  # background is unset, selection color will be the inverse of the cell colors.
+  # If only text is unset the cell text color will remain the same.
+  selection:
+    text: '#191919'
+    background: '#d8dee9'
+
   # Default colors
   primary:
     background: '#191919'
@@ -134,26 +155,6 @@ colors:
     # is `false`, the normal foreground color will be used.
     #dim_foreground: '#9a9a9a'
     #bright_foreground: '#ffffff'
-
-  # Cursor colors
-  #
-  # Colors which should be used to draw the terminal cursor. If these are unset,
-  # the cursor color will be the inverse of the cell color.
-  cursor:
-    text: '#191919'
-    cursor: '#d8dee9'
-
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
-  # Selection colors
-
-  # Colors which should be used to draw the selection area. If selection
-  # background is unset, selection color will be the inverse of the cell colors.
-  # If only text is unset the cell text color will remain the same.
-  selection:
-    text: '#191919'
-    background: '#d8dee9'
 
   # Normal colors
   normal:
