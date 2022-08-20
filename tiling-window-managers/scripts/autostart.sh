@@ -48,4 +48,8 @@ nohup /storage/src/dot_files/tiling-window-managers/scripts/start-dunst.sh >>$LO
 # TODO: run battery_wall script below as a systemd user timer:
 # $HOME/apps/scripts/bin/battery_wallpaper/battery_wall.py >> $LOG_FILE 2>&1 &
 
-/storage/src/dot_files/tiling-window-managers/scripts/bspwm-monitors-setup.sh &
+if [[ $(xrandr -q | grep 'HDMI-1 connected ' | grep '2560') ]]; then
+    /storage/src/dot_files/tiling-window-managers/scripts/bspwm-monitors-setup.sh &
+else
+    /storage/src/dot_files/tiling-window-managers/scripts/polybar-launch.sh &
+fi
