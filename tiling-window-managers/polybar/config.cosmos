@@ -13,32 +13,6 @@
 
 # based on: https://github.com/mtwb47/MyDots/tree/master/bspwm/polybar
 
-[global/wm]
-;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
-margin-top = 0
-margin-bottom = 0
-
-[settings]
-;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
-throttle-output = 5
-throttle-output-for = 10
-screenchange-reload = true
-compositing-background = over
-compositing-foreground = over
-compositing-overline = over
-compositing-underline = over
-compositing-border = over
-
-; Define fallback values used by all module formats
-format-foreground = #FF0000
-format-background = #00FF00
-format-underline =
-format-overline =
-format-spacing =
-format-padding =
-format-margin =
-format-offset =
-
 [colors]
 
 ; light = #eee5e9
@@ -61,11 +35,41 @@ green = #98971a
 ; yellow = #fabd2f
 yellow = #f0fd1f
 
+blue = #0084FF
+
 background = ${colors.dark}
 foreground = ${colors.light}
 
 accent = ${colors.red}
 secondary = ${colors.yellow}
+
+
+[global/wm]
+;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
+margin-top = 0
+margin-bottom = 0
+
+
+[settings]
+;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
+throttle-output = 5
+throttle-output-for = 10
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+; Define fallback values used by all module formats
+format-foreground = ${colors.red}
+format-background = ${colors.green}
+format-underline =
+format-overline =
+format-spacing =
+format-padding =
+format-margin =
+format-offset =
 
 
 # --- MAINBAR-BSPWM
@@ -81,13 +85,13 @@ separator =
 background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 2
-line-color = #f00
+line-color = ${colors.red}
 wm-restack = bspwm
 override-redirect = true
 ; Enable support for inter-process messaging. See the Messaging wiki page for more details.
 enable-ipc = true
 border-size = 0
-border-color = #00000000
+border-color = ${colors.dark}
 padding-left = 0
 padding-right = 0
 module-margin-left = 3
@@ -184,7 +188,7 @@ label-private-foreground = ${colors.foreground}
 ; Separator in between workspaces
 ;label-separator = |
 ;label-separator-padding = 10
-;label-separator-foreground = #ffb52a
+;label-separator-foreground = ${colors.yellow}
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -208,8 +212,8 @@ interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = " DUNST: "
-format-prefix-foreground = #FFFFF
-; format-underline = #0084FF
+format-prefix-foreground = ${colors.light}
+; format-underline = ${colors.blue}
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
@@ -236,7 +240,7 @@ type = custom/script
 exec = /storage/src/dot_files/tiling-window-managers/scripts/sb-kbdleds
 interval = 1
 ; format-prefix = ""
-; format-prefix-foreground = #FFFFF
+; format-prefix-foreground = ${colors.light}
 format-foreground = ${colors.secondary}
 format-background = ${colors.dark}
 format-underline = ${colors.secondary}
@@ -250,8 +254,8 @@ interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = " "
-format-prefix-foreground = #FFFFF
-; format-underline = #0084FF
+format-prefix-foreground = ${colors.light}
+; format-underline = ${colors.blue}
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
@@ -286,7 +290,7 @@ spacing = 3
 ;   <ramp-capacity>
 format-mounted = <label-mounted>
 ; format-mounted-prefix = " "
-format-mounted-prefix-foreground = #abb7ff
+format-mounted-prefix-foreground = ${colors.blue}
 format-mounted-foreground = ${colors.foreground}
 format-mounted-background = ${colors.background}
 ; Available tokens:
@@ -309,8 +313,8 @@ label-mounted = %mountpoint% %percentage_used%%
 ;format-foreground = ${colors.foreground}
 ;format-background = ${colors.background}
 ; format-prefix = ""
-;format-prefix-foreground = #FFFFF
-; format-underline = #0084FF
+;format-prefix-foreground = ${colors.light}
+; format-underline = ${colors.blue}
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
@@ -322,8 +326,8 @@ label-mounted = %mountpoint% %percentage_used%%
 ;format-foreground = ${colors.foreground}
 ;format-background = ${colors.background}
 ; format-prefix = ""
-;format-prefix-foreground = #FFFFF
-; format-underline = #0084FF
+;format-prefix-foreground = ${colors.light}
+; format-underline = ${colors.blue}
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
@@ -335,8 +339,8 @@ label-mounted = %mountpoint% %percentage_used%%
 ;format-foreground = ${colors.foreground}
 ;format-background = ${colors.background}
 ; format-prefix = ""
-;format-prefix-foreground = #FFFFF
-; format-underline = #0084FF
+;format-prefix-foreground = ${colors.light}
+; format-underline = ${colors.blue}
 ; click-right = variety --preferences
 ; click-left = variety --selector
 
@@ -348,9 +352,7 @@ label-mounted = %mountpoint% %percentage_used%%
 ; format-foreground = ${colors.foreground}
 ; format-background = ${colors.background}
 ; format-prefix = ""
-; format-prefix-foreground = #FFFFF
-; format-underline = #0084FF
+; format-prefix-foreground = ${colors.light}
+; format-underline = ${colors.blue}
 ; click-right = variety --preferences
 ; click-left = variety --selector
-
-
