@@ -49,5 +49,3 @@ nohup /storage/src/dot_files/tiling-window-managers/scripts/start-dunst.sh >>$LO
 # $HOME/apps/scripts/bin/battery_wallpaper/battery_wall.py >> $LOG_FILE 2>&1 &
 
 /storage/src/dot_files/tiling-window-managers/scripts/bspwm-monitors-setup.sh &
-
-# /storage/src/dot_files/tiling-window-managers/scripts/setup-monitors.sh &
