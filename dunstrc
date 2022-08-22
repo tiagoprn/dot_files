@@ -33,7 +33,9 @@
     # Upper right corner:
     # geometry = "300x5-0+25"
     # Upper middle horizontally:
-    geometry = "400x5-750+25"
+    # geometry = "400x5-750+25"
+    # Middle horizontally and vertically:
+    geometry = "400x5-750+500"
     # Down right corner:
     # geometry = "300x5-0-25"
     # Full top:
@@ -112,7 +114,7 @@
 
     ### Text ###
 
-    font = Montserrat 10
+    font = Montserrat 14
 
     # The height of a single line. If the height is smaller than the font height,
     # it will get raised to the font height.
@@ -334,23 +336,25 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
+    background = "#000000"
     foreground = "#888888"
+    frame_color = "#888888"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#000000"
+    foreground = "#1853D3"
+    frame_color = "#1853D3"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
-    frame_color = "#ff0000"
+    background = "#000000"
+    foreground = "#E50000"
+    frame_color = "#E50000"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
