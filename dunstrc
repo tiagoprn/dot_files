@@ -35,7 +35,7 @@
     # Upper middle horizontally:
     # geometry = "400x5-750+25"
     # Middle horizontally and vertically:
-    geometry = "400x5-750+500"
+    geometry = "800x10-550+300"
     # Down right corner:
     # geometry = "300x5-0-25"
     # Full top:
@@ -102,7 +102,7 @@
     #  * foreground: use the same color as the foreground
     #  * frame: use the same color as the frame.
     #  * anything else will be interpreted as a X color
-    separator_color = auto
+    separator_color = foreground
 
     # Sort messages by urgency
     sort = yes
@@ -110,7 +110,7 @@
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
     # Set to 0 to disable.
-    idle_threshold = 120
+    idle_threshold = 0
 
     ### Text ###
 
