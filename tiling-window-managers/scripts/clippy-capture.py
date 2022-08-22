@@ -41,7 +41,9 @@ RECORD_TRUNCATE_SIZE = 50
 
 
 def notify_send(message: str):
-    command = f'notify-send --urgency=low "clippy-capture.py" "{message}"'
+    command = (
+        f'notify-send -t 1200 --urgency=low "clippy-capture.py" "{message}"'
+    )
     run(command, shell=True)
 
 
