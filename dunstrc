@@ -114,7 +114,7 @@
 
     ### Text ###
 
-    font = Montserrat 14
+    font = Montserrat 12
 
     # The height of a single line. If the height is smaller than the font height,
     # it will get raised to the font height.

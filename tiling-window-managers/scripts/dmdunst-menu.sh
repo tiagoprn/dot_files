@@ -13,12 +13,10 @@
 # An array of options
 declare -A options
 options[pause_resume]="dunstctl set-paused toggle"
-options[count_displayed]="notify-send '$(dunstctl count displayed) notifications displayed.'"
-options[count_history]="notify-send '$(dunstctl count history) notifications in history.'"
-options[count_waiting]="notify-send '$(dunstctl count waiting) notifications waiting.'"
 options[close]="dunstctl close"
 options[close_all]="dunstctl close-all"
-options[history_pop]="dunstctl history-pop"
+options[show_last]="dunstctl history-pop"
+options[show_last_10]="for ((i = 0; i < 10; i++)); do dunstctl history-pop; done"
 
 # Picking a command
 # shellcheck disable=SC2154
