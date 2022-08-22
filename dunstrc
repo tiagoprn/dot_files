@@ -32,12 +32,14 @@
 
     # Upper right corner:
     # geometry = "300x5-0+25"
+    # Upper middle horizontally:
+    geometry = "400x5-750+25"
     # Down right corner:
     # geometry = "300x5-0-25"
     # Full top:
     # geometry = "-1x5-1+25"
     # Down left corner:
-    geometry = "-0x600+5-0"
+    # geometry = "-0x600+5-0"
 
     # Turn on the progess bar
     progress_bar = true
@@ -110,7 +112,7 @@
 
     ### Text ###
 
-    font = Montserrat 12
+    font = Montserrat 10
 
     # The height of a single line. If the height is smaller than the font height,
     # it will get raised to the font height.
