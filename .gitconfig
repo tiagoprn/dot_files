@@ -21,6 +21,8 @@
   b = branch
   # list branches, with the most recent one on top:
   bl = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
+  # list recent branches and stashes:
+  br = !/storage/src/dot_files/tiling-window-managers/scripts/git-recent-branches-and-stashes.sh
   # push:
   ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
   # pull:
