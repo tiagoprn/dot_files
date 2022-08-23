@@ -1,1 +1,6 @@
-@theme "/usr/share/rofi/themes/android_notification.rasi"
+//@theme "/usr/share/rofi/themes/android_notification.rasi"
+//@theme "/usr/share/rofi/themes/fancy.rasi"
+//@theme "/usr/share/rofi/themes/Pop-Dark.rasi"
+//@theme "/usr/share/rofi/themes/spotlight-dark.rasi"
+//@theme "/usr/share/rofi/themes/onedark.rasi"
+@theme "/home/tiago/.config/rofi/themes/squared-material-red.rasi"
