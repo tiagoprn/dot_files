@@ -4,6 +4,8 @@ local Job = require("plenary.job")
 
 local M = {}
 
+local open_mode = "split" -- or tabedit, vsplit...
+
 function M.readLines(file)
 	local f = io.open(file, "r")
 	local lines = f:read("*all")
@@ -53,7 +55,7 @@ function M.createTimestampedFileWithSnippet(directoryPath, exCommandsFile)
 
 	M.linuxCommand("mkdir", { "-p", directoryPath })
 
-	local vimOpenFileCommand = "tabedit " .. timestampedFile
+	local vimOpenFileCommand = open_mode .. timestampedFile
 	command(vimOpenFileCommand)
 
 	local vimExCommands = "source " .. exCommandsFile
@@ -64,7 +66,7 @@ function M.createAlternativeFormatTimestampedFileWithSnippet(directoryPath, exCo
 	local currentDate = os.date("%Y-%m-%d-%H-%M-%S")
 	local fileName = currentDate .. ".md"
 	local timestampedFile = directoryPath .. "/" .. fileName
-	local vimOpenFileCommand = "tabedit " .. timestampedFile
+	local vimOpenFileCommand = open_mode .. timestampedFile
 	command(vimOpenFileCommand)
 
 	local vimExCommands = "source " .. exCommandsFile
@@ -79,7 +81,7 @@ function M.createSluggedFileWithSnippet(directoryPath, exCommandsFile, slug, pos
 
 	M.writeLine(fullFilePath, post_name)
 
-	local vimOpenFileCommand = "tabedit " .. fullFilePath
+	local vimOpenFileCommand = open_mode .. fullFilePath
 	command(vimOpenFileCommand)
 
 	local vimExCommands = "source " .. exCommandsFile
