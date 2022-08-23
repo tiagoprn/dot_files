@@ -6,3 +6,9 @@ default
 feature
 POC
 repo
+script
+posts
+binding
+post
+clipboard
+snippet

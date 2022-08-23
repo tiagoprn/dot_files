@@ -6,5 +6,6 @@ command! OpenWorkDoc lua require'tiagoprn.special_dirs'.openWorkDoc()
 command! CreateFleetingNote lua require'tiagoprn.scratchpad'.createFleetingNote()
 command! CreateTask lua require'tiagoprn.scratchpad'.createTask()
 command! CreateFlashcard lua require'tiagoprn.scratchpad'.createFlashCard()
+command! CreatePost lua require'tiagoprn.scratchpad'.createPost()
 command! DeleteSpacesFromMarkdownMetadata lua require'tiagoprn.scratchpad'.deleteSpacesFromMarkdownMetadata()
 

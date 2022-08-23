@@ -25,4 +25,15 @@ function M.createFlashCard()
 	h.createTimestampedFileWithSnippet(directory, exCommandsFile)
 end
 
+function M.createPost()
+	-- local directory = '/tmp/posts'
+	local directory = "/storage/src/writeloop-raw/content/posts"
+	local exCommandsFile = "/storage/src/dot_files/nvim/ex-commands/post.ex"
+
+	local post_name = vim.fn.input("Enter a name for the post: ")
+	local slug = require("tiagoprn.helpers").slugify(post_name)
+
+	h.createSluggedFileWithSnippet(directory, exCommandsFile, slug, post_name)
+end
+
 return M

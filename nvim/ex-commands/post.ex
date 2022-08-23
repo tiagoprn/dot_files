@@ -1,0 +1,2 @@
+norm Gopost
+startinsert!
