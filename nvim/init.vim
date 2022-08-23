@@ -138,7 +138,7 @@ lua require('lsp-colors-conf')
 lua require('trouble-conf')
 lua require('true-zen-conf')
 lua require('easypick-conf')
-
+lua require('treesitter-context-conf')
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim

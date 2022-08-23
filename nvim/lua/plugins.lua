@@ -110,6 +110,8 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 	})
 
+	use({ "nvim-treesitter/nvim-treesitter-context" })
+
 	-- -- enable LSP completion
 	use({
 		"hrsh7th/nvim-cmp",
