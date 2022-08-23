@@ -110,9 +110,9 @@ Xft.rgba: rgb
 
 
 ! dmenu
-!dmenu.font : System San Francisco Display 14
-dmenu.font : Fira Code 14
+dmenu.font : System San Francisco Display 14
+!dmenu.font : Fira Code 14
 dmenu.background : #000000
 dmenu.foreground : #ffffff
-dmenu.selbackground : #ffffff
-dmenu.selforeground : #000000
+dmenu.selbackground : #9d0006
+dmenu.selforeground : #ffffff
