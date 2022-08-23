@@ -20,12 +20,6 @@ nnoremap <leader>tc :Telescope colorscheme<cr>| " (telescope) browser color sche
 nnoremap <silent>gr :lua require'telescope.builtin'.lsp_references{}<CR>| "(telescope) search over variable references from your LSP
 nnoremap <leader>tn :Telescope notify<cr>| " (telescope) show notifications history
 
-" -- surround
-" csw` | " (surround) surround current word with ` - you can use [({ instead of `
-" ds` | " (surround) delete ` surrounding current word - you can use [({ instead of `
-" S` (on visual selection) | " (surround) surround current visual selection with ` - you can use [({ instead of ` (S is the 'current text selection' vim object)
-" ys2w` | " (surround) surround next 2 words with ` - you can use [({ instead of `
-" ystA` | " (surround) surround until letter A with ` - you can use [({ instead of `
 
 
 " LSP config (the mappings used in the default file don't quite work right)
