@@ -1,4 +1,5 @@
-Custom theme, with app icons support: 
+The theme I like the most and can be easily customized is:
 
-    ln -s /storage/src/dot_files/rofi ~/.local/share/rofi
-
+```bash
+./themes/squared-material-red.rasi
+```

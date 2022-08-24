@@ -11,7 +11,7 @@
     bg1:     #404040;
     fg0:     #eeffff;
 
-    accent-color:     #f07178;
+    accent-color:     #cc241d;
     urgent-color:     #ffcb6b;
 
     background-color:   transparent;
@@ -24,7 +24,7 @@
 
 window {
     location:   center;
-    width:      880;
+    width:      1400;
     y-offset:   -160;
 
     background-color:   @bg0;
@@ -76,7 +76,7 @@ element normal active {
 }
 
 element selected {
-    text-color: @bg0;
+    text-color: @fg0;
 }
 
 element selected normal, element selected active {
