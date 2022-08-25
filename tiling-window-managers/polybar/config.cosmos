@@ -103,9 +103,9 @@ font-1 = "FontAwesome:size=13;2"
 font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 font-4 = "Noto Sans:size=10;0"
-modules-left = bspwm xwindow
-modules-center = custom-dunst-status custom-volume date custom-kdbleds custom-battery
-modules-right = filesystem
+modules-left = bspwm custom-dunst-status custom-battery
+modules-center = date custom-kdbleds custom-volume
+modules-right = xwindow filesystem
 tray-detached = false
 tray-offset-x = 0
 tray-offset-y = 0
@@ -196,11 +196,11 @@ format-background = ${colors.background}
 [module/xwindow]
 ;https://github.com/jaagr/polybar/wiki/Module:-xwindow
 type = internal/xwindow
-label = %title%
+label = "  %title%  "
 label-maxlen = 50
-format-foreground = ${colors.secondary}
-format-background = ${colors.dark}
-format-underline = ${colors.secondary}
+format-foreground = ${colors.light}
+format-background = ${colors.accent}
+; format-underline = ${colors.secondary}
 
 
 # --- MODULES
@@ -232,7 +232,7 @@ format-prefix = " "
 format-prefix-foreground = ${colors.secondary}
 format-foreground = ${colors.secondary}
 format-background = ${colors.background}
-format-underline = ${colors.secondary}
+; format-underline = ${colors.secondary}
 
 
 [module/custom-kdbleds]
@@ -243,7 +243,7 @@ interval = 1
 ; format-prefix-foreground = ${colors.light}
 format-foreground = ${colors.secondary}
 format-background = ${colors.dark}
-format-underline = ${colors.secondary}
+; format-underline = ${colors.secondary}
 
 
 [module/custom-volume]
