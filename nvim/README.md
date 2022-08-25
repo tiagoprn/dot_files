@@ -150,3 +150,4 @@ require("plenary.reload").reload_module'tiagoprn.scratchpad'
 require'tiagoprn.scratchpad'.createFleetingNote()
 ```
 
+- If I receive error "E41: Out of memory!" when opening a file, edit it outside of nvim and save it.
