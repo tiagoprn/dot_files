@@ -208,9 +208,9 @@ alt + e
 
 ### bspwm
 
-# scratchpad - dropdownterm (notes and reminders):
+# scratchpad - scratchpad_notes_tasks_n_reminders (notes and reminders):
 ctrl + slash
-	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh dropdownterm "/storage/src/dot_files/tiling-window-managers/scripts/terminal-dropdownterm.sh"
+	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh scratchpad_notes_tasks_n_reminders "/storage/src/dot_files/tiling-window-managers/scripts/terminal-scratchpad_notes_tasks_n_reminders.sh"
 
 # scratchpad - flashcards:
 alt + f

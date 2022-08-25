@@ -29,6 +29,6 @@ GEOMETRY_HEIGHT=$(printf "%.0f" $(echo "scale=2;($SCREEN_HEIGHT*$BASE_GEOMETRY_H
 echo "Calculated geometry WIDTH is: $GEOMETRY_WIDTH"
 echo "Calculated geometry HEIGHT is: $GEOMETRY_HEIGHT"
 
-WINDOW_NAME=dropdownterm
+WINDOW_NAME=scratchpad_notes_tasks_n_reminders
 urxvt -name $WINDOW_NAME -title $WINDOW_NAME -geometry ${GEOMETRY_WIDTH}x${GEOMETRY_HEIGHT}
 
