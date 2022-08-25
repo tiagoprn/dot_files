@@ -10,6 +10,12 @@ return require("packer").startup(function(use)
 		requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
 	})
 
+	-- Install to improve performance of sorting on telescope
+	use({
+		"nvim-telescope/telescope-fzf-native.nvim",
+		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+	})
+
 	-- It sets vim.ui.select to telescope. That means for example that neovim core stuff can fill the telescope picker.
 	-- Example would be lua vim.lsp.buf.code_action().
 	use({ "nvim-telescope/telescope-ui-select.nvim" })
