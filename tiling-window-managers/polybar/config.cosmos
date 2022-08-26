@@ -104,8 +104,8 @@ font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 font-4 = "Noto Sans:size=10;0"
 modules-left = bspwm custom-dunst-status custom-battery
-modules-center = date custom-kdbleds custom-volume
-modules-right = xwindow filesystem
+modules-center = date custom-kdbleds
+modules-right = custom-volume xwindow filesystem
 tray-detached = false
 tray-offset-x = 0
 tray-offset-y = 0
@@ -121,10 +121,11 @@ scroll-down = bspwm-deskprev
 inherit = bar/mainbar-bspwm
 monitor = HDMI-1
 wm-restack = bspwm
-modules-left = bspwm xwindow
-modules-center = custom-dunst-status custom-volume date custom-kdbleds custom-battery
-modules-right = filesystem
-tray-position = none
+
+; modules-left = bspwm custom-dunst-status custom-battery
+; modules-center = date custom-kdbleds
+; modules-right = custom-volume xwindow filesystem
+; tray-position = none
 
 
 # --- MODULE BSPWM

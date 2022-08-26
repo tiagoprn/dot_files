@@ -10,3 +10,4 @@ nnoremap <leader>cn :CreateFleetingNote<cr>| " create fleeting note
 nnoremap <leader>ct :CreateTask<cr>| " create task
 nnoremap <leader>po :CreatePost<cr>| " create post
 nnoremap <leader>fc :CreateFlashcard<cr>| " create flashcard
+nnoremap <leader>nc :ListFleetingNotesCategories<cr>| " list fleeting notes categories
