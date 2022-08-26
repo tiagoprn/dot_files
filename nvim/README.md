@@ -150,6 +150,8 @@ require("plenary.reload").reload_module'tiagoprn.scratchpad'
 require("tiagoprn.scratchpad").createFleetingNote()
 ```
 
+- Here is a succint page explaining the basics on lua programming: <https://riptutorial.com/lua>
+
 - Where I can find the "extended library" that neovim exposes to lua? To discover the available methods, I can use the autocomplete provided by the lua LSP when writing code on INSERT mode. The following namespaces are available:
 ```lua
 -- neovim lua API:
