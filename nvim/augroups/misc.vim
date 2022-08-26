@@ -36,3 +36,7 @@ augroup lspconfigAutoFormat
   autocmd BufWritePre *.lua lua vim.lsp.buf.format(nil, 1200)
 augroup END
 
+augroup fleetingNotesUpdateCategories
+  autocmd!
+  autocmd BufWrite *.md lua require'tiagoprn.scratchpad'.updateFleetingNotesCategories()
+augroup END

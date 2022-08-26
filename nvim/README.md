@@ -147,7 +147,23 @@ $ nvim
 :Luapad
 
 require("plenary.reload").reload_module'tiagoprn.scratchpad'
-require'tiagoprn.scratchpad'.createFleetingNote()
+require("tiagoprn.scratchpad").createFleetingNote()
 ```
+
+- Where I can find the "extended library" that neovim exposes to lua? To discover the available methods, I can use the autocomplete provided by the lua LSP when writing code on INSERT mode. The following namespaces are available:
+```lua
+-- neovim lua API:
+vim.<C-Space>
+vim.api.<C-Space>
+vim.fn.<C-Space>
+
+-- my custom modules with other functions:
+local helpers = require("tiagoprn.helpers")
+local scratchpad = require("tiagoprn.scratchpad")
+helpers.<C-Space>
+scratchpad.<C-Space>
+```
+
+On those namespaces, there are string and list manipulation functions (that I wasted effort reinventing at `tiagoprn.helpers` not knowing that they existed - I must fix that when possible)
 
 - If I receive error "E41: Out of memory!" when opening a file, edit it outside of nvim and save it.
