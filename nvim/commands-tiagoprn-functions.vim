@@ -9,4 +9,5 @@ command! CreateFlashcard lua require'tiagoprn.scratchpad'.createFlashCard()
 command! CreatePost lua require'tiagoprn.scratchpad'.createPost()
 command! DeleteSpacesFromMarkdownMetadata lua require'tiagoprn.scratchpad'.deleteSpacesFromMarkdownMetadata()
 command! ListFleetingNotesCategories execute "!rg '^- [A-Z]+:' /storage/docs/fleeting-notes | awk  '{print $2}' | sort | uniq | column -c 80"
+command! UpdateFleetingNotesCategories execute "!/storage/src/dot_files/tiling-window-managers/scripts/update-fleeting-notes-categories.sh"
 
