@@ -9,7 +9,7 @@ nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on curr
 nnoremap <leader>* :Telescope grep_string<cr>| " (telescope) search for string under cursor on current directory
 nnoremap <C-b> :Telescope buffers<cr>| " (telescope) open buffer
 nnoremap <leader>m :Telescope marks<cr>| " (telescope) browse marks
-nnoremap <leader>t :Telescope aerial<cr>| " (telescope) code navigation through classes, methods and functions
+nnoremap <leader>tn :Telescope aerial<cr>| " (telescope) code navigation through classes, methods and functions
 nnoremap <leader>ta :Telescope builtin<cr>| " (telescope) all commands
 nnoremap <leader>tr :Telescope registers<cr>| " (telescope) browse registers
 nnoremap <leader>tq :Telescope quickfix<cr>| " (telescope) browse quickfix
@@ -18,7 +18,7 @@ nnoremap <leader>tt :Telescope help_tags<cr>| " (telescope) tags
 nnoremap <leader>tm :Telescope man_pages<cr>| " (telescope) open man page
 nnoremap <leader>tc :Telescope colorscheme<cr>| " (telescope) browser color schemes
 nnoremap <silent>gr :lua require'telescope.builtin'.lsp_references{}<CR>| "(telescope) search over variable references from your LSP
-nnoremap <leader>tn :Telescope notify<cr>| " (telescope) show notifications history
+nnoremap <silent> <F9> :Telescope notify<cr>| " (telescope)(function-keys) show notifications history (vim-notify)
 
 
 
@@ -75,7 +75,7 @@ vnoremap <silent> <leader>hl <cmd>lua require'hop'.hint_lines()<CR>| " (VISUAL) 
 inoremap <silent> <c-s> <cmd>lua require'snippy'.complete()<CR>| " (INSERT) show all available snippets for current filetype
 
 " aerial code navigation
-nnoremap <silent> t :AerialToggle<CR>| " (lsp) code navigation through classes and methods
+nnoremap <silent> <F4> :AerialToggle<CR>| " (lsp)(function-keys) toggle code navigation through classes and methods
 
 " session manager
 nnoremap <silent> <leader>ss :SessionManager save_current_session<CR>| " (sessions) save current session
@@ -94,3 +94,4 @@ nnoremap <silent> <M-k> :TmuxNavigateUp<CR>| " (tmux-navigator) move to up nvim 
 nnoremap <silent> <M-h> :TmuxNavigateLeft<CR>| " (tmux-navigator) move to left nvim window/tmux pane
 nnoremap <silent> <M-l> :TmuxNavigateRight<CR>| " (tmux-navigator) move to right nvim window/tmux pane
 nnoremap <silent> <M-p> :TmuxNavigatePrevious<CR>| " (tmux-navigator) move to previous nvim window/tmux pane
+
