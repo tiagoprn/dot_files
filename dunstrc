@@ -3,9 +3,9 @@
 #   $ pkill dunst &&  notify-send -i user-away --urgency low 'hello'
 
 [global]
-    # Which monitor should the notifications be displayed on.
+    # The monitor configured as "primary" (0) will display the notifications.
     monitor = 0
-    follow = keyboard
+    follow = none
 
     # Upper right corner:
     # geometry = "300x5-0+25"
