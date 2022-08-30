@@ -35,6 +35,10 @@ echo 'Linking alacritty configuration...'
 rm ~/.config/alacritty
 ln -s /storage/src/dot_files/alacritty ~/.config
 
+echo 'Linking surfraw configuration...'
+rm ~/.config/surfraw
+ln -s /storage/src/dot_files/surfraw/ ~/.config/surfraw
+
 # ---
 # bspwm
 rm ~/.config/bspwm

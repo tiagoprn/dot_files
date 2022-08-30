@@ -243,13 +243,14 @@ if [ -d "$LOCAL_BIN" ]; then
     export PATH="$PATH:$LOCAL_BIN"
 fi
 
-# PYENV setup
+export TEXT_BROWSER="/usr/bin/w3m"
+export BROWSER="/usr/bin/firefox"
 
+# PYENV setup
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
 ## To stop showing warnings on activating a pyenv:
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
