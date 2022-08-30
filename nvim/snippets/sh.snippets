@@ -27,6 +27,10 @@ snippet if_var_value_not_empty
 	      echo "$MY_VAR does not have value. :("
 	fi
 
+snippet exit_code_last_command
+	EXIT_CODE=\$?
+	echo -e "EXIT_CODE=\$EXIT_CODE"
+
 snippet echo_date
 	    echo "[$(date +%r)]----> ${1:MESSAGE}"
 
