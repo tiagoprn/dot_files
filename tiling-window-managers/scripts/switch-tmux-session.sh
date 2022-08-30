@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eou pipefail
+
 shopt -s expand_aliases
 source "$HOME"/.bashrc
 
