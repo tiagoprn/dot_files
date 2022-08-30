@@ -11,6 +11,9 @@ snippet argument_from_script_with_default_value
 	# set to the value of the 1st argument passed to the script. If not passed, set "default_value".
 	VAR_NAME=\${1-"default_value"}
 
+snippet args_get_all
+	"\$@"
+
 snippet if_var_value_empty
 	${1}MY_VAR="VALUE"
 	if [ -z "${MY_VAR+set}" ]; then

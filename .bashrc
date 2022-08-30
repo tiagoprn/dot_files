@@ -243,8 +243,8 @@ if [ -d "$LOCAL_BIN" ]; then
     export PATH="$PATH:$LOCAL_BIN"
 fi
 
-export TEXT_BROWSER="/usr/bin/w3m"
-export BROWSER="/usr/bin/firefox"
+export TEXT_BROWSER=w3m
+export BROWSER=firefox
 
 # PYENV setup
 export PYENV_ROOT="$HOME/.pyenv"
