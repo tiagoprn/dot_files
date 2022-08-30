@@ -181,7 +181,7 @@ super + Return
 
 # bookmarks:
 super + b
-	/storage/src/dot_files/tiling-window-managers/scripts/bookmarks.py
+	/storage/src/dot_files/tiling-window-managers/scripts/bookmarks.sh
 
 # screenshot - region:
 super + shift + p
