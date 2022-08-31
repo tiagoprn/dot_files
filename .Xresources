@@ -87,7 +87,7 @@ URxvt.color7:       #707880
 URxvt.color15:      #c5c8c6
 
 ! --- rofi
-rofi.lines: 10
+rofi.lines: 20
 rofi.eh: 1
 rofi.padding: 20
 rofi.fullscreen: false

@@ -183,6 +183,10 @@ super + Return
 super + b
 	/storage/src/dot_files/tiling-window-managers/scripts/bookmarks.sh
 
+# browser search:
+super + shift + b
+	/storage/src/dot_files/tiling-window-managers/scripts/search-on-browser.sh
+
 # screenshot - region:
 super + shift + p
 	/storage/src/dot_files/tiling-window-managers/scripts/screenshot.py -s region
