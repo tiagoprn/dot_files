@@ -24,8 +24,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 140
-    lines: 30
+    columns: 160
+    lines: 40
 
   # Window position (changes require restart)
   #
