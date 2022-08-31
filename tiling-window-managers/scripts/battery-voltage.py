@@ -10,4 +10,4 @@ with open(battery_directory + "voltage_now", "r") as f:
 wattage = (voltage / 10**6) * (current / 10**6)
 wattage_formatted = f"{'-' if state == 'Discharging' else ''}{wattage:.2f}W"
 if state in ["Charging", "Discharging", "Not charging"]:
-    print(f"({state.lower()} {wattage_formatted})")
+    print(f"{wattage_formatted}")
