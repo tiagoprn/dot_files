@@ -69,7 +69,7 @@ ctrl + period
 
 # pavucontrol:
 super + v
-	pavucontrol
+	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh "Volume-Control" pavucontrol
 
 # decrease screen brightness:
 alt + shift + Down

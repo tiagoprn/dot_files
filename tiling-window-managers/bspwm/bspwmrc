@@ -54,7 +54,7 @@ bspc rule -a obs desktop='^8' follow=on
 # bspc rule -a mplayer2 state=floating center=true
 # bspc rule -a Kupfer.py focus=on
 # bspc rule -a Screenkey manage=off
-# bspc rule -a Pavucontrol state=floating rectangle=789x512+264+130
+bspc rule -a Pavucontrol state=floating
 
 echo -e "before autostart..."
 /storage/src/dot_files/tiling-window-managers/scripts/autostart.sh &

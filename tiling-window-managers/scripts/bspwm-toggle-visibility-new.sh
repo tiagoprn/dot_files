@@ -8,7 +8,12 @@ command=${2}
 echo "window_id: ${window_id}"
 echo "command: ${command}"
 
-id=$(wmctrl -l | grep $window_id | awk '{print $1}')
+# Below is necessary because some window_ids have space on their name.
+# So, I pass to this script with "-", and then here I change "-" to " "
+# to get the window correctly below with wmctrl.
+window_id=$(echo "$window_id" | sed 's/\-/ /g')
+
+id=$(wmctrl -l | grep "$window_id" | awk '{print $1}')
 
 echo "Looking for window $id ..."
 
@@ -25,4 +30,3 @@ else
     echo "Window $id toggled visibility."
     bspc node "$id" --flag hidden --to-monitor focused --focus -t floating
 fi
-
