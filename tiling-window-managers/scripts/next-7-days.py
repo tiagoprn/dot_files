@@ -5,11 +5,9 @@
 import datetime
 import sys
 
-theday = datetime.date.today()
-weekday = theday.isoweekday()
+today = datetime.date.today()
 # The start of the week
-start = theday - datetime.timedelta(days=weekday)
-dates = [start + datetime.timedelta(days=d) for d in range(7)]
+dates = [today + datetime.timedelta(days=d) for d in range(8)]
 for date in dates:
     date_as_str = date.strftime("%Y/%m/%d (%A)")
     sys.stdout.write(f"{date_as_str};")
