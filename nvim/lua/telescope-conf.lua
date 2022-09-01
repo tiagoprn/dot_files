@@ -1,6 +1,24 @@
 require("telescope").load_extension("aerial")
 
 require("telescope").setup({
+	defaults = {
+		layout_config = {
+			-- prompt_position = "top",
+			width = 0.9,
+			height = 0.9,
+			preview_cutoff = 120,
+			horizontal = { mirror = false },
+			vertical = { mirror = false },
+		},
+	},
+	-- pickers = {
+	-- 	find_files = {
+	-- 		theme = "dropdown",
+	-- 	},
+	-- 	live_grep = {
+	-- 		theme = "dropdown",
+	-- 	},
+	-- },
 	extensions = {
 		fzf = {
 			-- false will only do exact matching override the generic sorter
