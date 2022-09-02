@@ -2,7 +2,7 @@
 
 if [[ $HOSTNAME == cosmos ]]; then
     VOLTAGE=$(/storage/src/dot_files/tiling-window-managers/scripts/battery-voltage.py)
-    SUMMARY=$(upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage" | sed 's/state: //g' | sed 's/percentage: //g' | sort | tr '\n' ' ' | sed "s/time/at $VOLTAGE \(time/g" | sed 's/ $/\)/g' | sed 's/ \+/ /g')
+    SUMMARY=$(upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage" | sed 's/state: //g' | sed 's/percentage: //g' | sort | tr '\n' ' ' | sed "s/time/at $VOLTAGE \(time/g" | sed 's/ $/\)/g' | sed 's/ \+/ /g' | sed 's/fully-charged)/charged/g')
     echo "$SUMMARY"
 else
     /storage/src/dot_files/tiling-window-managers/scripts/get_battery_info.sh
