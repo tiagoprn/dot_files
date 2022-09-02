@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Cleanup existing install and compile a new one
+echo 'Let us update the current nvim plugins before starting...'
+read -n 1 -s -r -p "Press any key to continue: "
+nvim +":PackerSync"
+echo 'Finished updating plugins, moving on...'
 
+# Cleanup existing install and compile a new one
 PREVIOUS_VERSION=$(sudo -- bash -c 'cd /opt/src/neovim && git log -n 1 --pretty=format:"%cD by %an (%h)"')
 
 BACKUPS_ROOT=/opt/src/neovim/tmp/OLD-VERSIONS-ARCHIVE
