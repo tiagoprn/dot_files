@@ -71,6 +71,10 @@ ctrl + period
 super + v
 	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh "Volume-Control" pavucontrol
 
+# reminders:
+super + r
+	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh "scratchpad_reminders" /storage/src/dot_files/tiling-window-managers/scripts/terminal-reminders.sh
+
 # decrease screen brightness:
 alt + shift + Down
 	xbacklight -dec 20

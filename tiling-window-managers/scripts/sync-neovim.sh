@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo 'Let us update the current nvim plugins before starting...'
-read -n 1 -s -r -p "Press any key to continue: "
+read -n 1 -s -r -p "Press any key to continue..."
 nvim +":PackerSync"
 echo 'Finished updating plugins, moving on...'
 
