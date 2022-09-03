@@ -107,7 +107,6 @@ IMPORTANT: to be able to update cargo packages and install new ones, you must ex
 $ export RUSTUP_HOME=/opt/rust && export CARGO_HOME=/opt/rust && export PATH=$PATH:/opt/rust/bin
 (after cargo install/update, you can manually copy the binary from /opt/rust/bin/[binary] to /usr/bin)
 
-
 ## telegram-desktop
 $ mkdir /opt/telegram && cd /opt/telegram
 $ curl -L https://telegram.org/dl/desktop/linux -o tsetup.tar.xz
@@ -128,9 +127,7 @@ $ cp glow ~/.local/bin
 $ cargo install navi
 
 ## xcolor
-
 (useful to get colors from a screen's region)
-
 $ cargo install xcolor
 
 ## fd
@@ -154,7 +151,6 @@ sudo su
 cd /opt && git clone https://github.com/wofr06/lesspipe.git && cd lesspipe && ./configure && ln -s /opt/lesspipe/lesspipe.sh /usr/local/bin/lesspipe.sh && ln -s /opt/lesspipe/code2color /usr/local/bin/code2color.sh
 
 ## curl (updated with support to json as stdout - which landed on 7.70.0)
-```
 $ sudo apt remove -y curl && sudo apt purge -y
 $ sudo su
 $ mkdir -p /opt/src
@@ -168,7 +164,6 @@ $ make
 $ make install
 $ exit
 $ sudo ldconfig  # fixes "curl: symbol lookup error: curl: undefined symbol: curl_url_cleanup"
-```
 
 ## bat
 $ sudo su
@@ -350,6 +345,11 @@ $ systemctl enable autorandr.service
 $ systemctl enable autorandr-lid-listener.service
 $ udevadm control --reload-rules
 
+## git-auto-sync
+$ sudo su
+$ mkdir /opt/src/git-auto-sync && cd /opt/src/git-auto-sync
+$ wget https://github.com/GitJournal/git-auto-sync/releases/download/v1.5/git-auto-sync_1.5_linux_amd64.deb
+$ dpkg -i git-auto-sync_1.5_linux_amd64.deb
 
 ### Directories
 - categories: `/storage/docs/notes/activitywatch`

@@ -31,6 +31,9 @@ return require("packer").startup(function(use)
 	-- macros persistance
 	use({ "chamindra/marvim" })
 
+	-- run commands asynchronously
+	use({ "skywind3000/asyncrun.vim" })
+
 	-- color schemes
 	-- the one below support the treesitter markdown plugin with its highlight group colors:
 	-- https://www.reddit.com/r/neovim/comments/rg97j4/treesitter_for_markdown/hoktehq/?utm_medium=android_app&utm_source=share&context=3
