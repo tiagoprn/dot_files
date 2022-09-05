@@ -11,13 +11,49 @@ local sources = {
 	-- require("null-ls").builtins.completion.spell,
 	require("null-ls").builtins.diagnostics.pylint.with({
 		command = function()
-			local default_path = vim.fn.expand("~/.pyenv/versions/neovim/bin/pylint")
-			return default_path
+			local default_venv = "~/.pyenv/versions/neovim"
+
+			local current_venv = vim.env.VIRTUAL_ENV
+
+			local venv = ""
+
+			if current_venv then
+				venv = current_venv
+				vim.notify("Current VENV defined as " .. current_venv .. " ")
+			else
+				venv = default_venv
+				vim.notify("Current VENV NOT defined, using default (" .. default_venv .. ") ")
+			end
+
+			local path = vim.fn.expand(venv .. "/bin/pylint")
+			-- print("Current virtualenv is " .. venv)
+			-- print("Current path is " .. path)
+
+			return path
 		end,
 		extra_args = function()
+			local pylintrc_file = ".pylintrc"
+			local default_pylintrc = "/storage/src/devops/python/default_configs/.pylintrc"
+			local project_root = vim.fn.getcwd()
+			local pylintrc_full_path = project_root .. "/" .. pylintrc_file
+
+			local file_exists = nil
+			local file_opened = io.open(pylintrc_full_path, "r")
+			if file_opened ~= nil then
+				io.close(file_opened)
+				file_exists = true
+			else
+				file_exists = false
+			end
+
+			if not file_exists then
+				vim.notify("Could not find .pylintrc, using default one.")
+				pylintrc_full_path = default_pylintrc
+			end
+
 			return {
 				"--rcfile",
-				".pylintrc",
+				pylintrc_full_path,
 				"--score",
 				"no",
 				"--msg-template",
