@@ -10,25 +10,44 @@
 local sources = {
 	-- require("null-ls").builtins.completion.spell,
 	require("null-ls").builtins.diagnostics.pylint.with({
-		command = vim.fn.expand("~/.pyenv/versions/neovim/bin/pylint"),
-		extra_args = {
-			"--rcfile",
-			".pylintrc",
-			"--score",
-			"no",
-			"--msg-template",
-			"{path}:{line}:{column}:{C}:{msg}",
-		},
+		command = function()
+			local default_path = vim.fn.expand("~/.pyenv/versions/neovim/bin/pylint")
+			return default_path
+		end,
+		extra_args = function()
+			return {
+				"--rcfile",
+				".pylintrc",
+				"--score",
+				"no",
+				"--msg-template",
+				"{path}:{line}:{column}:{C}:{msg}",
+			}
+		end,
 	}),
 	require("null-ls").builtins.formatting.black.with({
-		command = vim.fn.expand("~/.pyenv/versions/neovim/bin/black"),
-		args = { "--quiet", "-" },
-		extra_args = { "--line-length", "79", "--skip-string-normalization" },
+		command = function()
+			local default_path = vim.fn.expand("~/.pyenv/versions/neovim/bin/black")
+			return default_path
+		end,
+		args = function()
+			return { "--quiet", "-" }
+		end,
+		extra_args = function()
+			return { "--line-length", "79", "--skip-string-normalization" }
+		end,
 	}),
 	require("null-ls").builtins.formatting.isort.with({
-		command = vim.fn.expand("~/.pyenv/versions/neovim/bin/isort"),
-		args = { "--quiet", "-" },
-		extra_args = { "-m", "3", "--trailing-comma", "--use-parentheses", "honor-noqa" },
+		command = function()
+			local default_path = vim.fn.expand("~/.pyenv/versions/neovim/bin/isort")
+			return default_path
+		end,
+		args = function()
+			return { "--quiet", "-" }
+		end,
+		extra_args = function()
+			return { "-m", "3", "--trailing-comma", "--use-parentheses", "honor-noqa" }
+		end,
 	}),
 	require("null-ls").builtins.diagnostics.shellcheck.with({
 		command = "shellcheck",
