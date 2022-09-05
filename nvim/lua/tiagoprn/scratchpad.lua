@@ -1,3 +1,4 @@
+local job = require("plenary.job")
 local helpers = require("tiagoprn.helpers")
 
 local M = {}
@@ -53,10 +54,26 @@ function M.gitSyncFleetingNotes()
 	local found_on_list = helpers.search_on_list(path_list, search_list)
 
 	if #found_on_list == 2 then
-		-- AsyncRun works only for shell commands
-		vim.api.nvim_command(":AsyncRun git-auto-sync sync")
-		vim.notify("Git synced repository. RELOAD THE FILE MANUALLY with <C-e> after you see the git signs changed.")
-		vim.api.nvim_command(":e!")
+		job
+			:new({
+				command = "git-auto-sync",
+				args = { "sync" },
+				on_exit = function(j, exit_code)
+					-- local debug = ""
+					-- for k, v in pairs(j:result()) do
+					-- 	print(k)
+					-- 	vim.notify("key: " .. k)
+					-- 	debug = debug .. v
+					-- end
+
+					if exit_code ~= 0 then
+						vim.notify("Error git syncing repository. Try git pull --rebase manually on the repo.")
+					end
+					-- vim.api.nvim_command(":e!")
+					vim.notify("Git synced repository. RELOAD THE FILE MANUALLY with <C-e>.")
+				end,
+			})
+			:start(1000, 1)
 	end
 end
 
