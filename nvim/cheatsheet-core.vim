@@ -50,8 +50,8 @@
 
 "" others
 
-" ctrl+[ | "  go to visual mode
-" ctrl+o | "  go to normal mode to execute just one command and go back to insert mode
+" (INSERT) <ctrl>[ | " alternate way to go to VISUAL mode instead of ESC
+" (INSERT ) <ctrl+o> | " go to normal mode to execute just one command and go back to insert mode
 " 80i*<esc> | "  (in visual mode - do not start with ':' - this will insert the * character 80 times on the current cursor position)
 " 3i`<esc> | "  (in visual mode - do not start with ':' - this will insert the backstick character 3 times on the current cursor position)
 " o | "  insert blank line below cursor
@@ -92,7 +92,7 @@
 " :reg | " (registers) see all registers' contents
 " <C-r>register-name | " (registers) paste from register on insert or command mode.
 " :verbose map | " (mapping) show all defined mappings in vim - and where the mappings are defined
-" :map | " (mapping) show all defined mappings in vim
+" :map | " (mapping) show all defined mappings in vim (non-verbose, simple list)
 " :vmap <key> | " (mapping) show if <key> is mapped
 " :cdo[!] {cmd} | update | " (quickfix) Execute {cmd} in EACH VALID ENTRY in the quickfix list and save all files
 " :cfdo[!] {cmd} | update | " (quickfix) Execute {cmd} in EACH FILE in the quickfix list and save all files. E.g. :cfdo[!] %s/old/new/g | update
@@ -124,6 +124,9 @@
 " :clearjumps | " (jumps) clear the jumps list
 " :windo w! | " (windows) save files open on all windows
 " :windo e! | " (windows) reload files open on all windows
+" (NORMAL) :split | " (windows) split horizontally (below)
+" (NORMAL) :vsplit | " (windows) split vertically (aside)
+" (NORMAL) :only | " (windows) close other windows, keeping just current window opened
 " <ctrl-]> | " (help) jump to tag under cursor - you can use (jumps) navigation mappings to navigate back and forth between them.
 " :g/[word_or_regex]/d | "  (global-commands)(patterns) delete lines matching word or regex
 " :g!/[word_or_regex]/d | " (global-commands)(patterns) delete lines that do NOT match the word or regex
@@ -132,6 +135,7 @@
 " :g/[word_or_regex]/m$ | " (global-commands)(patterns) Move all lines containing word or regex to the end of the file
 " :g/[word_or_regex]/norm $[normal_command] | " (global-commands)(patterns) for all lines containing '[word_or_regex]', execute the normal command [normal_command]. E.g.: ':g/    highlight/normal! 0C    highlight = {colors.violet,colors.white}'
 " :g/if/norm $a: | " (global-commands)(patterns) for all lines containing 'if', execute the normal command to append a ':' to the end of a line.
+" (NORMAL) d/word | " (global-commands)(patterns) delete on line until word
 " <ctrl-a> | " (numbers) increment the next number on the line
 " <ctrl-x> | " (numbers) decrement the next number on the line
 " (VISUAL)gv | " re-select/redo last visual selection
@@ -158,5 +162,10 @@
 " :digraph  | " (special chars/digraphs) show a table of special chars / digraphs to use on INSERT MODE (ex.: subscript, superscript, TM symbol, etc...)
 " :checkhealth | " (core,diagnostics) nvim health
 " :luafile % | " (core) reload current open lua plugin config file - use after lua config file changes (e.g. lualine-conf.lua)
+" ~ |" invert case
+" U |" change to uppercase
+" u |" change to lowercase
+" (VISUAL)!sort  | " run bash/shell command sort on all selected lines
+" (VISUAL)!ls -la  | " run bash/shell command ls and insert its stdout into the current buffer
+" (VISUAL) :bufdo bdelete | " close all current buffers
 
-" TODO: move the cheatsheet from vim.CHEATSHEET on the dot_files repo to here, to be browsable with rofi.

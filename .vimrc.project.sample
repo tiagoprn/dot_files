@@ -1,5 +1,0 @@
-" To use vim python-mode with a project on python 2, rename this
-" file to .vimrc.project and put it on the project root folder.
-
-" Below uses python 2
-let g:pymode_python = 'python'
