@@ -168,4 +168,12 @@
 " (VISUAL)!sort  | " run bash/shell command sort on all selected lines
 " (VISUAL)!ls -la  | " run bash/shell command ls and insert its stdout into the current buffer
 " (VISUAL) :bufdo bdelete | " close all current buffers
-
+" (VISUAL) :5,50d | " delete an interval of lines
+" (VISUAL) :.,+100000d | "  delete the next 100k lines (from the current line)
+" (VISUAL) d$ | " delete until end of line:
+" (VISUAL) d0 | " delete until beginning of line
+" (VISUAL) * | " search current word under cursor forwards (repeat key to go to the next ocurrences)
+" (VISUAL) # | " search current word under cursor backwards (repeat key to go to the next ocurrences)
+" (VISUAL) :%s/search/replace/g[ic] | " (search/replace) g: all ocurrences in the line, i: case insensitive, c: confirm each match
+" (VISUAL) q: | " List of past commands (hitting <shift+v><enter> you can execute them)
+":h events | " help on the events available on nvim, its' buffers, etc...

@@ -127,6 +127,37 @@ $ nvim
 
 - To see the plugins output: `:messages`, to clear all messages: `:messages clear`
 
+## Macros:
+
+- Record a macro:
+```
+(NORMAL) q<letter><commands>q
+```
+
+(I have the "marvim" plugin installed, which allows persisting macros for use in the future.)
+
+- To execute the macro <number> times (once by default), type:
+```
+<number-of-times>@<letter>
+```
+
+- So, the complete process looks like:
+```
+qa      - start recording to register a
+...	    - your complex series of commands
+q	      - stop recording
+@a	    - execute your macro
+@@	    - execute your macro again
+99@a    - execute your macro 99 times
+```
+
+## Script nvim commands:
+```bash
+$ nvim --cmd 'echo "This runs before .vimrc"' -c ':call UltiSnips#ListSnippets()' -c '<Esc>' -c ':q!'
+$ nvim -c ':call UltiSnips#ListSnippets()' -c ':q!'
+$ nvim +PluginInstall +qall
+```
+
 
 ## Other
 
@@ -169,3 +200,4 @@ scratchpad.<C-Space>
 On those namespaces, there are string and list manipulation functions (that I wasted effort reinventing at `tiagoprn.helpers` not knowing that they existed - I must fix that when possible)
 
 - If I receive error "E41: Out of memory!" when opening a file, edit it outside of nvim and save it.
+
