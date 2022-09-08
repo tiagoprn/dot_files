@@ -200,7 +200,7 @@ function search-reminders() {  # search on reminders
 }
 
 function cdb() {  # cd into a path defined on the bookmarks file
-	BOOKMARKS_FILE_PATH="/storage/src/dot_files/cd-bookmarks.$(hostname)"
+	BOOKMARKS_FILE_PATH="$HOME/.config/cd-bookmarks.list"
 
 	if [ -f "$BOOKMARKS_FILE_PATH" ]; then
 		echo "Bookmarks file exists at $BOOKMARKS_FILE_PATH \o/"
