@@ -70,6 +70,7 @@ nasa_exoplanet_archive https://exoplanetarchive.ipac.caltech.edu/
 nasa_astronomy_picture_of_the_day https://apod.nasa.gov/apod/astropix.html
 datetime_formatting_in_python_and_linux https://www.strfti.me/
 awesome_neovim https://github.com/rockerBOO/awesome-neovim
+awesome_cli https://github.com/toolleeo/cli-apps
 neovim_popular_plugins_and_instructions_to_create_one https://neovimcraft.com/
 drf_django_rest_framework_cheatsheet https://www.cdrf.co/
 bash-oneliners https://github.com/onceupon/Bash-Oneliner

@@ -328,12 +328,6 @@ $ cd dunst
 $ make WAYLAND=0  # https://github.com/dunst-project/dunst#make-parameters
 $ make WAYLAND=0 install
 
-## activitywatch
-$ sudo su
-$ cd /opt/src
-$ wget https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip
-$ unzip activitywatch-v0.11.0-linux-x86_64.zip
-
 ## autorandr
 $ sudo su
 $ cd /opt/src
@@ -350,6 +344,20 @@ $ sudo su
 $ mkdir /opt/src/git-auto-sync && cd /opt/src/git-auto-sync
 $ wget https://github.com/GitJournal/git-auto-sync/releases/download/v1.5/git-auto-sync_1.5_linux_amd64.deb
 $ dpkg -i git-auto-sync_1.5_linux_amd64.deb
+
+## rdrview (firefox reader as a CLI program)
+$ sudo su
+$ cd /opt/src
+$ git clone https://github.com/eafer/rdrview
+$ cd rdrview
+$ make
+$ make install
+
+## activitywatch
+$ sudo su
+$ cd /opt/src
+$ wget https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip
+$ unzip activitywatch-v0.11.0-linux-x86_64.zip
 
 ### Directories
 - categories: `/storage/docs/notes/activitywatch`
