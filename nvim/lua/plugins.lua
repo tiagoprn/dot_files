@@ -101,6 +101,9 @@ return require("packer").startup(function(use)
 	-- zen mode (allows zooming on a buffer, between other functionality)
 	use({ "Pocco81/true-zen.nvim" })
 
+	-- trigger make commands from telescope
+	use({ "ptethng/telescope-makefile" })
+
 	-- # LANGUAGE SERVERS - begin
 
 	-- --  handles automatically launching and initializing language servers installed on your system

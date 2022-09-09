@@ -17,6 +17,7 @@ nnoremap <leader>tl :Telescope loclist<cr>| " (telescope) browse location-list
 nnoremap <leader>tt :Telescope help_tags<cr>| " (telescope) tags
 nnoremap <leader>tm :Telescope man_pages<cr>| " (telescope) open man page
 nnoremap <leader>tc :Telescope colorscheme<cr>| " (telescope) browser color schemes
+nnoremap <leader>mk :Telescope make<cr>| " (telescope) run Makefile command
 nnoremap <silent>gr :lua require'telescope.builtin'.lsp_references{}<CR>| "(telescope) search over variable references from your LSP
 nnoremap <silent> <F9> :Telescope notify<cr>| " (telescope)(function-keys) show notifications history (vim-notify)
 

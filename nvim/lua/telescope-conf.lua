@@ -41,10 +41,11 @@ require("telescope").setup({
 	},
 })
 
--- To get fzf loaded and working with telescope, you need to call
--- load_extension, somewhere after setup function:
+-- To get fzf loaded and working with telescope
 require("telescope").load_extension("fzf")
 -- get ui-select loaded and working with telescope
 require("telescope").load_extension("ui-select")
 -- get nvim-notify loaded and working with telescope
 require("telescope").load_extension("notify")
+-- get telescope-makefile loaded and working with telescope
+require("telescope").load_extension("make")
