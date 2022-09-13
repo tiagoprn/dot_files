@@ -37,8 +37,8 @@ bspc config merge_overlapping_monitors true
 
 #Colors
 DARK_COLOR="#000000"
-ACCENT_COLOR="#9d0006"
-ALERT_COLOR="#ffca3a"
+ACCENT_COLOR="#e68405"
+ALERT_COLOR="#9d0006"
 bspc config normal_border_color $DARK_COLOR
 bspc config active_border_color $ACCENT_COLOR
 bspc config focused_border_color $ACCENT_COLOR

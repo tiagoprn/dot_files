@@ -34,13 +34,14 @@ green = #98971a
 ; yellow = #d79921
 ; yellow = #fabd2f
 yellow = #f0fd1f
+star_trek_lcars = #e68405
 
 blue = #0084FF
 
 background = ${colors.dark}
 foreground = ${colors.light}
 
-accent = ${colors.red}
+accent = ${colors.star_trek_lcars}
 secondary = ${colors.yellow}
 
 
@@ -62,7 +63,7 @@ compositing-underline = over
 compositing-border = over
 
 ; Define fallback values used by all module formats
-format-foreground = ${colors.red}
+format-foreground = ${colors.star_trek_lcars}
 format-background = ${colors.green}
 format-underline =
 format-overline =
@@ -85,7 +86,7 @@ separator =
 background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 2
-line-color = ${colors.red}
+line-color = ${colors.star_trek_lcars}
 wm-restack = bspwm
 override-redirect = true
 ; Enable support for inter-process messaging. See the Messaging wiki page for more details.
@@ -98,7 +99,7 @@ module-margin-left = 3
 module-margin-right = 3
 ;https://github.com/jaagr/polybar/wiki/Fonts
 ;font-0 = "Hack Nerd Font:size=11;2"
-font-0 = "Roboto:size=10;0"
+font-0 = "Roboto:size=11;0"
 font-1 = "FontAwesome:size=13;2"
 font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
@@ -145,13 +146,13 @@ format = <label-state> <label-mode>
 label-focused = %name%
 label-focused-padding = 2
 label-focused-background = ${colors.accent}
-label-focused-foreground = ${colors.light}
+label-focused-foreground = ${colors.dark}
 ; label-focused-underline = ${colors.light}
 
 label-occupied = %name%
 label-occupied-padding = 2
 label-occupied-background = ${colors.background}
-label-occupied-foreground = ${colors.light}
+label-occupied-foreground = ${colors.star_trek_lcars}
 ; label-occupied-underline = ${colors.light}
 
 label-urgent = %name%
@@ -199,7 +200,7 @@ format-background = ${colors.background}
 type = internal/xwindow
 label = "  %title%  "
 label-maxlen = 50
-format-foreground = ${colors.light}
+format-foreground = ${colors.dark}
 format-background = ${colors.accent}
 ; format-underline = ${colors.secondary}
 
