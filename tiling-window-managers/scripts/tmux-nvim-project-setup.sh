@@ -32,10 +32,10 @@ create_if_needed_and_attach() {
         # DEFAULT_FIRST_WINDOW_INDEX=1
         DEFAULT_FIRST_WINDOW_INDEX=0
 
-        tmux rename-window -t $DEFAULT_FIRST_WINDOW_NAME "editor"
-        tmux send-keys -t "editor" "nvim" C-m
-        tmux splitw -v -p 10
-        tmux send-keys -t "editor" "# You can run a runserver like or other commands on this pane." C-m
+        tmux rename-window -t $DEFAULT_FIRST_WINDOW_NAME "nvim"
+        tmux send-keys -t "nvim" "nvim" C-m
+        tmux splitw -v -p 15
+        tmux send-keys -t "nvim" "# You can run a runserver like or other commands on this pane." C-m
         tmux selectp -t 0
 
         tmux new-window -t "$session_name:2" -n "git"

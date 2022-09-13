@@ -10,6 +10,8 @@ return require("packer").startup(function(use)
 		requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
 	})
 
+	use({ "ThePrimeagen/harpoon" })
+
 	-- Install to improve performance of sorting on telescope
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",

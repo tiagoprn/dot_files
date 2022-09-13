@@ -41,6 +41,25 @@ nnoremap <silent> <leader>la :Lspsaga code_action<CR>| " (lsp-saga) code action
 vnoremap <silent> <leader>la :<C-U>Lspsaga range_code_action<CR>| " (lsp-saga) code action
 inoremap <silent> <C-s> :Lspsaga signature_help<CR>| " (lsp-saga) (INSERT mode) signature help
 
+
+" harpoon
+nnoremap <silent> <C-h> <cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>| " (navigation - harpoon) quick menu
+nnoremap <silent> <leader>ha <cmd>lua require("harpoon.mark").add_file()<CR>| " (navigation - harpoon) add current file
+nnoremap <silent> <leader>h1 <cmd>lua require("harpoon.ui").nav_file(1)<CR>| " (navigation - harpoon) go to file 1
+nnoremap <silent> <leader>h2 <cmd>lua require("harpoon.ui").nav_file(2)<CR>| " (navigation - harpoon) go to file 2
+nnoremap <silent> <leader>h3 <cmd>lua require("harpoon.ui").nav_file(3)<CR>| " (navigation - harpoon) go to file 3
+nnoremap <silent> <leader>h4 <cmd>lua require("harpoon.ui").nav_file(4)<CR>| " (navigation - harpoon) go to file 4
+nnoremap <silent> <leader>h5 <cmd>lua require("harpoon.ui").nav_file(5)<CR>| " (navigation - harpoon) go to file 5
+nnoremap <silent> <leader>h6 <cmd>lua require("harpoon.ui").nav_file(6)<CR>| " (navigation - harpoon) go to file 6
+nnoremap <silent> <leader>h7 <cmd>lua require("harpoon.ui").nav_file(7)<CR>| " (navigation - harpoon) go to file 7
+nnoremap <silent> <leader>h8 <cmd>lua require("harpoon.ui").nav_file(8)<CR>| " (navigation - harpoon) go to file 8
+nnoremap <silent> <leader>h9 <cmd>lua require("harpoon.ui").nav_file(9)<CR>| " (navigation - harpoon) go to file 9
+nnoremap <silent> <leader>hn <cmd>lua require("harpoon.ui").nav_next()<CR>| " (navigation - harpoon) go to next file on the list
+nnoremap <silent> <leader>hp <cmd>lua require("harpoon.ui").nav_prev()<CR>| " (navigation - harpoon) go to previous file on the list
+nnoremap <silent> <leader>ht <cmd>lua require("harpoon.tmux").gotoTerminal("{down-of}")<CR>| " (navigation - harpoon) go to tmux pane below
+nnoremap <silent> <leader>hc <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", vim.fn.input("Enter the command: "))<CR>| " (navigation - harpoon) run command on tmux pane below
+nnoremap <silent> <leader>hz <cmd>lua require("harpoon.tmux").gotoTerminal("{end}")<CR>| " (navigation - harpoon) go to last tmux numbered window
+
 " trouble
 nnoremap <leader>xx <cmd>TroubleToggle<CR>| " (trouble) toggle default - document diagnostics
 nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<CR>| " (trouble) toggle workspace diagostics
