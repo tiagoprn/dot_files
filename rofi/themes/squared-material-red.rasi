@@ -25,7 +25,7 @@
 window {
     location:   center;
     width:      1400;
-    y-offset:   -160;
+    y-offset:   -530;
 
     background-color:   @bg0;
 }
@@ -52,7 +52,7 @@ textbox {
 
 listview {
     padding:    4px 0;
-    lines:      8;
+    lines:      29;
     columns:    1;
 
     fixed-height:   false;
