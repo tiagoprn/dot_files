@@ -30,13 +30,13 @@ harpoon.setup({
 	},
 	projects = {
 		-- Yes $HOME works
-		["$HOME/personal/vim-with-me/server"] = {
-			term = {
-				cmds = {
-					"./env && npx ts-node src/index.ts",
-				},
-			},
-		},
+		-- ["$HOME/personal/vim-with-me/server"] = {
+		-- 	term = {
+		-- 		cmds = {
+		-- 			"./env && npx ts-node src/index.ts",
+		-- 		},
+		-- 	},
+		-- },
 		["/storage/src/writeloop-raw"] = {
 			term = {
 				cmds = {

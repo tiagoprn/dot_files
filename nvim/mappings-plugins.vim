@@ -58,7 +58,16 @@ nnoremap <silent> <leader>hn <cmd>lua require("harpoon.ui").nav_next()<CR>| " (n
 nnoremap <silent> <leader>hp <cmd>lua require("harpoon.ui").nav_prev()<CR>| " (navigation - harpoon) go to previous file on the list
 nnoremap <silent> <leader>ht <cmd>lua require("harpoon.tmux").gotoTerminal("{down-of}")<CR>| " (navigation - harpoon) go to tmux pane below
 nnoremap <silent> <leader>hc <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", vim.fn.input("Enter the command: "))<CR>| " (navigation - harpoon) run command on tmux pane below
-nnoremap <silent> <leader>hz <cmd>lua require("harpoon.tmux").gotoTerminal("{end}")<CR>| " (navigation - harpoon) go to last tmux numbered window
+nnoremap <silent> <leader>hc1 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 1)<CR>| " (navigation - harpoon) run project command 1 on tmux pane below
+nnoremap <silent> <leader>hc2 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 2)<CR>| " (navigation - harpoon) run project command 2 on tmux pane below
+nnoremap <silent> <leader>hc3 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 3)<CR>| " (navigation - harpoon) run project command 3 on tmux pane below
+nnoremap <silent> <leader>hc4 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 4)<CR>| " (navigation - harpoon) run project command 4 on tmux pane below
+nnoremap <silent> <leader>hc5 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 5)<CR>| " (navigation - harpoon) run project command 5 on tmux pane below
+nnoremap <silent> <leader>hc6 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 6)<CR>| " (navigation - harpoon) run project command 6 on tmux pane below
+nnoremap <silent> <leader>hc7 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 7)<CR>| " (navigation - harpoon) run project command 7 on tmux pane below
+nnoremap <silent> <leader>hc8 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 8)<CR>| " (navigation - harpoon) run project command 8 on tmux pane below
+nnoremap <silent> <leader>hc9 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 9)<CR>| " (navigation - harpoon) run project command 9 on tmux pane below
+" nnoremap <silent> <leader>hz <cmd>lua require("harpoon.tmux").gotoTerminal("{end}")<CR>| " (navigation - harpoon) go to last tmux numbered window
 
 " trouble
 nnoremap <leader>xx <cmd>TroubleToggle<CR>| " (trouble) toggle default - document diagnostics
