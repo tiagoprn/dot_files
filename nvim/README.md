@@ -210,6 +210,6 @@ On those namespaces, there are string and list manipulation functions (that I wa
 ```
 2. Starting nvim with the commands above, using "+" to script the commands:
 ```bash
-nvim +"redir >> /tmp/automap.txt" +"map" +"redir END"
+nvim +"redir >> /tmp/automap.txt" +"map" +"redir END" +"qa!"
 ```
 (you can use `:verbose map` instead of `:map` to get more info on the mappings.)
