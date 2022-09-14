@@ -201,3 +201,15 @@ On those namespaces, there are string and list manipulation functions (that I wa
 
 - If I receive error "E41: Out of memory!" when opening a file, edit it outside of nvim and save it.
 
+- How export the mappings to an external file:
+1. Inside nvim:
+```bash
+:redir >> ~/mymaps.txt
+:map
+:redir END
+```
+2. Starting nvim with the commands above, using "+" to script the commands:
+```bash
+nvim +"redir >> /tmp/automap.txt" +"map" +"redir END"
+```
+(you can use `:verbose map` instead of `:map` to get more info on the mappings.)
