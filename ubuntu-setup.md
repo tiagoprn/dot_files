@@ -353,6 +353,13 @@ $ cd rdrview
 $ make
 $ make install
 
+## remint (TUI for remind)
+$ sudo su
+$ cd /opt/src
+$ git clone https://git.sr.ht/~mlaparie/remint
+$ cd remint
+$ ln -s /opt/src/remint/remint.sh /usr/bin/remint.sh
+
 ## activitywatch
 $ sudo su
 $ cd /opt/src
