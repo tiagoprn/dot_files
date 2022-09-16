@@ -22,8 +22,7 @@ local list = [[
 EOF
 ]]
 
--- TODO: Add custom pickers here.
--- TODO: add a picker to select commands from Makefile and pass it through run with harpoon on tmux pane below
+-- Add custom pickers here.
 local custom_pickers = {
 	-- list files inside current folder with default previewer
 	{
@@ -51,13 +50,16 @@ local custom_pickers = {
 
 	-- create a command palette
 	{
-		name = "command_palette",
+		name = "command_palette_sample",
 		command = "cat " .. list,
 		-- pass a pre-configured action that runs the command
 		action = easypick.actions.run_nvim_command,
 		-- you can specify any theme you want, but the dropdown looks good for this example =)
 		opts = require("telescope.themes").get_dropdown({}),
 	},
+	--
+	-- TODO: add a picker to select commands from Makefile and pass to run through harpoon on tmux pane below
+	--
 }
 
 easypick.setup({ pickers = custom_pickers })
