@@ -18,11 +18,6 @@ return require("packer").startup(function(use)
 		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	})
 
-	-- TODO: remove below, in favor of dressing.nvim
-	-- It sets vim.ui.select to telescope. That means for example that neovim core stuff can fill the telescope picker.
-	-- Example would be lua vim.lsp.buf.code_action().
-	use({ "nvim-telescope/telescope-ui-select.nvim" })
-
 	-- useful to create custom telescope pickers
 	use({ "axkirillov/easypick.nvim", requires = "nvim-telescope/telescope.nvim" })
 

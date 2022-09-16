@@ -33,18 +33,11 @@ require("telescope").setup({
 			-- Display symbols as <root>.<parent>.<symbol>
 			show_nesting = true,
 		},
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown({
-				-- more opts here
-			}),
-		},
 	},
 })
 
 -- To get fzf loaded and working with telescope
 require("telescope").load_extension("fzf")
--- get ui-select loaded and working with telescope
-require("telescope").load_extension("ui-select")
 -- get nvim-notify loaded and working with telescope
 require("telescope").load_extension("notify")
 -- get telescope-makefile loaded and working with telescope
