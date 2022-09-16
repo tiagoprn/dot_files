@@ -40,5 +40,3 @@ require("telescope").setup({
 require("telescope").load_extension("fzf")
 -- get nvim-notify loaded and working with telescope
 require("telescope").load_extension("notify")
--- get telescope-makefile loaded and working with telescope
-require("telescope").load_extension("make")

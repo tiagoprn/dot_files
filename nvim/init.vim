@@ -140,7 +140,6 @@ lua require('trouble-conf')
 lua require('true-zen-conf')
 lua require('easypick-conf')
 lua require('treesitter-context-conf')
-lua require('makefile-conf')
 lua require('harpoon-conf')
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
