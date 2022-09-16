@@ -213,3 +213,5 @@ On those namespaces, there are string and list manipulation functions (that I wa
 nvim +"redir >> /tmp/automap.txt" +"map" +"redir END" +"qa!"
 ```
 (you can use `:verbose map` instead of `:map` to get more info on the mappings.)
+
+- If I need to create/run more commands or a command palette using telescope pickers to choose from a list, I can create them on `lua/easypick-conf.lua` (I have examples there and one picker I created to run make commands using harpoon.)

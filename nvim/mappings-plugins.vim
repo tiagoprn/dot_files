@@ -58,6 +58,7 @@ nnoremap <silent> <leader>hn <cmd>lua require("harpoon.ui").nav_next()<CR>| " (n
 nnoremap <silent> <leader>hp <cmd>lua require("harpoon.ui").nav_prev()<CR>| " (navigation - harpoon) go to previous file on the list
 nnoremap <silent> <leader>ht <cmd>lua require("harpoon.tmux").gotoTerminal("{down-of}")<CR>| " (navigation - harpoon) go to tmux pane below
 nnoremap <silent> <leader>hc <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", vim.fn.input("Enter the command: "))<CR>| " (navigation - harpoon) run command on tmux pane below
+nnoremap <silent> <leader>hm :Easypick make<CR>| " (navigation - harpoon) run make command from easypick select on tmux pane below
 nnoremap <silent> <leader>hc1 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 1)<CR>| " (navigation - harpoon) run project command 1 on tmux pane below
 nnoremap <silent> <leader>hc2 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 2)<CR>| " (navigation - harpoon) run project command 2 on tmux pane below
 nnoremap <silent> <leader>hc3 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 3)<CR>| " (navigation - harpoon) run project command 3 on tmux pane below
