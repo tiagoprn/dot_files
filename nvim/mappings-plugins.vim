@@ -78,13 +78,8 @@ nnoremap <leader>xl <cmd>TroubleToggle loclist<CR> :lclose<CR>| " (trouble) togg
 nnoremap <leader>xr <cmd>TroubleToggle lsp_references<CR>| " (trouble) toggle lsp references
 
 " zen-mode
-nnoremap <C-z> :ZenMode<CR>| " (zen) zoom buffer fullscreen
-" TODO: map below to other modes:
-" nnoremap <leader>zn :TZNarrow<CR>| " (zen) mode: narrow - :q to quit
-" vnoremap <leader>zn :'<,'>TZNarrow<CR>| " (zen) (VISUAL) mode: narrow selection - :q to quit
-" nnoremap <leader>zm :TZMinimalist<CR>| " (zen) mode: minimalist - :q to quit
-" nnoremap <leader>za :TZAtaraxis<CR>| " (zen) mode: ataraxis (zoom buffer center) - :q to quit
-
+nnoremap <C-z> :ZenCode<CR>| " (zen) toggle current buffer full screen
+nnoremap <leader>zz :ZenWrite<CR>| " (zen) toggle current buffer full screen - distraction free mode
 
 " toggleterm special terminals, to trigger special commands
 nnoremap <leader>u :!tmux select-window -t git<CR>| " (tmux) go to lazygit tmux window

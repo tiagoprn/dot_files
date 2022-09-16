@@ -1,4 +1,5 @@
 local job = require("plenary.job")
+local zen_mode = require("zen-mode")
 local helpers = require("tiagoprn.helpers")
 
 local M = {}
@@ -81,6 +82,59 @@ function M.gitSyncFleetingNotes()
 			})
 			:start(1000, 1)
 	end
+end
+
+function M.zenCode()
+	zen_mode.toggle({
+		window = {
+			width = 200,
+			options = {
+				signcolumn = "yes",
+				number = true,
+				relativenumber = true,
+				cursorline = true,
+				cursorcolumn = true,
+				list = false,
+			},
+		},
+		plugins = {
+			options = {
+				enabled = true,
+				ruler = true,
+				showcmd = false,
+			},
+			twilight = { enabled = false },
+			gitsigns = { enabled = true },
+			tmux = { enabled = false },
+		},
+	})
+end
+
+function M.zenWrite()
+	zen_mode.toggle({
+		window = {
+			backdrop = 1,
+			width = 200,
+			options = {
+				signcolumn = "no",
+				number = false,
+				relativenumber = false,
+				cursorline = false,
+				cursorcolumn = false,
+				list = false,
+			},
+		},
+		plugins = {
+			options = {
+				enabled = true,
+				ruler = true,
+				showcmd = true,
+			},
+			twilight = { enabled = false },
+			gitsigns = { enabled = true },
+			tmux = { enabled = false },
+		},
+	})
 end
 
 return M
