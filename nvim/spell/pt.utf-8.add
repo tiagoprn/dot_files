@@ -34,3 +34,7 @@ plugin
 docs
 snippets
 neovim
+docker
+container
+text-to-speech
+curl

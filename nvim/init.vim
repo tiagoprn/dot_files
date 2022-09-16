@@ -141,6 +141,7 @@ lua require('true-zen-conf')
 lua require('easypick-conf')
 lua require('treesitter-context-conf')
 lua require('harpoon-conf')
+lua require('smooth-cursor-conf')
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim

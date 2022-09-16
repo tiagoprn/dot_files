@@ -99,6 +99,9 @@ return require("packer").startup(function(use)
 	-- zen mode (allows zooming on a buffer, between other functionality)
 	use({ "Pocco81/true-zen.nvim" })
 
+	-- fancy cursor to show current line
+	use({ "gen740/SmoothCursor.nvim" })
+
 	-- # LANGUAGE SERVERS - begin
 
 	-- --  handles automatically launching and initializing language servers installed on your system
