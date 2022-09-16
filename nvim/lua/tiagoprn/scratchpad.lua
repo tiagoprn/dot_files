@@ -29,10 +29,16 @@ function M.createPost()
 	local directory = "/storage/src/writeloop-raw/content/posts"
 	local exCommandsFile = "/storage/src/dot_files/nvim/ex-commands/post.ex"
 
-	local post_name = vim.fn.input("Enter a name for the post: ")
-	local slug = require("tiagoprn.helpers").slugify(post_name)
-
-	helpers.createSluggedFileWithSnippet(directory, exCommandsFile, slug, post_name)
+	vim.ui.input({
+		prompt = "Enter a name for the post: ",
+		-- "telescope" below is to force using dressing.nvim
+		telescope = require("telescope.themes").get_cursor(),
+	}, function(post_name)
+		if post_name then
+			local slug = require("tiagoprn.helpers").slugify(post_name)
+			helpers.createSluggedFileWithSnippet(directory, exCommandsFile, slug, post_name)
+		end
+	end)
 end
 
 function M.updateFleetingNotesCategories()

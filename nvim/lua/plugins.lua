@@ -10,13 +10,18 @@ return require("packer").startup(function(use)
 		requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
 	})
 
-	use({ "ThePrimeagen/harpoon" })
-
 	-- Install to improve performance of sorting on telescope
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	})
+
+	-- bookmark files on project and navigate quickly between them. Also run
+	-- commands on tmux pane without leaving nvim.
+	use({ "ThePrimeagen/harpoon" })
+
+	-- Makes vim.ui.select and vim.ui.input prettier
+	use({ "stevearc/dressing.nvim" })
 
 	-- useful to create custom telescope pickers
 	use({ "axkirillov/easypick.nvim", requires = "nvim-telescope/telescope.nvim" })
