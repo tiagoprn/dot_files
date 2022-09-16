@@ -18,6 +18,7 @@ return require("packer").startup(function(use)
 		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	})
 
+	-- TODO: remove below, in favor of dressing.nvim
 	-- It sets vim.ui.select to telescope. That means for example that neovim core stuff can fill the telescope picker.
 	-- Example would be lua vim.lsp.buf.code_action().
 	use({ "nvim-telescope/telescope-ui-select.nvim" })
@@ -103,6 +104,7 @@ return require("packer").startup(function(use)
 	-- zen mode (allows zooming on a buffer, between other functionality)
 	use({ "Pocco81/true-zen.nvim" })
 
+	-- TODO: remove (harpoon can do that)
 	-- trigger make commands from telescope
 	use({ "ptethng/telescope-makefile" })
 
@@ -132,17 +134,17 @@ return require("packer").startup(function(use)
 		requires = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "dcampos/cmp-snippy" },
 	})
 
+	-- -- -- cmp source to complete filesystem paths
+	use({ "/hrsh7th/cmp-path" })
+
 	-- -- lsp signatures when hovering over methods
 	use({ "ray-x/lsp_signature.nvim" })
 
-	-- cmp source to complete filesystem paths
-	use({ "/hrsh7th/cmp-path" })
-
-	-- code navigation through classes, methods and functions
+	-- -- code navigation through classes, methods and functions
 	use({ "stevearc/aerial.nvim" })
 
-	-- Automatically creates missing LSP diagnostics highlight groups for
-	-- color schemes that don't yet support the Neovim 0.5 builtin lsp client
+	-- -- Automatically creates missing LSP diagnostics highlight groups for
+	-- -- color schemes that don't yet support the builtin LSP client
 	use({ "folke/lsp-colors.nvim" })
 
 	-- -- lua development environment
