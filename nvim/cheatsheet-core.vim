@@ -177,3 +177,5 @@
 " (VISUAL) :%s/search/replace/g[ic] | " (search/replace) g: all ocurrences in the line, i: case insensitive, c: confirm each match
 " (VISUAL) q: | " List of past commands (hitting <shift+v><enter> you can execute them)
 ":h events | " help on the events available on nvim, its' buffers, etc...
+" (VISUAL) ]] | " markdown file - go to next header/section
+" (VISUAL) [[ | " markdown file - go to previous header/section
