@@ -83,7 +83,7 @@ nnoremap <C-z> :ZenCode<CR>| " (zen) toggle current buffer full screen
 nnoremap <leader>zz :ZenWrite<CR>| " (zen) toggle current buffer full screen - distraction free mode
 
 " toggleterm special terminals, to trigger special commands
-nnoremap <leader>u :!tmux select-window -t git<CR>| " (tmux) go to lazygit tmux window
+nnoremap <leader>g :!tmux select-window -t git<CR>| " (tmux) go to lazygit tmux window
 nnoremap <leader>tt :ToggleTerm direction=horizontal size=10<CR>| " (toggleterm) blank terminal
 nnoremap <leader>tty :ToggleTermSendCurrentLine<CR>| " (toggleterm) copy current line to terminal
 vnoremap <leader>ttv :ToggleTermSendVisualSelection<CR>| " (toggleterm) copy visual selection to terminal
