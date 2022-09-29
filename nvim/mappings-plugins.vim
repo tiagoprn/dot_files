@@ -11,6 +11,7 @@ nnoremap <C-b> :Telescope buffers<cr>| " (telescope) open buffer
 nnoremap <leader>m :Telescope marks<cr>| " (telescope) browse marks
 nnoremap <leader>tn :Telescope aerial<cr>| " (telescope) code navigation through classes, methods and functions
 nnoremap <leader>ta :Telescope builtin<cr>| " (telescope) all commands
+nnoremap <leader>th :Telescope command_history<cr>| " (telescope) command history (q:)
 nnoremap <leader>tr :Telescope registers<cr>| " (telescope) browse registers
 nnoremap <leader>tq :Telescope quickfix<cr>| " (telescope) browse quickfix
 nnoremap <leader>tl :Telescope loclist<cr>| " (telescope) browse location-list
