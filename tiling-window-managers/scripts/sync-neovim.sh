@@ -18,6 +18,8 @@ sudo cp -farv $NVIM_BINARY_PATH $BACKUPS_DIR
 notify-send "$(basename "$0")" "The old nvim binary was copied to $BACKUPS_DIR in case you need to manually revert it to $NVIM_BINARY_PATH."
 
 notify-send "$(basename "$0")" "Compiling nvim (this will take a while)..."
+echo -e "If the build fails because of old version of libraries,\n run the script 'nvim-clean-cmake-build-cache.sh'\n to delete cmake cache and rebuild from a pristine state."
+read -n 1 -s -r -p "Press any key to continue..."
 COMMANDS="cd /opt/src/neovim && git fetch && git pull && make clean && make CMAKE_BUILD_TYPE=Release && make install"
 sudo -- bash -c "$COMMANDS"
 
