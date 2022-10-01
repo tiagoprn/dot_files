@@ -60,6 +60,7 @@
 " I | "  go to beginning of line and enter insert mode
 " C | "  Delete until end of the line and enter insert mode
 " D | "  Delete until end of the line
+" vg_ | "  Delete until end of the line (does NOT include \n)
 " :%s/ /\r/g | " replace spaces for <enter>
 " :%s/old/new/gc | " replace asking for confirmation on each occurence
 " :%s/https.*/[&]()/g | " (replace) find all urls/links with regex and replace them with markdown syntax - the '&' does the magic and inserts the matched text
