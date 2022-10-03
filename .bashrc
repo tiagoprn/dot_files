@@ -160,7 +160,7 @@ export FZF_COMPLETION_TRIGGER=',,'
 # rg means ripgrep, that is nice to use with fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
-export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
+export JOURNAL_FILE=$HOME/journal.$HOSTNAME.md
 
 ## To run ansible locally without it being so annoying :)
 export ANSIBLE_HOST_KEY_CHECKING=False

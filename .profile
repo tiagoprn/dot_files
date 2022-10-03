@@ -127,7 +127,6 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 ## To stop showing warnings on activating a pyenv.
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-export JOURNAL_FILE=/storage/docs/journal.$HOSTNAME.md
 export DOCKER_PS_FORMAT="table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Size}}"
 
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
