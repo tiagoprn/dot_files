@@ -20,12 +20,12 @@ notify-send "$(basename "$0")" "The old nvim binary was copied to $BACKUPS_DIR i
 notify-send "$(basename "$0")" "Compiling nvim (this will take a while)..."
 echo -e "If the build fails because of old version of libraries,\n run the script 'nvim-clean-cmake-build-cache.sh'\n to delete cmake cache and rebuild from a pristine state."
 read -n 1 -s -r -p "Press any key to continue..."
-COMMANDS="cd /opt/src/neovim && git fetch && git pull && make clean && make CMAKE_BUILD_TYPE=Release && make install"
+COMMANDS="cd /opt/src/neovim && git fetch && git pull && rm -fr /opt/src/neovim/build && make clean && make CMAKE_BUILD_TYPE=Release && make install"
 sudo -- bash -c "$COMMANDS"
 
 NEW_VERSION=$(sudo -- bash -c 'cd /opt/src/neovim && git log -n 1 --pretty=format:"%cD by %an (%h)"')
 
-message="\nFinished compiling nvim.\n\nPrevious version:\n\t$PREVIOUS_VERSION\nNew version:\n\t$NEW_VERSION\n\nHave fun! \o/\n(and run :PackerSync to update the plugins also ;)"
+message="\nFinished compiling nvim.\n\nPrevious version:\n\t$PREVIOUS_VERSION\nNew version:\n\t$NEW_VERSION\n\nHave fun! \o/"
 echo "-----------------"
 echo -e "$message"
 echo "-----------------"
