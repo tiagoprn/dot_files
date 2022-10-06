@@ -202,7 +202,7 @@ $ sudo ./build.sh
 (picom is compton's fork, more modern and with more features. So, it uses the same configuration file as compton for now.)
 $ sudo su
 $ cd /opt/src
-$ git clone https://github.com/ibhagwan/picom
+$ git clone https://github.com/pijulius/picom
 $ cd picom
 $ apt install -y meson asciidoc pandoc
 $ meson --buildtype=release . build --prefix=/usr -Dwith_docs=true
