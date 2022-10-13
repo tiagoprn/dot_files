@@ -35,6 +35,7 @@ alias fc='/storage/src/devops/bin/create-flashcard-current-folder.sh'
 alias nt='/storage/src/devops/bin/create-quick-note.sh'
 alias cn='/storage/src/devops/bin/create-fleeting-note.sh'
 alias nr='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
+alias tn="/storage/src/dot_files/tiling-window-managers/scripts/tmux-nvim-project-setup.sh"
 
 # tree letter aliases
 alias cdr='cd $(g root)'
