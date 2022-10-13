@@ -13,7 +13,7 @@ if [ -z "${TMUX+set}" ]; then
     echo -e '- Consider opening tmux sessions with the "tp" bash alias.'
 fi
 
-echo -e '- Use "tmux-nvim-project-setup.sh" to create a default session on a git repository'
+echo -e '- Use "tn" or "tmux-nvim-project-setup.sh" to create a default session on a git repository'
 echo -e '  with nvim,lazygit and a scratchpad.'
 
 if [[ $HOSTNAME == cosmos ]]; then
