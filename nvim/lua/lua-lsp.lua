@@ -6,7 +6,7 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-local luadev = require("lua-dev").setup({
+local luadev = require("neodev").setup({
 	lspconfig = {
 		cmd = { sumneko_binary },
 	},

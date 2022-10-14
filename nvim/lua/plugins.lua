@@ -149,7 +149,7 @@ return require("packer").startup(function(use)
 	use({ "folke/lsp-colors.nvim" })
 
 	-- -- lua development environment
-	use({ "folke/lua-dev.nvim" })
+	use({ "folke/neodev.nvim" })
 
 	-- -- -- repl
 	use({ "rafcamlet/nvim-luapad" })
