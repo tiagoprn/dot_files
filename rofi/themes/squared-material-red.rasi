@@ -5,7 +5,7 @@
  *******************************************************************************/
 
 * {
-    font:   "Trek Regular 11";
+    font:   "Ubuntu Condensed Regular 11";
 
     bg0:     #212121;
     bg1:     #404040;
@@ -26,7 +26,7 @@
 window {
     location:   center;
     width:      1400;
-    y-offset:   -530;
+    y-offset:   -330;
 
     background-color:   @bg0;
 }
@@ -53,7 +53,7 @@ textbox {
 
 listview {
     padding:    4px 0;
-    lines:      29;
+    lines:      20;
     columns:    1;
 
     fixed-height:   false;
