@@ -180,3 +180,5 @@
 ":h events | " help on the events available on nvim, its' buffers, etc...
 " (VISUAL) ]] | " markdown file - go to next header/section
 " (VISUAL) [[ | " markdown file - go to previous header/section
+" :autocmd BufWritePre | " (debug/inspect/troubleshooting) see all (auto)commands related to this write event. Related events: BufWritePost, BufWriteCmd.
+" :h events | " (debug/inspect/troubleshooting) list all events possible on a buffer.
