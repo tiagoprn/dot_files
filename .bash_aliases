@@ -36,13 +36,15 @@ alias fc='/storage/src/devops/bin/create-flashcard-current-folder.sh'
 alias nt='/storage/src/devops/bin/create-quick-note.sh'
 alias cn='/storage/src/devops/bin/create-fleeting-note.sh'
 alias nr='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
-alias tn="/storage/src/dot_files/tiling-window-managers/scripts/tmux-nvim-project-setup.sh"
+alias tn='/storage/src/dot_files/tiling-window-managers/scripts/tmux-nvim-project-setup.sh' # tmux nvim project setup, using git bookmarks
 
 # tree letter aliases
 alias cdr='cd $(g root)'
 alias cht='curl -s cht.sh/$(curl -s cht.sh/:list | fzf)'
 alias pcb='pyenv versions | grep "*" | cut -d " " -f 2 | cb'
-alias vcb='xclip -i -selection clipboard -o | nvim -' # Open clipboard contents on nvim
+alias vcb='xclip -i -selection clipboard -o | nvim -'  # Open clipboard contents on nvim
+alias bkc='nvim ~/.config/cd-bookmarks.list'           # open cd bookmarks on nvim
+alias bkg='nvim ~/.config/git-projects-bookmarks.list' # open git bookmarks on nvim
 
 ## other aliases
 alias today='clear &&  echo "REMINDERS" | figlet && export CURRENT_DATE=$(date "+%A %d, %B %Y") && echo -e "${CURRENT_DATE^^}\n------" && remind -s /storage/docs/reminders/personal.rem | grep "$(date +%Y/%m/%d)" | cut -f 6- -d " "'
