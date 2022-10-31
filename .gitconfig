@@ -98,3 +98,7 @@
   enabled = true
 [init]
 	defaultBranch = main
+
+[safe]
+        directory = /storage/src/dot_files
+
