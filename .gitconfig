@@ -101,4 +101,5 @@
 
 [safe]
         directory = /storage/src/dot_files
+	directory = /storage/src/devops
 
