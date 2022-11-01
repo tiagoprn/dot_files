@@ -25,6 +25,9 @@ shopt -s histappend
 
 source $HOME/.bash_functions
 source $HOME/.bash_aliases
+if [ -f $HOME/bashrc.custom ]; then
+    source $HOME/bashrc.custom
+fi
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
