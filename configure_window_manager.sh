@@ -12,7 +12,7 @@ echo 'Linking gtk config...'
 
 rm ~/.gtkrc-2.0
 ln -s /storage/src/dot_files/.gtkrc-2.0 ~/.gtkrc-2.0
-rm ~/.config/gtk-3.0/
+rm -fr ~/.config/gtk-3.0/
 ln -s /storage/src/dot_files/gtk-3.0 ~/.config/gtk-3.0
 
 # ---
