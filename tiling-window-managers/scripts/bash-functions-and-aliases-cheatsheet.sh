@@ -14,4 +14,4 @@ fi
 
 # echo "$TEXT1\n$TEXT2" | dmenu -fn Mono:size=12 -c -bw 2 -l 20 -p 'Filter a bash function or alias'
 # echo "$TEXT1\n$TEXT2" | rofi -dmenu -font 'Iosevka Regular 12' -p 'Filter a bash function or alias'
-echo "$TEXT1\n$TEXT2\n$TEXT3" | rofi -dmenu -p 'Filter a bash function or alias'
+echo -e "$TEXT1\n$TEXT2\n$TEXT3" | sort | rofi -dmenu -p 'Filter a bash function or alias'
