@@ -25,7 +25,7 @@ echo -e "$BINDINGS" \
     | awk 'BEGIN { FS = "#@"} {word_end_index= match($1, " "); binding_text=substr($1, 0, word_end_index); print $2 " @ " binding_text}' \
     | column -t -s '@' \
     | sort \
-    | dmenu -fn Monospace:size=12 -c -bw 2 -l 20 -p 'Filter a tmux binding:'
+    | rofi -dmenu -p 'Filter a tmux binding:'
 
 : '
 Explaining the awk language expression:
