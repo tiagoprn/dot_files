@@ -19,6 +19,10 @@ CURRENT_SCRIPT_NAME = os.path.splitext(os.path.basename(__file__))[0]
 LOG_FILE = f"/tmp/{CURRENT_SCRIPT_NAME}.log"
 PIDFILE = f"/tmp/{CURRENT_SCRIPT_NAME}.pid"
 CLIPBOARD_HISTORY_FILE = f"{os.environ['HOME']}/clipboard.history"
+if not os.path.exists(CLIPBOARD_HISTORY_FILE):
+    with open(CLIPBOARD_HISTORY_FILE, "a") as file:
+        file.write("\n")
+
 
 LOG_FORMAT = (
     "[%(asctime)s PID %(process)s "

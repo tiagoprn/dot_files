@@ -13,3 +13,4 @@ undodir
 quickfix-history
 tmux-client*.log
 subreddits
+nohup.out
