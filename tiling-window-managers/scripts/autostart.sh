@@ -9,7 +9,7 @@ _isRunning() {
 }
 
 # echo "Starting picom..." >> $LOG_FILE 2>&1
-_isRunning picom || picom --config ~/picom.conf --backend glx >>$LOG_FILE 2>&1 &
+# _isRunning picom || picom --config ~/picom.conf --backend glx >>$LOG_FILE 2>&1 &
 
 # echo "Starting NetworkManager applet..."
 _isRunning nm-applet || nm-applet >>$LOG_FILE 2>&1 &
