@@ -183,7 +183,7 @@ super + shift + x
 super + Return
 	/storage/src/dot_files/tiling-window-managers/scripts/terminal.sh
 
-# bookmarks:
+# select browser bookmark to open:
 super + b
 	/storage/src/dot_files/tiling-window-managers/scripts/bookmarks.sh
 
@@ -199,7 +199,7 @@ super + shift + p
 super + shift + Return
 	/storage/src/dot_files/tiling-window-managers/scripts/terminal-tmux.sh
 
-# passwords - rofi:
+# passwords - rofi (tiago) / bitwarden (tds):
 super + p
 	/storage/src/dot_files/tiling-window-managers/scripts/pass-rofi.sh
 

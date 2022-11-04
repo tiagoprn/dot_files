@@ -1,21 +1,13 @@
 #!/bin/bash
 
-# /storage/src/dot_files/tiling-window-managers/scripts/bookmarks.py
+HOSTNAME_USER="$(hostname).$(whoami)"
 
-script_name=$(basename "$0")
-
-BROWSER=$(echo -e "w3m\nfirefox\nqutebrowser.sh" | dmenu -fn 'Jetbrains Mono:size=14' -c -bw 2 -l 20 -p 'Select browser: ')
-EXIT_CODE=$?
-if [ "$EXIT_CODE" == 1 ]; then
-    notify-send -t 700 "$script_name" "Aborted."
-    exit 1
+if [ "$HOSTNAME_USER" == 'cosmos.tiago' ]; then
+    BOOKMARKS=$(cat "$HOME/.config/surfraw/bookmarks")
+elif [ "$HOSTNAME_USER" == 'cosmos.tds' ]; then
+    BOOKMARKS=$(cat "$HOME/contractors/octerra/git/octerra/config/browser.bookmarks")
 fi
 
-BOOKMARK="$(cat ~/.config/surfraw/bookmarks | dmenu -fn 'Jetbrains Mono:size=14' -c -bw 2 -l 20 -p 'Select bookmark: ')"
-EXIT_CODE=$?
-if [ "$EXIT_CODE" == 1 ]; then
-    notify-send -t 700 "$script_name" "Aborted."
-    exit 1
-fi
+SELECTED_BOOKMARK=$(echo -e "$BOOKMARKS" | sort | rofi -dmenu -p "Open a browser tab and choose a bookmark:" | awk '{print $2}')
 
-sr -browser="$BROWSER" "$(echo $BOOKMARK | cut -d ' ' -f 1)"
+xdotool type "$SELECTED_BOOKMARK"
