@@ -5,7 +5,7 @@
  *******************************************************************************/
 
 * {
-    font:   "Monospace Regular 11";
+    font:   "Monospace Regular 10";
 
     bg0:     #212121;
     bg1:     #404040;
@@ -25,7 +25,7 @@
 
 window {
     location:   center;
-    width:      1400;
+    width:      1900;
     y-offset:   -330;
 
     background-color:   @bg0;
