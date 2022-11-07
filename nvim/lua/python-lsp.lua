@@ -12,4 +12,16 @@ lsp.pylsp.setup({
 		client.server_capabilities.document_diagnostics = false
 		require("lsp_signature").on_attach()
 	end,
+	settings = {
+		pylsp = {
+			-- disabling below because I use null-ls for that
+			plugins = {
+				pyflakes = { enabled = false },
+				flake8 = { enabled = false },
+				pylint = { enabled = false },
+				isort = { enabled = false },
+				pycodestyle = { enabled = false },
+			},
+		},
+	},
 })

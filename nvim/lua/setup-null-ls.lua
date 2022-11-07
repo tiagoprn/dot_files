@@ -7,9 +7,24 @@
 -- How to configure "formatting on save":
 --   <https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Formatting-on-save>
 
+local helpers = require("tiagoprn.helpers")
+
+local project_root = vim.fn.getcwd()
+
 local sources = {
-	-- require("null-ls").builtins.completion.spell,
 	require("null-ls").builtins.diagnostics.pylint.with({
+		condition = function(utils)
+			-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#condition
+			local skip_pylint_file = project_root .. "/" .. "skip-pylint"
+			local skip_pylint_file_exists = helpers.get_file_exists(skip_pylint_file)
+			if skip_pylint_file_exists == true then
+				vim.notify("skip-pylint file found on project root, pylint will be disabled for this file.")
+				return false
+			else
+				vim.notify("skip-pylint file NOT found on project root, so pylint will be enabled for this file.")
+				return true
+			end
+		end,
 		command = function()
 			local default_venv = "~/.pyenv/versions/neovim"
 
@@ -37,19 +52,14 @@ local sources = {
 			local project_root = vim.fn.getcwd()
 			local pylintrc_full_path = project_root .. "/" .. pylintrc_file
 
-			local file_exists = nil
-			local file_opened = io.open(pylintrc_full_path, "r")
-			if file_opened ~= nil then
-				io.close(file_opened)
-				file_exists = true
-			else
-				file_exists = false
-			end
+			file_exists = helpers.get_file_exists(pylintrc_full_path)
 
-			if not file_exists then
+			if file_exists == false then
 				vim.notify("Could not find .pylintrc, using default one.")
 				pylintrc_full_path = default_pylintrc
 			end
+
+			vim.notify("Using .pylintrc from: " .. pylintrc_full_path)
 
 			return {
 				"--rcfile",
@@ -62,6 +72,18 @@ local sources = {
 		end,
 	}),
 	require("null-ls").builtins.formatting.black.with({
+		condition = function(utils)
+			-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#condition
+			local skip_black_file = project_root .. "/" .. "skip-black"
+			local skip_black_file_exists = helpers.get_file_exists(skip_black_file)
+			if skip_black_file_exists == true then
+				vim.notify("skip-black file found on project root, black will be disabled for this file.")
+				return false
+			else
+				vim.notify("skip-black file NOT found on project root, so black will be enabled for this file.")
+				return true
+			end
+		end,
 		command = function()
 			local default_path = vim.fn.expand("~/.pyenv/versions/neovim/bin/black")
 			return default_path
@@ -74,6 +96,18 @@ local sources = {
 		end,
 	}),
 	require("null-ls").builtins.formatting.isort.with({
+		condition = function(utils)
+			-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#condition
+			local skip_isort_file = project_root .. "/" .. "skip-isort"
+			local skip_isort_file_exists = helpers.get_file_exists(skip_isort_file)
+			if skip_isort_file_exists == true then
+				vim.notify("skip-isort file found on project root, isort will be disabled for this file.")
+				return false
+			else
+				vim.notify("skip-isort file NOT found on project root, so isort will be enabled for this file.")
+				return true
+			end
+		end,
 		command = function()
 			local default_path = vim.fn.expand("~/.pyenv/versions/neovim/bin/isort")
 			return default_path
@@ -110,7 +144,7 @@ require("null-ls").setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 10000 })
+					vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 20000 })
 				end,
 			})
 		end

@@ -94,7 +94,11 @@ let g:python3_host_prog = '~/.pyenv/versions/neovim/bin/python'
 
 lua << EOF
 vim.notify = require("notify")
-vim.notify.setup()
+vim.notify.setup({
+	background_colour = "#000000",
+	fps = 60,
+	timeout = 300,
+})
 EOF
 
 " --- OTHER SETTINGS

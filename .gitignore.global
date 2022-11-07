@@ -8,3 +8,6 @@ idea/
 .vimrc.project
 .tmp/
 *.ORIG
+skip-pylint
+skip-black
+skip-isort

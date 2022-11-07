@@ -13,6 +13,17 @@ function M.readLines(file)
 	return lines
 end
 
+function M.get_file_exists(full_file_path)
+	local file_exists = vim.fn.findfile(full_file_path)
+	if file_exists == nil or file_exists == "" then
+		-- vim.notify("full_file_path: " .. full_file_path .. " DOES NOT exist!")
+		return false
+	else
+		-- vim.notify("full_file_path: " .. full_file_path .. " exists!")
+		return true
+	end
+end
+
 function M.writeLine(file, line)
 	local f = io.open(file, "a")
 	io.output(f)
