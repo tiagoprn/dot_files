@@ -148,6 +148,25 @@ snippet for
 snippet press_any_key_to_continue
 	read -n 1 -s -r -p "Press any key to continue..."
 
+snippet single_args_script
+	self_name=$(basename "$0")
+
+	usage() {
+	    echo "---"
+	    echo "You must run this script passing a machine IP as argument!"
+	    echo -e "USAGE: \n\t$self_name [machine-ip]"
+	    echo "---"
+	}
+
+	# set to the value of the 1st argument passed to the script. If not passed, set "default_value".
+	MACHINE_IP=${1-""}
+	if [ "$MACHINE_IP" == "" ]; then
+	    usage
+	    exit 1
+	fi
+
+	read -p "Confirm $MACHINE_IP? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+
 snippet input
 	read -p "Enter user: " user
 	echo "USER: $user"
