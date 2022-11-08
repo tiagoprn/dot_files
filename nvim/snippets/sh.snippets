@@ -148,6 +148,11 @@ snippet for
 snippet press_any_key_to_continue
 	read -n 1 -s -r -p "Press any key to continue..."
 
+snippet input
+	read -p "Enter user: " user
+	echo "USER: $user"
+	read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+
 snippet forin
 	WORDS="banana maçã tomate"
 	for WORD in \$WORDS; do
