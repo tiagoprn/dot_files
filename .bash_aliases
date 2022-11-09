@@ -8,6 +8,7 @@ alias f='fzf'
 alias g='git'
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
+# TODO: edit below to put the date on this format: `date '+%Y-%m-%d %A %H:%M:%S %N'`
 alias j='nvim +"normal Go" +"normal Go---" +"r!date" $JOURNAL_FILE +"normal!G2o" +"startinsert"'
 alias p='pyenv'
 alias s='source ~/.bashrc'
