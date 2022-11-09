@@ -32,7 +32,13 @@ augroup lspconfigAutoFormat
   autocmd!
   autocmd BufWritePre *.js lua vim.lsp.buf.format(nil, 1200)
   autocmd BufWritePre *.jsx lua vim.lsp.buf.format(nil, 1200)
-  autocmd BufWritePre *.py lua vim.lsp.buf.format(nil, 1200)
+
+  " --- Below must be taken care by the null-ls plugin
+  " --- (I have added custom code there for that regarding the
+  " ---  "skip-*" files on the project root).
+  " --- If null-ls write on save stop working, re-enable the line below:
+  " autocmd BufWritePre *.py lua vim.lsp.buf.format(nil, 1200)
+
   autocmd BufWritePre *.lua lua vim.lsp.buf.format(nil, 1200)
 augroup END
 
