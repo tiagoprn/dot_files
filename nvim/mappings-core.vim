@@ -81,6 +81,7 @@ nnoremap <Leader>llt :set spell!<CR>| " (spellcheck) toggle on/off
 nnoremap <Leader>lle :set spelllang=en<CR>| " (spellcheck) set language to english
 nnoremap <Leader>llp :set spelllang=pt_br<CR>| " (spellcheck) set language to portuguese brazil
 nnoremap <Leader>llf :normal! mz[s1z=`z]<CR>| " (spellcheck) automatically fix last misspelled word and jump back to where you were
+nnoremap <Leader>og :!gedit %<CR>| " open current file on gedit
 
 " jumps to the previous spelling mistake [s, then picks the first suggestion 1z=, and then jumps back `]a. The <c-g>u in the middle make it possible to undo the spelling correction quickly.
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u| " (spellcheck)(INSERT) Fix the previous spelling mistake while typing
