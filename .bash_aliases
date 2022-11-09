@@ -8,8 +8,7 @@ alias f='fzf'
 alias g='git'
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
-alias j='mkdir -p /storage/docs && nvim +"normal Go" +"r!date" $JOURNAL_FILE +"normal!o-  "'
-
+alias j='nvim +"normal Go" +"normal Go---" +"r!date" $JOURNAL_FILE +"normal!G2o" +"startinsert"'
 alias p='pyenv'
 alias s='source ~/.bashrc'
 alias v='SELECTED_FILE=$(find . -type f | grep -v ".git/" | grep -v "node_modules/" | fzf --preview "bat --style=numbers --color=always --line-range :50 {}") && nvim $SELECTED_FILE'
