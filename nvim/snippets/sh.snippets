@@ -63,6 +63,18 @@ snippet if_equals
 	    echo 'IS FALSE :('
 	fi
 
+snippet embed_python_on_bash
+	#!/bin/bash
+	a=10
+	b=20
+	code="
+	import json;
+	print(json.dumps({'a': $a, 'b': $b}, indent=2))
+	"
+	json=$(python3 -c "$code")
+	# Use json content
+	echo -e "$json"
+
 snippet colors
 	if [ -x "\$(command -v tput)" ]; then
 		bold="\$(tput bold)"
