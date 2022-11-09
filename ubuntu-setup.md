@@ -360,6 +360,13 @@ $ git clone https://git.sr.ht/~mlaparie/remint
 $ cd remint
 $ ln -s /opt/src/remint/remint.sh /usr/bin/remint.sh
 
+## clifm (file manager with command mode)
+$ sudo su
+$ cd /opt/src
+$ git clone https://github.com/leo-arch/clifm.git
+$ cd clifm
+$ sudo make install
+
 ## activitywatch
 $ sudo su
 $ cd /opt/src
