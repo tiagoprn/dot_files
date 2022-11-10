@@ -78,6 +78,7 @@ nnoremap <Leader>wV :vnew<CR>| " (windows) new vertical window split
 nnoremap <Leader>wS :new<CR>| " (windows) new horizontal window split
 
 nnoremap <Leader>llt :set spell!<CR>| " (spellcheck) toggle on/off
+nnoremap <Leader>llb :set spelllang=en,pt_br<CR>| " (spellcheck) set language to english AND portuguese brazil
 nnoremap <Leader>lle :set spelllang=en<CR>| " (spellcheck) set language to english
 nnoremap <Leader>llp :set spelllang=pt_br<CR>| " (spellcheck) set language to portuguese brazil
 nnoremap <Leader>llf :normal! mz[s1z=`z]<CR>| " (spellcheck) automatically fix last misspelled word and jump back to where you were
