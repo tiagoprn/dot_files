@@ -276,7 +276,7 @@ super + ctrl + space
 super + ctrl + r
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
-# expand a window by moving one of its side outward [left,bottom,top,right]:
+# expand (resize) a window by moving one of its side outward [left,bottom,top,right]:
 super + alt + {h,j,k,l}
     STEP=20; SELECTION={1,2,3,4}; \
     bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
