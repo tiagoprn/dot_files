@@ -77,8 +77,8 @@ return require("packer").startup(function(use)
 	-- show contents of vim registers on a sidebar
 	use({ "junegunn/vim-peekaboo" })
 
-	-- better movement
-	use({ "phaazon/hop.nvim" })
+	-- better navigation
+	use({ "https://gitlab.com/madyanov/svart.nvim" })
 
 	-- auto pairs
 	use({ "windwp/nvim-autopairs" })

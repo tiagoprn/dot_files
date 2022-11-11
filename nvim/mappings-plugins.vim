@@ -93,11 +93,10 @@ vnoremap <leader>ttv :ToggleTermSendVisualSelection<CR>| " (toggleterm) copy vis
 " nvim-tree (a project directory tree)
 nnoremap <F3> :NvimTreeToggle<CR>| " (function-keys) toggle project directory tree
 
-" hop
-nnoremap <silent> <leader>hw <cmd>lua require'hop'.hint_words()<CR>| " (movement) hop - go to word
-nnoremap <silent> <leader>hl <cmd>lua require'hop'.hint_lines()<CR>| " (movement) hop - go to line
-vnoremap <silent> <leader>hw <cmd>lua require'hop'.hint_words()<CR>| " (VISUAL) (movement) hop - go to word
-vnoremap <silent> <leader>hl <cmd>lua require'hop'.hint_lines()<CR>| " (VISUAL) (movement) hop - go to line
+" svart
+nnoremap <silent> <leader>l <cmd>Svart<CR>| " (movement) svart - 'hop' go to position
+nnoremap <silent> <leader>ll <cmd>SvartRepeat<CR>| " (movement) svart - 'hop' go to position - last searched query
+nnoremap <silent> <leader>lr <cmd>SvartRegex<CR>| " (movement) svart - 'hop' go to position
 
 " snippy
 inoremap <silent> <c-s> <cmd>lua require'snippy'.complete()<CR>| " (INSERT) show all available snippets for current filetype
