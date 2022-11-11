@@ -97,7 +97,10 @@ vim.notify = require("notify")
 vim.notify.setup({
 	background_colour = "#000000",
 	fps = 60,
-	timeout = 300,
+	timeout = 90,
+	top_down=false,
+	stages="fade", -- slide, fade, fade_in_slide_out, static
+	render="minimal",  -- minimal, simple, default
 })
 EOF
 
