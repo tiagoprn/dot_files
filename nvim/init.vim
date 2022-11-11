@@ -91,7 +91,7 @@ set winbar=%=%m\ %F
 let g:python3_host_prog = '~/.pyenv/versions/neovim/bin/python'
 
 " --- LUA CONFIGURATION
-
+" must be here, otherwise does not start with nvim
 lua << EOF
 vim.notify = require("notify")
 vim.notify.setup({
@@ -136,7 +136,6 @@ lua require('sessions')
 lua require('gitsigns-conf')
 lua require('lualine-conf')
 lua require('toggleterm-conf')
-lua require('notify-conf')
 lua require('comment-conf')
 lua require('highlight-colors-conf')
 lua require('lsp-colors-conf')
