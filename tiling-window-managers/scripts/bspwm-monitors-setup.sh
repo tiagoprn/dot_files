@@ -5,7 +5,7 @@ external_monitor=HDMI-1
 
 monitor_add() {
     notify-send "$(basename $0)" "Adding monitor..."
-    desktops=4 # How many desktops to move to the second monitor
+    desktops=6 # How many desktops to move to the second monitor
 
     for desktop in $(bspc query -D -m $internal_monitor | sed "$desktops"q); do
         bspc desktop $desktop --to-monitor $external_monitor
