@@ -7,6 +7,7 @@ command! CreateFleetingNote lua require'tiagoprn.scratchpad'.createFleetingNote(
 command! CreateTask lua require'tiagoprn.scratchpad'.createTask()
 command! CreateFlashcard lua require'tiagoprn.scratchpad'.createFlashCard()
 command! CreatePost lua require'tiagoprn.scratchpad'.createPost()
+command! CreateZettel lua require'tiagoprn.scratchpad'.createZettel()
 command! ZenCode lua require'tiagoprn.scratchpad'.zenCode()
 command! ZenWrite lua require'tiagoprn.scratchpad'.zenWrite()
 command! DeleteSpacesFromMarkdownMetadata lua require'tiagoprn.scratchpad'.deleteSpacesFromMarkdownMetadata()
