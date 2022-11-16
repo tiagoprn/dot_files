@@ -87,6 +87,12 @@ set grepformat^=%f:%l:%c:%m
 " right size, file has changed, file path
 set winbar=%=%m\ %F
 
+" --- Splits defaults
+" open vertical splits on the right side
+set splitright
+" open horizontal splits below
+set splitbelow
+
 " --- setup python virtualenv that has nvim requirements installed - check this repository README.md for details
 let g:python3_host_prog = '~/.pyenv/versions/neovim/bin/python'
 
