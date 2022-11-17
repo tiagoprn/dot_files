@@ -101,7 +101,8 @@
 " :ld[o][!] {cmd} | " (location-list) Execute {cmd} in each valid entry in the location list for the current window.
 " :lfdo[!] {cmd} | " (location-list) Execute {cmd} in each file in the location list for the current window.
 " :lhistory | " (location-list) show your location lists
-" :gf | " open text file/directory under cursor (works 'magically' if there is a file/directory under the current cursor)
+" (NORMAL) gf | " open text file/directory under cursor (works 'magically' if there is a file/directory under the current cursor)
+" (NORMAL) <C-W>f | " open text file/directory under cursor  - like gf, but on a split (works 'magically' if there is a file/directory under the current cursor)
 " :gF | " open text file/directory under cursor on the line (works 'magically' if there is a file/directory under the current cursor. E.g. `file.py:75`)
 " :gx | " open file/directory under cursor with the corresponding application (xdg-open like)
 " Vjjjj :normal @a | " (macros) run macro 'a' on selected lines
