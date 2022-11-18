@@ -44,9 +44,9 @@ DELAY = 1
 RECORD_TRUNCATE_SIZE = 50
 
 
-def notify_send(message: str):
+def notify_send(message: str, urgency: str='low'):
     command = (
-        f'notify-send -t 1200 --urgency=low "clippy-capture.py" "{message}"'
+        f'notify-send -t 1200 --urgency={urgency} "clippy-capture.py" "{message}"'
     )
     run(command, shell=True)
 
@@ -61,6 +61,8 @@ def get_records():
 
     records = []
     for record in file_records:
+        if not record.replace('\n',''):
+            continue
         parsed_record = json.loads(record)
         timestamp = parsed_record["timestamp"]
         parsed_record_lines = parsed_record["contents"]
@@ -84,6 +86,8 @@ def get_paste_contents_from_timestamp(timestamp: str):
         file_records = input_file.readlines()
 
     for record in file_records:
+        if not record.replace('\n',''):
+            continue
         parsed_record = json.loads(record)
         record_timestamp = parsed_record["timestamp"]
         if record_timestamp == timestamp:
@@ -97,6 +101,8 @@ def get_paste_contents_already_exists_in_history(timestamp: str):
         file_records = input_file.readlines()
 
     for record in file_records:
+        if not record.replace('\n',''):
+            continue
         parsed_record = json.loads(record)
         record_timestamp = parsed_record["timestamp"]
         if record_timestamp == timestamp:
@@ -153,4 +159,5 @@ if __name__ == "__main__":
         message = f"An exception was triggered: {e} "
         print(message)
         logger.exception(message)
+        notify_send(message, 'critical')
         sys.exit(1)

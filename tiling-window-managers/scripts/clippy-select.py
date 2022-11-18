@@ -99,6 +99,8 @@ def get_paste_contents_from_timestamp(timestamp: str):
         file_records = input_file.readlines()
 
     for record in file_records:
+        if not record.replace('\n',''):
+            continue
         parsed_record = json.loads(record)
         record_timestamp = parsed_record["timestamp"]
         if record_timestamp == timestamp:
