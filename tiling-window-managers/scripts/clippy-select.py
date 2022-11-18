@@ -56,8 +56,8 @@ def run_command(cmd: str):
     return proc.returncode, std_out, std_err
 
 
-def notify_send(message: str):
-    command = f'notify-send --urgency=low "clippy-select.py" "{message}"'
+def notify_send(message: str, urgency:str='low'):
+    command = f'notify-send --urgency={urgency} "clippy-select.py" "{message}"'
     run_command(command)
 
 
@@ -74,6 +74,8 @@ def get_history_file_records():
     history_records = []
     for line_number, record in enumerate(file_records, start=1):
         logger.info(f"Parsing line number {line_number}...")
+        if not record.replace('\n',''):
+            continue
         parsed_record = json.loads(record)
         timestamp = parsed_record["timestamp"]
         contents = parsed_record["contents"]
@@ -123,6 +125,10 @@ def main():
     history_records = get_history_file_records()
     history_records.reverse()
 
+    if not history_records:
+        message = f'Clipboard history file "{CLIPBOARD_HISTORY_FILE}" is empty, nothing to select.'
+        raise Exception(message)
+
     rofi_client = Rofi()
     selected, keyboard_key = rofi_client.select(
         "Choose a previous paste from clipboard history",
@@ -152,4 +158,5 @@ if __name__ == "__main__":
         message = f"An exception was triggered: {e} "
         print(message)
         logger.exception(message)
+        notify_send(message, 'critical')
         sys.exit(1)
