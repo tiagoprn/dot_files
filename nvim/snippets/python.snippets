@@ -154,3 +154,16 @@ snippet binary_search
 	index_that_has_555_on_an_array = bisect.bisect(my_array, 555)
 	bisect.insort(my_array, 666)  # insert element on the binary tree
 
+snippet super
+	super().__init__()
+
+snippet pytest_parametrize
+    @pytest.mark.parametrize('var1,var2',
+        [
+            ('tuple1-var1', 'tuple1-var2',),
+            ('tuple2-var1', 'tuple2-var2',),
+        ],
+    )
+    def test_name(var1, var2):
+        # use var1 and var2 here
+
