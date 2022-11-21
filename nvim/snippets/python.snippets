@@ -170,3 +170,8 @@ snippet pytest_parametrize
     def test_name(var1, var2):
         # use var1 and var2 here
 
+snippet function_info
+	# fun below can be any function object.
+	# e.g. fun = print
+	info = f'module: {fun.__module__} , name: {fun.__qualname__}'
+	print(info)
