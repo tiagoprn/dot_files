@@ -183,4 +183,4 @@
 " (VISUAL) [[ | " markdown file - go to previous header/section
 " :autocmd BufWritePre | " (debug/inspect/troubleshooting) see all (auto)commands related to this write event. Related events: BufWritePost, BufWriteCmd.
 " :h events | " (debug/inspect/troubleshooting) list all events possible on a buffer.
-" <C-w>, <Shift-t> | " ( windows ) splits - open split in new tab (this destroys the split in the original tab)
+" <C-w>, <Shift-t> | " ( windows ) splits - open split in new tab (this destroys the split in the original window)
