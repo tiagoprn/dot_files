@@ -8,4 +8,5 @@ iabbrev tdf - TODO: FINANÇAS:| " abbreviation: TODO FINANÇAS
 iabbrev sh - SHOPPING:| " abbreviation: SHOPPING
 iabbrev gm - GAMES:| " abbreviation: GAMES
 iabbrev fn - FINANÇAS:| " abbreviation: FINANÇAS
-iabbrev PVP P/VP| " abbreviation: Preço sobre Valor Patrimonial (investimentos)
+iabbrev pvp P/VP| " abbreviation: Preço sobre Valor Patrimonial (investimentos)
+iabbrev yt YouTube| " abbreviation: YouTube
