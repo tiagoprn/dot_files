@@ -14,7 +14,7 @@ if [ -z "${TMUX+set}" ]; then
 fi
 
 echo -e '- Use "tn" or "tmux-nvim-project-setup.sh" to create a default session on a git repository'
-echo -e '  with nvim,lazygit and a scratchpad.'
+echo -e '  with nvim, gitui and a scratchpad.'
 
 if [[ $HOSTNAME == cosmos ]]; then
     echo -e '- To run timeshift: sudo timeshift-gtk'

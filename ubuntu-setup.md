@@ -373,6 +373,9 @@ $ cd /opt/src
 $ wget https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip
 $ unzip activitywatch-v0.11.0-linux-x86_64.zip
 
+## git-ui (more performant than lazygit)
+$ cargo install gitui
+
 ### Directories
 - categories: `/storage/docs/notes/activitywatch`
 - data: `~/.local/share/activitywatch`
