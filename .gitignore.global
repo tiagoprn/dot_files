@@ -11,3 +11,4 @@ idea/
 skip-pylint
 skip-black
 skip-isort
+enable-flake8
