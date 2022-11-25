@@ -175,3 +175,10 @@ snippet function_info
 	# e.g. fun = print
 	info = f'module: {fun.__module__} , name: {fun.__qualname__}'
 	print(info)
+
+snippet md5_hash
+	# Works only on strings
+	# To use on dicts, just use cast them to a string - str(your_dict)
+	import hashlib
+	hashlib.md5("YOUR-STRING-GOES-HERE".encode('utf-8')).hexdigest()
+
