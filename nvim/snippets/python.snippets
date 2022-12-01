@@ -182,3 +182,8 @@ snippet md5_hash
 	import hashlib
 	hashlib.md5("YOUR-STRING-GOES-HERE".encode('utf-8')).hexdigest()
 
+snippet pytest_run_on_condition
+	@pytest.mark.skipif(${1:bool_condition}, reason="${2:string_describing_condition}")
+
+snippet stack_print
+	__import__('traceback').print_stack()
