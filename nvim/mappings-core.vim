@@ -70,7 +70,7 @@ nnoremap <Leader>wJ <c-w>J| " (windows) shift to down window
 nnoremap <Leader>wK <c-w>K| " (windows) shift to up window
 nnoremap <Leader>wH <c-w>H| " (windows) shift to left window
 nnoremap <Leader>wL <c-w>L| " (windows) shift to right window
-nnoremap <Leader>wr <c-w>r| " (windows) shift rotate split window
+nnoremap <Leader>wr <c-w>r| " (windows) swap / shift rotate split window
 noremap <Leader>ws  <c-w>t<c-w>K| " (windows) change split orientation to horizontal
 noremap <Leader>wv  <c-w>t<c-w>H| " (windows) change split orientation to vertical
 nnoremap <Leader>ww <C-w>w| " (windows)  toggle between windows
