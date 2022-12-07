@@ -17,12 +17,12 @@ snippet class
 			self.$4 = $4
 			${6}
 
-snippet path
+snippet pathlib_current_path
 	from pathlib import Path
 	current_path = str(Path().absolute())
 	print(f'current_path:{current_path}')
 
-snippet rootpath
+snippet pathlib_rootpath
 	from pathlib import Path
 	root_path = str(Path().absolute().parent)
 	print(f'root_path:{root_path}')
@@ -187,3 +187,14 @@ snippet pytest_run_on_condition
 
 snippet stack_print
 	__import__('traceback').print_stack()
+
+snippet pathlib_get_files_in_directory
+	from pathlib import Path
+
+	def get_files(path='.', filetype = ".py"):
+	    # globs notation:
+	    # **/* : search on subdirectories
+	    # *    : search on current directory
+	    files = Path(path).glob('**/*' + filetype)
+	    for file_name in files:
+	        print(file_name)
