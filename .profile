@@ -37,7 +37,12 @@ export BROWSER=/usr/bin/chromium
 
 # Set colors for less. Borrowed from
 # https://wiki.archlinux.org/index.php/Color_output_in_console#less .
-export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
+# ---
+# -X leaves file contents on the screen when less exits.
+# -F makes less quit if the entire output can be displayed on one screen.
+# -R displays ANSI color escape sequences in "raw" form.
+# -S disables line wrapping. Side-scroll to see long lines.
+export LESS='-F -X --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
 export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
