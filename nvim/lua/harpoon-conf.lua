@@ -26,7 +26,7 @@ harpoon.setup({
 		excluded_filetypes = { "harpoon" },
 
 		-- set marks specific to each git branch inside git repository
-		mark_branch = true,
+		mark_branch = false,
 	},
 	projects = {
 		-- Yes $HOME works
