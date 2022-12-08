@@ -39,7 +39,7 @@ nnoremap <Leader>hl :set cursorline!<CR> | " toggle highlight current line
 nnoremap <c-j> :m .+1<CR>== | "(movement) move current line or selection down
 nnoremap <c-k> :m .-2<CR>== | "(movement) move current line or selection up
 
-nnoremap <leader>nt :tabnew<CR> | " (tabs) new
+nnoremap <leader>nt :tabnew<CR> | " (tabs) Open new empty tab
 nnoremap <leader>ct :tabclose<CR> | " (tabs) close
 nnoremap <C-right> :tabnext<CR> | " (NORMAL) (tabs) next
 nnoremap <C-left> :tabprevious<CR> | " (NORMAL) (tabs) previous
@@ -86,8 +86,8 @@ nnoremap <Leader>llp :set spelllang=pt_br<CR>| " (spellcheck) set language to po
 nnoremap <Leader>llf :normal! mz[s1z=`z]<CR>| " (spellcheck) automatically fix last misspelled word and jump back to where you were
 nnoremap <Leader>og :!gedit %<CR>| " open current file on gedit
 
-nnoremap <Leader>sb :new<CR>| " ( windows) splits - Open new empty buffer below - so you can open a file there
-nnoremap <Leader>sr :vnew<CR>| " ( windows) splits - Open new empty buffer aside - so you can open a file there
+nnoremap <Leader>sb :new<CR>| " ( windows) splits - Open new empty buffer below
+nnoremap <Leader>sr :vnew<CR>| " ( windows) splits - Open new empty buffer aside
 
 " jumps to the previous spelling mistake [s, then picks the first suggestion 1z=, and then jumps back `]a. The <c-g>u in the middle make it possible to undo the spelling correction quickly.
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u| " (spellcheck)(INSERT) Fix the previous spelling mistake while typing
