@@ -20,6 +20,9 @@ return require("packer").startup(function(use)
 	-- commands on tmux pane without leaving nvim.
 	use({ "ThePrimeagen/harpoon" })
 
+	-- Buffer manager that has an UI similar to harpoon
+	use({ "j-morano/buffer_manager.nvim" })
+
 	-- Makes vim.ui.select and vim.ui.input prettier
 	use({ "stevearc/dressing.nvim" })
 

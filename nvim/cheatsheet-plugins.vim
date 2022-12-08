@@ -78,3 +78,7 @@
 " W | " (nvim-tree) collapse_all
 " E | " (nvim-tree) expand_all
 " <C-k> | " (nvim-tree) toggle_file_info
+" <Enter> | " (buffer_manager) quick menu - open selected file
+" <C-v> | " (buffer_manager) quick menu - open selected file in vertical split
+" <C-x> | " (buffer_manager) quick menu - open selected file in horizontal split
+" <C-t> | " (buffer_manager) quick menu - open selected file in new tab

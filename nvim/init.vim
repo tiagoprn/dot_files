@@ -156,6 +156,7 @@ lua require('smooth-cursor-conf')
 lua require('dressing-conf')
 lua require('hydra-conf')
 lua require('svart-conf')
+lua require('buffer_manager-conf')
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim
