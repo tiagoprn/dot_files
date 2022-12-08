@@ -16,7 +16,6 @@ require("lualine").setup({
 		lualine_b = { "branch", "diff" },
 		lualine_c = { "filename" },
 		lualine_x = {
-			{ "diagnostics", sources = { "nvim_lsp" }, always_visible = true },
 			"filetype",
 		},
 		lualine_y = { "location" },
