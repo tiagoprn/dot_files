@@ -118,6 +118,22 @@ snippet journal
 
 	- [ ] ${4}
 
+snippet journal-task-vlink
+	r/0:00:00/vfname
+snippet journal-task-daily
+	## `strftime("%Y-%m-%d")`
+
+	### Did
+
+	(TBD)
+
+	### Doing
+
+	(TBD)
+
+	### Next
+
+	(TBD)
 snippet journal-task
 	---
 	title: "${1}"
@@ -129,7 +145,25 @@ snippet journal-task
 	links: [${3:"link1",}]
 	---
 
-	${4}
+	# CONTEXT
+
+	(TBD)
+
+	# REFERENCES
+
+	(TBD)
+
+	# DAILY JOURNAL
+
+	journal-task-daily
+
+	# CHANGELOG (wip)
+
+	(TBD)
+
+	# PULL REQUESTS
+
+	(TBD)
 
 snippet link-markdown
 	[${2:description}](${1:url})
