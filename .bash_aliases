@@ -38,6 +38,7 @@ alias nt='/storage/src/devops/bin/create-quick-note.sh'
 alias cn='/storage/src/devops/bin/create-fleeting-note.sh'
 alias nr='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
 alias tn='/storage/src/dot_files/tiling-window-managers/scripts/tmux-nvim-project-setup.sh' # tmux nvim project setup, using git bookmarks
+alias vr='vim-fzf-search'                                                                   # fzf search leveraging rg on a given word. When you select a file, it opens $EDITOR.
 
 # tree letter aliases
 alias cdr='cd $(g root)'
