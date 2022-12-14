@@ -86,3 +86,4 @@ nix_packages_search https://search.nixos.org/packages
 neovim_lua_guide https://github.com/nanotee/nvim-lua-guide
 mycroft_picroft https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/get-mycroft/picroft
 bitwarden_cli_download https://vault.bitwarden.com/download/?app=cli&platform=linux
+chatgpt https://chat.openai.com/chat
