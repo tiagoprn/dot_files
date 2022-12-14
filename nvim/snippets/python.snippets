@@ -198,3 +198,10 @@ snippet pathlib_get_files_in_directory
 	    files = Path(path).glob('**/*' + filetype)
 	    for file_name in files:
 	        print(file_name)
+
+snippet loop_on_list_popping_elements
+	while my_list:
+	    # pop the first element from the list, when finished exits the loop
+	    elem = my_list.pop(0)
+	    print(elem)
+
