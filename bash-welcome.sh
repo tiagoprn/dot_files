@@ -19,3 +19,5 @@ echo -e '  with nvim, gitui and a scratchpad.'
 if [[ $HOSTNAME == cosmos ]]; then
     echo -e '- To run timeshift: sudo timeshift-gtk'
 fi
+
+echo -e '- To have a monitoring dashboard (htop, bpytop and a terminal for other things): mon'

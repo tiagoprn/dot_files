@@ -47,7 +47,7 @@ alias pcb='pyenv versions | grep "*" | cut -d " " -f 2 | cb'
 alias vcb='xclip -i -selection clipboard -o | nvim -'  # Open clipboard contents on nvim
 alias bkc='nvim ~/.config/cd-bookmarks.list'           # open cd bookmarks on nvim
 alias bkg='nvim ~/.config/git-projects-bookmarks.list' # open git bookmarks on nvim
-
+alias mon='tmuxp load /storage/src/devops/tmuxp/monitoring.yml'
 ## other aliases
 alias today='clear &&  echo "REMINDERS" | figlet && export CURRENT_DATE=$(date "+%A %d, %B %Y") && echo -e "${CURRENT_DATE^^}\n------" && remind -s /storage/docs/reminders/personal.rem | grep "$(date +%Y/%m/%d)" | cut -f 6- -d " "'
 alias watch='watch -c '
