@@ -8,7 +8,7 @@ nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on curr
 nnoremap <leader>* :Telescope grep_string<cr>| " (telescope) search for string under cursor on current directory
 nnoremap <leader>tb :Telescope buffers<cr>| " (telescope) open buffer
 nnoremap <leader>m :Telescope marks<cr>| " (telescope) browse marks
-nnoremap <leader>tn :Telescope aerial<cr>| " (telescope) code navigation through classes, methods and functions
+nnoremap <leader>tn :Telescope aerial<cr>| " ( telescope) F4 code navigation through classes, methods and functions
 nnoremap <leader>ta :Telescope builtin<cr>| " (telescope) all commands
 nnoremap <leader>th :Telescope command_history<cr>| " (telescope) command history (q:)
 nnoremap <leader>tr :Telescope registers<cr>| " (telescope) browse registers

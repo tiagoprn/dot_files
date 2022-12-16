@@ -82,3 +82,10 @@
 " <C-v> | " (buffer_manager) quick menu - open selected file in vertical split
 " <C-x> | " (buffer_manager) quick menu - open selected file in horizontal split
 " <C-t> | " (buffer_manager) quick menu - open selected file in new tab
+" ) | " (aerial F4 code navigation) collapse (close) all classes
+" ( | " (aerial F4 code navigation) expand (open) all classes
+" t | " (aerial F4 code navigation) toggle collapse(close) / expand(open) methods on current class
+" T | " (aerial F4 code navigation) toggle collapse(close) / expand(open) methods on current class recursively
+" q | " (aerial F4 code navigation) close window
+" <C-v> | " (aerial F4 code navigation) open method/class on vertical split
+" <C-x> | " (aerial F4 code navigation) open method/class on horizontal split
