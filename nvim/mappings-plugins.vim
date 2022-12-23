@@ -135,3 +135,12 @@ nnoremap <silent> <M-p> :TmuxNavigatePrevious<CR>| " (tmux-navigator) move to pr
 nnoremap <silent> <Tab> <cmd>lua require("buffer_manager.ui").nav_next()<CR>| " (buffer_manager) switch to next buffer
 nnoremap <silent> <S-Tab> <cmd>lua require("buffer_manager.ui").nav_prev()<CR>| " (buffer_manager) switch to previous buffer
 nnoremap <silent> <C-b> <cmd>lua require("buffer_manager.ui").toggle_quick_menu()<CR>| " (buffer_manager) open quick menu
+
+" goto-preview
+nnoremap <silent> <leader>ldf <cmd>lua require('goto-preview').goto_preview_definition()<CR>| " (lsp) go to definition - floating window
+nnoremap <silent> <leader>ldq <cmd>lua require('goto-preview').close_all_win()<CR>| " (lsp) go to definition - close all floating windows
+
+" telescope - alternative go to definitions
+nnoremap <silent> <leader>ldv <cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>| " (lsp) go to definition - vertical window (right)
+nnoremap <silent> <leader>ldx <cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>| " (lsp) go to definition - horizontal window (bottom)
+nnoremap <silent> <leader>ldt <cmd>lua require"telescope.builtin".lsp_definitions({jump_type="tab"})<CR>| " (lsp) go to definition - Opens window on a new tab

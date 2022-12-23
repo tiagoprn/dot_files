@@ -151,6 +151,9 @@ return require("packer").startup(function(use)
 	-- -- color schemes that don't yet support the builtin LSP client
 	use({ "folke/lsp-colors.nvim" })
 
+	-- -- go to definition on floating window
+	use({ "rmagatti/goto-preview" })
+
 	-- -- lua development environment
 	use({ "folke/neodev.nvim" })
 
