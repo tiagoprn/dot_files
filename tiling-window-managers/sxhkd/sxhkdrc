@@ -211,6 +211,9 @@ super + t
 alt + e
 	/storage/src/dot_files/tiling-window-managers/scripts/vedit.sh
 
+# Open new tmux (ide) session on alacritty with a bookmarked git project:
+alt + Return
+    /storage/src/dot_files/tiling-window-managers/scripts/tmux-nvim-project-setup.sh
 
 ## WM specific
 

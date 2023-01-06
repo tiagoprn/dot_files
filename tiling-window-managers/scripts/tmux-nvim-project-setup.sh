@@ -13,7 +13,7 @@ else
     echo -e "/storage/src/dot_files\n/storage/src/devops" >"$GIT_REPOS_FILE_PATH"
     echo "File $GIT_REPOS_FILE_PATH successfully created."
 fi
-SELECTED_DIR=$(cat "$GIT_REPOS_FILE_PATH" | fzf | cut -d '|' -f 1)
+SELECTED_DIR=$(cat "$GIT_REPOS_FILE_PATH" | rofi -dmenu -p "Select a git project from $GIT_REPOS_FILE_PATH (use bash alias 'bkg' do add a new one there) : " | cut -d '|' -f 1)
 sleep 2
 echo "Entering: '$SELECTED_DIR'..."
-cd $SELECTED_DIR && /storage/src/dot_files/tiling-window-managers/scripts/tmux-ide.sh
+alacritty -e bash -c "TERM=screen-256color cd $SELECTED_DIR && /storage/src/dot_files/tiling-window-managers/scripts/tmux-ide.sh"
