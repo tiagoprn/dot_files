@@ -134,6 +134,10 @@ snippet journal-task-daily
 	### Next
 
 	(TBD)
+snippet journal-task-branch
+	- `${1:"branch-name"}` - created on `strftime("%Y-%m-%d")`, derived from `${2:"derived-branch-name"}` at commit `${3:"derived-branch-commit-hash"}` (merged into `${2:"derived-branch-name"}` on YYYY-MM-DD)
+snippet journal-task-pull-request
+	- [ ] <${1:"git-pull-request-url"}>
 snippet journal-task
 	---
 	title: "${1}"
@@ -149,6 +153,10 @@ snippet journal-task
 
 	(TBD)
 
+	# TECHNICAL DISCOVERY
+
+	(TBD)
+
 	# REFERENCES
 
 	(TBD)
@@ -157,9 +165,13 @@ snippet journal-task
 
 	journal-task-daily
 
+	# BRANCHES
+
+	journal-task-branch
+
 	# PULL REQUESTS
 
-	(TBD)
+	journal-task-pull-request
 
 	# CHANGELOG (wip)
 
