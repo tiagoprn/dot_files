@@ -63,6 +63,14 @@ snippet if_equals
 	    echo 'IS FALSE :('
 	fi
 
+snippet if_hostname_user
+	HOSTNAME_USER="$(hostname).$(whoami)"
+	if [ "$HOSTNAME_USER" == 'cosmos.tiago' ]; then
+            echo "do something here for tiago@cosmos"
+	elif [ "$HOSTNAME_USER" == 'cosmos.tds' ]; then
+            echo "do something here for tds@cosmos"
+	fi
+
 snippet embed_python_on_bash
 	#!/bin/bash
 	a=10
