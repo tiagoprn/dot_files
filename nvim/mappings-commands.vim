@@ -8,11 +8,11 @@ nnoremap <silent> <Leader>] :cn<Cr>| " quickfix: go to next item
 
 nnoremap <silent> <Leader>[ :cp<Cr>| " quickfix: go to previous item
 
-nnoremap <silent> <Leader>1 :cfirst<Cr>| " quickfix: go to first item
+nnoremap <silent> <Leader>q1 :cfirst<Cr>| " quickfix: go to first item
 
-nnoremap <silent> <Leader>G :clast<Cr>| " quickfix: go to last item
+nnoremap <silent> <Leader>qg :clast<Cr>| " quickfix: go to last item
 
-nnoremap <silent> <leader>c :cclose<CR>| " close quickfix
+nnoremap <silent> <leader>qc :cclose<CR>| " close quickfix
 
 nnoremap <silent> <Leader>qp :colder<Cr>| " quickfix: go to older quickfix list
 
