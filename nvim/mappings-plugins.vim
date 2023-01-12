@@ -5,10 +5,10 @@
 nnoremap <C-f> :Telescope find_files find_command=fd,-H,-E,.git prompt_prefix=fd:  <cr>| " (telescope) fuzzy open file (fd)
 nnoremap <leader>tf :Telescope find_files<cr>| " (telescope) fuzzy open file (built-in)
 nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on current directory (built-in)
-nnoremap <leader>* :Telescope grep_string<cr>| " (telescope) search for string under cursor on current directory
+nnoremap <leader>* :Telescope grep_string<cr>| " (telescope) search for word/string under cursor on current directory
 nnoremap <leader>tb :Telescope buffers<cr>| " (telescope) open buffer
 nnoremap <leader>m :Telescope marks<cr>| " (telescope) browse marks
-nnoremap <leader>tn :Telescope aerial<cr>| " ( telescope) F4 code navigation through classes, methods and functions
+nnoremap <leader>tn :Telescope aerial<cr>| " ( telescope) (lsp) F4 code navigation through classes, methods and functions
 nnoremap <leader>ta :Telescope builtin<cr>| " (telescope) all commands
 nnoremap <leader>th :Telescope command_history<cr>| " (telescope) command history (q:)
 nnoremap <leader>tr :Telescope registers<cr>| " (telescope) browse registers
@@ -19,14 +19,13 @@ nnoremap <leader>tt :Telescope help_tags<cr>| " (telescope) tags
 nnoremap <leader>tm :Telescope man_pages<cr>| " (telescope) open man page
 nnoremap <leader>tc :Telescope colorscheme<cr>| " (telescope) browser color schemes
 nnoremap <leader>mk :Telescope make<cr>| " (telescope) run Makefile command
-nnoremap <silent>gr :lua require'telescope.builtin'.lsp_references{}<CR>| "(telescope) search over variable references from your LSP
+nnoremap <leader>lr :lua require'telescope.builtin'.lsp_references{}<CR>| "(telescope) (lsp) search over variable references from your LSP
 nnoremap <silent> <F9> :Telescope notify<cr>| " (telescope)(function-keys) show notifications history (vim-notify)
 
 
 " LSP config (the mappings used in the default file don't quite work right)
 nnoremap <silent> <leader>ld <cmd>lua vim.lsp.buf.definition()<CR>| " (lsp) go to definition
 nnoremap <silent> <leader>le <cmd>lua vim.lsp.buf.declaration()<CR>| " (lsp) go to declaration
-nnoremap <silent> <leader>lr <cmd>lua vim.lsp.buf.references()<CR>| " (lsp) show references
 nnoremap <silent> <leader>li <cmd>lua vim.lsp.buf.implementation()<CR>| " (lsp) go to implementation
 nnoremap <silent> <leader>ln <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>| " (lsp) go to previous diagnostic
 nnoremap <silent> <leader>lp <cmd>lua vim.lsp.diagnostic.goto_next()<CR>| " (lsp) go to next diagnostic
@@ -38,7 +37,7 @@ nnoremap <silent> <leader>lh :Lspsaga hover_doc<CR>| " (lsp-saga) documentation 
 nnoremap <silent> <leader>ls :Lspsaga signature_help<CR>| " (lsp-saga) (NORMAL mode) signature help
 nnoremap <silent> <leader>lf :Lspsaga lsp_finder<CR>| " (lsp-sage) finder
 nnoremap <silent> <leader>la :Lspsaga code_action<CR>| " (lsp-saga) code action
-vnoremap <silent> <leader>la :<C-U>Lspsaga range_code_action<CR>| " (lsp-saga) code action
+vnoremap <silent> <leader>lar :<C-U>Lspsaga range_code_action<CR>| " (lsp-saga) code action
 inoremap <silent> <C-s> :Lspsaga signature_help<CR>| " (lsp-saga) (INSERT mode) signature help
 
 
@@ -98,8 +97,8 @@ nnoremap <F3> :NvimTreeToggle<CR>| " (function-keys) toggle project directory tr
 
 " svart
 nnoremap <silent> <leader>l <cmd>Svart<CR>| " (movement) svart - 'hop' go to position
-nnoremap <silent> <leader>ll <cmd>SvartRepeat<CR>| " (movement) svart - 'hop' go to position - last searched query
-nnoremap <silent> <leader>lr <cmd>SvartRegex<CR>| " (movement) svart - 'hop' go to position
+nnoremap <silent> <leader>lvs <cmd>SvartRepeat<CR>| " (movement) svart - 'hop' go to position - last searched query
+nnoremap <silent> <leader>lvp <cmd>SvartRegex<CR>| " (movement) svart - 'hop' go to position
 
 
 " snippy
