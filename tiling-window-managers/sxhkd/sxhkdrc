@@ -35,13 +35,7 @@ super + w; z
 
 # remote random wallpaper from reddit (styli.sh):
 super + w; r
-	notify-send "Getting remote wallpaper from reddit..." && \
-		export WALLPAPER_PATH=$HOME/Wallpapers/$(date +%Y%m%d-%H%M%S-%N).jpg && \
-		cd /opt/styli.sh && \
-		./styli.sh -l reddit && \
-		cp ~/.cache/styli.sh/wallpaper.jpg $WALLPAPER_PATH && \
-		feh --bg-fill --auto-zoom --scale-down $WALLPAPER_PATH && \
-		notify-send "Wallpaper set to $WALLPAPER_PATH ."
+	/storage/src/dot_files/tiling-window-managers/scripts/download-remote-wallpaper.sh
 
 # arandr & reload local wallpaper:
 super + w; e
