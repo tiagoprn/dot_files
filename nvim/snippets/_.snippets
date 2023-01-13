@@ -182,16 +182,18 @@ snippet link-markdown
 snippet item-markdown
 	- [ ] ${1}
 
-snippet tstatus
-	${1|created,wip,paused,finished,discarded|}
+snippet task_status
+	${1|created,wip,paused,finished,archived|}
+snippet task_effort
+	${1|quick-win,small,epic|}
 snippet task
 	---
 	goal: "${1:Goal}"
 	created: "`strftime("%Y-%m-%d %H:%M:%S")`"
 	finished: ""
-	effort: "${2|quick-win,normal,epic|}"
-	current_status: "${4:tstatus}"
-	tags: "${3:#tag1 #tag2}"
+	effort: "${2:task_effort}"
+	current_status: "${4:task_status}"
+	tags: [${3:"tag1",}]
 	---
 
 	${4:Detailed description, checklist, references, etc...}
