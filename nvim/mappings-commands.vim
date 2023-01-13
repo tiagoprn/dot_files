@@ -8,9 +8,9 @@ nnoremap <silent> <Leader>] :cn<Cr>| " quickfix: go to next item
 
 nnoremap <silent> <Leader>[ :cp<Cr>| " quickfix: go to previous item
 
-nnoremap <silent> <Leader>q1 :cfirst<Cr>| " quickfix: go to first item
+nnoremap <silent> <Leader>qb :cfirst<Cr>| " quickfix: go to the beginning (first item)
 
-nnoremap <silent> <Leader>qg :clast<Cr>| " quickfix: go to last item
+nnoremap <silent> <Leader>qe :clast<Cr>| " quickfix: go to the end (last item)
 
 nnoremap <silent> <leader>qc :cclose<CR>| " close quickfix
 
