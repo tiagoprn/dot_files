@@ -12,7 +12,7 @@ nnoremap <leader>cn :CreateFleetingNote<cr>| " create fleeting note
 nnoremap <leader>ct :CreateTask<cr>| " create task
 nnoremap <leader>po :CreatePost<cr>| " create post
 nnoremap <leader>zt :CreateZettel<cr>| " create zettel
-nnoremap <leader>fc :CreateFlashcard<cr>| " create flashcard
+nnoremap <leader>ff :CreateFlashcard<cr>| " create flashcard
 nnoremap <leader>nc :ListFleetingNotesCategories<cr>| " list fleeting notes categories
 nnoremap <leader>nu :UpdateFleetingNotesCategories<cr>| " update fleeting notes categories
 nnoremap <C-p> :RunPythonScriptOnCurrentLine<cr>| " run python script on current line
