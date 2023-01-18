@@ -6,6 +6,15 @@ if not status_ok then
 end
 
 mind.setup({
+	keymaps = {
+		normal = {
+			["ms"] = "open_data_index",
+		},
+	},
+	-- persistence = {
+	-- 	state_path = "/storage/mind/",
+	-- 	data_dir = "/storage/mind/data/",
+	-- },
 	edit = {
 		data_header = "# %s",
 	},
