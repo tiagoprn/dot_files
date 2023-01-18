@@ -29,6 +29,9 @@ return require("packer").startup(function(use)
 	-- useful to create custom telescope pickers
 	use({ "axkirillov/easypick.nvim", requires = "nvim-telescope/telescope.nvim" })
 
+	-- sets vim.ui.select to telescope
+	use({ "nvim-telescope/telescope-ui-select.nvim" })
+
 	use({ "kylechui/nvim-surround" })
 
 	-- snippets
