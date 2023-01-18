@@ -93,6 +93,9 @@ set splitright
 " open horizontal splits below
 set splitbelow
 
+" --- Allows reloading the quickfix after modifying it (https://www.reddit.com/r/vim/comments/7dv9as/how_to_edit_the_vim_quickfix_list/)
+" setlocal errorformat=%f\|%l\ col\ %c\|%m
+
 " --- setup python virtualenv that has nvim requirements installed - check this repository README.md for details
 let g:python3_host_prog = '~/.pyenv/versions/neovim/bin/python'
 
@@ -143,7 +146,6 @@ lua require('telescope-conf')
 lua require('sessions')
 lua require('gitsigns-conf')
 lua require('lualine-conf')
-lua require('toggleterm-conf')
 lua require('comment-conf')
 lua require('highlight-colors-conf')
 lua require('lsp-colors-conf')
@@ -158,6 +160,7 @@ lua require('hydra-conf')
 lua require('svart-conf')
 lua require('buffer_manager-conf')
 lua require('goto-preview-conf')
+lua require('mind-conf')
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim

@@ -83,12 +83,8 @@ nnoremap <leader>xr <cmd>TroubleToggle lsp_references<CR>| " (trouble) toggle ls
 nnoremap <C-z> :ZenCode<CR>| " (zen) toggle current buffer full screen
 nnoremap <leader>zz :ZenWrite<CR>| " (zen) toggle current buffer full screen - distraction free mode
 
-
-" toggleterm special terminals, to trigger special commands
+" tmux
 nnoremap <leader>g :!tmux select-window -t git<CR>| " (tmux) go to gitui tmux window
-nnoremap <leader>tt :ToggleTerm direction=horizontal size=10<CR>| " (toggleterm) blank terminal
-nnoremap <leader>tty :ToggleTermSendCurrentLine<CR>| " (toggleterm) copy current line to terminal
-vnoremap <leader>ttv :ToggleTermSendVisualSelection<CR>| " (toggleterm) copy visual selection to terminal
 
 
 " nvim-tree (a project directory tree)
@@ -145,3 +141,7 @@ nnoremap <silent> <leader>ldq <cmd>lua require('goto-preview').close_all_win()<C
 nnoremap <silent> <leader>ldv <cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>| " (lsp) go to definition - vertical window (right)
 nnoremap <silent> <leader>ldx <cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>| " (lsp) go to definition - horizontal window (bottom)
 nnoremap <silent> <leader>ldt <cmd>lua require"telescope.builtin".lsp_definitions({jump_type="tab"})<CR>| " (lsp) go to definition - Opens window on a new tab
+
+" mind
+nnoremap <silent> <leader>t :MindOpenMain<CR>| " (mind ) open index menu
+nnoremap <silent> <leader>tc :MindClose<CR>| " (mind ) close index menu

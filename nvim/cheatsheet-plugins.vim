@@ -89,3 +89,23 @@
 " q | " (aerial F4 code navigation) close window
 " <C-v> | " (aerial F4 code navigation) open method/class on vertical split
 " <C-x> | " (aerial F4 code navigation) open method/class on horizontal split
+
+
+" i | " (mind - normal mode) create new node (inside current one) at the end
+" I | " (mind - normal mode) create new node (inside current one) at the top
+" <Tab> | " (mind - normal mode) collapse/expand a node
+" o | " (mind - normal mode) create new node below current node
+" O | " (mind - normal mode) create new node above current node
+" r | " (mind - normal mode) rename a node
+" l | " (mind - normal mode) get link to a node (only works on data and link nodes)
+" d | " (mind - normal mode) delete a node (type "y" or "n") - if it has children nodes, all will be deleted
+
+" x | " (mind - normal mode) select/deselect a node (the following operations, instead of creating, will do the corresponding action to the selected node)
+" R | " (mind - selection mode) add/change an icon of the current node. Set to empty string to delete it.
+" $ | " (mind - selection mode) change/add icon of current node, fuzzy searching on the list. Use <R> to remove an icon.
+" <Enter> | " (mind - selection mode) Turn a node into a data node, so that it can be a file on the filesystem (the file is managed by mind and is on e.g `/home/tiago/.local/share/mind.nvim/data/20230111065731-Talk-about-data-nodes.md` by default)
+" u | " (mind - selection mode) Turn a node into a link node (associates with an URL). Press <Enter> to open the URL.
+
+" TODO must be remapped - <leader>ms: Allows to search for a data/link node.
+" TODO must be mapped : Get a node link fuzzy search - reference a node (direct link). After selecting, press <p> to paste the link.
+" TODO must be mapped: fuzzy search select a node and create a node on the selected node

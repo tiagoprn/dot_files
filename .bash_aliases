@@ -11,6 +11,7 @@ alias t='tmux'
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
 # TODO: edit below to put the date on this format: `date '+%Y-%m-%d %A %H:%M:%S %N'`
 alias j='nvim +"normal Go" +"normal Go---" +"r!date" $JOURNAL_FILE +"normal!G2o" +"startinsert"'
+alias m='nvim +MindOpenMain'
 alias p='pyenv'
 alias s='source ~/.bashrc'
 alias v='SELECTED_FILE=$(find . -type f | grep -v ".git/" | grep -v "node_modules/" | fzf --preview "bat --style=numbers --color=always --line-range :50 {}") && nvim $SELECTED_FILE'

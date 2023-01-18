@@ -58,9 +58,6 @@ return require("packer").startup(function(use)
 		"plasticboy/vim-markdown",
 		requires = { "godlygeek/tabular" },
 	})
-	--
-	-- float term (floating terminal)
-	use({ "akinsho/toggleterm.nvim" })
 
 	-- vim-notify
 	use({ "rcarriga/nvim-notify" })
@@ -111,6 +108,8 @@ return require("packer").startup(function(use)
 	use({ "gen740/SmoothCursor.nvim" })
 
 	use({ "anuvyklack/hydra.nvim" })
+
+	use({ "phaazon/mind.nvim", branch = "master" })
 
 	-- # LANGUAGE SERVERS - begin
 
