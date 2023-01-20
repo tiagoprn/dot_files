@@ -264,7 +264,7 @@ function M.get_current_file_context()
 	end
 end
 
-function M.get_current_file_position_and_copy_to_clipboard(opts)
+function M.get_current_file_position(opts)
 	local kind = opts["kind"] -- absolute, relative, file_name_only
 
 	local current_context = M.get_current_file_context()
@@ -284,14 +284,17 @@ function M.get_current_file_position_and_copy_to_clipboard(opts)
 	end
 
 	local position = filesystem_path .. ":" .. current_context
-	-- print(vim.inspect(current_class_text))
+	return position
+end
 
-	print(position)
-	vim.notify(position)
+function M.get_current_file_position_and_copy_to_clipboard(opts)
+	local current_position = M.get_current_file_position(opts) -- (see "M.get_current_file_position")
+
+	print(current_position)
+	vim.notify(current_position)
 
 	-- TODO: copy to clipboard
-
-	return position
+	-- print(vim.inspect(current_class_text))
 end
 
 return M
