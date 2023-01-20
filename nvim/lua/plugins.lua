@@ -132,6 +132,11 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 	})
 
+	use({
+		"nvim-treesitter/playground",
+		run = ":TSInstall query",
+	})
+
 	use({ "nvim-treesitter/nvim-treesitter-context" })
 
 	-- -- enable LSP completion

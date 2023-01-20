@@ -148,5 +148,10 @@ nnoremap <silent> <leader>ldx <cmd>lua require"telescope.builtin".lsp_definition
 nnoremap <silent> <leader>ldt <cmd>lua require"telescope.builtin".lsp_definitions({jump_type="tab"})<CR>| " (lsp) go to definition - Opens window on a new tab
 
 " mind
-nnoremap <silent> <leader>t :MindOpenMain<CR>| " (mind ) open index menu
-nnoremap <silent> <leader>tc :MindClose<CR>| " (mind ) close index menu
+nnoremap <silent> <leader>mo :MindOpenMain<CR>| " (mind ) open index menu
+nnoremap <silent> <leader>mO :MindOpenSmartProject<CR>| " (mind ) open index menu (smart project)
+nnoremap <silent> <leader>mq :MindClose<CR>| " (mind ) close index menu
+
+" treesitter
+nnoremap <silent> <leader>i :TSNodeUnderCursor<CR>| " (treesitter) get current node information
+nnoremap <silent> <leader>it :TSPlaygroundToggle<CR>| " (treesitter) toggle playground
