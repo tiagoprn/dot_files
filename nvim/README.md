@@ -172,13 +172,22 @@ $ nvim +PluginInstall +qall
 :lua require'sample'.welcomeToLua()
 ```
 
-- Developing lua plugins interactively (e.g. using `scratchpad.lua`):
+- Developing lua plugins interactively with a "REPL":
+
+``` vim
+:Luapad
+```
+
+Example code to test the "REPL":
 
 ``` lua
-:Luapad
+local module_path = "tiagoprn.scratchpad"
 
-require("plenary.reload").reload_module'tiagoprn.scratchpad'
-require("tiagoprn.scratchpad").createFleetingNote()
+require("plenary.reload").reload_module(module_path)
+local module = require(module_path)
+
+local shouted = module.shout("hey tiago!")
+print(shouted)
 ```
 
 - Here is a succint page explaining the basics on lua programming: <https://riptutorial.com/lua>

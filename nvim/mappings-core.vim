@@ -18,12 +18,13 @@ nnoremap <silent> <F5> :set rnu!<CR>| " (function-keys) toggle relative line num
 vnoremap <silent> * :call VisualSelection('f')<CR>| " search forwards current highlighted selection
 vnoremap <silent> # :call VisualSelection('b')<CR>| " search backwards current highlighted selection
 
-nnoremap <Backspace> :bw<Enter>| " Close buffer
-nnoremap <leader>q :bp\|bw \#<Enter>| " Close buffer but keep split
-nnoremap <leader><Backspace> <C-w>q<Enter>| " Close split but keep buffer
+nnoremap <leader><Backspace> :bw<Enter>| " close buffer
+nnoremap <Backspace> <C-w>c<Enter>| " close window but keep buffer
+nnoremap <Del> :bp\|bw \#<Enter>| " close buffer but keep window
 
-nnoremap <Leader>fcb :let @+=expand('%:t')<CR>| " copy current file/buffer name to clipboard
-nnoremap <Leader>fcB :let @+=expand('%:p')<CR>| " copy current file/buffer full path name to clipboard
+nnoremap <Leader>fcb <cmd>let @+=expand('%:t')..":L"..line(".")<CR>| " copy current file/buffer name to clipboard
+nnoremap <Leader>fcB <cmd>let @+=expand('%:p')..":L"..line(".")<CR>| " copy current file/buffer full/absolute path name to clipboard
+nnoremap <Leader>fcr <cmd>let @+=expand('%:.')..":L"..line(".")<CR>| " copy current file/buffer relative path name to clipboard
 
 noremap <Up> <Nop> | " disable Up key in normal mode
 noremap <Down> <Nop> | " disable Down key in normal mode
@@ -59,8 +60,8 @@ nnoremap J mzJ`z
 " nnoremap # #zz
 " nnoremap * *zz
 
-nnoremap <Leader>m :Marks<CR>| " (marks) show all
-nnoremap <Leader>mda :delmarks!<CR>| " (marks) delete all
+nnoremap <Leader>M :Marks<CR>| " (marks) show all
+nnoremap <Leader>Mda :delmarks!<CR>| " (marks) delete all
 
 nnoremap <Leader>wj <c-w>j| " (windows) move to down window
 nnoremap <Leader>wk <c-w>k| " (windows) move to up window

@@ -2,4 +2,4 @@
 
 vnoremap <leader>ble :call MoveVisualSelectionToFile()<CR>| "(VISUAL) copy current selection to file
 
-nnoremap <Leader>md :call MarkDelete()<CR>| " (marks) delete single
+nnoremap <Leader>Md :call MarkDelete()<CR>| " (marks) delete single

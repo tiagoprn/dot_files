@@ -17,9 +17,9 @@ nnoremap <leader>tq :Telescope quickfix<cr>| " (telescope) browse quickfix
 nnoremap <leader>ti :Telescope quickfixhistory<cr>| " (telescope) browse quickfix history
 nnoremap <leader>tl :Telescope loclist<cr>| " (telescope) browse location-list
 nnoremap <leader>tt :Telescope help_tags<cr>| " (telescope) tags
-nnoremap <leader>tm :Telescope man_pages<cr>| " (telescope) open man page
+nnoremap <leader>tM :Telescope man_pages<cr>| " (telescope) open man page
 nnoremap <leader>tc :Telescope colorscheme<cr>| " (telescope) browser color schemes
-nnoremap <leader>mk :Telescope make<cr>| " (telescope) run Makefile command
+nnoremap <leader>Mk :Telescope make<cr>| " (telescope) run Makefile command
 nnoremap <leader>lr :lua require'telescope.builtin'.lsp_references{}<CR>| "( lsp) (telescope) search over variable references from your LSP
 nnoremap <silent> <F9> :Telescope notify<cr>| " (telescope)(function-keys) show notifications history (vim-notify)
 
@@ -104,6 +104,10 @@ inoremap <silent> <c-s> <cmd>lua require'snippy'.complete()<CR>| " (INSERT) show
 
 " aerial code navigation
 nnoremap <silent> <F4> :AerialToggle<CR>| " (lsp)(function-keys) toggle code navigation through classes and methods
+nnoremap <silent> <leader>; :AerialNext<CR>| " (aerial F4 code navigation) go to next function / method
+nnoremap <silent> <leader>, :AerialPrev<CR>| " (aerial F4 code navigation) go to previous function/method
+nnoremap <silent> <leader>: :lua require'aerial'.next_up()<CR>| " (aerial F4 code navigation) go to next class
+nnoremap <silent> <leader>< :lua require'aerial'.prev_up()<CR>| " (aerial F4 code navigation) go to previous class
 
 
 " session manager
