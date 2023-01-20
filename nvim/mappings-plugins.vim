@@ -6,8 +6,9 @@ nnoremap <C-f> :Telescope find_files find_command=fd,-H,-E,.git prompt_prefix=fd
 nnoremap <leader>tf :Telescope find_files<cr>| " (telescope) fuzzy open file (built-in)
 nnoremap <C-g> :Telescope live_grep<cr>| " (telescope) search for string on current directory (built-in)
 nnoremap <leader>* :Telescope grep_string<cr>| " ( telescope) search for word/string under cursor on current directory - also useful when lsp_references is not working
-nnoremap <leader>tb :Telescope buffers<cr>| " (telescope) open buffer
-nnoremap <leader>m :Telescope marks<cr>| " (telescope) browse marks
+nnoremap <C-down> :lua require"tiagoprn.telescope_custom_pickers".switch_to_buffer()<cr>| " (telescope) switch to open buffer
+nnoremap <C-up> :Telescope buffers<cr>| " (telescope) open buffer on current window
+nnoremap <leader>tm :Telescope marks<cr>| " (telescope) browse marks
 nnoremap <leader>tn :Telescope aerial<cr>| " ( telescope) (lsp) F4 code navigation through classes, methods and functions
 nnoremap <leader>ta :Telescope builtin<cr>| " (telescope) all commands
 nnoremap <leader>th :Telescope command_history<cr>| " (telescope) command history (q:)
