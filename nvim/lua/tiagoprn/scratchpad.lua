@@ -195,7 +195,7 @@ end
 
 ---
 function M.get_current_function_name()
-	-- https://www.reddit.com/r/neovim/comments/nnru7r/how_do_i_get_the_name_of_the_current_function_i/
+	-- https://www.reddit.com/r/neovim/comments/nnru7r/how_do_i_get_the_name_of_the_current_current_function_i/
 	-- https://alpha2phi.medium.com/neovim-101-tree-sitter-d8c5a714cb03
 	local current_node = ts_utils.get_node_at_cursor()
 	if not current_node then
@@ -215,20 +215,42 @@ function M.get_current_function_name()
 		return ""
 	end
 
-	local function_name = (ts_utils.get_node_text(expr:child(1)))[1]
+	local current_function_node = expr:child(1)
+	local current_function_name = treesitter.query.get_node_text(current_function_node, 0) -- 0 means the current buffer
 
-	local class_name = (ts_utils.get_node_text(expr:parent():parent()))[1]
-	print(vim.inspect(class_name))
+	local class_node = expr:parent():parent()
+	local class_text = treesitter.query.get_node_text(class_node, 0) -- 0 means the current buffer
 
-	-- local debug = "function: " .. function_name .. ", other: " .. class_name
-	-- vim.notify(debug)
+	-- Get all matches for a python class definition
+	local class_regex = "class%s%w+%(*.-%)*:"
+	local matches = {}
+	for match in string.gmatch(class_text, class_regex) do
+		print(match)
+		table.insert(matches, match)
+	end
 
+	-- The first match is the python class definition
+	local class_definition = matches[1]
+
+	-- Get all words on a python class definition
+	local words = {}
+	for word in string.gmatch(class_definition, "%a+") do
+		table.insert(words, word)
+	end
+
+	-- The second word is the class name
+	local class_name = words[2]
+
+	local path = class_name .. "." .. current_function_name
+	vim.notify(path)
+
+	--
+	-- print(vim.inspect(class_text))
+	--
 	-- local filename = vim.fn.expand("%:t")
 	-- local absolute_filepath = vim.fn.expand("%:p")
 	-- local relative_filepath = vim.fn.expand("%:.")
-
-	local path = function_name .. "." .. class_name
-	vim.notify(path)
+	--
 
 	return path
 end

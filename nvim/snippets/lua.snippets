@@ -69,3 +69,16 @@ snippet current-date
 
 snippet random-number
 	local random_number = math.random(100, 999)
+
+snippet debug_lua_object_or_table
+	print(vim.inspect(${1:object_or_table}))
+
+snippet regex
+	-- this can also be used when I need e.g. to split a string by some character.
+	local regex = "class%s%w+%(*.-%)*:"
+	local text = "class Casa: \n this is a houre"
+	for match in string.gmatch(text, regex) do
+			-- If a match is found, print the match
+			print(match)
+	end
+
