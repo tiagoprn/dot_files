@@ -218,34 +218,44 @@ function M.get_current_function_name()
 	local current_function_node = expr:child(1)
 	local current_function_name = treesitter.query.get_node_text(current_function_node, 0) -- 0 means the current buffer
 
-	local class_node = expr:parent():parent()
-	local class_text = treesitter.query.get_node_text(class_node, 0) -- 0 means the current buffer
+	local current_class_node = expr:parent():parent()
+	local current_class_name = ""
 
-	-- Get all matches for a python class definition
-	local class_regex = "class%s%w+%(*.-%)*:"
-	local matches = {}
-	for match in string.gmatch(class_text, class_regex) do
-		print(match)
-		table.insert(matches, match)
+	if current_class_node then
+		local current_class_text = treesitter.query.get_node_text(current_class_node, 0) -- 0 means the current buffer
+
+		-- Get all matches for a python class definition
+		local current_class_regex = "class%s%w+%(*.-%)*:"
+		local matches = {}
+		for match in string.gmatch(current_class_text, current_class_regex) do
+			print(match)
+			table.insert(matches, match)
+		end
+
+		-- The first match is the python class definition
+		local current_class_definition = matches[1]
+
+		-- Get all words on a python class definition
+		local words = {}
+		for word in string.gmatch(current_class_definition, "%a+") do
+			table.insert(words, word)
+		end
+
+		-- The second word is the class name
+		current_class_name = words[2]
 	end
 
-	-- The first match is the python class definition
-	local class_definition = matches[1]
-
-	-- Get all words on a python class definition
-	local words = {}
-	for word in string.gmatch(class_definition, "%a+") do
-		table.insert(words, word)
+	local path = ""
+	if current_class_node then
+		path = current_class_name .. "." .. current_function_name
+	else
+		path = current_function_name
 	end
 
-	-- The second word is the class name
-	local class_name = words[2]
-
-	local path = class_name .. "." .. current_function_name
 	vim.notify(path)
 
 	--
-	-- print(vim.inspect(class_text))
+	-- print(vim.inspect(current_class_text))
 	--
 	-- local filename = vim.fn.expand("%:t")
 	-- local absolute_filepath = vim.fn.expand("%:p")
