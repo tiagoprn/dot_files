@@ -193,13 +193,23 @@ function M.run_python_script_on_current_line()
 	end)
 end
 
----
-function M.get_current_function_name()
+function M.get_current_file_context()
 	-- https://www.reddit.com/r/neovim/comments/nnru7r/how_do_i_get_the_name_of_the_current_current_function_i/
 	-- https://alpha2phi.medium.com/neovim-101-tree-sitter-d8c5a714cb03
+
+	local filetype = vim.bo.filetype
+
+	if filetype ~= "python" then
+		print("File type is not python (it is " .. filetype .. "), so I will return only the line number.")
+		-- return the current line number
+		return "L" .. vim.fn.line(".")
+	end
+
 	local current_node = ts_utils.get_node_at_cursor()
 	if not current_node then
-		return ""
+		print("Current node could not be determined, so I will return only the line number.")
+		-- return the current line number
+		return "L" .. vim.fn.line(".")
 	end
 
 	local expr = current_node
@@ -245,24 +255,43 @@ function M.get_current_function_name()
 		current_class_name = words[2]
 	end
 
-	local path = ""
+	print(vim.inspect(current_function_name))
+
 	if current_class_node then
-		path = current_class_name .. "." .. current_function_name
+		return current_class_name .. "." .. current_function_name
 	else
-		path = current_function_name
+		return current_function_name
+	end
+end
+
+function M.get_current_file_position_and_copy_to_clipboard(opts)
+	local kind = opts["kind"] -- absolute, relative, file_name_only
+
+	local current_context = M.get_current_file_context()
+
+	local filesystem_path = ""
+	if kind == "absolute" then
+		filesystem_path = vim.fn.expand("%:p")
+	elseif kind == "relative" then
+		filesystem_path = vim.fn.expand("%:.")
+	elseif kind == "only_name" then
+		filesystem_path = vim.fn.expand("%:t")
+	else
+		local message = "Invalid value for 'kind' key on 'opts' table."
+		print(message)
+		vim.notify(message)
+		return false
 	end
 
-	vim.notify(path)
-
-	--
+	local position = filesystem_path .. ":" .. current_context
 	-- print(vim.inspect(current_class_text))
-	--
-	-- local filename = vim.fn.expand("%:t")
-	-- local absolute_filepath = vim.fn.expand("%:p")
-	-- local relative_filepath = vim.fn.expand("%:.")
-	--
 
-	return path
+	print(position)
+	vim.notify(position)
+
+	-- TODO: copy to clipboard
+
+	return position
 end
 
 return M
