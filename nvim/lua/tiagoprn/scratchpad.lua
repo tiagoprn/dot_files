@@ -199,17 +199,19 @@ function M.get_current_file_context()
 
 	local filetype = vim.bo.filetype
 
+	local current_line_number = vim.fn.line(".")
+
 	if filetype ~= "python" then
 		print("File type is not python (it is " .. filetype .. "), so I will return only the line number.")
 		-- return the current line number
-		return "L" .. vim.fn.line(".")
+		return "L" .. current_line_number
 	end
 
 	local current_node = ts_utils.get_node_at_cursor()
 	if not current_node then
 		print("Current node could not be determined, so I will return only the line number.")
 		-- return the current line number
-		return "L" .. vim.fn.line(".")
+		return "L" .. current_line_number
 	end
 
 	local expr = current_node
@@ -258,9 +260,9 @@ function M.get_current_file_context()
 	print(vim.inspect(current_function_name))
 
 	if current_class_node then
-		return current_class_name .. "." .. current_function_name
+		return current_class_name .. "." .. current_function_name .. ":L" .. current_line_number
 	else
-		return current_function_name
+		return current_function_name .. ":L" .. current_line_number
 	end
 end
 
@@ -288,13 +290,13 @@ function M.get_current_file_position(opts)
 end
 
 function M.get_current_file_position_and_copy_to_clipboard(opts)
-	local current_position = M.get_current_file_position(opts) -- (see "M.get_current_file_position")
+	-- To see the contract of the "opts" table, check "M.get_current_file_position")
+	local current_position = M.get_current_file_position(opts)
 
-	print(current_position)
-	vim.notify(current_position)
+	-- copy to system clipboard
+	vim.fn.setreg("+y", current_position)
 
-	-- TODO: copy to clipboard
-	-- print(vim.inspect(current_class_text))
+	print("Copied current file position '" .. current_position .. "' to clipboard.")
 end
 
 return M

@@ -16,3 +16,16 @@ command! DeleteSpacesFromMarkdownMetadata lua require'tiagoprn.scratchpad'.delet
 command! ListFleetingNotesCategories execute "!rg '^- [A-Z]+:' /storage/docs/fleeting-notes | awk  '{print $2}' | sort | uniq | column -c 80"
 command! UpdateFleetingNotesCategories execute "!/storage/src/dot_files/tiling-window-managers/scripts/update-fleeting-notes-categories.sh"
 
+
+command! GetCurrentFileAbsolutePositionAndCopyToClipboard lua require"tiagoprn.scratchpad".get_current_file_position_and_copy_to_clipboard({kind="absolute"})
+command! GetCurrentFileRelativePositionAndCopyToClipboard lua require"tiagoprn.scratchpad".get_current_file_position_and_copy_to_clipboard({kind="relative"})
+command! GetCurrentFilenamePositionAndCopyToClipboard lua require"tiagoprn.scratchpad".get_current_file_position_and_copy_to_clipboard({kind="only_name"})
+
+command! MindCustomCreateNodeIndexOnMainTree lua require'tiagoprn.mind'.mind_custom_create_node_index_on_main_tree()
+command! MindCustomInitializeSmartProjectTree lua require'tiagoprn.mind'.mind_custom_initialize_smart_project_tree()
+command! MindCustomCopyNodeLinkIndexOnSmartProjectTree lua require'tiagoprn.mind'.mind_custom_copy_node_link_index_on_smart_project_tree()
+command! MindCustomCopyNodeLinkIndexOnMainTree lua require'tiagoprn.mind'.mind_custom_copy_node_link_index_on_main_tree()
+command! MindCustomOpenDataIndexOnSmartProjectTree lua require'tiagoprn.mind'.mind_custom_open_data_index_on_smart_project_tree()
+command! MindCustomOpenDataIndexOnMainProjectTree lua require'tiagoprn.mind'.mind_custom_open_data_index_on_main_project_tree()
+
+

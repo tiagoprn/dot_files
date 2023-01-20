@@ -91,21 +91,21 @@
 " <C-x> | " (aerial F4 code navigation) open method/class on horizontal split
 
 
-" i | " (mind - normal mode) create new node (inside current one) at the end
-" I | " (mind - normal mode) create new node (inside current one) at the top
-" <Tab> | " (mind - normal mode) collapse/expand a node
-" o | " (mind - normal mode) create new node below current node
-" O | " (mind - normal mode) create new node above current node
-" r | " (mind - normal mode) rename a node
-" l | " (mind - normal mode) get link to a node (only works on data and link nodes)
-" d | " (mind - normal mode) delete a node (type "y" or "n") - if it has children nodes, all will be deleted
-" ms | " (mind - normal mode) search for a node by name
+" i | " (mind - tree - normal mode) create new node (inside current one) at the end
+" I | " (mind - tree - normal mode) create new node (inside current one) at the top
+" <Tab> | " (mind - tree - normal mode) collapse/expand a node
+" o | " (mind - tree - normal mode) create new node below current node
+" O | " (mind - tree - normal mode) create new node above current node
+" r | " (mind - tree - normal mode) rename a node
+" l | " (mind - tree - normal mode) get link to a node (only works on data and link nodes)
+" d | " (mind - tree - normal mode) delete a node (type "y" or "n") - if it has children nodes, all will be deleted
+" ms | " (mind - tree - normal mode) search for a node by name
 
-" x | " (mind - normal mode) select/deselect a node (the following operations, instead of creating, will do the corresponding action to the selected node)
-" R | " (mind - selection mode) add/change an icon of the current node. Set to empty string to delete it.
-" $ | " (mind - selection mode) change/add icon of current node, fuzzy searching on the list. Use <R> to remove an icon.
-" <Enter> | " (mind - selection mode) Turn a node into a data node, so that it can be a file on the filesystem (the file is managed by mind and is on e.g `/home/tiago/.local/share/mind.nvim/data/20230111065731-Talk-about-data-nodes.md` by default)
-" u | " (mind - selection mode) Turn a node into a link node (associates with an URL). Press <Enter> to open the URL.
+" x | " (mind - tree - normal mode) select/deselect a node (the following operations, instead of creating, will do the corresponding action to the selected node)
+" R | " (mind - tree - selection mode) add/change an icon of the current node. Set to empty string to delete it.
+" $ | " (mind - tree - selection mode) change/add icon of current node, fuzzy searching on the list. Use <R> to remove an icon.
+" <Enter> | " (mind - tree - selection mode) Turn a node into a data node, so that it can be a file on the filesystem (the file is managed by mind and is on e.g `/home/tiago/.local/share/mind.nvim/data/20230111065731-Talk-about-data-nodes.md` by default)
+" u | " (mind - tree - selection mode) Turn a node into a link node (associates with an URL). Press <Enter> to open the URL.
 
-" TODO ( must be mapped ) : Get a node link fuzzy search - reference a node (direct link). After selecting, press <p> to paste the link.
-" TODO ( must be mapped ): fuzzy search select a node and create a node on the selected node
+" TODO ( must be mapped ) : "Get a node link" fuzzy search - can be used inside a file you're working on when on NORMAL mode to reference a node (direct link).
+" TODO ( must be mapped ): "Pick a note to create a new node in" fuzzy search - can be used inside a file you're working on when on NORMAL mode
