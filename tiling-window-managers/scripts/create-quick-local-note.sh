@@ -2,22 +2,16 @@
 
 # based on: https://www.youtube.com/watch?v=zB_3FIGRWRU&feature=youtu.be
 
-QUICKNOTES_DIR=$HOME/tmp/notes
-TIMESTAMP="$(date '+%Y-%m-%d')"
-FILENAME="$QUICKNOTES_DIR/$TIMESTAMP.md"
+# OLD BASH ALIAS:
+# alias j='nvim +"normal Go" +"normal Go---" +"r!date" $JOURNAL_FILE +"normal!G2o" +"startinsert"'
 
-mkdir -p "$QUICKNOTES_DIR"
+OUTPUT_FILE="$JOURNAL_FILE"
+# OUTPUT_FILE="/tmp/test.txt"
 
-echo "Creating quick local note at '$FILENAME'..."
-read -n 1 -s -r -p "Press any key to continue: "
+cat <<. >>$OUTPUT_FILE
 
-if [ ! -f "$FILENAME" ]; then
-    echo "# Notes for $TIMESTAMP" >"$FILENAME"
-fi
+---
+# $(date)
+.
 
-nvim -c "norm Go" \
-    -c "norm Go## $(date +%H:%M)" \
-    -c "norm G2o" \
-    -c "norm zz" \
-    -c "startinsert" \
-    "$FILENAME"
+nvim "$OUTPUT_FILE" +"normal!G2o" +"startinsert"
