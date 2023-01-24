@@ -45,6 +45,7 @@ alias vr='vim-fzf-search'                                                       
 alias cdr='cd $(g root)'
 alias cht='curl -s cht.sh/$(curl -s cht.sh/:list | fzf)'
 alias pcb='pyenv versions | grep "*" | cut -d " " -f 2 | cb'
+alias cbg='git branch | grep ^* | cut -d " " -f 2 | cb'
 alias vcb='xclip -i -selection clipboard -o | nvim -'  # Open clipboard contents on nvim
 alias bkc='nvim ~/.config/cd-bookmarks.list'           # open cd bookmarks on nvim
 alias bkg='nvim ~/.config/git-projects-bookmarks.list' # open git bookmarks on nvim
