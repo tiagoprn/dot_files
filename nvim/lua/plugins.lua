@@ -134,7 +134,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"nvim-treesitter/playground",
-		run = ":TSInstall query",
+		-- run = ":TSInstall query",
 	})
 
 	use({ "nvim-treesitter/nvim-treesitter-context" })

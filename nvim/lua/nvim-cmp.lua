@@ -21,6 +21,12 @@ cmp.setup({
 					{ name = "nvim_lsp" },
 					{ name = "snippy" },
 					{ name = "buffer" },
+					{
+						name = "path",
+						option = {
+							trailing_slash = true,
+						},
+					},
 				},
 			},
 		}),
