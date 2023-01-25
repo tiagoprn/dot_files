@@ -47,4 +47,39 @@ M.switch_to_buffer = function()
 	require("telescope.builtin").buffers(opts)
 end
 
+local function load_buffer_without_window_action(prompt_bufnr, map)
+	actions.select_default:replace(function()
+		actions.close(prompt_bufnr)
+		local selection = action_state.get_selected_entry()
+		-- print(vim.inspect(selection))
+
+		local selected_file = selection["filename"]
+
+		local bufnr = vim.api.nvim_create_buf(true, false)
+		vim.api.nvim_buf_set_name(bufnr, selected_file)
+		vim.api.nvim_buf_call(bufnr, vim.cmd.edit)
+
+		vim.notify("Opened buffer '" .. selected_file .. "' without a window.")
+	end)
+	return true
+end
+
+M.load_buffer_without_window = function()
+	-- example for running a command on a file
+	local opts = {
+		prompt_title = "Open file/buffer without opening a window",
+		attach_mappings = load_buffer_without_window_action,
+	}
+	require("telescope.builtin").find_files(opts)
+end
+
+M.search_on_open_files = function()
+	-- example for running a command on a file
+	local opts = {
+		prompt_title = "Search on open files",
+		grep_open_files = true,
+	}
+	require("telescope.builtin").live_grep(opts)
+end
+
 return M

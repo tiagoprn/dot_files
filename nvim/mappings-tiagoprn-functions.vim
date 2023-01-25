@@ -27,3 +27,6 @@ nnoremap <leader>ms :MindCustomOpenDataIndexOnMainProjectTree<cr>| " (mind - tre
 nnoremap <Leader>fib :GetCurrentFilenamePositionAndCopyToClipboard <CR>| " copy current file/buffer name with position to clipboard
 nnoremap <Leader>fiB :GetCurrentFileAbsolutePositionAndCopyToClipboard <CR>| " copy current file/buffer full/absolute path with position to clipboard
 nnoremap <Leader>fir :GetCurrentFileRelativePositionAndCopyToClipboard <CR>| " copy current file/buffer relative path with position to clipboard
+
+nnoremap <leader>gg :SearchOnOpenFiles <CR>| " search on open files
+nnoremap <leader>ff :LoadBufferWithoutWindow <CR>| " open file without opening a window

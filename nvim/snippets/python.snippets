@@ -241,3 +241,15 @@ snippet cli_args
 	parsed_arguments = parser.parse_args()
 	message = f"The 'name' arg has this value: {parsed_arguments.name}"
 	print(message)
+
+snippet stdlib_http_post_request
+  	import http.client, urllib
+  	conn = http.client.HTTPSConnection("api.pushover.net:443")
+  	conn.request("POST", "/1/messages.json",
+    		urllib.parse.urlencode({
+      			"token": "abc123",
+      			"user": "user123",
+      			"message": "hello world",
+    		}), { "Content-type": "application/x-www-form-urlencoded" })
+  	conn.getresponse()
+
