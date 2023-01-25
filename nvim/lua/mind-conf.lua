@@ -5,21 +5,27 @@ if not status_ok then
 	return
 end
 
+-- here I can find more configuration from phaazon (this plugin's creator):
+--    https://github.com/phaazon/config/blob/master/nvim/lua/pkg/mind.lua
+
 mind.setup({
-	keymaps = {
+	keymaps = { -- useful inside the tree window
 		normal = {
 			["ms"] = "open_data_index",
 		},
 	},
+
 	-- persistence = {
 	-- 	state_path = "/storage/mind/",
 	-- 	data_dir = "/storage/mind/data/",
 	-- },
+	--
 	edit = {
 		data_header = "# %s",
 	},
+
 	ui = {
-		width = 90,
+		width = 50,
 		icon_preset = {
 			{ " ", "Sub-project" },
 			{ " ", "Journal, newspaper, weekly and daily news" },
