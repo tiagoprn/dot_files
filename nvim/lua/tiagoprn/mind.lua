@@ -70,3 +70,5 @@ function M.mind_custom_open_data_index_on_main_project_tree()
 		mind_commands.open_data_index(args.get_tree(), args.data_dir, args.save_tree, args.opts)
 	end)
 end
+
+return M
