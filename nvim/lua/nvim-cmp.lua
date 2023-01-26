@@ -6,6 +6,10 @@ cmp.setup({
 	view = {
 		entries = "native",
 	},
+	window = {
+		documentation = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered(),
+	},
 	snippet = {
 		expand = function(args)
 			vim.fn["snippy#anonymous"](args.body)
