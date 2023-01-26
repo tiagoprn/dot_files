@@ -20,7 +20,7 @@ vnoremap <silent> # :call VisualSelection('b')<CR>| " search backwards current h
 
 nnoremap <leader><Backspace> :bw<Enter>| " close buffer
 nnoremap <Backspace> <C-w>c<Enter>| " close window but keep buffer
-nnoremap <Del> :bp\|bw \#<Enter>| " close buffer but keep window
+nnoremap <leader>k :bp<bar>sp<bar>bn<bar>bd<CR>| " close buffer but keep window
 
 nnoremap <Leader>fcb <cmd>let @+=expand('%:t')..":L"..line(".")<CR>| " copy current file/buffer name to clipboard
 nnoremap <Leader>fcB <cmd>let @+=expand('%:p')..":L"..line(".")<CR>| " copy current file/buffer full/absolute path name to clipboard
