@@ -165,6 +165,10 @@ super + d; g
 super + d; q
 	/storage/src/dot_files/tiling-window-managers/scripts/qutebrowser-dmenu-cheatsheet.sh
 
+# cheatsheet - clifm:
+super + d; c
+	/storage/src/dot_files/tiling-window-managers/scripts/clifm-dmenu-cheatsheet.sh
+
 # drag-and-drop screenshot taken today:
 super + x
  	/storage/src/dot_files/tiling-window-managers/scripts/dm-drag-and-drop-screenshot.sh

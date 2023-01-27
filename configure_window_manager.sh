@@ -113,4 +113,8 @@ echo 'Linking autorandr...'
 rm ~/.config/autorandr
 ln -s /storage/src/dot_files/autorandr ~/.config/autorandr
 
+echo 'Linking clifm...'
+rm ~/.config/clifm
+ln -s /storage/src/dot_files/clifm ~/.config/clifm
+
 echo 'Finished.'
