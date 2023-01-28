@@ -213,6 +213,10 @@ alt + e
 alt + Return
     /storage/src/dot_files/tiling-window-managers/scripts/tmux-nvim-project-setup.sh
 
+# Magnus - screen magnifier/zoom:
+super + n
+    magnus
+
 ## WM specific
 
 ### bspwm
