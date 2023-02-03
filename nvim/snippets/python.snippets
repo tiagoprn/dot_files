@@ -253,3 +253,10 @@ snippet stdlib_http_post_request
     		}), { "Content-type": "application/x-www-form-urlencoded" })
   	conn.getresponse()
 
+snippet sort_list_items_alphabetically
+	# the "key" param below makes sort ignore the case,
+	# as if all strings on the list are lowercase.
+	sorted(lst, key=str.lower)
+
+	# to sort in reverse order and ignoring the case
+	sorted(lst, key=str.lower, reverse=True)
