@@ -185,3 +185,7 @@
 " :autocmd BufWritePre | " (debug/inspect/troubleshooting) see all (auto)commands related to this write event. Related events: BufWritePost, BufWriteCmd.
 " :h events | " (debug/inspect/troubleshooting) list all events possible on a buffer.
 " <C-w>, <Shift-t> | " ( windows ) splits - open split in new tab (this destroys the split in the original window)
+" (SELECTION) :g/apples/y A | " search and copy/yank lines matching pattern 'apples' (you can use e.g. a regex also) and store them on the "a" register
+" (SELECTION) :g/apples/y A | " NOTE: search and copy/yank lines: if a CAPITAL LETTER is used as the yank register, MATCHES WILL BE APPENDED to that register.
+" (SELECTION) :g/apples/y a | " NOTE: search and copy/yank lines: if a LOWERCASE LETTER is used, only the LAST MATCH WILL BE PLACED in that register.
+" "ap | " search and copy/yank lines: paste lines from register a used to store the search matching pattern
