@@ -73,10 +73,6 @@ echo 'Linking mps-youtube configuration...'
 mkdir -p ~/.config/mps-youtube
 ln -s /storage/src/dot_files/mps-youtube/config ~/.config/mps-youtube/config
 
-echo 'Linking ansible configuration...'
-rm ~/ansible
-ln -s /storage/src/dot_files/ansible ~/ansible
-
 echo 'Linking arandr (screenlayout) configuration...'
 rm ~/.screenlayout
 ln -s /storage/src/dot_files/.screenlayout ~/.screenlayout
