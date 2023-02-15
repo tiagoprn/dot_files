@@ -82,7 +82,7 @@ nnoremap <leader>xr <cmd>TroubleToggle lsp_references<CR>| " (trouble) toggle ls
 
 " zen-mode
 nnoremap <C-z> :ZenCode<CR>| " (zen) toggle current buffer full screen
-nnoremap <leader>zz :ZenWrite<CR>| " (zen) toggle current buffer full screen - distraction free mode
+nnoremap <leader>zz :ZenWrite<CR>| " (zen) toggle current buffer full screen - distraction free mode for writing
 
 " tmux
 nnoremap <leader>g :!tmux select-window -t git<CR>| " (tmux) go to gitui tmux window
