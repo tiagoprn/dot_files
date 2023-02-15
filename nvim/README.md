@@ -96,7 +96,7 @@ NOTE: Treesitter parsers will be installed through npm. Commands to inspect that
 
 #### lua
 
-- lua-language-server (sumneko):
+- lua-language-server (previously called "sumneko"):
 	- Download a release from this page: <https://github.com/LuaLS/lua-language-server/releases>
 	- Uncompress the release at `/opt/src/lua-language-server`
 	- Create a symbolic link to the wrapper script:
