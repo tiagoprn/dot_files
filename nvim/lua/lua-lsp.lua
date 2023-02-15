@@ -4,16 +4,16 @@ require("neodev").setup({
 	-- add any options here, or leave empty to use the default settings
 })
 
--- set the path to the sumneko installation
--- local sumneko_root_path = "/opt/src/lua-language-server"
--- local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+-- set the path to the lua_ls installation
+-- local lua_ls_root_path = "/opt/src/lua-language-server"
+-- local lua_ls_binary = lua_ls_root_path .. "/bin/lua-language-server"
 
 -- local runtime_path = vim.split(package.path, ";")
 -- table.insert(runtime_path, "lua/?.lua")
 -- table.insert(runtime_path, "lua/?/init.lua")
 
 local lspconfig = require("lspconfig")
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
 			runtime = {
