@@ -4,13 +4,20 @@ $ apt install rofi rofi-dev spacefm-gtk3
 
 # docker
 
-## Ubuntu 20.04
+## Ubuntu 22.04
 $ # add docker official repository GPG key:
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-$ # add docker repository to apt sources:
-$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+$ sudo mkdir -m 0755 -p /etc/apt/keyrings
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+$ # setup the repository
+$ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
 $ # update packages database
-$ sudo apt update && sudo apt install docker-ce -y
+$ sudo chmod a+r /etc/apt/keyrings/docker.gpg
+$ # install docker and the compose plugin (this is the old docker-compose, now on v2 in go)
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # KVM with terraform provisioning
 
