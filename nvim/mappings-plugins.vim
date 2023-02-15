@@ -70,16 +70,6 @@ nnoremap <silent> <leader>hc8 <cmd>lua require("harpoon.tmux").sendCommand("{dow
 nnoremap <silent> <leader>hc9 <cmd>lua require("harpoon.tmux").sendCommand("{down-of}", 9)<CR>| " (navigation - harpoon) run project command 9 on tmux pane below
 " nnoremap <silent> <leader>hz <cmd>lua require("harpoon.tmux").gotoTerminal("{end}")<CR>| " (navigation - harpoon) go to last tmux numbered window
 
-
-" trouble
-nnoremap <leader>xx <cmd>TroubleToggle<CR>| " (trouble) toggle default - document diagnostics
-nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<CR>| " (trouble) toggle workspace diagostics
-nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<CR>| " (trouble) toggle document diagnostics
-nnoremap <leader>xq <cmd>TroubleToggle quickfix<CR> :cclose<CR>| " (trouble) toggle quickfix
-nnoremap <leader>xl <cmd>TroubleToggle loclist<CR> :lclose<CR>| " (trouble) toggle loclist (location list)
-nnoremap <leader>xr <cmd>TroubleToggle lsp_references<CR>| " (trouble) toggle lsp references
-
-
 " zen-mode
 nnoremap <C-z> :ZenCode<CR>| " (zen) toggle current buffer full screen
 nnoremap <leader>zz :ZenWrite<CR>| " (zen) toggle current buffer full screen - distraction free mode for writing

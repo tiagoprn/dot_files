@@ -101,9 +101,6 @@ return require("packer").startup(function(use)
 	-- highlight colors
 	use({ "brenoprata10/nvim-highlight-colors" })
 
-	-- pretty list for showing diagnostics, references, telescope results, quickfix and location lists
-	use({ "folke/trouble.nvim" })
-
 	-- zen mode (allows zooming on a buffer)
 	use({ "folke/zen-mode.nvim" })
 
