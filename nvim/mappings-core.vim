@@ -22,9 +22,9 @@ nnoremap <leader><Backspace> :bw<Enter>| " close buffer
 nnoremap <Backspace> <C-w>c<Enter>| " close window but keep buffer
 nnoremap <leader>k :bp<bar>sp<bar>bn<bar>bd<CR>| " close buffer but keep window
 
-nnoremap <Leader>fcb <cmd>let @+=expand('%:t')..":L"..line(".")<CR>| " copy current file/buffer name to clipboard
-nnoremap <Leader>fcB <cmd>let @+=expand('%:p')..":L"..line(".")<CR>| " copy current file/buffer full/absolute path name to clipboard
-nnoremap <Leader>fcr <cmd>let @+=expand('%:.')..":L"..line(".")<CR>| " copy current file/buffer relative path name to clipboard
+nnoremap <Leader>fcb <cmd>let @+=expand('%:t')..":"..line(".")<CR>| " copy current file/buffer name to clipboard
+nnoremap <Leader>fcB <cmd>let @+=expand('%:p')..":"..line(".")<CR>| " copy current file/buffer full/absolute path name to clipboard
+nnoremap <Leader>fcr <cmd>let @+=expand('%:.')..":"..line(".")<CR>| " copy current file/buffer relative path name to clipboard
 
 noremap <Up> <Nop> | " disable Up key in normal mode
 noremap <Down> <Nop> | " disable Down key in normal mode
