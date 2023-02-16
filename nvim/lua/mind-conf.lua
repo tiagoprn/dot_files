@@ -8,22 +8,21 @@ end
 -- here I can find more configuration from phaazon (this plugin's creator):
 --    https://github.com/phaazon/config/blob/master/nvim/lua/pkg/mind.lua
 
+local persistance_root = "/storage/mind/"
+
 mind.setup({
 	keymaps = { -- useful inside the tree window
 		normal = {
 			["ms"] = "open_data_index",
 		},
 	},
-
-	-- persistence = {
-	-- 	state_path = "/storage/mind/",
-	-- 	data_dir = "/storage/mind/data/",
-	-- },
-	--
+	persistence = {
+		state_path = persistance_root .. "mind.json",
+		data_dir = persistance_root .. "data",
+	},
 	edit = {
 		data_header = "# %s",
 	},
-
 	ui = {
 		width = 50,
 		icon_preset = {
