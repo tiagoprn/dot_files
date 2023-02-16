@@ -178,20 +178,14 @@ snippet task
 	goal: "${1:Goal}"
 	created: "`strftime("%Y-%m-%d %H:%M:%S")`"
 	finished: ""
-	effort: "${2:task_effort}"
-	current_status: "${4:task_status}"
-	tags: [${3:"tag1"}]
+	effort: "task_effort"
+	current_status: "task_status"
+	tags: []
 	---
 
 	# DESCRIPTION
 
-	TBD
-
-
-	# CHECKLIST
-
-	TBD
-
+	${2:What needs to be done?}
 
 	# REFERENCES
 
@@ -206,6 +200,9 @@ snippet task
 	# TECHNICAL CONTEXT
 
 	N/A
+
+
+	journal-task-daily
 snippet qheader
 	---
 	created: `strftime("%Y-%m-%dT%H:%M:%S")`
