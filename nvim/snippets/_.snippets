@@ -98,12 +98,10 @@ snippet zettelkasten
 snippet journal
 	---
 	date: `strftime("%Y-%m-%d")`
-	hours: [${1:"09:00","13:00","14:00","18:00"}]
+	hours: [${1:"`strftime("%H:%M")`"}]
 	---
 
-	# CHECKLIST
-
-	- [ ] ${4}
+	${2:# CHECKLIST}
 
 snippet journal-task-vlink
 	r/0:00:00/vfname
@@ -201,6 +199,7 @@ snippet task
 
 	N/A
 
+	# CHECKLIST
 
 	journal-task-daily
 snippet qheader
