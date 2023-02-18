@@ -347,11 +347,11 @@ $ systemctl enable autorandr.service
 $ systemctl enable autorandr-lid-listener.service
 $ udevadm control --reload-rules
 
-## git-auto-sync
+## git-sync
 $ sudo su
-$ mkdir /opt/src/git-auto-sync && cd /opt/src/git-auto-sync
-$ wget https://github.com/GitJournal/git-auto-sync/releases/download/v1.5/git-auto-sync_1.5_linux_amd64.deb
-$ dpkg -i git-auto-sync_1.5_linux_amd64.deb
+$ cd /opt/src
+$ git clone https://github.com/simonthum/git-sync.git
+$ ln -s /opt/src/git-sync/git-sync /usr/bin/git-sync
 
 ## rdrview (firefox reader as a CLI program)
 $ sudo su
