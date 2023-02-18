@@ -76,8 +76,8 @@ $ sudo su
 $ mkdir -p /opt/src/terraform
 $ cd /opt/src/terraform
 $ export TER_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | grep tag_name | cut -d: -f2 | tr -d \"\,\v | awk '{$1=$1};1'` && \
-  wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip && \
-  unzip terraform_${TER_VER}_linux_amd64.zip
+wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip && \
+unzip terraform_${TER_VER}_linux_amd64.zip
 $ cp -farv terraform /usr/local/bin
 
 $ # Install the kvm provider
@@ -212,6 +212,7 @@ $ cd /opt/src
 $ git clone https://github.com/pijulius/picom
 $ cd picom
 $ apt install -y meson asciidoc pandoc
+$ rm -fr build/
 $ meson --buildtype=release . build --prefix=/usr -Dwith_docs=true
 $ /usr/bin/ninja -C build && /usr/bin/ninja -C build install
 

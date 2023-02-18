@@ -83,7 +83,7 @@ $ sudo apt install -y shellcheck
 
 - shfmt: formatter for shell scripts:
 ```bash
-$ GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
+$ GO111MODULE=on go install mvdan.cc/sh/v3/cmd/shfmt@latest
 $ sudo cp ~/go/bin/shfmt /usr/bin/
 ```
 
