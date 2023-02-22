@@ -12,12 +12,16 @@
 ## WM independent
 
 # run - file manager (pcmanfm):
-super + r; f; m
+super + r; f
 	spacefm
 
 # run - timeshift gtk:
-super + r; t; s
+super + r; t
 	sudo timeshift-gtk
+
+# reminders:
+super + r; r
+	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh "scratchpad_reminders" /storage/src/dot_files/tiling-window-managers/scripts/terminal-reminders.sh
 
 # set local wallpaper manually (m to mark):
 super + w; l; m
@@ -65,9 +69,6 @@ ctrl + period
 super + v
 	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh "Volume-Control" pavucontrol
 
-# reminders:
-super + r
-	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh "scratchpad_reminders" /storage/src/dot_files/tiling-window-managers/scripts/terminal-reminders.sh
 
 # decrease screen brightness:
 alt + shift + Down
