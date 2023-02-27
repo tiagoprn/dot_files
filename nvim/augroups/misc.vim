@@ -45,5 +45,5 @@ augroup END
 augroup fleetingNotesAutomations
   autocmd!
   autocmd BufWrite *.md lua require'tiagoprn.scratchpad'.updateFleetingNotesCategories()
-  autocmd BufWinEnter,BufWritePost *.md lua require'tiagoprn.scratchpad'.gitSyncFleetingNotes()
+  " autocmd BufWinEnter,BufWritePost *.md lua require'tiagoprn.scratchpad'.gitSyncFleetingNotes()
 augroup END

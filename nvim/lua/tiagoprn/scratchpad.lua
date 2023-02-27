@@ -83,6 +83,8 @@ function M.gitSyncFleetingNotes()
 	local search_list = { "storage", "fleeting-notes" }
 	local found_on_list = helpers.search_on_list(path_list, search_list)
 
+	-- TODO: refactor below to use "git-sync", that is already on many distros repos
+
 	if #found_on_list == 2 then
 		job:new({
 			command = "git-auto-sync",
