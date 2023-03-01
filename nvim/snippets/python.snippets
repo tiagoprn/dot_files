@@ -73,7 +73,7 @@ snippet dateobj
 snippet today_and_date_objects
 	from datetime import datetime
 	today = datetime.today().date()  # this returns a date (not datetime) object
-	date_object = datetime(2023, 12, 31)  # this builds a date (not datetime) object, that can be compared with "today" above
+	date_object = datetime(2023, 12, 31).date()  # this builds a date (not datetime) object, that can be compared with "today" above
 
 snippet log
 	logger = logging.getLogger(__name__)
