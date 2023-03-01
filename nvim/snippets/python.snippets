@@ -58,6 +58,10 @@ snippet pathlib_rootpath
 snippet fs
 	f'${1:string}'
 
+snippet timestamp_iso
+	from datetime import datetime
+	print(datetime.now().isoformat())
+
 snippet datestr
 	from datetime import datetime
 	date_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
@@ -65,6 +69,11 @@ snippet datestr
 snippet dateobj
 	from datetime import datetime
 	date_obj = datetime.strptime('2011-12-31 11:59:59', '%Y-%m-%d %H:%M:%S')
+
+snippet today_and_date_objects
+	from datetime import datetime
+	today = datetime.today().date()  # this returns a date (not datetime) object
+	date_object = datetime(2023, 12, 31)  # this builds a date (not datetime) object, that can be compared with "today" above
 
 snippet log
 	logger = logging.getLogger(__name__)
@@ -121,10 +130,6 @@ snippet ifmain
 snippet uuid
 	import uuid, sys
 	sys.stdout.write(str(uuid.uuid4()))
-
-snippet timestamp_iso
-	from datetime import datetime
-	print(datetime.now().isoformat())
 
 snippet random_number
 	${1}import random
