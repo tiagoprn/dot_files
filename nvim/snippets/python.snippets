@@ -198,6 +198,17 @@ snippet pytest_parametrize
     def test_name(var1, var2):
         # use var1 and var2 here
 
+snippet pytest_run_on_condition
+	@pytest.mark.skipif(${1:bool_condition}, reason="${2:string_describing_condition}")
+
+snippet pytest_raises
+        with pytest.raises(IntegrityError) as exception_instance:
+            pass  # code that triggers the exception, in this example SQLAlchemy when an attribute is None
+
+        assert exception_instance.type is IntegrityError
+        expected_exception_value = '(pymysql.err.IntegrityError) (1048, "Column \'company_id\' cannot be null")'
+        assert exception_instance.value.args[0] == expected_exception_value
+
 snippet function_info
 	# fun below can be any function object.
 	# e.g. fun = print
@@ -209,9 +220,6 @@ snippet md5_hash
 	# To use on dicts, just use cast them to a string - str(your_dict)
 	import hashlib
 	hashlib.md5("YOUR-STRING-GOES-HERE".encode('utf-8')).hexdigest()
-
-snippet pytest_run_on_condition
-	@pytest.mark.skipif(${1:bool_condition}, reason="${2:string_describing_condition}")
 
 snippet stack_print
 	__import__('traceback').print_stack()
