@@ -109,15 +109,6 @@ nnoremap <silent> <leader>gj :Gitsigns next_hunk<CR>| "  (gitsigns) go to next c
 nnoremap <silent> <leader>gk :Gitsigns prev_hunk<CR>| "  (gitsigns) go to next changed hunk
 nnoremap <silent> <leader>gp :Gitsigns preview_hunk<CR>| "  (gitsigns) preview hunk
 
-
-" tmux-navigator
-nnoremap <silent> <M-j> :TmuxNavigateDown<CR>| " (tmux-navigator) move to down nvim window/tmux pane
-nnoremap <silent> <M-k> :TmuxNavigateUp<CR>| " (tmux-navigator) move to up nvim window/tmux pane
-nnoremap <silent> <M-h> :TmuxNavigateLeft<CR>| " (tmux-navigator) move to left nvim window/tmux pane
-nnoremap <silent> <M-l> :TmuxNavigateRight<CR>| " (tmux-navigator) move to right nvim window/tmux pane
-nnoremap <silent> <M-p> :TmuxNavigatePrevious<CR>| " (tmux-navigator) move to previous nvim window/tmux pane
-
-
 " buffer_manager
 nnoremap <silent> <Tab> <cmd>lua require("buffer_manager.ui").nav_next()<CR>| " (buffer_manager) switch to next buffer
 nnoremap <silent> <S-Tab> <cmd>lua require("buffer_manager.ui").nav_prev()<CR>| " (buffer_manager) switch to previous buffer
