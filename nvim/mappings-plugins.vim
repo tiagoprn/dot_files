@@ -35,12 +35,9 @@ nnoremap <silent> <leader>lo :LspInfo <CR>| " (lsp) Show Info
 nnoremap <silent> <leader>loo :NullLsInfo <CR>| " (lsp) Show NullLs Info
 " lspsaga
 nnoremap <silent> <leader>lh :Lspsaga hover_doc<CR>| " (lsp-saga) documentation hover
-nnoremap <silent> <leader>ls :Lspsaga signature_help<CR>| " (lsp-saga) (NORMAL mode) signature help
 nnoremap <silent> <leader>lf :Lspsaga lsp_finder<CR>| " (lsp-sage) finder
 nnoremap <silent> <leader>la :Lspsaga code_action<CR>| " (lsp-saga) code action
 vnoremap <silent> <leader>lar :<C-U>Lspsaga range_code_action<CR>| " (lsp-saga) code action
-inoremap <silent> <C-s> :Lspsaga signature_help<CR>| " (lsp-saga) (INSERT mode) signature help
-
 
 " harpoon
 nnoremap <silent> <C-h> <cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>| " (navigation - harpoon) quick menu

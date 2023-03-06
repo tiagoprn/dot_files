@@ -51,6 +51,8 @@ return require("packer").startup(function(use)
 		as = "catppuccin",
 	})
 
+	use({ "kyazdani42/nvim-web-devicons" })
+
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -64,6 +66,9 @@ return require("packer").startup(function(use)
 
 	-- vim-notify
 	use({ "rcarriga/nvim-notify" })
+
+	-- nui
+	use({ "MunifTanjim/nui.nvim" })
 
 	-- A tree project view
 	use({
@@ -111,6 +116,8 @@ return require("packer").startup(function(use)
 
 	use({ "phaazon/mind.nvim", branch = "master" })
 
+	use({ "folke/noice.nvim" })
+
 	-- # LANGUAGE SERVERS - begin
 
 	-- --  handles automatically launching and initializing language servers installed on your system
@@ -118,9 +125,7 @@ return require("packer").startup(function(use)
 
 	-- -- nice UIs for LSP functions
 	-- unsupported
-	-- use {'glepnir/lspsaga.nvim'}
-	-- supported fork from above
-	use({ "tami5/lspsaga.nvim" })
+	use({ "glepnir/lspsaga.nvim" })
 
 	use({ "jose-elias-alvarez/null-ls.nvim" })
 
@@ -139,14 +144,16 @@ return require("packer").startup(function(use)
 	-- -- enable LSP completion
 	use({
 		"hrsh7th/nvim-cmp",
-		requires = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "dcampos/cmp-snippy" },
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"dcampos/cmp-snippy",
+		},
 	})
 
 	-- -- -- cmp source to complete filesystem paths
-	use({ "/hrsh7th/cmp-path" })
-
-	-- -- lsp signatures when hovering over methods
-	use({ "ray-x/lsp_signature.nvim" })
+	use({ "hrsh7th/cmp-path" })
 
 	-- -- code navigation through classes, methods and functions
 	use({ "stevearc/aerial.nvim" })

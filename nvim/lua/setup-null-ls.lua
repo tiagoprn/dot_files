@@ -168,7 +168,9 @@ local sources = {
 		command = "shfmt",
 		extra_args = { "-ci", "-s", "-bn", "-i", "4" },
 	}),
-	require("null-ls").builtins.formatting.stylua,
+	require("null-ls").builtins.formatting.stylua.with({
+		command = vim.fn.expand("~/.cargo/bin/stylua"),
+	}),
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

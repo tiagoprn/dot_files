@@ -32,6 +32,7 @@ cmp.setup({
 							trailing_slash = true,
 						},
 					},
+          { name = 'nvim_lsp_signature_help' },
 				},
 			},
 		}),

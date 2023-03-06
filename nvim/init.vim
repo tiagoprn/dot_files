@@ -60,7 +60,7 @@ set termguicolors
 " set so=999
 
 " Avoids updating the screen before commands are completed
-set lazyredraw
+" set lazyredraw
 
 " OVERRIDING COLORS
 " do that here: lua/catppuccin-colors.lua
@@ -132,7 +132,6 @@ lua require('nvim-cmp')
 lua require('lua-lsp')
 lua require('python-lsp')
 lua require('bash-lsp')
-lua require('lsp-signature-conf')
 lua require('lsp-saga')
 lua require('setup-null-ls')
 lua require('treesitter-conf')
@@ -160,6 +159,7 @@ lua require('svart-conf')
 lua require('buffer_manager-conf')
 lua require('goto-preview-conf')
 lua require('mind-conf')
+lua require('noice-conf')
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim
