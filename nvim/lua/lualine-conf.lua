@@ -1,10 +1,12 @@
 -- to check all available themes: https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
 -- MY FAVORITES: powerline_dark powerline papercolor_light solarized_light
 
+local helpers = require("tiagoprn.helpers")
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "powerline_dark",
+		theme = "powerline",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {},
@@ -13,8 +15,8 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "filename" },
-		lualine_c = { "location", "progress", "filetype" },
+		lualine_b = {},
+		lualine_c = {},
 		lualine_x = {},
 		lualine_y = { "diff" },
 		lualine_z = { "branch" },
@@ -29,4 +31,20 @@ require("lualine").setup({
 	},
 	tabline = {},
 	extensions = {},
+	winbar = {
+		lualine_a = { "location" },
+		lualine_b = { "progress" },
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = { "filetype" },
+		lualine_z = { "filename" },
+	},
+	inactive_winbar = {
+		lualine_a = { helpers.current_window_number },
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = { "location" },
+		lualine_z = { "filename" },
+	},
 })

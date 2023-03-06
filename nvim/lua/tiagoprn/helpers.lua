@@ -162,4 +162,8 @@ function M.search_on_list(all_items, search_items)
 	return found_elements
 end
 
+function M.current_window_number()
+	return vim.api.nvim_win_get_number(0)
+end
+
 return M

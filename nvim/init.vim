@@ -79,13 +79,16 @@ autocmd WinEnter * setlocal cursorcolumn
 autocmd WinLeave * setlocal nocursorcolumn
 highlight CursorColumn guibg=#303000 ctermbg=238
 
+" Highlight winbar inactive window font to white
+" hi WinBarNC ctermfg=15 guifg=#FFFFFF
+
 " --- Configure rg integration
 set grepprg=rg\ --vimgrep
 set grepformat^=%f:%l:%c:%m
 
 " custom winbar
 " right size, file has changed, file path
-set winbar=%=%m\ %F
+" set winbar=%=%m\ %F
 
 " --- Splits defaults
 " open vertical splits on the right side
@@ -160,6 +163,7 @@ lua require('buffer_manager-conf')
 lua require('goto-preview-conf')
 lua require('mind-conf')
 lua require('noice-conf')
+lua require('dynamic-mappings')
 
 source $HOME/.config/nvim/conf-plugins/marvim.vim
 source $HOME/.config/nvim/conf-plugins/conceals.vim
