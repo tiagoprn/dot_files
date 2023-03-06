@@ -24,8 +24,8 @@ require("lualine").setup({
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
+		lualine_c = {},
+		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},
@@ -37,7 +37,7 @@ require("lualine").setup({
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = { "filetype" },
-		lualine_z = { "filename" },
+		lualine_z = { helpers.get_current_file_relative_path },
 	},
 	inactive_winbar = {
 		lualine_a = { helpers.current_window_number },
@@ -45,7 +45,7 @@ require("lualine").setup({
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = { "location" },
-		lualine_z = { "filename" },
+		lualine_z = { helpers.get_current_file_relative_path },
 	},
 })
 

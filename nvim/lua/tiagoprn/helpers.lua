@@ -175,4 +175,9 @@ function M.show_macro_recording()
 	end
 end
 
+function M.get_current_file_relative_path()
+	local relative_path = vim.fn.expand("%:~:.")
+	return relative_path ~= "" and relative_path or vim.fn.expand("%")
+end
+
 return M
