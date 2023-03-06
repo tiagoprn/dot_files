@@ -166,4 +166,13 @@ function M.current_window_number()
 	return vim.api.nvim_win_get_number(0)
 end
 
+function M.show_macro_recording()
+	local recording_register = vim.fn.reg_recording()
+	if recording_register == "" then
+		return ""
+	else
+		return "Recording @" .. recording_register
+	end
+end
+
 return M

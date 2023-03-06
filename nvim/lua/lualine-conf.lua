@@ -15,7 +15,7 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = {},
+		lualine_b = { helpers.show_macro_recording },
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = { "diff" },
@@ -47,4 +47,37 @@ require("lualine").setup({
 		lualine_y = { "location" },
 		lualine_z = { "filename" },
 	},
+})
+
+-- Below is to refresh the status line when entering and leaving
+-- the macro recording events.
+-- reference: https://www.reddit.com/r/neovim/comments/xy0tu1/comment/irfegvd/?utm_source=share&utm_medium=web2x&context=3
+
+vim.api.nvim_create_autocmd("RecordingEnter", {
+	callback = function()
+		require("lualine").refresh({
+			place = { "statusline" },
+		})
+	end,
+})
+
+vim.api.nvim_create_autocmd("RecordingLeave", {
+	callback = function()
+		-- This is going to seem really weird!
+		-- Instead of just calling refresh we need to wait a moment because of the nature of
+		-- `vim.fn.reg_recording`. If we tell lualine to refresh right now it actually will
+		-- still show a recording occuring because `vim.fn.reg_recording` hasn't emptied yet.
+		-- So what we need to do is wait a tiny amount of time (in this instance 50 ms) to
+		-- ensure `vim.fn.reg_recording` is purged before asking lualine to refresh.
+		local timer = vim.loop.new_timer()
+		timer:start(
+			50,
+			0,
+			vim.schedule_wrap(function()
+				require("lualine").refresh({
+					place = { "statusline" },
+				})
+			end)
+		)
+	end,
 })
