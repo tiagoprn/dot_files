@@ -97,9 +97,6 @@ return require("packer").startup(function(use)
 	-- gitsigns
 	use({ "lewis6991/gitsigns.nvim" })
 
-	-- navigation (to integrate better with tmux)
-	use({ "christoomey/vim-tmux-navigator" })
-
 	-- support for hugo template language (go)
 	use({ "fatih/vim-go" })
 
