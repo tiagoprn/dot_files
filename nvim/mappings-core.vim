@@ -51,15 +51,6 @@ inoremap <C-left> <Esc>:tabprevious<CR> | " (INSERT) (tabs) previous
 " Keep the cursor in place when you join lines with J. That will also drop a mark before the operation to which you return afterwards:
 nnoremap J mzJ`z
 
-" Remap navigation commands to center view on cursor using zz
-" nnoremap j jzz
-" nnoremap k kzz
-" nnoremap n nzz
-" nnoremap N Nzz
-" nnoremap } }zz
-" nnoremap # #zz
-" nnoremap * *zz
-
 nnoremap <Leader>M :Marks<CR>| " (marks) show all
 nnoremap <Leader>Mda :delmarks!<CR>| " (marks) delete all
 

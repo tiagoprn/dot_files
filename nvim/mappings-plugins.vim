@@ -110,8 +110,8 @@ nnoremap <silent> <leader>gk :Gitsigns prev_hunk<CR>| "  (gitsigns) go to next c
 nnoremap <silent> <leader>gp :Gitsigns preview_hunk<CR>| "  (gitsigns) preview hunk
 
 " buffer_manager
-nnoremap <silent> <Tab> <cmd>lua require("buffer_manager.ui").nav_next()<CR>| " (buffer_manager) switch to next buffer
-nnoremap <silent> <S-Tab> <cmd>lua require("buffer_manager.ui").nav_prev()<CR>| " (buffer_manager) switch to previous buffer
+" nnoremap <silent> <Tab> <cmd>lua require("buffer_manager.ui").nav_next()<CR>| " (buffer_manager) switch to next buffer
+" nnoremap <silent> <S-Tab> <cmd>lua require("buffer_manager.ui").nav_prev()<CR>| " (buffer_manager) switch to previous buffer
 nnoremap <silent> <C-b> <cmd>lua require("buffer_manager.ui").toggle_quick_menu()<CR>| " (buffer_manager) open quick menu
 nnoremap <silent> <leader>bl <cmd>lua require("buffer_manager.ui").load_menu_from_file()<CR>| " (buffer_manager) load buffers from file
 nnoremap <silent> <leader>bw <cmd>lua require("buffer_manager.ui").save_menu_to_file()<CR>| " (buffer_manager) save buffers to file
