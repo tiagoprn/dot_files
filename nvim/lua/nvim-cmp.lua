@@ -12,7 +12,7 @@ cmp.setup({
 	},
 	snippet = {
 		expand = function(args)
-			vim.fn["snippy#anonymous"](args.body)
+			require("snippy").expand_snippet(args.body)
 		end,
 	},
 	mapping = {
@@ -32,7 +32,7 @@ cmp.setup({
 							trailing_slash = true,
 						},
 					},
-          { name = 'nvim_lsp_signature_help' },
+					{ name = "nvim_lsp_signature_help" },
 				},
 			},
 		}),
