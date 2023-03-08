@@ -5,6 +5,9 @@ if not status_ok then
 	return
 end
 
+-- we can also create custom "routes", so to e.g. hide some messages or process them. More on that here:
+-- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#hide-written-messages-1
+
 noice.setup({
 	lsp = {
 		-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
