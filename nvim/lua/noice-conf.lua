@@ -16,12 +16,19 @@ noice.setup({
 	},
 	-- you can enable a preset for easier configuration
 	presets = {
-		command_palette = true, -- position the cmdline and popupmenu together
+		command_palette = false, -- position the cmdline and popupmenu together
 		long_message_to_split = true, -- long messages will be sent to a split
 		inc_rename = true, -- enables an input dialog for inc-rename.nvim
 		lsp_doc_border = true, -- add a border to hover docs and signature help
 	},
 	views = { -- check available options at https://github.com/folke/noice.nvim/blob/main/lua/noice/config/views.lua
+		cmdline_popup = {
+			position = {
+				-- row = "100%",
+				row = "50%",
+				col = "50%",
+			},
+		},
 		split = {
 			relative = "editor",
 			size = "20%",
