@@ -21,4 +21,25 @@ noice.setup({
 		inc_rename = true, -- enables an input dialog for inc-rename.nvim
 		lsp_doc_border = true, -- add a border to hover docs and signature help
 	},
+	views = { -- check available options at https://github.com/folke/noice.nvim/blob/main/lua/noice/config/views.lua
+		split = {
+			relative = "editor",
+			size = "20%",
+		},
+		mini = {
+			relative = "editor",
+			border = {
+				style = "rounded",
+				padding = { 0, 1 },
+			},
+			position = {
+				row = 2,
+				col = "100%",
+				-- col = 0,
+			},
+		},
+		notify = {
+			merge = true,
+		},
+	},
 })

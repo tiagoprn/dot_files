@@ -35,6 +35,7 @@ require("nvim-treesitter.configs").setup({
 		"vim",
 		"yaml",
 		"markdown",
+		"markdown_inline",
 		"regex",
 	},
 	playground = {
