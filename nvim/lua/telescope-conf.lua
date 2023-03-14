@@ -11,14 +11,14 @@ require("telescope").setup({
 			vertical = { mirror = false },
 		},
 	},
-	-- pickers = {
-	-- 	find_files = {
-	-- 		theme = "dropdown",
-	-- 	},
-	-- 	live_grep = {
-	-- 		theme = "dropdown",
-	-- 	},
-	-- },
+	pickers = {
+		find_files = {
+			theme = "dropdown",
+		},
+		live_grep = {
+			theme = "dropdown",
+		},
+	},
 	extensions = {
 		fzf = {
 			-- false will only do exact matching override the generic sorter

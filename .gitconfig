@@ -106,4 +106,5 @@
 	directory = /storage/src/gpg
 	directory = /storage/mind
 	directory = /storage/src/iac
+	directory = /storage/src/pde.nvim
 
