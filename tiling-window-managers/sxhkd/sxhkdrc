@@ -19,6 +19,10 @@ super + r; f
 super + r; t
 	sudo timeshift-gtk
 
+# run - system76 launch keyboard configurator
+super + r; k
+	sudo system76-keyboard-configurator
+
 # reminders:
 super + r; r
 	/storage/src/dot_files/tiling-window-managers/scripts/bspwm-toggle-visibility-new.sh "scratchpad_reminders" /storage/src/dot_files/tiling-window-managers/scripts/terminal-reminders.sh
