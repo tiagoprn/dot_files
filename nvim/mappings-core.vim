@@ -18,8 +18,8 @@ nnoremap <silent> <F5> :set rnu!<CR>| " (function-keys) toggle relative line num
 vnoremap <silent> * :call VisualSelection('f')<CR>| " search forwards current highlighted selection
 vnoremap <silent> # :call VisualSelection('b')<CR>| " search backwards current highlighted selection
 
-nnoremap <leader><Backspace> :bw<Enter>| " close buffer
-nnoremap <Backspace> <C-w>c<Enter>| " close window but keep buffer
+nnoremap <leader><Del> :bw<Enter>| " close buffer
+nnoremap <Del> <C-w>c<Enter>| " close window but keep buffer
 nnoremap <leader>k :bp<bar>sp<bar>bn<bar>bd<CR>| " close buffer but keep window
 
 nnoremap <Leader>fcb <cmd>let @+=expand('%:t')..":"..line(".")<CR>| " copy current file/buffer name to clipboard
