@@ -381,6 +381,9 @@ $ cd /opt/src
 $ wget https://github.com/ActivityWatch/activitywatch/releases/download/v0.11.0/activitywatch-v0.11.0-linux-x86_64.zip
 $ unzip activitywatch-v0.11.0-linux-x86_64.zip
 
+## difftastic (better diffs powered by treesitter)
+$ cargo install difftastic
+
 ## git-ui (more performant than lazygit)
 $ cargo install gitui
 

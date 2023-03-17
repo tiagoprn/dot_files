@@ -9,8 +9,8 @@
   a = add
   # commit:
   c = commit
-  # icdiff:
-  d = icdiff HEAD
+  # difft:
+  d = difft HEAD
   # diff (default):
   dd = diff
   # checkout:
@@ -76,16 +76,16 @@
   # via https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
 
 
-# A nice little github-like colorful, split diff right in the console.
-# via http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
+# diffs powered by treesitter and rust:
+# https://github.com/Wilfred/difftastic
 [diff]
-  tool = icdiff
+  tool = difft
 
 [difftool]
   prompt = false
 
-[difftool "icdiff"]
-  cmd = /usr/bin/icdiff --color-moved --line-numbers $LOCAL $REMOTE
+[difftool "difft"]
+  cmd = difft $LOCAL $REMOTE
 
 [core]
   excludesfile = /storage/src/dot_files/.gitignore.global
