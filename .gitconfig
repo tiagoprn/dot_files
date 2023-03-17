@@ -87,6 +87,9 @@
 [difftool "difft"]
   cmd = difft $LOCAL $REMOTE
 
+[pager]
+  difftool = true
+
 [core]
   excludesfile = /storage/src/dot_files/.gitignore.global
 
