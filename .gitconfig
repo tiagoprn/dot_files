@@ -10,7 +10,7 @@
   # commit:
   c = commit
   # difft:
-  d = difft HEAD
+  d = difftool HEAD
   # diff (default):
   dd = diff
   # checkout:
