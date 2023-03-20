@@ -198,6 +198,15 @@ snippet forin
 	    echo -e "\$WORD"
 	done
 
+snippet total_words_on_string_var
+	total_words=$(echo "$WORDS" | wc -w)
+
+snippet counter_inside_loop
+	# initializes the counter (put BEFORE the loop)
+	counter=0
+	# increments on each loop (put INSIDE the loop)
+	counter=$((counter + 1))
+
 snippet iterate_files_on_directory
 	FILES_PATH="/path/*.txt"
 	for FILE in \$FILES_PATH; do
