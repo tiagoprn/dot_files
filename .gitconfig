@@ -110,4 +110,5 @@
 	directory = /storage/mind
 	directory = /storage/src/iac
 	directory = /storage/src/pde.nvim
+	directory = /storage/src/reminders
 
