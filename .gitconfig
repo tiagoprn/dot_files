@@ -111,4 +111,4 @@
 	directory = /storage/src/iac
 	directory = /storage/src/pde.nvim
 	directory = /storage/src/reminders
-
+	directory = /storage/src/tasks-archive
