@@ -57,7 +57,7 @@ if [ "$HOSTNAME_USER" == 'cosmos.tiago' ]; then
     bspc rule -a firefox desktop='2' follow=on
 elif [ "$HOSTNAME_USER" == 'cosmos.tds' ]; then
     bspc rule -a Chromium-browser desktop='2' follow=on
-    bspc rule -a firefox desktop='7' follow=on
+    bspc rule -a firefox desktop='5' follow=on
 fi
 bspc rule -a Cheatsheet state=fullscreen follow=on
 bspc rule -a zoom desktop='4' follow=on
