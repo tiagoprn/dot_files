@@ -40,7 +40,7 @@ sorted_list=$(echo -e "$session_window_list" | sort)
 
 selected_session_window=$(echo -e "$sorted_list" | fzf --prompt "Select a session and window to run the command... ")
 
-session_window=$(echo $selected_session_window | awk '{print $1, $2}' | tr " " ":")
+session_window=$(echo "$selected_session_window" | awk '{print $1, $2}' | tr " " ":")
 
 echo -e "Great! Selected session:window = $session_window"
 
