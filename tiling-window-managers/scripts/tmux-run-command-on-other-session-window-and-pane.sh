@@ -1,10 +1,20 @@
 #!/bin/bash
 
-set -eou pipefail
-
-shopt -s expand_aliases
-
-SCRIPT_NAME=$(basename "$0")
+help() {
+    echo "Usage: $0 [-s session_window] [-p pane_number] [-c command]"
+    echo
+    echo "Options:"
+    echo "  -s, --session-window  Specify the session and window. Format should be <session>:<window>"
+    echo "  -p, --pane            Specify the pane number"
+    echo "  -c, --command         Specify the command to run"
+    echo
+    echo "Examples:"
+    echo "  $0 -s 0:1 -p 1 -c \"ls -l\""
+    echo "  $0 --session-window 0:1 --pane 1 --command \"ls -l\""
+    echo "  $0 -s 0:1 -p 1        (Prompts for command)"
+    echo "  $0 -s 0:1             (Prompts for pane and command)"
+    echo "  $0                    (Prompts for session, window, pane, and command)"
+}
 
 validate_input() {
     case $1 in
@@ -13,69 +23,120 @@ validate_input() {
     esac
 }
 
-# TODO: informar como opcional a session_window_and_pane diretamente. Assim, posso usar no nvim também.
+get_session_window() {
+    local selection="${1-}"
 
-# Initialize the variable
-session_window_list=""
-
-# Get the list of tmux sessions
-sessions=$(tmux list-sessions -F "#S")
-
-# Iterate over sessions
-for session in $sessions; do
-    # Get the list of windows for the current session
-    windows=$(tmux list-windows -t "$session" -F "#I #W")
-
-    # Iterate over windows and append their names
-    while read -r window; do
-        session_window_list+="\n$session $window"
-    done <<<"$windows"
-done
-
-# Remove leading newline character
-session_window_list="${session_window_list#\\n}"
-
-# Print the session and window list
-sorted_list=$(echo -e "$session_window_list" | sort)
-
-selected_session_window=$(echo -e "$sorted_list" | fzf --prompt "Select a session and window to run the command... ")
-
-session_window=$(echo "$selected_session_window" | awk '{print $1, $2}' | tr " " ":")
-
-echo -e "Great! Selected session:window = $session_window"
-
-valid_pane_number=false
-
-while [[ $valid_pane_number == false ]]; do
-    echo "Please enter a pane number:"
-    read pane_number
-
-    # Validate if the input is an integer
-    re='^[0-9]+$'
-    if [[ $pane_number =~ $re ]]; then
-        valid_pane_number=true
+    if [[ -n $selection ]]; then
+        echo "$selection"
     else
-        echo "Invalid pane number. Please enter a valid pane number."
+        # Get the list of tmux sessions and windows
+        session_window_list=$(tmux list-sessions -F "#S" | while read -r session; do
+            tmux list-windows -t "$session" -F "#I #W" | awk -v session="$session" '{ print session, $0 }'
+        done)
+
+        # Sort the session and window list
+        sorted_list=$(echo -e "$session_window_list" | sort)
+
+        # Prompt the user to select a session and window
+        selected_session_window=$(echo -e "$sorted_list" | fzf --prompt "Select a session and window to run the command... ")
+
+        # Extract session and window from the selection
+        echo "$selected_session_window" | awk '{print $1, $2}' | tr " " ":"
     fi
+}
+
+get_pane_number() {
+    local pane="${1-}"
+
+    if [[ -n $pane ]]; then
+        echo "$pane"
+    else
+        # Prompt the user to enter a pane number
+        read -rp "Please enter a pane number: " pane_number
+
+        # Validate if the input is an integer
+        while ! [[ $pane_number =~ ^[0-9]+$ ]]; do
+            echo "Invalid pane number. Please enter a valid pane number."
+            read -rp "Please enter a pane number: " pane_number
+        done
+
+        echo "$pane_number"
+    fi
+}
+
+get_command() {
+    local cmd="${1-}"
+
+    if [[ -n $cmd ]]; then
+        echo "$cmd"
+    else
+        # Prompt the user for the command
+        read -rp "Type the command you want to run: " command
+        echo "$command"
+    fi
+}
+
+# Initialize variables with default values
+session_window=""
+pane_number=""
+command=""
+
+# Parse named arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -s | --session-window)
+            shift
+            session_window=$(get_session_window "$1")
+            ;;
+        -p | --pane)
+            shift
+            pane_number=$(get_pane_number "$1")
+            ;;
+        -c | --command)
+            shift
+            command=$(get_command "$1")
+            ;;
+        -h | --help)
+            help
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            help
+            exit 1
+            ;;
+    esac
+    shift
 done
 
-echo "You entered pane number: $pane_number"
+# If session_window is not provided, get it
+if [[ -z $session_window ]]; then
+    session_window=$(get_session_window)
+fi
 
-session_window_and_pane=$(echo "$session_window.$pane_number")
+# If pane_number is not provided, get it
+if [[ -z $pane_number ]]; then
+    pane_number=$(get_pane_number)
+fi
 
-read -rp "Type the command you want to run on '$session_window_and_pane': " command
+# If command is not provided, get it
+if [[ -z $command ]]; then
+    command=$(get_command)
+fi
 
-read -rp "Are you ready to run '$command' on '$session_window_and_pane'? (Y/N) " user_input
+# Validate the user input
+read -rp "Are you ready to run '$command' on '$session_window.$pane_number'? (Y/N) " user_input
 
 while ! validate_input "$user_input"; do
     read -rp "Invalid input. Please enter Y or N: " user_input
 done
 
 if [[ $user_input =~ [Yy] ]]; then
-    tmux send-keys -t "$session_window_and_pane" "$command" Enter
+    tmux send-keys -t "$session_window.$pane_number" "$command" Enter
 else
     echo "Exiting..."
     exit 0
 fi
 
-# TODO: put this on tmux.conf, as <Enter>
+# TODO: Add the following line to tmux.conf as <Enter>
+# bind-key -T prefix <Enter> send-keys Enter
