@@ -4,25 +4,26 @@
 # Video instructions on its use here: https://youtu.be/GXxvxSlzJdI
 
 if [[ $# -eq 1 ]]; then
-    selected=$1
+    SELECTED=$1
 else
-    selected=$(cat $HOME/.config/git-projects-bookmarks.list | fzf | awk '{print $1}')
+    # SELECTED=$(cat "$HOME"/.config/git-projects-bookmarks.list | fzf | awk '{print $1}')
+    SELECTED=$(fzf <"$HOME"/.config/git-projects-bookmarks.list | awk '{print $1}')
 fi
 
-if [[ -z $selected ]]; then
+if [[ -z $SELECTED ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
+SELECTED_NAME=$(basename "$SELECTED" | tr . _)
+TMUX_RUNNING=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+if [[ -z $TMUX ]] && [[ -z $TMUX_RUNNING ]]; then
+    tmux new-session -s "$SELECTED_NAME" -c "$SELECTED"
     exit 0
 fi
 
-if ! tmux has-session -t=$selected_name 2>/dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+if ! tmux has-session -t="$SELECTED_NAME" 2>/dev/null; then
+    tmux new-session -ds "$SELECTED_NAME" -c "$SELECTED"
 fi
 
-tmux switch-client -t $selected_name
+tmux switch-client -t "$SELECTED_NAME"
