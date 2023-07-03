@@ -4,17 +4,20 @@
 # Video instructions on its use here: https://youtu.be/GXxvxSlzJdI
 
 usage() {
-    echo "Usage: $0 -p <session_path> [-n <session_name>]"
+    echo "Usage: $0 [-p <custom_tmux_session_path>] [-n <custom_tmux_session_name>]"
     exit 1
 }
+
+CUSTOM_TMUX_SESSION_PATH=""
+CUSTOM_TMUX_SESSION_NAME=""
 
 while getopts ":p:n:" opt; do
     case $opt in
         p)
-            SESSION_PATH=$OPTARG
+            CUSTOM_TMUX_SESSION_PATH=$OPTARG
             ;;
         n)
-            SESSION_NAME=$OPTARG
+            CUSTOM_TMUX_SESSION_NAME=$OPTARG
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -27,24 +30,40 @@ while getopts ":p:n:" opt; do
     esac
 done
 
-if [[ -z $SESSION_PATH ]]; then
-    echo "Session path (-p) is required."
-    usage
+if [[ -z $CUSTOM_TMUX_SESSION_PATH ]] || [[ -z ${CUSTOM_TMUX_SESSION_PATH//[[:space:]]/} ]]; then
+    if [[ -z $CUSTOM_TMUX_SESSION_NAME ]] || [[ -z ${CUSTOM_TMUX_SESSION_NAME//[[:space:]]/} ]]; then
+        CUSTOM_TMUX_SESSION_PATH=$(fzf <"$HOME"/.config/git-projects-bookmarks.list | awk '{print $1}')
+    else
+        CUSTOM_TMUX_SESSION_PATH=""
+    fi
 fi
 
-if [[ -z $SESSION_NAME ]]; then
-    SESSION_NAME=$(basename "$SESSION_PATH" | tr . _)
+if [[ -z $CUSTOM_TMUX_SESSION_NAME ]] || [[ -z ${CUSTOM_TMUX_SESSION_NAME//[[:space:]]/} ]]; then
+    CUSTOM_TMUX_SESSION_NAME=$(basename "$CUSTOM_TMUX_SESSION_PATH" | tr . _)
+fi
+
+if [[ -z $CUSTOM_TMUX_SESSION_PATH ]]; then
+    echo "No custom tmux session path selected."
+    exit 0
 fi
 
 TMUX_RUNNING=$(pgrep tmux)
 
 if [[ -z $TMUX_RUNNING ]]; then
-    tmux new-session -s "$SESSION_NAME" -c "$SESSION_PATH"
-    exit 0
+    tmux new-session -d -s "$CUSTOM_TMUX_SESSION_NAME" -c "$CUSTOM_TMUX_SESSION_PATH"
+else
+    CURRENT_TMUX_SESSION=$(tmux display-message -p '#S')
+    if [[ $CURRENT_TMUX_SESSION != "$CUSTOM_TMUX_SESSION_NAME" ]]; then
+        tmux new-session -d -s "$CUSTOM_TMUX_SESSION_NAME" -c "$CUSTOM_TMUX_SESSION_PATH" 2>/dev/null || true
+    fi
 fi
 
-if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
-    tmux new-session -ds "$SESSION_NAME" -c "$SESSION_PATH"
-fi
+tmux switch-client -t "$CUSTOM_TMUX_SESSION_NAME"
+CURRENT_CLIENT=$(tmux display-message -p '#I:#P')
 
-tmux switch-client -t "$SESSION_NAME"
+# if we are on tmux; then
+if [[ -n $TMUX ]]; then
+    tmux switch-client -t "$CURRENT_CLIENT" -c "$CUSTOM_TMUX_SESSION_PATH"
+else
+    tmux -2 a -t "$CUSTOM_TMUX_SESSION_NAME"
+fi
