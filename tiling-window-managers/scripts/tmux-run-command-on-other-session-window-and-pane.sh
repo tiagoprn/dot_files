@@ -124,19 +124,21 @@ if [[ -z $command ]]; then
     command=$(get_command)
 fi
 
-# Validate the user input
-read -rp "Are you ready to run '$command' on '$session_window.$pane_number'? (Y/N) " user_input
+# # Validate the user input
+# read -rp "Are you ready to run '$command' on '$session_window.$pane_number'? (Y/N) " user_input
+#
+# while ! validate_input "$user_input"; do
+#     read -rp "Invalid input. Please enter Y or N: " user_input
+# done
+#
+# if [[ $user_input =~ [Yy] ]]; then
+#     tmux send-keys -t "$session_window.$pane_number" "$command" Enter
+# else
+#     echo "Exiting..."
+#     exit 0
+# fi
 
-while ! validate_input "$user_input"; do
-    read -rp "Invalid input. Please enter Y or N: " user_input
-done
-
-if [[ $user_input =~ [Yy] ]]; then
-    tmux send-keys -t "$session_window.$pane_number" "$command" Enter
-else
-    echo "Exiting..."
-    exit 0
-fi
+tmux send-keys -t "$session_window.$pane_number" "$command" Enter
 
 # TODO: Add the following line to tmux.conf as <Enter>
 # bind-key -T prefix <Enter> send-keys Enter
