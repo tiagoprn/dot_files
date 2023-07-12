@@ -20,7 +20,7 @@ alias v='SELECTED_FILE=$(find . -type f | grep -v ".git/" | grep -v "node_module
 alias cc='cd $(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
 alias cl='ncal -3w -M'
 alias gfpl='g f && g pl'
-alias pa='pyenv activate $(pyenv virtualenvs | grep -v "^\s*[0-9]" | cut -d " " -f 3 | fzf)'
+alias pa='pyenv activate $(pyenv virtualenvs | grep -v "^\s*[0-9]" | cut -d " " -f 3 | fzf --prompt "Choose a pyenv virtualenv: ")'
 alias pd='pyenv deactivate '
 alias pv='pyenv virtualenvs | grep -v "^\s*[0-9]"'
 alias pl='pyenv install --list '
