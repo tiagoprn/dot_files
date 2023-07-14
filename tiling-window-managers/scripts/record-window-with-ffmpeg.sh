@@ -39,3 +39,5 @@ OUTPUT_FILE_NAME="$OUTPUT_DIR/$TIMESTAMP.mp4"
 
 # Run the ffmpeg command with the window geometry
 ffmpeg -f x11grab -s "$width"x"$height" -i "$DISPLAY"+"$position_x","$position_y" -c:v libx264 -crf 23 -preset medium -c:a aac -b:a 128k $OUTPUT_FILE_NAME
+
+echo "File is available at '$OUTPUT_FILE_NAME'."
