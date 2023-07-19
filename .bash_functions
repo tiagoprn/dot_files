@@ -215,3 +215,7 @@ function cdb() {  # cd into a path defined on the bookmarks file
 	cd "$SELECTED_DIR"
 }
 
+function cdf() {  # select on fzf a directory you want to enter into
+    local dir
+    dir=$(find . -type d -name '.git' -prune -o -type d -print 2> /dev/null | fzf +m) && cd "$dir"
+}
