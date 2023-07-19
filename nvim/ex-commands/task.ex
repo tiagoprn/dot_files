@@ -1,2 +1,0 @@
-norm ggItask
-startinsert!

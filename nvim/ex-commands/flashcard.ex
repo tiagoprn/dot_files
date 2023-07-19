@@ -1,2 +1,0 @@
-norm ggIflashcard
-startinsert!

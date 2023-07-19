@@ -1,2 +1,0 @@
-#!/bin/bash
-exec "/opt/src/lua-language-server/bin/lua-language-server" "$@"

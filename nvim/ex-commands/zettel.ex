@@ -1,2 +1,0 @@
-norm Gozettelkasten
-startinsert!
