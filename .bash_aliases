@@ -87,3 +87,4 @@ alias ssh-no-host-checking='ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHost
 alias compositor='/storage/src/devops/bin/toggle_compositor.sh'
 alias xsession='[[ ! -z "$DISPLAY" ]] && source $HOME/.xsession'
 alias ls='ls -a'
+alias nvimai='export OPENAI_API_KEY=$(pass api-keys/OPENAI) && nvim'

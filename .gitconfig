@@ -115,3 +115,5 @@
 	directory = /storage/src/finances
 	directory = /storage/src/tiagoprn
 	directory = /storage/src/nix
+	directory = /storage/src/pass
+	directory = /storage/src/writeloop-raw
