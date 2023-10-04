@@ -117,3 +117,4 @@
 	directory = /storage/src/nix
 	directory = /storage/src/pass
 	directory = /storage/src/writeloop-raw
+	directory = /storage/src/writeloop-raw
