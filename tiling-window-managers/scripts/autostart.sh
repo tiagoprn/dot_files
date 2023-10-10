@@ -55,3 +55,7 @@ nohup /storage/src/dot_files/tiling-window-managers/scripts/start-dunst.sh >>$LO
 # fi
 
 /storage/src/dot_files/tiling-window-managers/scripts/polybar-launch.sh &
+
+flatpak run --filesystem=host com.github.flxzt.rnote &
+
+flatpak run org.chromium.Chromium --app=https://meet.google.com &
