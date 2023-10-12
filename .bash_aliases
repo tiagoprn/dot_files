@@ -28,6 +28,7 @@ alias tm='tmux'
 alias tp='tmuxp load $(find /storage/src -type f | grep -v ".git/" | grep "tmuxp/" | sort | fzf)'
 alias tl='tmux ls'
 alias ta='tmux -2 a -t `tmux-select-session`'
+alias ts='/storage/src/dot_files/tiling-window-managers/scripts/tmux-split-menu.sh'
 alias tk='tmux kill-session -t `tmux-select-session`'
 alias vg='nvim $(git status -s | cut -d " " -f 3)'
 alias vi='nvim --clean' # runs nvim with no customizations and plugins (as if fresh)
