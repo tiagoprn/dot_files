@@ -32,14 +32,19 @@ create_if_needed_and_attach() {
         # DEFAULT_FIRST_WINDOW_INDEX=1
         DEFAULT_FIRST_WINDOW_INDEX=0
 
-        tmux rename-window -t $DEFAULT_FIRST_WINDOW_NAME "nvim"
-        tmux send-keys -t "nvim" "nvim" C-m
+        MAIN_WINDOW_NAME=nvim
+
+        tmux rename-window -t $DEFAULT_FIRST_WINDOW_NAME $MAIN_WINDOW_NAME
+        tmux send-keys -t $MAIN_WINDOW_NAME "nvimai" C-m
         tmux splitw -v -p 15
-        tmux send-keys -t "nvim" "# You can run a runserver like or other commands on this pane." C-m
+        tmux send-keys -t $MAIN_WINDOW_NAME "# You can run a runserver like or other commands on this pane." C-m
         tmux selectp -t 0
 
         tmux new-window -t "$session_name:2" -n "git"
         tmux send-keys -t "git" "/storage/src/dot_files/git-ui-with-ssh-agent.sh ." C-m
+
+        # tmux new-window -t "$session_name:3" -n "scratchpad"
+        # tmux send-keys -t "scratchpad" "# use this to iterate on the project" C-m
 
         echo 'BEFORE ERROR...'
         tmux attach-session -t "$session_name:$DEFAULT_FIRST_WINDOW_INDEX"
