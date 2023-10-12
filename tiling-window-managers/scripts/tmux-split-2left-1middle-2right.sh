@@ -13,20 +13,31 @@ if [[ $pane_count -ne 1 ]]; then
     exit 1
 fi
 
-tmux split-window -v -p 30
-tmux split-window -h -p 66
-tmux split-window -h -p 50
+# Split the pane twice horizontally to get three panes
+tmux split-window -h
+tmux split-window -h
+
+# Now, adjust each pane to be 33% wide
+tmux select-layout even-horizontal
+
+# Split the 1st pane vertically
+tmux select-pane -t 0
+tmux split-window -v
+
+# Split the 3rd pane vertically (it's now the 4th pane after the above split)
+tmux select-pane -t 3
+tmux split-window -v
 
 # Get the total number of panes
 total_panes=$(tmux list-panes | wc -l)
 
-# Iterate over all panes and send bash command "clear" to each one except for pane index 0
+# Iterate over all panes and send bash command "clear" to each one except for pane index 2
 for ((i = 0; i < total_panes; i++)); do
-    if [[ $i -ne 0 ]]; then
+    if [[ $i -ne 2 ]]; then
         tmux select-pane -t "$i"
         tmux send-keys "clear" C-m
     fi
 done
 
-# Set focus to top pane (index=0)
-tmux select-pane -t 0
+# Set focus to the middle pane (3rd pane, index 2)
+tmux select-pane -t 2
