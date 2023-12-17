@@ -16,15 +16,23 @@ desktop=$(echo "$DESKTOP_SESSION")
 
 monitors=$(xrandr --query | grep " connected" | cut -d" " -f1 | tr '\n' ' ')
 
+total_monitors=$(echo "$monitors" | wc -l)
+
+echo -e "TOTAL MONITORS DETECTED: $total_monitors\n\n"
+
 declare -A MAPPINGS=(
     ['eDP-1']="mainbar-bspwm"
     ['HDMI-1']="mainbar-bspwm-wide"
 )
 
-notify-send "polybar-launch.sh" "$count monitors connected, configuring..."
+notify-send "polybar-launch.sh" "$total monitors connected, configuring..."
 
 if [[ $HOSTNAME == cosmos ]]; then
-    POLYBAR_CONFIG='/storage/src/dot_files/tiling-window-managers/polybar/config.cosmos'
+    if [ "$total_monitors" == 1 ]; then
+        POLYBAR_CONFIG='/storage/src/dot_files/tiling-window-managers/polybar/config.cosmos.embedded-monitor'
+    else
+        POLYBAR_CONFIG='/storage/src/dot_files/tiling-window-managers/polybar/config.cosmos'
+    fi
 else
     POLYBAR_CONFIG='/storage/src/dot_files/tiling-window-managers/polybar/config'
 fi
