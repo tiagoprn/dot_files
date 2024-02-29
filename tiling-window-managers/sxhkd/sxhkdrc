@@ -308,3 +308,6 @@ alt + Tab
 super + space
     bspc node @/ -C forward
 
+# google meet rooms:
+super + o
+	~/contractors/octerra/git/octerra/scripts/google-meet-rooms.sh
