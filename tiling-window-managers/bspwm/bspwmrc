@@ -13,6 +13,12 @@ if [[ $(xrandr -q | grep 'HDMI-1 connected' | grep '2560') ]]; then
     # set the desktops on each monitor
     bspc monitor HDMI-1 -d 1 2 3 4 5
     bspc monitor eDP-1 -d 6 7 8 9
+elif [[ $(xrandr -q | grep 'HDMI-1 connected' | grep '1920') ]]; then
+    # set the order of the monitors, according to <https://github.com/baskerville/bspwm/issues/1424>
+    bspc wm -O eDP-1 HDMI-1
+    # set the desktops on each monitor
+    bspc monitor eDP-1 -d 1 2 3 4 5
+    bspc monitor HDMI-1 -d 6 7 8 9
 else
     bspc wm -O eDP-1
     bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8
