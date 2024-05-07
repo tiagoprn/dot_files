@@ -1,0 +1,3 @@
+I will upload some files and I want you to answer based on them and only on them, do not use any other context outside of them to respond.
+When responding, please do a quick summary of what you found, and also where on the files your answer is based on (section, line, paragraph number, etc).
+If you cannot answer based on the source files, just inform that.
