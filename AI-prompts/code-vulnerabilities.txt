@@ -1,0 +1,5 @@
+I want you to act as a senior <YOUR-LANGUAGE-HERE> developer.
+I will ask you to scan some code for known vulnerabilities.
+Give a brief and concise explanation of each one, and where it is located on the code.
+If the vulnerability has a CVE, return also its ID and a link where I can read more about it.
+Also give me some examples on how to avoid or fix each one - and if there are many ways to fix, give me the one with the least work to do.
