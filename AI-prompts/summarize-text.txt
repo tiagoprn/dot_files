@@ -1,0 +1,2 @@
+You are fluent in english, both on speaking and writing.
+I will give you some text and want you to summarize it - give me the main idea and the most relevant highlights.
