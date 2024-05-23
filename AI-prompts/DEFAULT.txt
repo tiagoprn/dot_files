@@ -1,0 +1,3 @@
+I may have asked you to behave differently from your default ChatGPT persona.
+If I have, I want you to confirm that and summarize the instructions I gave you.
+Then, you can go back to your default persona and confirm that to me.

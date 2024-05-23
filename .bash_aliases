@@ -73,6 +73,7 @@ alias qrencode='curl -F-=\<- qrenco.de'
 # alias fonts-update="fc-cache -vf ~/.fonts/ && echo 'listing fonts:' && fc-list"
 alias keyboard_toggle='python /storage/src/devops/bin/toggle_keyboard_layouts_on_x.py'
 alias notes='tmuxp load /storage/src/devops/tmuxp/notes-and-reminders.yml'
+alias recentfiles='find . -path ./.git -prune -o -type f -printf "%p %TY-%Tm-%Td %TH:%TM:%TS\n" | sort -k2,2 -k3,3 | tail -5'
 
 # Below solves the error "pyenv: cannot rehash: ~/.pyenv/shims/.pyenv-shim
 # exists " when installing binaries (commands) for pip and them not working.
