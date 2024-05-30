@@ -1,0 +1,6 @@
+2880x1620
+3200x1800 (* RECOMMENDED: this is the one I have personalized my configuration to)
+3360x1890
+3520x1980
+3680x2070
+4K (DEFAULT)

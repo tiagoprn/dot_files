@@ -98,12 +98,12 @@ padding-right = 0
 module-margin-left = 3
 module-margin-right = 3
 ;https://github.com/jaagr/polybar/wiki/Fonts
-;font-0 = "Hack Nerd Font:size=11;2"
-font-0 = "Roboto:size=11;0"
-font-1 = "FontAwesome:size=13;2"
-font-2 = "Noto Sans:size=10;0"
-font-3 = "Noto Sans Mono:size=10;0"
-font-4 = "Noto Sans:size=10;0"
+;font-0 = "Hack Nerd Font:size=13;2"
+font-0 = "Roboto:size=14;0"
+font-1 = "FontAwesome:size=14;2"
+font-2 = "Noto Sans:size=14;0"
+font-3 = "Noto Sans Mono:size=14;0"
+font-4 = "Noto Sans:size=14;0"
 modules-left = bspwm custom-dunst-status custom-battery
 modules-center = date custom-kdbleds
 modules-right = custom-volume xwindow filesystem

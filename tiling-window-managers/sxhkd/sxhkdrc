@@ -311,3 +311,7 @@ super + space
 # google meet rooms:
 super + o
 	~/contractors/octerra/git/octerra/scripts/google-meet-rooms.sh
+
+# change resolution of the 4K HDMI monitor:
+super + s
+	/storage/src/dot_files/tiling-window-managers/scripts/4k-scaling.sh
