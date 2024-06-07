@@ -29,8 +29,11 @@ if [ -f $HOME/bashrc.custom ]; then
     source $HOME/bashrc.custom
 fi
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# Allows this to work well with other machines on the network (scp, rsync, etc):
+# Commands producing output are wrapped in a check for interactive sessions
+if [[ $- != *i* ]]; then
+    return
+fi
 
 # disable <Ctrl-s> permanently in terminal, which freezes it
 stty -ixon
