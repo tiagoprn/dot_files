@@ -22,7 +22,6 @@ else
         '{ifconfig_me: $ifconfig_me, ipinfo_io: $ipinfo_io}')
 fi
 
-echo "$final_output" | xclip -selection clipboard
-echo "$final_output" | xclip -selection primary
+echo "$final_output" | wl-paste
 
 notify-send "Successfully copied IP data to clipboard."

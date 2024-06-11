@@ -116,6 +116,6 @@ if __name__ == "__main__":
             pass
 
         cmd = 'echo "' + vim_command + "\" | tr -d '\\n'"
-        cmd = cmd + " | xclip -selection clipboard"
+        cmd = cmd + " | wl-copy"
         subprocess.check_call(cmd, shell=True)
         logging.info(f"copied to clipboard >>> {cmd}")
