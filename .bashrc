@@ -223,13 +223,6 @@ fi
 
 [ -f ~/.fzf/fzf.bash ] && source ~/.fzf/fzf.bash
 
-if ! [ -x "$(command -v startx)" ]; then
-    echo -e " -------------------------------------------------------\n"
-    echo -e " No xorg detected, since 'startx' has not been found.\n"
-    echo -e " You can use navi to start tmux if it is installed... ;)\n"
-    echo -e " -------------------------------------------------------\n"
-fi
-
 if command -v starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
