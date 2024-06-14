@@ -8,5 +8,5 @@ tmux list-sessions -F '#{session_last_attached} #{session_name}' \
     | grep -vw "$CURRENT_SESSION" \
     | sort -rn \
     | cut -d' ' -f2- \
-    | fzf -e --header="Select a tmux session to attach:" \
+    | fzf -e --header="Select a session to switch to:" \
     | xargs -I {} tmux switch-client -t {}
