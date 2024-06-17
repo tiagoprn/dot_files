@@ -1,0 +1,11 @@
+{
+  "pyprland": {
+    "plugins": ["scratchpads"]
+  },
+  "scratchpads": {
+    "volume": {
+      "command": "pavucontrol",
+      "animation": "fromTop"
+    }
+  }
+}
