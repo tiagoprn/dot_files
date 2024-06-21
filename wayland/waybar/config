@@ -6,7 +6,7 @@
     "margin-left": 0,
     "margin-right": 0,
     "modules-left": [
-        "wlr/workspaces",
+        "hyprland/workspaces",
         "hyprland/window",
     ],
     "modules-center": [
