@@ -3,7 +3,7 @@
 
 option1="  lock"
 option2="  logout"
-option3="  reboot"
+option3="  restart"
 option4="  power off"
 
 options="$option1\n"
@@ -20,9 +20,9 @@ case $choice in
         hyprctl dispatch exit
         ;;
     $option3)
-        systemctl reboot
+        sudo shutdown -r now
         ;;
     $option4)
-        systemctl poweroff
+        sudo shutdown -h now
         ;;
 esac
