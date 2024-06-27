@@ -4,8 +4,12 @@
   },
   "scratchpads": {
     "volume": {
+      "animation": "fromTop",
       "command": "pavucontrol",
-      "animation": "fromTop"
+      "class": "org.pulseaudio.pavucontrol",
+      "size": "50% 90%",
+      "unfocus": "hide",
+      "lazy": true
     }
   }
 }
