@@ -10,7 +10,7 @@ echo -e 'TMUX GOODIES:'
 
 # is not inside tmux:
 if [ -z "${TMUX+set}" ]; then
-    echo -e '- Consider opening tmux sessions with the "tp" bash alias.'
+    echo -e '- Consider opening tmuxp available sessions with the "tp" bash alias. (e.g. REMOTE)'
 fi
 
 echo -e '- Use "tn" or "tmux-nvim-project-setup.sh" to create a default session on a git repository'
