@@ -1,30 +1,29 @@
 #!/usr/bin/env bash
 
-# Define the scratchpad workspace number
-SCRATCHPAD_WS=-99
+# Extract clients info from hyprctl
+clients_json=$(hyprctl clients -j)
 
-# Get the list of window IDs and their titles in the scratchpad workspace
-windows=$(hyprctl clients | grep -B 6 "workspace: $SCRATCHPAD_WS" | grep "Window" | awk '{print $2, "(", substr($0, index($0, "->")+3), ")"}')
+# Parse the JSON and get clients in the special workspace
+special_clients=$(echo "$clients_json" | jq -r '.[] | select(.workspace.name == "special:special") | "\(.address) \(.class) (\(.title))"')
 
-# Check if there are any windows
-if [ -z "$windows" ]; then
-    notify-send "Scratchpad" "No windows in the scratchpad"
+# Check if there are any clients in the special workspace
+if [ -z "$special_clients" ]; then
+    echo "No windows found in the special workspace."
     exit 1
 fi
 
-# Use wofi to select a window
-selected_window=$(echo "$windows" | wofi --dmenu --prompt "Select a window to show")
+# Use fzf to select one of the clients
+selected_client=$(echo "$special_clients" | fzf --prompt="Select a window to move to workspace 1: " | awk '{print $1}')
 
-# If no window was selected, exit
-if [ -z "$selected_window" ]; then
+# Check if a client was selected
+if [ -z "$selected_client" ]; then
+    echo "No window selected."
     exit 1
 fi
 
-# Extract the window ID from the selected entry
-window_id=$(echo "$selected_window" | awk '{print $1}')
+echo "SELECTED_CLIENT=$selected_client"
 
-# Move the selected window back to the current workspace and make it visible
-current_workspace=$(hyprctl activeworkspace | head -n 1 | awk '{print $3}')
-notify-send "CURRENT_WORKSPACE='$current_workspace', WINDOW_ID='$window_id'"
-hyprctl dispatch movetoworkspace $current_workspace $window_id
-hyprctl dispatch map $window_id
+# Move the selected window to workspace 1
+hyprctl dispatch movetoworkspace 1 $selected_client
+
+echo "Moved window $selected_client to workspace 1."
