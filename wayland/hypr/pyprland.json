@@ -10,6 +10,14 @@
       "size": "50% 90%",
       "unfocus": "hide",
       "lazy": true
+    },
+    "terminal": {
+      "animation": "fromTop",
+      "command": "wezterm start --class wezterm_scratchpad -- /home/tiago/scripts/terminal-scratchpad.sh",
+      "class": "wezterm_scratchpad",
+      "size": "60% 90%",
+      "unfocus": "hide",
+      "lazy": true
     }
   }
 }
