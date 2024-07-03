@@ -75,17 +75,15 @@
   # https://git-scm.com/docs/git-config#git-config-transferfsckObjects
   # via https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
 
-
 # diffs powered by treesitter and rust:
 # https://github.com/Wilfred/difftastic
-[diff]
-  tool = difft
-
-[difftool]
-  prompt = false
-
 [difftool "difft"]
   cmd = difft $LOCAL $REMOTE
+  prompt = false
+
+[mergetool "meld"]
+  cmd = meld "$BASE" "$LOCAL" "$REMOTE" --output="$MERGED"
+  trustExitCode = true
 
 [pager]
   difftool = true
@@ -99,6 +97,7 @@
 # On repeated merge conflicts, [re]use [re]corded [re]solution
 [rerere]
   enabled = true
+
 [init]
 	defaultBranch = main
 
