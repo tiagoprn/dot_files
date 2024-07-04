@@ -178,6 +178,9 @@ export WINIT_X11_SCALE_FACTOR=1.0
 export GTK_IM_MODULE=cedilla
 export QT_IM_MODULE=cedilla
 
+# Makes all electron apps run under wayland
+export ELECTRON_ENABLE_WAYLAND=1
+
 # provides bash and git completion
 # For it to work, install the package "bash-completion":
 #     sudo pacman -S bash-completion
@@ -227,9 +230,9 @@ if command -v starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
 
-TILING_WM_SCRIPTS_PATH="/storage/src/dot_files/tiling-window-managers/scripts"
-if [ -d "$TILING_WM_SCRIPTS_PATH" ]; then
-    export PATH="$PATH:$TILING_WM_SCRIPTS_PATH"
+WAYLAND_SCRIPTS_PATH="/storage/src/dot_files/wayland/scripts"
+if [ -d "$WAYLAND_SCRIPTS_PATH" ]; then
+    export PATH="$PATH:$WAYLAND_SCRIPTS_PATH"
 fi
 
 CARGO_BIN="$HOME/.cargo/bin"
