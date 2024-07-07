@@ -247,6 +247,7 @@ fi
 
 export TEXT_BROWSER=w3m
 export BROWSER=firefox
+export GTK_THEME=Adwaita-dark
 
 # PYENV setup
 export PYENV_ROOT="$HOME/.pyenv"

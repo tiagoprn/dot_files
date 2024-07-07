@@ -121,8 +121,8 @@ button {
 }
 
 #clock {
-    background-color: transparent;
-    font-size:16;
+    background-color: #000000;
+    font-size:20;
 }
 
 #battery {
@@ -222,7 +222,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #000000;
+    background: transparent;
 }
 
 #tray > .passive {
@@ -272,8 +272,8 @@ label:focus {
 }
 
 #keyboard-state {
-    background: #97e1ad;
-    color: #000000;
+    background: transparent;
+    color: #FFFFFF;
     padding: 0 0px;
     margin: 0 5px;
     min-width: 16px;
@@ -284,7 +284,7 @@ label:focus {
 }
 
 #keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
+    color: #FF0000;
 }
 
 #window {

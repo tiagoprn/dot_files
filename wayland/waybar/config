@@ -11,6 +11,7 @@
     ],
     "modules-center": [
         "clock",
+	"keyboard-state"
     ],
     "modules-right": [
         // "hyprland/language",
@@ -71,8 +72,9 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+	"interval": 1,
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
-        "format": "{:%a %b %d - %H:%M}",
+        "format": "{:%a %b %d - %H:%M:%S}",
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
@@ -156,6 +158,15 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "keyboard-state": {
+        "interval": 1,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "ON",
+            "unlocked": "OFF"
+        }
     }
 }
 
