@@ -1,0 +1,10 @@
+show=drun
+width=1000
+height=500
+always_parse_args=true
+show_all=false
+term=kitty
+hide_scroll=false
+print_command=true
+insensitive=true
+prompt=
