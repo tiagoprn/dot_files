@@ -249,6 +249,12 @@ export TEXT_BROWSER=w3m
 export BROWSER=firefox
 export GTK_THEME=Adwaita-dark
 
+# NOTE: below enables using 'CTRL+G' to call navi in INSERT MODE
+#       and make its' commands to appear on the shell history:
+#       https://github.com/denisidoro/navi/issues/462
+export NAVI_PATH='$NAVI_PATH:/storage/src/devops/cheats'
+eval "$(navi widget bash)"
+
 # PYENV setup
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
