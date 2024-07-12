@@ -77,16 +77,22 @@
 
 # diffs powered by treesitter and rust:
 # https://github.com/Wilfred/difftastic
+[diff]
+  tool = difft
+
 [difftool]
   prompt = false
-  tool = difft
 
 [difftool "difft"]
   cmd = difft $LOCAL $REMOTE
   prompt = false
 
+[mergetool]
+  prompt = false
+
 [mergetool "meld"]
   cmd = meld "$BASE" "$LOCAL" "$REMOTE" --output="$MERGED"
+  prompt = false
   trustExitCode = true
 
 [pager]
