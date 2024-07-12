@@ -77,6 +77,10 @@
 
 # diffs powered by treesitter and rust:
 # https://github.com/Wilfred/difftastic
+[difftool]
+  prompt = false
+  tool = difft
+
 [difftool "difft"]
   cmd = difft $LOCAL $REMOTE
   prompt = false
@@ -86,7 +90,14 @@
   trustExitCode = true
 
 [pager]
-  difftool = true
+    ; Here, the flags for less are:
+    ; -R: Preserves color output
+    ; -F: Exits if the output fits on one screen without scrolling
+    ; -X: Keeps output on screen after exit
+    diff = difft | less --tabs=4 -RFX
+    show = less -RFX
+    log = less -RFX
+    status = true
 
 [core]
   excludesfile = /storage/src/dot_files/.gitignore.global
