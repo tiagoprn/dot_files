@@ -1,17 +1,12 @@
 #!/bin/bash
 
-shopt -s expand_aliases
-source "$HOME"/.bashrc
+# Below orders the tmux sessions by last attached
 
-SELECTION=$(tl | fzf -e --prompt='Choose a tmux session: ')
+CURRENT_SESSION=$(tmux display-message -p '#S')
 
-EXIT_CODE=$?
-
-# notify-send "EXIT_CODE=$EXIT_CODE"
-
-if [ "$EXIT_CODE" == 0 ]; then
-    # notify-send "SELECTION=$SELECTION"
-    SESSION_NAME=$(echo "$SELECTION" | cut -d ':' -f 1)
-    # notify-send "SESSION_NAME=$SESSION_NAME"
-    tmux switch-client -t "$SESSION_NAME"
-fi
+tmux list-sessions -F '#{session_last_attached} #{session_name}' \
+    | grep -vw "$CURRENT_SESSION" \
+    | sort -rn \
+    | cut -d' ' -f2- \
+    | fzf -e --header="Select a session to switch to:" \
+    | xargs -I {} tmux switch-client -t {}

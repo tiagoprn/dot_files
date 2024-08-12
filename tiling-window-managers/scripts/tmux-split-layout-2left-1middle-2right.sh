@@ -41,3 +41,10 @@ done
 
 # Set focus to the middle pane (3rd pane, index 2)
 tmux select-pane -t 2
+
+# Ask if the user wants to rename the session
+read -p "Do you want to rename the tmux session? (y/n): " rename
+if [[ $rename == "y" || $rename == "Y" ]]; then
+    read -p "Enter the new session name: " session_name
+    tmux rename-session -t $(tmux display-message -p '#S') "$session_name"
+fi
