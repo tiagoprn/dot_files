@@ -160,7 +160,7 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "keyboard-state": {
-        "interval": 1,
+        "interval": 5,
         "capslock": true,
         "format": "{name} {icon}",
         "format-icons": {
