@@ -1,8 +1,8 @@
-I want a wallpaper in resolution 2560x1080 of the sky of a hypothetical planet around a white dwarf star.
+I want a wallpaper in 4K resolution of the sky of a hypothetical planet around a blue star.
 The planet is on the habitable zone.
 On the surface, I want water and vegetation.
-On the sky, it must have stars with varying colors and animals.
+On the sky, it must have stars with varying colors and flying animals.
 All elements on the image: vegetation, animals and stars must be scientifically accurate.
 The plant colors must be optimized for energy gathering from the generated star.
-Before generating the image, tell if you can generate a scientifically accurate image with those parameters and procede if so.
+Before generating the image, tell if you can generate a scientifically accurate image with those parameters and proceed if so.
 If not, do not generate it and tell what changes need to be done for that.

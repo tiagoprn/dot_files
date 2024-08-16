@@ -13,3 +13,5 @@ skip-black
 skip-isort
 enable-flake8*
 definitions.txt
+tmp/
+.env.docker
