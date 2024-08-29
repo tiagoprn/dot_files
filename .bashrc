@@ -10,6 +10,13 @@
 # | |_) | (_| \__ \ | | | | | (__
 # |_.__/ \__,_|___/_| |_|_|  \___|
 
+# If not running interactively, don't do anything
+# This allow commands like scp or rsync to work when the destination is this machine
+case $- in
+    *i*) ;;
+    *) return ;;
+esac
+
 # Enable vim-mode on shell editing instead of the default emacs one
 # Also show on the cursor if we are on visual or insert mode
 set -o vi
