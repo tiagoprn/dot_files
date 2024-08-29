@@ -154,26 +154,8 @@ function dockerps () {  # docker ps with custom formatting
     docker ps --format 'table {{ .ID }}, {{ .Names }}, {{ .Status }}, {{ .Command }}, {{ .Image }}';
 }
 
-
 function command_exists () {  # check if a command exists
     type "$1" &> /dev/null ;
-}
-
-function n() {  # run a command from navi cheatsheet
-    arquivo="/usr/bin/xclip"
-    if [ -f "$arquivo" ] ;
-    then
-        OUTPUT=$(navi --fzf-overrides '--color=bw,fg+:#bf2a2a,bg+:#ffffff,preview-fg:#bf2a2a' --path "$(cat ~/.navirc)" --print) && echo "$OUTPUT" | xclip -selection clipboard && sleep 1 && xdotool getwindowfocus windowfocus --sync key "ctrl+shift+v"
-    else
-        if [ -z "$TMUX" ]
-        then
-            echo -e "\n --- \n WARNING: To have the best usability it is recommended to run this inside a tmux session ;) \n --- \n"
-            navi --path "$(cat ~/.navirc)" --print
-        else
-            navi --path "$(cat ~/.navirc)" --print | while read command; do tmux send-keys "$command" ENTER; done
-        fi
-    fi
-
 }
 
 function search-personal-notes() {  # search on personal notes

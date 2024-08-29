@@ -223,13 +223,6 @@ fi
 
 [ -f ~/.fzf/fzf.bash ] && source ~/.fzf/fzf.bash
 
-if ! [ -x "$(command -v startx)" ]; then
-    echo -e " -------------------------------------------------------\n"
-    echo -e " No xorg detected, since 'startx' has not been found.\n"
-    echo -e " You can use navi to start tmux if it is installed... ;)\n"
-    echo -e " -------------------------------------------------------\n"
-fi
-
 if command -v starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
@@ -251,6 +244,12 @@ fi
 
 export TEXT_BROWSER=w3m
 export BROWSER=firefox
+
+# NOTE: below enables using 'CTRL+G' to call navi in INSERT MODE
+#       and make its' commands to appear on the shell history:
+#       https://github.com/denisidoro/navi/issues/462
+export NAVI_PATH="$NAVI_PATH:/storage/src/devops/cheats:/home/tds/contractors/octerra/git/octerra/cheatsheets"
+eval "$(navi widget bash)"
 
 # PYENV setup
 export PYENV_ROOT="$HOME/.pyenv"
