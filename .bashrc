@@ -252,7 +252,7 @@ export GTK_THEME=Adwaita-dark
 # NOTE: below enables using 'CTRL+G' to call navi in INSERT MODE
 #       and make its' commands to appear on the shell history:
 #       https://github.com/denisidoro/navi/issues/462
-export NAVI_PATH='$NAVI_PATH:/storage/src/devops/cheats'
+export NAVI_PATH="$NAVI_PATH:/storage/src/devops/cheats:/home/tds/contractors/octerra/git/octerra/cheatsheets"
 eval "$(navi widget bash)"
 
 # PYENV setup
