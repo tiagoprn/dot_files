@@ -36,11 +36,17 @@ if [ -f $HOME/bashrc.custom ]; then
     source $HOME/bashrc.custom
 fi
 
-# Allows this to work well with other machines on the network (scp, rsync, etc):
-# Commands producing output are wrapped in a check for interactive sessions
-if [[ $- != *i* ]]; then
-    return
-fi
+# Use GNOME Keyring as the GPG agent
+# needs "gnome-keyring" package installed and started with: '/usr/bin/gnome-keyring-daemon --start --components=gpg,ssh'
+export GPG_AGENT_INFO=
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export GPG_AGENT_INFO=$(gpgconf --list-dirs agent-socket)
+
+# # Allows this to work well with other machines on the network (scp, rsync, etc):
+# # Commands producing output are wrapped in a check for interactive sessions
+# if [[ $- != *i* ]]; then
+#     return
+# fi
 
 # disable <Ctrl-s> permanently in terminal, which freezes it
 stty -ixon
