@@ -17,4 +17,4 @@ cat <<. >>$OUTPUT_FILE
 # $(date)
 .
 
-nvimai "$OUTPUT_FILE" +"normal!G2o" +"startinsert"
+nvim "$OUTPUT_FILE" +"normal!G2o" +"startinsert"
