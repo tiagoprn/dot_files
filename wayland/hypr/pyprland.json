@@ -1,6 +1,6 @@
 {
   "pyprland": {
-    "plugins": ["scratchpads"]
+    "plugins": ["scratchpads", "wallpapers"]
   },
   "scratchpads": {
     "volume": {
@@ -19,5 +19,13 @@
       "unfocus": "hide",
       "lazy": true
     }
+  },
+  "wallpapers": {
+    "path": "/home/tiago/Wallpapers/",
+    "interval": 60,
+    "extensions": ["jpg", "jpeg", "png"],
+    "recurse": true,
+    "command": "swaybg -m fill -i \"[file]\"",
+    "clear_command": "swaybg clear"
   }
 }

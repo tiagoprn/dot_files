@@ -71,7 +71,7 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
+        "timezone": "America/Sao_Paulo",
 	"interval": 1,
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
         "format": "{:%a %b %d - %H:%M:%S}",
