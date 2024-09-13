@@ -5,7 +5,7 @@ option1="  lock"
 option2="  logout"
 option3="  restart gdm "
 option4="  restart machine"
-option5="  power off"
+option5="  shutdown"
 
 options="$option1\n$option2\n$option3\n$option4\n$option5\n"
 
