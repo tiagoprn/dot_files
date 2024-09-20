@@ -1,6 +1,10 @@
 ## swaync
 
-I can add custom actions to swaync's button grid (it is on the bottom). I can trigger shell scripts and include toogle commands (to switch something on and off). Example:
+official github repository: <https://github.com/ErikReider/SwayNotificationCenter>
+
+### Tips
+
+- I can add custom actions to swaync's button grid (it is on the bottom). I can trigger shell scripts and include toogle commands (to switch something on and off). Example:
 
 ``` json
 
