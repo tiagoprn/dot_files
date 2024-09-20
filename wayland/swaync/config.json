@@ -61,52 +61,8 @@
     "buttons-grid": {
       "actions": [
         {
-          "label": "󰐥",
-          "command": "systemctl poweroff"
-        },
-        {
-          "label": "󰜉",
-          "command": "systemctl reboot"
-        },
-        {
-          "label": "󰏥",
-          "command": "systemctl suspend"
-        },
-        {
-          "label": "󰌾",
-          "command": "/home/luka/.config/hypr/scripts/LockScreen.sh"
-        },
-        {
-          "label": "󰕾",
-          "command": "/home/luka/.config/hypr/scripts/Volume.sh --toggle"
-        },
-        {
-          "label": "󰍬",
-          "command": "/home/luka/.config/hypr/scripts/Volume.sh --toggle-mic"
-        },
-        {
-          "label": "󰏘",
-          "command": "/home/luka/.config/hypr/scripts/Wallpaper.sh"
-        },
-        {
-          "label": "",
-          "command": "/home/luka/.config/hypr/scripts/DarkLight.sh"
-        },
-        {
-          "label": "",
-          "command": "/home/luka/.config/hypr/scripts/Help.sh"
-        },
-        {
           "label": "󰂯",
           "command": "blueman-manager"
-        },
-        {
-          "label": "󰀝",
-          "command": "/home/luka/.config/hypr/scripts/AirplaneMode.sh"
-        },
-        {
-          "label": "󰃟 ",
-          "command": "/home/luka/.config/hypr/scripts/Sunset.sh"
         }
       ]
     }
