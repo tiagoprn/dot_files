@@ -11,12 +11,9 @@
     ],
     "modules-center": [
         "clock",
-	"keyboard-state"
+	"custom/capslock",
     ],
     "modules-right": [
-        // "hyprland/language",
-        // "custom/outlook",
-        // "keyboard-state",
         "pulseaudio",
         "disk",
         "cpu",
@@ -50,14 +47,9 @@
         "format": "",
         "on-click": "~/scripts/powermenu-hypr.sh"
     },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
+    "custom/capslock": {
+	"exec": "~/scripts/caps-lock-waybar.sh",
+	"interval": 1
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -158,15 +150,6 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "keyboard-state": {
-        "interval": 5,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "ON",
-            "unlocked": "OFF"
-        }
     }
 }
 
