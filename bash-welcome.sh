@@ -14,11 +14,10 @@ echo -e 'TMUX GOODIES:'
 
 # is not inside tmux:
 if [ -z "${TMUX+set}" ]; then
-    echo -e '- Consider opening tmuxp available sessions with the "tp" bash alias. (e.g. REMOTE)'
+    echo -e "- Open ${RED}tmuxp available sessions${NC} with the ${RED}tp${NC} bash alias. (e.g. REMOTE)"
 fi
 
-echo -e '- Use "tn" or "tmux-nvim-project-setup.sh" to create a default session on a git repository'
-echo -e '  with nvim, gitui and a scratchpad.'
+echo -e "- Use ${RED}tmux-ide.sh${NC} to create an ide session ${RED}in the current directory${NC}."
 
 # if [[ $HOSTNAME == cosmos ]]; then
 #     echo -e '- To run timeshift: sudo timeshift-gtk'
@@ -27,3 +26,4 @@ echo -e '  with nvim, gitui and a scratchpad.'
 echo -e "-----"
 echo -e "==> To get password from ${RED}pass${NC}, use the ${RED}gp${NC} bash alias <=="
 echo -e "==> To call ${RED}navi${NC}, use ${RED}<CTRL+G>${NC} when on INSERT mode. <=="
+echo -e "==> To open tmux ${RED}tasks, fleeting-notes & reminders${NC}, use the ${RED}hi${NC} bash alias <=="
