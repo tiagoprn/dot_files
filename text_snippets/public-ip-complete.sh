@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
-/storage/src/dot_files/tiling-window-managers/scripts/public-ip-address.sh \
-    && echo $(wl-paste)
+CURRENT_IP_DATA=$(curl realip.cc/json)
+
+echo "$CURRENT_IP_DATA" | wl-copy \
+    && echo $(wl-paste) \
+    && notify-send "Current IP data: $CURRENT_IP_DATA"

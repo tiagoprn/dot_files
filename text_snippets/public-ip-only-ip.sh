@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
-/storage/src/dot_files/tiling-window-managers/scripts/public-ip-address.sh --only-ip \
-    && echo $(wl-paste)
+CURRENT_IP=$(curl realip.cc/simple)
+
+echo "$CURRENT_IP" | wl-copy \
+    && echo $(wl-paste) \
+    && notify-send "Current IP: $CURRENT_IP"
