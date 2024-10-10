@@ -21,8 +21,8 @@
     }
   },
   "wallpapers": {
-    "path": "/home/tiago/Wallpapers/",
-    "interval": 60,
+    "path": "/home/tiago/Wallpapers/current/",
+    "interval": 180,
     "extensions": ["jpg", "jpeg", "png"],
     "recurse": true,
     "command": "swaybg -m fill -i \"[file]\"",
