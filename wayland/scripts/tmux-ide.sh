@@ -39,21 +39,33 @@ fi
 
 # Function to create a new tmux session with the required windows
 create_tmux_session() {
-    # Start a new detached tmux session named "$SESSION_NAME" with the first window named "nvim" running 'nvim'
-    tmux new-session -d -s "$SESSION_NAME" -n "nvim" "nvim"
+    # Start a new detached tmux session named "$SESSION_NAME" without running any command
+    tmux new-session -d -s "$SESSION_NAME" -n ""
 
-    # Set the base-index and pane-base-index to 1 for window numbering
+    # Set the base-index to 1 for window numbering (session option)
     tmux set-option -t "$SESSION_NAME" base-index 1
-    tmux set-option -t "$SESSION_NAME" pane-base-index 1
+
+    # Rename the initial window to "nvim" and run 'nvim'
+    tmux rename-window -t "$SESSION_NAME":1 "nvim"
+    # Set pane-base-index to 1 for the "nvim" window
+    tmux set-option -w -t "${SESSION_NAME}:nvim" pane-base-index 1
+    tmux send-keys -t "${SESSION_NAME}:nvim.1" "nvim" C-m
 
     # Create the second window named "git" and run the specified shell script
     tmux new-window -t "$SESSION_NAME" -n "git" "bash $GIT_SCRIPT ."
+    # Set pane-base-index to 1 for the "git" window
+    tmux set-option -w -t "${SESSION_NAME}:git" pane-base-index 1
 
     # Create the third window named "scratchpad"
     tmux new-window -t "$SESSION_NAME" -n "scratchpad"
+    # Set pane-base-index to 1 for the "scratchpad" window
+    tmux set-option -w -t "${SESSION_NAME}:scratchpad" pane-base-index 1
 
-    # Send the message to the "scratchpad" window
-    tmux send-keys -t "${SESSION_NAME}:scratchpad" "echo 'You can run a runserver or other commands on this pane'" C-m
+    # Pause for 0.1 seconds to give time to the window to be created
+    sleep 0.1
+
+    # Send the message to the "scratchpad" window's first pane
+    tmux send-keys -t "${SESSION_NAME}:scratchpad.1" "echo 'You can run a runserver or other commands on this pane'" C-m
 
     # Select the first window ("nvim")
     tmux select-window -t "${SESSION_NAME}:nvim"
