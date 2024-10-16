@@ -9,6 +9,9 @@ set -e
 # Get the base name of the current directory to use as the session name
 SESSION_NAME=$(basename "$PWD")
 
+# Replace any '.' in the session name with '_'
+SESSION_NAME=${SESSION_NAME//./_}
+
 # Path to the git shell script
 GIT_SCRIPT="/storage/src/dot_files/git-ui-with-ssh-agent.sh"
 
