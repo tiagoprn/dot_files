@@ -49,7 +49,8 @@
     },
     "custom/capslock": {
 	"exec": "~/scripts/caps-lock-waybar.sh",
-	"interval": 1
+	"interval": 1,
+	"return-type": "json"
     },
     "idle_inhibitor": {
         "format": "{icon}",

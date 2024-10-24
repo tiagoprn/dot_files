@@ -9,11 +9,14 @@ for file in /sys/class/leds/input*::capslock/brightness; do
         brightness=$(cat "$file")
         if [ "$brightness" -eq 1 ]; then
             status="ON"
+            class="on"
             break
         else
             status="OFF"
+            class="off"
         fi
     fi
 done
 
-echo "CAPS: $status"
+# echo "CAPS $status"
+echo "{\"text\": \"CAPS $status\", \"class\": \"$class\"}"
