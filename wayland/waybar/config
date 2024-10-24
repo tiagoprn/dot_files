@@ -10,6 +10,7 @@
         "hyprland/window",
     ],
     "modules-center": [
+        "custom/week_info",
         "clock",
 	"custom/capslock",
     ],
@@ -51,6 +52,11 @@
 	"exec": "~/scripts/caps-lock-waybar.sh",
 	"interval": 1,
 	"return-type": "json"
+    },
+    "custom/week_info": {
+        "exec": "~/scripts/week-info.sh",
+        "interval": 3600,  // Update every hour
+        "return-type": "json"
     },
     "idle_inhibitor": {
         "format": "{icon}",
