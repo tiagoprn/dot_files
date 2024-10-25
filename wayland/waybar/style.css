@@ -121,6 +121,7 @@ button {
 }
 
 #clock {
+    color: yellow;
     background-color: #000000;
     font-size:20;
 }
