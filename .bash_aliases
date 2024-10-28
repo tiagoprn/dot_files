@@ -10,7 +10,7 @@ alias t='tmux'
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
 # TODO: edit below to put the date on this format: `date '+%Y-%m-%d %A %H:%M:%S %N'`
-alias j='/storage/src/dot_files/tiling-window-managers/scripts/create-quick-local-note.sh'
+alias j='/storage/src/dot_files/wayland/scripts/journal.sh'
 alias m='nvim +MindOpenMain'
 alias p='pyenv'
 alias s='source ~/.bashrc'
