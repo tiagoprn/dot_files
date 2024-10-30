@@ -224,6 +224,22 @@ function cdb() {  # cd into a path defined on the bookmarks file
 	cd "$SELECTED_DIR"
 }
 
+function cdg() {  # cd into a path defined on the git bookmarks file
+	BOOKMARKS_FILE_PATH="$HOME/.config/git-projects-bookmarks.list"
+
+	if [ -f "$BOOKMARKS_FILE_PATH" ]; then
+		echo "Bookmarks file exists at $BOOKMARKS_FILE_PATH \o/"
+	else
+		echo "File DOES NOT exist at $BOOKMARKS_FILE_PATH. Creating..."
+		echo -e "/storage/src/dot_files\n/storage/src/devops" > $BOOKMARKS_FILE_PATH
+		echo "File $BOOKMARKS_FILE_PATH successfully created."
+	fi
+
+	SELECTED_DIR=$(cat $BOOKMARKS_FILE_PATH | fzf | cut -d '|' -f 1 )
+	echo "Entering $SELECTED_DIR..."
+	cd "$SELECTED_DIR"
+}
+
 function cdf() {  # select on fzf a directory you want to enter into
     local dir
     dir=$(find . -type d -name '.git' -prune -o -type d -print 2> /dev/null | fzf +m) && cd "$dir"
