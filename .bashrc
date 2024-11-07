@@ -270,8 +270,9 @@ eval "$(navi widget bash)"
 
 # manage and cache your GPG keys, so you don't have to enter the passphrase repeatedly
 # For this to work, install "keychain" from your package manager (apt, pacman, etc...)
+
 echo -e "Type password to unlock the GPG key B47B5D91: "
-eval "$(keychain --eval --agents gpg B47B5D91)"
+eval "$(keychain --eval --quiet --agents gpg B47B5D91)"
 
 # PYENV setup
 export PYENV_ROOT="$HOME/.pyenv"
