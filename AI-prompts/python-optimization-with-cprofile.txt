@@ -2,11 +2,11 @@ I will send you python code I want to optimize for performance.
 
 By performant I mean: run as quickly as possible.
 
-I will also send you a profile generated with cprofile to aid on that.
+Wait for the next instructions after that.
 
 ---
 
-Now, I will send the profile data. Then I will send you more instructions.
+Now, I will send you profile data generated with cprofile to aid on that. Then I will send your final instructions, wait for them.
 
 ---
 
