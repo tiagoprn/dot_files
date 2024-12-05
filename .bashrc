@@ -268,11 +268,13 @@ export GTK_THEME=Adwaita-dark
 export NAVI_PATH="$NAVI_PATH:/storage/src/devops/cheats:/home/tds/contractors/octerra/git/octerra/cheatsheets"
 eval "$(navi widget bash)"
 
-# NOTE: below enables using 'CTRL+G' to call navi in INSERT MODE
-#       and make its' commands to appear on the shell history:
-#       https://github.com/denisidoro/navi/issues/462
-export NAVI_PATH="$NAVI_PATH:/storage/src/devops/cheats:/home/tds/contractors/octerra/git/octerra/cheatsheets"
-eval "$(navi widget bash)"
+# Manage and cache your GPG keys, so you don't have to enter the passphrase repeatedly.
+# For this to work, install "keychain" from your package manager (apt, pacman, etc...).
+# It will only run if keychain is not already running for this user
+if ! pgrep -u "$USER" -f "keychain.*B47B5D91" >/dev/null; then
+    echo -e "Type password to unlock the GPG key B47B5D91: "
+    eval "$(keychain --eval --quiet --agents gpg B47B5D91)"
+fi
 
 # PYENV setup
 export PYENV_ROOT="$HOME/.pyenv"

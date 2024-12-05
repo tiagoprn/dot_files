@@ -3,7 +3,7 @@
 * {
     font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 window#waybar {
@@ -81,8 +81,8 @@ button {
 #scratchpad,
 #language,
 #mpd {
-    margin: 6px 10px 6px 0px;
-    padding: 0 0px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: #FFFFFF;
     font-size:16;
 }
@@ -121,7 +121,32 @@ button {
 }
 
 #clock {
+    color: yellow;
     background-color: #000000;
+    font-size:20;
+}
+
+#custom-capslock {
+    background-color: #000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #FFFFFF;
+    font-size:20;
+}
+
+#custom-capslock.on {
+    color: green;
+}
+
+#custom-capslock.off {
+    color: red;
+}
+
+#custom-week_info {
+    background-color: #000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: yellow; /* Or any other color you prefer */
     font-size:20;
 }
 

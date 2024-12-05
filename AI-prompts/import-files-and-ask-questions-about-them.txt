@@ -1,0 +1,12 @@
+I will upload here files containing <describe the contents of the files here>.
+I will then ask you some questions based on them.
+
+I want you to answer those questions based only on the files uploaded here.
+If there is nothing about a given question, please state that.
+If there is something, after answering my question also I need you to mention the name of the uploaded file with the title and the position (like section name and number) you used as a reference to answer.
+
+Are you currently capable of doing that exactly as described?
+
+---
+
+Here are the documents. Are you able to read them all?

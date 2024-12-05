@@ -10,14 +10,16 @@ alias t='tmux'
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
 # TODO: edit below to put the date on this format: `date '+%Y-%m-%d %A %H:%M:%S %N'`
-alias j='/storage/src/dot_files/tiling-window-managers/scripts/create-quick-local-note.sh'
+alias j='/storage/src/dot_files/wayland/scripts/journal.sh'
 alias m='nvim +MindOpenMain'
 alias p='pyenv'
 alias s='source ~/.bashrc'
 alias v='SELECTED_FILE=$(find . -type f | grep -v ".git/" | grep -v "node_modules/" | fzf --preview "bat --style=numbers --color=always --line-range :50 {}") && nvim $SELECTED_FILE'
 
 ## two letter aliases
+alias hi='/storage/src/dot_files/wayland/scripts/tmuxp-notes_tasks_n_reminders.sh'
 alias cc='cd $(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
+alias cf='/storage/src/devops/shellscripts/utils/backup-current-local-file-clipboard.sh && nvim /tmp/copied.txt'
 alias cl='ncal -3w -M'
 alias gfpl='g f && g pl'
 alias pa='pyenv activate $(pyenv virtualenvs | grep -v "^\s*[0-9]" | cut -d " " -f 3 | fzf --prompt "Choose a pyenv virtualenv: ")'
@@ -53,7 +55,7 @@ alias bkc='nvim ~/.config/cd-bookmarks.list'           # open cd bookmarks on nv
 alias bkg='nvim ~/.config/git-projects-bookmarks.list' # open git bookmarks on nvim
 alias mon='tmuxp load /storage/src/devops/tmuxp/monitoring.yml'
 ## other aliases
-alias today='clear &&  echo "REMINDERS" | figlet && export CURRENT_DATE=$(date "+%A %d, %B %Y") && echo -e "${CURRENT_DATE^^}\n------" && remind -s /storage/docs/reminders/personal.rem | grep "$(date +%Y/%m/%d)" | cut -f 6- -d " "'
+alias today=''
 alias watch='watch -c '
 alias remove-color-codes='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
 alias decomment='egrep -v "^[[:space:]]*((#|;|//).*)?$" '

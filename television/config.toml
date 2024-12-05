@@ -1,0 +1,92 @@
+# Ui settings
+# ----------------------------------------------------------------------------
+[ui]
+# Whether to use nerd font icons in the UI
+# This option requires a font patched with Nerd Font in order to properly
+# display glyphs (see https://www.nerdfonts.com/ for more information)
+use_nerd_font_icons = true
+# How much space to allocate for the UI (in percentage of the screen)
+# ┌───────────────────────────────────────┐
+# │                                       │
+# │            Terminal screen            │
+# │    ┌─────────────────────────────┐    │
+# │    │                             │    │
+# │    │                             │    │
+# │    │                             │    │
+# │    │       Television UI         │    │
+# │    │                             │    │
+# │    │                             │    │
+# │    │                             │    │
+# │    │                             │    │
+# │    └─────────────────────────────┘    │
+# │                                       │
+# │                                       │
+# └───────────────────────────────────────┘
+ui_scale = 100
+# Whether to show the top help bar in the UI
+show_help_bar = true
+
+# Previewers settings
+# ----------------------------------------------------------------------------
+[previewers.file]
+# The theme to use for syntax highlighting
+# A list of available themes can be found in the https://github.com/sharkdp/bat
+# repository which uses the same syntax highlighting engine as television
+theme = "Visual Studio Dark+"
+
+# Keybindings
+# ----------------------------------------------------------------------------
+#
+# Channel mode
+# ------------------------
+[keybindings.Channel]
+# Quit the application
+quit = "esc"
+# Scrolling through entries
+select_next_entry = "down"
+select_prev_entry = "up"
+# Scrolling the preview pane
+scroll_preview_half_page_down = "ctrl-down"
+scroll_preview_half_page_up = "ctrl-up"
+# Select an entry
+select_entry = "enter"
+# Copy the selected entry to the clipboard
+copy_entry_to_clipboard = "ctrl-y"
+# Toggle the remote control mode
+toggle_remote_control = "ctrl-r"
+# Toggle the send to channel mode
+toggle_send_to_channel = "ctrl-s"
+# Toggle the help bar
+toggle_help = "ctrl-h"
+
+
+# Remote control mode
+# -------------------------------
+[keybindings.RemoteControl]
+# Quit the application
+quit = "esc"
+# Scrolling through entries
+select_next_entry = "down"
+select_prev_entry = "up"
+# Select an entry
+select_entry = "enter"
+# Toggle the remote control mode
+toggle_remote_control = "ctrl-r"
+# Toggle the help bar
+toggle_help = "ctrl-h"
+
+
+# Send to channel mode
+# --------------------------------
+[keybindings.SendToChannel]
+# Quit the application
+quit = "esc"
+# Scrolling through entries
+select_next_entry = "down"
+select_prev_entry = "up"
+# Select an entry
+select_entry = "enter"
+# Toggle the send to channel mode
+toggle_send_to_channel = "ctrl-s"
+# Toggle the help bar
+toggle_help = "ctrl-h"
