@@ -1,0 +1,31 @@
+{
+  "pyprland": {
+    "plugins": ["scratchpads", "wallpapers"]
+  },
+  "scratchpads": {
+    "volume": {
+      "animation": "fromTop",
+      "command": "pavucontrol",
+      "class": "org.pulseaudio.pavucontrol",
+      "size": "50% 90%",
+      "unfocus": "hide",
+      "lazy": true
+    },
+    "terminal": {
+      "animation": "fromTop",
+      "command": "wezterm start --class wezterm_scratchpad -- /home/tiago/scripts/terminal-scratchpad.sh",
+      "class": "wezterm_scratchpad",
+      "size": "60% 90%",
+      "unfocus": "hide",
+      "lazy": true
+    }
+  },
+  "wallpapers": {
+    "path": "/home/tiago/Wallpapers/",
+    "interval": 60,
+    "extensions": ["jpg", "jpeg", "png"],
+    "recurse": true,
+    "command": "swaybg -m fill -i \"[file]\"",
+    "clear_command": "swaybg clear"
+  }
+}

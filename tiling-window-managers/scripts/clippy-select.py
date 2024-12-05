@@ -116,7 +116,7 @@ def copy_to_clipboard(contents: str):
     # root.clipboard_append(contents)
     # root.update()  # now it stays on the clipboard after the window is closed
     subprocess.run(
-        "/usr/bin/xclip -selection clipboard",
+        "/usr/bin/wl-copy",
         universal_newlines=True,
         input=contents,
     )

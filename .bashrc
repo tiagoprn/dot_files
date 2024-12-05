@@ -36,11 +36,17 @@ if [ -f $HOME/bashrc.custom ]; then
     source $HOME/bashrc.custom
 fi
 
-# Allows this to work well with other machines on the network (scp, rsync, etc):
-# Commands producing output are wrapped in a check for interactive sessions
-if [[ $- != *i* ]]; then
-    return
-fi
+# Use GNOME Keyring as the GPG agent
+# needs "gnome-keyring" package installed and started with: '/usr/bin/gnome-keyring-daemon --start --components=gpg,ssh'
+export GPG_AGENT_INFO=
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export GPG_AGENT_INFO=$(gpgconf --list-dirs agent-socket)
+
+# # Allows this to work well with other machines on the network (scp, rsync, etc):
+# # Commands producing output are wrapped in a check for interactive sessions
+# if [[ $- != *i* ]]; then
+#     return
+# fi
 
 # disable <Ctrl-s> permanently in terminal, which freezes it
 stty -ixon
@@ -185,6 +191,9 @@ export WINIT_X11_SCALE_FACTOR=1.0
 export GTK_IM_MODULE=cedilla
 export QT_IM_MODULE=cedilla
 
+# Makes all electron apps run under wayland
+export ELECTRON_ENABLE_WAYLAND=1
+
 # provides bash and git completion
 # For it to work, install the package "bash-completion":
 #     sudo pacman -S bash-completion
@@ -234,9 +243,9 @@ if command -v starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
 
-TILING_WM_SCRIPTS_PATH="/storage/src/dot_files/tiling-window-managers/scripts"
-if [ -d "$TILING_WM_SCRIPTS_PATH" ]; then
-    export PATH="$PATH:$TILING_WM_SCRIPTS_PATH"
+WAYLAND_SCRIPTS_PATH="/storage/src/dot_files/wayland/scripts"
+if [ -d "$WAYLAND_SCRIPTS_PATH" ]; then
+    export PATH="$PATH:$WAYLAND_SCRIPTS_PATH"
 fi
 
 CARGO_BIN="$HOME/.cargo/bin"
@@ -251,6 +260,13 @@ fi
 
 export TEXT_BROWSER=w3m
 export BROWSER=firefox
+export GTK_THEME=Adwaita-dark
+
+# NOTE: below enables using 'CTRL+G' to call navi in INSERT MODE
+#       and make its' commands to appear on the shell history:
+#       https://github.com/denisidoro/navi/issues/462
+export NAVI_PATH="$NAVI_PATH:/storage/src/devops/cheats:/home/tds/contractors/octerra/git/octerra/cheatsheets"
+eval "$(navi widget bash)"
 
 # NOTE: below enables using 'CTRL+G' to call navi in INSERT MODE
 #       and make its' commands to appear on the shell history:

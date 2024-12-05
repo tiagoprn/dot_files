@@ -7,7 +7,7 @@
 # License: https://www.gitlab.com/dwt1/dmscripts/LICENSE
 # Contributors: Derek Taylor
 
-# dependency xclip
+# dependency wl-copy
 
 declare -A colors
 colors[black]="#282a36"
@@ -23,5 +23,4 @@ colors[purple]="#bd9cf9"
 
 selected="$(printf '%s\n' "${!colors[@]}" | dmenu -p "color:")"
 [ -z $selected ] && exit
-echo "${colors["${selected}"]}" | xclip -selection clipboard
-
+echo "${colors["${selected}"]}" | wl-copy

@@ -1729,19 +1729,11 @@ class yank(Command):
         def clipboards():
             from ranger.ext.get_executables import get_executables
             clipboard_managers = {
-                'xclip': [
-                    ['xclip'],
-                    ['xclip', '-selection', 'clipboard'],
-                ],
-                'xsel': [
-                    ['xsel'],
-                    ['xsel', '-b'],
-                ],
-                'pbcopy': [
-                    ['pbcopy'],
+                'wayland': [
+                    ['wl-copy'],
                 ],
             }
-            ordered_managers = ['pbcopy', 'xclip', 'xsel']
+            ordered_managers = ['wayland']
             executables = get_executables()
             for manager in ordered_managers:
                 if manager in executables:

@@ -1,0 +1,38 @@
+[output]
+# Fullscreen mode
+fullscreen=true
+
+# Position and size
+width=1800
+height=900
+halign=fill
+orientation=vertical
+content_halign=fill
+
+[settings]
+# Mode configuration
+mode=drun
+
+# Filter rate and sensitivity
+filter_rate=50
+insensitive=true
+
+# Allow markup in entries
+allow-markup=true
+
+# Terminal to use for executing commands
+term=kitty
+
+# Layer configuration
+layer=overlay
+
+# Case insensitive matching
+insensitive=true
+
+# Set the prompt text (or leave empty to remove prompt)
+prompt=Choose an option:
+
+
+[drun]
+# Hide executable actions
+no_actions=true

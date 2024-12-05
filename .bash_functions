@@ -35,35 +35,44 @@ function permissions() {  # get files numeric permissions
 }
 
 function cb() {  # Copies to clipboard. You can pipe anything on the terminal to it
-  local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
-  # Check that xclip is installed.
-  if ! type xclip > /dev/null 2>&1; then
-    echo -e "$_wrn_col""You must have the 'xclip' program installed.\e[0m"
-  # Check user is not root (root doesn't have access to user xorg server)
-  elif [[ "$USER" == "root" ]]; then
-    echo -e "$_wrn_col""Must be regular user (not root) to copy a file to the clipboard.\e[0m"
-  else
-    # If no tty, data should be available on stdin
-    if ! [[ "$( tty )" == /dev/* ]]; then
-      input="$(< /dev/stdin)"
-    # Else, fetch input from params
-    else
-      input="$*"
-    fi
-    if [ -z "$input" ]; then  # If no input, print usage message.
-      echo "Copies a string to the clipboard."
-      echo "Usage: cb <string>"
-      echo "       echo <string> | cb"
-    else
-      # Copy input to both X clipboards
-      echo -n "$input" | xclip -selection clipboard
-      echo -n "$input" | xclip -selection primary
-      # Truncate text for status
-      if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\e[0m"; fi
-      # Print status.
-      echo -e "$_scs_col""Copied to clipboard:\e[0m $input"
-    fi
+  local _scs_col="\e[0;32m" _wrn_col='\e[1;31m' _trn_col='\e[0;33m'
+
+  # Check that wl-copy is installed.
+  if ! command -v wl-copy > /dev/null; then
+    echo -e "${_wrn_col}You must have the 'wl-copy' program installed.\e[0m"
+    return 1
   fi
+
+  # Check user is not root (root doesn't have access to user xorg server)
+  if [[ "$USER" == "root" ]]; then
+    echo -e "${_wrn_col}Must be regular user (not root) to copy a file to the clipboard.\e[0m"
+    return 1
+  fi
+
+  # If no tty, data should be available on stdin
+  if ! [[ "$(tty)" == /dev/* ]]; then
+    input="$(< /dev/stdin)"
+  else
+    input="$*"
+  fi
+
+  if [ -z "$input" ]; then  # If no input, print usage message.
+    echo "Copies a string to the clipboard."
+    echo "Usage: cb <string>"
+    echo "       echo <string> | cb"
+    return 1
+  fi
+
+  # Copy input to the clipboard
+  echo -n "$input" | wl-copy
+
+  # Truncate text for status
+  if [ ${#input} -gt 80 ]; then
+    input="$(echo "$input" | cut -c1-80)${_trn_col}...\e[0m"
+  fi
+
+  # Print status.
+  echo -e "${_scs_col}Copied to clipboard:\e[0m $input"
 }
 
 function cbf() {  # copy file contents to the clipboard
@@ -157,6 +166,23 @@ function dockerps () {  # docker ps with custom formatting
 function command_exists () {  # check if a command exists
     type "$1" &> /dev/null ;
 }
+
+# function n() {  # run a command from navi cheatsheet
+#     arquivo="/usr/bin/xclip"
+#     if [ -f "$arquivo" ] ;
+#     then
+#         OUTPUT=$(navi --fzf-overrides '--color=bw,fg+:#bf2a2a,bg+:#ffffff,preview-fg:#bf2a2a' --path "$(cat ~/.navirc)" --print) && echo "$OUTPUT" | xclip -selection clipboard && sleep 1 && xdotool getwindowfocus windowfocus --sync key "ctrl+shift+v"
+#     else
+#         if [ -z "$TMUX" ]
+#         then
+#             echo -e "\n --- \n WARNING: To have the best usability it is recommended to run this inside a tmux session ;) \n --- \n"
+#             navi --path "$(cat ~/.navirc)" --print
+#         else
+#             navi --path "$(cat ~/.navirc)" --print | while read command; do tmux send-keys "$command" ENTER; done
+#         fi
+#     fi
+#
+# }
 
 function search-personal-notes() {  # search on personal notes
 	${EDITOR:-vim} $(rg -n '.*' "/storage/docs/notes/personal" | fzf --layout=reverse --height 50% --ansi | sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');

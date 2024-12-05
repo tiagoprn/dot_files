@@ -1,0 +1,16 @@
+{
+  "pyprland": {
+    "plugins": ["scratchpads"]
+  },
+  "scratchpads": {
+    "term": {
+      "command": "~/scripts/terminal-scratchpad.sh",
+      "lazy": true,
+      "animation": "fromTop"
+    },
+    "volume": {
+      "command": "pavucontrol",
+      "animation": "fromTop"
+    }
+  }
+}

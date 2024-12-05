@@ -73,7 +73,7 @@ if __name__ == "__main__":
     chosen_url = bookmarks_urls[selected_bookmark]
     logging.info(f"chosen_url={chosen_url}")
 
-    command = f'echo "{chosen_url}" |  xclip -selection clipboard'
+    command = f'echo "{chosen_url}" |  wl-copy'
     os.system(command)
 
     browsers = BROWSERS.keys()

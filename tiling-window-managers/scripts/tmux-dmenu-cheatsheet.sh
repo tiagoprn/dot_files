@@ -11,7 +11,7 @@ Escape copy-mode  #@ enter copy mode                                            
 v send-keys -X begin-selection  #@ (vim copy mode) begin selection                                                                                         │
 y send-keys -X copy-selection-and-cancel  #@ (vim copy mode) copy selection                                                                                │
 r send-keys -X rectangle-toggle  #@ (vim copy mode) begin vertical selection                                                                               │
-Enter send-keys -X copy-pipe-and-cancel "xclip -i -f -selection primary | xclip -i -selection clipboard"  #@ (vim copy mode) copy selection to clipboard   │
+Enter send-keys -X copy-pipe-and-cancel "wl-copy"  #@ (vim copy mode) copy selection to clipboard   │
 PPage if-shell -F "#{alternate_on}" "send-keys PPage" "copy-mode -e; send-keys PPage"  #@ <PageUp/Down>: scroll back in history                            │
 PPage send-keys -X page-up  #@ (vim copy mode) <PageUp>                                                                                                    │
 y set-window-option synchronize-panes  #@ broadcast commands to all panes (like terminator does)                                                           │
