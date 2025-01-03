@@ -1,0 +1,6 @@
+# https://ghostty.org/docs/config/reference
+
+window-decoration = false
+gtk-adwaita = false
+background = #000000
+background-opacity = 0.7
