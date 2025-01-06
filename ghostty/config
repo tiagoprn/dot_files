@@ -1,6 +1,37 @@
-# https://ghostty.org/docs/config/reference
+# config options documentation: https://ghostty.org/docs/config/reference
+# actions documentation: https://ghostty.org/docs/keybind/reference
+
+# show all active keybinds: ghostty +list-keybinds
+
+## appearance
 
 window-decoration = false
 gtk-adwaita = false
 background = #000000
 background-opacity = 0.7
+
+## ignore keybindings
+
+### alt group
+
+keybind = alt+zero=unbind
+keybind = alt+one=unbind
+keybind = alt+two=unbind
+keybind = alt+three=unbind
+keybind = alt+four=unbind
+keybind = alt+five=unbind
+keybind = alt+six=unbind
+keybind = alt+seven=unbind
+keybind = alt+eight=unbind
+keybind = alt+nine=unbind
+keybind = alt+f4=unbind
+
+### ctrl group
+
+keybind = ctrl+comma=unbind
+keybind = ctrl+page_down=unbind
+keybind = ctrl+enter=unbind
+keybind = ctrl+page_up=unbind
+keybind = ctrl+tab=unbind
+keybind = ctrl+=unbind
+keybind = ctrl+=unbind
