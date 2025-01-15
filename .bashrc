@@ -253,6 +253,7 @@ if [ -d "$CARGO_BIN" ]; then
     export PATH="$PATH:$CARGO_BIN"
 fi
 
+# astral's "uv" and others install on this path
 LOCAL_BIN="$HOME/.local/bin"
 if [ -d "$LOCAL_BIN" ]; then
     export PATH="$PATH:$LOCAL_BIN"
@@ -289,11 +290,6 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-ASTRAL_UV_BIN="$HOME/.astral/uv/bin"
-if [ -d "$ASTRAL_UV_BIN" ]; then
-    export PATH="$PATH:$ASTRAL_UV_BIN"
-fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
