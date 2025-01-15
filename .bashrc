@@ -290,6 +290,11 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+ASTRAL_UV_BIN="$HOME/.astral/uv/bin"
+if [ -d "$ASTRAL_UV_BIN" ]; then
+    export PATH="$PATH:$ASTRAL_UV_BIN"
+fi
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
