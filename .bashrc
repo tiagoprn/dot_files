@@ -283,13 +283,15 @@ echo "ANTHROPIC_API_KEY = $ANTHROPIC_API_KEY"
 echo "Getting anthropic API key and exporting as env variable...[DONE]"
 
 # PYENV setup
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PATH:$PYENV_ROOT/bin"
-## To stop showing warnings on activating a pyenv:
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if command -v pyenv &>/dev/null; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PATH:$PYENV_ROOT/bin"
+    ## To stop showing warnings on activating a pyenv:
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
