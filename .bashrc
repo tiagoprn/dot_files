@@ -183,11 +183,16 @@ echo "Getting anthropic API key and exporting as env variable...[DONE]"
 
 # PYENV setup
 export PYENV_ROOT="$HOME/.pyenv"
-if [ -d "$PYENV_ROOT" ]; then
-    export PATH="$PATH:$PYENV_ROOT/bin"
+export PYENV_BIN_PATH="$PYENV_ROOT/bin"
+if [ -d "$PYENV_BIN_PATH" ]; then
+    export PATH="$PATH:$PYENV_BIN_PATH"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
+else
+    # This probably mean I have "uv" installed.
+    # Then, I want to use the same path pyenv uses to store the venvs, so that I don't have to change my neovim and others configuration
+    mkdir -p "$PYENV_ROOT/versions"
 fi
 
 export NVM_DIR="$HOME/.nvm"
