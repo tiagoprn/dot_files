@@ -56,6 +56,12 @@ WHITE="\[\033[1;37m\]"
 LIGHT_GRAY="\[\033[0;37m\]"
 COLOR_NONE="\[\e[0m\]"
 
+# Below was added after I cleaned up my previous manual bash prompt without starship -
+# otherwise, all commands would return "set_bash_prompt: command not found"
+set_bash_prompt() {
+    return 0
+}
+
 # --- Environment variables
 
 export EDITOR=nvim
