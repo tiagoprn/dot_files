@@ -1,0 +1,48 @@
+Based on a previous conversation we had about flashcards, here are some key points I want you to take into consideration:
+
+- I want to base the cards I create on scientific principles underlying effective flashcard usage
+- I want to make use of the bidirectional testing approach
+- I want to make use of the Markdown format for each card, based on this template:
+
+``` markdown card file
+
+## Card
+id: <unix_timestamp_here>
+Q: question here
+A: answer here
+QR: reverse question here (turn the original answer into the question)
+AR: reverse answer here (turn the original question into the answer)
+Tags: tag1, tag2, ...
+
+```
+
+- I also use a journal file to track my progress through the cards. This is an example:
+
+``` markdown journal file
+
+# Tracking Journal
+
+## Card Status Legend
+- Status: EASY (21 days), GOOD (14 days), HARD (7 days), FORGOT (1 day)
+- Format: id, direction(A/AR), status, current_interval, next_review_date
+
+## 2025-01-29 (First review)
+- 1706515200, A, GOOD, 14, 2025-02-12     # You remembered well, but not perfectly
+- 1706515200, AR, EASY, 21, 2025-02-19    # The reverse was very easy for you
+- 1706515300, A, FORGOT, 1, 2025-01-30    # You couldn't remember the full definition
+- 1706515300, AR, GOOD, 14, 2025-02-12    # The reverse was easier
+
+## 2025-01-30 (Review of forgotten card)
+- 1706515300, A, HARD, 7, 2025-02-06      # You remembered, but with difficulty
+
+## 2025-02-06 (Review of HARD card)
+- 1706515300, A, GOOD, 14, 2025-02-20     # You're improving!
+
+## 2025-02-12 (Multiple cards due)
+- 1706515200, A, EASY, 21, 2025-03-05     # You're mastering this direction
+- 1706515300, AR, GOOD, 14, 2025-02-26    # Maintaining good recall
+
+
+```
+
+Based on this approach, I will send you some notes and I want you to generate a markdown file with flashcards based on the markdown card file I sent you above.
