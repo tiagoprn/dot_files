@@ -4,15 +4,15 @@ Based on a previous conversation we had about flashcards, here are some key poin
 - I want to make use of the bidirectional testing approach
 - I want to make use of the Markdown format for each card, based on this template:
 
-``` markdown card file
+``` markdown card block template
 
 ## Card
-id: <unix_timestamp_here>
-Q: question here
-A: answer here
-QR: reverse question here (turn the original answer into the question)
-AR: reverse answer here (turn the original question into the answer)
-Tags: tag1, tag2, ...
+id: <unix timestamp here>
+Q: <question here>
+A: <answer here>
+QR: <reverse question here (turn the original answer into the question)>
+AR: <reverse answer here (turn the original question into the answer)>
+Tags: <tag1, tag2, ...>
 
 ```
 
@@ -42,7 +42,13 @@ Tags: tag1, tag2, ...
 - 1706515200, A, EASY, 21, 2025-03-05     # You're mastering this direction
 - 1706515300, AR, GOOD, 14, 2025-02-26    # Maintaining good recall
 
-
 ```
 
-Based on this approach, I will send you some notes and I want you to generate a markdown file with flashcards based on the markdown card file I sent you above.
+Based on this approach, I will send you some notes and I want you to generate cards based on them.
+
+Output all cards as a single markdown code block, one card below the other, using the template above.
+
+Do not bother with the journal file, that was just to give you context on how I use those cards case that is useful for you when creating them.
+
+Confirm what you will do and then wait for me to send you the notes you will use to generate the cards.
+
