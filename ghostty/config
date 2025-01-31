@@ -12,9 +12,9 @@ background-opacity = 0.7
 copy-on-select = clipboard
 clipboard-read = allow
 clipboard-write= allow
-clipboard-trim-trailing-spaces = true
-clipboard-paste-protection = true
-clipboard-paste-bracketed-safe = true
+# clipboard-trim-trailing-spaces = true
+# clipboard-paste-protection = true
+# clipboard-paste-bracketed-safe = true
 
 
 ## ignore keybindings
