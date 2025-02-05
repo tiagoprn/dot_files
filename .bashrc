@@ -176,10 +176,19 @@ if ! pgrep -u "$USER" -f "keychain.*B47B5D91" >/dev/null; then
     eval "$(keychain --eval --quiet --agents gpg B47B5D91)"
 fi
 
-echo "Getting anthropic API key and exporting as env variable...[WAIT]"
+echo "---"
+echo "Getting API KEYS as env variables...[WAIT]"
+echo "  Getting ANTHROPIC API key and exporting as env variable...[WAIT]"
 export ANTHROPIC_API_KEY=$(pass api-keys/anthropic)
-echo "ANTHROPIC_API_KEY = $ANTHROPIC_API_KEY"
-echo "Getting anthropic API key and exporting as env variable...[DONE]"
+echo "    ANTHROPIC_API_KEY = $ANTHROPIC_API_KEY"
+echo "  Getting ANTHROPIC API key and exporting as env variable...[DONE]"
+echo "  Getting OPENAI API key and exporting as env variable...[WAIT]"
+export OPENAI_API_KEY=$(pass api-keys/OPENAI)
+echo "    OPENAI_API_KEY = $OPENAI_API_KEY"
+echo "  Getting OPENAI API key and exporting as env variable...[DONE]"
+
+echo "Getting API KEYS as env variables...[DONE]"
+echo "---"
 
 # PYENV setup
 export PYENV_ROOT="$HOME/.pyenv"
