@@ -186,7 +186,10 @@ echo "  Getting OPENAI API key and exporting as env variable...[WAIT]"
 export OPENAI_API_KEY=$(pass api-keys/OPENAI)
 echo "    OPENAI_API_KEY = $OPENAI_API_KEY"
 echo "  Getting OPENAI API key and exporting as env variable...[DONE]"
-
+echo "  Getting DEEPSEEK API key and exporting as env variable...[WAIT]"
+export DEEPSEEK_API_KEY=$(pass api-keys/deepseek)
+echo "    DEEPSEEK_API_KEY = $DEEPSEEK_API_KEY"
+echo "  Getting DEEPSEEK API key and exporting as env variable...[DONE]"
 echo "Getting API KEYS as env variables...[DONE]"
 echo "---"
 
