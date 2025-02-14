@@ -210,3 +210,9 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+export NIX_SH_PATH="$HOME/.nix-profile/etc/profile.d/nix.sh"
+if [ -f "$NIX_SH_PATH" ]; then
+    source $NIX_SH_PATH
+    echo "Nix successfully sourced."
+fi
