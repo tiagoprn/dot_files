@@ -6,5 +6,6 @@ FILE=$(ls $SNIPS | wofi --dmenu --prompt='Select a snippet to be pasted on your 
 
 if [ -f $SNIPS/$FILE ]; then
     DATA=$([ -x "$SNIPS/$FILE" ] && bash "$SNIPS/$FILE" || head --bytes=-1 $SNIPS/$FILE)
-    printf "$DATA" | wl-copy
+    # printf "$DATA" | wl-copy
+    printf "$DATA" | ydotool type --file -
 fi
