@@ -9,6 +9,8 @@ mapfile -t LINES < <(grep '#@' "$TMUX_CONF")
 # Prepare formatted entries with bold descriptions using pango markup
 FORMATTED_ENTRIES=()
 for line in "${LINES[@]}"; do
+    [[ $line =~ ^[[:space:]]*# ]] && continue
+
     # Split the line at '#@ ' into the command and description
     cmd_part=$(echo "$line" | awk -F'#@' '{print $1}')
     desc_part=$(echo "$line" | awk -F'#@' '{print $2}')
