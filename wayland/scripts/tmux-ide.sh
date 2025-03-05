@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
 
+# HELP:
+#     This script can receive an argument "n" or "y".
+#     If it receives "n", it will only create the session, but not enter it.
+#     If it receives "y", it will create the session and attach to it.
+#     It it receives no argument, it will create the session and attach to it.
+
 # Exit immediately if a command exits with a non-zero status
 set -e
 
 # Optional: Enable debugging by uncommenting the next line
 # set -x
+
+# Process command line arguments
+ATTACH="y"
+if [ $# -gt 0 ]; then
+    ATTACH="$1"
+fi
 
 # Get the base name of the current directory to use as the session name
 SESSION_NAME=$(basename "$PWD")
@@ -73,8 +85,10 @@ create_tmux_session() {
     # Select the first window ("nvim")
     tmux select-window -t "${SESSION_NAME}:nvim"
 
-    # Attach to the newly created session
-    attach_to_session
+    # Attach to the newly created session if requested
+    if [[ $ATTACH == "y" ]]; then
+        attach_to_session
+    fi
 }
 
 # Function to attach or switch to an existing session
@@ -90,9 +104,14 @@ attach_to_session() {
 
 # Check if a tmux session with the desired name already exists
 if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
-    # Session exists: attach or switch to it
-    attach_to_session
+    echo -e "Session '$SESSION_NAME' already exists, so it will not be created."
+
+    # Session exists: attach or switch to it if requested
+    if [[ $ATTACH == "y" ]]; then
+        attach_to_session
+    fi
 else
     # Session does not exist: create it with the specified windows
+    echo -e "Creating session '$SESSION_NAME'..."
     create_tmux_session
 fi
