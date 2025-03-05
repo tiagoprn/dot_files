@@ -177,20 +177,12 @@ if ! pgrep -u "$USER" -f "keychain.*B47B5D91" >/dev/null; then
 fi
 
 echo "---"
-echo "Getting API KEYS as env variables...[WAIT]"
-echo "  Getting ANTHROPIC API key and exporting as env variable...[WAIT]"
 export ANTHROPIC_API_KEY=$(pass api-keys/anthropic)
-echo "    ANTHROPIC_API_KEY = $ANTHROPIC_API_KEY"
-echo "  Getting ANTHROPIC API key and exporting as env variable...[DONE]"
-echo "  Getting OPENAI API key and exporting as env variable...[WAIT]"
+echo "ANTHROPIC_API_KEY = $ANTHROPIC_API_KEY"
 export OPENAI_API_KEY=$(pass api-keys/OPENAI)
-echo "    OPENAI_API_KEY = $OPENAI_API_KEY"
-echo "  Getting OPENAI API key and exporting as env variable...[DONE]"
-echo "  Getting DEEPSEEK API key and exporting as env variable...[WAIT]"
+echo "OPENAI_API_KEY = $OPENAI_API_KEY"
 export DEEPSEEK_API_KEY=$(pass api-keys/deepseek)
-echo "    DEEPSEEK_API_KEY = $DEEPSEEK_API_KEY"
-echo "  Getting DEEPSEEK API key and exporting as env variable...[DONE]"
-echo "Getting API KEYS as env variables...[DONE]"
+echo "DEEPSEEK_API_KEY = $DEEPSEEK_API_KEY"
 echo "---"
 
 # PYENV setup

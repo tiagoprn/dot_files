@@ -18,6 +18,8 @@ if [ -z "${TMUX+set}" ]; then
 fi
 
 echo -e "- Use ${RED}tmux-ide.sh${NC} to create an ide session ${RED}in the current directory${NC}."
+echo -e "- Use ${RED}dots.sh${NC} to create tmux sessions to all my config repos "
+echo -e "  (${RED}dot_files, devops, pde.nvim & nix-home-manager${NC})."
 
 # if [[ $HOSTNAME == cosmos ]]; then
 #     echo -e '- To run timeshift: sudo timeshift-gtk'
