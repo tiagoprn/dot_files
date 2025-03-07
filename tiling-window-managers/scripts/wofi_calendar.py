@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-A simple calendar made with rofi and python3.
+A simple calendar made with wofi and python3.
 
 Cycle through month and create linked note to days.
 
-rofi theme by adi1090x : https://github.com/adi1090x/polybar-themes
+wofi theme by adi1090x : https://github.com/adi1090x/polybar-themes
 """
 
 # Github: https://framagit.org/Daguhh/naivecalendar
@@ -41,7 +41,7 @@ CAL_PADDING = 10
 
 # Don't touch those one!
 # Get local day abbr.
-locale.setlocale(locale.LC_ALL, '')
+locale.setlocale(locale.LC_ALL, "")
 get_loc_day = lambda d, l: locale.nl_langinfo(locale.DAY_1 + d)[:l].title()
 WEEK_DAYS = [get_loc_day(x, DAY_ABBR_LENGHT) for x in chain(range(1, 7), [0])]
 
@@ -53,7 +53,7 @@ NOTES_PATH = f"{HOME}/{NOTES_RELATIVE_PATH}"
 
 def main():
     """
-    Display a calendar with rofi
+    Display a calendar with wofi
     Calendar is interactive :
 
     - switch between month
@@ -64,24 +64,23 @@ def main():
     if not os.path.exists(NOTES_PATH):
         os.mkdir(NOTES_PATH)
 
-    display_help(head_txt='Welcome to naivecalendar')
+    display_help(head_txt="Welcome to naivecalendar")
 
-    if shutil.which('rofi') == None:
-        print('please install rofi')
+    if shutil.which("wofi") == None:
+        print("please install wofi")
         sys.exit()
 
     d = calendar.datetime.date.today()
 
     while True:
-
         cal = get_calendar_from_date(d)
 
         actual_month = d.strftime("%b %Y").title()
         notes_inds = get_month_notes_ind(d)
-        today_ind = cal2rofi_ind(d.day, d.month, d.year)
-        rofi = gen_rofi_conf(actual_month, notes_inds, today_ind)
+        today_ind = cal2wofi_ind(d.day, d.month, d.year)
+        wofi = gen_wofi_conf(actual_month, notes_inds, today_ind)
 
-        out = show_rofi_calendar(rofi, cal)
+        out = show_wofi_calendar(wofi, cal)
 
         if out == "<" or out == "-":
             d = add_months(d, -1)
@@ -109,7 +108,7 @@ def main():
                 subprocess.check_output(cmd, shell=True)
         elif out == "notes":
             notes_heads = get_month_notes_heads(d)
-            rep = show_rofi(notes_heads, "liste des notes")
+            rep = show_wofi(notes_heads, "liste des notes")
             print(rep)
         elif out == "help":
             display_help()
@@ -149,8 +148,8 @@ def get_arguments():
     return args
 
 
-def intercept_rofi_error(func):
-    """A decorator to capture sdtout after rofi being killed"""
+def intercept_wofi_error(func):
+    """A decorator to capture sdtout after wofi being killed"""
 
     @wraps(func)
     def wrapper(*args):
@@ -164,8 +163,8 @@ def intercept_rofi_error(func):
     return wrapper
 
 
-def display_help(head_txt='help:'):
-    """Show a rofi popup with help message"""
+def display_help(head_txt="help:"):
+    """Show a wofi popup with help message"""
 
     txt = f"""This calendar is interactive. Here some tips:
 
@@ -176,7 +175,7 @@ def display_help(head_txt='help:'):
  - Notes are stored in {HOME}/.naivecalendar_notes/
 (For now you've to manually delete it)
 
-There's somme shortcut too, type it in rofi prompt :
+There's somme shortcut too, type it in wofi prompt :
 
         + : go to next month
         - : go to previous month
@@ -190,7 +189,7 @@ That's all :
 type enter to continue...
 """
 
-    show_rofi(txt, head_txt)
+    show_wofi(txt, head_txt)
 
 
 def get_month_notes_heads(date):
@@ -205,7 +204,7 @@ def get_month_notes_heads(date):
     Returns
     -------
     str
-        A rofi formatted list of month's notes first line
+        A wofi formatted list of month's notes first line
     """
 
     note_lst = get_month_notes(date)
@@ -235,14 +234,14 @@ def get_note_head(note_path):
     return head
 
 
-def rofi2cal_ind(ind):
-    """ Convert coordinate from rofi to day number """
+def wofi2cal_ind(ind):
+    """Convert coordinate from wofi to day number"""
     pass
 
 
-def cal2rofi_ind(day, month, year):
+def cal2wofi_ind(day, month, year):
     """
-    Convert calendar date into coordinates for rofi
+    Convert calendar date into coordinates for wofi
 
     Parameters
     ----------
@@ -256,7 +255,7 @@ def cal2rofi_ind(day, month, year):
     Returns
     -------
     int
-        A rofi index
+        A wofi index
     """
     # correct day offset
     day = int(day) - 1  # make month start at 0
@@ -266,7 +265,7 @@ def cal2rofi_ind(day, month, year):
     # calendar coordinate
     row, col = ind // COL_NB, ind % COL_NB
 
-    # rofi coordinate
+    # wofi coordinate
     new_ind = col * ROW_NB + row
 
     return new_ind
@@ -296,7 +295,7 @@ def get_month_notes(date):
 
 def get_month_notes_ind(date):
     """
-    Return rofi-formatted index of days with attached note
+    Return wofi-formatted index of days with attached note
 
     Parameters
     ----------
@@ -306,62 +305,62 @@ def get_month_notes_ind(date):
     Returns
     -------
     str
-        Column index list formatted for rofi
+        Column index list formatted for wofi
     """
 
     # get file list
     note_lst = get_month_notes(date)
     # get note day number
     days = [re.search(r"([^-]*)\.txt", f).group(1) for f in note_lst]
-    # transform into rofi index
-    ind = [cal2rofi_ind(int(d), date.month, date.year) for d in days]
-    # format into rofi command
+    # transform into wofi index
+    ind = [cal2wofi_ind(int(d), date.month, date.year) for d in days]
+    # format into wofi command
     ind = ",".join([str(i) for i in ind])
 
     return ind
 
 
-@intercept_rofi_error
-def show_rofi_calendar(rofi, cal):
-    """Launch a rofi window
+@intercept_wofi_error
+def show_wofi_calendar(wofi, cal):
+    """Launch a wofi window
 
     Parameters
     ----------
-    rofi : str
-        Rofi command to be run in a shell
+    wofi : str
+        wofi command to be run in a shell
     cal : str
-        A column by column calendar list formatted for rofi
+        A column by column calendar list formatted for wofi
 
     Returns
     -------
     str
-        Rofi selected cell content
+        wofi selected cell content
     """
 
     cmd = subprocess.Popen(f"echo '{cal}'", shell=True, stdout=subprocess.PIPE)
     out = (
-        subprocess.check_output(rofi, stdin=cmd.stdout, shell=True)
+        subprocess.check_output(wofi, stdin=cmd.stdout, shell=True)
         .decode("utf-8")
         .replace("\n", "")
     )
     return out
 
 
-@intercept_rofi_error
-def show_rofi(txt_body, txt_head):
-    """Launch a rofi window
+@intercept_wofi_error
+def show_wofi(txt_body, txt_head):
+    """Launch a wofi window
 
     Parameters
     ----------
     txt_body : str
-        Text to display in rofi window
+        Text to display in wofi window
     txt_head : str
-        Text to display in rofi prompt
+        Text to display in wofi prompt
 
     Returns
     -------
     str
-        Rofi selected cell content
+        wofi selected cell content
     """
 
     cmd = subprocess.Popen(
@@ -369,7 +368,7 @@ def show_rofi(txt_body, txt_head):
     )
     selection = (
         subprocess.check_output(
-            f'rofi -dmenu -p "{txt_head}"', stdin=cmd.stdout, shell=True
+            f'wofi -dmenu -p "{txt_head}"', stdin=cmd.stdout, shell=True
         )
         .decode("utf-8")
         .replace("\n", "")
@@ -445,7 +444,7 @@ def add_months(sourcedate, months):
 def get_calendar_from_date(date):
     r"""Return a montly calendar given date
 
-    Calendar is a string formated to be shown by rofi (i.e. column bu column)::
+    Calendar is a string formated to be shown by wofi (i.e. column bu column)::
 
                  L  M  M  J  V  S  D
                                    1
@@ -463,7 +462,7 @@ def get_calendar_from_date(date):
     Returns
     -------
     str
-        A str that contain chained columns of a calendar in a rofi format
+        A str that contain chained columns of a calendar in a wofi format
     """
 
     start_day, month_length = calendar.monthrange(date.year, date.month)
@@ -477,7 +476,7 @@ def get_calendar_from_date(date):
     # add head : day name, tail : switch month
     cal = list(chain(WEEK_DAYS, cal, ["<", " ", " ", " ", " ", " ", ">"]))
 
-    # Format calendar for rofi (column by column)
+    # Format calendar for wofi (column by column)
     cal = weekly_transpose(cal)
 
     cal = "\n".join((str(c) for c in cal))
@@ -485,14 +484,14 @@ def get_calendar_from_date(date):
     return cal
 
 
-def gen_rofi_conf(text, urgent, day_ind):
-    """Create a rofi command
+def gen_wofi_conf(text, urgent, day_ind):
+    """Create a wofi command
     theme by adi1090x : https://github.com/adi1090x/polybar-themes
     """
 
-    rofi = f"""
+    wofi = f"""
 
-        # Custom Rofi Script
+        # Custom wofi Script
 
         BORDER="#1F1F1F"
         SEPARATOR="#1F1F1F"
@@ -512,7 +511,7 @@ def gen_rofi_conf(text, urgent, day_ind):
         CYAN="#00acc1"
         PINK="#d81b60"
 
-        rofi -dmenu -p "{text}" \
+        wofi -dmenu -p "{text}" \
         -show calendrier \
         -hide-scrollbar true \
         -bw 0 \
@@ -532,7 +531,7 @@ def gen_rofi_conf(text, urgent, day_ind):
         -color-active "$BACKGROUND,$BLUE,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
         -color-urgent "$BACKGROUND,$YELLOW,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" """
 
-    return rofi
+    return wofi
 
 
 if __name__ == "__main__":

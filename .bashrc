@@ -123,17 +123,18 @@ bind -m vi-insert "\C-l":clear-screen
 
 bash /storage/src/dot_files/bash-welcome.sh
 
-# A better ls command, with 2 alternative aliases:
+# A better ls command, with alternative aliases:
+# the --indicator... removes the "*" at the end of executable files
 if ls --color -d . >/dev/null 2>&1; then # GNU ls
     export COLUMNS                       # Remember columns for subprocesses.
     eval "$(dircolors)"
     function ls() {
-        command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" | less -R -X -F
+        command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" --indicator-style=none
     }
     alias lsd='ls -la'
     alias lsa='ls -a'
-    alias lss='ls -a --human-readable --size -1 -S --classify'
-    alias lsr="ls -halt"
+    alias lss='ls -a --human-readable --size -1 -S --classify --indicator-style=none'
+    alias lsr="ls -halt | less"
 fi
 
 [ -f ~/.fzf/fzf.bash ] && source ~/.fzf/fzf.bash

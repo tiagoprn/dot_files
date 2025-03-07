@@ -22,7 +22,7 @@ password_files=("$prefix"/**/*.gpg)
 password_files=("${password_files[@]#"$prefix"/}")
 password_files=("${password_files[@]%.gpg}")
 
-password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu -p "Select a password to copy to clipboard temporarily" "$@")
+password=$(printf '%s\n' "${password_files[@]}" | wofi -dmenu -p "Select a password to copy to clipboard temporarily" "$@")
 
 [[ -n $password ]] || exit
 

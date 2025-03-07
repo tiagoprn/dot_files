@@ -87,7 +87,6 @@ alias pyenv-rehash='rm -fr ~/.pyenv/shims/.pyenv-shim && $PYENV_BIN rehash'
 alias cbssh='cbf ~/.ssh/id_rsa.pub'           # Copy SSH public key
 alias cbpwd='pwd | cb'                        # Copy current working directory
 alias cbbash='cat $HISTFILE | tail -n 1 | cb' # Copy most recent command in bash history
-
 alias ssh-no-host-checking='ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no"'
 alias compositor='/storage/src/devops/bin/toggle_compositor.sh'
 alias xsession='[[ ! -z "$DISPLAY" ]] && source $HOME/.xsession'
