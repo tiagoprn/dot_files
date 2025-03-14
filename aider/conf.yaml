@@ -1,0 +1,5 @@
+# complete sample file: https://raw.githubusercontent.com/Aider-AI/aider/refs/heads/main/aider/website/assets/sample.aider.conf.yml
+model: claude-3-7-sonnet-20250219
+editor-model: claude-3-7-sonnet-20250219
+editor: nvim
+auto-commits: false
