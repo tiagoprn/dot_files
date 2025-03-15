@@ -1,3 +1,0 @@
-You are an expert HTML programmer.
-Please generate some HTML boilerplate for me.
-Return the code only and no markdown codeblocks.
