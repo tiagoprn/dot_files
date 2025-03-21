@@ -64,7 +64,12 @@ create_tmux_session() {
     tmux rename-window -t "$SESSION_NAME":1 "nvim"
     # Set pane-base-index to 1 for the "nvim" window
     tmux set-option -w -t "${SESSION_NAME}:nvim" pane-base-index 1
-    tmux send-keys -t "${SESSION_NAME}:nvim.1" "nvim" C-m
+    # Check if .venv exists (either as directory or symlink) and source it before starting nvim
+    if [ -e ".venv" ] && [ -d ".venv" -o -L ".venv" ]; then
+        tmux send-keys -t "${SESSION_NAME}:nvim.1" "source .venv/bin/activate && nvim" C-m
+    else
+        tmux send-keys -t "${SESSION_NAME}:nvim.1" "nvim" C-m
+    fi
 
     # Create the second window named "git" and run the specified shell script
     tmux new-window -t "$SESSION_NAME" -n "git" "bash $GIT_SCRIPT ."
