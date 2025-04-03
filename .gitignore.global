@@ -12,6 +12,7 @@ skip-pylint
 skip-black
 skip-isort
 enable-flake8*
+nvim-dap-pytest-rootdir
 definitions.txt
 tmp/
 .env.docker
