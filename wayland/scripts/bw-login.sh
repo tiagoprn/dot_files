@@ -4,11 +4,11 @@
 
 BW_CONFIG_ROOT="$HOME/.config/bw"
 
-SELECTED_CONFIG=$(find $BW_CONFIG_ROOT/ -type f | fzf --exact)
+SELECTED_CONFIG=$(find $BW_CONFIG_ROOT/ -type f -not -name ".*" | fzf --exact)
 
 BW_EMAIL=$(cat $SELECTED_CONFIG)
 PASS_ENTRY="bitwarden/$(basename $SELECTED_CONFIG)" # ← path in `pass` where your BW password is stored
-SESSION_FILE="$BW_CONFIG_ROOT/.bw_session}"         # ← where to save session
+SESSION_FILE="$BW_CONFIG_ROOT/.bw_session"          # ← where to save session
 
 echo "pass key: $PASS_ENTRY"
 echo "bitwarden email: $BW_EMAIL"
