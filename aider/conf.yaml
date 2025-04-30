@@ -3,3 +3,4 @@ model: claude-3-7-sonnet-20250219
 editor-model: claude-3-7-sonnet-20250219
 editor: nvim
 auto-commits: false
+multiline: true

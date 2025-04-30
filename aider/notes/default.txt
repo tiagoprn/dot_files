@@ -1,0 +1,7 @@
+---
+- The chat starts in "ask" mode - change to "/code" or "/architect"
+  to be able to edit code.
+
+- To submit messages to the LLM on multiline mode (which we are using),
+  use [Alt-Enter].
+---
