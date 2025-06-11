@@ -209,3 +209,5 @@ if [ -f "$NIX_SH_PATH" ]; then
     source $NIX_SH_PATH
     echo "Nix successfully sourced."
 fi
+
+export RCLONE_PASSWORD_COMMAND="pass rclone/config"
