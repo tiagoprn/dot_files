@@ -211,3 +211,4 @@ if [ -f "$NIX_SH_PATH" ]; then
 fi
 
 export RCLONE_PASSWORD_COMMAND="pass rclone/config"
+export RCLONE_CONFIG_PASS="$(pass rclone/config)"
