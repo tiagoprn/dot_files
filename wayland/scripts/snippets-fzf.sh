@@ -11,12 +11,12 @@ FILE=$(ghostty \
         ls | fzf \
             --prompt='Select snippet: ' \
             --preview='
-                if [ -x \"$SNIPS/{}\" ]; then
-                    echo \"[Executable script - preview of first 20 lines]\"
-                    echo \"\"
-                    head -20 \"$SNIPS/{}\"
+                if [ -x "$SNIPS/{}" ]; then
+                    echo "[Executable script - preview of first 20 lines]"
+                    echo ""
+                    head -20 "$SNIPS/{}"
                 else
-                    cat \"$SNIPS/{}\"
+                    cat "$SNIPS/{}"
                 fi
             ' \
             --preview-window=right:60%:wrap \
