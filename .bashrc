@@ -178,9 +178,9 @@ if ! pgrep -u "$USER" -f "keychain.*B47B5D91" >/dev/null; then
 fi
 
 echo "---"
-export ANTHROPIC_API_KEY=$(pass api-keys/anthropic) && echo "ANTHROPIC_API_KEY successfully set."
-export OPENAI_API_KEY=$(pass api-keys/OPENAI) && echo "OPENAI_API_KEY successfully set."
-export DEEPSEEK_API_KEY=$(pass api-keys/deepseek) && echo "DEEPSEEK_API_KEY successfully set."
+# export ANTHROPIC_API_KEY=$(pass api-keys/anthropic) && echo "ANTHROPIC_API_KEY successfully set."
+# export OPENAI_API_KEY=$(pass api-keys/OPENAI) && echo "OPENAI_API_KEY successfully set."
+# export DEEPSEEK_API_KEY=$(pass api-keys/deepseek) && echo "DEEPSEEK_API_KEY successfully set."
 export OPENROUTER_API_KEY=$(pass api-keys/openrouter) && echo "OPENROUTER_API_KEY successfully set."
 echo "---"
 
