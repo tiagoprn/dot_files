@@ -54,11 +54,10 @@ done
 
 # Build the command
 CMD=("aider" "--vim" "--no-git")
-CMD+=("--openai-api-key" "$(pass api-keys/OPENAI)")
-CMD+=("--anthropic-api-key" "$(pass api-keys/anthropic)")
 CMD+=("--config" "/storage/src/dot_files/aider/conf.yaml")
 CMD+=("--dark-mode" "--code-theme" "solarized-dark")
-CMD+=("--read" "/storage/src/dot_files/AI-prompts/system/default.md") # 'system prompt' file you can use with more specific instructions. Add more of that "--read" param if you need to add more files to the context.
+# 'system prompt' files you can use with more specific instructions. Add more of that "--read" param if you need to add more files to the context:
+CMD+=("--read" "/storage/src/ai-prompts/_persona.md")
 
 # Add verbose flags if requested
 if [ "$VERBOSE_MODE" = true ]; then
