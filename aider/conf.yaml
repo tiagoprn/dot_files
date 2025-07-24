@@ -1,6 +1,8 @@
 # complete sample file: https://raw.githubusercontent.com/Aider-AI/aider/refs/heads/main/aider/website/assets/sample.aider.conf.yml
-model: claude-sonnet-4-20250514
-editor-model: claude-sonnet-4-20250514
+model: openrouter/google/gemini-2.5-flash
+editor-model: openrouter/google/gemini-2.5-flash
+# model: claude-sonnet-4-20250514
+# editor-model: claude-sonnet-4-20250514
 editor: nvim
 auto-commits: false
 multiline: true
