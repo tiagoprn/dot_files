@@ -21,8 +21,8 @@ if [ -n "$selected_file" ]; then
     temp_file=$(mktemp --suffix=".$extension")
     cat "$selected_file" >"$temp_file"
 
-    # Cleanup temp file when script exits
-    trap "rm -f '$temp_file'" EXIT
+    # Cleanup temp file when script exits, but copy to clipboard first
+    trap "cat '$temp_file' | wl-copy; rm -f '$temp_file'" EXIT
 
     nvim "$temp_file"
 fi
