@@ -13,7 +13,7 @@ if [ ! -d "$AI_PROMPTS_DIR" ]; then
 fi
 
 # Use fd with full paths (-a for absolute paths)
-selected_file=$(fd -t f -a . "$AI_PROMPTS_DIR" | tv --preview-command 'bat -n --color=always {}')
+selected_file=$(fd -t f -a . "$AI_PROMPTS_DIR" | tv --preview-size 65 --preview-command 'bat -n --color=always {}')
 
 if [ -n "$selected_file" ]; then
     echo "Selected: $selected_file" # Debug line - remove later
