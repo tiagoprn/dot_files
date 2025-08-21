@@ -142,6 +142,22 @@ button {
     color: red;
 }
 
+#custom-flowstatus {
+    background-color: #000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #FFFFFF;
+    font-size:20;
+}
+
+#custom-flowstatus.on {
+    background-color: green;
+}
+
+#custom-flowstatus.off {
+    background-color: red;
+}
+
 #custom-week_info {
     background-color: #000000;
     padding-left: 10px;

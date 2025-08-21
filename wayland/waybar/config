@@ -12,7 +12,8 @@
     "modules-center": [
         "custom/week_info",
         "clock",
-	"custom/capslock",
+	"custom/flowstatus",
+	"custom/capslock"
     ],
     "modules-right": [
         "pulseaudio",
@@ -50,6 +51,11 @@
     },
     "custom/capslock": {
 	"exec": "~/scripts/caps-lock-waybar.sh",
+	"interval": 1,
+	"return-type": "json"
+    },
+    "custom/flowstatus": {
+	"exec": "~/scripts/flow-status-waybar.sh",
 	"interval": 1,
 	"return-type": "json"
     },
