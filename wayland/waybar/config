@@ -56,6 +56,7 @@
     },
     "custom/flowstatus": {
 	"exec": "~/scripts/flow-status-waybar.sh",
+	"on-click": "~/scripts/flow-today-waybar.sh",
 	"interval": 1,
 	"return-type": "json"
     },
@@ -80,7 +81,20 @@
 	"interval": 1,
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
         "format": "{:%a %b %d - %H:%M:%S}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%Y-%m-%d}",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "left",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff0000'><b><u>{}</u></b></span>"
+                              }
+                  }
     },
     "cpu": {
         "format": "  {usage}%",
