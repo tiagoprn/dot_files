@@ -30,4 +30,6 @@ return {
   max_fps = 120,
   enable_tab_bar = false,
   window_background_opacity = 0.7,
+  dpi = 120.0, -- Example DPI for 2K displays
+  font_size = 10,
 }
