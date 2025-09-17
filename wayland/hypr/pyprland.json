@@ -13,9 +13,8 @@
     },
     "terminal": {
       "animation": "fromTop",
-      "command": "wezterm start --class wezterm_scratchpad -- /home/tiago/scripts/terminal-scratchpad.sh",
-      "class": "wezterm_scratchpad",
-      "size": "60% 90%",
+      "command": "ghostty --title='terminal_scratchpad' -e /home/tiago/scripts/terminal-scratchpad.sh",
+      "title": "terminal_scratchpad",
       "unfocus": "hide",
       "lazy": true
     }
