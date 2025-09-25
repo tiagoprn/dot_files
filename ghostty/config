@@ -6,7 +6,7 @@
 ## appearance
 
 window-decoration = false
-gtk-adwaita = false
+# gtk-adwaita = false
 background = #000000
 background-opacity = 0.7
 copy-on-select = clipboard
