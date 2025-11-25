@@ -153,6 +153,11 @@ if [ -d "$CARGO_BIN" ]; then
     export PATH="$PATH:$CARGO_BIN"
 fi
 
+GO_BIN="$HOME/go/bin"
+if [ -d "$GO_BIN" ]; then
+    export PATH="$PATH:$GO_BIN"
+fi
+
 # astral's "uv" and others install on this path
 LOCAL_BIN="$HOME/.local/bin"
 if [ -d "$LOCAL_BIN" ]; then
