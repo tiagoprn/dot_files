@@ -2,8 +2,6 @@
 
 set -eou pipefail
 
-shopt -s expand_aliases
-
 SELF_NAME=$(basename "$0")
 
 usage() {
@@ -18,15 +16,32 @@ if [ "$REPO_PATH" == "" ]; then
     exit 1
 fi
 
-PRIVATE_KEYS=$(grep -r 'PRIVATE KEY' $HOME/.ssh | grep BEGIN | cut -d ':' -f 1 | tr '\n' ' ')
+# Start ssh-agent and capture the environment variables
+eval "$(ssh-agent -s)" >/dev/null
 
-SSH_ADD_COMMANDS=""
-for KEY in $PRIVATE_KEYS; do
-    SSH_ADD_COMMANDS+="ssh-add $KEY && "
+# Ensure the ssh-agent is killed when this script exits (successfully or due to error)
+trap 'kill $SSH_AGENT_PID' EXIT
+
+# Find files containing "PRIVATE KEY" in ~/.ssh
+# We use a while loop to handle the addition of keys individually.
+# If adding one key fails (e.g. password issue), it proceeds to the next.
+grep -r -l 'PRIVATE KEY' "$HOME/.ssh" | while read -r KEY; do
+    echo "Attempting to add identity: $KEY"
+    ssh-add "$KEY" || echo "Warning: Failed to add $KEY"
+
+    # libgit2 often requires the public key to be present alongside the private key
+    if [ ! -f "$KEY.pub" ]; then
+        echo "Warning: Public key file ($KEY.pub) is missing. gitui (libgit2) may fail."
+    fi
 done
 
-GIT_UI_CMD="exec ssh-agent bash -c '$SSH_ADD_COMMANDS cd $REPO_PATH && gitui'"
+# Navigate to the repo and run gitui
+cd "$REPO_PATH"
 
-# echo "$GIT_UI_CMD"
+echo "---------------------------------------------------"
+echo "Diagnostics: Attempting git push --dry-run via CLI..."
+git push --dry-run && echo "Success: CLI git push works." || echo "Failure: CLI git push failed."
+echo "---------------------------------------------------"
+read -p "Press Enter to launch lazygit..."
 
-eval "$GIT_UI_CMD"
+lazygit
