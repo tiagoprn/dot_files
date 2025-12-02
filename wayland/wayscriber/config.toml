@@ -4,7 +4,7 @@ default_color = [
     0,
     0,
 ]
-default_thickness = 6.00031502016129
+default_thickness = 5.846742691532258
 default_eraser_size = 12.0
 marker_opacity = 0.32
 default_fill_enabled = false
@@ -105,7 +105,7 @@ enabled = true
 
 [ui.toolbar]
 top_pinned = true
-side_pinned = true
+side_pinned = false
 use_icons = true
 show_more_colors = false
 show_actions_section = true
