@@ -13,7 +13,7 @@
     },
     "terminal": {
       "animation": "fromTop",
-      "command": "ghostty --title='terminal_scratchpad' -e /home/tiago/scripts/terminal-scratchpad.sh",
+      "command": "kitty --title terminal_scratchpad /home/tiago/scripts/terminal-scratchpad.sh",
       "title": "terminal_scratchpad",
       "unfocus": "hide",
       "lazy": true
