@@ -17,8 +17,8 @@
 # openrouter trending models pages:
 # https://openrouter.ai/rankings?category=programming#programming-languages
 #-----------------------------------------
-model: openrouter/google/gemini-3-pro-preview
-editor-model: openrouter/deepseek/deepseek-v3.2-exp
+model: openrouter/deepseek/deepseek-v3.2-exp
+editor-model: openrouter/deepseek/deepseek-v3.2-speciale
 editor: nvim
 auto-commits: false
 multiline: true
