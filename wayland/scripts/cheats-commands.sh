@@ -18,7 +18,7 @@ if [ -n "$FILE" ]; then
         clear
         echo -e "I will now open nvim so that you can now view or edit the file..."
         sleep 2
-        nvim "$FILE"
+        cd "$CHEATSHEETS" && nvim "$FILE"
     else
         echo "Error: File not found: $FILE"
     fi
