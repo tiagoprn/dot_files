@@ -98,3 +98,5 @@ if [ -f "$HOME/.pyenv/versions/aider/bin/aider" ]; then
     alias aider="$HOME/.pyenv/versions/aider/bin/aider"
     echo 'Created alias to the aider command available on its pyenv virtualenv.'
 fi
+
+alias rt='ssh tars "sudo shutdown -r now"'

@@ -4,6 +4,7 @@ set -eou pipefail
 
 # Define color variables
 RED='\033[0;31m'
+YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
 # if [ -d "/storage/src/fortunes/" ]; then
@@ -14,19 +15,21 @@ echo -e 'TMUX GOODIES:'
 
 # is not inside tmux:
 if [ -z "${TMUX+set}" ]; then
-    echo -e "- Open ${RED}tmuxp available sessions${NC} with the ${RED}tp${NC} bash alias. (e.g. REMOTE)"
+    echo -e "- Open ${YELLOW}tmuxp available sessions${NC} with the ${YELLOW}tp${NC} bash alias. (e.g. REMOTE)"
 fi
 
-echo -e "- Use ${RED}tmux-ide.sh${NC} to create an ide session ${RED}in the current directory${NC}."
-echo -e "- Use ${RED}dots.sh${NC} to create tmux sessions to all my config repos "
-echo -e "  (${RED}dot_files, devops, pde.nvim & nix-home-manager${NC})."
+echo -e "- Use ${YELLOW}tmux-ide.sh${NC} to create an ide session ${YELLOW}in the current directory${NC}."
+echo -e "- Use ${YELLOW}dots.sh${NC} to create tmux sessions to all my config repos "
+echo -e "  (${YELLOW}dot_files, devops, pde.nvim & nix-home-manager${NC})."
 
 # if [[ $HOSTNAME == cosmos ]]; then
 #     echo -e '- To run timeshift: sudo timeshift-gtk'
 # fi
 
-echo -e "-----"
-echo -e "==> To get password from ${RED}pass${NC}, use the ${RED}gp${NC} bash alias <=="
-echo -e "==> To call ${RED}navi${NC}, use ${RED}<CTRL+G>${NC} when on INSERT mode. <=="
-echo -e "==> To open tmux ${RED}tasks, fleeting-notes & reminders${NC}, use the ${RED}hi${NC} bash alias <=="
-echo -e "==> To ${RED}edit local file clipboard${NC}, use the ${RED}cf${NC} bash alias<=="
+echo -e "---------------------------------------------------------------------------------------------------------"
+echo -e "==> To get password from ${YELLOW}pass${NC}, use the ${YELLOW}gp${NC} bash alias <=="
+echo -e "==> To open tmux ${YELLOW}tasks, fleeting-notes & reminders${NC}, use the ${YELLOW}hi${NC} bash alias <=="
+echo -e "==> To ${YELLOW}edit local file clipboard${NC}, use the ${YELLOW}cf${NC} bash alias<=="
+echo -e "==> To ${YELLOW}restart tars remotely${NC}, use the ${YELLOW}rt${NC} bash alias<=="
+echo -e "---------------------------------------------------------------------------------------------------------"
+echo -e ""
