@@ -4,6 +4,7 @@
 #       and gpl as examples of how to do that correctly.
 
 ## one letter aliases
+alias a='aider --vim --no-git --config /storage/src/dot_files/aider/conf.yaml --dark-mode --code-theme solarized-dark --read /storage/src/ai-prompts/_persona.md'
 alias f='fzf'
 alias g='git'
 alias t='tmux'
@@ -11,7 +12,6 @@ alias t='tmux'
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
 # TODO: edit below to put the date on this format: `date '+%Y-%m-%d %A %H:%M:%S %N'`
 alias j='/storage/src/dot_files/wayland/scripts/journal.sh'
-alias m='nvim +MindOpenMain'
 alias p='pyenv'
 alias s='source ~/.bashrc'
 alias v='SELECTED_FILE=$(find . -type f | grep -v ".git/" | grep -v "node_modules/" | fzf --preview "bat --style=numbers --color=always --line-range :50 {}") && nvim $SELECTED_FILE'
