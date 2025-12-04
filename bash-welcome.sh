@@ -31,5 +31,6 @@ echo -e "==> To get password from ${YELLOW}pass${NC}, use the ${YELLOW}gp${NC} b
 echo -e "==> To open tmux ${YELLOW}tasks, fleeting-notes & reminders${NC}, use the ${YELLOW}hi${NC} bash alias <=="
 echo -e "==> To ${YELLOW}edit local file clipboard${NC}, use the ${YELLOW}cf${NC} bash alias<=="
 echo -e "==> To ${YELLOW}restart tars remotely${NC}, use the ${YELLOW}rt${NC} bash alias<=="
+echo -e "==> To ${YELLOW}run aider${NC} (no git by default), use the ${YELLOW}a${NC} bash alias<=="
 echo -e "---------------------------------------------------------------------------------------------------------"
 echo -e ""
