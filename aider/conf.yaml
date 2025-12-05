@@ -17,8 +17,53 @@
 # openrouter trending models pages:
 # https://openrouter.ai/rankings?category=programming#programming-languages
 #-----------------------------------------
-model: openrouter/deepseek/deepseek-v3.2-exp
-editor-model: openrouter/deepseek/deepseek-v3.2-speciale
 editor: nvim
 auto-commits: false
 multiline: true
+vim: true
+
+# Appearance
+dark-mode: true
+code-theme: solarized-dark
+
+# - Below was configured with the help of perplexity:
+#   https://www.perplexity.ai/search/i-have-in-my-hands-this-page-w-aYVHZQ2dQ8mvYQhD5UxEPg
+#
+#   I must use this chat as a reference if/when I need to update any of the models.
+#
+
+# Main model (you will choose one of these per profile)
+model: openrouter/deepseek/deepseek-v3.2-speciale
+
+# Reasoning-related
+reasoning-effort: low
+thinking-tokens: 0
+
+# Secondary models
+weak-model: openrouter/deepseek/deepseek-v3.2-exp
+editor-model: openrouter/deepseek/deepseek-v3.2-exp
+
+# History and caching
+max-chat-history-tokens: 8000
+cache-prompts: true
+cache-keepalive-pings: 3
+
+# History files
+input-history-file: .aider.input.history
+chat-history-file: .aider.chat.history.md
+restore-chat-history: false
+llm-history-file: .aider.llm.history
+
+# -------------------------------------------------------------------------------------------------
+# Load commands on startup
+# -------------------------------------------------------------------------------------------------
+# - Corresponds to --load LOAD_FILE, which runs aider /commands from a file on startup
+#   (for example /add, /read, /code etc.), acting like a startup script.
+# - Use load: .aider.load.commands if you want a deterministic startup routine (e.g.,
+#   auto‑/read a conventions file with commands), and keep /read in the commands themselves.
+# -------------------------------------------------------------------------------------------------
+# load: .aider.load.commands
+
+# Notifications (tmux)
+notifications: true
+notifications-command: "tmux display-message 'aider: Your inquiry response is ready, Captain.'"

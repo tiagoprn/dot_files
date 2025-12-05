@@ -61,10 +61,9 @@ if [ "$QUIET_MODE" = false ]; then
 fi
 
 # Build the command
-CMD=("aider" "--vim" "--no-gitignore" "--watch-files" "--chat-mode" "ask")
+CMD=("aider" "--no-gitignore" "--watch-files" "--chat-mode" "ask")
 CMD+=("--aiderignore" "/storage/src/dot_files/aider/ignore-list")
 CMD+=("--config" "/storage/src/dot_files/aider/conf.yaml")
-CMD+=("--dark-mode" "--code-theme" "solarized-dark")
 # 'system prompt' files you can use with more specific instructions. Add more of that "--read" param if you need to add more files to the context:
 CMD+=("--read" "/storage/src/ai-prompts/_persona.md")
 CMD+=("--read" "/storage/src/ai-prompts/_system_code.md")

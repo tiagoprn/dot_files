@@ -7,7 +7,7 @@
 alias f='fzf'
 alias g='git'
 alias t='tmux'
-alias a='aider --vim --no-git --config /storage/src/dot_files/aider/conf.yaml --dark-mode --code-theme solarized-dark --read /storage/src/ai-prompts/_persona.md'
+alias a='aider --no-git --config /storage/src/dot_files/aider/conf.yaml --read /storage/src/ai-prompts/_persona.md'
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
 # TODO: edit below to put the date on this format: `date '+%Y-%m-%d %A %H:%M:%S %N'`

@@ -53,9 +53,8 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Build the command
-CMD=("aider" "--vim" "--no-git")
+CMD=("aider" "--no-git")
 CMD+=("--config" "/storage/src/dot_files/aider/conf.yaml")
-CMD+=("--dark-mode" "--code-theme" "solarized-dark")
 # 'system prompt' files you can use with more specific instructions. Add more of that "--read" param if you need to add more files to the context:
 CMD+=("--read" "/storage/src/ai-prompts/_persona.md")
 
