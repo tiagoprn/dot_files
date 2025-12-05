@@ -67,7 +67,7 @@ CMD+=("--config" "/storage/src/dot_files/aider/conf.yaml")
 # 'system prompt' files you can use with more specific instructions. Add more of that "--read" param if you need to add more files to the context:
 CMD+=("--read" "/storage/src/ai-prompts/_persona.md")
 CMD+=("--read" "/storage/src/ai-prompts/_system_code.md")
-CMD+=("--read" "/storage/src/ai-prompts/code.python.default.md")
+CMD+=("--read" "/storage/src/ai-prompts/_system_code.python.default.md")
 
 # Add verbose flags if requested
 if [ "$VERBOSE_MODE" = true ]; then
