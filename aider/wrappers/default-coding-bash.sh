@@ -1,20 +1,14 @@
 #!/bin/bash
 
 read -r -d '' WRAPPER_INFO <<'EOL'
-# --------------------------------------------------
-# DEFAULT
-# --------------------------------------------------
+# ------------------------------------------------------------
+# BASH / SHELL SCRIPTS DEVELOPMENT ENVIRONMENT WRAPPER FOR AIDER
+# ------------------------------------------------------------
 #
 # This script launches the Aider AI coding assistant
-# to be used with no specific purpose (default).
+# to be used for creating bash/shell scripts.
 #
-# Features:
-# - Vim integration for seamless editing
-# - File watching for automatic updates
-# - Custom configuration and theming
-# - Secure API key management via pass
-#
-# Usage: ./default-coding-python.sh [additional_args]
+# Usage: ./default-coding-bash.sh [additional_args]
 EOL
 
 # Function to display help
