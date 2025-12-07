@@ -71,18 +71,26 @@ create_tmux_session() {
         tmux send-keys -t "${SESSION_NAME}:nvim.1" "nvim" C-m
     fi
 
-    # Create the second window named "git" and run the specified shell script
+    # Create the 2nd window named "AI"
+    tmux new-window -t "$SESSION_NAME" -n "AI"
+    # Set pane-base-index to 1 for the "AI" window
+    tmux set-option -w -t "${SESSION_NAME}:AI" pane-base-index 1
+
+    # Create the 3rd window named "git" and run the specified shell script
     tmux new-window -t "$SESSION_NAME" -n "git" "bash $GIT_SCRIPT ."
     # Set pane-base-index to 1 for the "git" window
     tmux set-option -w -t "${SESSION_NAME}:git" pane-base-index 1
 
-    # Create the third window named "scratchpad"
+    # Create the 4th window named "scratchpad"
     tmux new-window -t "$SESSION_NAME" -n "scratchpad"
     # Set pane-base-index to 1 for the "scratchpad" window
     tmux set-option -w -t "${SESSION_NAME}:scratchpad" pane-base-index 1
 
     # Pause for 0.1 seconds to give time to the window to be created
     sleep 0.1
+
+    # Run the "a" (aider) bash alias on the "AI" window's first pane
+    tmux send-keys -t "${SESSION_NAME}:AI.1" "echo 'Run aider here (using the bash alias or a navi command).'" C-m
 
     # Send the message to the "scratchpad" window's first pane
     tmux send-keys -t "${SESSION_NAME}:scratchpad.1" "echo 'You can run a runserver or other commands on this pane'" C-m
