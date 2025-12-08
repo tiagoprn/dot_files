@@ -94,7 +94,6 @@ alias ssh-no-host-checking='ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHost
 alias compositor='/storage/src/devops/bin/toggle_compositor.sh'
 alias xsession='[[ ! -z "$DISPLAY" ]] && source $HOME/.xsession'
 alias ls='ls -a -F --indicator-style=none' # the --indicator... removes the "*" at the end of executable files
-alias nvimai='export OPENAI_API_KEY=$(pass api-keys/OPENAI) && nvim'
 
 if [ -f "$HOME/.pyenv/versions/aider/bin/aider" ]; then
     alias aider="$HOME/.pyenv/versions/aider/bin/aider"
