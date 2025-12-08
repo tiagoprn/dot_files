@@ -53,12 +53,15 @@ restore_session=false
 
 if [[ $user_response_lower == "y" || $user_response_lower == "yes" ]]; then
     # USE THE NAME SELECTED TO SET THE SESSION FILE NAMES
+    selected_aider_session=$(
+        extract_unique_prefixes \
+            | FZF_DEFAULT_OPTS='' \
+                fzf \
+                --prompt='Select a session to restore: ' \
+                --preview "bat --color=always --style=numbers -- ${sessions_dir}/{}.input.md" \
+                --preview-window='right:60%:wrap'
+    )
 
-    # TODO: on the fzf preview, concatenate ".input.md" on the end of the currently selected entry.
-    #       I want to preview the file contents using "bat". But do NOT change the name of the selected
-    #       file, please. We must also keep just one file selection (no multi).
-    #       And do the smallest change possible to enable that without breaking the current behavior.
-    selected_aider_session=$(extract_unique_prefixes | fzf --prompt "Select a session to restore: ")
     fzf_exit_status=$?
 
     if [ $fzf_exit_status -eq 0 ]; then
