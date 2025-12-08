@@ -41,6 +41,16 @@ read -p "Do you want to continue an existing session? (y/N) " -r user_response
 # Convert response to lowercase for easier comparison
 user_response_lower=$(echo "$user_response" | tr '[:upper:]' '[:lower:]')
 
+# Initialize aider_args with common arguments
+aider_args=(
+    --no-git
+    --config /storage/src/dot_files/aider/conf.yaml
+    --read /storage/src/ai-prompts/_persona.md
+)
+
+# FLAG TO DETERMINE IF WE ARE RESTORING A SESSION
+restore_session=false
+
 if [[ $user_response_lower == "y" || $user_response_lower == "yes" ]]; then
     # USE THE NAME SELECTED TO SET THE SESSION FILE NAMES
 
@@ -54,6 +64,9 @@ if [[ $user_response_lower == "y" || $user_response_lower == "yes" ]]; then
         chat_file="${sessions_dir}/${selected_aider_session}.chat.md"
         input_file="${sessions_dir}/${selected_aider_session}.input.md"
         llm_file="${sessions_dir}/${selected_aider_session}.llm.log"
+
+        # Set the flag to true as we are restoring a session
+        restore_session=true
 
         # ls -lha "$chat_file"
         # ls -lha "$input_file"
@@ -86,10 +99,6 @@ echo -e "chat_file = $chat_file"
 echo -e "input_file = $input_file"
 echo -e "llm_file = $llm_file"
 
-# --- TODO: remove this after testing fzf
-return 1
-# ---
-
 # Initial fzf selection for the main prompt file
 echo "Executing initial fzf selection..."
 initial_selection=$(echo -e '/storage/src/ai-prompts/_system_natural_language.md\n/storage/src/ai-prompts/_system_code.md' | fzf --prompt "Select initial prompt file: ")
@@ -101,15 +110,21 @@ if [[ -z $initial_selection ]]; then
     exit 1
 fi
 
-aider_args=(
-    --chat-history-file "$chat_file"
-    --input-history-file "$input_file"
-    --llm-history-file "$llm_file"
-    --no-git
-    --config /storage/src/dot_files/aider/conf.yaml
-    --read /storage/src/ai-prompts/_persona.md
-    --read "$initial_selection"
-)
+# Add the selected initial prompt to aider_args
+aider_args+=(--read "$initial_selection")
+
+# Conditionally add restore arguments if restoring a session
+if [[ $restore_session == true ]]; then
+    aider_args+=(--restore)
+    aider_args+=(--chat-history-file "$chat_file")
+    aider_args+=(--input-history-file "$input_file")
+    aider_args+=(--llm-history-file "$llm_file")
+else
+    # For new sessions, we still need to specify the files to create them
+    aider_args+=(--chat-history-file "$chat_file")
+    aider_args+=(--input-history-file "$input_file")
+    aider_args+=(--llm-history-file "$llm_file")
+fi
 
 # Conditionally prompt for an additional --read file if the initial selection starts with "_system_code"
 if [[ $initial_selection == *_system_code* ]]; then
