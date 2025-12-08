@@ -8,6 +8,8 @@ alias a='aider --vim --no-git --config /storage/src/dot_files/aider/conf.yaml --
 alias f='fzf'
 alias g='git'
 alias t='tmux'
+alias a='/storage/src/dot_files/aider/run.sh'
+# TODO: aider restore session (chat and input history must be specified)
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
 # TODO: edit below to put the date on this format: `date '+%Y-%m-%d %A %H:%M:%S %N'`

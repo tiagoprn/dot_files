@@ -177,10 +177,7 @@ eval "$(navi widget bash)"
 # Manage and cache your GPG keys, so you don't have to enter the passphrase repeatedly.
 # For this to work, install "keychain" from your package manager (apt, pacman, etc...).
 # It will only run if keychain is not already running for this user
-if ! pgrep -u "$USER" -f "keychain.*B47B5D91" >/dev/null; then
-    echo -e "Type password to unlock the GPG key B47B5D91: "
-    eval "$(keychain --eval --quiet --agents gpg B47B5D91)"
-fi
+eval "$(keychain --eval --quiet B47B5D91)"
 
 echo "---"
 # export ANTHROPIC_API_KEY=$(pass api-keys/anthropic) && echo "ANTHROPIC_API_KEY successfully set."

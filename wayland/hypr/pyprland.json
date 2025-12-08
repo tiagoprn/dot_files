@@ -1,6 +1,6 @@
 {
   "pyprland": {
-    "plugins": ["scratchpads", "wallpapers"]
+    "plugins": ["scratchpads", "wallpapers", "magnify"]
   },
   "scratchpads": {
     "volume": {
