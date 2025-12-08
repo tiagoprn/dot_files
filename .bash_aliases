@@ -7,7 +7,7 @@
 alias f='fzf'
 alias g='git'
 alias t='tmux'
-alias a='/storage/src/dot_files/aider/wrappers/run.sh'
+alias a='/storage/src/dot_files/aider/run.sh'
 # TODO: aider restore session (chat and input history must be specified)
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
