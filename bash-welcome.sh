@@ -32,5 +32,6 @@ echo -e "==> To open tmux ${YELLOW}tasks, fleeting-notes & reminders${NC}, use t
 echo -e "==> To ${YELLOW}edit local file clipboard${NC}, use the ${YELLOW}cf${NC} bash alias<=="
 echo -e "==> To ${YELLOW}restart tars remotely${NC}, use the ${YELLOW}rt${NC} bash alias<=="
 echo -e "==> To ${YELLOW}run aider${NC} (no git by default), use the ${YELLOW}a${NC} bash alias<=="
+echo -e "==> To get a ${YELLOW}list of previously used AI models on aider${NC}, use the ${YELLOW}am${NC} bash alias<=="
 echo -e "---------------------------------------------------------------------------------------------------------"
 echo -e ""
