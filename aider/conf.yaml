@@ -15,6 +15,10 @@
 # openrouter/deepseek/deepseek-v3.2-speciale (does not have caching but was created Dec 1st 2025)
 # openrouter/x-ai/grok-4.1-fast (2M context window, has reasoning and caching) -- VERY BAD, DO NOT USE
 # openrouter/google/gemini-2.5-flash-lite (1.05M context window, has reasoning and caching)
+# openrouter/deepseek/deepseek-v3.2-exp (164K context window, HAS stream cancellation, reasoning and caching)
+# openrouter/deepseek/deepseek-v3.2-speciale (164K context window, NO caching and tools)
+# openrouter/google/gemini-2.5-flash-lite (1.05M context window, NO stream cancellation)
+# openrouter/mistralai/devstral-2512:free (free - 0 tokens, 262K context window. NO stream cancellation, reasoning or caching)
 # ---------------------------------------------
 # openrouter trending models pages:
 # https://openrouter.ai/rankings?category=programming#programming-languages
