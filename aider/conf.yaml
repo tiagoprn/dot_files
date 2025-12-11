@@ -6,18 +6,14 @@
 # openrouter/anthropic/claude-sonnet-4
 # openrouter/anthropic/claude-sonnet-4.5
 # openrouter/google/gemini-2.5-flash
-# openrouter/google/gemini-3-pro-preview
 # openrouter/x-ai/grok-code-fast-1
 # openrouter/z-ai/glm-4.5
 # openrouter/qwen/qwen3-coder
 # openrouter/google/gemini-2.5-pro
-# openrouter/deepseek/deepseek-v3.2-exp (has caching according to https://openrouter.ai/compare/deepseek/deepseek-v3.2-exp)
-# openrouter/deepseek/deepseek-v3.2-speciale (does not have caching but was created Dec 1st 2025)
-# openrouter/x-ai/grok-4.1-fast (2M context window, has reasoning and caching) -- VERY BAD, DO NOT USE
-# openrouter/google/gemini-2.5-flash-lite (1.05M context window, has reasoning and caching)
+# openrouter/google/gemini-3-pro-preview
 # openrouter/deepseek/deepseek-v3.2-exp (164K context window, HAS stream cancellation, reasoning and caching)
 # openrouter/deepseek/deepseek-v3.2-speciale (164K context window, NO caching and tools)
-# openrouter/google/gemini-2.5-flash-lite (1.05M context window, NO stream cancellation)
+# openrouter/google/gemini-2.5-flash-lite (1.05M context window, has reasoning and caching but NO stream cancellation)
 # openrouter/mistralai/devstral-2512:free (free - 0 tokens, 262K context window. NO stream cancellation, reasoning or caching)
 # ---------------------------------------------
 # openrouter trending models pages:
@@ -40,7 +36,7 @@ code-theme: solarized-dark
 
 # Main model (you will choose one of these per profile)
 # model: openrouter/deepseek/deepseek-v3.2-speciale
-model: openrouter/google/gemini-2.5-flash-lite
+model: openrouter/google/gemini-3-pro-preview
 
 # Reasoning-related
 reasoning-effort: low
