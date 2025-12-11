@@ -4,17 +4,18 @@
 #       and gpl as examples of how to do that correctly.
 
 ## one letter aliases
+alias a='aider --vim --no-git --config /storage/src/dot_files/aider/conf.yaml --dark-mode --code-theme solarized-dark --read /storage/src/ai-prompts/_persona.md'
 alias f='fzf'
 alias g='git'
 alias t='tmux'
 alias a='/storage/src/dot_files/aider/run.sh'
 alias am='cat /storage/src/dot_files/aider/conf.yaml | grep "# openrouter/" | cut -d " " -f 2 | fzf > /tmp/copied.txt && echo "copied to /tmp/copied.txt"'
+alias ae='nvim /storage/src/dot_files/aider/conf.yaml'
 # TODO: aider restore session (chat and input history must be specified)
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
 # TODO: edit below to put the date on this format: `date '+%Y-%m-%d %A %H:%M:%S %N'`
 alias j='/storage/src/dot_files/wayland/scripts/journal.sh'
-alias m='nvim +MindOpenMain'
 alias p='pyenv'
 alias s='source ~/.bashrc'
 alias v='SELECTED_FILE=$(find . -type f | grep -v ".git/" | grep -v "node_modules/" | fzf --preview "bat --style=numbers --color=always --line-range :50 {}") && nvim $SELECTED_FILE'
