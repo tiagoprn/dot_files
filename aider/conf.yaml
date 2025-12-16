@@ -70,3 +70,5 @@ cache-keepalive-pings: 3
 # Notifications (tmux)
 notifications: true
 notifications-command: "tmux display-message 'aider: Your inquiry response is ready, Captain.'"
+
+auto-accept-architect: false
