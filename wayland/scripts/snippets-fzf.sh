@@ -1,32 +1,32 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 SNIPS=/storage/src/dot_files/text_snippets
 
-# Use fd with full paths (-a for absolute paths)
 FILE=$(fd -t f -a . "$SNIPS" | tv --preview-size 65 --preview-command 'bat -n --color=always {}')
+status=$?
 
-if [ $? -ne 0 ]; then
-    exit 0
+if [ $status -ne 0 ] || [ -z "${FILE:-}" ]; then
+    exit 1
 fi
 
-if [ -n "$FILE" ]; then
-    echo "Selected: $FILE" # Debug line - remove later
-
-    # Since FILE already contains the full path (due to -a flag), use it directly
-    if [ -f "$FILE" ]; then
-        # Check if file is executable and run it, otherwise just read the content
-        if [ -x "$FILE" ]; then
-            DATA=$(bash "$FILE")
-        else
-            DATA=$(head --bytes=-1 "$FILE")
-        fi
-
-        # Set trap to type the data when script exits (only if DATA is not empty)
-        if [ -n "$DATA" ]; then
-            # trap "sleep 2 && printf '%s' '$DATA' | ydotool type --file -" EXIT
-            trap "echo '$DATA' > /tmp/clipboard/copied.txt" EXIT
-        fi
-    else
-        echo "Error: File not found: $FILE"
-    fi
+if [ ! -f "$FILE" ]; then
+    echo "Error: File not found: $FILE" >&2
+    exit 1
 fi
+
+if [ -x "$FILE" ]; then
+    DATA=$(bash "$FILE")
+else
+    DATA=$(head --bytes=-1 "$FILE")
+fi
+
+if [ -z "${DATA:-}" ]; then
+    exit 1
+fi
+
+printf '%s' "$DATA" >/tmp/clipboard/copied.txt
+
+notify-send -t 5000 "🤖 Snippet successfully processed and copied to clipboard! Now, paste it where you need. 📋"
+
+exit 0
