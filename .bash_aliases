@@ -24,7 +24,7 @@ alias v='SELECTED_FILE=$(find . -type f | grep -v ".git/" | grep -v "node_module
 alias hi='/storage/src/dot_files/wayland/scripts/tmuxp-notes_tasks_n_reminders.sh'
 alias cc='cd $(fd --type d --hidden --exclude .git --exclude node_module --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude .nv | fzf)'
 alias gu='git fetch && git pull'
-alias cf='/storage/src/devops/shellscripts/utils/backup-current-local-file-clipboard.sh && nvim /tmp/copied.txt'
+alias cf='/storage/src/devops/shellscripts/utils/backup-current-local-file-clipboard.sh && nvim /tmp/clipboard/copied.txt'
 alias cl='ncal -3w -M'
 alias gfpl='g f && g pl'
 alias pa='pyenv activate $(pyenv virtualenvs | grep -v "^\s*[0-9]" | cut -d " " -f 3 | fzf --prompt "Choose a pyenv virtualenv: ")'
