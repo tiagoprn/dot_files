@@ -2,5 +2,5 @@
 
 set -eou pipefail
 
-cat /tmp/copied.txt | wl-copy \
+cat /tmp/clipboard/copied.txt | wl-copy \
     && notify-send 'Successfully copied from local file clipboard.'

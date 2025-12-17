@@ -24,7 +24,7 @@ if [ -n "$FILE" ]; then
         # Set trap to type the data when script exits (only if DATA is not empty)
         if [ -n "$DATA" ]; then
             # trap "sleep 2 && printf '%s' '$DATA' | ydotool type --file -" EXIT
-            trap "echo '$DATA' > /tmp/copied.txt" EXIT
+            trap "echo '$DATA' > /tmp/clipboard/copied.txt" EXIT
         fi
     else
         echo "Error: File not found: $FILE"
