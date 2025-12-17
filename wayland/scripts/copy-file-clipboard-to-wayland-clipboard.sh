@@ -2,5 +2,4 @@
 
 set -eou pipefail
 
-cat /tmp/clipboard/copied.txt | wl-copy \
-    && notify-send '📋 Successfully copied to clipboard!'
+cat /tmp/clipboard/copied.txt | wl-copy
