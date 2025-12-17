@@ -4,6 +4,24 @@ set -eou pipefail
 
 shopt -s expand_aliases
 
+# Define color variables
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # No Color
+
+clear
+
+# First, let's choose the chat mode:
+echo -e "${YELLOW}ABOUT CHAT MODES${NC}\n\n"
+echo -e "${YELLOW}architect${NC} - uses ${YELLOW}2 models (MAIN + EDITOR)${NC}: use this to be able to use a main model to think and another to edit the files (recommended for handling code tasks)\n${YELLOW}ask${NC}: uses ${YELLOW}1 model (the MAIN model)${NC}: use this to ask questions\n${YELLOW}code${NC} - uses ${YELLOW}1 'model' (the MAIN model)${NC} to edit the files.\n\nThis can also be changed interactively on the chat with the command '/chat-mode [ask/code/architect]'\n\n"
+
+read -p "Now, press Enter to move on and select one of these modes..."
+
+# First, let's choose the chat mode:
+CHAT_MODE=$(echo -e 'ask\narchitect\ncode' | fzf --prompt 'Choose a chat mode: ' | cut -d ' ' -f 1)
+
+echo "$CHAT_MODE"
+
 sessions_dir="$HOME/.local/aider-sessions"
 mkdir -p "$sessions_dir"
 
@@ -46,6 +64,7 @@ aider_args=(
     --no-git
     --config /storage/src/dot_files/aider/conf.yaml
     --read /storage/src/ai-prompts/_persona.md
+    --chat-mode "$CHAT_MODE"
 )
 
 # FLAG TO DETERMINE IF WE ARE RESTORING A SESSION
