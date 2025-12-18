@@ -40,7 +40,7 @@ sudo udevadm trigger
 
 ## 3) Open the "vial" app on your applications menu.
 
-D) Create a new custom layout or load my custom layout at <./saved-layouts/initial.20251218-194809.vil>
+D) Create a new custom layout or load my custom layout that was saved [here](./saved-layouts/initial.20251218-194809.vil)
 
 ## EXTRAS
 
