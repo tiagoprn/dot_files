@@ -29,17 +29,21 @@ vim: true
 dark-mode: true
 code-theme: solarized-dark
 
-# - Below was configured with the help of perplexity:
-#   https://www.perplexity.ai/search/i-have-in-my-hands-this-page-w-aYVHZQ2dQ8mvYQhD5UxEPg
-#
-#   I must use this chat as a reference if/when I need to update any of the models.
-#
-
-# Main model (you will choose one of these per profile)
-# model: openrouter/deepseek/deepseek-v3.2-speciale
+# MAIN / ARCHITECT MODEL GUIDELINES
+# - Responsible for understanding requirements, reasoning through the codebase, and formulating coding plans
+# - Needs advanced reasoning/thinking capabilities
+# - Must deduce implicit requirements and navigate complex dependencies
+# - Speed is secondary; intelligence and reasoning depth are primary
+# - Allowed to use full context window and reasoning budget (don't artificially limit)
 model: openrouter/z-ai/glm-4.7
+auto-accept-architect: false
 
-# Secondary models
+# EDITOR MODEL GUIDELINES
+# - Responsible for taking the Architect's plan and applying it to files via diffs
+# - Needs to be fast, cheap, and strictly obedient to diff format rules
+# - Should have large context window to read entire file contents without truncation
+# - Will be called repeatedly to re-read files and apply patches, so cost-per-token matters significantly
+# - Speed of inference directly impacts user experience (waiting for code changes)
 weak-model: openrouter/x-ai/grok-code-fast-1
 editor-model: openrouter/x-ai/grok-code-fast-1
 
@@ -66,5 +70,3 @@ cache-keepalive-pings: 3
 # Notifications (tmux)
 notifications: true
 notifications-command: "tmux display-message 'aider: Your inquiry response is ready, Captain.'"
-
-auto-accept-architect: false
