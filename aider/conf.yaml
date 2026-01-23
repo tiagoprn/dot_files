@@ -16,6 +16,9 @@
 # openrouter/google/gemini-2.5-flash-lite (1.05M context window, has reasoning and caching but NO stream cancellation)
 # openrouter/mistralai/devstral-2512:free (free - 0 tokens, 262K context window. NO stream cancellation, reasoning or caching)
 # openrouter/z-ai/glm-4.7
+# openrouter/minimax/minimax-m2.1 (197k context window, reasoning, has stream cancellation but no caching)
+# openrouter/google/gemini-3-flash-preview (1.05M context window, reasoning, and NO stream cancellation, but has caching.)
+# openrouter/z-ai/glm-4.7-flash (200k context window, reasoning, HAS stream cancellation and caching)
 # ---------------------------------------------
 # openrouter trending models pages:
 # https://openrouter.ai/rankings?category=programming#programming-languages
@@ -35,7 +38,7 @@ code-theme: solarized-dark
 # - Must deduce implicit requirements and navigate complex dependencies
 # - Speed is secondary; intelligence and reasoning depth are primary
 # - Allowed to use full context window and reasoning budget (don't artificially limit)
-model: openrouter/z-ai/glm-4.7
+model: openrouter/minimax/minimax-m2.1
 auto-accept-architect: false
 
 # EDITOR MODEL GUIDELINES
@@ -44,8 +47,8 @@ auto-accept-architect: false
 # - Should have large context window to read entire file contents without truncation
 # - Will be called repeatedly to re-read files and apply patches, so cost-per-token matters significantly
 # - Speed of inference directly impacts user experience (waiting for code changes)
-weak-model: openrouter/x-ai/grok-code-fast-1
-editor-model: openrouter/x-ai/grok-code-fast-1
+weak-model: openrouter/google/gemini-3-flash-preview
+editor-model: openrouter/google/gemini-3-flash-preview
 
 # History and caching
 cache-prompts: true
