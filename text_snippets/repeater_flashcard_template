@@ -1,0 +1,17 @@
+This a markdown document that has embedded `repeater` flashcards, that can be used with the program to test my knowledge.
+
+
+Q: What color is the sky?
+A: It is blue.
+   Not red.
+   And that is good.
+---
+
+C: Mars is the [red] planet.
+
+What is Python?::A programing language.
+
+What is Rust?::A programing language created by Mozilla to be used with Firefox that is rewriting the history with lots of projects migrating to it in a way that is staggering. Many, many projects are being migrated to this language that has security and memory safety as one of its pillars.
+
+And this is some text that is not part of a flashcard.
+
