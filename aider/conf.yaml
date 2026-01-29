@@ -18,11 +18,17 @@
 # openrouter/z-ai/glm-4.7
 # openrouter/minimax/minimax-m2.1 (197k context window, reasoning, has stream cancellation but no caching)
 # openrouter/google/gemini-3-flash-preview (1.05M context window, reasoning, and NO stream cancellation, but has caching.)
-# openrouter/z-ai/glm-4.7-flash (200k context window, reasoning, HAS stream cancellation and caching)
+# @preset/glm-4-7-flash-fast-providers - preset for openrouter/z-ai/glm-4.7-flash (200k context window, reasoning, HAS stream cancellation and caching)
+# openrouter/moonshotai/kimi-k2.5
 # ---------------------------------------------
 # openrouter trending models pages:
 # https://openrouter.ai/rankings?category=programming#programming-languages
-#-----------------------------------------
+#----------------------------------------------
+# presets can help changing a models provider (e.g. to faster ones), and other configs also:
+#   about................: https://openrouter.ai/docs/guides/features/presets
+#   my account presets...: https://openrouter.ai/settings/presets
+#----------------------------------------------
+
 editor: nvim
 auto-commits: false
 multiline: true
@@ -38,7 +44,7 @@ code-theme: solarized-dark
 # - Must deduce implicit requirements and navigate complex dependencies
 # - Speed is secondary; intelligence and reasoning depth are primary
 # - Allowed to use full context window and reasoning budget (don't artificially limit)
-model: openrouter/minimax/minimax-m2.1
+model: openrouter/moonshotai/kimi-k2.5
 auto-accept-architect: false
 
 # EDITOR MODEL GUIDELINES
@@ -47,8 +53,8 @@ auto-accept-architect: false
 # - Should have large context window to read entire file contents without truncation
 # - Will be called repeatedly to re-read files and apply patches, so cost-per-token matters significantly
 # - Speed of inference directly impacts user experience (waiting for code changes)
-weak-model: openrouter/google/gemini-3-flash-preview
-editor-model: openrouter/google/gemini-3-flash-preview
+weak-model: openrouter/@preset/glm-4-7-flash-fast-providers
+editor-model: openrouter/@preset/glm-4-7-flash-fast-providers
 
 # History and caching
 cache-prompts: true
