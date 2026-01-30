@@ -12,7 +12,7 @@
 # openrouter/google/gemini-2.5-pro
 # openrouter/google/gemini-3-pro-preview
 # openrouter/deepseek/deepseek-v3.2-exp (164K context window, HAS stream cancellation, reasoning and caching)
-# openrouter/deepseek/deepseek-v3.2-speciale (164K context window, NO caching and tools)
+# @preset/deepseek-3-2-speciale-fast - preset for openrouter/deepseek/deepseek-v3.2-speciale (164K context window, NO caching and tools)
 # openrouter/google/gemini-2.5-flash-lite (1.05M context window, has reasoning and caching but NO stream cancellation)
 # openrouter/mistralai/devstral-2512:free (free - 0 tokens, 262K context window. NO stream cancellation, reasoning or caching)
 # openrouter/z-ai/glm-4.7
@@ -53,8 +53,8 @@ auto-accept-architect: false
 # - Should have large context window to read entire file contents without truncation
 # - Will be called repeatedly to re-read files and apply patches, so cost-per-token matters significantly
 # - Speed of inference directly impacts user experience (waiting for code changes)
-weak-model: openrouter/@preset/glm-4-7-flash-fast-providers
-editor-model: openrouter/@preset/glm-4-7-flash-fast-providers
+weak-model: openrouter/mistralai/devstral-2512
+editor-model: openrouter/mistralai/devstral-2512
 
 # History and caching
 cache-prompts: true
