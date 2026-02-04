@@ -65,12 +65,45 @@ find_filtered_files() {
     done | sort
 }
 
-# Print all files under roles/$ROLE, skipping any with "_" or ".sh" at any path segment
-ROLE_DIR="$ROOT/roles/$ROLE"
-if [[ -d $ROLE_DIR ]]; then
-    find_filtered_files "$ROLE_DIR" | while read relpath; do
+# Build hierarchy of role directories from root to leaf
+# e.g., for "development/linux_bash": ["development", "development/linux_bash"]
+IFS='/' read -ra ROLE_PARTS <<<"$ROLE"
+ROLE_HIERARCHY=()
+CURRENT_PATH=""
+
+for part in "${ROLE_PARTS[@]}"; do
+    if [[ -z $CURRENT_PATH ]]; then
+        CURRENT_PATH="$part"
+    else
+        CURRENT_PATH="$CURRENT_PATH/$part"
+    fi
+    ROLE_HIERARCHY+=("$CURRENT_PATH")
+done
+
+# Process each level in the hierarchy to include parent role files
+for i in "${!ROLE_HIERARCHY[@]}"; do
+    ROLE_DIR="$ROOT/roles/${ROLE_HIERARCHY[$i]}"
+    [[ -d $ROLE_DIR ]] || continue
+
+    # Parent dirs: maxdepth 1 (avoid recursing into child roles)
+    # Leaf dir: unlimited depth (include all subdirectories of the selected role)
+    if [[ $i -eq $((${#ROLE_HIERARCHY[@]} - 1)) ]]; then
+        MAXDEPTH=""
+    else
+        MAXDEPTH="-maxdepth 1"
+    fi
+
+    # Find .md files, applying existing exclude filters
+    find "$ROLE_DIR" $MAXDEPTH -type f -name "*.md" | while read f; do
+        rel="${f#$ROOT/}"
+        # Skip paths with "_" or ".sh"
+        if [[ $rel =~ /_ || $rel =~ ^_ || $rel =~ \.sh$ ]]; then
+            continue
+        fi
+        echo "$rel"
+    done | sort | while read relpath; do
         echo "--- $relpath ---"
         cat "$ROOT/$relpath"
         echo ""
     done
-fi
+done
