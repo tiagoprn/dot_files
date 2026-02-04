@@ -1,0 +1,16 @@
+.git/
+.github/
+.gitsecret/
+.mypy_cache/
+.pytest_cache/
+.vscode/
+node_modules/
+tmp/
+__pycache__/
+.ruff_cache/
+.venv/
+venv/
+*.pyc
+!/tmp/*
+!/home/*
+!/storage/*

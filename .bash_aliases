@@ -4,11 +4,10 @@
 #       and gpl as examples of how to do that correctly.
 
 ## one letter aliases
-alias a='aider --vim --no-git --config /storage/src/dot_files/aider/conf.yaml --dark-mode --code-theme solarized-dark --read /storage/src/ai-prompts/_persona.md'
+alias a='/storage/src/dot_files/aider/run.sh'
 alias f='fzf'
 alias g='git'
 alias t='tmux'
-alias a='/storage/src/dot_files/aider/run.sh'
 alias am='cat /storage/src/dot_files/aider/conf.yaml | grep "# openrouter/" | cut -d " " -f 2 | fzf > /tmp/copied.txt && echo "copied to /tmp/copied.txt"'
 alias ae='nvim /storage/src/dot_files/aider/conf.yaml'
 # TODO: aider restore session (chat and input history must be specified)
