@@ -20,7 +20,7 @@
 #   point for agent prompts or further processing.
 # - Files/directories starting with "_" or ending with ".sh" are excluded.
 
-ROOT="$HOME/contractors/octerra/git/octerra-codex/aider/system-prompts"
+ROOT="/storage/src/dot_files/aider-v2/system-prompts"
 
 # Role selection via fzf
 if ! command -v fzf >/dev/null; then
@@ -28,7 +28,7 @@ if ! command -v fzf >/dev/null; then
     exit 1
 fi
 
-ROLE=$(printf "developer/backend\ndeveloper/frontend\nproduct-owner\ndba\n" | fzf --prompt="Select role: ")
+ROLE=$(printf "development/linux_bash\ndevelopment/neovim_lua\ndevelopment/python\nnatural_language\netc" | fzf --prompt="Select role: ")
 
 if [[ -z $ROLE ]]; then
     echo "No role selected. Exiting."
