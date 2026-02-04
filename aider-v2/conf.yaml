@@ -57,15 +57,14 @@ weak-model: openrouter/mistralai/devstral-2512
 editor-model: openrouter/mistralai/devstral-2512
 
 # History and caching
-max-chat-history-tokens: 8000
 cache-prompts: true
 cache-keepalive-pings: 3
 
 # History files
-input-history-file: .aider.input.history
-chat-history-file: .aider.chat.history.md
-restore-chat-history: false
-llm-history-file: .aider.llm.history
+# input-history-file: .aider.input.history
+# chat-history-file: .aider.chat.history.md
+# restore-chat-history: false
+# llm-history-file: .aider.llm.history
 
 # -------------------------------------------------------------------------------------------------
 # Load commands on startup
@@ -80,5 +79,3 @@ llm-history-file: .aider.llm.history
 # Notifications (tmux)
 notifications: true
 notifications-command: "tmux display-message 'aider: Your inquiry response is ready, Captain.'"
-
-auto-accept-architect: false

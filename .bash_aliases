@@ -4,12 +4,12 @@
 #       and gpl as examples of how to do that correctly.
 
 ## one letter aliases
-alias a='/storage/src/dot_files/aider/run.sh'
+alias a='/storage/src/dot_files/aider-v2/personal-aider.sh'
 alias f='fzf'
 alias g='git'
 alias t='tmux'
 alias am='cat /storage/src/dot_files/aider/conf.yaml | grep "# openrouter/" | cut -d " " -f 2 | fzf > /tmp/copied.txt && echo "copied to /tmp/copied.txt"'
-alias ae='nvim /storage/src/dot_files/aider/conf.yaml'
+alias ae='nvim /storage/src/dot_files/aider-v2/conf.yaml'
 # TODO: aider restore session (chat and input history must be specified)
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
