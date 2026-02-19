@@ -5,6 +5,10 @@
 
 set -euo pipefail
 
+# Source bashrc to get environment variables (e.g., OPENROUTER_API_KEY)
+# shellcheck disable=SC1090
+source "$HOME/.bashrc"
+
 readonly API_KEY="${OPENROUTER_API_KEY:-}"
 readonly API_ENDPOINT="https://openrouter.ai/api/v1/credits"
 
@@ -13,7 +17,7 @@ log_error() {
 }
 
 check_prerequisites() {
-    if [[ -z "$API_KEY" ]]; then
+    if [[ -z $API_KEY ]]; then
         log_error "Error: OPENROUTER_API_KEY environment variable is not set"
         return 1
     fi
@@ -36,7 +40,7 @@ fetch_credits() {
     total_credits=$(printf '%s\n' "$response" | grep -oP '"total_credits"\s*:\s*\K[0-9.]+' | head -1)
     total_usage=$(printf '%s\n' "$response" | grep -oP '"total_usage"\s*:\s*\K[0-9.]+' | head -1)
 
-    if [[ -z "$total_credits" || -z "$total_usage" ]]; then
+    if [[ -z $total_credits || -z $total_usage ]]; then
         log_error "Error: Could not parse credits from response: $response"
         return 1
     fi
@@ -53,13 +57,13 @@ format_output() {
     local formatted
 
     # Format to 2 decimal places
-    formatted=$(printf '$%.2f' "$credits")
+    formatted=$(printf '%.2f' "$credits")
 
     # Determine class based on balance
     local class="ok"
-    if (( $(echo "$credits < 2.0" | bc -l) )); then
+    if (($(echo "$credits < 2.0" | bc -l))); then
         class="critical"
-    elif (( $(echo "$credits < 5.0" | bc -l) )); then
+    elif (($(echo "$credits < 5.0" | bc -l))); then
         class="warning"
     fi
 

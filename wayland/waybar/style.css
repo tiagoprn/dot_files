@@ -134,6 +134,22 @@ button {
     font-size:20;
 }
 
+#custom-openrouter_credits {
+    background-color: #000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #00FF00;
+    font-size:20;
+}
+
+#custom-openrouter_credits.warning {
+    color: #FFA500;
+}
+
+#custom-openrouter_credits.critical {
+    color: #FF0000;
+}
+
 #custom-capslock.on {
     color: green;
 }

@@ -64,7 +64,8 @@
     "custom/openrouter_credits": {
 	"exec": "~/scripts/openrouter-credits-balance-waybar.sh",
 	"interval": 60,
-	"return-type": "json"
+	"return-type": "json",
+	"tooltip-format": "Current OpenRouter Credits Balance"
     },
     "custom/week_info": {
         "exec": "~/scripts/week-info.sh",
