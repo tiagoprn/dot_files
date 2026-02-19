@@ -13,6 +13,7 @@
         "custom/week_info",
         "clock",
 	"custom/flowstatus",
+	"custom/openrouter_credits",
 	"custom/capslock"
     ],
     "modules-right": [
@@ -58,6 +59,11 @@
 	"exec": "~/scripts/flow-status-waybar.sh",
 	"on-click": "~/scripts/flow-today-waybar.sh",
 	"interval": 1,
+	"return-type": "json"
+    },
+    "custom/openrouter_credits": {
+	"exec": "~/scripts/openrouter-credits-balance-waybar.sh",
+	"interval": 60,
 	"return-type": "json"
     },
     "custom/week_info": {
