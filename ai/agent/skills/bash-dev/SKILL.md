@@ -1,3 +1,12 @@
+---
+name: bash-dev
+description: use this when coding bash/shell scripts
+---
+
+# Instructions
+
+Read below carefully and make sure you adhere strictly to those guidelines.
+
 ## Bash Development Guidelines
 
 ### Core Development Environment

@@ -1,3 +1,12 @@
+---
+name: python-dev
+description: use this when coding python scripts and apps created with web frameworks like flask, fastapi or django.
+---
+
+# Instructions
+
+Read below carefully and make sure you adhere strictly to those guidelines.
+
 ## Python Development Guidelines
 
 ### Core Development Environment

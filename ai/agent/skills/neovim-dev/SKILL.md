@@ -1,3 +1,12 @@
+---
+name: neovim-dev
+description: use this when coding in lua to customize neovim
+---
+
+# Instructions
+
+Read below carefully and make sure you adhere strictly to those guidelines.
+
 ## Neovim Lua Development Guidelines
 
 ### Core Context & Assumptions
