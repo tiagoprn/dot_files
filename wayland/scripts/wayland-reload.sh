@@ -4,7 +4,12 @@ swaync-client -R && swaync-client -rs && notify-send 'sway-notification-center r
 
 hyprctl reload && notify-send 'hyprland reloaded from config!'
 
-pkill waybar
+notify-send 'killing waybar...'
+for i in {1..5}; do
+    sudo pkill waybar
+done
+
+notify-send 'reloading waybar...'
 waybar &
 notify-send 'waybar reloaded!'
 

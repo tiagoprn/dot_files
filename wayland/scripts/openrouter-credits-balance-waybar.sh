@@ -5,9 +5,17 @@
 
 set -euo pipefail
 
-# Source bashrc to get environment variables (e.g., OPENROUTER_API_KEY)
-# shellcheck disable=SC1090
-source "$HOME/.bashrc"
+# Source the API keys config file (works in both interactive and non-interactive contexts)
+# This file should contain: export OPENROUTER_API_KEY="your-key-here"
+# Or you can generate it dynamically: export OPENROUTER_API_KEY=$(pass api-keys/openrouter)
+if [[ -f "$HOME/.config/wayland/api-keys.conf" ]]; then
+    # shellcheck disable=SC1090
+    source "$HOME/.config/wayland/api-keys.conf"
+else
+    # Fallback: try to source from .bashrc (only works in interactive shells)
+    # shellcheck disable=SC1090
+    source "$HOME/.bashrc" 2>/dev/null || true
+fi
 
 readonly API_KEY="${OPENROUTER_API_KEY:-}"
 readonly API_ENDPOINT="https://openrouter.ai/api/v1/credits"
