@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.53.0",
   "defaultProvider": "openrouter",
-  "defaultModel": "z-ai/glm-5",
+  "defaultModel": "minimax/minimax-m2.5",
   "enableSkillCommands": true
 }
