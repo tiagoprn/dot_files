@@ -4,13 +4,9 @@
 #       and gpl as examples of how to do that correctly.
 
 ## one letter aliases
-alias a='/storage/src/dot_files/aider-v2/personal-aider.sh'
 alias f='fzf'
 alias g='git'
 alias t='tmux'
-alias am='cat /storage/src/dot_files/aider/conf.yaml | grep "# openrouter/" | cut -d " " -f 2 | fzf > /tmp/copied.txt && echo "copied to /tmp/copied.txt"'
-alias ae='nvim /storage/src/dot_files/aider-v2/conf.yaml'
-# TODO: aider restore session (chat and input history must be specified)
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
 # TODO: edit below to put the date on this format: `date '+%Y-%m-%d %A %H:%M:%S %N'`
@@ -52,6 +48,7 @@ alias gp='pass $(find -L ~/.password-store -type f -name "*.gpg" -printf "%P\n" 
 
 # tree letter aliases
 alias cdr='cd $(g root)'
+alias cds='mkdir -p /tmp/sandbox && cd /tmp/sandbox && ls -lha'
 alias cht='curl -s cht.sh/$(curl -s cht.sh/:list | fzf)'
 alias pcb='pyenv versions | grep "*" | cut -d " " -f 2 | cb'
 alias cbg='git branch | grep ^* | cut -d " " -f 2 | cb'
@@ -96,10 +93,5 @@ alias ssh-no-host-checking='ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHost
 alias compositor='/storage/src/devops/bin/toggle_compositor.sh'
 alias xsession='[[ ! -z "$DISPLAY" ]] && source $HOME/.xsession'
 alias ls='ls -a -F --indicator-style=none' # the --indicator... removes the "*" at the end of executable files
-
-if [ -f "$HOME/.pyenv/versions/aider/bin/aider" ]; then
-    alias aider="$HOME/.pyenv/versions/aider/bin/aider"
-    echo 'Created alias to the aider command available on its pyenv virtualenv.'
-fi
 
 alias rt='ssh tars "sudo shutdown -r now"'
