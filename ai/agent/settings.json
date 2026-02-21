@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.53.0",
+  "lastChangelogVersion": "0.54.0",
   "defaultProvider": "openrouter",
   "defaultModel": "minimax/minimax-m2.5",
   "enableSkillCommands": true
