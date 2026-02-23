@@ -3,7 +3,7 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-WORDS="dot_files devops nix-home-manager pde.nvim"
+WORDS="dot_files devops nix-home-manager pde.nvim aikt"
 
 for WORD in $WORDS; do
     # the "n" argument will make it only create the sessions, not attach to them.

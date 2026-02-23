@@ -134,3 +134,5 @@
 	directory = /storage/src/pass
 	directory = /storage/src/writeloop-raw
 	directory = /storage/src/writeloop-raw
+[credential]
+	helper = store
