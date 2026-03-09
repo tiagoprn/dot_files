@@ -56,6 +56,7 @@ alias vcb='wl-paste | nvim -'                          # Open clipboard contents
 alias bkc='nvim ~/.config/cd-bookmarks.list'           # open cd bookmarks on nvim
 alias bkg='nvim ~/.config/git-projects-bookmarks.list' # open git bookmarks on nvim
 alias mon='tmuxp load /storage/src/devops/tmuxp/monitoring.yml'
+alias rmd='remind -s /storage/src/reminders/appointments.rem | grep "$(date +%Y/%m/%d)" | cut -f 6- -d " " | fzf'
 ## other aliases
 alias today=''
 alias watch='watch -c '
