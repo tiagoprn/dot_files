@@ -7,7 +7,7 @@ WORDS="dot_files devops nix-home-manager pde.nvim aikt/pi"
 
 for WORD in $WORDS; do
     # the "n" argument will make it only create the sessions, not attach to them.
-    cd "/storage/src/$WORD" && /storage/src/dot_files/wayland/scripts/tmux-ide.sh n
+    cd "/storage/src/$WORD" && /storage/src/dot_files/wayland/scripts/ide n
 done
 
 SESSION_NAME=$(tmux ls | cut -d ':' -f 1 | fzf --prompt 'Attach to session: ')
