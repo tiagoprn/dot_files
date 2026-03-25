@@ -20,8 +20,8 @@ if [ -z "${TMUX+set}" ]; then
     echo -e "==> Open ${GREEN}tmuxp available sessions${NC} with the ${GREEN}tp${NC} bash alias. (e.g. REMOTE)"
 else
     echo -e '==> TMUX GOODIES:'
-    echo -e "    - Use ${YELLOW}tmux-ide.sh${NC} to create an ide session ${YELLOW}in the current directory${NC}."
-    echo -e "    - Use ${YELLOW}dots.sh${NC} to create tmux sessions to all my config repos (${YELLOW}dot_files, pde.nvim, etc${NC})."
+    echo -e "    - Use ${YELLOW}ide${NC} to create a tmux ide session ${YELLOW}in the current directory${NC}."
+    echo -e "    - Use ${YELLOW}dots${NC} to create tmux sessions to all my config repos (${YELLOW}dot_files, pde.nvim, etc${NC})."
     echo -e "    - To open tmux ${YELLOW}mindshards & codex & reminders${NC}, use the ${YELLOW}hi${NC} bash alias "
 fi
 
