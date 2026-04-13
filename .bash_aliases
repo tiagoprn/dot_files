@@ -57,6 +57,7 @@ alias bkc='nvim ~/.config/cd-bookmarks.list'           # open cd bookmarks on nv
 alias bkg='nvim ~/.config/git-projects-bookmarks.list' # open git bookmarks on nvim
 alias mon='tmuxp load /storage/src/devops/tmuxp/monitoring.yml'
 alias rmd='remind -s /storage/src/reminders/appointments.rem | grep "$(date +%Y/%m/%d)" | cut -f 6- -d " " | fzf'
+alias tng='tmuxp load /storage/src/devops/tmuxp/tng-bridge.yml /storage/src/devops/tmuxp/tng-lcars-ops.yml'
 ## other aliases
 alias today=''
 alias watch='watch -c '
