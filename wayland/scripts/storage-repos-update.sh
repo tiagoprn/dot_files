@@ -118,28 +118,28 @@ printf '%b' "${CYAN}════════════════════
 if [[ ${#updated_repos[@]} -gt 0 ]]; then
     printf '%b' "${GREEN}  Updated:${NC}\n"
     for repo in "${updated_repos[@]}"; do
-        printf '%b' "${GREEN}    ✔ %s${NC}\n" "${repo}"
+        printf '%b' "${GREEN}    ✔ ${repo}${NC}\n"
     done
 fi
 
 if [[ ${#unchanged_repos[@]} -gt 0 ]]; then
     printf '%b' "${YELLOW}  Unchanged:${NC}\n"
     for repo in "${unchanged_repos[@]}"; do
-        printf '%b' "${YELLOW}    • %s${NC}\n" "${repo}"
+        printf '%b' "${YELLOW}    • ${repo}${NC}\n"
     done
 fi
 
 if [[ ${#skipped_repos[@]} -gt 0 ]]; then
     printf '%b' "${RED}  Skipped (not a git repo):${NC}\n"
     for repo in "${skipped_repos[@]}"; do
-        printf '%b' "${RED}    ✘ %s${NC}\n" "${repo}"
+        printf '%b' "${RED}    ✘ ${repo}${NC}\n"
     done
 fi
 
 if [[ ${#error_repos[@]} -gt 0 ]]; then
     printf '%b' "${RED}  Errors:${NC}\n"
     for repo in "${error_repos[@]}"; do
-        printf '%b' "${RED}    ✘ %s${NC}\n" "${repo}"
+        printf '%b' "${RED}    ✘ ${repo}${NC}\n"
     done
 fi
 
