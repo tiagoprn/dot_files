@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Below orders the tmux sessions by last attached
+# Use tv (televisiov) to select a tmux session to switch to
 
-CURRENT_SESSION=$(tmux display-message -p '#S')
-
-tmux list-sessions -F '#{session_last_attached} #{session_name}' \
-    | grep -vw "$CURRENT_SESSION" \
-    | sort -rn \
-    | cut -d' ' -f2- \
-    | fzf -e --header="Select a session to switch to:" \
-    | xargs -I {} tmux switch-client -t {}
+tv tmux-sessions | xargs -I {} tmux switch-client -t {}
