@@ -41,7 +41,7 @@ global_history = false
 # └─────────────────────────┘
 ui_scale = 100
 # What orientation should tv be (landscape or portrait)
-orientation = "landscape"
+orientation = "portrait"
 # The theme to use for the UI
 # A list of builtin themes can be found in the `themes` directory of the television
 # repository. You may also create your own theme by creating a new file in a `themes`
