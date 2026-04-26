@@ -85,11 +85,18 @@ done
 
 # -----------------------------------------------------------------------------
 # SET B — /kvm → remote enterprise-d/
+# Excludes: *.qcow2 (disk images — large, already backed up elsewhere)
 # -----------------------------------------------------------------------------
 log_set "B  |  ${ORIGIN_B}  →  ${DEST_B}/"
 
+RSYNC_FLAGS_B=(
+    "${RSYNC_FLAGS[@]}"
+    --exclude='*.qcow2'
+    --delete-excluded
+)
+
 log_item "${ORIGIN_B}  →  ${DEST_B}/"
-if time rsync "${RSYNC_FLAGS[@]}" "${ORIGIN_B}" "${DEST_B}/"; then
+if time rsync "${RSYNC_FLAGS_B[@]}" "${ORIGIN_B}" "${DEST_B}/"; then
     log_ok "${ORIGIN_B}"
 else
     log_err "${ORIGIN_B}"
