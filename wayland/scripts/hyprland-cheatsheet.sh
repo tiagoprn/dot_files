@@ -25,7 +25,7 @@ entries=$(hyprctl binds -j | jq -r '
   | (.modmask | modmask_to_mods) as $mods
   | (if $mods == "" then "" else $mods + " + " end) + .key as $combo
   | "<span weight=\"bold\" foreground=\"#ffffff\">" + .description
-    + "</span>  <span foreground=\"#888888\">"
+    + "</span>  <span style=\"italic\" foreground=\"#E5C07B\">"
     + $combo + "</span>"
 ' | sort)
 
