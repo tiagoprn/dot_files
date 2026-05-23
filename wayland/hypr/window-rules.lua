@@ -28,10 +28,10 @@ hl.workspace_rule({ workspace = "5", layout = "scrolling", layout_opts = { direc
 
 -- Activate blur for swaync
 hl.layer_rule({
-    name  = "blur-swaync",
-    match = { namespace = "swaync-control-center" },
-    blur  = true,
-    ignore_alpha = 0.1,
+  name = "blur-swaync",
+  match = { namespace = "swaync-control-center" },
+  blur = true,
+  ignore_alpha = 0.1,
 })
 
 ----------------------------
@@ -40,57 +40,58 @@ hl.layer_rule({
 
 -- KITTY - window title "Snippet Selector"
 hl.window_rule({
-    name  = "float-snippet-selector",
-    match = { title = "Snippet Selector" },
-    float = true,
-    center = true,
-    size = { "monitor_w * 0.9", "monitor_h * 0.9" },
-    rounding = 10,
-    opacity = "0.95",
+  name = "float-snippet-selector",
+  match = { title = "Snippet Selector" },
+  float = true,
+  center = true,
+  size = { "monitor_w * 0.9", "monitor_h * 0.9" },
+  rounding = 10,
+  opacity = "0.95",
 })
 
 -- KITTY - window title "AI Prompt Popup"
 hl.window_rule({
-    name  = "float-ai-prompt",
-    match = { title = "AI Prompt Popup" },
-    float = true,
-    center = true,
-    size = { "monitor_w * 0.9", "monitor_h * 0.9" },
-    rounding = 10,
-    opacity = "0.95",
+  name = "float-ai-prompt",
+  match = { title = "AI Prompt Popup" },
+  float = true,
+  center = true,
+  size = { "monitor_w * 0.9", "monitor_h * 0.9" },
+  rounding = 10,
+  opacity = "0.95",
 })
 
 -- KITTY - window title "AI Clipboard Text Actions"
 hl.window_rule({
-    name  = "float-ai-clipboard",
-    match = { title = "AI Clipboard Text Actions" },
-    float = true,
-    center = true,
-    size = { "monitor_w * 0.9", "monitor_h * 0.9" },
-    rounding = 10,
-    opacity = "0.95",
+  name = "float-ai-clipboard",
+  match = { title = "AI Clipboard Text Actions" },
+  float = true,
+  center = true,
+  size = { "monitor_w * 0.9", "monitor_h * 0.9" },
+  rounding = 10,
+  opacity = "0.95",
 })
 
 -- KITTY - window title "Commands Cheatsheets"
 hl.window_rule({
-    name  = "float-commands-cheatsheet",
-    match = { title = "Commands Cheatsheets" },
-    float = true,
-    center = true,
-    size = { "monitor_w * 0.9", "monitor_h * 0.9" },
+  name = "float-commands-cheatsheet",
+  match = { title = "Commands Cheatsheets" },
+  float = true,
+  center = true,
+  size = { "monitor_w * 0.9", "monitor_h * 0.9" },
 })
 
 -- GNOME Loupe - image viewer
 hl.window_rule({
-    name  = "loupe-fullscreen-ws3",
-    match = { class = "org.gnome.Loupe" },
-    workspace = "3",
-    fullscreen = true,
+  name = "loupe-fullscreen-ws3",
+  match = { class = "org.gnome.Loupe" },
+  workspace = "3",
+  fullscreen = true,
 })
 
 -- Set Kitty terminal opacity to 0.8
 hl.window_rule({
-    name  = "kitty-opacity",
-    match = { class = "kitty" },
-    opacity = "0.8",
+  name = "kitty-opacity",
+  match = { class = "kitty" },
+  opacity = "0.8",
 })
+
