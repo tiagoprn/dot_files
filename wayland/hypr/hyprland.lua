@@ -11,7 +11,7 @@ require("window-rules")
 
 -- internal monitor (laptop)
 hl.monitor({
-  output = "",
+  output = "eDP-1",
   mode = "preferred",
   position = "auto",
   scale = 1,
@@ -50,6 +50,10 @@ hl.config({
     },
 
     sensitivity = 0,
+  },
+
+  misc = {
+    initial_workspace_tracking = 2,
   },
 })
 

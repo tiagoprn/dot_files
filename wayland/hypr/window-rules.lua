@@ -7,17 +7,17 @@
 ----------------------------
 
 -- Workspace to monitor assignments
-hl.workspace_rule({ workspace = "1", monitor = "eDP-1", default = true })
-hl.workspace_rule({ workspace = "3", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "5", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "7", monitor = "eDP-1" })
-hl.workspace_rule({ workspace = "9", monitor = "eDP-1" })
+hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", default = true, persistent = true })
+hl.workspace_rule({ workspace = "3", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "5", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "7", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "9", monitor = "eDP-1", persistent = true })
 
-hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1", default = true })
-hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = "0", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1", default = true, persistent = true })
+hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-1", persistent = true })
+hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1", persistent = true })
+hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1", persistent = true })
+hl.workspace_rule({ workspace = "0", monitor = "HDMI-A-1", persistent = true })
 
 -- Scrolling layout for workspace 5
 hl.workspace_rule({ workspace = "5", layout = "scrolling", layout_opts = { direction = "down" } })
@@ -94,4 +94,3 @@ hl.window_rule({
   match = { class = "kitty" },
   opacity = "0.8",
 })
-
