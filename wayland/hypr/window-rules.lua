@@ -88,6 +88,13 @@ hl.window_rule({
   fullscreen = true,
 })
 
+-- Firefox to workspace 9 (with focus switch)
+hl.window_rule({
+  name = "firefox-workspace-9",
+  match = { class = "firefox" },
+  workspace = "9",
+})
+
 -- Set Kitty terminal opacity to 0.8
 hl.window_rule({
   name = "kitty-opacity",
