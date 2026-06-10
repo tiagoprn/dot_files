@@ -6,6 +6,7 @@
 ## one letter aliases
 alias f='fzf'
 alias g='git'
+alias q='tmuxp load /storage/src/devops/tmuxp/notes-and-reminders/qntuum.yml -y'
 alias t='tmux'
 
 # opens a nvim file with the current time and a line below ready for editing, useful as a journal.
