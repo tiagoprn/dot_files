@@ -7,7 +7,7 @@
 ----------------------------
 
 -- Workspace to monitor assignments
-hl.workspace_rule({ workspace = 1, monitor = "HDMI-A-1", default = true, persistent = true })
+hl.workspace_rule({ workspace = 1, monitor = "eDP-1", default = true, persistent = true })
 hl.workspace_rule({ workspace = 3, monitor = "eDP-1", persistent = true })
 hl.workspace_rule({ workspace = 5, monitor = "eDP-1", persistent = true })
 hl.workspace_rule({ workspace = 7, monitor = "eDP-1", persistent = true })
