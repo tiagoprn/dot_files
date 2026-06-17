@@ -12,7 +12,7 @@ window#waybar {
     /* color: #FFFFFF; */
     transition-property: background-color;
     transition-duration: .5s;
-    border-radius: 20;
+    border-radius: 0;
 }
 
 
