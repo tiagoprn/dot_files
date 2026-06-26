@@ -1,0 +1,6 @@
+git:
+  pagers:
+    - colorArg: "always"
+      pager: "hunk pager"
+      externalDiffCommand: ""
+      useExternalDiffGitConfig: false
