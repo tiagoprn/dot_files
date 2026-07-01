@@ -10,7 +10,9 @@
   # commit:
   c = commit
   # difft:
-  d = difftool HEAD
+  d = !hunk diff
+  # review commits on hunk (e.g. git rc HEAD~1):
+  rc = !hunk show
   # diff (default):
   dd = diff
   # checkout:
