@@ -1,6 +1,9 @@
-git:
-  pagers:
-    - colorArg: "always"
-      pager: "hunk pager"
-      externalDiffCommand: ""
-      useExternalDiffGitConfig: false
+keybinding:
+  universal:
+    openDiffTool: <disabled>
+customCommands:
+  - key: "<c-t>"
+    command: "hunk diff"
+    context: "files"
+    description: "Open hunk diff review"
+    output: terminal

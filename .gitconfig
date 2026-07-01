@@ -75,17 +75,15 @@
   # https://git-scm.com/docs/git-config#git-config-transferfsckObjects
   # via https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
 
-# diffs powered by treesitter and rust:
-# https://github.com/Wilfred/difftastic
+
 [diff]
-  tool = difft
+  tool = hunk
 
 [difftool]
   prompt = false
 
-[difftool "difft"]
-  cmd = difft $LOCAL $REMOTE
-  prompt = false
+[difftool "hunk"]
+  cmd = hunk difftool $LOCAL $REMOTE
 
 [mergetool]
   prompt = false
@@ -94,16 +92,6 @@
   cmd = meld "$BASE" "$LOCAL" "$REMOTE" --output="$MERGED"
   prompt = false
   trustExitCode = true
-
-[pager]
-    ; Here, the flags for less are:
-    ; -R: Preserves color output
-    ; -F: Exits if the output fits on one screen without scrolling
-    ; -X: Keeps output on screen after exit
-    diff = difft | less --tabs=4 -RFX
-    show = less -RFX
-    log = less -RFX
-    status = true
 
 [core]
   excludesfile = /storage/src/dot_files/.gitignore.global
