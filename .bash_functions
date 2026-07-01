@@ -243,3 +243,11 @@ function cdf() {  # select on fzf a directory you want to enter into
     local dir
     dir=$(find . -type d -name '.git' -prune -o -type d -print 2> /dev/null | fzf +m) && cd "$dir"
 }
+
+function tmux_set_window_name() {  # fix . in window names in recent tmux versions
+  if [ -n "$TMUX" ]; then
+    tmux set-option -w automatic-rename on
+    tmux set-option -w automatic-rename-format \
+      "#{?pane_in_mode,[tmux],#{pane_current_command}}"
+  fi
+}

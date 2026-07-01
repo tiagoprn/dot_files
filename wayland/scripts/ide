@@ -55,13 +55,11 @@ fi
 # Function to create a new tmux session with the required windows
 create_tmux_session() {
     # Start a new detached tmux session named "$SESSION_NAME" without running any command
-    tmux new-session -d -s "$SESSION_NAME" -n ""
+    tmux new-session -d -s "$SESSION_NAME" -n "nvim"
 
     # Set the base-index to 1 for window numbering (session option)
     tmux set-option -t "$SESSION_NAME" base-index 1
 
-    # Rename the initial window to "nvim" and run 'nvim'
-    tmux rename-window -t "$SESSION_NAME":1 "nvim"
     # Set pane-base-index to 1 for the "nvim" window
     tmux set-option -w -t "${SESSION_NAME}:nvim" pane-base-index 1
     # Check if .venv exists (either as directory or symlink) and source it before starting nvim
