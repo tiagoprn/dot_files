@@ -13,13 +13,13 @@ set -euo pipefail
 RSYNC_FLAGS=(
     -av
     --info=progress2
-    --inplace
     --partial
     --delete
     --ignore-errors
     --itemize-changes
     --stats
     --human-readable
+    --chmod=Fu=rw
     # --dry-run # NOTE: remove this to run the backup effective
 )
 
@@ -85,14 +85,18 @@ done
 
 # -----------------------------------------------------------------------------
 # SET B — /kvm → remote enterprise-d/
-# Excludes: *.qcow2 (disk images — large, already backed up elsewhere)
+# Excludes:
+#   *.qcow2             — disk images (large, already backed up elsewhere)
+#   octerra/sync.popos  — 240K+ small files (transient sync data, no backup value)
+#   snapshots/          — VM internal snapshots (root-owned, libvirt-managed)
 # -----------------------------------------------------------------------------
 log_set "B  |  ${ORIGIN_B}  →  ${DEST_B}/"
 
 RSYNC_FLAGS_B=(
     "${RSYNC_FLAGS[@]}"
     --exclude='*.qcow2'
-    --delete-excluded
+    --exclude='octerra/sync.popos'
+    --exclude='snapshots/'
 )
 
 log_item "${ORIGIN_B}  →  ${DEST_B}/"
