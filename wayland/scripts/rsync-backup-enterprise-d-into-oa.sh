@@ -45,6 +45,7 @@ SET_A_ORIGINS=(
     /home/tiago/references
     /home/tiago/screenshots
     /home/tiago/tmp
+    /home/tiago/.local/share/repeater
 )
 
 ORIGIN_B="/kvm"
