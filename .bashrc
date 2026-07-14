@@ -184,6 +184,7 @@ echo "---"
 # export OPENAI_API_KEY=$(pass api-keys/OPENAI) && echo "OPENAI_API_KEY successfully set."
 # export DEEPSEEK_API_KEY=$(pass api-keys/deepseek) && echo "DEEPSEEK_API_KEY successfully set."
 export OPENROUTER_API_KEY=$(pass api-keys/openrouter) && echo "OPENROUTER_API_KEY successfully set."
+export OPENCODE_API_KEY=$(pass api-keys/opencode_zen_github_account) && echo "OPENCODE_API_KEY successfully set."
 echo "---"
 
 # PYENV setup
