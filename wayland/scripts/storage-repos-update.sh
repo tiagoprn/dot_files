@@ -11,7 +11,7 @@ set -euo pipefail
 # Configuration
 # -----------------------------------------------------------------------------
 readonly REPOS_ROOT=/storage/src
-readonly REPOS="dot_files devops pde.nvim aikt pi-session nix-home-manager"
+readonly REPOS="dot_files devops pde.nvim aikt pi-session nix-home-manager qntuum"
 
 # -----------------------------------------------------------------------------
 # Color helpers
@@ -45,7 +45,7 @@ for repo in $REPOS; do
     full_path="${REPOS_ROOT}/${repo}"
 
     # --- Validate: directory exists and is a git repo ---
-    if [[ ! -d "${full_path}" ]]; then
+    if [[ ! -d ${full_path} ]]; then
         log_error "${repo}: directory not found, skipping"
         skipped_repos+=("${repo}")
         continue
