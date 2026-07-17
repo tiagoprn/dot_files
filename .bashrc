@@ -93,6 +93,9 @@ export QT_IM_MODULE=cedilla
 # Makes all electron apps run under wayland
 export ELECTRON_ENABLE_WAYLAND=1
 
+# rtk default db path (so it does not go to a temp directory when running inside of Pi)
+export RTK_DB_PATH="$HOME/.local/share/rtk/history.db"
+
 # provides bash and git completion
 # For it to work, install the package "bash-completion":
 #     sudo pacman -S bash-completion
