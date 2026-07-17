@@ -87,6 +87,8 @@ alias recentfiles='find . -path ./.git -prune -o -type f -printf "%p %TY-%Tm-%Td
 # exists " when installing binaries (commands) for pip and them not working.
 alias pyenv-rehash='rm -fr ~/.pyenv/shims/.pyenv-shim && $PYENV_BIN rehash'
 
+alias questr="/storage/src/dot_files/wayland/scripts/questr"
+
 # Aliases leveraging the cb() function
 # ------------------------------------------------
 alias cbssh='cbf ~/.ssh/id_rsa.pub'           # Copy SSH public key

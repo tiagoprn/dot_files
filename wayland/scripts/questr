@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+TMUXP_SESSIONS_FILES="/storage/src/devops/tmuxp/notes-and-reminders/qntuum.yml /storage/src/devops/tmuxp/tng-bridge.yml /storage/src/devops/tmuxp/tng-lcars-ops.yml /storage/src/devops/tmuxp/questr-infra.yml /storage/src/devops/tmuxp/questr.yml"
+tmuxp load $TMUXP_SESSIONS_FILES -y
