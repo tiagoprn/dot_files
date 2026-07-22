@@ -2,8 +2,8 @@ keybinding:
   universal:
     openDiffTool: <disabled>
 customCommands:
-  - key: "<c-t>"
-    command: "hunk diff"
+  - key: "h"
+    command: 'tmux new-window -n hunk "hunk diff"'
     context: "files"
     description: "Open hunk diff review"
     output: terminal
