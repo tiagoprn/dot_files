@@ -7,3 +7,7 @@ customCommands:
     context: "files"
     description: "Open hunk diff review"
     output: terminal
+  - key: "h"
+    command: 'tmux new-window -n hunk "hunk show {{ .SelectedCommit.Hash }}"'
+    context: "commits"
+    description: "Open selected commit in hunk"
