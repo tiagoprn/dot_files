@@ -11,3 +11,8 @@ customCommands:
     command: 'tmux new-window -n hunk "hunk show {{ .SelectedCommit.Hash }}"'
     context: "commits"
     description: "Open selected commit in hunk"
+  - key: "v"
+    context: "files"
+    description: "Browse file history in tmux window"
+    command: >
+      tmux new-window 'FILE=$(git ls-files | fzf --prompt="Select a file to see its commit history: ") && EXT="${FILE##*.}" && git log --follow --date="format:%a %D %H:%M" --format="%h %ad %an" "$FILE" | fzf --prompt="Select a commit hash: " --preview "git show {1}:$FILE | bat --color=always -l $EXT" | awk "{print \$1}" | xargs -I{} sh -c "git show {}:$FILE | nvim -c \"set ft=$EXT\" -"'
