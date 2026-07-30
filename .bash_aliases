@@ -46,6 +46,7 @@ alias nr='sudo systemctl stop NetworkManager && sudo systemctl start NetworkMana
 alias tn='cd $(cat $HOME/.config/git-projects-bookmarks.list | fzf | cut -d "|" -f 1) && /storage/src/dot_files/tiling-window-managers/scripts/tmux-ide.sh'                    # tmux nvim project setup, using git bookmarks
 alias vr='vim-fzf-search'                                                                                                                                                      # fzf search leveraging rg on a given word. When you select a file, it opens $EDITOR.
 alias gp='pass $(find -L ~/.password-store -type f -name "*.gpg" -printf "%P\n" | sed "s/\.gpg//" | fzf) | wl-copy && echo -e "Password successfully copied to the clipboard"' # choose password from pass
+alias oc='export OPENCODE_API_KEY=$(pass $(echo -e "api-keys/opencode_github_auth_tiagoprn_gmail\napi-keys/opencode_google_auth_prngolti" | fzf)) && echo $OPENCODE_API_KEY'
 
 # tree letter aliases
 alias cdr='cd $(g root)'
