@@ -6,6 +6,7 @@
 ## one letter aliases
 alias f='fzf'
 alias g='git'
+alias h='mosh hermes-vm'
 alias q='tmuxp load /storage/src/devops/tmuxp/notes-and-reminders/qntuum.yml -y'
 alias t='tmux'
 
