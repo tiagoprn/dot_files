@@ -1,3 +1,11 @@
+git:
+  diffRenderers:
+    - type: extDiff
+      command: difft --color=always --display side-by-side-show-both
+      name: difftastic
+    - type: rawGit
+      name: default
+
 keybinding:
   universal:
     openDiffTool: <disabled>
