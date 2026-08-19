@@ -3,14 +3,14 @@ keybinding:
     openDiffTool: <disabled>
 customCommands:
   - key: "h"
-    command: 'tmux new-window -n hunk "hunk diff"'
+    command: 'tmux new-window -n tuicr "tuicr -w"'
     context: "files"
-    description: "Open hunk diff review"
+    description: "Open tuicr working tree review"
     output: terminal
   - key: "h"
-    command: 'tmux new-window -n hunk "hunk show {{ .SelectedCommit.Hash }}"'
+    command: 'tmux new-window -n tuicr "tuicr -r {{ .SelectedCommit.Hash }}"'
     context: "commits"
-    description: "Open selected commit in hunk"
+    description: "Open selected commit in tuicr"
   - key: "v"
     context: "files"
     description: "Browse file history in tmux window"
