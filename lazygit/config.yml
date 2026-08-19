@@ -11,14 +11,14 @@ keybinding:
     openDiffTool: <disabled>
 customCommands:
   - key: "h"
-    command: 'tmux new-window -n tuicr "tuicr -w"'
+    command: 'tmux new-window -n tuicr "/storage/src/dot_files/lazygit/custom_scripts/tuicr-review-window.sh" -w'
     context: "files"
-    description: "Open tuicr working tree review"
+    description: "Open tuicr working tree review (saved to file)"
     output: terminal
   - key: "h"
-    command: 'tmux new-window -n tuicr "tuicr -r {{ .SelectedCommit.Hash }}"'
+    command: 'tmux new-window -n tuicr "/storage/src/dot_files/lazygit/custom_scripts/tuicr-review-window.sh" -r {{ .SelectedCommit.Hash }}'
     context: "commits"
-    description: "Open selected commit in tuicr"
+    description: "Open selected commit in tuicr (saved to file)"
   - key: "v"
     context: "files"
     description: "Browse file history in tmux window"
