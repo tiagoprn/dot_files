@@ -9,10 +9,10 @@
   a = add
   # commit:
   c = commit
-  # difft:
-  d = !hunk diff
-  # review commits on hunk (e.g. git rc HEAD~1):
-  rc = !hunk show
+  # review working tree changes in tuicr:
+  d = !tuicr -w
+  # review commits on tuicr (e.g. git rc HEAD~1):
+  rc = !tuicr -r
   # diff (default):
   dd = diff
   # checkout:
@@ -79,13 +79,16 @@
 
 
 [diff]
-  tool = hunk
+  tool = difftastic
 
 [difftool]
   prompt = false
 
-[difftool "hunk"]
-  cmd = hunk difftool $LOCAL $REMOTE
+[difftool "difftastic"]
+  cmd = difft --display side-by-side-show-both --color always "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
+
+[pager]
+  difftool = true
 
 [mergetool]
   prompt = false
