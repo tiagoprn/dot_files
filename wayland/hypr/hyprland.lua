@@ -53,7 +53,9 @@ hl.config({
   },
 
   misc = {
-    initial_workspace_tracking = 2,
+    -- 0 disables workspace tokens (apps open on the active workspace).
+    -- Mode 2 pinned apps spawned by the long-lived vicinae server to workspace 1.
+    initial_workspace_tracking = 0,
   },
 })
 
