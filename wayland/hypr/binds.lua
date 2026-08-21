@@ -107,8 +107,38 @@ hl.bind("ALT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
 --------------------
 
 -- Controls
+local function float_active_to(fraction)
+  local w = hl.get_active_window()
+  if not w then
+    return
+  end
+  if not w.floating then
+    hl.dispatch(hl.dsp.window.float({ action = "set" }))
+  end
+  local mon = w.monitor or hl.get_active_monitor()
+  if mon and mon.width and mon.height then
+    local scale = mon.scale or 1
+    local logical_w = mon.width / scale
+    local logical_h = mon.height / scale
+    local side = math.floor(math.min(logical_w, logical_h) * fraction)
+    hl.dispatch(hl.dsp.window.resize({ x = side, y = side }))
+    hl.dispatch(hl.dsp.window.center())
+
+    local label = (w.class ~= "" and w.class) or (w.title ~= "" and w.title) or "window"
+    local text = ("%s is now floating and centered"):format(label)
+    local safe = text:gsub("'", "'\\''")
+    hl.exec_cmd("notify-send 'Float' '" .. safe .. "'")
+  end
+end
+
 hl.bind(mainMod .. " + Backspace", hl.dsp.window.kill(), { description = "window: close" })
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.float({ action = "toggle" }), { description = "window: float" })
+hl.bind(
+  mainMod .. " + CTRL + F",
+  function()
+    float_active_to(0.80)
+  end,
+  { description = "window: float at 80% (centered)" }
+)
 hl.bind(mainMod .. " + I", function()
   local w = hl.get_active_window()
   if not w then
@@ -140,6 +170,43 @@ hl.bind(mainMod .. " + I", function()
   local safe = text:gsub("'", "'\\''")
   hl.exec_cmd("notify-send 'Sticky' '" .. safe .. "'")
 end, { description = "window: toggle sticky (pin floating to all workspaces in current monitor)" })
+
+local function resize_active_to(fraction)
+  local w = hl.get_active_window()
+  if not w then
+    return
+  end
+  if not w.floating then
+    hl.notification.create({ text = "Window is not floating", timeout = 1500 })
+    return
+  end
+  local mon = w.monitor or hl.get_active_monitor()
+  if mon and mon.width and mon.height then
+    local scale = mon.scale or 1
+    local logical_w = mon.width / scale
+    local logical_h = mon.height / scale
+    local side = math.floor(math.min(logical_w, logical_h) * fraction)
+    hl.dispatch(hl.dsp.window.resize({ x = side, y = side }))
+    hl.dispatch(hl.dsp.window.center())
+  end
+end
+
+hl.bind(mainMod .. " + CTRL + J", function()
+  resize_active_to(0.45)
+end, { description = "floating window: resize to 45% of monitor (centered)" })
+hl.bind(mainMod .. " + CTRL + K", function()
+  resize_active_to(0.75)
+end, { description = "floating window: resize to 75% of monitor (centered)" })
+hl.bind(mainMod .. " + CTRL + L", function()
+  resize_active_to(0.90)
+end, { description = "floating window: resize to 90% of monitor (centered)" })
+
+hl.bind(
+  mainMod .. " + CTRL + T",
+  hl.dsp.window.float({ action = "unset" }),
+  { description = "window: tile (unfloat)" }
+)
+
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen(), { description = "window: fullscreen" })
 hl.bind(mainMod .. " + SHIFT + Space", hl.dsp.layout("swapwithmaster"), { description = "window: swap with master" })
 hl.bind(mainMod .. " + SHIFT + left", hl.dsp.layout("mfact +0.1"), { description = "window: expand master split size" })
@@ -285,31 +352,8 @@ hl.bind(
   { description = "window: move current to workspace 10 and DO NOT switch to it" }
 )
 
---------------------
----- CURSOR ZOOM ----
---------------------
-
-hl.bind(
-  mainMod .. " + CTRL + K",
-  hl.dsp.exec_cmd(
-    "hyprctl keyword cursor:zoom_factor \"$(hyprctl -j getoption cursor:zoom_factor | jq '.float + 1.0')\""
-  ),
-  { description = "Increase cursor zoom" }
-)
-hl.bind(
-  mainMod .. " + CTRL + J",
-  hl.dsp.exec_cmd(
-    "hyprctl keyword cursor:zoom_factor \"$(hyprctl -j getoption cursor:zoom_factor | jq 'max(.float - 1.0; 1.0)')\""
-  ),
-  { description = "Decrease cursor zoom (not below 1.0)" }
-)
-hl.bind(
-  mainMod .. " + CTRL + R",
-  hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor 1.0"),
-  { description = "Reset cursor zoom" }
-)
-
 -----------------------
+
 ---- WORKSPACES ----
 -----------------------
 
