@@ -132,13 +132,9 @@ local function float_active_to(fraction)
 end
 
 hl.bind(mainMod .. " + Backspace", hl.dsp.window.kill(), { description = "window: close" })
-hl.bind(
-  mainMod .. " + CTRL + F",
-  function()
-    float_active_to(0.80)
-  end,
-  { description = "window: float at 80% (centered)" }
-)
+hl.bind(mainMod .. " + CTRL + F", function()
+  float_active_to(0.80)
+end, { description = "window: float at 80% (centered)" })
 hl.bind(mainMod .. " + I", function()
   local w = hl.get_active_window()
   if not w then
@@ -166,7 +162,7 @@ hl.bind(mainMod .. " + I", function()
     hl.dispatch(hl.dsp.window.pin({ action = "toggle" }))
   end
 
-  local text = ("%s %s"):format(label, w.pinned and "unpinned" or "pinned")
+  local text = ("%s %s"):format(label, w.pinned and "PINNED" or "UNPINNED")
   local safe = text:gsub("'", "'\\''")
   hl.exec_cmd("notify-send 'Sticky' '" .. safe .. "'")
 end, { description = "window: toggle sticky (pin floating to all workspaces in current monitor)" })
@@ -201,11 +197,7 @@ hl.bind(mainMod .. " + CTRL + L", function()
   resize_active_to(0.90)
 end, { description = "floating window: resize to 90% of monitor (centered)" })
 
-hl.bind(
-  mainMod .. " + CTRL + T",
-  hl.dsp.window.float({ action = "unset" }),
-  { description = "window: tile (unfloat)" }
-)
+hl.bind(mainMod .. " + CTRL + T", hl.dsp.window.float({ action = "unset" }), { description = "window: tile (unfloat)" })
 
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen(), { description = "window: fullscreen" })
 hl.bind(mainMod .. " + SHIFT + Space", hl.dsp.layout("swapwithmaster"), { description = "window: swap with master" })
