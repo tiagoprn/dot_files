@@ -109,6 +109,36 @@ hl.bind("ALT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
 -- Controls
 hl.bind(mainMod .. " + Backspace", hl.dsp.window.kill(), { description = "window: close" })
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.float({ action = "toggle" }), { description = "window: float" })
+hl.bind(mainMod .. " + I", function()
+  local w = hl.get_active_window()
+  if not w then
+    return
+  end
+  local label = (w.class ~= "" and w.class) or (w.title ~= "" and w.title) or "window"
+
+  if w.pinned then
+    -- already pinned: unpin and return to tiled
+    hl.dispatch(hl.dsp.window.pin({ action = "toggle" }))
+    hl.dispatch(hl.dsp.window.float({ action = "unset" }))
+  else
+    -- not pinned: float, size to 60% of its monitor, then pin
+    if not w.floating then
+      hl.dispatch(hl.dsp.window.float({ action = "set" }))
+      local mon = w.monitor or hl.get_active_monitor()
+      if mon and mon.width and mon.height then
+        hl.dispatch(hl.dsp.window.resize({
+          x = math.floor(mon.width * 0.6),
+          y = math.floor(mon.height * 0.6),
+        }))
+      end
+    end
+    hl.dispatch(hl.dsp.window.pin({ action = "toggle" }))
+  end
+
+  local text = ("%s %s"):format(label, w.pinned and "unpinned" or "pinned")
+  local safe = text:gsub("'", "'\\''")
+  hl.exec_cmd("notify-send 'Sticky' '" .. safe .. "'")
+end, { description = "window: toggle sticky (pin floating to all workspaces in current monitor)" })
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen(), { description = "window: fullscreen" })
 hl.bind(mainMod .. " + SHIFT + Space", hl.dsp.layout("swapwithmaster"), { description = "window: swap with master" })
 hl.bind(mainMod .. " + SHIFT + left", hl.dsp.layout("mfact +0.1"), { description = "window: expand master split size" })
@@ -316,4 +346,3 @@ hl.bind(
   hl.dsp.focus({ workspace = "e-1" }),
   { description = "workspace: mouse scroll down to previous" }
 )
-
