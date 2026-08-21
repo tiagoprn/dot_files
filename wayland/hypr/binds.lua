@@ -131,6 +131,7 @@ hl.bind(mainMod .. " + I", function()
           y = math.floor(mon.height * 0.6),
         }))
       end
+      hl.dispatch(hl.dsp.window.center())
     end
     hl.dispatch(hl.dsp.window.pin({ action = "toggle" }))
   end
