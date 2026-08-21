@@ -77,7 +77,7 @@ hl.window_rule({
   match = { title = "Commands Cheatsheets" },
   float = true,
   center = true,
-  size = { "monitor_w * 0.9", "monitor_h * 0.9" },
+  size = { "monitor_w * 0.8", "monitor_h * 0.5" },
 })
 
 -- GNOME Loupe - image viewer
