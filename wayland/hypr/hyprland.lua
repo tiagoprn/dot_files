@@ -17,13 +17,21 @@ hl.monitor({
   scale = 1,
 })
 
--- external portable 4K monitor
+-- external ultrawide monitor (LG 25UM58G, 2560x1080@60)
 hl.monitor({
-  output = "desc:RTD TH-133UCJ 0x01010101",
-  mode = "preferred",
+  output = "desc:LG 25UM58G",
+  mode = "2560x1080@60",
   position = "auto",
-  scale = 1.5,
+  scale = 1,
 })
+
+-- external portable 4K monitor (RTD TH-133UCJ) -- disabled, replaced by LG 25UM58G
+-- hl.monitor({
+--   output = "desc:RTD TH-133UCJ 0x01010101",
+--   mode = "preferred",
+--   position = "auto",
+--   scale = 1.5,
+-- })
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
