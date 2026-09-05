@@ -111,7 +111,7 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 6, bezier = "default
 hl.config({
   master = {
     orientation = "right",
-    mfact = 0.60,
+    mfact = 0.50,
     new_status = "master",
   },
 })
