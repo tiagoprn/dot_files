@@ -14,15 +14,15 @@ hl.monitor({
   output = "eDP-1",
   mode = "preferred",
   position = "auto",
-  scale = 1,
+  scale = 0.8,
 })
 
 -- external ultrawide monitor (LG 25UM58G, 2560x1080@60)
 hl.monitor({
-  output = "desc:LG 25UM58G",
+  output = "desc:LG Electronics 25UM58G 0x01010101",
   mode = "2560x1080@60",
   position = "auto",
-  scale = 1,
+  scale = 0.8,
 })
 
 -- external portable 4K monitor (RTD TH-133UCJ) -- disabled, replaced by LG 25UM58G
