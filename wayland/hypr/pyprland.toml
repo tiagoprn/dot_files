@@ -7,8 +7,8 @@ plugins = [
 
 [scratchpads.volume]
 animation = "fromTop"
-command   = "pavucontrol"
-class     = "org.pulseaudio.pavucontrol"
+command   = "flatpak run com.saivert.pwvucontrol"
+class     = "com.saivert.pwvucontrol"
 size      = "50% 90%"
 unfocus   = "hide"
 lazy      = true
