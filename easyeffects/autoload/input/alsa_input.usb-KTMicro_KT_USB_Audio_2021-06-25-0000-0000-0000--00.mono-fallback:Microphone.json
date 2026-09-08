@@ -1,0 +1,6 @@
+{
+    "device": "alsa_input.usb-KTMicro_KT_USB_Audio_2021-06-25-0000-0000-0000--00.mono-fallback",
+    "device-description": "KT USB Audio Mono",
+    "device-profile": "Microphone",
+    "preset-name": "voice"
+}
