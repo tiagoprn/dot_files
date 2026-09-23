@@ -216,3 +216,8 @@ fi
 
 export RCLONE_PASSWORD_COMMAND="pass rclone/config"
 export RCLONE_CONFIG_PASS="$(pass rclone/config)"
+
+# Android SDK for Android 13+ (Kotlin / Gradle / adb toolchain, 2026-09-23)
+export JAVA_HOME=/usr/lib/jvm/java-25-openjdk
+export ANDROID_HOME="$HOME/android-sdk"
+export PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"

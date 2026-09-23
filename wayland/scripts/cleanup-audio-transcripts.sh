@@ -42,6 +42,12 @@ STRUCTURE="${3:-prose}"
 CONTEXT="${4:-general}"
 SERVER="http://localhost:8080"
 
+echo "Requires llama-server (S1-mini) listening on $SERVER."
+read -r -p "Start it if needed, then press ENTER to proceed... " || {
+    echo "error: no interactive terminal to confirm server startup; aborting" >&2
+    exit 1
+}
+
 SYSTEM='You are a text normalizer for speech-to-text transcripts. The input begins with a control line specifying the styling, structure, and context settings; clean the transcript to match those settings and output only the cleaned text.'
 
 for f in "$DIR"/*.txt; do
