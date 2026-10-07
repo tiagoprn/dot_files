@@ -18,3 +18,5 @@ tmp/
 .env.docker
 .aider*
 graphify-out/
+*.TO-BE-DELETED
+*.BKP.*
