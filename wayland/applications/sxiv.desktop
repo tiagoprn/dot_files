@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=sxiv Fullscreen
+Exec=sxiv -f %F
+MimeType=image/jpeg;image/png;image/gif;
+Terminal=false
+Type=Application
+Categories=Graphics;

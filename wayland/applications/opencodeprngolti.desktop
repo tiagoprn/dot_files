@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=opencode-prngolti
+Comment=🤱🏻 Turn any webpage into a desktop app with Rust.
+Icon=/home/tiago/AppImages/.icons/opencodeprngolti
+TryExec=/home/tiago/AppImages/opencodeprngolti.appimage
+Exec=env DESKTOPINTEGRATION=1 /home/tiago/AppImages/opencodeprngolti.appimage
+Terminal=false
+Categories=;
+StartupWMClass=pake-opencode-prngolti
+X-AppImage-Name=opencode-prngolti

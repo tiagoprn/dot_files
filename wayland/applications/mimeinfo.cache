@@ -1,0 +1,5 @@
+[MIME Cache]
+image/gif=sxiv.desktop;
+image/jpeg=sxiv.desktop;
+image/png=sxiv.desktop;
+x-scheme-handler/bitwarden=com.bitwarden.desktop.desktop;

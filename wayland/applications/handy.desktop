@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Handy
+Comment=Handy
+Icon=/home/tiago/AppImages/.icons/handy
+TryExec=/home/tiago/AppImages/handy.appimage
+Exec=env DESKTOPINTEGRATION=1 /home/tiago/AppImages/handy.appimage
+Terminal=false
+Categories=;
+StartupWMClass=handy
+X-AppImage-Name=Handy

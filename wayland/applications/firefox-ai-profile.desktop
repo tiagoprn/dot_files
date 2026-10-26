@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Firefox AI Profile
+Comment=Open Firefox with the AI profile
+Exec=firefox -P ai
+Icon=firefox
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true
