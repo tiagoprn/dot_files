@@ -14,9 +14,12 @@
 # Pasting a multiline field keeps its internal line breaks; the final
 # trailing newline is dropped.
 #
-# Requires: pass, fzf, yq, and one clipboard backend: wl-copy (Wayland) or
-# termux-clipboard-set (Termux). Notifications use notify-send, falling back
-# to termux-toast on Termux; with neither, copies work without notifications.
+# Requires: pass, yq, one clipboard backend (wl-copy or termux-clipboard-set),
+# and one picker: tv preferred, fzf as fallback. Set PASS_PICKER=tv|fzf to
+# override the order. fzf matching is forced case-insensitive; tv has no such
+# flag in 0.15.9 and follows smart case: lowercase queries match
+# case-insensitively, typing any capital makes matching case-sensitive.
+# The tv preview masks the password and the notes of every entry, YAML or not.
 # Exit codes: 0 copied or aborted by user, 1 missing tool, 2 pass/yq failed.
 
 set -euo pipefail
@@ -26,9 +29,44 @@ readonly yaml_prefix="BTWRDN-IMPORTED"
 readonly -a yaml_keys=(
     password username notes uri name creation_date revision_date password_history
 )
+# Masks the tv preview for every entry: a raw first-line password (classic
+# pass), `password:` lines, and the whole multiline `notes` and
+# `password_history` blocks of YAML metadata entries, blank lines inside the
+# blocks included. Notes can hold secrets like recovery codes, and history
+# holds the old passwords in plaintext, so nothing of either may reach the pane.
+# The single quotes are deliberate: the program must stay literal so the
+# awk double quotes survive into tv's shell.
+# shellcheck disable=SC2016
+readonly mask_awk='
+    skip { if ($0 == "" || $0 ~ /^[[:space:]]/) next; skip=0 }
+    /^notes:/ { print "notes: [hidden]"; skip=1; next }
+    /^password_history:/ { print "password_history: [hidden]"; skip=1; next }
+    /^password:/ { print "password: [hidden]"; next }
+    NR==1 { print "[hidden]"; next }
+    { print }
+'
+readonly preview_cmd="pass show {} | awk '$mask_awk'"
 
 clip_backend=""
 notify_backend=""
+picker=""
+
+pick_picker_backend() {
+    local choice="${PASS_PICKER:-}"
+
+    if [[ -z $choice ]]; then
+        if command -v tv >/dev/null 2>&1; then
+            printf 'tv\n'
+        elif command -v fzf >/dev/null 2>&1; then
+            printf 'fzf\n'
+        else
+            return 1
+        fi
+    else
+        command -v "$choice" >/dev/null 2>&1 || return 1
+        printf '%s\n' "$choice"
+    fi
+}
 
 notify() {
     [[ -n $notify_backend ]] || return 0
@@ -80,16 +118,36 @@ is_yaml_entry() {
 
 pick_key() {
     cd "${PASSWORD_STORE_DIR:-$HOME/.password-store}" || return 1
-    find . -type f -name '*.gpg' \
-        | sed 's|^\./||; s|\.gpg$||' \
-        | fzf --reverse --prompt='pass > '
+    case "$picker" in
+    tv)
+        tv \
+            --source-command="find . -type f -name '*.gpg' | sed 's|^\./||; s|\.gpg$||'" \
+            --source-output="{}" \
+            --input-prompt='pass > ' \
+            --preview-command="$preview_cmd" \
+            --cache-preview
+        ;;
+    fzf)
+        find . -type f -name '*.gpg' \
+            | sed 's|^\./||; s|\.gpg$||' \
+            | fzf --ignore-case --reverse --prompt='pass > '
+        ;;
+    esac
 }
 
 pick_field() {
     local key="$1" content="$2"
 
-    printf '%s\n' "$content" | yq 'keys | .[]' \
-        | fzf --reverse --prompt="${key##*/} > "
+    case "$picker" in
+    tv)
+        printf '%s\n' "$content" | yq 'keys | .[]' \
+            | tv --input-prompt="${key##*/} > "
+        ;;
+    fzf)
+        printf '%s\n' "$content" | yq 'keys | .[]' \
+            | fzf --ignore-case --reverse --prompt="${key##*/} > "
+        ;;
+    esac
 }
 
 field_value() {
@@ -101,12 +159,17 @@ field_value() {
 main() {
     local tool key content first_line field value
 
-    for tool in pass fzf yq; do
+    for tool in pass yq; do
         command -v "$tool" >/dev/null 2>&1 || {
             echo "missing tool: $tool" >&2
             exit 1
         }
     done
+
+    picker="$(pick_picker_backend)" || {
+        echo "no picker available: install tv or fzf, or set PASS_PICKER to tv|fzf" >&2
+        exit 1
+    }
 
     clip_backend="$(pick_clipboard_backend)" || {
         echo "missing clipboard tool: wl-copy or termux-clipboard-set" >&2
