@@ -1,0 +1,527 @@
+{
+  "encrypted": false,
+  "folders": [],
+  "items": [
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "59939411-6e42-4a5b-9a14-acf8014addbf",
+      "collectionIds": null,
+      "name": "10.0.0.100",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://10.0.0.100:9000"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "aaaaaaa",
+        "password": "RRRRRRRRRRRRRR"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-27T20:04:38.815Z",
+      "revisionDate": "2021-03-27T20:04:38.815Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "92fd999c-3eae-4f42-a1a8-afa9008e8d15",
+      "collectionIds": null,
+      "name": "linode batata",
+      "notes": "The Access List \"doe\" credentials are: \nusername: doe\npassword: Por-SineY7Aee2WT2e@2bfe32m3GoZkXN2w41tE.xP2aXJgZ\n\n---\n\nnoco credentials: \n\nusername: doeprn@proton.me\npassword: tBYwieqc2fhKFIMRxZN2aZOoaalAG2232VGN\n\n---\n\nmemos credentials:\n\nusername: doeprn\npassword: a324BV22222aLYUu22aCL\n\n---\n\nfreshrss credentials \nusername: doe\npassword: vmca2aT-2Fa2Naf\nAPI password: -s5aMag2rJa1VaaWi7k2t7wN-\n\n---\nn8n credentials:\n\n(abaixo é a \"owner account, configurada no primeiro login\")\ne-mail: doeprn@proton.me\npassword: _nM1a2oaTX4ai2qlaNI6y2zhz\n\n(abaixo é o que foi configurado no docker-compose)\nN8N_BASIC_AUTH_USER=admin\nN8N_BASIC_AUTH_PASSWORD=5yD_c0a62uaF21-GKGwt\n\n---\n\nhomarr: \n\nurl: home.do.com\n\nADMIN ACCOUNT\n    user: root\n    pass: @9a2aj\"4'_Ca2a8\n\nUSER ACCOUNTS\n    user: doe\n    email: doeprn@proton.me\n    password: 1Ha12a:$uafy2knx\n\n    user: doe\n    email: sa2fa2fa@proton.me\n    password: C27Qa?C2avb2aTzQ\n\n---\n\nlinkding:\n\n    url: links.do.com\n    user: doe\n    password: p2Ka9SaiQ0apM2aF0dju\n    API Key: da9bb28ea6aa19f9b5e4acd29cff4b0d277beb24\n\n--- \n\nminiflux (rss reader): \n\nurl: flux.do.com\nuser: doe (admin user)\npassword: LabP2fXwkaK_\nAPI Key: c4e52f278fa6b62ae879b925e6adc46ac338040d1a42490e0f213a77ea923b9c\n\n---\nglance: \nuser: admin \npassword: 7a2y7a5$2a82a7",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://manage.batata.dev"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "aaaaaa@aaaaa.me",
+        "password": "AAAAAAAAAAAAAAAAA"
+      },
+      "passwordHistory": [],
+      "creationDate": "2023-02-14T08:39:00.733Z",
+      "revisionDate": "2026-04-01T17:32:27.523Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "a1fcc798-e2f9-412a-b228-acf8014addbf",
+      "collectionIds": null,
+      "name": "lists.centos.org",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "http://lists.centos.org"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "sdfasddfasfasd",
+        "password": "asdfasdfafdsas"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-27T20:04:38.816Z",
+      "revisionDate": "2021-03-27T20:04:38.816Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "ff4de502-0a90-41f9-add5-acf8014addbf",
+      "collectionIds": null,
+      "name": "lists.citizenweb.io",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://lists.citizenweb.io"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "johndoe",
+        "password": "sadfadsj;ldfjasdlsjflas"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-27T20:04:38.815Z",
+      "revisionDate": "2021-03-27T20:04:38.815Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "86f0c073-4d1f-4b4a-ae16-acf8014addbf",
+      "collectionIds": null,
+      "name": "lists.citizenweb.is",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://lists.citizenweb.is"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "lkj;lj",
+        "password": "asdfasfa"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-27T20:04:38.816Z",
+      "revisionDate": "2021-03-27T20:04:38.816Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "6952e074-ebbd-496e-95bd-acf8014addbf",
+      "collectionIds": null,
+      "name": "login.aliexpress.com",
+      "notes": "A senha está na biometria do Google com email doe@gmail.com",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://login.aliexpress.com"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "sadfsadfa"
+      },
+      "passwordHistory": [
+        {
+          "password": "ajsdfl;aj;fdjlassjdfl",
+          "lastUsedDate": "2025-08-21T22:37:33.337Z"
+        }
+      ],
+      "creationDate": "2021-03-27T20:04:38.816Z",
+      "revisionDate": "2025-08-21T22:38:11.126Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "b8afb901-d11c-4456-aa8f-b08b00ac4236",
+      "collectionIds": null,
+      "name": "login.getgrist.com",
+      "notes": "API KEY: 93d003250c86288d5e0738e0cab27ac2d1a4eba9",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://login.getgrist.com/signup?state=9850a633-6112-4638-84fb-f73854264d06"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "johndoe@emmail",
+        "password": "asdfjas;lsdfjal;sdf"
+      },
+      "passwordHistory": [],
+      "creationDate": "2023-09-28T10:27:10.106Z",
+      "revisionDate": "2023-09-29T09:19:26.066Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "bf579519-bdc1-4d11-8337-acf8014addbf",
+      "collectionIds": null,
+      "name": "login.globo.com (assinatura Premium todos os canais - USAR ESTA)",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://login.globo.com"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "fulano@gmail.com",
+        "password": "asdfasdlkjd;a"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-27T20:04:38.816Z",
+      "revisionDate": "2025-12-23T22:14:07.176Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "24b49c93-9f34-45b4-9803-acd200807f15",
+      "collectionIds": null,
+      "name": "login.linode.com",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://login.linode.com/login"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "johndoe",
+        "password": "sdfalsdjf;asljf;qa"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-02-17T07:47:50.466Z",
+      "revisionDate": "2021-02-17T07:47:50.466Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "98c4a819-4de2-4c5e-b7ce-acf8014addbf",
+      "collectionIds": null,
+      "name": "login.mailchimp.com",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://login.mailchimp.com"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "asdfas;ldfja",
+        "password": "lj;asdflkjas;j"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-27T20:04:38.817Z",
+      "revisionDate": "2021-03-27T20:04:38.817Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "96681fe7-b701-4464-b120-acf8014addbf",
+      "collectionIds": null,
+      "name": "login.manning.com",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://login.manning.com"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "doe@gmail.com",
+        "password": "asdfaslkjfd;alsjdf"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-27T20:04:38.817Z",
+      "revisionDate": "2021-03-27T20:04:38.817Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "462f2a27-8a78-4709-b699-acf300cd7285",
+      "collectionIds": null,
+      "name": "login.manning.com",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://login.manning.com/login?service=https%3A%2F%2Fwww.manning.com%2Flogin%2Fcas"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "doe@gmail.com",
+        "password": "asdfasljfa;lsdjf"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-22T12:28:00.650Z",
+      "revisionDate": "2022-03-31T21:52:16.036Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "3845965b-0e88-4752-aa2c-b08c00cc7c93",
+      "collectionIds": null,
+      "name": "login.tailscale.com",
+      "notes": "Authenticated with my google account (doe@gmail.com), it was the only option at login.",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://login.tailscale.com/admin/settings/billing?refreshed=true"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "doe@gmail.com"
+      },
+      "passwordHistory": [],
+      "creationDate": "2023-09-29T12:24:30.446Z",
+      "revisionDate": "2023-09-29T12:24:30.446Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "90eaf14f-803a-4162-a251-acf8014addbf",
+      "collectionIds": null,
+      "name": "login.ubuntu.com",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://login.ubuntu.com"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "johndoe",
+        "password": "sadlfjal;jsdflks"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-27T20:04:38.816Z",
+      "revisionDate": "2021-03-27T20:04:38.816Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "00313de9-69d8-49bb-a808-acf8014addbf",
+      "collectionIds": null,
+      "name": "m.dafiti.com.br",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://m.dafiti.com.br"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "doe@gmail.com",
+        "password": "asdfja;sjdfa;sjdfkla;q"
+      },
+      "passwordHistory": [
+        {
+          "password": "asdfasdldfjasl;jf;lasjfs",
+          "lastUsedDate": "2022-02-21T17:13:25.777Z"
+        }
+      ],
+      "creationDate": "2021-03-27T20:04:38.816Z",
+      "revisionDate": "2022-02-21T17:13:25.933Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "03859faa-f1a0-4190-a74f-b20200a8edfc",
+      "collectionIds": null,
+      "name": "Microsoft Teams",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://signup.live.com/signup?sru=https%3a%2f%2flogin.live.com%2foauth20_authorize.srf%3flc%3d1033%26client_id%3d5e3ce6c0-2b1f-4285-8d4b-75ee78787346%26mkt%3dEN-US%26opid%3d601FA184448065E2%26opidt%3d1728295898%26uaid%3d0192667655a07c8289d854ca1d63852b%26contextid%3dE559BFCEDB3DD1EC%26opignore%3d1&mkt=EN-US&uiflavor=web&lw=1&fl=easi2&client_id=5e3ce6c0-2b1f-4285-8d4b-75ee78787346&uaid=0192667655a07c8289d854ca1d63852b&suc=5e3ce6c0-2b1f-4285-8d4b-75ee78787346&lic=1"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "doe@proton.me",
+        "password": "asdlfja;sldjal;d"
+      },
+      "passwordHistory": [],
+      "creationDate": "2024-10-07T10:15:03.226Z",
+      "revisionDate": "2024-10-07T10:24:34.933Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "970413b5-6b5c-454f-bf0e-acf8014addbf",
+      "collectionIds": null,
+      "name": "mycap.com.br",
+      "notes": "Senha numérica: 222262\nAssinatura eletrônica: ANF5321",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://www.mycap.com.br"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "doe",
+        "password": "AGJFSD"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-27T20:04:38.816Z",
+      "revisionDate": "2023-01-31T07:40:51.790Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "28ca00dd-37c2-49e5-8620-b4eb01554762",
+      "collectionIds": null,
+      "name": "new gnupg key 2026-10-22",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "http://hermes-vm.galaxy-mania.ts.net:666/deep-research/20261008-094708-gnupg-two-user-encrypted-file-sharing/research.html"
+          }
+        ],
+        "fido2Credentials": [],
+        "password": "asdl;fjals;jsdf;ls"
+      },
+      "passwordHistory": [],
+      "creationDate": "2026-10-22T20:42:33.483Z",
+      "revisionDate": "2026-10-22T20:42:33.483Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "ec1952bd-5a27-4138-b84d-ada5017ba9bf",
+      "collectionIds": null,
+      "name": "Nomad (app)",
+      "fields": [],
+      "login": {
+        "uris": [],
+        "fido2Credentials": [],
+        "password": "asdfj;asljd;asjsfd"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-09-16T23:02:18.656Z",
+      "revisionDate": "2021-09-16T23:02:18.656Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "b6dce2d2-7418-4e2b-baa0-af930142873e",
+      "collectionIds": null,
+      "name": "petlove (site compras e plano de saúde)",
+      "notes": "Para acessar o plano de saúde, o link é este:\n\nhttps://auth.petlove.com.br/?vcb=https%3A%2F%2Fplano-de-saude.petlove.com.br%2F%23%2Fvalidar-token&ccb=https%3A%2F%2Fsaude.petlove.com.br",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "www.petlove.com.br"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "doe@gmail.com",
+        "password": "asdfsadfja;ljsdf;ajlks"
+      },
+      "passwordHistory": [
+        {
+          "password": "asdlkfja;lsjdla",
+          "lastUsedDate": "2023-01-23T19:34:51.041Z"
+        }
+      ],
+      "creationDate": "2023-01-23T19:34:17.346Z",
+      "revisionDate": "2024-05-22T13:29:57.933Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "4174c82a-19a0-4cae-b7b4-b31c011f8f13",
+      "collectionIds": null,
+      "name": "xp investimentos (nomos - migrado do mycap)",
+      "notes": "Assinatura eletrônica: 22822172",
+      "fields": [],
+      "login": {
+        "uris": [],
+        "fido2Credentials": [],
+        "username": "doe@doe.me",
+        "password": "234298342"
+      },
+      "passwordHistory": [
+        {
+          "password": "asdfl;ja;sdfjqas",
+          "lastUsedDate": "2025-07-16T17:31:20.257Z"
+        }
+      ],
+      "creationDate": "2025-07-16T17:26:58.190Z",
+      "revisionDate": "2025-07-16T17:44:28.376Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "0f6cc973-e142-4bbf-8d7d-acf8014addbf",
+      "collectionIds": null,
+      "name": "zonomi.com",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://zonomi.com"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "doe@doe.me",
+        "password": "asdfljasl;dfjlsa;jdf"
+      },
+      "passwordHistory": [],
+      "creationDate": "2021-03-27T20:04:38.817Z",
+      "revisionDate": "2021-03-27T20:04:38.817Z"
+    },
+    {
+      "type": 1,
+      "favorite": false,
+      "reprompt": 0,
+      "id": "6867f509-7648-4e56-95c9-b07200c9999e",
+      "collectionIds": null,
+      "name": "zoom.us",
+      "fields": [],
+      "login": {
+        "uris": [
+          {
+            "uri": "https://zoom.us/signup#/signup/activate?enableEduServiceFlow=true"
+          }
+        ],
+        "fido2Credentials": [],
+        "username": "doe@proton.me",
+        "password": "asdlfja;sldfjalsjflsa;"
+      },
+      "passwordHistory": [],
+      "creationDate": "2023-09-03T12:13:59.700Z",
+      "revisionDate": "2023-09-03T12:13:59.700Z"
+    }
+  ]
+}
