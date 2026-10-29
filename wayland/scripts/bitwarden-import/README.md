@@ -118,5 +118,130 @@ with the mismatching keys and the run exits `1`.
 
 ### Not in scope
 
-Importing the YAML files into `pass` (for example under
-`~/.password-store/BTWRDN-IMPORTED/`) is a separate, manual step.
+The converter itself never runs `pass` and never touches the password store.
+Importing the YAML files is done by `import-to-pass.sh`, documented below.
+
+## The importer: import-to-pass.sh
+
+### WHAT
+
+`import-to-pass.sh` inserts the YAML files produced by `json-to-yaml.py` into
+the pass store, one key per file, and then verifies every key against its
+source file. It reads the export folder and writes encrypted entries under
+`~/.password-store/BTWRDN-IMPORTED/`. It never modifies the YAML files and
+never logs passwords.
+
+### WHY
+
+Inserting by hand invites key-name mistakes and proves nothing afterwards.
+The script makes the key rule mechanical, refuses to overwrite an entry that
+already exists, and decrypts every stored entry again to prove the store
+matches the files. Trusting a migration then needs one green summary line
+instead of opening every password by eye.
+
+### HOW
+
+Run it with `bash`:
+
+```bash
+bash wayland/scripts/bitwarden-import/import-to-pass.sh
+```
+
+It asks for the folder where the YAML files were generated, with no default:
+
+```text
+YAML folder:
+```
+
+Paste the `output folder` path printed by the converter. The folder can also
+be passed as the only argument, which skips the prompt:
+
+```bash
+bash wayland/scripts/bitwarden-import/import-to-pass.sh /tmp/bitwarden-export-20261029-100557
+```
+
+Your `gpg-agent` pinentry asks for the passphrase during the run, once per
+agent cache.
+
+#### Key naming
+
+The file name splits on its **first** dot: the first token becomes the folder
+inside the store, everything after it becomes the key.
+
+| File | pass key |
+|---|---|
+| `_sample_.zoom-us.yaml` | `BTWRDN-IMPORTED/_sample_/zoom-us` |
+| `_sample_.petlove-site-compras-e-plano-de-sa-de.yaml` | `BTWRDN-IMPORTED/_sample_/petlove-site-compras-e-plano-de-sa-de` |
+| `_sample_.login-manning-com.002.yaml` | `BTWRDN-IMPORTED/_sample_/login-manning-com.002` |
+
+A file name without a dot is rejected and counted as a failure. Entries
+already in the store are skipped with a `WARN` and never overwritten.
+
+#### Verification
+
+After the import every key is decrypted and compared against its source file.
+Trailing newlines are excluded on both sides, so a trailing-newline quirk
+can never fake a mismatch; every other byte must match exactly. Results are
+reported as `verify MISSING`, `verify UNREADABLE` or `verify MISMATCH`, plus
+a final `verify: ok=N mismatches=N` line.
+
+#### Exit codes
+
+| Code | Meaning |
+|---|---|
+| `0` | every key inserted and verified |
+| `1` | folder missing, empty, or no folder given |
+| `2` | some insert failed |
+| `3` | a stored entry is missing, unreadable, or differs |
+
+## Quick start: generate, then import
+
+Prerequisites, checked once before the first migration:
+
+```bash
+pass --version          # pass installed and initialized
+gpg --list-secret-keys  # a secret key exists to encrypt with
+```
+
+1. Generate the YAML files. The converter prints its `output folder` path:
+
+```bash
+cd /storage/src/dot_files
+uv run wayland/scripts/bitwarden-import/json-to-yaml.py <export.json> <prefix> --verify
+```
+
+2. Import them into pass, pasting that printed folder at the prompt:
+
+```bash
+bash wayland/scripts/bitwarden-import/import-to-pass.sh
+```
+
+`/tmp` is wiped on reboot: if the output folder is gone, run step 1 again
+before importing.
+
+Spot check by hand whenever you want to:
+
+```bash
+ls ~/.password-store/BTWRDN-IMPORTED/_sample_/*.gpg | wc -l  # one file per key
+diff <(pass show BTWRDN-IMPORTED/_sample_/zoom-us) /tmp/bitwarden-export-20261029-100557/_sample_.zoom-us.yaml
+```
+
+Read an entry:
+
+```bash
+pass show BTWRDN-IMPORTED/_sample_/zoom-us
+pass show BTWRDN-IMPORTED/_sample_/zoom-us | grep '^password:'  # just the secret
+```
+
+`pass show -o` returns the first YAML line (`password: "..."`), not a bare
+password, which is why the `grep` idiom above is the one to use.
+
+Version the store so the migration stays traceable:
+
+```bash
+pass git init                                  # once, if never done
+pass git add -A && pass git commit -m "import bitwarden export"
+```
+
+After a verified import the `/tmp` output folder is disposable. The durable
+copies are the source JSON export and the pass store's own git history.
