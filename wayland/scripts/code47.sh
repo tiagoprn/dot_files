@@ -21,6 +21,12 @@
 # case-insensitively, typing any capital makes matching case-sensitive.
 # The tv preview masks the password and the notes of every entry, YAML or not.
 # Exit codes: 0 copied or aborted by user, 1 missing tool, 2 pass/yq failed.
+#
+# Before any picker opens, the script warms the gpg-agent passphrase cache
+# for every key listed in the store's .gpg-id files (an encrypt/decrypt
+# round trip per key): cached means silence, not cached means pinentry asks
+# once, at the top of the run, never inside the tv/fzf UI. This is what
+# keeps the Termux UX sane.
 
 set -euo pipefail
 
@@ -103,6 +109,35 @@ copy() {
     esac
 }
 
+# Warm the gpg-agent passphrase cache for every key the store encrypts with.
+# An encrypt-to-self/decrypt round trip per keyid asks pinentry exactly once
+# when the passphrase is not cached, and is silent when it is. A key that
+# fails here logs an error and the run continues: the other key's entries
+# still work. Returns 1 only when the store has no .gpg-id at all.
+warm_agent_cache() {
+    local store="${PASSWORD_STORE_DIR:-$HOME/.password-store}"
+    local kid keyids
+
+    keyids="$(find -L "$store" -name .gpg-id -exec cat {} \; | sort -u)" || {
+        echo "could not read .gpg-id files in $store" >&2
+        return 1
+    }
+    if [[ -z $keyids ]]; then
+        echo "no .gpg-id files found in $store" >&2
+        return 1
+    fi
+
+    while read -r kid; do
+        [[ -n $kid ]] || continue
+        echo "checking GPG passphrase cache for key $kid (pinentry asks once if not set)"
+        if ! printf 'warm' | gpg --yes --trust-model always --encrypt -r "$kid" --output - 2>/dev/null |
+            gpg --decrypt --output /dev/null 2>/dev/null; then
+            echo "could not decrypt with key $kid: entries using it will fail" >&2
+        fi
+    done <<<"$keyids"
+    return 0
+}
+
 is_yaml_entry() {
     local key="$1" content="$2"
     local expr="" k
@@ -169,6 +204,11 @@ main() {
     picker="$(pick_picker_backend)" || {
         echo "no picker available: install tv or fzf, or set PASS_PICKER to tv|fzf" >&2
         exit 1
+    }
+
+    warm_agent_cache || {
+        echo "cannot warm the GPG agent: check the password store" >&2
+        exit 2
     }
 
     clip_backend="$(pick_clipboard_backend)" || {
