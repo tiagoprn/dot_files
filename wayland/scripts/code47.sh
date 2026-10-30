@@ -77,8 +77,8 @@ pick_picker_backend() {
 notify() {
     [[ -n $notify_backend ]] || return 0
     case "$notify_backend" in
-    notify-send) notify-send "code47" "$1" ;;
-    termux-toast) printf '%s' "$1" | termux-toast --gravity top ;;
+        notify-send) notify-send "code47" "$1" ;;
+        termux-toast) printf '%s' "$1" | termux-toast ;;
     esac
 }
 
@@ -104,8 +104,8 @@ pick_notify_backend() {
 
 copy() {
     case "$clip_backend" in
-    wl-copy) printf '%s' "$1" | wl-copy ;;
-    termux-clipboard-set) printf '%s' "$1" | termux-clipboard-set ;;
+        wl-copy) printf '%s' "$1" | wl-copy ;;
+        termux-clipboard-set) printf '%s' "$1" | termux-clipboard-set ;;
     esac
 }
 
@@ -130,8 +130,8 @@ warm_agent_cache() {
     while read -r kid; do
         [[ -n $kid ]] || continue
         echo "checking GPG passphrase cache for key $kid (pinentry asks once if not set)"
-        if ! printf 'warm' | gpg --yes --trust-model always --encrypt -r "$kid" --output - 2>/dev/null |
-            gpg --decrypt --output /dev/null 2>/dev/null; then
+        if ! printf 'warm' | gpg --yes --trust-model always --encrypt -r "$kid" --output - 2>/dev/null \
+            | gpg --decrypt --output /dev/null 2>/dev/null; then
             echo "could not decrypt with key $kid: entries using it will fail" >&2
         fi
     done <<<"$keyids"
@@ -154,26 +154,26 @@ is_yaml_entry() {
 pick_key() {
     cd "${PASSWORD_STORE_DIR:-$HOME/.password-store}" || return 1
     case "$picker" in
-    tv)
-        tv \
-            --source-command="find . -type f -name '*.gpg' | sed 's|^\./||; s|\.gpg$||'" \
-            --source-output="{}" \
-            --input-prompt='pass > ' \
-            --preview-command="$preview_cmd" \
-            --cache-preview
-        ;;
-    fzf)
-        # Portrait phones read better with the preview below the list.
-        local preview_window="right,60%,wrap"
-        if [[ -n ${TERMUX_VERSION:-} ]]; then
-            preview_window="down,60%,wrap"
-        fi
-        find . -type f -name '*.gpg' \
-            | sed 's|^\./||; s|\.gpg$||' \
-            | fzf --ignore-case --reverse --prompt='pass > ' \
-                --preview="pass show {} | awk '$mask_awk'" \
-                --preview-window="$preview_window"
-        ;;
+        tv)
+            tv \
+                --source-command="find . -type f -name '*.gpg' | sed 's|^\./||; s|\.gpg$||'" \
+                --source-output="{}" \
+                --input-prompt='pass > ' \
+                --preview-command="$preview_cmd" \
+                --cache-preview
+            ;;
+        fzf)
+            # Portrait phones read better with the preview below the list.
+            local preview_window="right,60%,wrap"
+            if [[ -n ${TERMUX_VERSION:-} ]]; then
+                preview_window="down,60%,wrap"
+            fi
+            find . -type f -name '*.gpg' \
+                | sed 's|^\./||; s|\.gpg$||' \
+                | fzf --ignore-case --reverse --prompt='pass > ' \
+                    --preview="pass show {} | awk '$mask_awk'" \
+                    --preview-window="$preview_window"
+            ;;
     esac
 }
 
@@ -181,14 +181,14 @@ pick_field() {
     local key="$1" content="$2"
 
     case "$picker" in
-    tv)
-        printf '%s\n' "$content" | yq 'keys | .[]' \
-            | tv --input-prompt="${key##*/} > "
-        ;;
-    fzf)
-        printf '%s\n' "$content" | yq 'keys | .[]' \
-            | fzf --ignore-case --reverse --prompt="${key##*/} > "
-        ;;
+        tv)
+            printf '%s\n' "$content" | yq 'keys | .[]' \
+                | tv --input-prompt="${key##*/} > "
+            ;;
+        fzf)
+            printf '%s\n' "$content" | yq 'keys | .[]' \
+                | fzf --ignore-case --reverse --prompt="${key##*/} > "
+            ;;
     esac
 }
 
