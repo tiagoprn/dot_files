@@ -163,9 +163,16 @@ pick_key() {
             --cache-preview
         ;;
     fzf)
+        # Portrait phones read better with the preview below the list.
+        local preview_window="right,60%,wrap"
+        if [[ -n ${TERMUX_VERSION:-} ]]; then
+            preview_window="down,60%,wrap"
+        fi
         find . -type f -name '*.gpg' \
             | sed 's|^\./||; s|\.gpg$||' \
-            | fzf --ignore-case --reverse --prompt='pass > '
+            | fzf --ignore-case --reverse --prompt='pass > ' \
+                --preview="pass show {} | awk '$mask_awk'" \
+                --preview-window="$preview_window"
         ;;
     esac
 }
