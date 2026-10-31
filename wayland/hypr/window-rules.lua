@@ -101,3 +101,11 @@ hl.window_rule({
   match = { class = "kitty" },
   opacity = "0.8",
 })
+
+-- Ignore maximize requests from apps, they otherwise cover the whole
+-- workspace and hide the windows already tiled there (Hyprland 0.57)
+hl.window_rule({
+  name = "suppress-maximize-events",
+  match = { class = ".*" },
+  suppress_event = "maximize",
+})
