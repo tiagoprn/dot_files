@@ -60,8 +60,8 @@ hl.bind(
 )
 hl.bind(
   mainMod .. " + P",
-  hl.dsp.exec_cmd("wayscriber --active"),
-  { description = "take screenshot (F2 toggle floating panels, Ctrl+Shift+S select region)" }
+  hl.dsp.exec_cmd("/storage/src/dot_files/wayland/scripts/screenshot-path-copy.sh"),
+  { description = "take screenshot, copy saved path to clipboard (F2 panels, Ctrl+Shift+S region)" }
 )
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("pypr toggle terminal"), { description = "scratchpad: terminal" })
 hl.bind(mainMod .. " + U", hl.dsp.exec_cmd("swaync-client -t -sw"), { description = "show notifications" })

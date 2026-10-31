@@ -9,10 +9,16 @@ default_eraser_size = 12.0
 default_eraser_mode = "brush"
 marker_opacity = 0.32
 default_fill_enabled = false
+polygon_sides = 5
 default_font_size = 32.0
 hit_test_tolerance = 6.0
 hit_test_linear_threshold = 400
 undo_stack_limit = 100
+drag_tool = "pen"
+shift_drag_tool = "line"
+ctrl_drag_tool = "rect"
+ctrl_shift_drag_tool = "arrow"
+tab_drag_tool = "ellipse"
 font_family = "Sans"
 font_weight = "bold"
 font_style = "normal"
@@ -38,14 +44,24 @@ head_at_end = false
 [performance]
 buffer_count = 3
 enable_vsync = true
+max_fps_no_vsync = 60
 ui_animation_fps = 30
 
 [ui]
 show_status_bar = true
+show_status_board_badge = true
+show_status_page_badge = true
+show_floating_badge_always = false
 show_frozen_badge = false
 status_bar_position = "bottom-left"
 help_overlay_context_filter = true
+show_capabilities_warning = true
+multi_monitor_enabled = true
+active_output_badge = true
+command_palette_toast_duration_ms = 1500
 xdg_fullscreen = false
+xdg_focus_loss_behavior = "exit"
+radial_menu_mouse_binding = "middle"
 
 [ui.status_bar_style]
 font_size = 21.0
@@ -91,6 +107,7 @@ text_color = [
 
 [ui.click_highlight]
 enabled = false
+show_on_highlight_tool = false
 radius = 24.0
 outline_thickness = 4.0
 duration_ms = 750
@@ -107,6 +124,7 @@ outline_color = [
     0.9,
 ]
 use_pen_color = true
+force_in_light_mode = true
 
 [ui.context_menu]
 enabled = true
@@ -116,21 +134,25 @@ layout_mode = "regular"
 top_pinned = true
 side_pinned = false
 use_icons = true
+scale = 1.0
 show_more_colors = false
 show_actions_section = true
 show_actions_advanced = false
+show_zoom_actions = true
 show_pages_section = true
+show_boards_section = true
 show_presets = true
 show_step_section = false
 show_text_controls = false
 show_settings_section = true
 show_delay_sliders = false
 show_marker_opacity_section = false
+context_aware_ui = true
 show_preset_toasts = true
 show_tool_preview = false
-top_offset = 1500.921875
-top_offset_y = 26.6953125
-side_offset = 729.46484375
+top_offset = 1254.0
+top_offset_y = 1239.29296875
+side_offset = 682.0
 side_offset_x = 3.29296875
 force_inline = false
 
@@ -139,6 +161,21 @@ force_inline = false
 [ui.toolbar.mode_overrides.regular]
 
 [ui.toolbar.mode_overrides.advanced]
+
+[presenter_mode]
+hide_status_bar = true
+hide_toolbars = true
+hide_tool_preview = true
+close_help_overlay = true
+enable_click_highlight = true
+tool_behavior = "force-highlight"
+show_toast = true
+
+[render_profiles]
+apply_to_canvas = true
+apply_to_ui = true
+export = "off"
+profiles = []
 
 [board]
 enabled = true
@@ -190,8 +227,14 @@ move_selection_to_front = ["]"]
 move_selection_to_back = ["["]
 nudge_selection_up = ["ArrowUp"]
 nudge_selection_down = ["ArrowDown"]
-nudge_selection_left = ["ArrowLeft"]
-nudge_selection_right = ["ArrowRight"]
+nudge_selection_left = [
+    "ArrowLeft",
+    "Shift+PageUp",
+]
+nudge_selection_right = [
+    "ArrowRight",
+    "Shift+PageDown",
+]
 nudge_selection_up_large = ["PageUp"]
 nudge_selection_down_large = ["PageDown"]
 move_selection_to_start = ["Home"]
@@ -209,14 +252,22 @@ decrease_thickness = [
 ]
 increase_marker_opacity = ["Ctrl+Alt+ArrowUp"]
 decrease_marker_opacity = ["Ctrl+Alt+ArrowDown"]
+select_selection_tool = ["V"]
 select_marker_tool = ["H"]
+select_step_marker_tool = []
 select_eraser_tool = ["D"]
 toggle_eraser_mode = ["Ctrl+Shift+E"]
 select_pen_tool = ["F"]
 select_line_tool = []
 select_rect_tool = []
 select_ellipse_tool = []
+select_triangle_tool = []
+select_parallelogram_tool = []
+select_rhombus_tool = []
+select_regular_polygon_tool = []
+select_freeform_polygon_tool = []
 select_arrow_tool = []
+select_blur_tool = []
 select_highlight_tool = []
 toggle_highlight_tool = ["Ctrl+Alt+H"]
 increase_font_size = [
@@ -227,18 +278,44 @@ decrease_font_size = [
     "Ctrl+Shift+-",
     "Ctrl+Shift+_",
 ]
+reset_arrow_labels = ["Ctrl+Shift+R"]
+reset_step_markers = []
 toggle_whiteboard = ["Ctrl+W"]
 toggle_blackboard = ["Ctrl+B"]
 return_to_transparent = ["Ctrl+Shift+T"]
-page_prev = ["Ctrl+Alt+ArrowLeft"]
-page_next = ["Ctrl+Alt+ArrowRight"]
+page_prev = [
+    "Ctrl+Alt+ArrowLeft",
+    "Ctrl+Alt+PageUp",
+]
+page_next = [
+    "Ctrl+Alt+ArrowRight",
+    "Ctrl+Alt+PageDown",
+]
 page_new = ["Ctrl+Alt+N"]
 page_duplicate = ["Ctrl+Alt+D"]
 page_delete = ["Ctrl+Alt+Delete"]
+board_1 = ["Ctrl+Shift+1"]
+board_2 = ["Ctrl+Shift+2"]
+board_3 = ["Ctrl+Shift+3"]
+board_4 = ["Ctrl+Shift+4"]
+board_5 = ["Ctrl+Shift+5"]
+board_6 = ["Ctrl+Shift+6"]
+board_7 = ["Ctrl+Shift+7"]
+board_8 = ["Ctrl+Shift+8"]
+board_9 = ["Ctrl+Shift+9"]
+board_next = ["Ctrl+Shift+ArrowRight"]
+board_prev = ["Ctrl+Shift+ArrowLeft"]
+focus_next_output = ["Ctrl+Alt+Shift+ArrowRight"]
+focus_prev_output = ["Ctrl+Alt+Shift+ArrowLeft"]
+board_new = ["Ctrl+Shift+N"]
+board_duplicate = ["Ctrl+Shift+D"]
+board_delete = ["Ctrl+Shift+Delete"]
+board_picker = ["Ctrl+Shift+B"]
 toggle_help = [
     "F10",
     "F1",
 ]
+toggle_quick_help = ["Shift+F1"]
 toggle_status_bar = [
     "F12",
     "F4",
@@ -248,13 +325,21 @@ toggle_toolbar = [
     "F2",
     "F9",
 ]
+toggle_presenter_mode = ["Ctrl+Shift+M"]
+toggle_light_mode = ["Ctrl+Shift+L"]
+toggle_light_mode_drawing = []
+render_profile_next = []
+render_profile_previous = []
+render_profile_off = []
 toggle_fill = []
+toggle_radial_menu = []
 toggle_selection_properties = ["Ctrl+Alt+P"]
 open_context_menu = [
     "Shift+F10",
     "Menu",
 ]
 open_configurator = ["F11"]
+toggle_command_palette = ["Ctrl+K"]
 set_color_red = ["R"]
 set_color_green = ["G"]
 set_color_blue = ["B"]
@@ -271,7 +356,12 @@ capture_file_full = ["Ctrl+S"]
 capture_clipboard_selection = ["Ctrl+Shift+C"]
 capture_file_selection = ["Ctrl+Shift+S"]
 capture_clipboard_region = ["Ctrl+6"]
-capture_file_region = ["Ctrl+Shift+6"]
+capture_file_region = ["Ctrl+Alt+6"]
+export_canvas_file = []
+export_canvas_clipboard = []
+export_canvas_clipboard_and_file = []
+export_board_pdf_file = []
+export_all_boards_pdf_file = []
 open_capture_folder = ["Ctrl+Alt+O"]
 toggle_frozen_mode = ["Ctrl+Shift+F"]
 zoom_in = [
@@ -306,14 +396,57 @@ enabled = true
 save_directory = "~/screenshots"
 filename_template = "%Y%m%d-%H%M%S"
 format = "png"
-copy_to_clipboard = true
+copy_to_clipboard = false
 exit_after_capture = false
+
+[export.pdf]
+page_size = "viewport"
+orientation = "auto"
+fit = "viewport"
+transparent_background = "none"
+custom_width = 800.0
+custom_height = 600.0
+content_source_padding = 24.0
+
+[export.pdf.labels]
+enabled = false
+position = "bottom-center"
+content = "custom-template"
+template = "{board_name} - {page_name} ({document_page}/{document_pages})"
+font_family = "Sans"
+font_size = 10.0
+margin = 12.0
+padding_x = 6.0
+padding_y = 3.0
+text_color = [
+    0.1,
+    0.1,
+    0.1,
+    1.0,
+]
+background_enabled = true
+background_color = [
+    1.0,
+    1.0,
+    1.0,
+    0.85,
+]
 
 [tablet]
 enabled = false
 pressure_enabled = true
 min_thickness = 1.0
 max_thickness = 8.0
+auto_eraser_switch = true
+pressure_variation_threshold = 0.1
+pressure_thickness_edit_mode = "disabled"
+pressure_thickness_entry_mode = "pressure_only"
+pressure_thickness_scale_step = 0.1
+
+[tablet.stylus_button]
+action = "toggle_radial_menu"
+
+[tablet.stylus_button2]
 
 [session]
 persist_transparent = false
@@ -321,6 +454,10 @@ persist_whiteboard = false
 persist_blackboard = false
 persist_history = true
 restore_tool_state = true
+autosave_enabled = true
+autosave_idle_ms = 5000
+autosave_interval_ms = 45000
+autosave_failure_backoff_ms = 5000
 storage = "auto"
 max_shapes_per_frame = 10000
 max_file_size_mb = 10
