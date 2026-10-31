@@ -149,6 +149,15 @@ button {
     color: #FF0000;
 }
 
+#custom-go {
+    font-size: 20;
+}
+
+tooltip,
+tooltip label {
+    font-size: 28;
+}
+
 #custom-capslock.on {
     color: green;
 }

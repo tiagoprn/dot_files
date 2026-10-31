@@ -14,6 +14,7 @@
         "clock",
 	"custom/flowstatus",
 	"custom/openrouter_credits",
+	"custom/go",
 	"custom/capslock"
     ],
     "modules-right": [
@@ -49,6 +50,11 @@
     "custom/exit": {
         "format": "",
         "on-click": "~/scripts/powermenu-hypr.sh"
+    },
+    "custom/go": {
+	"exec": "$HOME/.local/bin/uv run $HOME/scripts/opencode_go_usage.py --widget",
+	"interval": 60,
+	"return-type": "json"
     },
     "custom/capslock": {
 	"exec": "~/scripts/caps-lock-waybar.sh",

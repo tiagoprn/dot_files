@@ -61,6 +61,10 @@ METER_ORDER: tuple[tuple[str, str], ...] = (
 )
 TEXT_COLUMN = 38
 FIVE_HOUR_WINDOW = timedelta(hours=5)
+BLUE_COLOR = "#89b4fa"
+YELLOW_COLOR = "#f9e2af"
+RED_COLOR = "#f38ba8"
+WIDGET_LABELS: dict[str, str] = {"fiveHour": "5h", "week": "W", "month": "M"}
 
 
 class AuthError(RuntimeError):
@@ -260,13 +264,83 @@ def render(status: dict[str, Any], now: datetime) -> str:
     return "\n".join(lines)
 
 
+def color_for(percent: int) -> str:
+    """Pick a span color from one meter's own usage percent.
+
+    Args:
+        percent: Percent used of that meter.
+
+    Returns:
+        Blue below 51, yellow from 51 to 90, red from 91 upward.
+    """
+    if percent >= 91:
+        return RED_COLOR
+    if percent >= 51:
+        return YELLOW_COLOR
+    return BLUE_COLOR
+
+
+def state_class(percents: list[int]) -> str:
+    """Classify overall usage so waybar CSS can color the module.
+
+    Args:
+        percents: Percent used of every meter.
+
+    Returns:
+        `idle` when nothing is used, then `ok`, `warn` or `crit` by highest.
+    """
+    highest = max(percents, default=0)
+    if highest == 0:
+        return "idle"
+    if highest >= 91:
+        return "crit"
+    if highest >= 51:
+        return "warn"
+    return "ok"
+
+
+def render_widget(status: dict[str, Any], now: datetime) -> dict[str, str]:
+    """Build the waybar payload for `return-type: json`.
+
+    Args:
+        status: Payload from `GET /api/go/status`.
+        now: Current time, used for every countdown.
+
+    Returns:
+        Keys `text` with one colored span per window, `class` for CSS state,
+        and `tooltip` holding the plain summary lines.
+    """
+    access = status.get("access")
+    if not isinstance(access, dict):
+        return {"text": "Opencode Go: n/a", "class": "idle", "tooltip": "No active Go subscription."}
+    meters = access.get("meters")
+    meters = meters if isinstance(meters, dict) else {}
+
+    spans: list[str] = []
+    percents: list[int] = []
+    for key, label in METER_ORDER:
+        meter = meters.get(key)
+        meter = meter if isinstance(meter, dict) else {}
+        percent = percent_used(meter)
+        percents.append(percent)
+        closed = key == "fiveHour" and reset_time(meter, key) is None
+        value = "-" if closed else f"{percent}%"
+        spans.append(f'<span foreground="{color_for(percent)}">{WIDGET_LABELS[key]} {value}</span>')
+
+    return {
+        "text": " | ".join(spans),
+        "class": state_class(percents),
+        "tooltip": render(status, now),
+    }
+
+
 def main() -> None:
-    """Fetch Go usage and print it, or print the raw payload with `--json`."""
+    """Fetch Go usage and print the summary, or waybar JSON with `--widget`."""
     parser = argparse.ArgumentParser(description="Show OpenCode Go plan usage.")
     parser.add_argument(
-        "--json",
+        "--widget",
         action="store_true",
-        help="print the raw /api/go/status payload instead of the summary",
+        help="print waybar JSON with one colored span per usage window",
     )
     args = parser.parse_args()
 
@@ -284,8 +358,8 @@ def main() -> None:
         break
     if status is None:
         raise SystemExit(f"No working API key: {last_error}")
-    if args.json:
-        print(json.dumps(status, indent=2))
+    if args.widget:
+        print(json.dumps(render_widget(status, datetime.now(UTC))))
         return
     print(render(status, datetime.now(UTC)))
 
