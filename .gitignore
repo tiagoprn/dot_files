@@ -16,3 +16,4 @@ subreddits
 nohup.out
 *octerra*
 sessions
+__pycache__/

@@ -328,7 +328,7 @@ def render_widget(status: dict[str, Any], now: datetime) -> dict[str, str]:
         spans.append(f'<span foreground="{color_for(percent)}">{WIDGET_LABELS[key]} {value}</span>')
 
     return {
-        "text": " | ".join(spans),
+        "text": f"| {' | '.join(spans)} |",
         "class": state_class(percents),
         "tooltip": render(status, now),
     }

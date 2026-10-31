@@ -151,11 +151,14 @@ button {
 
 #custom-go {
     font-size: 20;
+    background-color: #2a2a2a;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 tooltip,
 tooltip label {
-    font-size: 28;
+    font-size: 18;
 }
 
 #custom-capslock.on {
