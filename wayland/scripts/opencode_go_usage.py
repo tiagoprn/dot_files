@@ -20,9 +20,8 @@ How to create an API key that works as intended
 5. Set **Expiration** (30 days is a good default) and click **Create**.
 6. Copy the key right away. It starts with `oc_sk_`, is 51 characters, and is
    shown only once. Later the console only displays its prefix.
-7. Store it as the first line of the pass entry named by `PASS_ENTRY` below,
-   or export it as `OPENCODE_API_KEY`. If both exist the environment variable
-   is tried first and the script falls back to pass after an HTTP 401.
+7. Store it as the first line of the pass entry named by `PASS_ENTRY` below.
+   That entry is the only key source: the script never reads the environment.
 
 Do not use browser credentials
 ------------------------------
@@ -44,9 +43,7 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import subprocess
-import sys
 from datetime import UTC, datetime, timedelta
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -71,12 +68,15 @@ class AuthError(RuntimeError):
     """Raised when the API rejects the credential with HTTP 401."""
 
 
-def read_pass_entry() -> str | None:
-    """Read the key stored in the pass entry used by this script.
+def read_pass_entry() -> str:
+    """Read the key from the pass entry named by `PASS_ENTRY`.
 
     Returns:
-        The first line of the entry, or None when pass is unavailable or the
-        entry is empty.
+        The first line of the entry, stripped.
+
+    Raises:
+        SystemExit: When pass is unavailable, the entry is missing, or it is
+            empty.
     """
     try:
         result = subprocess.run(
@@ -86,31 +86,15 @@ def read_pass_entry() -> str | None:
             timeout=15,
             check=True,
         )
-    except (OSError, subprocess.SubprocessError):
-        return None
+    except (OSError, subprocess.SubprocessError) as exc:
+        raise SystemExit(
+            f"Cannot read the key from `pass show {PASS_ENTRY}`: {exc}"
+        ) from exc
     lines = result.stdout.splitlines()
-    return lines[0].strip() if lines else None
-
-
-def candidate_keys() -> list[str]:
-    """Return the key sources to try, environment first, then pass.
-
-    Returns:
-        Non-empty list of distinct keys.
-
-    Raises:
-        SystemExit: When no source yields a key.
-    """
-    keys: list[str] = []
-    env_key = os.environ.get("OPENCODE_API_KEY", "").strip()
-    if env_key:
-        keys.append(env_key)
-    stored_key = read_pass_entry()
-    if stored_key and stored_key not in keys:
-        keys.append(stored_key)
-    if not keys:
-        raise SystemExit(f"Set OPENCODE_API_KEY or store a key in the pass entry {PASS_ENTRY}")
-    return keys
+    key = lines[0].strip() if lines else ""
+    if not key:
+        raise SystemExit(f"The pass entry {PASS_ENTRY} holds no key")
+    return key
 
 
 def fetch_status(api_key: str) -> dict[str, Any]:
@@ -141,7 +125,9 @@ def fetch_status(api_key: str) -> dict[str, Any]:
         detail = exc.read().decode(errors="replace")[:300]
         if exc.code == 401:
             raise AuthError(f"HTTP 401 {detail}") from exc
-        raise SystemExit(f"GET /api/go/status failed: HTTP {exc.code} {detail}") from exc
+        raise SystemExit(
+            f"GET /api/go/status failed: HTTP {exc.code} {detail}"
+        ) from exc
     except URLError as exc:
         raise SystemExit(f"GET /api/go/status failed: {exc.reason}") from exc
     data = json.loads(body)
@@ -312,7 +298,11 @@ def render_widget(status: dict[str, Any], now: datetime) -> dict[str, str]:
     """
     access = status.get("access")
     if not isinstance(access, dict):
-        return {"text": "Opencode Go: n/a", "class": "idle", "tooltip": "No active Go subscription."}
+        return {
+            "text": "Opencode Go: n/a",
+            "class": "idle",
+            "tooltip": "No active Go subscription.",
+        }
     meters = access.get("meters")
     meters = meters if isinstance(meters, dict) else {}
 
@@ -325,7 +315,9 @@ def render_widget(status: dict[str, Any], now: datetime) -> dict[str, str]:
         percents.append(percent)
         closed = key == "fiveHour" and reset_time(meter, key) is None
         value = "-" if closed else f"{percent}%"
-        spans.append(f'<span foreground="{color_for(percent)}">{WIDGET_LABELS[key]} {value}</span>')
+        spans.append(
+            f'<span foreground="{color_for(percent)}">{WIDGET_LABELS[key]} {value}</span>'
+        )
 
     return {
         "text": f"| {' | '.join(spans)} |",
@@ -344,20 +336,10 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    keys = candidate_keys()
-    status: dict[str, Any] | None = None
-    last_error: AuthError | None = None
-    for position, key in enumerate(keys, start=1):
-        try:
-            status = fetch_status(key)
-        except AuthError as exc:
-            last_error = exc
-            if position < len(keys):
-                print("key source rejected, trying the next one", file=sys.stderr)
-            continue
-        break
-    if status is None:
-        raise SystemExit(f"No working API key: {last_error}")
+    try:
+        status = fetch_status(read_pass_entry())
+    except AuthError as exc:
+        raise SystemExit(f"The pass entry {PASS_ENTRY} was rejected: {exc}") from exc
     if args.widget:
         print(json.dumps(render_widget(status, datetime.now(UTC))))
         return

@@ -34,6 +34,14 @@ hl.layer_rule({
   ignore_alpha = 0.1,
 })
 
+-- Activate blur behind the quickshell bar island
+hl.layer_rule({
+  name = "blur-quickshell-bar",
+  match = { namespace = "quickshell" },
+  blur = true,
+  ignore_alpha = 0.1,
+})
+
 ----------------------------
 ---- WINDOW RULES ----
 ----------------------------

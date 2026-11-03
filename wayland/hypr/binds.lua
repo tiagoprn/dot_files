@@ -383,3 +383,13 @@ hl.bind(
   hl.dsp.focus({ workspace = "e-1" }),
   { description = "workspace: mouse scroll down to previous" }
 )
+
+----------------
+---- BAR ----
+----------------
+
+hl.bind(
+  mainMod .. " + N",
+  hl.dsp.exec_cmd("qs ipc call island toggleMode"),
+  { description = "bar: toggle island (compact/full)" }
+)
