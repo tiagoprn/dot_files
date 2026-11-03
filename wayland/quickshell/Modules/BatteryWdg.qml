@@ -17,6 +17,8 @@ Item {
   readonly property bool plugged: ready && (battery.state === UPowerDeviceState.FullyCharged
     || battery.state === UPowerDeviceState.PendingCharge)
   readonly property bool critical: ready && !charging && capacity <= 15
+  readonly property bool warning: ready && !charging && !plugged && !critical
+    && capacity <= 30
 
   readonly property string stateText: !root.ready ? ""
     : root.charging ? "charging"
@@ -68,6 +70,7 @@ Item {
     text: root.text
     color: root.charging || root.plugged ? S.Palette.batteryChargingFg
       : root.critical ? S.Palette.batteryChargingFg
+      : root.warning ? S.Palette.warning
       : S.Palette.batteryOk
     font.family: S.Palette.fontFamily
     font.weight: S.Palette.fontWeight
@@ -82,41 +85,60 @@ Item {
     anchor.window: root.panel
     anchor.rect.x: root.panel ? Math.round((root.panel.width - width) / 2) : 0
     anchor.rect.y: root.panel ? Math.round((root.panel.screen.height - height) / 2) : 0
-    visible: root.open
+    visible: root.open || body.opacity > 0.01
     implicitWidth: details.implicitWidth + 24
     implicitHeight: details.implicitHeight + 20
     color: "transparent"
 
     Rectangle {
+      id: body
+
       anchors.fill: parent
       radius: S.Palette.radius
       color: S.Palette.bgIsland
+      opacity: root.open ? 1 : 0
+      scale: root.open ? 1 : 0.94
+      transformOrigin: Item.Top
+
+      Behavior on opacity {
+        NumberAnimation {
+          duration: S.Palette.motionMs
+          easing.type: Easing.OutCubic
+        }
+      }
+
+      Behavior on scale {
+        NumberAnimation {
+          duration: S.Palette.motionMs
+          easing.type: Easing.OutCubic
+        }
+      }
 
       TapHandler {
         onTapped: S.State.closePopup("battery")
       }
-    }
 
-    Column {
-      id: details
+      Column {
+        id: details
 
-      anchors.centerIn: parent
-      spacing: 4
+        anchors.centerIn: parent
+        spacing: 4
 
-      Text {
-        text: root.capacity + "%"
-        color: S.Palette.fg
-        font.family: S.Palette.fontFamily
-        font.weight: S.Palette.fontWeight
-        font.pixelSize: S.Palette.fontSize
-      }
+        Text {
+          text: root.capacity + "%"
+          color: S.Palette.fg
+          font.family: S.Palette.fontFamily
+          font.weight: S.Palette.fontWeight
+          font.pixelSize: S.Palette.fontSize
+        }
 
-      Text {
-        text: root.stateText
-        color: S.Palette.ok
-        font.family: S.Palette.fontFamily
-        font.weight: S.Palette.fontWeight
-        font.pixelSize: S.Palette.fontSize
+        Text {
+          text: root.stateText
+          color: S.Palette.ok
+          font.family: S.Palette.fontFamily
+          font.weight: S.Palette.fontWeight
+          font.pixelSize: S.Palette.fontSize
+        }
       }
     }
   }

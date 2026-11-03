@@ -31,7 +31,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("~/scripts/powermenu-hypr.sh"), { des
 hl.bind(
   mainMod .. " + R",
   hl.dsp.exec_cmd("~/scripts/wayland-reload.sh"),
-  { description = "reload hyprland/pyprland/waybar" }
+  { description = "reload hyprland/pyprland/quickshell" }
 )
 hl.bind(
   mainMod .. " + T",

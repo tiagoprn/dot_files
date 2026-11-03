@@ -40,8 +40,10 @@ bar:
 ~/scripts/wayland-reload.sh
 ```
 
-That script reloads swaync, runs `hyprctl reload`, calls `qs ipc call island reload`, and if that IPC
-call fails it kills and respawns the bar with a `pgrep` guard. It then reloads pypr.
+That script reloads swaync, runs `hyprctl reload`, then restarts quickshell with a `pkill`, one second,
+and the `pgrep` guard. It then reloads pypr. The in-process `qs ipc call island reload` is not used here:
+it exits 0 while leaving the popup machinery dead (measured 2026-11-03 in the code phase), so the script
+always takes the reliable path. Review-phase fix F1.
 
 Manual recovery, when the script itself is suspect:
 
@@ -55,8 +57,9 @@ The signature export matters: a stale `HYPRLAND_INSTANCE_SIGNATURE` in an inheri
 start without Hyprland IPC, which blanks the workspaces and the window title.
 
 Useful commands: `qs ipc show`, `qs ipc call island setMode full`, `qs ipc call island setMode compact`,
-`qs ipc call island toggleMode`, `qs ipc call island reload`. `SUPER + N` does the same toggle from the
-keyboard.
+`qs ipc call island toggleMode`, `qs ipc call island reload`, `SUPER + N` does the same toggle from the
+keyboard. One caveat: the reload IPC call exits 0 but leaves popups dead (measured 2026-11-03), so for
+anything touching popups rerun `~/scripts/wayland-reload.sh` instead.
 
 The bar starts at login from `hypr/autostart.lua`, line 14:
 `hl.exec_cmd("pgrep -x quickshell >/dev/null || quickshell")`. The `pgrep` guard is what stops a
@@ -69,8 +72,8 @@ while `Quickshell.screens` changes. `shell.qml` uses exactly that shape to build
 
 - Symptom: a monitor is added or removed and the bar count no longer matches the monitor count, or a
   monitor shows no bar.
-- Recovery: `qs ipc call island reload`. If the count is still wrong, the manual `pkill` and `setsid`
-  sequence in section 2 is reliable.
+- Recovery: `~/scripts/wayland-reload.sh` (hard restart, review-phase fix F1). If the count is still
+  wrong, the manual `pkill` and `setsid` sequence in section 2 is reliable.
 - Not guarded in code. A count check plus `Quickshell.reload(false)` was considered and rejected: it is
   speculative code for a bug never observed here, and it adds a second reload path that can itself
   misbehave. If hotplug becomes a daily annoyance, that guard is the first thing to add.
@@ -94,10 +97,12 @@ effective size came from the 14 px global rule, which is what the new bar uses.
 - About 62 `*.BKP.*` files sit beside the QML sources. They are backups from the file gate, not part of
   the implementation, and must not be committed. To delete them once the bar has been stable:
   `find wayland/quickshell -name '*.BKP.*' -delete`
-- The 20 QML files under `wayland/quickshell/` are still untracked in git. They need one commit.
+- The 20 QML files under `wayland/quickshell/` are tracked and committed on
+  `feat/enterprise-d-slice-8-9` (updated 2026-11-03, review-phase fix F7).
   `~/.config/quickshell` is a symlink to `/storage/src/dot_files/wayland/quickshell`, matching the
   `hypr/` and `waybar/` layout.
-- The two `.fonts/.uuid` deletions in the working tree predate this work and are unrelated.
+- Stale since the Captain's `chore: fonts` commit (`db11a19`): the two `.fonts/.uuid` working-tree
+  deletions this section used to mention have since been committed.
 
 ## 6. Blur behind the bar
 
