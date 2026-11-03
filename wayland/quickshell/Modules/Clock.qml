@@ -6,20 +6,23 @@ import "../Widgets"
 Item {
   id: root
 
-  property bool alt: false
+  property var panel: null
   property date now: new Date()
   property date calendarDate: new Date()
-  property bool open: false
-  property bool trigger: false
+
+  readonly property bool open: S.State.openPopup === "calendar"
 
   readonly property bool shown: root.open && S.State.mode === "full"
 
-  readonly property string formatted: root.alt
-    ? Qt.formatDateTime(root.now, "yyyy-MM-dd")
-    : Qt.formatDateTime(root.now, "ddd MMM dd - HH:mm:ss")
+  readonly property string formatted: Qt.formatDateTime(root.now, "ddd MMM dd - HH:mm:ss")
 
   implicitWidth: label.implicitWidth + 20
   implicitHeight: S.Palette.islandHeight
+
+  function toggle(): void {
+    if (!root.open) root.calendarDate = new Date();
+    S.State.togglePopup("calendar");
+  }
 
   function shiftMonth(delta) {
     root.calendarDate = new Date(root.calendarDate.getFullYear(),
@@ -43,10 +46,6 @@ Item {
     font.pixelSize: S.Palette.fontSize
   }
 
-  TapHandler {
-    onTapped: root.alt = !root.alt
-  }
-
   Timer {
     interval: 1000
     running: true
@@ -55,33 +54,12 @@ Item {
     onTriggered: root.now = new Date()
   }
 
-  onTriggerChanged: trigger ? openTimer.start() : openTimer.stop()
-
-  Timer {
-    id: openTimer
-
-    interval: 2000
-
-    onTriggered: {
-      root.calendarDate = new Date();
-      root.open = true;
-    }
-  }
-
-  Timer {
-    id: dismissTimer
-
-    interval: 10000
-    running: root.shown
-
-    onTriggered: root.open = false
-  }
-
   PopupWindow {
     id: popup
 
-    anchor.item: label
-    anchor.margins.top: 4
+    anchor.window: root.panel
+    anchor.rect.x: root.panel ? Math.round((root.panel.width - width) / 2) : 0
+    anchor.rect.y: root.panel ? Math.round((root.panel.screen.height - height) / 2) : 0
     visible: root.shown || body.opacity > 0.01
     implicitWidth: calendar.implicitWidth
     implicitHeight: calendar.implicitHeight
@@ -112,7 +90,7 @@ Item {
       }
 
       TapHandler {
-        onTapped: root.open = false
+        onTapped: S.State.closePopup("calendar")
       }
 
       Calendar {

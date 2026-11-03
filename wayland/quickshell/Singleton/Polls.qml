@@ -99,7 +99,7 @@ Singleton {
   Process {
     id: opencodeProc
 
-    command: ["sh", "-c", "uv run ~/scripts/opencode_go_usage.py --widget"]
+    command: ["sh", "-c", "$HOME/.local/bin/uv run $HOME/scripts/opencode_go_usage.py --widget"]
 
     stdout: StdioCollector {
       onStreamFinished: root.opencode = root.parseJson(text, root.opencode)

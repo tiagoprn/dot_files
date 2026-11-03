@@ -78,10 +78,14 @@ PanelWindow {
 
         WeekInfo {
           id: weekInfo
+
+          onToggled: clock.toggle()
         }
 
         Clock {
-          trigger: weekInfo.hovered
+          id: clock
+
+          panel: win
         }
 
         FlowStatus {}
@@ -115,7 +119,9 @@ PanelWindow {
           }
         }
 
-        OpencodeUsage {}
+        OpencodeUsage {
+          panel: win
+        }
 
         CapsLock {}
       }
@@ -156,7 +162,9 @@ PanelWindow {
 
           Memory {}
 
-          BatteryWdg {}
+          BatteryWdg {
+            panel: win
+          }
 
           Tray {}
         }

@@ -14,6 +14,8 @@ Item {
   readonly property string tooltipText: usage && usage.tooltip ? usage.tooltip : ""
   readonly property var tooltipLines: tooltipText.split("\n").filter(line => line.trim() !== "")
 
+  property var panel: null
+
   implicitWidth: label.implicitWidth + 20
   implicitHeight: S.Palette.islandHeight
 
@@ -37,46 +39,21 @@ Item {
     font.pixelSize: S.Palette.fontSize
   }
 
-  property bool detailed: true
+  readonly property bool open: S.State.openPopup === "opencode"
 
-  HoverHandler {
-    id: pointer
+  readonly property bool shown: root.open && S.State.mode === "full"
 
-    target: root
-  }
-
-  Timer {
-    id: openTimer
-
-    interval: 800
-    repeat: false
-
-    onTriggered: root.detailed = true
-  }
-
-  Connections {
-    target: pointer
-
-    function onHoveredChanged() {
-      pointer.hovered ? openTimer.restart() : openTimer.stop();
-    }
-  }
-
-  Timer {
-    id: dismissTimer
-
-    interval: 10000
-    running: root.detailed
-
-    onTriggered: root.detailed = false
+  TapHandler {
+    onTapped: S.State.togglePopup("opencode")
   }
 
   PopupWindow {
     id: popup
 
-    anchor.item: label
-    anchor.margins.top: 2
-    visible: root.detailed && root.tooltipText !== "" || body.opacity > 0.01
+    anchor.window: root.panel
+    anchor.rect.x: root.panel ? Math.round((root.panel.width - width) / 2) : 0
+    anchor.rect.y: root.panel ? Math.round((root.panel.screen.height - height) / 2) : 0
+    visible: root.shown || body.opacity > 0.01
     implicitWidth: details.implicitWidth + 24
     implicitHeight: details.implicitHeight + 20
     color: "transparent"
@@ -87,8 +64,8 @@ Item {
       anchors.fill: parent
       radius: S.Palette.radius
       color: "#ee2b2b2b"
-      opacity: root.detailed ? 1 : 0
-      scale: root.detailed ? 1 : 0.94
+      opacity: root.shown ? 1 : 0
+      scale: root.shown ? 1 : 0.94
       transformOrigin: Item.Top
 
       Behavior on opacity {
@@ -106,7 +83,7 @@ Item {
       }
 
       TapHandler {
-        onTapped: root.detailed = false
+        onTapped: S.State.closePopup("opencode")
       }
 
       Column {
@@ -116,7 +93,7 @@ Item {
         spacing: 3
 
         Repeater {
-          model: root.tooltipLines
+          model: root.tooltipLines.length ? root.tooltipLines : ["usage unavailable"]
 
           Text {
             required property string modelData

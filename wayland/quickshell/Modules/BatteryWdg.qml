@@ -6,7 +6,9 @@ import "../Singleton" as S
 Item {
   id: root
 
-  property bool open: false
+  property var panel: null
+
+  readonly property bool open: S.State.openPopup === "battery"
 
   readonly property var battery: UPower.displayDevice
   readonly property bool ready: battery !== null && battery !== undefined && battery.ready
@@ -74,36 +76,14 @@ Item {
     font.pixelSize: S.Palette.fontSize
   }
 
-  HoverHandler {
-    onHoveredChanged: {
-      if (hovered) {
-        openTimer.start();
-      } else {
-        openTimer.stop();
-        closeTimer.start();
-      }
-    }
-  }
-
-  Timer {
-    id: openTimer
-
-    interval: 250
-
-    onTriggered: root.open = true
-  }
-
-  Timer {
-    id: closeTimer
-
-    interval: 150
-
-    onTriggered: root.open = false
+  TapHandler {
+    onTapped: S.State.togglePopup("battery")
   }
 
   PopupWindow {
-    anchor.item: label
-    anchor.margins.top: 4
+    anchor.window: root.panel
+    anchor.rect.x: root.panel ? Math.round((root.panel.width - width) / 2) : 0
+    anchor.rect.y: root.panel ? Math.round((root.panel.screen.height - height) / 2) : 0
     visible: root.shown
     implicitWidth: details.implicitWidth + 24
     implicitHeight: details.implicitHeight + 20
@@ -113,6 +93,10 @@ Item {
       anchors.fill: parent
       radius: S.Palette.radius
       color: S.Palette.bgIsland
+
+      TapHandler {
+        onTapped: S.State.closePopup("battery")
+      }
     }
 
     Column {
@@ -135,16 +119,6 @@ Item {
         font.family: S.Palette.fontFamily
         font.weight: S.Palette.fontWeight
         font.pixelSize: S.Palette.fontSize
-      }
-    }
-
-    HoverHandler {
-      onHoveredChanged: {
-        if (hovered) {
-          closeTimer.stop();
-        } else {
-          closeTimer.start();
-        }
       }
     }
   }

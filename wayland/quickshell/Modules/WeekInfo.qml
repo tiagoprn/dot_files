@@ -4,8 +4,9 @@ import "../Singleton" as S
 Item {
   id: root
 
+  signal toggled()
+
   readonly property var week: S.Polls.week
-  readonly property alias hovered: pointer.hovered
 
   implicitWidth: label.implicitWidth + 20
   implicitHeight: S.Palette.islandHeight
@@ -18,12 +19,6 @@ Item {
     color: S.Palette.bgWidget
   }
 
-  HoverHandler {
-    id: pointer
-
-    target: root
-  }
-
   Text {
     id: label
 
@@ -33,5 +28,9 @@ Item {
     font.family: S.Palette.fontFamily
     font.weight: S.Palette.fontWeight
     font.pixelSize: S.Palette.fontSize
+  }
+
+  TapHandler {
+    onTapped: root.toggled()
   }
 }
