@@ -12,8 +12,6 @@ Item {
 
   readonly property bool open: S.State.openPopup === "calendar"
 
-  readonly property bool shown: root.open && S.State.mode === "full"
-
   readonly property string formatted: Qt.formatDateTime(root.now, "ddd MMM dd - HH:mm:ss")
 
   implicitWidth: label.implicitWidth + 20
@@ -60,7 +58,7 @@ Item {
     anchor.window: root.panel
     anchor.rect.x: root.panel ? Math.round((root.panel.width - width) / 2) : 0
     anchor.rect.y: root.panel ? Math.round((root.panel.screen.height - height) / 2) : 0
-    visible: root.shown || body.opacity > 0.01
+    visible: root.open || body.opacity > 0.01
     implicitWidth: calendar.implicitWidth
     implicitHeight: calendar.implicitHeight
     color: "transparent"
@@ -71,8 +69,8 @@ Item {
       anchors.fill: parent
       radius: S.Palette.radius
       color: S.Palette.bgIsland
-      opacity: root.shown ? 1 : 0
-      scale: root.shown ? 1 : 0.94
+      opacity: root.open ? 1 : 0
+      scale: root.open ? 1 : 0.94
       transformOrigin: Item.Top
 
       Behavior on opacity {

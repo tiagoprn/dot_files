@@ -18,8 +18,6 @@ Item {
     || battery.state === UPowerDeviceState.PendingCharge)
   readonly property bool critical: ready && !charging && capacity <= 15
 
-  readonly property bool shown: root.open && S.State.mode === "full"
-
   readonly property string stateText: !root.ready ? ""
     : root.charging ? "charging"
     : root.plugged ? "plugged in"
@@ -84,7 +82,7 @@ Item {
     anchor.window: root.panel
     anchor.rect.x: root.panel ? Math.round((root.panel.width - width) / 2) : 0
     anchor.rect.y: root.panel ? Math.round((root.panel.screen.height - height) / 2) : 0
-    visible: root.shown
+    visible: root.open
     implicitWidth: details.implicitWidth + 24
     implicitHeight: details.implicitHeight + 20
     color: "transparent"

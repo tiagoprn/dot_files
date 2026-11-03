@@ -44,9 +44,6 @@ Singleton {
     id: collapseTimer
     interval: root.collapseDelayMs
     repeat: false
-    onTriggered: {
-      root.mode = "compact";
-      root.openPopup = "";
-    }
+    onTriggered: root.mode = "compact"
   }
 }

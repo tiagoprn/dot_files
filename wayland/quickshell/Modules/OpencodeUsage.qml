@@ -41,8 +41,6 @@ Item {
 
   readonly property bool open: S.State.openPopup === "opencode"
 
-  readonly property bool shown: root.open && S.State.mode === "full"
-
   TapHandler {
     onTapped: S.State.togglePopup("opencode")
   }
@@ -53,7 +51,7 @@ Item {
     anchor.window: root.panel
     anchor.rect.x: root.panel ? Math.round((root.panel.width - width) / 2) : 0
     anchor.rect.y: root.panel ? Math.round((root.panel.screen.height - height) / 2) : 0
-    visible: root.shown || body.opacity > 0.01
+    visible: root.open || body.opacity > 0.01
     implicitWidth: details.implicitWidth + 24
     implicitHeight: details.implicitHeight + 20
     color: "transparent"
@@ -64,8 +62,8 @@ Item {
       anchors.fill: parent
       radius: S.Palette.radius
       color: "#ee2b2b2b"
-      opacity: root.shown ? 1 : 0
-      scale: root.shown ? 1 : 0.94
+      opacity: root.open ? 1 : 0
+      scale: root.open ? 1 : 0.94
       transformOrigin: Item.Top
 
       Behavior on opacity {
