@@ -5,8 +5,6 @@ import "Modules"
 import "Singleton" as S
 
 Scope {
-  readonly property var polls: S.Polls
-
   Variants {
     model: Quickshell.screens
 
