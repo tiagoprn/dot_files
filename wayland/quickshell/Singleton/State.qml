@@ -7,7 +7,7 @@ Singleton {
 
   property string mode: "compact"
   property string openPopup: ""
-  readonly property int collapseDelayMs: 400
+  readonly property int collapseDelayMs: 2000
 
   function expand(): void {
     cancelCollapse();
