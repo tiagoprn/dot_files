@@ -23,6 +23,6 @@ Item {
     color: root.caps && root.caps.class === "on" ? S.Palette.capsOn : S.Palette.capsOff
     font.family: S.Palette.fontFamily
     font.weight: S.Palette.fontWeight
-    font.pixelSize: S.Palette.clockSize
+    font.pixelSize: S.Palette.fontSize
   }
 }

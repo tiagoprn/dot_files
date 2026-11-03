@@ -60,7 +60,7 @@ Item {
   readonly property real slotWidth: Math.min(title.implicitWidth, root.maxWidth)
 
   implicitWidth: root.slotWidth + 20
-  implicitHeight: title.implicitHeight
+  implicitHeight: S.Palette.islandHeight
 
   Item {
     id: slot

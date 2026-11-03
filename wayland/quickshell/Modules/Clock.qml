@@ -39,7 +39,7 @@ Item {
     color: S.Palette.clockText
     font.family: S.Palette.fontFamily
     font.weight: S.Palette.fontWeight
-    font.pixelSize: S.Palette.clockSize
+    font.pixelSize: S.Palette.fontSize
   }
 
   TapHandler {

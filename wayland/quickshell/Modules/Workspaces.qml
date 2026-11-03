@@ -34,7 +34,7 @@ Item {
   }
 
   implicitWidth: row.implicitWidth
-  implicitHeight: row.implicitHeight
+  implicitHeight: S.Palette.islandHeight
 
   function focusRelative(delta: int): void {
     const step = delta > 0 ? "e+1" : "e-1";
@@ -49,6 +49,7 @@ Item {
   Row {
     id: row
 
+    anchors.verticalCenter: parent.verticalCenter
     Repeater {
       model: root.shown
 

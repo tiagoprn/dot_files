@@ -4,7 +4,10 @@ import "../Singleton" as S
 
 PanelWindow {
   id: win
+
   required property var modelData
+
+  readonly property bool full: S.State.mode === "full"
 
   screen: modelData
 
@@ -26,11 +29,19 @@ PanelWindow {
     id: island
 
     anchors.centerIn: parent
-    implicitWidth: contentRow.implicitWidth + 24
+    width: contentRow.implicitWidth + 24
     implicitHeight: S.Palette.islandHeight
     radius: S.Palette.radius
     color: S.Palette.bgIsland
     border.width: 0
+    clip: true
+
+    Behavior on width {
+      NumberAnimation {
+        duration: S.Palette.motionMs
+        easing.type: Easing.OutCubic
+      }
+    }
 
     HoverHandler {
       onHoveredChanged: hovered ? S.State.expand() : S.State.scheduleCollapse()
@@ -56,7 +67,7 @@ PanelWindow {
         WindowTitle {
           screen: win.modelData
           limit: win.width - workspaces.implicitWidth - centerRow.implicitWidth
-            - rightRow.implicitWidth - 48
+            - rightSlot.width - 48
         }
       }
 
@@ -71,8 +82,33 @@ PanelWindow {
 
         FlowStatus {}
 
-        Openrouter {
-          visible: S.State.mode === "full"
+        Item {
+          id: openrouterSlot
+
+          width: win.full ? openrouter.implicitWidth : 0
+          implicitHeight: S.Palette.islandHeight
+          opacity: win.full ? 1 : 0
+          clip: true
+
+          Behavior on width {
+            NumberAnimation {
+              duration: S.Palette.motionMs
+              easing.type: Easing.OutCubic
+            }
+          }
+
+          Behavior on opacity {
+            NumberAnimation {
+              duration: S.Palette.motionMs
+              easing.type: Easing.OutCubic
+            }
+          }
+
+          Openrouter {
+            id: openrouter
+
+            anchors.verticalCenter: parent.verticalCenter
+          }
         }
 
         OpencodeUsage {}
@@ -80,33 +116,45 @@ PanelWindow {
         CapsLock {}
       }
 
-      Row {
-        id: rightRow
+      Item {
+        id: rightSlot
 
-        spacing: 0
+        width: win.full ? rightRow.implicitWidth : 0
+        implicitHeight: S.Palette.islandHeight
+        opacity: win.full ? 1 : 0
+        clip: true
 
-        PulseAudio {
-          visible: S.State.mode === "full"
+        Behavior on width {
+          NumberAnimation {
+            duration: S.Palette.motionMs
+            easing.type: Easing.OutCubic
+          }
         }
 
-        Disk {
-          visible: S.State.mode === "full"
+        Behavior on opacity {
+          NumberAnimation {
+            duration: S.Palette.motionMs
+            easing.type: Easing.OutCubic
+          }
         }
 
-        Cpu {
-          visible: S.State.mode === "full"
-        }
+        Row {
+          id: rightRow
 
-        Memory {
-          visible: S.State.mode === "full"
-        }
+          anchors.verticalCenter: parent.verticalCenter
+          spacing: 0
 
-        BatteryWdg {
-          visible: S.State.mode === "full"
-        }
+          PulseAudio {}
 
-        Tray {
-          visible: S.State.mode === "full"
+          Disk {}
+
+          Cpu {}
+
+          Memory {}
+
+          BatteryWdg {}
+
+          Tray {}
         }
       }
     }

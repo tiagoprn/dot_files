@@ -17,6 +17,6 @@ Item {
     color: S.Palette.fg
     font.family: S.Palette.fontFamily
     font.weight: S.Palette.fontWeight
-    font.pixelSize: S.Palette.rightSize
+    font.pixelSize: S.Palette.fontSize
   }
 }

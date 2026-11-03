@@ -23,6 +23,6 @@ Item {
     color: S.Palette.weekText
     font.family: S.Palette.fontFamily
     font.weight: S.Palette.fontWeight
-    font.pixelSize: S.Palette.clockSize
+    font.pixelSize: S.Palette.fontSize
   }
 }
