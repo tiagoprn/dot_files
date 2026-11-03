@@ -28,7 +28,6 @@ Item {
   })
 
   readonly property var shown: {
-    if (S.State.mode === "compact") return activeWorkspace ? [activeWorkspace] : [];
     const mine = monitor ? monitor.name : "";
     return Hyprland.workspaces.values.filter(w => w.monitor ? w.monitor.name === mine : false);
   }

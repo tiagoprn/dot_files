@@ -10,6 +10,7 @@ Item {
   property date now: new Date()
   property date calendarDate: new Date()
   property bool open: false
+  property bool trigger: false
 
   readonly property bool shown: root.open && S.State.mode === "full"
 
@@ -54,23 +55,12 @@ Item {
     onTriggered: root.now = new Date()
   }
 
-  HoverHandler {
-    id: pointer
-
-    onHoveredChanged: {
-      if (hovered) {
-        openTimer.start();
-      } else {
-        openTimer.stop();
-        closeTimer.start();
-      }
-    }
-  }
+  onTriggerChanged: trigger ? openTimer.start() : openTimer.stop()
 
   Timer {
     id: openTimer
 
-    interval: 250
+    interval: 2000
 
     onTriggered: {
       root.calendarDate = new Date();
@@ -79,9 +69,10 @@ Item {
   }
 
   Timer {
-    id: closeTimer
+    id: dismissTimer
 
-    interval: 150
+    interval: 10000
+    running: root.shown
 
     onTriggered: root.open = false
   }
@@ -91,34 +82,47 @@ Item {
 
     anchor.item: label
     anchor.margins.top: 4
-    visible: root.shown
+    visible: root.shown || body.opacity > 0.01
     implicitWidth: calendar.implicitWidth
     implicitHeight: calendar.implicitHeight
     color: "transparent"
 
     Rectangle {
+      id: body
+
       anchors.fill: parent
       radius: S.Palette.radius
       color: S.Palette.bgIsland
-    }
+      opacity: root.shown ? 1 : 0
+      scale: root.shown ? 1 : 0.94
+      transformOrigin: Item.Top
 
-    Calendar {
-      id: calendar
-
-      anchors.fill: parent
-      anchorDate: root.calendarDate
-
-      onMonthShifted: function (delta) {
-        root.shiftMonth(delta);
+      Behavior on opacity {
+        NumberAnimation {
+          duration: S.Palette.motionMs
+          easing.type: Easing.OutCubic
+        }
       }
-    }
 
-    HoverHandler {
-      onHoveredChanged: {
-        if (hovered) {
-          closeTimer.stop();
-        } else if (!pointer.hovered) {
-          closeTimer.start();
+      Behavior on scale {
+        NumberAnimation {
+          duration: S.Palette.motionMs
+          easing.type: Easing.OutCubic
+        }
+      }
+
+      TapHandler {
+        onTapped: root.open = false
+      }
+
+      Calendar {
+        id: calendar
+
+        anchors.fill: parent
+        anchorDate: root.calendarDate
+
+        onMonthShifted: function (delta) {
+          root.shiftMonth(delta);
         }
       }
     }

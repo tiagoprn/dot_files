@@ -76,9 +76,13 @@ PanelWindow {
 
         spacing: 0
 
-        WeekInfo {}
+        WeekInfo {
+          id: weekInfo
+        }
 
-        Clock {}
+        Clock {
+          trigger: weekInfo.hovered
+        }
 
         FlowStatus {}
 
