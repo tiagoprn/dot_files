@@ -64,7 +64,7 @@ hl.config({
 
 hl.config({
   input = {
-    kb_layout = "us",
+    kb_layout = "corne-cedilla",
     kb_variant = "intl",
     kb_model = "",
     kb_options = "lv3:ralt_switch",

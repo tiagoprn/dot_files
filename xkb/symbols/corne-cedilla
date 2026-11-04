@@ -1,0 +1,6 @@
+default partial alphanumeric_keys modifier_keys
+xkb_symbols "intl" {
+    include "us(intl)"
+    name[Group1] = "US intl with cedilla on Scroll Lock";
+    key <SCLK> { [ ccedilla ] };
+};
