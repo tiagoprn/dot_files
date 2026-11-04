@@ -55,3 +55,16 @@ magick convert split-keyboard-corne-v4-layer-0.png split-keyboard-corne-v4-layer
 ![The final image result, with all 3 layers combined](./images/split-keyboard-corne-v4-layers.final.png)
 
 - Here is a conversation I had with Perplexity AI to understand the Vial app better: <https://www.perplexity.ai/search/how-do-i-create-an-udev-rule-t-gHl1tK9bSTaZ6YNlCQQPPw>
+
+## Custom Wayland layout for the `ç` character
+
+The full story, the reasoning and the steps to recreate or update it live in [WAYLAND-CUSTOMIZATION.md](./WAYLAND-CUSTOMIZATION.md).
+
+Summary of what was done:
+
+- Vial sends `Scroll Lock` from layer 1 at the `C` position, so holding `Fn1` and pressing `C` is one chord with no timing involved and no buffering delay on `c`.
+- Hyprland loads a custom layout called `corne-cedilla`, stored in this repository under `xkb/symbols/corne-cedilla`, which reproduces the `us(intl)` layout and turns the Scroll Lock keycode into the cedilla character.
+- `~/.config/xkb` is a symlink to that directory, and `hyprland.lua` sets `kb_layout = "corne-cedilla"` with the `intl` variant kept unchanged.
+- The `|` that used to sit at `Fn1` plus `C` now lives on Shift plus the `/` position, on both layer 1 and layer 2.
+
+To type `ç` from now on: hold `Fn1` and press `C`.
