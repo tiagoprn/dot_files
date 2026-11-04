@@ -17,7 +17,7 @@ case $choice in
         notify-send "NOT IMPLEMENTED YET, CHOOSE ANOTHER!"
         ;;
     $option2)
-        hyprctl dispatch exit
+        hyprctl dispatch 'hl.dsp.exit()'
         ;;
     $option3)
         sudo systemctl restart gdm
