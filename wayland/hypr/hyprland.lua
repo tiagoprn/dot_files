@@ -40,6 +40,25 @@ hl.monitor({
 hl.env("XCURSOR_SIZE", "24")
 
 ---------------
+---- DEBUG ----
+---------------
+
+-- Keep the log stream alive. gdm-wayland-session forwards stdout to journald
+-- with timestamps, and the hyprutils logger flushes after every line, so a
+-- compositor killed mid-run still leaves its last lines in the journal.
+-- In 0.57.x the logger gate is: stdout_enable = !disable_logs &&
+-- enable_stdout_logs, so disable_logs must stay false for this to work.
+-- disable_time=false adds timestamps to the file log itself.
+-- Cost: the journal grows faster (DEBUG lines flow continuously).
+hl.config({
+  debug = {
+    disable_logs = false,
+    disable_time = false,
+    enable_stdout_logs = true,
+  },
+})
+
+---------------
 ---- INPUT ----
 ---------------
 

@@ -18,5 +18,6 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("/usr/bin/swayosd-server")
   hl.exec_cmd("/usr/bin/hypridle")
   hl.exec_cmd("~/scripts/monitor-clipboard-file.sh > ~/.local/state/hyprland/monitor-clipboard-file.log 2>&1")
+  hl.exec_cmd("~/scripts/save-hyprland-logs.sh > ~/.local/state/hyprland/save-hyprland-logs.out 2>&1")
 end)
 
