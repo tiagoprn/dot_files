@@ -166,7 +166,9 @@ PanelWindow {
             panel: win
           }
 
-          Tray {}
+          Tray {
+            panel: win
+          }
         }
       }
     }
