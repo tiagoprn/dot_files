@@ -81,7 +81,11 @@ hl.bind(
   hl.dsp.exec_cmd("~/scripts/browser-bookmarks.sh"),
   { description = "copy browser bookmark to clipboard" }
 )
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("~/scripts/pass-menu.sh"), { description = "decrypt password (pass)" })
+hl.bind(
+  mainMod .. " + B",
+  hl.dsp.exec_cmd('kitty --title "Pass Picker" -o confirm_os_window_close=0 ~/scripts/code47.sh'),
+  { description = "decrypt password (pass)" }
+)
 hl.bind(
   mainMod .. " + M",
   hl.dsp.exec_cmd(

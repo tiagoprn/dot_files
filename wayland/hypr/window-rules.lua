@@ -79,6 +79,17 @@ hl.window_rule({
   opacity = "0.95",
 })
 
+-- KITTY - window title "Pass Picker"
+hl.window_rule({
+  name = "float-pass-picker",
+  match = { title = "Pass Picker" },
+  float = true,
+  center = true,
+  size = { "monitor_w * 0.8", "monitor_h * 0.9" },
+  rounding = 10,
+  opacity = "0.95",
+})
+
 -- KITTY - window title "Commands Cheatsheets"
 hl.window_rule({
   name = "float-commands-cheatsheet",

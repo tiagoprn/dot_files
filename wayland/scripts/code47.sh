@@ -14,6 +14,15 @@
 # Pasting a multiline field keeps its internal line breaks; the final
 # trailing newline is dropped.
 #
+# After a successful copy the value opens in neovim on the same terminal: the
+# kitty window stays usable until the editor quits and closes when it does.
+# The file lives in XDG_RUNTIME_DIR (tmpfs, 0600), the editor runs without
+# swap, shada, or undo files so nothing reaches the disk, and the file is
+# removed on exit or signal. When the script itself is SIGKILLed no trap can
+# run, so a detached watcher removes the file once the script is gone. The
+# editor step is skipped when nvim is absent, when stdin or stdout is not a
+# tty, and on Termux.
+#
 # Requires: pass, yq, one clipboard backend (wl-copy or termux-clipboard-set),
 # and one picker: tv preferred, fzf as fallback. Set PASS_PICKER=tv|fzf to
 # override the order. fzf matching is forced case-insensitive; tv has no such
@@ -56,6 +65,7 @@ readonly preview_cmd="pass show {} | awk '$mask_awk'"
 clip_backend=""
 notify_backend=""
 picker=""
+tmp_file=""
 
 pick_picker_backend() {
     local choice="${PASS_PICKER:-}"
@@ -107,6 +117,44 @@ copy() {
         wl-copy) printf '%s' "$1" | wl-copy ;;
         termux-clipboard-set) printf '%s' "$1" | termux-clipboard-set ;;
     esac
+}
+
+# Remove the temp file holding the copied value. Idempotent, so it is safe to
+# call from the EXIT trap and from a signal handler.
+cleanup() {
+    [[ -z $tmp_file ]] || rm -f -- "$tmp_file"
+    tmp_file=""
+}
+
+# Last line of defence: a SIGKILL cannot be trapped, so a watcher in its own
+# session polls this script's PID and removes the file once it is gone. It
+# holds no terminal descriptor, so it cannot keep the kitty window alive.
+start_watchdog() {
+    local pid=$$ file=$1
+    # shellcheck disable=SC2016
+    setsid --fork bash -c '
+        while kill -0 "$1" 2>/dev/null; do sleep 1; done
+        rm -f -- "$2"
+    ' _ "$pid" "$file" </dev/null >/dev/null 2>&1 || true
+}
+
+# Show the copied value in neovim on the same terminal: the picker has already
+# released the tty, so the editor opens in the window that launched the script
+# and the window closes when the editor quits. -i NONE drops shada (registers
+# and marks would otherwise persist the secret on disk), -n drops the swap
+# file, and noundofile overrides a config that keeps undo history in a
+# persistent directory.
+show_in_editor() {
+    local dir="${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}}"
+
+    command -v nvim >/dev/null 2>&1 || return 0
+    [[ -t 0 && -t 1 && -z ${TERMUX_VERSION:-} ]] || return 0
+
+    tmp_file="$(mktemp "$dir/code47.XXXXXXXX")" || return 0
+    printf '%s\n' "$1" >"$tmp_file"
+    start_watchdog "$tmp_file"
+    nvim -i NONE -n -c 'set noundofile' "$tmp_file"
+    return 0
 }
 
 # Warm the gpg-agent passphrase cache for every key the store encrypts with.
@@ -201,6 +249,9 @@ field_value() {
 main() {
     local tool key content first_line field value
 
+    trap cleanup EXIT
+    trap 'cleanup; exit 1' HUP TERM INT
+
     for tool in pass yq; do
         command -v "$tool" >/dev/null 2>&1 || {
             echo "missing tool: $tool" >&2
@@ -246,9 +297,11 @@ main() {
         fi
         copy "$value"
         notify "$key [$field] copied"
+        show_in_editor "$value"
     else
         copy "$first_line"
         notify "$key password copied"
+        show_in_editor "$first_line"
     fi
 }
 
