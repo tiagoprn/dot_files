@@ -44,10 +44,10 @@ alias fc='/storage/src/devops/bin/create-flashcard-current-folder.sh'
 alias nt='/storage/src/devops/bin/create-quick-note.sh'
 alias cn='/storage/src/devops/bin/create-fleeting-note.sh'
 alias nr='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
-alias tn='cd $(cat $HOME/.config/git-projects-bookmarks.list | fzf | cut -d "|" -f 1) && /storage/src/dot_files/tiling-window-managers/scripts/tmux-ide.sh'                    # tmux nvim project setup, using git bookmarks
-alias vr='vim-fzf-search'                                                                                                                                                      # fzf search leveraging rg on a given word. When you select a file, it opens $EDITOR.
-alias gp='pass $(find -L ~/.password-store -type f -name "*.gpg" -printf "%P\n" | sed "s/\.gpg//" | fzf) | wl-copy && echo -e "Password successfully copied to the clipboard"' # choose password from pass
-alias og='export OPENCODE_API_KEY=$(pass $(cat /storage/src/aikt/pi/opencode-go-keys.txt | fzf --prompt "select an opencode account API KEY: " | cut -d "|" -f 2))'
+alias tn='cd $(cat $HOME/.config/git-projects-bookmarks.list | fzf | cut -d "|" -f 1) && /storage/src/dot_files/tiling-window-managers/scripts/tmux-ide.sh'         # tmux nvim project setup, using git bookmarks
+alias vr='vim-fzf-search'                                                                                                                                           # fzf search leveraging rg on a given word. When you select a file, it opens $EDITOR.
+alias gp=/storage/src/dot_files/wayland/scripts/code47.sh                                                                                                           # choose password from pass
+alias og='export OPENCODE_API_KEY=$(pass $(cat /storage/src/aikt/pi/opencode-go-keys.txt | fzf --prompt "select an opencode account API KEY: " | cut -d "|" -f 2))' # choose opencode API KEY
 
 # tree letter aliases
 alias cdr='cd $(g root)'

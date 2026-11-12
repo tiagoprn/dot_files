@@ -27,9 +27,7 @@ fi
 
 echo -e "==> To get password from ${YELLOW}pass${NC}, use the ${YELLOW}gp${NC} bash alias "
 echo -e "==> To ${YELLOW}edit local file clipboard${NC}, use the ${YELLOW}cf${NC} bash alias"
-echo -e "==> Before running the ${BOLD_GREEN}pi coding agent${NC} on a ${BOLD_GREEN}non-git directory${NC}, use the ${BOLD_GREEN}cds${NC} bash alias"
-echo -e "==> To ${BOLD_GREEN}search today reminders${NC}, use the ${BOLD_GREEN}rmd${NC} bash alias"
-echo -e "==> To ${BOLD_GREEN}open pi coding agent config and session${NC}, use the ${BOLD_GREEN}tng${NC} bash alias"
-echo -e "==> To ${BOLD_GREEN}update all my storage config repos (dot_files, devops, etc..)${NC}, run ${BOLD_GREEN} storage-repos-update.sh${NC}"
+echo -e "==> To ${YELLOW}update all my storage config repos (dot_files, devops, etc..)${NC}, run ${YELLOW} storage-repos-update.sh${NC}"
+echo -e "==> To ${BOLD_GREEN}set different opencode API KEY for current session${NC}, use the ${BOLD_GREEN}og${NC} bash alias"
 echo -e "==============================================================================================================================="
 echo -e ""
