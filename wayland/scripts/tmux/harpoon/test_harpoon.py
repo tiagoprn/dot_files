@@ -14,6 +14,8 @@ from unittest import mock
 
 import harpoon as h
 
+OK_RUN = mock.Mock(returncode=0, stdout="", stderr="")
+
 
 class PinsFileTests(unittest.TestCase):
     def setUp(self):
@@ -137,6 +139,62 @@ class EditTests(unittest.TestCase):
 
     def test_no_live_sessions_means_no_seed(self):
         self.assertEqual(h.seed_entries([], []), ([], False))
+
+
+class EditCommandSeedingTests(unittest.TestCase):
+    """Regression: edit must never reseed once the list holds entries."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.path = Path(self.tmp.name) / "pins.txt"
+        self.path.write_text("# header\n\nmine\n# kept\n", encoding="utf-8")
+
+    def test_edit_keeps_a_non_empty_list_and_skips_seeding(self):
+        with (
+            mock.patch.object(h, "live_sessions", return_value=[]),
+            mock.patch("subprocess.run", return_value=OK_RUN) as run,
+        ):
+            code = h.main(["--file", str(self.path), "edit"])
+        self.assertEqual(code, 0)
+        run.assert_called_once()
+        self.assertIn("display-popup", run.call_args.args[0])
+        self.assertEqual(
+            h.read_pins(self.path), ["mine"]
+        )  # entry preserved, no live session injected
+
+    def test_edit_seeds_only_when_the_list_is_empty(self):
+        empty = Path(self.tmp.name) / "empty.txt"
+        with (
+            mock.patch.object(
+                h,
+                "live_sessions",
+                return_value=[
+                    h.Session(name="b", attached=False, last_attached=9, created=1),
+                    h.Session(name="a", attached=True, last_attached=0, created=2),
+                ],
+            ),
+            mock.patch("subprocess.run", return_value=OK_RUN) as run,
+        ):
+            h.main(["--file", str(empty), "edit"])
+        self.assertEqual(h.read_pins(empty), ["a", "b"])
+        popups = [c for c in run.call_args_list if c.args[0][1] == "display-popup"]
+        self.assertEqual(len(popups), 1)  # exactly one editor launch
+        self.assertFalse(
+            [c for c in run.call_args_list if c.args[0][1] == "switch-client"]
+        )
+
+    def test_edit_with_no_live_sessions_and_no_file_opens_an_empty_editor(self):
+        empty = Path(self.tmp.name) / "none.txt"
+        with (
+            mock.patch.object(h, "live_sessions", return_value=[]),
+            mock.patch("subprocess.run", return_value=OK_RUN) as run,
+        ):
+            code = h.main(["--file", str(empty), "edit"])
+        self.assertEqual(code, 0)
+        run.assert_called_once()
+        self.assertIn("display-popup", run.call_args.args[0])
+        self.assertEqual(h.read_pins(empty), [])
 
 
 class StatePathTests(unittest.TestCase):

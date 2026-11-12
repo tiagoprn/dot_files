@@ -242,11 +242,12 @@ def cmd_edit(args: argparse.Namespace) -> int:
     path = state_path(args.file)
     ensure_file(path)
     pins = read_pins(path)
-    seeds = seed_order(live_sessions())
-    updated, seeded = seed_entries(pins, seeds)
-    if seeded:
-        append_pins(path, updated)
-        notify(f"seeded {len(updated)} live sessions")
+    if not pins:
+        seeds = seed_order(live_sessions())
+        _, seeded = seed_entries(pins, seeds)
+        if seeded:
+            append_pins(path, seeds)
+            notify(f"seeded {len(seeds)} live sessions")
     editor = shlex.join(["nvim", "+set autowriteall", "+set number", str(path)])
     try:
         tmux("display-popup", "-E", "-w", "80%", "-h", "70%", editor)
@@ -279,11 +280,11 @@ def cmd_setup(args: argparse.Namespace) -> int:
     path = state_path(args.file)
     ensure_file(path)
     pins = read_pins(path)
-    seeds = seed_order(live_sessions()) if not pins else []
-    updated, seeded = seed_entries(pins, seeds)
-    if seeded:
-        append_pins(path, updated)
-        print(f"seeded {len(updated)} live sessions")
+    if not pins:
+        seeds = seed_order(live_sessions())
+        if seeds:
+            append_pins(path, seeds)
+            print(f"seeded {len(seeds)} live sessions")
     print(f"pins file: {path}")
     return 0
 
