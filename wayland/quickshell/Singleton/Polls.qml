@@ -18,6 +18,93 @@ Singleton {
 
   property var previousStat: null
 
+  property var opencodeAccounts: []
+
+  readonly property string keysFile: "/storage/src/aikt/pi/opencode-go-keys.txt"
+  readonly property string opencodeStatePath: Quickshell.env("HOME")
+    + "/.local/state/quickshell/opencode-account"
+
+  property string opencodeStoredEntry: ""
+  property int opencodeIndex: 0
+  property int opencodeGeneration: 0
+  property int opencodeRunningGeneration: -1
+
+  readonly property var opencodeAccount: root.opencodeAccounts.length === 0 ? null
+    : root.opencodeAccounts[Math.min(root.opencodeIndex, root.opencodeAccounts.length - 1)]
+  readonly property string opencodeEntry: root.opencodeAccount ? root.opencodeAccount.entry : ""
+
+  onOpencodeAccountsChanged: root.applyStoredEntry()
+  onOpencodeStoredEntryChanged: root.applyStoredEntry()
+  onOpencodeEntryChanged: root.requestOpencodeFetch()
+
+  function parseAccounts(raw): var {
+    const accounts = [];
+    const lines = (raw || "").split("\n");
+    for (let index = 0; index < lines.length; index++) {
+      const line = lines[index].trim();
+      if (line === "" || line.charAt(0) === "#") continue;
+      if (line.indexOf("READ") < 0) continue;
+      const separator = line.lastIndexOf("|");
+      if (separator < 0) continue;
+      const entry = line.slice(separator + 1).trim();
+      if (entry === "") continue;
+      accounts.push({ label: line.slice(0, separator).trim(), entry: entry });
+    }
+    return accounts;
+  }
+
+  function refreshAccounts(): void {
+    root.opencodeAccounts = root.parseAccounts(keysView.text());
+  }
+
+  function restoreSelection(): void {
+    const stored = stateFile.text().trim();
+    if (stored !== root.opencodeStoredEntry) root.opencodeStoredEntry = stored;
+  }
+
+  function applyStoredEntry(): void {
+    const accounts = root.opencodeAccounts;
+    if (accounts.length === 0) {
+      root.opencodeIndex = 0;
+      return;
+    }
+    for (let index = 0; index < accounts.length; index++) {
+      if (accounts[index].entry === root.opencodeStoredEntry) {
+        root.opencodeIndex = index;
+        return;
+      }
+    }
+    root.opencodeIndex = 0;
+  }
+
+  function cycleOpencode(step): void {
+    const accounts = root.opencodeAccounts;
+    if (accounts.length < 2) {
+      root.requestOpencodeFetch();
+      return;
+    }
+    const next = (root.opencodeIndex + step + accounts.length) % accounts.length;
+    root.opencodeStoredEntry = accounts[next].entry;
+    stateFile.setText(root.opencodeStoredEntry);
+  }
+
+  function opencodeCommand(): var {
+    const command = [Quickshell.env("HOME") + "/.local/bin/uv", "run",
+      Quickshell.env("HOME") + "/scripts/opencode_go_usage.py", "--widget"];
+    if (root.opencodeEntry !== "") command.push("--pass-entry", root.opencodeEntry);
+    return command;
+  }
+
+  function startOpencodeFetch(): void {
+    root.opencodeRunningGeneration = root.opencodeGeneration;
+    opencodeProc.running = true;
+  }
+
+  function requestOpencodeFetch(): void {
+    root.opencodeGeneration += 1;
+    root.startOpencodeFetch();
+  }
+
   function cpuSample(raw) {
     const line = (raw || "").split("\n")[0];
     if (line.indexOf("cpu ") !== 0) return;
@@ -88,6 +175,29 @@ Singleton {
     }
   }
 
+  FileView {
+    id: keysView
+
+    path: root.keysFile
+    blockLoading: true
+    watchChanges: true
+
+    onLoaded: root.refreshAccounts()
+    onTextChanged: root.refreshAccounts()
+  }
+
+  FileView {
+    id: stateFile
+
+    path: root.opencodeStatePath
+    blockLoading: true
+    blockWrites: true
+    atomicWrites: true
+
+    onLoaded: root.restoreSelection()
+    onTextChanged: root.restoreSelection()
+  }
+
   Timer {
     interval: 60000
     running: true
@@ -99,10 +209,20 @@ Singleton {
   Process {
     id: opencodeProc
 
-    command: ["sh", "-c", "$HOME/.local/bin/uv run $HOME/scripts/opencode_go_usage.py --widget"]
+    command: root.opencodeCommand()
 
     stdout: StdioCollector {
-      onStreamFinished: root.opencode = root.parseJson(text, root.opencode)
+      onStreamFinished: {
+        if (root.opencodeRunningGeneration !== root.opencodeGeneration) {
+          root.startOpencodeFetch();
+          return;
+        }
+        root.opencode = root.parseJson(text, {
+          text: "",
+          class: "idle",
+          tooltip: "No data for " + root.opencodeEntry + "."
+        });
+      }
     }
   }
 

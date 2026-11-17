@@ -20,8 +20,9 @@ How to create an API key that works as intended
 5. Set **Expiration** (30 days is a good default) and click **Create**.
 6. Copy the key right away. It starts with `oc_sk_`, is 51 characters, and is
    shown only once. Later the console only displays its prefix.
-7. Store it as the first line of the pass entry named by `PASS_ENTRY` below.
-   That entry is the only key source: the script never reads the environment.
+7. Store it as the first line of the pass entry named by `PASS_ENTRY` below, or
+   name a different entry at run time with `--pass-entry`. That entry is the
+   only key source: the script never reads the environment.
 
 Do not use browser credentials
 ------------------------------
@@ -68,8 +69,11 @@ class AuthError(RuntimeError):
     """Raised when the API rejects the credential with HTTP 401."""
 
 
-def read_pass_entry() -> str:
-    """Read the key from the pass entry named by `PASS_ENTRY`.
+def read_pass_entry(pass_entry: str) -> str:
+    """Read the key from the given pass entry.
+
+    Args:
+        pass_entry: Path of the `pass` entry that holds the API key.
 
     Returns:
         The first line of the entry, stripped.
@@ -80,7 +84,7 @@ def read_pass_entry() -> str:
     """
     try:
         result = subprocess.run(
-            ["pass", "show", PASS_ENTRY],
+            ["pass", "show", pass_entry],
             capture_output=True,
             text=True,
             timeout=15,
@@ -88,12 +92,12 @@ def read_pass_entry() -> str:
         )
     except (OSError, subprocess.SubprocessError) as exc:
         raise SystemExit(
-            f"Cannot read the key from `pass show {PASS_ENTRY}`: {exc}"
+            f"Cannot read the key from `pass show {pass_entry}`: {exc}"
         ) from exc
     lines = result.stdout.splitlines()
     key = lines[0].strip() if lines else ""
     if not key:
-        raise SystemExit(f"The pass entry {PASS_ENTRY} holds no key")
+        raise SystemExit(f"The pass entry {pass_entry} holds no key")
     return key
 
 
@@ -334,12 +338,19 @@ def main() -> None:
         action="store_true",
         help="print waybar JSON with one colored span per usage window",
     )
+    parser.add_argument(
+        "--pass-entry",
+        default=PASS_ENTRY,
+        help="pass entry that holds the API key (default: %(default)s)",
+    )
     args = parser.parse_args()
 
     try:
-        status = fetch_status(read_pass_entry())
+        status = fetch_status(read_pass_entry(args.pass_entry))
     except AuthError as exc:
-        raise SystemExit(f"The pass entry {PASS_ENTRY} was rejected: {exc}") from exc
+        raise SystemExit(
+            f"The pass entry {args.pass_entry} was rejected: {exc}"
+        ) from exc
     if args.widget:
         print(json.dumps(render_widget(status, datetime.now(UTC))))
         return

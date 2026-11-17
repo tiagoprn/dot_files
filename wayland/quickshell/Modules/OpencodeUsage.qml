@@ -42,7 +42,12 @@ Item {
   readonly property bool open: S.State.openPopup === "opencode"
 
   TapHandler {
-    onTapped: S.State.togglePopup("opencode")
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+    onTapped: (eventPoint, button) => {
+      if (button === Qt.RightButton) S.Polls.cycleOpencode(1);
+      else S.State.togglePopup("opencode");
+    }
   }
 
   PopupWindow {
@@ -89,6 +94,31 @@ Item {
 
         anchors.centerIn: parent
         spacing: 3
+
+        Column {
+          spacing: 1
+
+          Text {
+            width: details.implicitWidth
+            horizontalAlignment: Text.AlignHCenter
+            text: S.Polls.opencodeAccount ? S.Polls.opencodeAccount.label : "OpenCode Go key"
+            color: S.Palette.opencodeKey
+            font.family: S.Palette.fontFamily
+            font.weight: Font.Bold
+            font.pixelSize: S.Palette.fontSize
+          }
+
+          Text {
+            width: details.implicitWidth
+            horizontalAlignment: Text.AlignHCenter
+            text: "(" + (S.Polls.opencodeEntry !== "" ? S.Polls.opencodeEntry : "script default") + ")"
+            color: S.Palette.opencodeKey
+            font.family: S.Palette.fontFamily
+            font.weight: S.Palette.fontWeight
+            font.italic: true
+            font.pixelSize: S.Palette.fontSize
+          }
+        }
 
         Repeater {
           model: root.tooltipLines.length ? root.tooltipLines : ["usage unavailable"]

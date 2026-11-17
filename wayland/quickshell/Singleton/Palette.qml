@@ -6,6 +6,7 @@ Singleton {
   readonly property color bgIsland: "#f22b2b2b"
   readonly property color bgWidget: "transparent"
   readonly property color opencodeBg: "#2a2a2a"
+  readonly property color opencodeKey: "#FFFF00"
 
   readonly property color fg: "#FFFFFF"
   readonly property color clockText: "#FFFF00"
