@@ -93,6 +93,13 @@ hl.bind(
   ),
   { description = "AI prompt select" }
 )
+hl.bind(
+  mainMod .. " + G",
+  hl.dsp.exec_cmd(
+    [[curl "http://tars:2814/carousel/goto?slide=$(printf 'Reminders\nAchievements\nNews\nToday\n' | wofi --show dmenu --prompt 'Change MagicMirror Carousel Page:' --allow-markup)"]]
+  ),
+  { description = "magicmirror: change carousel slide (wofi picker)" }
+)
 
 ------------------
 ---- VOLUME ----
