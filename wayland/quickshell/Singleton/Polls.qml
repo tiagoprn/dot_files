@@ -26,16 +26,19 @@ Singleton {
 
   property string opencodeStoredEntry: ""
   property int opencodeIndex: 0
-  property int opencodeGeneration: 0
-  property int opencodeRunningGeneration: -1
+  property var opencodeFetchedAt: 0
 
   readonly property var opencodeAccount: root.opencodeAccounts.length === 0 ? null
     : root.opencodeAccounts[Math.min(root.opencodeIndex, root.opencodeAccounts.length - 1)]
   readonly property string opencodeEntry: root.opencodeAccount ? root.opencodeAccount.entry : ""
+  readonly property string opencodeCacheDir: Quickshell.env("HOME")
+    + "/.local/state/quickshell/opencode-usage"
+  readonly property string opencodeCachePath: root.opencodeEntry === "" ? ""
+    : root.opencodeCacheDir + "/" + root.opencodeSlug(root.opencodeEntry) + ".json"
 
   onOpencodeAccountsChanged: root.applyStoredEntry()
   onOpencodeStoredEntryChanged: root.applyStoredEntry()
-  onOpencodeEntryChanged: root.requestOpencodeFetch()
+  onOpencodeEntryChanged: Qt.callLater(root.refreshOpencodeCache)
 
   function parseAccounts(raw): var {
     const accounts = [];
@@ -79,30 +82,31 @@ Singleton {
 
   function cycleOpencode(step): void {
     const accounts = root.opencodeAccounts;
-    if (accounts.length < 2) {
-      root.requestOpencodeFetch();
-      return;
-    }
+    if (accounts.length < 2) return;
     const next = (root.opencodeIndex + step + accounts.length) % accounts.length;
     root.opencodeStoredEntry = accounts[next].entry;
     stateFile.setText(root.opencodeStoredEntry);
   }
 
-  function opencodeCommand(): var {
-    const command = [Quickshell.env("HOME") + "/.local/bin/uv", "run",
-      Quickshell.env("HOME") + "/scripts/opencode_go_usage.py", "--widget"];
-    if (root.opencodeEntry !== "") command.push("--pass-entry", root.opencodeEntry);
-    return command;
+  function opencodeSlug(entry): string {
+    return (entry || "").replace(/[^A-Za-z0-9]/g, "_");
   }
 
-  function startOpencodeFetch(): void {
-    root.opencodeRunningGeneration = root.opencodeGeneration;
-    opencodeProc.running = true;
+  function refreshOpencodeCache(): void {
+    if (root.opencodeCachePath === "") return;
+    opencodeCacheProc.command = ["cat", root.opencodeCachePath];
+    opencodeCacheProc.running = true;
   }
 
-  function requestOpencodeFetch(): void {
-    root.opencodeGeneration += 1;
-    root.startOpencodeFetch();
+  function loadOpencodeCache(raw): void {
+    const payload = root.parseJson(raw, null);
+    if (!payload) {
+      root.opencode = ({ text: "", class: "idle", tooltip: "" });
+      root.opencodeFetchedAt = 0;
+      return;
+    }
+    root.opencode = payload;
+    root.opencodeFetchedAt = Number(payload.fetchedAt) || 0;
   }
 
   function cpuSample(raw) {
@@ -199,30 +203,21 @@ Singleton {
   }
 
   Timer {
-    interval: 60000
+    // opencode-go-usage.service rewrites every cache file each ten minutes.
+    // Reading the file beats watching it, because the writer replaces it by
+    // rename and an inotify watch would follow the old inode.
+    interval: 10000
     running: true
     repeat: true
     triggeredOnStart: true
-    onTriggered: opencodeProc.running = true
+    onTriggered: root.refreshOpencodeCache()
   }
 
   Process {
-    id: opencodeProc
-
-    command: root.opencodeCommand()
+    id: opencodeCacheProc
 
     stdout: StdioCollector {
-      onStreamFinished: {
-        if (root.opencodeRunningGeneration !== root.opencodeGeneration) {
-          root.startOpencodeFetch();
-          return;
-        }
-        root.opencode = root.parseJson(text, {
-          text: "",
-          class: "idle",
-          tooltip: "No data for " + root.opencodeEntry + "."
-        });
-      }
+      onStreamFinished: root.loadOpencodeCache(text)
     }
   }
 

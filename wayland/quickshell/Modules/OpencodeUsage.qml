@@ -15,6 +15,34 @@ Item {
   readonly property var tooltipLines: tooltipText.split("\n").filter(line => line.trim() !== "")
 
   property var panel: null
+  property real nowMs: Date.now()
+
+  readonly property string ageText: root.formatAge(S.Polls.opencodeFetchedAt)
+
+  function formatAge(ms): string {
+    if (!ms) return "never fetched";
+    const seconds = Math.max(0, Math.floor((root.nowMs - ms) / 1000));
+    const at = Qt.formatTime(new Date(ms), "HH:mm:ss");
+    if (seconds < 60) return "just now, at " + at;
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) {
+      return minutes + (minutes === 1 ? " minute ago, at " : " minutes ago, at ") + at;
+    }
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) {
+      return hours + (hours === 1 ? " hour ago, at " : " hours ago, at ") + at;
+    }
+    const days = Math.floor(hours / 24);
+    return days + (days === 1 ? " day ago, at " : " days ago, at ") + at;
+  }
+
+  Timer {
+    interval: 1000
+    running: root.open
+    repeat: true
+    triggeredOnStart: true
+    onTriggered: root.nowMs = Date.now()
+  }
 
   implicitWidth: label.implicitWidth + 20
   implicitHeight: S.Palette.islandHeight
@@ -116,6 +144,16 @@ Item {
             font.family: S.Palette.fontFamily
             font.weight: S.Palette.fontWeight
             font.italic: true
+            font.pixelSize: S.Palette.fontSize
+          }
+
+          Text {
+            width: details.implicitWidth
+            horizontalAlignment: Text.AlignHCenter
+            text: root.ageText
+            color: S.Palette.ok
+            font.family: S.Palette.fontFamily
+            font.weight: S.Palette.fontWeight
             font.pixelSize: S.Palette.fontSize
           }
         }

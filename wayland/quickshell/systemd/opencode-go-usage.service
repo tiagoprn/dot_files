@@ -1,0 +1,10 @@
+[Unit]
+Description=Refresh the OpenCode Go usage cache for the quickshell widget
+Documentation=file:///storage/src/dot_files/wayland/quickshell/README.md
+
+[Service]
+Type=oneshot
+ExecStart=%h/scripts/opencode-go-cache.sh
+# The user manager ships a minimal PATH; uv, pass, gpg, and tr need their
+# usual locations.
+Environment=PATH=%h/.local/bin:/usr/local/bin:/usr/bin

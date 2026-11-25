@@ -1,0 +1,12 @@
+[Unit]
+Description=Refresh the OpenCode Go usage cache every 10 minutes
+Documentation=file:///storage/src/dot_files/wayland/quickshell/README.md
+
+[Timer]
+# One fetch shortly after login, then every ten minutes counted from the
+# moment the previous run finished.
+OnActiveSec=15s
+OnUnitInactiveSec=10min
+
+[Install]
+WantedBy=timers.target

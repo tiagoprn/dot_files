@@ -44,8 +44,11 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
+import sys
 from datetime import UTC, datetime, timedelta
+from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -67,6 +70,15 @@ WIDGET_LABELS: dict[str, str] = {"fiveHour": "5h", "week": "W", "month": "M"}
 
 class AuthError(RuntimeError):
     """Raised when the API rejects the credential with HTTP 401."""
+
+
+class ForbiddenError(RuntimeError):
+    """Raised when the key is valid but not allowed to read the Go status.
+
+    A personal API key that may call models but is not set to **Read only**
+    gets HTTP 403 here. The cache script treats that as "skip this key" rather
+    than a failure, because the same answer comes back on every retry.
+    """
 
 
 def read_pass_entry(pass_entry: str) -> str:
@@ -112,6 +124,7 @@ def fetch_status(api_key: str) -> dict[str, Any]:
 
     Raises:
         AuthError: When the API answers HTTP 401 for this credential.
+        ForbiddenError: When the API answers HTTP 403 for this credential.
         SystemExit: On transport failure or any other non-200 response.
     """
     request = Request(
@@ -129,6 +142,8 @@ def fetch_status(api_key: str) -> dict[str, Any]:
         detail = exc.read().decode(errors="replace")[:300]
         if exc.code == 401:
             raise AuthError(f"HTTP 401 {detail}") from exc
+        if exc.code == 403:
+            raise ForbiddenError(f"HTTP 403 {detail}") from exc
         raise SystemExit(
             f"GET /api/go/status failed: HTTP {exc.code} {detail}"
         ) from exc
@@ -289,7 +304,7 @@ def state_class(percents: list[int]) -> str:
     return "ok"
 
 
-def render_widget(status: dict[str, Any], now: datetime) -> dict[str, str]:
+def render_widget(status: dict[str, Any], now: datetime) -> dict[str, Any]:
     """Build the waybar payload for `return-type: json`.
 
     Args:
@@ -298,7 +313,8 @@ def render_widget(status: dict[str, Any], now: datetime) -> dict[str, str]:
 
     Returns:
         Keys `text` with one colored span per window, `class` for CSS state,
-        and `tooltip` holding the plain summary lines.
+        `tooltip` holding the plain summary lines, and `fetchedAt`, the epoch
+        milliseconds of this fetch so a reader can show the data's age.
     """
     access = status.get("access")
     if not isinstance(access, dict):
@@ -306,6 +322,7 @@ def render_widget(status: dict[str, Any], now: datetime) -> dict[str, str]:
             "text": "Opencode Go: n/a",
             "class": "idle",
             "tooltip": "No active Go subscription.",
+            "fetchedAt": int(now.timestamp() * 1000),
         }
     meters = access.get("meters")
     meters = meters if isinstance(meters, dict) else {}
@@ -327,11 +344,34 @@ def render_widget(status: dict[str, Any], now: datetime) -> dict[str, str]:
         "text": f"| {' | '.join(spans)} |",
         "class": state_class(percents),
         "tooltip": render(status, now),
+        "fetchedAt": int(now.timestamp() * 1000),
     }
 
 
+def write_cache(path: str, payload: dict[str, Any]) -> None:
+    """Write the widget payload to `path` atomically, readable by its owner only.
+
+    A temporary file plus `os.replace` means a reader watching the file never
+    sees a half-written payload.
+
+    Args:
+        path: Destination file.
+        payload: Value returned by `render_widget`.
+    """
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    tmp = target.with_name(target.name + ".tmp")
+    tmp.write_text(json.dumps(payload) + "\n")
+    tmp.chmod(0o600)
+    os.replace(tmp, target)
+
+
 def main() -> None:
-    """Fetch Go usage and print the summary, or waybar JSON with `--widget`."""
+    """Fetch Go usage and print the summary, or waybar JSON with `--widget`.
+
+    With `--cache-file` the waybar JSON is written to that file instead of
+    being printed, so a quickshell widget can read it without waiting.
+    """
     parser = argparse.ArgumentParser(description="Show OpenCode Go plan usage.")
     parser.add_argument(
         "--widget",
@@ -343,6 +383,11 @@ def main() -> None:
         default=PASS_ENTRY,
         help="pass entry that holds the API key (default: %(default)s)",
     )
+    parser.add_argument(
+        "--cache-file",
+        default="",
+        help="write the widget JSON to this file atomically instead of printing",
+    )
     args = parser.parse_args()
 
     try:
@@ -351,8 +396,18 @@ def main() -> None:
         raise SystemExit(
             f"The pass entry {args.pass_entry} was rejected: {exc}"
         ) from exc
+    except ForbiddenError as exc:
+        print(
+            f"The pass entry {args.pass_entry} cannot read the Go status: {exc}",
+            file=sys.stderr,
+        )
+        raise SystemExit(3) from exc
     if args.widget:
-        print(json.dumps(render_widget(status, datetime.now(UTC))))
+        payload = render_widget(status, datetime.now(UTC))
+        if args.cache_file:
+            write_cache(args.cache_file, payload)
+            return
+        print(json.dumps(payload))
         return
     print(render(status, datetime.now(UTC)))
 
