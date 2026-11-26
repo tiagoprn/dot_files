@@ -11,7 +11,7 @@ set -euo pipefail
 # Configuration
 # -----------------------------------------------------------------------------
 readonly REPOS_ROOT=/storage/src
-readonly REPOS="dot_files devops pde.nvim aikt pi-session nix-home-manager qntuum"
+readonly REPOS="dot_files devops pde.nvim aikt nix-home-manager qntuum"
 
 # -----------------------------------------------------------------------------
 # Color helpers
